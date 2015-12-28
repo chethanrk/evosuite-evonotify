@@ -1,0 +1,282 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="43fcd99745bd666e0b201f4c" sap:schema-version="0000" xml:lang="en" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityContainer Name="43fcd99745bd666e0b201f4c_Entities" m:IsDefaultEntityContainer="true">
+				<EntitySet EntityType="43fcd99745bd666e0b201f4c.Notification" Name="NotificationSet" sap:creatable="true" sap:deletable="true"
+					sap:updatable="true"/>
+				<AssociationSet Association="43fcd99745bd666e0b201f4c.NotificationN2TNotification_type" Name="NotificationN2TNotification_type"
+					sap:creatable="true" sap:deletable="true" sap:updatable="true">
+					<End EntitySet="NotificationSet" Role="FromRole_NotificationN2TNotification_type"/>
+					<End EntitySet="Notification_typeSet" Role="ToRole_NotificationN2TNotification_type"/>
+				</AssociationSet>
+				<AssociationSet Association="43fcd99745bd666e0b201f4c.NotificationN2RReported_by" Name="NotificationN2RReported_by" sap:creatable="true"
+					sap:deletable="true" sap:updatable="true">
+					<End EntitySet="NotificationSet" Role="FromRole_NotificationN2RReported_by"/>
+					<End EntitySet="Reported_bySet" Role="ToRole_NotificationN2RReported_by"/>
+				</AssociationSet>
+				<AssociationSet Association="43fcd99745bd666e0b201f4c.NotificationN2PPriority" Name="NotificationN2PPriority" sap:creatable="true"
+					sap:deletable="true" sap:updatable="true">
+					<End EntitySet="NotificationSet" Role="FromRole_NotificationN2PPriority"/>
+					<End EntitySet="PrioritySet" Role="ToRole_NotificationN2PPriority"/>
+				</AssociationSet>
+				<AssociationSet Association="43fcd99745bd666e0b201f4c.NotificationN2SStatus" Name="NotificationN2SStatus" sap:creatable="true"
+					sap:deletable="true" sap:updatable="true">
+					<End EntitySet="NotificationSet" Role="FromRole_NotificationN2SStatus"/>
+					<End EntitySet="StatusSet" Role="ToRole_NotificationN2SStatus"/>
+				</AssociationSet>
+				<AssociationSet Association="43fcd99745bd666e0b201f4c.NotificationN2AActivities" Name="NotificationN2AActivities" sap:creatable="true"
+					sap:deletable="true" sap:updatable="true">
+					<End EntitySet="NotificationSet" Role="FromRole_NotificationN2AActivities"/>
+					<End EntitySet="ActivitiesSet" Role="ToRole_NotificationN2AActivities"/>
+				</AssociationSet>
+				<AssociationSet Association="43fcd99745bd666e0b201f4c.NotificationN2EEquipment" Name="NotificationN2EEquipment" sap:creatable="true"
+					sap:deletable="true" sap:updatable="true">
+					<End EntitySet="NotificationSet" Role="FromRole_NotificationN2EEquipment"/>
+					<End EntitySet="EquipmentSet" Role="ToRole_NotificationN2EEquipment"/>
+				</AssociationSet>
+				<EntitySet EntityType="43fcd99745bd666e0b201f4c.Location" Name="LocationSet" sap:creatable="true" sap:deletable="true" sap:updatable="true"/>
+				<AssociationSet Association="43fcd99745bd666e0b201f4c.LocationL2EEquipment" Name="LocationL2EEquipment" sap:creatable="true"
+					sap:deletable="true" sap:updatable="true">
+					<End EntitySet="LocationSet" Role="FromRole_LocationL2EEquipment"/>
+					<End EntitySet="EquipmentSet" Role="ToRole_LocationL2EEquipment"/>
+				</AssociationSet>
+				<EntitySet EntityType="43fcd99745bd666e0b201f4c.Notification_type" Name="Notification_typeSet" sap:creatable="true" sap:deletable="true"
+					sap:updatable="true"/>
+				<EntitySet EntityType="43fcd99745bd666e0b201f4c.Equipment" Name="EquipmentSet" sap:creatable="true" sap:deletable="true"
+					sap:updatable="true"/>
+				<AssociationSet Association="43fcd99745bd666e0b201f4c.EquipmentE2LLocation" Name="EquipmentE2LLocation" sap:creatable="true"
+					sap:deletable="true" sap:updatable="true">
+					<End EntitySet="EquipmentSet" Role="FromRole_EquipmentE2LLocation"/>
+					<End EntitySet="LocationSet" Role="ToRole_EquipmentE2LLocation"/>
+				</AssociationSet>
+				<EntitySet EntityType="43fcd99745bd666e0b201f4c.Reported_by" Name="Reported_bySet" sap:creatable="true" sap:deletable="true"
+					sap:updatable="true"/>
+				<EntitySet EntityType="43fcd99745bd666e0b201f4c.Priority" Name="PrioritySet" sap:creatable="true" sap:deletable="true" sap:updatable="true"/>
+				<EntitySet EntityType="43fcd99745bd666e0b201f4c.Status" Name="StatusSet" sap:creatable="true" sap:deletable="true" sap:updatable="true"/>
+				<EntitySet EntityType="43fcd99745bd666e0b201f4c.Activities" Name="ActivitiesSet" sap:creatable="true" sap:deletable="true"
+					sap:updatable="true"/>
+				<AssociationSet Association="43fcd99745bd666e0b201f4c.ActivitiesA2RReported_by" Name="ActivitiesA2RReported_by" sap:creatable="true"
+					sap:deletable="true" sap:updatable="true">
+					<End EntitySet="ActivitiesSet" Role="FromRole_ActivitiesA2RReported_by"/>
+					<End EntitySet="Reported_bySet" Role="ToRole_ActivitiesA2RReported_by"/>
+				</AssociationSet>
+			</EntityContainer>
+			<EntityType Name="Notification">
+				<Key>
+					<PropertyRef Name="ID"/>
+				</Key>
+				<Property Name="ID" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="ID" sap:updatable="true"/>
+				<Property Name="Title" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="Title" sap:updatable="true"/>
+				<Property Name="Description" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="Description" sap:updatable="true"/>
+				<Property Name="Malfuntional_start" Type="Edm.DateTime" sap:creatable="true" sap:deletable="true" sap:display-format="Date"
+					sap:label="Malfuntional_start" sap:updatable="true"/>
+				<Property Name="Breakdown" Type="Edm.Boolean" sap:creatable="true" sap:deletable="true" sap:label="Breakdown" sap:updatable="true"/>
+				<Property Name="___FK_c71bed0d321603480b281789" Type="Edm.String" sap:creatable="true" sap:deletable="true"
+					sap:label="___FK_c71bed0d321603480b281789" sap:updatable="true"/>
+				<Property Name="___FK_31383c2c18bcc4490b296814" Type="Edm.String" sap:creatable="true" sap:deletable="true"
+					sap:label="___FK_31383c2c18bcc4490b296814" sap:updatable="true"/>
+				<Property Name="___FK_424aefd75b0cd5b60b29690e" Type="Edm.String" sap:creatable="true" sap:deletable="true"
+					sap:label="___FK_424aefd75b0cd5b60b29690e" sap:updatable="true"/>
+				<Property Name="___FK_0b12ba74ff4c01ab0b296c6f" Type="Edm.String" sap:creatable="true" sap:deletable="true"
+					sap:label="___FK_0b12ba74ff4c01ab0b296c6f" sap:updatable="true"/>
+				<Property Name="___FK_6c60b059f3e4a8e30b3b1f26" Type="Edm.String" sap:creatable="true" sap:deletable="true"
+					sap:label="___FK_6c60b059f3e4a8e30b3b1f26" sap:updatable="true"/>
+				<NavigationProperty FromRole="FromRole_NotificationN2TNotification_type" Name="N2T"
+					Relationship="43fcd99745bd666e0b201f4c.NotificationN2TNotification_type" ToRole="ToRole_NotificationN2TNotification_type"/>
+				<NavigationProperty FromRole="FromRole_NotificationN2RReported_by" Name="N2R"
+					Relationship="43fcd99745bd666e0b201f4c.NotificationN2RReported_by" ToRole="ToRole_NotificationN2RReported_by"/>
+				<NavigationProperty FromRole="FromRole_NotificationN2PPriority" Name="N2P" Relationship="43fcd99745bd666e0b201f4c.NotificationN2PPriority"
+					ToRole="ToRole_NotificationN2PPriority"/>
+				<NavigationProperty FromRole="FromRole_NotificationN2SStatus" Name="N2S" Relationship="43fcd99745bd666e0b201f4c.NotificationN2SStatus"
+					ToRole="ToRole_NotificationN2SStatus"/>
+				<NavigationProperty FromRole="FromRole_NotificationN2AActivities" Name="N2A"
+					Relationship="43fcd99745bd666e0b201f4c.NotificationN2AActivities" ToRole="ToRole_NotificationN2AActivities"/>
+				<NavigationProperty FromRole="FromRole_NotificationN2EEquipment" Name="N2E" Relationship="43fcd99745bd666e0b201f4c.NotificationN2EEquipment"
+					ToRole="ToRole_NotificationN2EEquipment"/>
+			</EntityType>
+			<Association Name="NotificationN2TNotification_type">
+				<End Multiplicity="1" Role="FromRole_NotificationN2TNotification_type" Type="43fcd99745bd666e0b201f4c.Notification"/>
+				<End Multiplicity="1" Role="ToRole_NotificationN2TNotification_type" Type="43fcd99745bd666e0b201f4c.Notification_type"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_NotificationN2TNotification_type">
+						<PropertyRef Name="___FK_c71bed0d321603480b281789"/>
+					</Principal>
+					<Dependent Role="ToRole_NotificationN2TNotification_type">
+						<PropertyRef Name="ID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="NotificationN2RReported_by">
+				<End Multiplicity="1" Role="FromRole_NotificationN2RReported_by" Type="43fcd99745bd666e0b201f4c.Notification"/>
+				<End Multiplicity="1" Role="ToRole_NotificationN2RReported_by" Type="43fcd99745bd666e0b201f4c.Reported_by"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_NotificationN2RReported_by">
+						<PropertyRef Name="___FK_31383c2c18bcc4490b296814"/>
+					</Principal>
+					<Dependent Role="ToRole_NotificationN2RReported_by">
+						<PropertyRef Name="ID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="NotificationN2PPriority">
+				<End Multiplicity="1" Role="FromRole_NotificationN2PPriority" Type="43fcd99745bd666e0b201f4c.Notification"/>
+				<End Multiplicity="1" Role="ToRole_NotificationN2PPriority" Type="43fcd99745bd666e0b201f4c.Priority"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_NotificationN2PPriority">
+						<PropertyRef Name="___FK_424aefd75b0cd5b60b29690e"/>
+					</Principal>
+					<Dependent Role="ToRole_NotificationN2PPriority">
+						<PropertyRef Name="ID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="NotificationN2SStatus">
+				<End Multiplicity="1" Role="FromRole_NotificationN2SStatus" Type="43fcd99745bd666e0b201f4c.Notification"/>
+				<End Multiplicity="1" Role="ToRole_NotificationN2SStatus" Type="43fcd99745bd666e0b201f4c.Status"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_NotificationN2SStatus">
+						<PropertyRef Name="___FK_0b12ba74ff4c01ab0b296c6f"/>
+					</Principal>
+					<Dependent Role="ToRole_NotificationN2SStatus">
+						<PropertyRef Name="ID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="NotificationN2AActivities">
+				<End Multiplicity="1" Role="FromRole_NotificationN2AActivities" Type="43fcd99745bd666e0b201f4c.Notification"/>
+				<End Multiplicity="*" Role="ToRole_NotificationN2AActivities" Type="43fcd99745bd666e0b201f4c.Activities"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_NotificationN2AActivities">
+						<PropertyRef Name="ID"/>
+					</Principal>
+					<Dependent Role="ToRole_NotificationN2AActivities">
+						<PropertyRef Name="___FK_5af862e7ff20db4d0b3af016"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="NotificationN2EEquipment">
+				<End Multiplicity="1" Role="FromRole_NotificationN2EEquipment" Type="43fcd99745bd666e0b201f4c.Notification"/>
+				<End Multiplicity="1" Role="ToRole_NotificationN2EEquipment" Type="43fcd99745bd666e0b201f4c.Equipment"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_NotificationN2EEquipment">
+						<PropertyRef Name="___FK_6c60b059f3e4a8e30b3b1f26"/>
+					</Principal>
+					<Dependent Role="ToRole_NotificationN2EEquipment">
+						<PropertyRef Name="ID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityType Name="Location">
+				<Key>
+					<PropertyRef Name="ID"/>
+				</Key>
+				<Property Name="ID" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="ID" sap:updatable="true"/>
+				<Property Name="Name" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="Name" sap:updatable="true"/>
+				<NavigationProperty FromRole="FromRole_LocationL2EEquipment" Name="L2E" Relationship="43fcd99745bd666e0b201f4c.LocationL2EEquipment"
+					ToRole="ToRole_LocationL2EEquipment"/>
+			</EntityType>
+			<Association Name="LocationL2EEquipment">
+				<End Multiplicity="1" Role="FromRole_LocationL2EEquipment" Type="43fcd99745bd666e0b201f4c.Location"/>
+				<End Multiplicity="*" Role="ToRole_LocationL2EEquipment" Type="43fcd99745bd666e0b201f4c.Equipment"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_LocationL2EEquipment">
+						<PropertyRef Name="ID"/>
+					</Principal>
+					<Dependent Role="ToRole_LocationL2EEquipment">
+						<PropertyRef Name="___FK_e268e10ad400657e0b2818c5"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityType Name="Notification_type">
+				<Key>
+					<PropertyRef Name="ID"/>
+				</Key>
+				<Property Name="ID" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="ID" sap:updatable="true"/>
+				<Property Name="Name" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="Name" sap:updatable="true"/>
+				<Property Name="Title" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="Title" sap:updatable="true"/>
+			</EntityType>
+			<EntityType Name="Equipment">
+				<Key>
+					<PropertyRef Name="ID"/>
+				</Key>
+				<Property Name="ID" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="ID" sap:updatable="true"/>
+				<Property Name="___FK_e268e10ad400657e0b2818c5" Type="Edm.String" sap:creatable="true" sap:deletable="true"
+					sap:label="___FK_e268e10ad400657e0b2818c5" sap:updatable="true"/>
+				<Property Name="Name" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="Name" sap:updatable="true"/>
+				<Property Name="___FK_7f471cdd0dd1bf5d0b298d9e" Type="Edm.String" sap:creatable="true" sap:deletable="true"
+					sap:label="___FK_7f471cdd0dd1bf5d0b298d9e" sap:updatable="true"/>
+				<NavigationProperty FromRole="FromRole_EquipmentE2LLocation" Name="E2L" Relationship="43fcd99745bd666e0b201f4c.EquipmentE2LLocation"
+					ToRole="ToRole_EquipmentE2LLocation"/>
+			</EntityType>
+			<Association Name="EquipmentE2LLocation">
+				<End Multiplicity="1" Role="FromRole_EquipmentE2LLocation" Type="43fcd99745bd666e0b201f4c.Equipment"/>
+				<End Multiplicity="1" Role="ToRole_EquipmentE2LLocation" Type="43fcd99745bd666e0b201f4c.Location"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_EquipmentE2LLocation">
+						<PropertyRef Name="___FK_7f471cdd0dd1bf5d0b298d9e"/>
+					</Principal>
+					<Dependent Role="ToRole_EquipmentE2LLocation">
+						<PropertyRef Name="ID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityType Name="Reported_by">
+				<Key>
+					<PropertyRef Name="ID"/>
+				</Key>
+				<Property Name="ID" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="ID" sap:updatable="true"/>
+				<Property Name="Firstname" Type="Edm.String"
+					sap:calculated="{&quot;calculation&quot;:&quot;[{\&quot;label\&quot;:\&quot;PROPERTY\&quot;,\&quot;name\&quot;:\&quot;property\&quot;,\&quot;entityName\&quot;:\&quot;Reported_by\&quot;,\&quot;entityId\&quot;:\&quot;Reported_by\&quot;,\&quot;navPropName\&quot;:\&quot;Reported_by\&quot;,\&quot;navPropId\&quot;:\&quot;\&quot;,\&quot;navPropMultiplicity\&quot;:null,\&quot;navPropOp\&quot;:null,\&quot;propertyName\&quot;:\&quot;Surname\&quot;,\&quot;propertyId\&quot;:\&quot;Surname\&quot;,\&quot;type\&quot;:\&quot;property\&quot;,\&quot;id\&quot;:0}]&quot;,&quot;inputProperties&quot;:[{&quot;navPropId&quot;:&quot;&quot;,&quot;entityId&quot;:&quot;Reported_by&quot;,&quot;propertyId&quot;:&quot;Surname&quot;,&quot;_id&quot;:&quot;56781e1f8a0537867a4612fd&quot;}]}"
+					sap:creatable="false" sap:deletable="false" sap:label="Firstname" sap:updatable="false"/>
+				<Property Name="Surname" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="Surname" sap:updatable="true"/>
+				<Property Name="Fullname" Type="Edm.String"
+					sap:calculated="{&quot;calculation&quot;:&quot;[{\&quot;label\&quot;:\&quot;+\&quot;,\&quot;name\&quot;:\&quot;plus\&quot;,\&quot;type\&quot;:\&quot;operator\&quot;,\&quot;left\&quot;:[{\&quot;label\&quot;:\&quot;PROPERTY\&quot;,\&quot;name\&quot;:\&quot;property\&quot;,\&quot;entityName\&quot;:\&quot;Reported_by\&quot;,\&quot;entityId\&quot;:\&quot;Reported_by\&quot;,\&quot;navPropName\&quot;:\&quot;Reported_by\&quot;,\&quot;navPropId\&quot;:\&quot;\&quot;,\&quot;navPropMultiplicity\&quot;:null,\&quot;navPropOp\&quot;:null,\&quot;propertyName\&quot;:\&quot;Firstname\&quot;,\&quot;propertyId\&quot;:\&quot;Firstname\&quot;,\&quot;type\&quot;:\&quot;property\&quot;,\&quot;id\&quot;:1}],\&quot;right\&quot;:[{\&quot;label\&quot;:\&quot;PROPERTY\&quot;,\&quot;name\&quot;:\&quot;property\&quot;,\&quot;entityName\&quot;:\&quot;Reported_by\&quot;,\&quot;entityId\&quot;:\&quot;Reported_by\&quot;,\&quot;navPropName\&quot;:\&quot;Reported_by\&quot;,\&quot;navPropId\&quot;:\&quot;\&quot;,\&quot;navPropMultiplicity\&quot;:null,\&quot;navPropOp\&quot;:null,\&quot;propertyName\&quot;:\&quot;Surname\&quot;,\&quot;propertyId\&quot;:\&quot;Surname\&quot;,\&quot;type\&quot;:\&quot;property\&quot;,\&quot;id\&quot;:2}],\&quot;id\&quot;:0}]&quot;,&quot;inputProperties&quot;:[{&quot;navPropId&quot;:&quot;&quot;,&quot;entityId&quot;:&quot;Reported_by&quot;,&quot;propertyId&quot;:&quot;Firstname&quot;,&quot;_id&quot;:&quot;56784abe330f8fe4ff74fd34&quot;},{&quot;navPropId&quot;:&quot;&quot;,&quot;entityId&quot;:&quot;Reported_by&quot;,&quot;propertyId&quot;:&quot;Surname&quot;,&quot;_id&quot;:&quot;56784abe330f8fe4ff74fd33&quot;}]}"
+					sap:creatable="false" sap:deletable="false" sap:label="Fullname" sap:updatable="false"/>
+			</EntityType>
+			<EntityType Name="Priority">
+				<Key>
+					<PropertyRef Name="ID"/>
+				</Key>
+				<Property Name="ID" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="ID" sap:updatable="true"/>
+				<Property Name="Name" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="T" sap:updatable="true"/>
+				<Property Name="Icon" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="Icon" sap:updatable="true"/>
+			</EntityType>
+			<EntityType Name="Status">
+				<Key>
+					<PropertyRef Name="ID"/>
+				</Key>
+				<Property Name="ID" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="ID" sap:updatable="true"/>
+				<Property Name="Name" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="Title" sap:updatable="true"/>
+				<Property Name="Icon" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="Icon" sap:updatable="true"/>
+			</EntityType>
+			<EntityType Name="Activities">
+				<Key>
+					<PropertyRef Name="ID"/>
+				</Key>
+				<Property Name="ID" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="ID" sap:updatable="true"/>
+				<Property Name="___FK_5af862e7ff20db4d0b3af016" Type="Edm.String" sap:creatable="true" sap:deletable="true"
+					sap:label="___FK_5af862e7ff20db4d0b3af016" sap:updatable="true"/>
+				<Property Name="Name" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="Name" sap:updatable="true"/>
+				<Property Name="Description" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="Description" sap:updatable="true"/>
+				<Property Name="___FK_69601af7e4c0d5040b3b20ba" Type="Edm.String" sap:creatable="true" sap:deletable="true"
+					sap:label="___FK_69601af7e4c0d5040b3b20ba" sap:updatable="true"/>
+				<Property Name="Date" Type="Edm.String" sap:creatable="true" sap:deletable="true" sap:label="Date" sap:updatable="true"/>
+				<NavigationProperty FromRole="FromRole_ActivitiesA2RReported_by" Name="A2R" Relationship="43fcd99745bd666e0b201f4c.ActivitiesA2RReported_by"
+					ToRole="ToRole_ActivitiesA2RReported_by"/>
+			</EntityType>
+			<Association Name="ActivitiesA2RReported_by">
+				<End Multiplicity="1" Role="FromRole_ActivitiesA2RReported_by" Type="43fcd99745bd666e0b201f4c.Activities"/>
+				<End Multiplicity="1" Role="ToRole_ActivitiesA2RReported_by" Type="43fcd99745bd666e0b201f4c.Reported_by"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ActivitiesA2RReported_by">
+						<PropertyRef Name="___FK_69601af7e4c0d5040b3b20ba"/>
+					</Principal>
+					<Dependent Role="ToRole_ActivitiesA2RReported_by">
+						<PropertyRef Name="ID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

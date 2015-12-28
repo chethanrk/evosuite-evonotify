@@ -1,0 +1,18 @@
+<mvc:View controllerName="generated.app.view.P2" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc">
+	<m:Popover bounce="false" contentHeight="auto" contentWidth="250px" enableScrolling="true" horizontalScrolling="true" id="sap_m_Popover_0"
+		modal="true" offsetX="0" offsetY="0" placement="Right" showHeader="true" title="Period of Time" verticalScrolling="true" visible="true">
+		<m:beginButton/>
+		<m:content>
+			<m:StandardListItem adaptTitleSize="true" icon="" iconDensityAware="true" iconInset="true" id="np-sap_m_StandardListItem-1449475654396-0QW"
+				info="" infoState="None" press="_onPressNpsapmStandardListItem14494756543960QW" selected="false" title="Due Today" type="Active"/>
+			<m:StandardListItem adaptTitleSize="true" icon="" iconDensityAware="true" iconInset="true" id="np-sap_m_StandardListItem-1449475662198-0QY"
+				info="" infoState="None" press="_onPressNpsapmStandardListItem14494756621980QY" selected="true" title="Due in 1 Week" type="Active"/>
+			<m:StandardListItem adaptTitleSize="true" icon="" iconDensityAware="true" iconInset="true" id="np-sap_m_StandardListItem-1449475665124-0R0"
+				info="" infoState="None" selected="false" title="Due in 30 Days" type="Active"/>
+		</m:content>
+		<m:customHeader/>
+		<m:endButton/>
+		<m:footer/>
+		<m:subHeader/>
+	</m:Popover>
+</mvc:View>

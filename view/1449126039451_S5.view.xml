@@ -1,0 +1,61 @@
+<mvc:View controllerName="generated.app.view.1449126039451_S5" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc">
+	<m:Page enableScrolling="true" id="sap_Responsive_Page_0" showFooter="true" showHeader="true" showNavButton="false" showSubHeader="false"
+		title="" titleLevel="Auto">
+		<m:content>
+			<m:HBox alignItems="Center" direction="Column" displayInline="false" fitContainer="false" height="auto" id="np-sap_m_HBox-1449128153719-0EP"
+				justifyContent="Start" renderType="Div" visible="true">
+				<m:items>
+					<m:Image densityAware="false" height="38px" id="np-sap_m_Image-1449738163581-020" src="assets/566939ab59171663c5f5075a" width="86px"/>
+					<m:Image densityAware="false" height="65px" id="np-sap_m_Image-1449738173451-022" src="assets/56693d779a55f1e83b10c082" width="203px"/>
+					<m:HBox alignItems="Stretch" direction="Row" displayInline="false" fitContainer="false" height="48px" id="np-sap_m_HBox-1449130597505-0LG"
+						justifyContent="Start" renderType="Div" visible="true">
+						<m:items>
+							<m:Button enabled="true" icon="sap-icon://person-placeholder" iconDensityAware="false" iconFirst="false"
+								id="np-sap_m_Button-1449130597505-0LH" text="" type="Default" width="40px"/>
+							<m:Input dateFormat="YYYY-MM-dd" fieldWidth="50%" filterSuggests="true" id="np-sap_m_Input-1449130763056-0M6" maxLength="0"
+								showSuggestion="false" showTableSuggestionValueHelp="true" showValueHelp="false" startSuggestion="1" type="Text" value="Username"
+								valueHelpOnly="false" valueLiveUpdate="false" width="200px">
+								<m:suggestionColumns/>
+								<m:suggestionItems/>
+								<m:suggestionRows/>
+							</m:Input>
+						</m:items>
+						<m:layoutData/>
+					</m:HBox>
+					<m:HBox alignItems="Stretch" direction="Row" displayInline="false" fitContainer="false" height="48px" id="np-sap_m_HBox-1449130604956-0LS"
+						justifyContent="Start" renderType="Div" visible="true">
+						<m:items>
+							<m:Button enabled="true" icon="sap-icon://locked" iconDensityAware="false" iconFirst="false" id="np-sap_m_Button-1449130604956-0LT" text=""
+								type="Default" width="40px"/>
+							<m:Input dateFormat="YYYY-MM-dd" fieldWidth="50%" filterSuggests="true" id="np-sap_m_Input-1449130796687-0M8" maxLength="0"
+								showSuggestion="false" showTableSuggestionValueHelp="true" showValueHelp="false" startSuggestion="1" type="Text" value="Password"
+								valueHelpOnly="false" valueLiveUpdate="false" width="200px">
+								<m:suggestionColumns/>
+								<m:suggestionItems/>
+								<m:suggestionRows/>
+							</m:Input>
+						</m:items>
+						<m:layoutData/>
+					</m:HBox>
+					<m:Button enabled="true" icon="sap-icon://arrow-right" iconDensityAware="false" iconFirst="false" id="np-sap_m_Button-1449130962599-0MA"
+						press="_onPressNpsapmButton14491309625990MA" text="Login" type="Default" width="240px"/>
+					<m:Link emphasized="false" enabled="true" id="np-sap_m_Link-1449131090962-0MC" subtle="false" target="_self" text="Forgot password"
+						width="240px" wrapping="false"/>
+				</m:items>
+				<m:layoutData/>
+			</m:HBox>
+		</m:content>
+		<m:footer>
+			<m:Toolbar design="Solid" enabled="true" height="46px" id="np-sap_m_Toolbar-1449126461164-093" visible="true" width="100%">
+				<m:tooltip/>
+				<m:content>
+					<m:Text id="np-sap_m_Text-1449126498108-09C" maxLines="1" text="Version 0.1" textAlign="Center" textDirection="Inherit" width="100%"
+						wrapping="true"/>
+				</m:content>
+			</m:Toolbar>
+		</m:footer>
+		<m:headerContent/>
+		<m:subHeader/>
+		<m:customHeader/>
+	</m:Page>
+</mvc:View>

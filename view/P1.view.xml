@@ -1,0 +1,20 @@
+<mvc:View controllerName="generated.app.view.P1" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc">
+	<m:Popover bounce="false" contentHeight="auto" contentWidth="250px" enableScrolling="true" horizontalScrolling="true" id="sap_m_Popover_0"
+		modal="true" offsetX="0" offsetY="0" placement="Right" showHeader="true" title="Select Variant" verticalScrolling="true" visible="true">
+		<m:beginButton/>
+		<m:content>
+			<m:StandardListItem adaptTitleSize="true" icon="" iconDensityAware="true" iconInset="true" id="np-sap_m_StandardListItem-1449474990836-09F"
+				info="" infoState="None" selected="true" title="Reported by Me" type="Active"/>
+			<m:StandardListItem adaptTitleSize="true" icon="" iconDensityAware="true" iconInset="true" id="np-sap_m_StandardListItem-1449475049135-09H"
+				info="" infoState="None" selected="false" title="High Priority" type="Active"/>
+			<m:StandardListItem adaptTitleSize="true" icon="" iconDensityAware="true" iconInset="true" id="np-sap_m_StandardListItem-1449739347985-0S9"
+				info="" infoState="None" selected="false" title="Breakdown" type="Active"/>
+			<m:StandardListItem adaptTitleSize="true" icon="" iconDensityAware="true" iconInset="true" id="np-sap_m_StandardListItem-1449475084947-09O"
+				info="" infoState="None" selected="false" title="Completed" type="Active"/>
+		</m:content>
+		<m:customHeader/>
+		<m:endButton/>
+		<m:footer/>
+		<m:subHeader/>
+	</m:Popover>
+</mvc:View>

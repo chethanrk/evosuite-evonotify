@@ -1,0 +1,184 @@
+{
+	"NotificationSet": [{
+		"Title": "Pump oil leck",
+		"___FK_424aefd75b0cd5b60b29690e": "P2",
+		"___FK_31383c2c18bcc4490b296814": "R5",
+		"___FK_c71bed0d321603480b281789": "T1",
+		"Breakdown": true,
+		"Description": "there drips a lot oil behind the machine",
+		"ID": "N1",
+		"Malfuntional_start": "/Date(1439337600000)/",
+		"___FK_0b12ba74ff4c01ab0b296c6f": "S3",
+		"___FK_6c60b059f3e4a8e30b3b1f26": "E6"
+	}, {
+		"___FK_6c60b059f3e4a8e30b3b1f26": "E3",
+		"___FK_0b12ba74ff4c01ab0b296c6f": "S1",
+		"___FK_424aefd75b0cd5b60b29690e": "P3",
+		"___FK_31383c2c18bcc4490b296814": "R4",
+		"___FK_c71bed0d321603480b281789": "T2",
+		"Breakdown": true,
+		"Malfuntional_start": "/Date(1439337600000)/",
+		"Description": "Machine is starting but levers not going down",
+		"Title": "Defect button",
+		"ID": "N2"
+	}, {
+		"ID": "N3",
+		"Title": "Broken light",
+		"Description": "Light need to changed",
+		"Malfuntional_start": "/Date(1442016000000)/",
+		"Breakdown": false,
+		"___FK_c71bed0d321603480b281789": "T3",
+		"___FK_31383c2c18bcc4490b296814": "R3",
+		"___FK_424aefd75b0cd5b60b29690e": "P1",
+		"___FK_0b12ba74ff4c01ab0b296c6f": "S2",
+		"___FK_6c60b059f3e4a8e30b3b1f26": "E8"
+	}],
+	"LocationSet": [{
+		"Name": "Hall 6F1",
+		"ID": "L1"
+	}, {
+		"Name": "Hall 2T6",
+		"ID": "L2"
+	}, {
+		"Name": "Hall 6A5",
+		"ID": "L3"
+	}, {
+		"Name": "Ext E1",
+		"ID": "L4"
+	}, {
+		"Name": "Mgt office",
+		"ID": "L5"
+	}],
+	"Notification_typeSet": [{
+		"Name": "M1",
+		"ID": "T1",
+		"Title": "Maintenance request"
+	}, {
+		"Name": "M2",
+		"ID": "T2",
+		"Title": "Malfunction report"
+	}, {
+		"Name": "M3",
+		"ID": "T3",
+		"Title": "Aktivity report"
+	}, {
+		"Name": "M4",
+		"ID": "T4",
+		"Title": "RF & RFID Maint Req"
+	}, {
+		"Name": "M5",
+		"ID": "T5",
+		"Title": "Malfunction report E"
+	}],
+	"EquipmentSet": [{
+		"ID": "E1",
+		"Name": "8006743",
+		"___FK_e268e10ad400657e0b2818c5": "L2",
+		"___FK_7f471cdd0dd1bf5d0b298d9e": "L2"
+	}, {
+		"ID": "E2",
+		"Name": "8005632",
+		"___FK_e268e10ad400657e0b2818c5": "L2",
+		"___FK_7f471cdd0dd1bf5d0b298d9e": "L2"
+	}, {
+		"ID": "E3",
+		"Name": "8001111",
+		"___FK_e268e10ad400657e0b2818c5": "L2",
+		"___FK_7f471cdd0dd1bf5d0b298d9e": "L2"
+	}, {
+		"ID": "E4",
+		"Name": "6543689",
+		"___FK_e268e10ad400657e0b2818c5": "L1",
+		"___FK_7f471cdd0dd1bf5d0b298d9e": "L1"
+	}, {
+		"ID": "E5",
+		"Name": "1547946",
+		"___FK_e268e10ad400657e0b2818c5": "L4",
+		"___FK_7f471cdd0dd1bf5d0b298d9e": "L4"
+	}, {
+		"ID": "E6",
+		"Name": "4811687",
+		"___FK_e268e10ad400657e0b2818c5": "L5",
+		"___FK_7f471cdd0dd1bf5d0b298d9e": "L5"
+	}, {
+		"ID": "E7",
+		"Name": "4148984",
+		"___FK_e268e10ad400657e0b2818c5": "L3",
+		"___FK_7f471cdd0dd1bf5d0b298d9e": "L3"
+	}, {
+		"ID": "E8",
+		"Name": "1587265",
+		"___FK_e268e10ad400657e0b2818c5": "L4",
+		"___FK_7f471cdd0dd1bf5d0b298d9e": "L4"
+	}, {
+		"ID": "E9",
+		"Name": "6254548",
+		"___FK_e268e10ad400657e0b2818c5": "L1",
+		"___FK_7f471cdd0dd1bf5d0b298d9e": "L1"
+	}, {
+		"ID": "E10",
+		"Name": "1954847",
+		"___FK_e268e10ad400657e0b2818c5": "L4",
+		"___FK_7f471cdd0dd1bf5d0b298d9e": "L4"
+	}],
+	"Reported_bySet": [{
+		"Surname": "Hose",
+		"ID": "R1",
+		"Firstname": "",
+		"Fullname": ""
+	}, {
+		"Surname": "Schweiss",
+		"ID": "R2",
+		"Firstname": "",
+		"Fullname": ""
+	}, {
+		"Surname": "Zufall",
+		"ID": "R3",
+		"Firstname": "",
+		"Fullname": ""
+	}, {
+		"Surname": "Aber",
+		"ID": "R4",
+		"Firstname": "",
+		"Fullname": ""
+	}, {
+		"Surname": "Bach",
+		"ID": "R5",
+		"Firstname": "",
+		"Fullname": ""
+	}],
+	"PrioritySet": [{
+		"Icon": "sap-icon://warning",
+		"Name": "High",
+		"ID": "P1"
+	}, {
+		"Icon": null,
+		"Name": "Normal",
+		"ID": "P2"
+	}, {
+		"Icon": null,
+		"Name": "Low",
+		"ID": "P3"
+	}],
+	"StatusSet": [{
+		"ID": "S1",
+		"Name": "Completed",
+		"Icon": "sap-icon://goal"
+	}, {
+		"ID": "S2",
+		"Name": "In Progress",
+		"Icon": "sap-icon://sys-enter"
+	}, {
+		"ID": "S3",
+		"Name": "Open",
+		"Icon": "sap-icon://sys-help"
+	}],
+	"ActivitiesSet": [{
+		"Date": "2015-10-12",
+		"ID": "A1",
+		"Name": "Change status to in process",
+		"Description": "Send a electrician to the machine",
+		"___FK_5af862e7ff20db4d0b3af016": "N1",
+		"___FK_69601af7e4c0d5040b3b20ba": "R4"
+	}]
+}

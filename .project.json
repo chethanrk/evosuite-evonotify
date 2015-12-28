@@ -1,0 +1,16 @@
+{
+  "generation": [
+    {
+      "templateId": "build_import_prototype",
+      "templateVersion": "1.0.0",
+      "dateTimeStamp": "Mon, 28 Dec 2015 05:54:29 GMT"
+    }
+  ],
+  "translation": {
+    "translationDomain": "",
+    "supportedLanguages": "en,fr,de",
+    "defaultLanguage": "en",
+    "defaultI18NPropertyFile": "i18n.properties",
+    "resourceModelName": "i18n"
+  }
+}

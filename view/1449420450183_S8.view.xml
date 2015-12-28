@@ -1,0 +1,72 @@
+<mvc:View controllerName="generated.app.view.1449420450183_S8" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form"
+	xmlns:layout="sap.ui.layout" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc">
+	<m:Page enableScrolling="true" id="sap_Responsive_Page_0" navButtonPress="_onNavButtonPressSapResponsivePage0" showFooter="true"
+		showHeader="true" showNavButton="true" showSubHeader="false" title="evoNotify" titleLevel="Auto">
+		<m:content>
+			<form:SimpleForm breakpointL="1024" breakpointM="600" columnsL="2" columnsM="1" editable="false" emptySpanL="0" emptySpanM="0"
+				emptySpanS="0" id="np-sap_ui_layout_form_SimpleForm-1449473665134-0BX" labelMinWidth="192" labelSpanL="4" labelSpanM="2" labelSpanS="12"
+				layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="-1" visible="true">
+				<form:title>
+					<core:Title emphasized="false" icon="sap-icon://list" id="np-sap_ui_core_Title-1449473665135-0BY" level="Auto" text="All notifications"/>
+				</form:title>
+				<form:content/>
+			</form:SimpleForm>
+			<layout:Grid containerQuery="false" defaultIndent="L0 M0 S0" defaultSpan="L4 M3 S6" hSpacing="0"
+				id="np-sap_ui_layout_Grid-1449739897183-06F" position="Left" vSpacing="0" width="100%">
+				<layout:content/>
+			</layout:Grid>
+			<m:Bar design="Header" enableFlexBox="false" id="np-sap_m_Bar-1449740157124-0AL" translucent="false">
+				<m:contentLeft>
+					<m:Button enabled="true" icon="sap-icon://arrow-down" iconDensityAware="false" iconFirst="false" id="np-sap_m_Button-1449475435097-0DQ"
+						press="_onPressNpsapmButton14494754350970DQ" text="Due in 1 Week" type="Default" width="auto"/>
+				</m:contentLeft>
+				<m:contentMiddle/>
+				<m:contentRight>
+					<m:Button enabled="true" icon="sap-icon://filter" iconDensityAware="false" iconFirst="true" id="np-sap_m_Button-1449473904520-0DS"
+						press="_onPressNpsapmButton14494739045200DS" text="Change filter" type="Default" width="auto"/>
+				</m:contentRight>
+			</m:Bar>
+			<m:List backgroundDesign="Solid" footerText="" growing="false" growingScrollToLoad="false" growingThreshold="20" headerText="Header"
+				id="np-sap_m_List-1449740496797-0FP" itemPress="_onItemPressNpsapmList14497404967970FP"
+				items="{path:'/NotificationSet', parameters:{expand:'N2P,N2T,N2E,N2S'}}" mode="SingleSelectMaster" width="100%">
+				<m:items>
+					<m:ObjectListItem icon="" id="np-sap_m_ObjectListItem-1449740496797-0FQ"
+						intro="{path: 'Malfuntional_start', type: 'sap.ui.model.type.DateTime', formatOptions: { UTC: true, style: 'short' }}" number="{N2P/Name}"
+						numberState="None" numberUnit="Priority" press="_onPressNpsapmObjectListItem14497404967970FQ" selected="true" showMarkers="false"
+						title="{Title}" type="Active" unread="{Breakdown}">
+						<m:attributes>
+							<m:ObjectAttribute id="np-sap_m_ObjectAttribute-1449740496797-0FR" text="{N2T/Title}" title="{N2T/Name}"/>
+							<m:ObjectAttribute id="np-sap_m_ObjectAttribute-1449740496797-0FS" text="{N2E/Name}" title=""/>
+						</m:attributes>
+						<m:firstStatus/>
+						<m:secondStatus>
+							<m:ObjectStatus icon="{N2S/Icon}" iconDensityAware="true" id="np-sap_m_ObjectStatus-1449740496798-0FU" state="None" text="{N2S/Name}"
+								title=""/>
+						</m:secondStatus>
+					</m:ObjectListItem>
+				</m:items>
+				<m:headerToolbar>
+					<m:Toolbar design="Solid" enabled="true" id="np-sap_m_Toolbar_2-1449740496798-0GA" visible="true" width="">
+						<m:content>
+							<m:SearchField id="np-sap_m_SearchField-1449740496799-0GB" placeholder="Search" showSearchButton="true" visible="true"/>
+						</m:content>
+					</m:Toolbar>
+				</m:headerToolbar>
+			</m:List>
+		</m:content>
+		<m:footer>
+			<m:Toolbar design="Solid" enabled="true" height="35px" id="sap_m_Toolbar_1" visible="true" width="auto">
+				<m:tooltip/>
+				<m:content>
+					<m:ToolbarSpacer id="sap_m_ToolbarSpacer_2" visible="false" width=""/>
+				</m:content>
+			</m:Toolbar>
+		</m:footer>
+		<m:headerContent>
+			<m:Button enabled="true" icon="sap-icon://menu2" iconDensityAware="false" iconFirst="false" id="np-sap_m_Button-1449567257835-06K"
+				press="_onPressNpsapmButton144956725783506K" text="" type="Default" width="auto"/>
+		</m:headerContent>
+		<m:subHeader/>
+		<m:customHeader/>
+	</m:Page>
+</mvc:View>

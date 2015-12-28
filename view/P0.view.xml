@@ -1,0 +1,24 @@
+<mvc:View controllerName="generated.app.view.P0" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc">
+	<m:Popover bounce="false" contentHeight="auto" contentWidth="200px" enableScrolling="true" horizontalScrolling="true" id="sap_m_Popover_0"
+		modal="false" offsetX="0" offsetY="0" placement="Right" showHeader="false" title="Menu" verticalScrolling="true" visible="true">
+		<m:beginButton/>
+		<m:content>
+			<m:Button enabled="true" icon="sap-icon://grid" iconDensityAware="false" iconFirst="true" id="np-sap_m_Button-1450727706397-0HK"
+				press="_onPressNpsapmButton14507277063970HK" text="Dashboard" type="Transparent" width="100%"/>
+			<m:Button enabled="true" icon="sap-icon://add" iconDensityAware="false" iconFirst="true" id="np-sap_m_Button-1449076574089-08G"
+				press="_onPressNpsapmButton144907657408908G" text="Add new" type="Transparent" width="100%"/>
+			<m:Button enabled="true" icon="sap-icon://list" iconDensityAware="false" iconFirst="true" id="np-sap_m_Button-1449076693651-09B"
+				press="_onPressNpsapmButton144907669365109B" text="My notifications" type="Transparent" width="100%"/>
+			<m:Button enabled="true" icon="sap-icon://search" iconDensityAware="false" iconFirst="true" id="np-sap_m_Button-1450774548070-04C"
+				press="_onPressNpsapmButton145077454807004C" text="Search" type="Transparent" width="100%"/>
+			<m:Button enabled="true" icon="sap-icon://log" iconDensityAware="false" iconFirst="true" id="np-sap_m_Button-1449076697394-09D"
+				press="_onPressNpsapmButton144907669739409D" text="Logout" type="Transparent" width="100%"/>
+		</m:content>
+		<m:customHeader/>
+		<m:endButton>
+			<m:Button enabled="true" iconDensityAware="false" iconFirst="false" id="sap_m_Button_1" text="Dashboard" type="Transparent" width="auto"/>
+		</m:endButton>
+		<m:footer/>
+		<m:subHeader/>
+	</m:Popover>
+</mvc:View>

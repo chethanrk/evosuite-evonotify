@@ -1,0 +1,104 @@
+<mvc:View controllerName="generated.app.view.1449567197352_S9" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form"
+	xmlns:layout="sap.ui.layout" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc">
+	<m:Page enableScrolling="true" id="sap_Responsive_Page_0" navButtonPress="_onNavButtonPressSapResponsivePage0" showFooter="true"
+		showHeader="true" showNavButton="true" showSubHeader="false" title="evoNotify" titleLevel="Auto">
+		<m:content>
+			<form:SimpleForm breakpointL="1024" breakpointM="600" columnsL="2" columnsM="1" editable="false" emptySpanL="0" emptySpanM="0"
+				emptySpanS="0" id="np-sap_ui_layout_form_SimpleForm-1449567355988-07A" labelMinWidth="192" labelSpanL="4" labelSpanM="2" labelSpanS="12"
+				layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="-1" visible="true">
+				<form:title>
+					<core:Title emphasized="false" icon="{N2P/Icon}" id="np-sap_ui_core_Title-1449567355989-07B" level="H2" text="{Title}"/>
+				</form:title>
+				<form:content/>
+			</form:SimpleForm>
+			<layout:VerticalLayout id="np-sap_ui_layout_VerticalLayout-1450723269370-06C" visible="true" width="100%">
+				<layout:content>
+					<m:ObjectListItem icon="" id="np-sap_m_ObjectListItem-1450723269370-06D" intro="" number="{N2P/Name}" numberState="None"
+						numberUnit="Priority" selected="false" showMarkers="false" title="{Description}" type="Detail" unread="false">
+						<m:attributes>
+							<m:ObjectAttribute id="np-sap_m_ObjectAttribute-1450723269370-06E"
+								text="{path: 'Malfuntional_start', type: 'sap.ui.model.type.DateTime', formatOptions: { UTC: true, style: 'short' }}"
+								title="Malfunctional Start"/>
+							<m:ObjectAttribute id="np-sap_m_ObjectAttribute-1450723269371-06F" text="{N2T/Title}" title="{N2T/Name}"/>
+							<m:ObjectAttribute id="np-sap_m_ObjectAttribute-1450723470364-072" text="{N2E/Name}" title="Equipment"/>
+							<m:ObjectAttribute id="np-sap_m_ObjectAttribute-1450723474126-074" text="{N2R/Fullname}" title="Reborted by"/>
+						</m:attributes>
+						<m:firstStatus/>
+						<m:secondStatus>
+							<m:ObjectStatus icon="{N2S/Icon}" iconDensityAware="true" id="np-sap_m_ObjectStatus-1450723269371-06H" state="None" text="{N2S/Name}"
+								title="Status"/>
+						</m:secondStatus>
+					</m:ObjectListItem>
+				</layout:content>
+			</layout:VerticalLayout>
+			<m:Table backgroundDesign="Translucent" fixedLayout="true" growing="false" growingScrollToLoad="false" growingThreshold="20"
+				id="np-sap_m_Table-1449678976077-07R" includeItemInSelection="false" inset="false" items="{path:'N2A', parameters:{expand:'A2R'}}"
+				mode="None" modeAnimationOn="true" noDataText="No data" rememberSelections="true" showNoData="true" showOverlay="false" showSeparators="All"
+				showUnread="false" swipeDirection="Both" visible="true" width="100%">
+				<m:swipeContent/>
+				<m:items>
+					<m:ColumnListItem id="np-sap_m_ColumnListItem-1449678976078-07S" type="Active">
+						<m:cells>
+							<m:ObjectIdentifier id="np-sap_m_ObjectIdentifier-1449678976079-07T" text="{Description}" title="{Name}" titleActive="false" visible="true"/>
+							<m:Text id="np-sap_m_Text-1449678976079-07U" maxLines="1" text="{Date}" textAlign="Begin" textDirection="Inherit" width="auto"
+								wrapping="true"/>
+							<m:Text id="np-sap_m_Text-1449679207196-09L" maxLines="1" text="{A2R/Fullname}" textAlign="Begin" textDirection="Inherit" width="300px"
+								wrapping="true"/>
+						</m:cells>
+					</m:ColumnListItem>
+				</m:items>
+				<m:infoToolbar/>
+				<m:headerToolbar>
+					<m:Toolbar design="Solid" enabled="true" height="46px" id="np-sap_m_Toolbar_3-1449678976079-084" visible="true" width="auto">
+						<m:tooltip/>
+						<m:content>
+							<m:ToolbarSpacer id="np-sap_m_ToolbarSpacer-1449678976079-085" visible="true" width=""/>
+							<m:Text id="np-sap_m_Text-1449678976079-086" maxLines="1" text="Aktivities" textAlign="Begin" textDirection="Inherit" width="auto"
+								wrapping="true"/>
+							<m:ToolbarSpacer id="np-sap_m_ToolbarSpacer-1449678976079-087" visible="true" width=""/>
+						</m:content>
+					</m:Toolbar>
+				</m:headerToolbar>
+				<m:columns>
+					<m:Column demandPopin="true" hAlign="Begin" id="np-sap_m_Column_Product-1449678976079-088" mergeDuplicates="false"
+						mergeFunctionName="getText" minScreenWidth="Tablet" popinDisplay="Block" vAlign="Inherit" width="auto">
+						<m:header>
+							<m:Text id="np-sap_m_Text-1449678976079-089" maxLines="1" text="Activity" textAlign="Begin" textDirection="Inherit" width="auto"
+								wrapping="true"/>
+						</m:header>
+						<m:footer/>
+					</m:Column>
+					<m:Column demandPopin="true" hAlign="Begin" id="np-sap_m_Column_Supplier-1449678976079-08A" mergeDuplicates="false"
+						mergeFunctionName="getText" minScreenWidth="Tablet" popinDisplay="Block" vAlign="Inherit" width="auto">
+						<m:header>
+							<m:Text id="np-sap_m_Text-1449678976079-08B" maxLines="1" text="Date" textAlign="Begin" textDirection="Inherit" width="auto" wrapping="true"/>
+						</m:header>
+						<m:footer/>
+					</m:Column>
+					<m:Column demandPopin="true" hAlign="Begin" id="np-sap_m_Column-1449679154315-09F" mergeDuplicates="false" mergeFunctionName="getText"
+						minScreenWidth="Tablet" popinDisplay="Block" vAlign="Inherit" width="auto">
+						<m:header>
+							<m:Text id="np-sap_m_Text-1449679154316-09G" maxLines="1" text="Editor" textAlign="Begin" textDirection="Inherit" width="auto"
+								wrapping="true"/>
+						</m:header>
+						<m:footer/>
+					</m:Column>
+				</m:columns>
+			</m:Table>
+		</m:content>
+		<m:footer>
+			<m:Toolbar design="Solid" enabled="true" height="50px" id="sap_m_Toolbar_1" visible="true" width="auto">
+				<m:tooltip/>
+				<m:content>
+					<m:ToolbarSpacer id="sap_m_ToolbarSpacer_2" visible="true" width=""/>
+				</m:content>
+			</m:Toolbar>
+		</m:footer>
+		<m:headerContent>
+			<m:Button enabled="true" icon="sap-icon://menu2" iconDensityAware="false" iconFirst="false" id="np-sap_m_Button-1449567329579-075"
+				press="_onPressNpsapmButton1449567329579075" text="" type="Default" width="auto"/>
+		</m:headerContent>
+		<m:subHeader/>
+		<m:customHeader/>
+	</m:Page>
+</mvc:View>
