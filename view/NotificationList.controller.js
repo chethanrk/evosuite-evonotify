@@ -1,11 +1,11 @@
 sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 	"use strict";
 
-	return BaseController.extend("generated.app.view.1449420450183_S8", {
+	return BaseController.extend("evora.en.view.NotificationList", {
 
 		onInit: function() {
 			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			this.oRouter.getTarget("1449420450183_S8").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
+			this.oRouter.getTarget("NotificationList").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
 		},
 		handleRouteMatched: function(oEvent) {
 			var params = {};
@@ -23,7 +23,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 
 		},
 		_onNavButtonPressSapResponsivePage0: function() {
-			sap.ui.core.UIComponent.getRouterFor(this).navTo("1449131511127_S6");
+			sap.ui.core.UIComponent.getRouterFor(this).navTo("Dashboard");
 		},
 		_onPressNpsapmButton144956725783506K: function(oEvent) {
 			var popoverName = "P0";
@@ -36,7 +36,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 			var view;
 			if (!popover) {
 				view = sap.ui.xmlview({
-					viewName: "generated.app.view." + popoverName
+					viewName: "evora.en.view." + popoverName
 				});
 				view._sOwnerId = this.getView()._sOwnerId;
 				popover = view.getContent()[0];
@@ -65,7 +65,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 			var view;
 			if (!popover) {
 				view = sap.ui.xmlview({
-					viewName: "generated.app.view." + popoverName
+					viewName: "evora.en.view." + popoverName
 				});
 				view._sOwnerId = this.getView()._sOwnerId;
 				popover = view.getContent()[0];
@@ -94,7 +94,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 			var view;
 			if (!dialog) {
 				view = sap.ui.xmlview({
-					viewName: "generated.app.view." + dialogName
+					viewName: "evora.en.view." + dialogName
 				});
 				view._sOwnerId = this.getView()._sOwnerId;
 				dialog = view.getContent()[0];
@@ -112,7 +112,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 			view.bindElement(path, {});
 		},
 		_onPressNpsapmObjectListItem14497404967970FQ: function() {
-			sap.ui.core.UIComponent.getRouterFor(this).navTo("1449567197352_S9");
+			sap.ui.core.UIComponent.getRouterFor(this).navTo("NotificationDetail");
 		},
 		_onItemPressNpsapmList14497404967970FP: function(oEvent) {
 
@@ -134,12 +134,12 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 			var navigationPropertyName;
 
 			if (entityNameSet !== null) {
-				navigationPropertyName = self.getOwnerComponent().getNavigationPropertyForNavigationWithContext(entityNameSet, "1449567197352_S9");
+				navigationPropertyName = self.getOwnerComponent().getNavigationPropertyForNavigationWithContext(entityNameSet, "NotificationDetail");
 			}
 
 			if (navigationPropertyName !== null) {
 				if (navigationPropertyName === "") {
-					self.oRouter.navTo("1449567197352_S9", {
+					self.oRouter.navTo("NotificationDetail", {
 						context: sPath,
 						masterContext: sMasterContext
 					}, false);
@@ -149,14 +149,14 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 						if (sPath.substring(0, 1) === "/") {
 							sPath = sPath.substring(1);
 						}
-						self.oRouter.navTo("1449567197352_S9", {
+						self.oRouter.navTo("NotificationDetail", {
 							context: sPath,
 							masterContext: sMasterContext
 						}, false);
 					});
 				}
 			} else {
-				self.oRouter.navTo("1449567197352_S9");
+				self.oRouter.navTo("NotificationDetail");
 			}
 		}
 	});

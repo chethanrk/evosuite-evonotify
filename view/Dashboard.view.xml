@@ -1,4 +1,4 @@
-<mvc:View controllerName="generated.app.view.1449131511127_S6" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc">
+<mvc:View controllerName="evora.en.view.Dashboard" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc">
 	<m:Page enableScrolling="true" id="sap_Responsive_Page_0" showFooter="true" showHeader="true" showNavButton="false" showSubHeader="false"
 		title="" titleLevel="Auto">
 		<m:content>

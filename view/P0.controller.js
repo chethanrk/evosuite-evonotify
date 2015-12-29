@@ -1,7 +1,7 @@
 sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 	"use strict";
 
-	return BaseController.extend("generated.app.view.P0", {
+	return BaseController.extend("evora.en.view.P0", {
 
 		onInit: function() {
 			this._oDialog = this.getView().getContent()[0];
@@ -10,19 +10,19 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 			this._oDialog.destroy();
 		},
 		_onPressNpsapmButton144907669739409D: function() {
-			sap.ui.core.UIComponent.getRouterFor(this).navTo("1449126039451_S5");
+			sap.ui.core.UIComponent.getRouterFor(this).navTo(model.config.PAGES.LOGIN);
 		},
 		_onPressNpsapmButton144907657408908G: function() {
-			sap.ui.core.UIComponent.getRouterFor(this).navTo("1449133240322_S7");
+			sap.ui.core.UIComponent.getRouterFor(this).navTo("NotificationForm");
 		},
 		_onPressNpsapmButton144907669365109B: function() {
-			sap.ui.core.UIComponent.getRouterFor(this).navTo("1449420450183_S8");
+			sap.ui.core.UIComponent.getRouterFor(this).navTo("NotificationList");
 		},
 		_onPressNpsapmButton14507277063970HK: function() {
-			sap.ui.core.UIComponent.getRouterFor(this).navTo("1449131511127_S6");
+			sap.ui.core.UIComponent.getRouterFor(this).navTo("Dashboard");
 		},
 		_onPressNpsapmButton145077454807004C: function() {
-			sap.ui.core.UIComponent.getRouterFor(this).navTo("1449420450183_S8");
+			sap.ui.core.UIComponent.getRouterFor(this).navTo("NotificationList");
 		}
 	});
 }, /* bExport= */ true);

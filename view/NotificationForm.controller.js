@@ -1,11 +1,11 @@
 sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 	"use strict";
 
-	return BaseController.extend("generated.app.view.1449133240322_S7", {
+	return BaseController.extend("evora.en.view.NotificationForm", {
 
 		onInit: function() {
 			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			this.oRouter.getTarget("1449133240322_S7").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
+			this.oRouter.getTarget("NotificationForm").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
 		},
 		handleRouteMatched: function(oEvent) {
 			var params = {};
@@ -33,7 +33,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 			var view;
 			if (!popover) {
 				view = sap.ui.xmlview({
-					viewName: "generated.app.view." + popoverName
+					viewName: "evora.en.view." + popoverName
 				});
 				view._sOwnerId = this.getView()._sOwnerId;
 				popover = view.getContent()[0];
@@ -52,10 +52,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 			view.bindElement(path, {});
 		},
 		_onPressNpsapmButton1449472895435030: function() {
-			sap.ui.core.UIComponent.getRouterFor(this).navTo("1449420450183_S8");
+			sap.ui.core.UIComponent.getRouterFor(this).navTo("NotificationList");
 		},
 		_onPressNpsapmButton1449472982080057: function() {
-			sap.ui.core.UIComponent.getRouterFor(this).navTo("1449131511127_S6");
+			sap.ui.core.UIComponent.getRouterFor(this).navTo("Dashboard");
 		},
 		_onValueHelpRequestNpsapmInput14494239223720C9: function(oEvent) {
 			var dialogName = "D2";
@@ -68,7 +68,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 			var view;
 			if (!dialog) {
 				view = sap.ui.xmlview({
-					viewName: "generated.app.view." + dialogName
+					viewName: "evora.en.view." + dialogName
 				});
 				view._sOwnerId = this.getView()._sOwnerId;
 				dialog = view.getContent()[0];
@@ -96,7 +96,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 			var view;
 			if (!dialog) {
 				view = sap.ui.xmlview({
-					viewName: "generated.app.view." + dialogName
+					viewName: "evora.en.view." + dialogName
 				});
 				view._sOwnerId = this.getView()._sOwnerId;
 				dialog = view.getContent()[0];

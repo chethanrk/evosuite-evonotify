@@ -1,4 +1,4 @@
-<mvc:View controllerName="generated.app.view.D3" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc">
+<mvc:View controllerName="evora.en.view.D3" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc">
 	<m:Dialog horizontalScrolling="true" id="sap_m_Dialog_0" showHeader="true" state="None" stretch="false" title="Select an Equipment"
 		type="Standard" verticalScrolling="true">
 		<m:beginButton/>

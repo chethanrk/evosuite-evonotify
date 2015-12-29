@@ -1,84 +1,84 @@
 var formulaCalculation;
 "use strict";
 
-jQuery.sap.declare("generated.app.Component");
+jQuery.sap.declare("evora.en.Component");
 jQuery.sap.require("sap.ui.core.routing.Router");
 jQuery.sap.require("sap.m.App");
 try {
-	jQuery.sap.require("generated.app.models.formulaCalculation");
+	jQuery.sap.require("evora.en.models.formulaCalculation");
 } catch (e) {
 	formulaCalculation = undefined;
 }
 
 var navigationWithContext = {
 	"NotificationSet": {
-		"1449567197352_S9": ""
+		"NotificationDetail": ""
 	}
 };
 
-sap.ui.core.UIComponent.extend("generated.app.Component", {
+sap.ui.core.UIComponent.extend("evora.en.Component", {
 	metadata: {
 		routing: {
 			config: {
 				routerClass: "sap.m.routing.Router",
 				viewType: "XML",
-				viewPath: "generated.app.view",
+				viewPath: "evora.en.view",
 				controlId: "App",
 				clearTarget: false,
 				controlAggregation: "pages",
 				bypassed: {
-					target: ["1449126039451_S5"]
+					target: ["Login"]
 				}
 			},
 			routes: [{
-				pattern: "1449126039451_S5/:context:",
-				name: "1449126039451_S5",
-				target: ["1449126039451_S5"]
+				pattern: "Login/:context:",
+				name: "Login",
+				target: ["Login"]
 			}, {
-				pattern: "1449131511127_S6/:context:",
-				name: "1449131511127_S6",
-				target: ["1449131511127_S6"]
+				pattern: "Dashboard/:context:",
+				name: "Dashboard",
+				target: ["Dashboard"]
 			}, {
-				pattern: "1449133240322_S7/:context:",
-				name: "1449133240322_S7",
-				target: ["1449133240322_S7"]
+				pattern: "NotificationForm/:context:",
+				name: "NotificationForm",
+				target: ["NotificationForm"]
 			}, {
-				pattern: "1449420450183_S8/:context:",
-				name: "1449420450183_S8",
-				target: ["1449420450183_S8"]
+				pattern: "NotificationList/:context:",
+				name: "NotificationList",
+				target: ["NotificationList"]
 			}, {
-				pattern: "1449567197352_S9/:context:",
-				name: "1449567197352_S9",
-				target: ["1449567197352_S9"]
+				pattern: "NotificationDetail/:context:",
+				name: "NotificationDetail",
+				target: ["NotificationDetail"]
 			}, {
 				pattern: "",
 				name: "default",
-				target: ["1449126039451_S5"]
+				target: ["Login"]
 			}],
 			targets: {
-				"1449126039451_S5": {
-					viewName: "1449126039451_S5",
-					viewId: "1449126039451_S5",
+				"Login": {
+					viewName: "Login",
+					viewId: "Login",
 					viewLevel: "1"
 				},
-				"1449131511127_S6": {
-					viewName: "1449131511127_S6",
-					viewId: "1449131511127_S6",
+				"Dashboard": {
+					viewName: "Dashboard",
+					viewId: "Dashboard",
 					viewLevel: "1"
 				},
-				"1449133240322_S7": {
-					viewName: "1449133240322_S7",
-					viewId: "1449133240322_S7",
+				"NotificationForm": {
+					viewName: "NotificationForm",
+					viewId: "NotificationForm",
 					viewLevel: "1"
 				},
-				"1449420450183_S8": {
-					viewName: "1449420450183_S8",
-					viewId: "1449420450183_S8",
+				"NotificationList": {
+					viewName: "NotificationList",
+					viewId: "NotificationList",
 					viewLevel: "1"
 				},
-				"1449567197352_S9": {
-					viewName: "1449567197352_S9",
-					viewId: "1449567197352_S9",
+				"NotificationDetail": {
+					viewName: "NotificationDetail",
+					viewId: "NotificationDetail",
 					viewLevel: "1"
 				}
 			}

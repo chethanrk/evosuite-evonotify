@@ -1,4 +1,4 @@
-<mvc:View controllerName="generated.app.view.1449133240322_S7" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:m="sap.m"
+<mvc:View controllerName="evora.en.view.NotificationForm" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:m="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
 	<m:Page enableScrolling="true" id="sap_Responsive_Page_0" showFooter="true" showHeader="true" showNavButton="true" showSubHeader="true"
 		title="evoNotify" titleLevel="Auto">

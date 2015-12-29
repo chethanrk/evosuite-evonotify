@@ -1,4 +1,4 @@
-<mvc:View controllerName="generated.app.view.P0" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc">
+<mvc:View controllerName="evora.en.view.P0" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc">
 	<m:Popover bounce="false" contentHeight="auto" contentWidth="200px" enableScrolling="true" horizontalScrolling="true" id="sap_m_Popover_0"
 		modal="false" offsetX="0" offsetY="0" placement="Right" showHeader="false" title="Menu" verticalScrolling="true" visible="true">
 		<m:beginButton/>
