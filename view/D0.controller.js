@@ -1,7 +1,7 @@
 sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 	"use strict";
 
-	return BaseController.extend("evora.en.view.D0", {
+	return BaseController.extend("sap.ui.evora.en.view.D0", {
 
 		onInit: function() {
 			this._oDialog = this.getView().getContent()[0];

@@ -1,7 +1,7 @@
 sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 	"use strict";
 
-	return BaseController.extend("evora.en.view.NotificationList", {
+	return BaseController.extend("sap.ui.evora.en.view.NotificationList", {
 
 		onInit: function() {
 			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
@@ -25,37 +25,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 		_onNavButtonPressSapResponsivePage0: function() {
 			sap.ui.core.UIComponent.getRouterFor(this).navTo("Dashboard");
 		},
-		_onPressNpsapmButton144956725783506K: function(oEvent) {
-			var popoverName = "P0";
-			this.popovers = this.popovers || {};
-			var popover = this.popovers[popoverName];
-			var source = oEvent.getSource();
-			var bindingContext = source.getBindingContext();
-			var path = (bindingContext) ? bindingContext.getPath() : null;
-			var model = (bindingContext) ? bindingContext.getModel() : this.getView().getModel();
-			var view;
-			if (!popover) {
-				view = sap.ui.xmlview({
-					viewName: "evora.en.view." + popoverName
-				});
-				view._sOwnerId = this.getView()._sOwnerId;
-				popover = view.getContent()[0];
-				popover.setPlacement("Left" || "Auto");
-				this.popovers[popoverName] = popover;
-			}
-			popover.openBy(oEvent.getSource());
-			if (view) {
-				popover.attachAfterOpen(function() {
-					popover.rerender();
-				});
-			} else {
-				view = popover.getParent();
-			}
-			view.setModel(model);
-			view.bindElement(path, {});
-		},
 		_onPressNpsapmButton14494754350970DQ: function(oEvent) {
-			var popoverName = "P2";
+			var popoverName = model.Config.POPOVER.TIME_FILTER;
 			this.popovers = this.popovers || {};
 			var popover = this.popovers[popoverName];
 			var source = oEvent.getSource();
@@ -65,7 +36,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 			var view;
 			if (!popover) {
 				view = sap.ui.xmlview({
-					viewName: "evora.en.view." + popoverName
+					viewName: model.Config.VIEW_NAME + popoverName
 				});
 				view._sOwnerId = this.getView()._sOwnerId;
 				popover = view.getContent()[0];
@@ -94,7 +65,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 			var view;
 			if (!dialog) {
 				view = sap.ui.xmlview({
-					viewName: "evora.en.view." + dialogName
+					viewName: "sap.ui.evora.en.view." + dialogName
 				});
 				view._sOwnerId = this.getView()._sOwnerId;
 				dialog = view.getContent()[0];

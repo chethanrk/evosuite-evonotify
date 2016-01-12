@@ -1,7 +1,7 @@
 sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 	"use strict";
 
-	return BaseController.extend("evora.en.view.Dashboard", {
+	return BaseController.extend("sap.ui.evora.en.view.Dashboard", {
 
 		onInit: function() {
 			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
@@ -27,35 +27,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 		},
 		_onPressNpsapmButton14491326935890E1: function() {
 			sap.ui.core.UIComponent.getRouterFor(this).navTo("NotificationList");
-		},
-		_onPressNpsapmButton144913178163905K: function(oEvent) {
-			var popoverName = "P0";
-			this.popovers = this.popovers || {};
-			var popover = this.popovers[popoverName];
-			var source = oEvent.getSource();
-			var bindingContext = source.getBindingContext();
-			var path = (bindingContext) ? bindingContext.getPath() : null;
-			var model = (bindingContext) ? bindingContext.getModel() : this.getView().getModel();
-			var view;
-			if (!popover) {
-				view = sap.ui.xmlview({
-					viewName: "evora.en.view." + popoverName
-				});
-				view._sOwnerId = this.getView()._sOwnerId;
-				popover = view.getContent()[0];
-				popover.setPlacement("Left" || "Auto");
-				this.popovers[popoverName] = popover;
-			}
-			popover.openBy(oEvent.getSource());
-			if (view) {
-				popover.attachAfterOpen(function() {
-					popover.rerender();
-				});
-			} else {
-				view = popover.getParent();
-			}
-			view.setModel(model);
-			view.bindElement(path, {});
 		},
 		_onPressNpsapmButton145077432186001Z: function() {
 			sap.ui.core.UIComponent.getRouterFor(this).navTo("NotificationList");

@@ -1,7 +1,7 @@
-<mvc:View controllerName="evora.en.view.NotificationDetail" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form"
+<mvc:View controllerName="sap.ui.evora.en.view.NotificationDetail" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form"
 	xmlns:layout="sap.ui.layout" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc">
 	<m:Page enableScrolling="true" id="sap_Responsive_Page_0" navButtonPress="_onNavButtonPressSapResponsivePage0" showFooter="true"
-		showHeader="true" showNavButton="true" showSubHeader="false" title="evoNotify" titleLevel="Auto">
+		showHeader="true" showNavButton="true" showSubHeader="false" title="{i18n>PAGE_TITLE}" titleLevel="Auto">
 		<m:content>
 			<form:SimpleForm breakpointL="1024" breakpointM="600" columnsL="2" columnsM="1" editable="false" emptySpanL="0" emptySpanM="0"
 				emptySpanS="0" id="np-sap_ui_layout_form_SimpleForm-1449567355988-07A" labelMinWidth="192" labelSpanL="4" labelSpanM="2" labelSpanS="12"
@@ -94,11 +94,6 @@
 				</m:content>
 			</m:Toolbar>
 		</m:footer>
-		<m:headerContent>
-			<m:Button enabled="true" icon="sap-icon://menu2" iconDensityAware="false" iconFirst="false" id="np-sap_m_Button-1449567329579-075"
-				press="_onPressNpsapmButton1449567329579075" text="" type="Default" width="auto"/>
-		</m:headerContent>
-		<m:subHeader/>
-		<m:customHeader/>
+
 	</m:Page>
 </mvc:View>

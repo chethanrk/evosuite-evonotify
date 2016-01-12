@@ -1,6 +1,11 @@
-<mvc:View controllerName="evora.en.view.Login" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc">
+<mvc:View controllerName="sap.ui.evora.en.view.Login" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc">
 	<m:Page enableScrolling="true" id="sap_Responsive_Page_0" showFooter="true" showHeader="true" showNavButton="false" showSubHeader="false"
 		title="" titleLevel="Auto">
+
+		<m:headerContent/>
+		<m:subHeader/>
+		<m:customHeader/>
+
 		<m:content>
 			<m:HBox alignItems="Center" direction="Column" displayInline="false" fitContainer="false" height="auto" id="np-sap_m_HBox-1449128153719-0EP"
 				justifyContent="Start" renderType="Div" visible="true">
@@ -54,8 +59,6 @@
 				</m:content>
 			</m:Toolbar>
 		</m:footer>
-		<m:headerContent/>
-		<m:subHeader/>
-		<m:customHeader/>
+
 	</m:Page>
 </mvc:View>

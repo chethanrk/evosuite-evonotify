@@ -2,9 +2,12 @@
  * Created by Michaela 29.12.2015
  */
 
-jQuery.sap.declare("evora.en.model.config");
+jQuery.sap.declare("models.Config");
 
-model.config = {
+models.Config = {
+
+    VIEW_NAME: "sap.ui.evora.en.view.",
+
     // Enumerations for Services
     ENUM_WORKORDER : 0,
     ENUM_NOTIFICATION : 1,
@@ -62,71 +65,76 @@ model.config = {
     // Busy Dialog Variable
     DIALOG_BUSY : null,
 
-    PAGES :{
+    PAGES : {
         LOGIN: "Login",
         HOME: "Dashboard",
         FORM: "NotificationForm",
         LIST: "NotificationList",
         DETAILS: "NotificationDetail"
+    },
+
+    POPOVER : {
+        MENU: "subviews.PopoverMenu",
+        TIME_FILTER: "subviews.P2"
     }
 };
 
 (function () {
         var methodCall = jQuery.sap.getUriParameters().get("call");
         if("" == methodCall){
-            model.config.isMock = true;
+            models.Config.isMock = true;
         } else {
-            model.config.isMock = false;
+            models.Config.isMock = false;
         }
     }
 )();
 
-model.config.getServiceEndPoint = function(argFor,argSingleCall) {
+models.Config.getServiceEndPoint = function(argFor,argSingleCall) {
     return getEndpointUrl(argFor,argSingleCall);
 };
 
-model.config.getUser = function () {
-    return model.config.LOGIN_USERNAME;
+models.Config.getUser = function () {
+    return models.Config.LOGIN_USERNAME;
 };
 
-model.config.getPwd = function () {
-    return model.config.LOGIN_PASSWORD;
+models.Config.getPwd = function () {
+    return models.Config.LOGIN_PASSWORD;
 };
 
-model.config.getHost = function () {
-    return model.config.PATH_SAP_ED1_HOST;
+models.Config.getHost = function () {
+    return models.Config.PATH_SAP_ED1_HOST;
 };
 
-model.config.getEntityPath = function (argFor, argCollection, aValue) {
+models.Config.getEntityPath = function (argFor, argCollection, aValue) {
     return getEntityUrl(argCollection,argFor,aValue);
 };
 
-model.config.getNotificationHeaderOdataUrl = function () {
-    return (model.config.PATH_SAP_ED1_HOST +
-    model.config.PATH_NO_HDR_ENTITY +
-    model.config.CONST_FILTER_FORMAT +
-    model.config.CONST_SYM_CONCAT +
-    model.config.CONST_SAP_CLIENT);
+models.Config.getNotificationHeaderOdataUrl = function () {
+    return (models.Config.PATH_SAP_ED1_HOST +
+    models.Config.PATH_NO_HDR_ENTITY +
+    models.Config.CONST_FILTER_FORMAT +
+    models.Config.CONST_SYM_CONCAT +
+    models.Config.CONST_SAP_CLIENT);
 };
 
-model.config.getNotificationItemOdataUrl = function () {
-    return (model.config.PATH_SAP_ED1_HOST +
-    model.config.PATH_NO_ITM_ENTITY +
-    model.config.CONST_FILTER_FORMAT +
-    model.config.CONST_SYM_CONCAT +
-    model.config.CONST_SAP_CLIENT);
+models.Config.getNotificationItemOdataUrl = function () {
+    return (models.Config.PATH_SAP_ED1_HOST +
+    models.Config.PATH_NO_ITM_ENTITY +
+    models.Config.CONST_FILTER_FORMAT +
+    models.Config.CONST_SYM_CONCAT +
+    models.Config.CONST_SAP_CLIENT);
 };
 
-model.config.makeODataCall = function (oAction, pEntity, oModel, jModel, oCData) {
+models.Config.makeODataCall = function (oAction, pEntity, oModel, jModel, oCData) {
     switch (oAction) {
-        case model.config.ENUM_ACTION_READ :
+        case models.Config.ENUM_ACTION_READ :
             oModel.read(pEntity,null, null, false, function(pData, pResponse){
                 jModel.setData(pData);
             }, function(pError){
                 console.log(pError.message);
             });
             break;
-        case model.config.ENUM_ACTION_CREATE :
+        case models.Config.ENUM_ACTION_CREATE :
             /*oModel.create(pEntity, oCData, null, function(pData, pResponse){
              console.log("Create successful");
              },function(pError) {
@@ -137,8 +145,8 @@ model.config.makeODataCall = function (oAction, pEntity, oModel, jModel, oCData)
             // X-CSRF-Token Fetch using GET and then use it for POST
             OData.request({
                 requestUri : "https://ed1.evorait.net:50103/sap/opu/odata/sap/ZEVO_LIGHT_MEASURING_DOCUMENT_SRV/MeasuringdocCollection?sap-client=800",
-                user : model.config.getUser(),
-                password : model.config.getPwd(),
+                user : models.Config.getUser(),
+                password : models.Config.getPwd(),
                 method : "POST",
                 data : oCData,
                 headers : {
@@ -152,25 +160,25 @@ model.config.makeODataCall = function (oAction, pEntity, oModel, jModel, oCData)
                 console.log(pError.message);
             });
             break;
-        case model.config.ENUM_ACTION_UPDATE :
+        case models.Config.ENUM_ACTION_UPDATE :
             break;
-        case model.config.ENUM_ACTION_DELETE :
+        case models.Config.ENUM_ACTION_DELETE :
             break;
     }
 };
 
-model.config.makeAjaxCall = function (pEntity, jModel) {
+models.Config.makeAjaxCall = function (pEntity, jModel) {
     $.ajax({
         type: "GET",
         async: false,
         url: pEntity,
-        data: {username: model.config.getUser(), password: model.config.getPwd()},
+        data: {username: models.Config.getUser(), password: models.Config.getPwd()},
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) {
             //var obj = JSON.stringify(data);
             jModel.setData(data);
-            model.config.jWOCount = data.results.length;
+            models.Config.jWOCount = data.results.length;
         },
         error: function (xhr, textStatus, errorMessage) {
             console.log(xhr);

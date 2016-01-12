@@ -1,6 +1,11 @@
-<mvc:View controllerName="evora.en.view.Dashboard" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc">
+<mvc:View controllerName="sap.ui.evora.en.view.Dashboard" xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
 	<m:Page enableScrolling="true" id="sap_Responsive_Page_0" showFooter="true" showHeader="true" showNavButton="false" showSubHeader="false"
-		title="" titleLevel="Auto">
+		title="{i18n>PAGE_TITLE}" titleLevel="Auto">
+
+		<m:headerContent>
+			<mvc:XMLView viewName="sap.ui.evora.en.view.subviews.Header"></mvc:XMLView>
+		</m:headerContent>
+
 		<m:content>
 			<m:HBox alignItems="Center" direction="Column" displayInline="false" fitContainer="false" height="auto" id="np-sap_m_HBox-1449132597870-0BU"
 				justifyContent="Start" renderType="Div" visible="true">
@@ -25,11 +30,6 @@
 				</m:content>
 			</m:Toolbar>
 		</m:footer>
-		<m:headerContent>
-			<m:Button enabled="true" icon="sap-icon://menu2" iconDensityAware="false" iconFirst="false" id="np-sap_m_Button-1449131781639-05K"
-				press="_onPressNpsapmButton144913178163905K" text="" type="Default" width="auto"/>
-		</m:headerContent>
-		<m:subHeader/>
-		<m:customHeader/>
+
 	</m:Page>
 </mvc:View>

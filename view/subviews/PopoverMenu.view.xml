@@ -1,0 +1,25 @@
+<mvc:View controllerName="sap.ui.evora.en.view.subviews.PopoverMenu" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc">
+	<m:Popover bounce="false" contentHeight="auto" contentWidth="200px" enableScrolling="true" horizontalScrolling="true" id="sap_m_Popover_0"
+		modal="false" offsetX="0" offsetY="0" placement="Right" showHeader="false" title="Menu" verticalScrolling="true" visible="true">
+		<m:beginButton/>
+		<m:content>
+			<m:Button enabled="true" icon="sap-icon://grid" iconDensityAware="false" iconFirst="true" id="MENU_DASHBOARD"
+				press="_onPressNpsapmButton14507277063970HK" text="{i18n>MENU_DASHBOARD}" type="Transparent" width="100%"/>
+
+			<m:Button enabled="true" icon="sap-icon://add" iconDensityAware="false" iconFirst="true" id="MENU_NEW_NOTI"
+				press="_onPressNpsapmButton144907657408908G" text="{i18n>MENU_NEW_NOTI}" type="Transparent" width="100%"/>
+
+			<m:Button enabled="true" icon="sap-icon://list" iconDensityAware="false" iconFirst="true" id="MENU_LIST_NOTI"
+				press="_onPressNpsapmButton144907669365109B" text="{i18n>MENU_LIST_NOTI}" type="Transparent" width="100%"/>
+
+			<m:Button enabled="true" icon="sap-icon://search" iconDensityAware="false" iconFirst="true" id="MENU_SEARCH"
+				press="_onPressNpsapmButton145077454807004C" text="{i18n>MENU_SEARCH}" type="Transparent" width="100%"/>
+
+			<m:Button enabled="true" icon="sap-icon://log" iconDensityAware="false" iconFirst="true" id="MENU_LOGOUT"
+				press="_onPressNpsapmButton144907669739409D" text="{i18n>MENU_LOGOUT}" type="Transparent" width="100%"/>
+		</m:content>
+		<m:customHeader/>
+		<m:footer/>
+		<m:subHeader/>
+	</m:Popover>
+</mvc:View>

@@ -1,4 +1,4 @@
-<mvc:View controllerName="evora.en.view.P2" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc">
+<mvc:View controllerName="sap.ui.evora.en.view.P2" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc">
 	<m:Popover bounce="false" contentHeight="auto" contentWidth="250px" enableScrolling="true" horizontalScrolling="true" id="sap_m_Popover_0"
 		modal="true" offsetX="0" offsetY="0" placement="Right" showHeader="true" title="Period of Time" verticalScrolling="true" visible="true">
 		<m:beginButton/>
