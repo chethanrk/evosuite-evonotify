@@ -44,6 +44,18 @@ sap.ui.define([
 						oViewModel.setProperty("/delay", iOriginalBusyDelay);
 					}
 				);
+				
+				// Model used to manipulate control states
+				oViewModel = new JSONModel({
+					worklistTableTitle : this.getResourceBundle().getText("worklistTableTitle"),
+					saveAsTileTitle: this.getResourceBundle().getText("worklistViewTitle"),
+					shareOnJamTitle: this.getResourceBundle().getText("worklistViewTitle"),
+					shareSendEmailSubject: this.getResourceBundle().getText("shareSendEmailWorklistSubject"),
+					shareSendEmailMessage: this.getResourceBundle().getText("shareSendEmailWorklistMessage", [location.href]),
+					tableNoDataText : this.getResourceBundle().getText("tableNoDataText"),
+					tableBusyDelay : 0
+				});
+				this.setModel(oViewModel, "worklistView");
 			},
 
 			/* =========================================================== */
@@ -66,6 +78,14 @@ sap.ui.define([
 					this.getRouter().navTo("worklist", {}, true);
 				}
 			},
+			
+			onChangeEditMode : function(oEvent) {
+				var oView = this.getView();
+				var bFlag = oView.byId("notificationForm").getEditable();
+		 
+				oView.byId("NotificationtypenameId").setContextEditable(bFlag);
+				oView.byId("NotificationtextId").setContextEditable(bFlag);
+			},
 
 			/* =========================================================== */
 			/* internal methods                                            */
@@ -85,6 +105,11 @@ sap.ui.define([
 					});
 					this._bindView("/" + sObjectPath);
 				}.bind(this));
+				
+		        var sPath = "Maintenancenotification";
+		        var sOperator = "EQ";
+		        var oBinding = this.byId("notificationItemsTable").getBinding("items");
+		        oBinding.filter([new sap.ui.model.Filter(sPath, sOperator, sObjectId)]);
 			},
 
 			/**

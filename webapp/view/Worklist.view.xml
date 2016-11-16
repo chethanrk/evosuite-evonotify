@@ -9,7 +9,6 @@
 	<semantic:FullscreenPage
 		id="page"
 		navButtonPress="onNavBack"
-		showNavButton="true"
 		title="{i18n>worklistViewTitle}">
 		<semantic:addAction>
 			<semantic:AddAction press="onSemanticButtonPress"/>
