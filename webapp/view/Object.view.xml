@@ -1,0 +1,64 @@
+<mvc:View
+	controllerName="com.evorait.evolite.evonotify.controller.Object"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.m.semantic"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+
+	<semantic:FullscreenPage
+		id="page"
+		navButtonPress="onNavBack"
+		showNavButton="true"
+		title="{Maintenancenotification}"
+		busy="{objectView>/busy}"
+		busyIndicatorDelay="{objectView>/delay}">
+
+		<semantic:content>
+			<ObjectHeader
+				id="objectHeader"
+				title="{Notificationtext}"
+				responsive="true">
+				<statuses>
+					<ObjectStatus
+						text="{Notifprocessingphasedesc}"
+						state="Success" />
+				</statuses>
+				<attributes>
+					<ObjectAttribute text="{path: 'Creationdate', formatter: '.formatter.date'} {path: 'Creationtime', formatter: '.formatter.time'}" />
+				</attributes>
+				
+			</ObjectHeader>
+			
+			<IconTabBar
+				expanded="{device>/isNoPhone}"
+				class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter text="Info">
+						<form:SimpleForm
+							minWidth="1024"
+							maxContainerCols="2"
+							layout="ResponsiveGridLayout" >
+							<form:title>
+								<core:Title text="A Form" />
+							</form:title>
+							<Label text="Label"/>
+							<Text text="Value"/>
+						</form:SimpleForm>
+					</IconTabFilter>
+					
+					<IconTabFilter text="Attachments">
+						<List headerText="A List" showSeparators="Inner" ></List>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+			
+ 		</semantic:content>
+
+		<semantic:addAction>
+			<semantic:EditAction press="onSemanticButtonPress"/>
+		</semantic:addAction>
+		
+	</semantic:FullscreenPage>
+
+</mvc:View>
