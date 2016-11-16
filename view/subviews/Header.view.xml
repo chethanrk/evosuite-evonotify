@@ -1,3 +1,0 @@
-<mvc:View controllerName="sap.ui.evora.en.view.subviews.Header" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core">
-        <m:Button enabled="true" icon="sap-icon://menu2" iconDensityAware="false" iconFirst="false" id="np-sap_m_Button-menu" press="_onPressOpenMenuPopover" text="" type="Default" width="auto"/>
-</mvc:View>
