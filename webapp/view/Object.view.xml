@@ -73,7 +73,10 @@
 				</uxap:subSections>
 			</uxap:ObjectPageSection>
  
-			<uxap:ObjectPageSection title="Section 2">
+			<uxap:ObjectPageSection title="Items">
+				<uxap:subSections>
+					
+				</uxap:subSections>
 			</uxap:ObjectPageSection>
 		</uxap:sections>
  

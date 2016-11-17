@@ -4,6 +4,11 @@
       "templateId": "build_import_prototype",
       "templateVersion": "1.0.0",
       "dateTimeStamp": "Mon, 28 Dec 2015 05:54:29 GMT"
+    },
+    {
+      "templateId": "com.sap.webide.annotationmodeller.CreateAnnotationTemplate",
+      "templateVersion": "1.0.0",
+      "dateTimeStamp": "Thu, 17 Nov 2016 12:53:03 GMT"
     }
   ],
   "translation": {

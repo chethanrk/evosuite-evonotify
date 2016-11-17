@@ -57,7 +57,7 @@ sap.ui.define([
 						this._sContentDensityClass = "";
 					} else if (!Device.support.touch) { // apply "compact" mode if touch is not supported
 						//sapUiSizeCompact
-						this._sContentDensityClass = "sapUiSizeCozy";
+						this._sContentDensityClass = "sapUiSizeCompact";
 					} else {
 						// "cozy" in case of touch support; default for most sap.m controls, but needed for desktop-first controls like sap.ui.table.Table
 						this._sContentDensityClass = "sapUiSizeCozy";

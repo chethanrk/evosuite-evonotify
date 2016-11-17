@@ -79,7 +79,7 @@ sap.ui.define([
 				}
 			},
 			
-			onChangeEditMode : function(oEvent) {
+			onChangeEditMode : function() {
 				var oView = this.getView();
 				var bFlag = oView.byId("notificationForm").getEditable();
 		 
@@ -105,11 +105,6 @@ sap.ui.define([
 					});
 					this._bindView("/" + sObjectPath);
 				}.bind(this));
-				
-		        var sPath = "Maintenancenotification";
-		        var sOperator = "EQ";
-		        var oBinding = this.byId("notificationItemsTable").getBinding("items");
-		        oBinding.filter([new sap.ui.model.Filter(sPath, sOperator, sObjectId)]);
 			},
 
 			/**
@@ -124,6 +119,9 @@ sap.ui.define([
 
 				this.getView().bindElement({
 					path: sObjectPath,
+					parameters: {
+						expand: "to_PMNotificationItem"
+					},
 					events: {
 						change: this._onBindingChange.bind(this),
 						dataRequested: function () {

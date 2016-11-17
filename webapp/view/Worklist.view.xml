@@ -4,7 +4,8 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:semantic="sap.m.semantic"
 	xmlns:fb="sap.ui.comp.filterbar"
-	xmlns:table="sap.ui.table">
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable">
 
 	<semantic:FullscreenPage
 		id="page"
@@ -31,12 +32,6 @@
 							<Input type="Text"/>
 						</fb:control>				
 					</fb:FilterGroupItem>
-					
-					<fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="B" label="labelB">
-						<fb:control>
-							<Input type="Text"/>
-						</fb:control>				
-					</fb:FilterGroupItem>				
 				</fb:filterGroupItems>				
 		    </fb:FilterBar>
 	    
@@ -48,18 +43,18 @@
 					path: '/PMNotifications',
 					sorter: {
 						path: 'Maintenancenotification',
-						descending: false
+						descending: true
 					}
 				}"
 				noDataText="{worklistView>/tableNoDataText}"
 				busyIndicatorDelay="{worklistView>/tableBusyDelay}"
 				growing="true"
-				growingScrollToLoad="true"
+				growingScrollToLoad="false"
 				updateFinished="onUpdateFinished">
 
 				<headerToolbar>
 					<Toolbar>
-						<Title id="tableHeader" text="{worklistView>/worklistTableTitle}"/>
+						<Title id="tableHeader" text="{worklistView>worklistTableTitle}"/>
 						<ToolbarSpacer />
 						<SearchField
 							id="searchField"
@@ -71,11 +66,17 @@
 				</headerToolbar>
 
 				<columns>
-					<Column id="notifyTitle">
-						<Text text="{/#PMNotifications/Maintenancenotification/@sap:label}" id="MaintenancenotificationLabel"/>
+					<Column>
+						<Text text="{/#PMNotifications/Maintenancenotification/@sap:label}"/>
 					</Column>
-					<Column id="notifyType">
-						<Text text="{/#PMNotifications/Notificationtypename/@sap:label}" id="NotificationtypeLabel"/>
+					<Column>
+						<Text text="{/#PMNotifications/Notificationtypename/@sap:label}"/>
+					</Column>
+					<Column>
+						<Text text="{/#PMNotifications/Assetlocation/@sap:label}"/>
+					</Column>
+					<Column>
+						<Text text="{/#PMNotifications/Maintprioritytext/@sap:label}"/>
 					</Column>
 				</columns>
 
@@ -84,15 +85,15 @@
 						type="Navigation"
 						press="onPress">
 						<cells>
-							<ObjectIdentifier 
-							title="{Maintenancenotification}"
-							text="{Notificationtext}"/>
-							
+							<ObjectIdentifier title="{Maintenancenotification}" text="{Notificationtext}"/>
 							<Text text="{Notificationtypename}"/>
+							<Text text="{Assetlocation}"/>
+							<Text text="{Maintprioritytext}"/>
 						</cells>
 					</ColumnListItem>
 				</items>
 			</Table>
+			
 		</semantic:content>
 	</semantic:FullscreenPage>
 

@@ -1,10 +1,11 @@
 sap.ui.define([
 		"com/evorait/evolite/evonotify/controller/BaseController",
+		"sap/m/TablePersoController",
 		"sap/ui/model/json/JSONModel",
 		"com/evorait/evolite/evonotify/model/formatter",
 		"sap/ui/model/Filter",
 		"sap/ui/model/FilterOperator"
-	], function (BaseController, JSONModel, formatter, Filter, FilterOperator) {
+	], function (BaseController, TablePersoController, JSONModel, formatter, Filter, FilterOperator) {
 		"use strict";
 
 		return BaseController.extend("com.evorait.evolite.evonotify.controller.Worklist", {
