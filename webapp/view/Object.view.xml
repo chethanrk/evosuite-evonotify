@@ -27,7 +27,7 @@
 		</uxap:headerTitle>
  
 		<uxap:headerContent>
-			<ObjectAttribute text="{/#PMNotifications/Creationdate/@sap:label}: {path: 'Creationdate', formatter: '.formatter.date'} {path: 'Creationtime', formatter: '.formatter.time'}"/>
+			<ObjectAttribute text="{/#PMNotification/Creationdate/@sap:label}: {path: 'Creationdate', formatter: '.formatter.date'} {path: 'Creationtime', formatter: '.formatter.time'}"/>
 		</uxap:headerContent>
  
 		<uxap:sections>
@@ -52,14 +52,13 @@
 								<smartField:SmartLabel labelFor="NotificationtextId" />
 								<smartField:SmartField value="{Notificationtext}" id="NotificationtextId" class="editable"/>
 								
-								<smartField:SmartLabel labelFor="NotificationtypenameId" />
-								<smartField:SmartField value="{Notificationtypename}" 
-								id="NotificationtypenameId" class="editable" showValueHelp="true"/>
+								<smartField:SmartLabel labelFor="NotificationtypeId" />
+								<smartField:SmartField value="{Notificationtype}" id="NotificationtypeId"/>
 				
-								<Label text="{/#PMNotifications/Notificationtext/@sap:label}" />
+								<Label text="{/#PMNotification/Notificationtext/@sap:label}" />
 								<Input value="{Notificationtext}" />
-								<Label text="{/#PMNotifications/Notificationtypename/@sap:label}" />
-								<Input value="{Street}" showValueHelp="true"/>
+								<Label text="{/#PMNotification/Notificationtypename/@sap:label}" />
+								<Input value="{Notificationtype}" showValueHelp="true" />
 								
 								<core:Title text="Online" />
 								<Label text="Web" />

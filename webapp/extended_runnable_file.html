@@ -9,6 +9,42 @@
 	<!-- Bootstrapping UI5 -->
 	<script id="sap-ui-bootstrap" src="resources/sap-ui-core.js" data-sap-ui-libs="sap.m" data-sap-ui-theme="sap_bluecrystal" data-sap-ui-compatversion="edge" data-sap-ui-resourceroots="{&quot;com.evorait.evolite.evonotify&quot;: &quot;.&quot;}" data-sap-ui-frameoptions="trusted">
 	</script>
+	
+<script>
+var bRunWithMock = true;
+var sRunWithMock = jQuery.sap.getUriParameters().get('run-with-mock');
+if (sRunWithMock === 'false') {
+bRunWithMock = false;
+}
+if (bRunWithMock) {
+jQuery.sap.require('sap.ui.core.util.MockServer');
+var uri = '/sap/opu/odata/evora/EL_NOTIFICATION_SRV/';
+var oMock = new sap.ui.core.util.MockServer({rootUri : uri});
+var _sAppModulePath = "com.evorait.evolite.evonotify/";
+var sMetadataPath = "localService/metadata.xml";
+var sMetadataUrl = jQuery.sap.getModulePath(_sAppModulePath + sMetadataPath.replace(".xml", ""), ".xml");
+var sMockdataBaseUrlPath = sMetadataUrl.replace(/[^/]+$/, 'mockdata');
+oMock.simulate(sMetadataUrl, { sMockdataBaseUrl : sMockdataBaseUrlPath, bGenerateMissingMockData : true });
+oMock.start();
+	jQuery(document).ready(function($) {  sap.m.MessageToast.show('Running in demo mode with mock data.', {  duration : 4000 });
+});
+new sap.ui.core.util.MockServer({rootUri: "annotations/annotations.xml", requests: [{ method: "GET", path: new RegExp(""),
+response: function(oXhr) { 
+jQuery.sap.require("jquery.sap.xml");
+var oAnnotations = jQuery.sap.sjax({ url: jQuery.sap.getModulePath(_sAppModulePath + "annotations/annotations.xml".replace(".xml", ""), ".xml"),
+dataType: "xml"}).data;
+oXhr.respondXML(200, {}, jQuery.sap.serializeXML(oAnnotations));
+return true;
+}
+}]
+}).start();
+//Fake LREP
+jQuery.sap.require("sap.ui.fl.FakeLrepConnector");
+sap.ui.fl.FakeLrepConnector.enableFakeConnector("fakeLRep.json");
+}
+</script>
+
+
 
 	<script>
 		sap.ui.getCore().attachInit(function () {
@@ -27,18 +63,6 @@
 		});
 	</script>
 
-<style>.facadebtn{display:inline-block;width:60px;height:60px;background-color:#009de0;border-radius:50px;text-align:center;box-shadow: 2px 2px 3px #999;opacity:.3;}
-.facadebtn .sapUiIcon{color:#FFF;font-size:1.5rem;cursor:pointer;line-height:60px;width:60px;}
-.facadebtn:hover{opacity:1;}
-#interactive.viewport video{width:320px;height:240px;}
-#interactive.viewport .drawingBuffer{width:320px;height:240px;position:absolute;}
-</style>
-<script src="https://webide-ad74c0790.dispatcher.hana.ondemand.com/plugins/pluginrepository/hybrid/cordovafacade/floatingButton.js" type="text/javascript"></script>
-<script type="text/javascript">window.sap_webide_FacadePreview = true;</script>
-<script src="https://webide-ad74c0790.dispatcher.hana.ondemand.com/plugins/pluginrepository/hybrid/cordovafacade/cordova.js" type="text/javascript"></script>
-<script src="https://webide-ad74c0790.dispatcher.hana.ondemand.com/plugins/pluginrepository/hybrid/mobileextend/MessageDef.js" type="text/javascript"></script>
-<script src="https://webide-ad74c0790.dispatcher.hana.ondemand.com/plugins/pluginrepository/hybrid/mobileextend/MessageBridge.js" type="text/javascript"></script>
-<link href="https://webide-ad74c0790.dispatcher.hana.ondemand.com/plugins/pluginrepository/hybrid/css/mobileExtend.css" rel="stylesheet" type="text/css">
 </head>
 
 <!-- UI Content -->

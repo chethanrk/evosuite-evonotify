@@ -1,0 +1,181 @@
+[{
+	"Mandt": "Mandt 1",
+	"Maintenancenotification": "Maintenancenotification 1",
+	"Maintenancenotificationitem": "Maintenancenotificationitem 1",
+	"Maintnotifitemtext": "Maintnotifitemtext 1",
+	"Maintnotifobjprtcodegroup": "Maintnotifobjprtcodegroup 1",
+	"Maintnotifobjprtcodegroupname": "Maintnotifobjprtcodegroupname 1",
+	"Maintnotifobjprtcode": "Maintnotifobjprtcode 1",
+	"Maintnotifobjprtcodename": "Maintnotifobjprtcodename 1",
+	"__metadata": {
+		"uri": "PMNotificationItems(Maintenancenotification='Maintenancenotification%201',Maintenancenotificationitem='Maintenancenotificationitem%201')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationItem"
+	},
+	"PMNotification": {
+		"__deferred": {
+			"uri": "PMNotificationItems(Maintenancenotification='Maintenancenotification%201',Maintenancenotificationitem='Maintenancenotificationitem%201')/PMNotification"
+		}
+	}
+}, {
+	"Mandt": "Mandt 2",
+	"Maintenancenotification": "Maintenancenotification 2",
+	"Maintenancenotificationitem": "Maintenancenotificationitem 2",
+	"Maintnotifitemtext": "Maintnotifitemtext 2",
+	"Maintnotifobjprtcodegroup": "Maintnotifobjprtcodegroup 2",
+	"Maintnotifobjprtcodegroupname": "Maintnotifobjprtcodegroupname 2",
+	"Maintnotifobjprtcode": "Maintnotifobjprtcode 2",
+	"Maintnotifobjprtcodename": "Maintnotifobjprtcodename 2",
+	"__metadata": {
+		"uri": "PMNotificationItems(Maintenancenotification='Maintenancenotification%202',Maintenancenotificationitem='Maintenancenotificationitem%202')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationItem"
+	},
+	"PMNotification": {
+		"__deferred": {
+			"uri": "PMNotificationItems(Maintenancenotification='Maintenancenotification%202',Maintenancenotificationitem='Maintenancenotificationitem%202')/PMNotification"
+		}
+	}
+}, {
+	"Mandt": "Mandt 3",
+	"Maintenancenotification": "Maintenancenotification 3",
+	"Maintenancenotificationitem": "Maintenancenotificationitem 3",
+	"Maintnotifitemtext": "Maintnotifitemtext 3",
+	"Maintnotifobjprtcodegroup": "Maintnotifobjprtcodegroup 3",
+	"Maintnotifobjprtcodegroupname": "Maintnotifobjprtcodegroupname 3",
+	"Maintnotifobjprtcode": "Maintnotifobjprtcode 3",
+	"Maintnotifobjprtcodename": "Maintnotifobjprtcodename 3",
+	"__metadata": {
+		"uri": "PMNotificationItems(Maintenancenotification='Maintenancenotification%203',Maintenancenotificationitem='Maintenancenotificationitem%203')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationItem"
+	},
+	"PMNotification": {
+		"__deferred": {
+			"uri": "PMNotificationItems(Maintenancenotification='Maintenancenotification%203',Maintenancenotificationitem='Maintenancenotificationitem%203')/PMNotification"
+		}
+	}
+}, {
+	"Mandt": "Mandt 4",
+	"Maintenancenotification": "Maintenancenotification 4",
+	"Maintenancenotificationitem": "Maintenancenotificationitem 4",
+	"Maintnotifitemtext": "Maintnotifitemtext 4",
+	"Maintnotifobjprtcodegroup": "Maintnotifobjprtcodegroup 4",
+	"Maintnotifobjprtcodegroupname": "Maintnotifobjprtcodegroupname 4",
+	"Maintnotifobjprtcode": "Maintnotifobjprtcode 4",
+	"Maintnotifobjprtcodename": "Maintnotifobjprtcodename 4",
+	"__metadata": {
+		"uri": "PMNotificationItems(Maintenancenotification='Maintenancenotification%204',Maintenancenotificationitem='Maintenancenotificationitem%204')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationItem"
+	},
+	"PMNotification": {
+		"__deferred": {
+			"uri": "PMNotificationItems(Maintenancenotification='Maintenancenotification%204',Maintenancenotificationitem='Maintenancenotificationitem%204')/PMNotification"
+		}
+	}
+}, {
+	"Mandt": "Mandt 5",
+	"Maintenancenotification": "Maintenancenotification 5",
+	"Maintenancenotificationitem": "Maintenancenotificationitem 5",
+	"Maintnotifitemtext": "Maintnotifitemtext 5",
+	"Maintnotifobjprtcodegroup": "Maintnotifobjprtcodegroup 5",
+	"Maintnotifobjprtcodegroupname": "Maintnotifobjprtcodegroupname 5",
+	"Maintnotifobjprtcode": "Maintnotifobjprtcode 5",
+	"Maintnotifobjprtcodename": "Maintnotifobjprtcodename 5",
+	"__metadata": {
+		"uri": "PMNotificationItems(Maintenancenotification='Maintenancenotification%205',Maintenancenotificationitem='Maintenancenotificationitem%205')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationItem"
+	},
+	"PMNotification": {
+		"__deferred": {
+			"uri": "PMNotificationItems(Maintenancenotification='Maintenancenotification%205',Maintenancenotificationitem='Maintenancenotificationitem%205')/PMNotification"
+		}
+	}
+}, {
+	"Mandt": "Mandt 6",
+	"Maintenancenotification": "Maintenancenotification 6",
+	"Maintenancenotificationitem": "Maintenancenotificationitem 6",
+	"Maintnotifitemtext": "Maintnotifitemtext 6",
+	"Maintnotifobjprtcodegroup": "Maintnotifobjprtcodegroup 6",
+	"Maintnotifobjprtcodegroupname": "Maintnotifobjprtcodegroupname 6",
+	"Maintnotifobjprtcode": "Maintnotifobjprtcode 6",
+	"Maintnotifobjprtcodename": "Maintnotifobjprtcodename 6",
+	"__metadata": {
+		"uri": "PMNotificationItems(Maintenancenotification='Maintenancenotification%206',Maintenancenotificationitem='Maintenancenotificationitem%206')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationItem"
+	},
+	"PMNotification": {
+		"__deferred": {
+			"uri": "PMNotificationItems(Maintenancenotification='Maintenancenotification%206',Maintenancenotificationitem='Maintenancenotificationitem%206')/PMNotification"
+		}
+	}
+}, {
+	"Mandt": "Mandt 7",
+	"Maintenancenotification": "Maintenancenotification 7",
+	"Maintenancenotificationitem": "Maintenancenotificationitem 7",
+	"Maintnotifitemtext": "Maintnotifitemtext 7",
+	"Maintnotifobjprtcodegroup": "Maintnotifobjprtcodegroup 7",
+	"Maintnotifobjprtcodegroupname": "Maintnotifobjprtcodegroupname 7",
+	"Maintnotifobjprtcode": "Maintnotifobjprtcode 7",
+	"Maintnotifobjprtcodename": "Maintnotifobjprtcodename 7",
+	"__metadata": {
+		"uri": "PMNotificationItems(Maintenancenotification='Maintenancenotification%207',Maintenancenotificationitem='Maintenancenotificationitem%207')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationItem"
+	},
+	"PMNotification": {
+		"__deferred": {
+			"uri": "PMNotificationItems(Maintenancenotification='Maintenancenotification%207',Maintenancenotificationitem='Maintenancenotificationitem%207')/PMNotification"
+		}
+	}
+}, {
+	"Mandt": "Mandt 8",
+	"Maintenancenotification": "Maintenancenotification 8",
+	"Maintenancenotificationitem": "Maintenancenotificationitem 8",
+	"Maintnotifitemtext": "Maintnotifitemtext 8",
+	"Maintnotifobjprtcodegroup": "Maintnotifobjprtcodegroup 8",
+	"Maintnotifobjprtcodegroupname": "Maintnotifobjprtcodegroupname 8",
+	"Maintnotifobjprtcode": "Maintnotifobjprtcode 8",
+	"Maintnotifobjprtcodename": "Maintnotifobjprtcodename 8",
+	"__metadata": {
+		"uri": "PMNotificationItems(Maintenancenotification='Maintenancenotification%208',Maintenancenotificationitem='Maintenancenotificationitem%208')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationItem"
+	},
+	"PMNotification": {
+		"__deferred": {
+			"uri": "PMNotificationItems(Maintenancenotification='Maintenancenotification%208',Maintenancenotificationitem='Maintenancenotificationitem%208')/PMNotification"
+		}
+	}
+}, {
+	"Mandt": "Mandt 9",
+	"Maintenancenotification": "Maintenancenotification 9",
+	"Maintenancenotificationitem": "Maintenancenotificationitem 9",
+	"Maintnotifitemtext": "Maintnotifitemtext 9",
+	"Maintnotifobjprtcodegroup": "Maintnotifobjprtcodegroup 9",
+	"Maintnotifobjprtcodegroupname": "Maintnotifobjprtcodegroupname 9",
+	"Maintnotifobjprtcode": "Maintnotifobjprtcode 9",
+	"Maintnotifobjprtcodename": "Maintnotifobjprtcodename 9",
+	"__metadata": {
+		"uri": "PMNotificationItems(Maintenancenotification='Maintenancenotification%209',Maintenancenotificationitem='Maintenancenotificationitem%209')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationItem"
+	},
+	"PMNotification": {
+		"__deferred": {
+			"uri": "PMNotificationItems(Maintenancenotification='Maintenancenotification%209',Maintenancenotificationitem='Maintenancenotificationitem%209')/PMNotification"
+		}
+	}
+}, {
+	"Mandt": "Mandt 10",
+	"Maintenancenotification": "Maintenancenotification 10",
+	"Maintenancenotificationitem": "Maintenancenotificationitem 10",
+	"Maintnotifitemtext": "Maintnotifitemtext 10",
+	"Maintnotifobjprtcodegroup": "Maintnotifobjprtcodegroup 10",
+	"Maintnotifobjprtcodegroupname": "Maintnotifobjprtcodegroupname 10",
+	"Maintnotifobjprtcode": "Maintnotifobjprtcode 10",
+	"Maintnotifobjprtcodename": "Maintnotifobjprtcodename 10",
+	"__metadata": {
+		"uri": "PMNotificationItems(Maintenancenotification='Maintenancenotification%2010',Maintenancenotificationitem='Maintenancenotificationitem%2010')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationItem"
+	},
+	"PMNotification": {
+		"__deferred": {
+			"uri": "PMNotificationItems(Maintenancenotification='Maintenancenotification%2010',Maintenancenotificationitem='Maintenancenotificationitem%2010')/PMNotification"
+		}
+	}
+}]

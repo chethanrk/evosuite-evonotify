@@ -1,0 +1,81 @@
+[{
+	"Mandt": "Mandt 1",
+	"Notificationtype": "Notificationtype 1",
+	"Notificationtypename": "Notificationtypename 1",
+	"__metadata": {
+		"uri": "PMNotificationTypeVH('Notificationtype%201')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationTypeVH"
+	}
+}, {
+	"Mandt": "Mandt 2",
+	"Notificationtype": "Notificationtype 2",
+	"Notificationtypename": "Notificationtypename 2",
+	"__metadata": {
+		"uri": "PMNotificationTypeVH('Notificationtype%202')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationTypeVH"
+	}
+}, {
+	"Mandt": "Mandt 3",
+	"Notificationtype": "Notificationtype 3",
+	"Notificationtypename": "Notificationtypename 3",
+	"__metadata": {
+		"uri": "PMNotificationTypeVH('Notificationtype%203')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationTypeVH"
+	}
+}, {
+	"Mandt": "Mandt 4",
+	"Notificationtype": "Notificationtype 4",
+	"Notificationtypename": "Notificationtypename 4",
+	"__metadata": {
+		"uri": "PMNotificationTypeVH('Notificationtype%204')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationTypeVH"
+	}
+}, {
+	"Mandt": "Mandt 5",
+	"Notificationtype": "Notificationtype 5",
+	"Notificationtypename": "Notificationtypename 5",
+	"__metadata": {
+		"uri": "PMNotificationTypeVH('Notificationtype%205')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationTypeVH"
+	}
+}, {
+	"Mandt": "Mandt 6",
+	"Notificationtype": "Notificationtype 6",
+	"Notificationtypename": "Notificationtypename 6",
+	"__metadata": {
+		"uri": "PMNotificationTypeVH('Notificationtype%206')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationTypeVH"
+	}
+}, {
+	"Mandt": "Mandt 7",
+	"Notificationtype": "Notificationtype 7",
+	"Notificationtypename": "Notificationtypename 7",
+	"__metadata": {
+		"uri": "PMNotificationTypeVH('Notificationtype%207')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationTypeVH"
+	}
+}, {
+	"Mandt": "Mandt 8",
+	"Notificationtype": "Notificationtype 8",
+	"Notificationtypename": "Notificationtypename 8",
+	"__metadata": {
+		"uri": "PMNotificationTypeVH('Notificationtype%208')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationTypeVH"
+	}
+}, {
+	"Mandt": "Mandt 9",
+	"Notificationtype": "Notificationtype 9",
+	"Notificationtypename": "Notificationtypename 9",
+	"__metadata": {
+		"uri": "PMNotificationTypeVH('Notificationtype%209')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationTypeVH"
+	}
+}, {
+	"Mandt": "Mandt 10",
+	"Notificationtype": "Notificationtype 10",
+	"Notificationtypename": "Notificationtypename 10",
+	"__metadata": {
+		"uri": "PMNotificationTypeVH('Notificationtype%2010')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationTypeVH"
+	}
+}]

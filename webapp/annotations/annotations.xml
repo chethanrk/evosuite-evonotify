@@ -22,10 +22,7 @@
 	</edmx:Reference>
 	<edmx:DataServices>
 		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm">
-			<Annotations Target="/EVORA/EL_NOTIFICATION_SRV.PMNotification/Maintobjectdowntimeduration">
-				<Annotation Term="CQP.Unit"/>
-			</Annotations>
-			<Annotations Target="/EVORA/EL_NOTIFICATION_SRV.PMNotification">
+			<Annotations Target="EVORA.EL_NOTIFICATION_SRV.PMNotification">
 				<Annotation Term="UI.HeaderInfo">
 					<Record Type="UI.HeaderInfoType">
 						<PropertyValue Property="TypeName" String="{@i18n&gt;@MAINTENANCE_NOTIFICATION}"/>
