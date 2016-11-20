@@ -60,6 +60,13 @@
 												</smartField:configuration>
 											</smartField:SmartField>
 										</smartForm:GroupElement>
+										<smartForm:GroupElement>
+											<smartField:SmartField value="{Notificationtype}">
+												<smartField:configuration>
+													<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+												</smartField:configuration>
+											</smartField:SmartField>
+										</smartForm:GroupElement>
 									</smartForm:Group>
 								</smartForm:SmartForm>
 							</uxap:blocks>
