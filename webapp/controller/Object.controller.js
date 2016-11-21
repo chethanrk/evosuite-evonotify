@@ -47,15 +47,14 @@ sap.ui.define([
 				
 				// Model used to manipulate control states
 				oViewModel = new JSONModel({
-					worklistTableTitle : this.getResourceBundle().getText("worklistTableTitle"),
-					saveAsTileTitle: this.getResourceBundle().getText("worklistViewTitle"),
-					shareOnJamTitle: this.getResourceBundle().getText("worklistViewTitle"),
-					shareSendEmailSubject: this.getResourceBundle().getText("shareSendEmailWorklistSubject"),
-					shareSendEmailMessage: this.getResourceBundle().getText("shareSendEmailWorklistMessage", [location.href]),
+					itemsTableTitle : this.getResourceBundle().getText("itemsTableTitle"),
+					saveAsTileTitle: this.getResourceBundle().getText("itemsViewTitle"),
+					shareOnJamTitle: this.getResourceBundle().getText("itemsViewTitle"),
 					tableNoDataText : this.getResourceBundle().getText("tableNoDataText"),
-					tableBusyDelay : 0
+					tableBusyDelay : 0,
+					items: []
 				});
-				this.setModel(oViewModel, "worklistView");
+				this.setModel(oViewModel, "itemsView");
 			},
 
 			/* =========================================================== */
@@ -75,7 +74,7 @@ sap.ui.define([
 				if (sPreviousHash !== undefined) {
 					history.go(-1);
 				} else {
-					this.getRouter().navTo("worklist", {}, true);
+					this.getRouter().navTo("itemsView", {}, true);
 				}
 			},
 			
@@ -124,13 +123,15 @@ sap.ui.define([
 					},
 					events: {
 						change: this._onBindingChange.bind(this),
-						dataRequested: function () {
+						dataRequested: function (data) {
 							oDataModel.metadataLoaded().then(function () {
 								// Busy indicator on view should only be set if metadata is loaded,
 								// otherwise there may be two busy indications next to each other on the
 								// screen. This happens because route matched handler already calls '_bindView'
 								// while metadata is loaded.
 								oViewModel.setProperty("/busy", true);
+								console.log(data);
+								
 							});
 						},
 						dataReceived: function () {
@@ -151,17 +152,8 @@ sap.ui.define([
 					return;
 				}
 
-				var oResourceBundle = this.getResourceBundle(),
-					oObject = oView.getBindingContext().getObject(),
-					sObjectId = oObject.Maintenancenotification,
-					sObjectName = oObject.Notificationtext;
-
 				// Everything went fine.
 				oViewModel.setProperty("/busy", false);
-				oViewModel.setProperty("/shareSendEmailSubject",
-				oResourceBundle.getText("shareSendEmailObjectSubject", [sObjectId]));
-				oViewModel.setProperty("/shareSendEmailMessage",
-				oResourceBundle.getText("shareSendEmailObjectMessage", [sObjectName, sObjectId, location.href]));
 			}
 
 		});

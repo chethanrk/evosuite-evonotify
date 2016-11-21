@@ -9,7 +9,8 @@
 	xmlns:layout="sap.ui.layout"
 	xmlns:smartField="sap.ui.comp.smartfield"
 	xmlns:uxap="sap.uxap"
-	xmlns:sample="sap.uxap.sample.AnchorBar.block">
+	xmlns:details="com.evorait.evolite.evonotify.block.details"
+	xmlns:items="com.evorait.evolite.evonotify.block.items">
 
 	<Page title="EvoNotify" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack">
 		
@@ -19,55 +20,34 @@
 		busyIndicatorDelay="{objectView>/delay}">
 		
 		<uxap:headerTitle>
-			<uxap:ObjectPageHeader objectTitle="{Maintenancenotification} {Notificationtext}">
+			<uxap:ObjectPageHeader objectTitle="{Notificationtext}" objectSubtitle="{Maintenancenotification}">
 				<uxap:actions>
 					<uxap:ObjectPageHeaderActionButton icon="sap-icon://edit" text="show state" type="Emphasized" press="toggleFooter"/>
 				</uxap:actions>
 			</uxap:ObjectPageHeader>
 		</uxap:headerTitle>
- 
+		
 		<uxap:headerContent>
-			<ObjectAttribute text="{/#PMNotifications/Creationdate/@sap:label}: {path: 'Creationdate', formatter: '.formatter.date'} {path: 'Creationtime', formatter: '.formatter.time'}"/>
+			<layout:VerticalLayout>
+				<ObjectStatus title="{/#PMNotifications/Notificationtype/@sap:label}" 
+					text="{Notificationtypename}"/>
+				<ObjectStatus title="{/#PMNotifications/Maintenanceobjectisdown/@sap:label}" 
+					text="{Maintenanceobjectisdown}"/>
+			</layout:VerticalLayout>
+			<layout:VerticalLayout>
+				<ObjectStatus title="{/#PMNotifications/Maintpriority/@sap:label}" 
+					text="{Maintprioritytext}"/>
+				<ObjectStatus title="{/#PMNotifications/Creationdate/@sap:label}" 
+					text="{path: 'Creationdate', formatter: '.formatter.date'} {path: 'Creationtime', formatter: '.formatter.time'}"/>
+			</layout:VerticalLayout>
 		</uxap:headerContent>
  
 		<uxap:sections>
-			<uxap:ObjectPageSection id="goalsSection" title="2014 Goals Plan">
+			<uxap:ObjectPageSection title="Details">
 				<uxap:subSections>
-					<uxap:ObjectPageSubSection id="goalsSectionSS1" title=" ">
+					<uxap:ObjectPageSubSection>
 						<uxap:blocks>
-							<form:SimpleForm id="notificationForm"
-							minWidth="1024"
-							maxContainerCols="2"
-							editable="true"
-							layout="ResponsiveGridLayout"
-							labelSpanL="4"
-							labelSpanM="4"
-							emptySpanL="0"
-							emptySpanM="0"
-							columnsL="2"
-							columnsM="2"
-							class="editableForm">
-							<form:content>
-								
-								<smartField:SmartLabel labelFor="NotificationtextId" />
-								<smartField:SmartField value="{Notificationtext}" id="NotificationtextId" class="editable"/>
-								
-								<smartField:SmartLabel labelFor="NotificationtypenameId" />
-								<smartField:SmartField value="{Notificationtypename}" 
-								id="NotificationtypenameId" class="editable" showValueHelp="true"/>
-				
-								<Label text="{/#PMNotifications/Notificationtext/@sap:label}" />
-								<Input value="{Notificationtext}" />
-								<Label text="{/#PMNotifications/Notificationtypename/@sap:label}" />
-								<Input value="{Street}" showValueHelp="true"/>
-								
-								<core:Title text="Online" />
-								<Label text="Web" />
-								<Input value="{Url}" />
-								<Label text="Twitter" />
-								<Input value="{Twitter}" />
-							</form:content>
-						</form:SimpleForm>
+							<details:DetailsSimpleFormBlock id="detailsSimpleForm"/>
 						</uxap:blocks>
 					</uxap:ObjectPageSubSection>
 				</uxap:subSections>
@@ -75,7 +55,11 @@
  
 			<uxap:ObjectPageSection title="Items">
 				<uxap:subSections>
-					
+					<uxap:ObjectPageSubSection>
+						<uxap:blocks>
+							<items:ItemsTableBlock id="itemsTable"/>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
 				</uxap:subSections>
 			</uxap:ObjectPageSection>
 		</uxap:sections>

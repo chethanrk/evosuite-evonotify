@@ -9,6 +9,11 @@
       "templateId": "com.sap.webide.annotationmodeller.CreateAnnotationTemplate",
       "templateVersion": "1.0.0",
       "dateTimeStamp": "Thu, 17 Nov 2016 12:53:03 GMT"
+    },
+    {
+      "templateId": "ui5template.basicSAPUI5ApplicationComponent",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Mon, 21 Nov 2016 09:17:29 GMT"
     }
   ],
   "translation": {
