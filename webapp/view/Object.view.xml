@@ -1,65 +1,99 @@
-<mvc:View
-	height="100%"
-	controllerName="com.evorait.evolite.evonotify.controller.Object"
-	xmlns="sap.m"
+<mvc:View height="100%" 
+	controllerName="com.evorait.evolite.evonotify.controller.Object" 
+	xmlns="sap.m" 
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:semantic="sap.m.semantic"
-	xmlns:form="sap.ui.layout.form"
-	xmlns:core="sap.ui.core"
+	xmlns:semantic="sap.m.semantic" 
+	xmlns:form="sap.ui.layout.form" 
+	xmlns:core="sap.ui.core" 
 	xmlns:layout="sap.ui.layout"
-	xmlns:smartField="sap.ui.comp.smartfield"
+	xmlns:smartField="sap.ui.comp.smartfield" 
+	xmlns:smartForm="sap.ui.comp.smartform" 
 	xmlns:uxap="sap.uxap"
+	xmlns:smartTable="sap.ui.comp.smarttable"
 	xmlns:details="com.evorait.evolite.evonotify.block.details"
 	xmlns:items="com.evorait.evolite.evonotify.block.items">
-
-	<Page title="EvoNotify" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack">
-		
-	<uxap:ObjectPageLayout id="ObjectPageLayout"
-		enableLazyLoading="false"
-		busy="{objectView>/busy}"
-		busyIndicatorDelay="{objectView>/delay}">
-		
-		<uxap:headerTitle>
-			<uxap:ObjectPageHeader objectTitle="{Notificationtext}" objectSubtitle="{Maintenancenotification}">
-				<uxap:actions>
-					<uxap:ObjectPageHeaderActionButton icon="sap-icon://edit" text="show state" type="Emphasized" press="toggleFooter"/>
-				</uxap:actions>
-			</uxap:ObjectPageHeader>
-		</uxap:headerTitle>
-		
-		<uxap:headerContent>
-			<layout:VerticalLayout>
-				<ObjectStatus title="{/#PMNotifications/Notificationtype/@sap:label}" 
-					text="{Notificationtypename}"/>
-				<ObjectStatus title="{/#PMNotifications/Maintenanceobjectisdown/@sap:label}" 
-					text="{Maintenanceobjectisdown}"/>
-				<ObjectStatus title="{/#PMNotifications/Maintpriority/@sap:label}" 
-					text="{Maintprioritytext}"/>
-			</layout:VerticalLayout>
-		</uxap:headerContent>
- 
-		<uxap:sections>
-			<uxap:ObjectPageSection title="Details">
-				<uxap:subSections>
-					<uxap:ObjectPageSubSection>
-						<uxap:blocks>
-							<details:DetailsSimpleFormBlock id="detailsSimpleForm"/>
-						</uxap:blocks>
-					</uxap:ObjectPageSubSection>
-				</uxap:subSections>
-			</uxap:ObjectPageSection>
- 
-			<uxap:ObjectPageSection title="Items">
-				<uxap:subSections>
-					<uxap:ObjectPageSubSection>
-						<uxap:blocks>
-							<items:ItemsTableBlock id="itemsTable" itemPress="onPressItem"/>
-						</uxap:blocks>
-					</uxap:ObjectPageSubSection>
-				</uxap:subSections>
-			</uxap:ObjectPageSection>
-		</uxap:sections>
- 
-	</uxap:ObjectPageLayout>
+	
+	<Page title="Notification" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack">
+		<uxap:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" >
+			<uxap:headerTitle>
+				<uxap:ObjectPageHeader objectSubtitle="{Maintenancenotification}" objectTitle="{Notificationtext}">
+					<uxap:actions>
+						<uxap:ObjectPageHeaderActionButton icon="sap-icon://edit" text="show state" type="Emphasized" press="toggleFooter"/>
+					</uxap:actions>
+				</uxap:ObjectPageHeader>
+			</uxap:headerTitle>
+			<uxap:headerContent>
+				<ObjectAttribute
+					text="{/#PMNotification/Creationdate/@sap:label}: {path: 'Creationdate', formatter: '.formatter.date'} {path: 'Creationtime', formatter: '.formatter.time'}"/>
+			</uxap:headerContent>
+			<uxap:sections>
+				<uxap:ObjectPageSection id="general" title="General">
+					<uxap:subSections>
+						<uxap:ObjectPageSubSection id="goalsSectionSS1" title=" ">
+							<uxap:blocks>
+								<smartForm:SmartForm id="SmartNotificationForm" editTogglable="true">
+									<smartForm:Group label="General">
+										<smartForm:GroupElement>
+											<smartField:SmartField value="{Maintenancenotification}"/>
+										</smartForm:GroupElement>
+										<smartForm:GroupElement>
+											<smartField:SmartField value="{Creationdate}"/>
+										</smartForm:GroupElement>
+										<smartForm:GroupElement>
+											<smartField:SmartField value="{Creationtime}"/>
+										</smartForm:GroupElement>
+										<smartForm:GroupElement>
+											<smartField:SmartField value="{Maintpriority}"/>
+										</smartForm:GroupElement>
+										<smartForm:GroupElement>
+											<smartField:SmartField value="{Reportedbyuser}"/>
+										</smartForm:GroupElement>
+										<smartForm:GroupElement>
+											<smartField:SmartField value="{Createdbyuser}"/>
+										</smartForm:GroupElement>
+									</smartForm:Group>
+									<smartForm:Group label="Location">
+										<smartForm:GroupElement>
+											<smartField:SmartField value="{Maintenanceworkcenterplant}"/>
+										</smartForm:GroupElement>
+										<smartForm:GroupElement>
+											<smartField:SmartField value="{Assetlocation}"/>
+										</smartForm:GroupElement>
+										<smartForm:GroupElement>
+											<smartField:SmartField value="{Maintenanceplant}"/>
+										</smartForm:GroupElement>
+									</smartForm:Group>
+									<smartForm:Group label="Test">
+										<smartForm:GroupElement>
+											<smartField:SmartField value="{Notificationtype}">
+												<smartField:configuration>
+													<smartField:Configuration controlType="dropDownList" displayBehaviour="descriptionAndId"/>
+												</smartField:configuration>
+											</smartField:SmartField>
+										</smartForm:GroupElement>
+										<smartForm:GroupElement>
+											<smartField:SmartField value="{Notificationtype}">
+												<smartField:configuration>
+													<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+												</smartField:configuration>
+											</smartField:SmartField>
+										</smartForm:GroupElement>
+									</smartForm:Group>
+								</smartForm:SmartForm>
+							</uxap:blocks>
+						</uxap:ObjectPageSubSection>
+					</uxap:subSections>
+				</uxap:ObjectPageSection>
+				<uxap:ObjectPageSection id="items" title="Items">
+					<uxap:subSections>
+						<uxap:ObjectPageSubSection>
+							<uxap:blocks>
+								<items:ItemsTableBlock id="itemsTable" itemPress="onPressItem"/>
+							</uxap:blocks>
+						</uxap:ObjectPageSubSection>
+					</uxap:subSections>
+				</uxap:ObjectPageSection>
+			</uxap:sections>
+		</uxap:ObjectPageLayout>
 	</Page>
 </mvc:View>

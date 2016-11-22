@@ -29,7 +29,9 @@
 	    		enableAutoBinding="true" 
 	    		id="NotificationTable" 
 	    		entitySet="PMNotifications" 
-	    		smartFilterId="NotificationFilter">
+	    		smartFilterId="NotificationFilter"
+	    		showRowCount="true"
+	    		header="{i18n>worklistTableTitle}">
 	    		<Table>
 	    			<ColumnListItem type="Navigation" press="onPress">
 	    			</ColumnListItem>

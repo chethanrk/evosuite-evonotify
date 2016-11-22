@@ -1,0 +1,481 @@
+[{
+	"Mandt": "Mandt 1",
+	"Maintenancenotification": "Maintenancenotification 1",
+	"Notificationtext": "Notificationtext 1",
+	"Notificationtype": "Notificationtype 1",
+	"Notificationtypename": "Notificationtypename 1",
+	"Maintpriority": "Maintpriority 1",
+	"Maintprioritytext": "Maintprioritytext 1",
+	"Notifprocessingphase": "Notifprocessingphase 1",
+	"Notifprocessingphasedesc": "Notifprocessingphasedesc 1",
+	"Creationdate": "/Date(1410121818000)/",
+	"Creationtime": "PT9H5M43S",
+	"Maintprioritytype": "Maintprioritytype 1",
+	"Iscompleted": "Iscompleted 1",
+	"Isdeleted": "Isdeleted 1",
+	"Reportedbyuser": "Reportedbyuser 1",
+	"Reportedbyuserdescription": "Reportedbyuserdescription 1",
+	"Createdbyuser": "Createdbyuser 1",
+	"Createdbyuserdescription": "Createdbyuserdescription 1",
+	"Maintenanceobjectisdown": false,
+	"Malfunctionstartdate": "/Date(1235943018000)/",
+	"Malfunctionstarttime": "PT0H24M41S",
+	"Malfunctionenddate": "/Date(1510176618000)/",
+	"Malfunctionendtime": "PT8H41M7S",
+	"Maintobjectdowntimeduration": 9183.46,
+	"Maintobjdowntimedurationunit": "Maintobjdowntimedurationunit 1",
+	"Requiredstartdate": "/Date(1321219818000)/",
+	"Requiredstarttime": "PT14H22M16S",
+	"Requiredenddate": "/Date(1498681818000)/",
+	"Requiredendtime": "PT4H21M36S",
+	"Maintenancerevision": "Maintenancerevision 1",
+	"Maintenanceworkcenterplant": "Maintenanceworkcenterplant 1",
+	"Assetlocation": "Assetlocation 1",
+	"Maintenanceplant": "Maintenanceplant 1",
+	"__metadata": {
+		"uri": "PMNotifications('Maintenancenotification%201')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotification"
+	},
+	"to_PMNotificationItem": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification%201')/to_PMNotificationItem"
+		}
+	},
+	"to_PMNotificationTypeVH": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification%201')/to_PMNotificationTypeVH"
+		}
+	}
+}, {
+	"Mandt": "Mandt 2",
+	"Maintenancenotification": "Maintenancenotification 2",
+	"Notificationtext": "Notificationtext 2",
+	"Notificationtype": "Notificationtype 2",
+	"Notificationtypename": "Notificationtypename 2",
+	"Maintpriority": "Maintpriority 2",
+	"Maintprioritytext": "Maintprioritytext 2",
+	"Notifprocessingphase": "Notifprocessingphase 2",
+	"Notifprocessingphasedesc": "Notifprocessingphasedesc 2",
+	"Creationdate": "/Date(1093120218000)/",
+	"Creationtime": "PT2H18M47S",
+	"Maintprioritytype": "Maintprioritytype 2",
+	"Iscompleted": "Iscompleted 2",
+	"Isdeleted": "Isdeleted 2",
+	"Reportedbyuser": "Reportedbyuser 2",
+	"Reportedbyuserdescription": "Reportedbyuserdescription 2",
+	"Createdbyuser": "Createdbyuser 2",
+	"Createdbyuserdescription": "Createdbyuserdescription 2",
+	"Maintenanceobjectisdown": true,
+	"Malfunctionstartdate": "/Date(952119018000)/",
+	"Malfunctionstarttime": "PT4H23M58S",
+	"Malfunctionenddate": "/Date(1212006618000)/",
+	"Malfunctionendtime": "PT17H28M56S",
+	"Maintobjectdowntimeduration": 2640.7,
+	"Maintobjdowntimedurationunit": "Maintobjdowntimedurationunit 2",
+	"Requiredstartdate": "/Date(1415482218000)/",
+	"Requiredstarttime": "PT5H31M36S",
+	"Requiredenddate": "/Date(1531168218000)/",
+	"Requiredendtime": "PT13H42M30S",
+	"Maintenancerevision": "Maintenancerevision 2",
+	"Maintenanceworkcenterplant": "Maintenanceworkcenterplant 2",
+	"Assetlocation": "Assetlocation 2",
+	"Maintenanceplant": "Maintenanceplant 2",
+	"__metadata": {
+		"uri": "PMNotifications('Maintenancenotification%202')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotification"
+	},
+	"to_PMNotificationItem": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification%202')/to_PMNotificationItem"
+		}
+	},
+	"to_PMNotificationTypeVH": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification%202')/to_PMNotificationTypeVH"
+		}
+	}
+}, {
+	"Mandt": "Mandt 3",
+	"Maintenancenotification": "Maintenancenotification 3",
+	"Notificationtext": "Notificationtext 3",
+	"Notificationtype": "Notificationtype 3",
+	"Notificationtypename": "Notificationtypename 3",
+	"Maintpriority": "Maintpriority 3",
+	"Maintprioritytext": "Maintprioritytext 3",
+	"Notifprocessingphase": "Notifprocessingphase 3",
+	"Notifprocessingphasedesc": "Notifprocessingphasedesc 3",
+	"Creationdate": "/Date(1367440218000)/",
+	"Creationtime": "PT3H4M30S",
+	"Maintprioritytype": "Maintprioritytype 3",
+	"Iscompleted": "Iscompleted 3",
+	"Isdeleted": "Isdeleted 3",
+	"Reportedbyuser": "Reportedbyuser 3",
+	"Reportedbyuserdescription": "Reportedbyuserdescription 3",
+	"Createdbyuser": "Createdbyuser 3",
+	"Createdbyuserdescription": "Createdbyuserdescription 3",
+	"Maintenanceobjectisdown": true,
+	"Malfunctionstartdate": "/Date(1027197018000)/",
+	"Malfunctionstarttime": "PT11H19M6S",
+	"Malfunctionenddate": "/Date(1351369818000)/",
+	"Malfunctionendtime": "PT19H13M32S",
+	"Maintobjectdowntimeduration": 7414.09,
+	"Maintobjdowntimedurationunit": "Maintobjdowntimedurationunit 3",
+	"Requiredstartdate": "/Date(1452029418000)/",
+	"Requiredstarttime": "PT22H57M4S",
+	"Requiredenddate": "/Date(1085344218000)/",
+	"Requiredendtime": "PT10H24M43S",
+	"Maintenancerevision": "Maintenancerevision 3",
+	"Maintenanceworkcenterplant": "Maintenanceworkcenterplant 3",
+	"Assetlocation": "Assetlocation 3",
+	"Maintenanceplant": "Maintenanceplant 3",
+	"__metadata": {
+		"uri": "PMNotifications('Maintenancenotification%203')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotification"
+	},
+	"to_PMNotificationItem": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification%203')/to_PMNotificationItem"
+		}
+	},
+	"to_PMNotificationTypeVH": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification%203')/to_PMNotificationTypeVH"
+		}
+	}
+}, {
+	"Mandt": "Mandt 4",
+	"Maintenancenotification": "Maintenancenotification 4",
+	"Notificationtext": "Notificationtext 4",
+	"Notificationtype": "Notificationtype 4",
+	"Notificationtypename": "Notificationtypename 4",
+	"Maintpriority": "Maintpriority 4",
+	"Maintprioritytext": "Maintprioritytext 4",
+	"Notifprocessingphase": "Notifprocessingphase 4",
+	"Notifprocessingphasedesc": "Notifprocessingphasedesc 4",
+	"Creationdate": "/Date(1538771418000)/",
+	"Creationtime": "PT17H53M35S",
+	"Maintprioritytype": "Maintprioritytype 4",
+	"Iscompleted": "Iscompleted 4",
+	"Isdeleted": "Isdeleted 4",
+	"Reportedbyuser": "Reportedbyuser 4",
+	"Reportedbyuserdescription": "Reportedbyuserdescription 4",
+	"Createdbyuser": "Createdbyuser 4",
+	"Createdbyuserdescription": "Createdbyuserdescription 4",
+	"Maintenanceobjectisdown": false,
+	"Malfunctionstartdate": "/Date(1402518618000)/",
+	"Malfunctionstarttime": "PT8H51M22S",
+	"Malfunctionenddate": "/Date(1402605018000)/",
+	"Malfunctionendtime": "PT14H24M48S",
+	"Maintobjectdowntimeduration": 3073.88,
+	"Maintobjdowntimedurationunit": "Maintobjdowntimedurationunit 4",
+	"Requiredstartdate": "/Date(1256329818000)/",
+	"Requiredstarttime": "PT17H31M57S",
+	"Requiredenddate": "/Date(1013635818000)/",
+	"Requiredendtime": "PT10H34M53S",
+	"Maintenancerevision": "Maintenancerevision 4",
+	"Maintenanceworkcenterplant": "Maintenanceworkcenterplant 4",
+	"Assetlocation": "Assetlocation 4",
+	"Maintenanceplant": "Maintenanceplant 4",
+	"__metadata": {
+		"uri": "PMNotifications('Maintenancenotification%204')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotification"
+	},
+	"to_PMNotificationItem": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification%204')/to_PMNotificationItem"
+		}
+	},
+	"to_PMNotificationTypeVH": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification%204')/to_PMNotificationTypeVH"
+		}
+	}
+}, {
+	"Mandt": "Mandt 5",
+	"Maintenancenotification": "Maintenancenotification 5",
+	"Notificationtext": "Notificationtext 5",
+	"Notificationtype": "Notificationtype 5",
+	"Notificationtypename": "Notificationtypename 5",
+	"Maintpriority": "Maintpriority 5",
+	"Maintprioritytext": "Maintprioritytext 5",
+	"Notifprocessingphase": "Notifprocessingphase 5",
+	"Notifprocessingphasedesc": "Notifprocessingphasedesc 5",
+	"Creationdate": "/Date(1451770218000)/",
+	"Creationtime": "PT7H53M39S",
+	"Maintprioritytype": "Maintprioritytype 5",
+	"Iscompleted": "Iscompleted 5",
+	"Isdeleted": "Isdeleted 5",
+	"Reportedbyuser": "Reportedbyuser 5",
+	"Reportedbyuserdescription": "Reportedbyuserdescription 5",
+	"Createdbyuser": "Createdbyuser 5",
+	"Createdbyuserdescription": "Createdbyuserdescription 5",
+	"Maintenanceobjectisdown": false,
+	"Malfunctionstartdate": "/Date(1410553818000)/",
+	"Malfunctionstarttime": "PT3H2M5S",
+	"Malfunctionenddate": "/Date(992982618000)/",
+	"Malfunctionendtime": "PT0H24M19S",
+	"Maintobjectdowntimeduration": 5761.98,
+	"Maintobjdowntimedurationunit": "Maintobjdowntimedurationunit 5",
+	"Requiredstartdate": "/Date(1498422618000)/",
+	"Requiredstarttime": "PT5H43M0S",
+	"Requiredenddate": "/Date(1391290218000)/",
+	"Requiredendtime": "PT5H49M25S",
+	"Maintenancerevision": "Maintenancerevision 5",
+	"Maintenanceworkcenterplant": "Maintenanceworkcenterplant 5",
+	"Assetlocation": "Assetlocation 5",
+	"Maintenanceplant": "Maintenanceplant 5",
+	"__metadata": {
+		"uri": "PMNotifications('Maintenancenotification%205')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotification"
+	},
+	"to_PMNotificationItem": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification%205')/to_PMNotificationItem"
+		}
+	},
+	"to_PMNotificationTypeVH": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification%205')/to_PMNotificationTypeVH"
+		}
+	}
+}, {
+	"Mandt": "Mandt 6",
+	"Maintenancenotification": "Maintenancenotification 6",
+	"Notificationtext": "Notificationtext 6",
+	"Notificationtype": "Notificationtype 6",
+	"Notificationtypename": "Notificationtypename 6",
+	"Maintpriority": "Maintpriority 6",
+	"Maintprioritytext": "Maintprioritytext 6",
+	"Notifprocessingphase": "Notifprocessingphase 6",
+	"Notifprocessingphasedesc": "Notifprocessingphasedesc 6",
+	"Creationdate": "/Date(1468787418000)/",
+	"Creationtime": "PT2H18M54S",
+	"Maintprioritytype": "Maintprioritytype 6",
+	"Iscompleted": "Iscompleted 6",
+	"Isdeleted": "Isdeleted 6",
+	"Reportedbyuser": "Reportedbyuser 6",
+	"Reportedbyuserdescription": "Reportedbyuserdescription 6",
+	"Createdbyuser": "Createdbyuser 6",
+	"Createdbyuserdescription": "Createdbyuserdescription 6",
+	"Maintenanceobjectisdown": true,
+	"Malfunctionstartdate": "/Date(1466800218000)/",
+	"Malfunctionstarttime": "PT5H14M24S",
+	"Malfunctionenddate": "/Date(1012339818000)/",
+	"Malfunctionendtime": "PT19H27M2S",
+	"Maintobjectdowntimeduration": 3564.9,
+	"Maintobjdowntimedurationunit": "Maintobjdowntimedurationunit 6",
+	"Requiredstartdate": "/Date(975274218000)/",
+	"Requiredstarttime": "PT1H2M19S",
+	"Requiredenddate": "/Date(963865818000)/",
+	"Requiredendtime": "PT8H58M58S",
+	"Maintenancerevision": "Maintenancerevision 6",
+	"Maintenanceworkcenterplant": "Maintenanceworkcenterplant 6",
+	"Assetlocation": "Assetlocation 6",
+	"Maintenanceplant": "Maintenanceplant 6",
+	"__metadata": {
+		"uri": "PMNotifications('Maintenancenotification%206')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotification"
+	},
+	"to_PMNotificationItem": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification%206')/to_PMNotificationItem"
+		}
+	},
+	"to_PMNotificationTypeVH": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification%206')/to_PMNotificationTypeVH"
+		}
+	}
+}, {
+	"Mandt": "Mandt 7",
+	"Maintenancenotification": "Maintenancenotification 7",
+	"Notificationtext": "Notificationtext 7",
+	"Notificationtype": "Notificationtype 7",
+	"Notificationtypename": "Notificationtypename 7",
+	"Maintpriority": "Maintpriority 7",
+	"Maintprioritytext": "Maintprioritytext 7",
+	"Notifprocessingphase": "Notifprocessingphase 7",
+	"Notifprocessingphasedesc": "Notifprocessingphasedesc 7",
+	"Creationdate": "/Date(1340656218000)/",
+	"Creationtime": "PT19H21M41S",
+	"Maintprioritytype": "Maintprioritytype 7",
+	"Iscompleted": "Iscompleted 7",
+	"Isdeleted": "Isdeleted 7",
+	"Reportedbyuser": "Reportedbyuser 7",
+	"Reportedbyuserdescription": "Reportedbyuserdescription 7",
+	"Createdbyuser": "Createdbyuser 7",
+	"Createdbyuserdescription": "Createdbyuserdescription 7",
+	"Maintenanceobjectisdown": false,
+	"Malfunctionstartdate": "/Date(1491856218000)/",
+	"Malfunctionstarttime": "PT3H53M56S",
+	"Malfunctionenddate": "/Date(1039901418000)/",
+	"Malfunctionendtime": "PT22H25M40S",
+	"Maintobjectdowntimeduration": 4944.89,
+	"Maintobjdowntimedurationunit": "Maintobjdowntimedurationunit 7",
+	"Requiredstartdate": "/Date(1552426218000)/",
+	"Requiredstarttime": "PT16H6M8S",
+	"Requiredenddate": "/Date(1156451418000)/",
+	"Requiredendtime": "PT12H10M21S",
+	"Maintenancerevision": "Maintenancerevision 7",
+	"Maintenanceworkcenterplant": "Maintenanceworkcenterplant 7",
+	"Assetlocation": "Assetlocation 7",
+	"Maintenanceplant": "Maintenanceplant 7",
+	"__metadata": {
+		"uri": "PMNotifications('Maintenancenotification%207')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotification"
+	},
+	"to_PMNotificationItem": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification%207')/to_PMNotificationItem"
+		}
+	},
+	"to_PMNotificationTypeVH": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification%207')/to_PMNotificationTypeVH"
+		}
+	}
+}, {
+	"Mandt": "Mandt 8",
+	"Maintenancenotification": "Maintenancenotification 8",
+	"Notificationtext": "Notificationtext 8",
+	"Notificationtype": "Notificationtype 8",
+	"Notificationtypename": "Notificationtypename 8",
+	"Maintpriority": "Maintpriority 8",
+	"Maintprioritytext": "Maintprioritytext 8",
+	"Notifprocessingphase": "Notifprocessingphase 8",
+	"Notifprocessingphasedesc": "Notifprocessingphasedesc 8",
+	"Creationdate": "/Date(1538857818000)/",
+	"Creationtime": "PT10H5M8S",
+	"Maintprioritytype": "Maintprioritytype 8",
+	"Iscompleted": "Iscompleted 8",
+	"Isdeleted": "Isdeleted 8",
+	"Reportedbyuser": "Reportedbyuser 8",
+	"Reportedbyuserdescription": "Reportedbyuserdescription 8",
+	"Createdbyuser": "Createdbyuser 8",
+	"Createdbyuserdescription": "Createdbyuserdescription 8",
+	"Maintenanceobjectisdown": false,
+	"Malfunctionstartdate": "/Date(987971418000)/",
+	"Malfunctionstarttime": "PT5H6M8S",
+	"Malfunctionenddate": "/Date(1258579818000)/",
+	"Malfunctionendtime": "PT4H3M18S",
+	"Maintobjectdowntimeduration": 2871.17,
+	"Maintobjdowntimedurationunit": "Maintobjdowntimedurationunit 8",
+	"Requiredstartdate": "/Date(1019766618000)/",
+	"Requiredstarttime": "PT3H17M15S",
+	"Requiredenddate": "/Date(1397421018000)/",
+	"Requiredendtime": "PT16H19M29S",
+	"Maintenancerevision": "Maintenancerevision 8",
+	"Maintenanceworkcenterplant": "Maintenanceworkcenterplant 8",
+	"Assetlocation": "Assetlocation 8",
+	"Maintenanceplant": "Maintenanceplant 8",
+	"__metadata": {
+		"uri": "PMNotifications('Maintenancenotification%208')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotification"
+	},
+	"to_PMNotificationItem": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification%208')/to_PMNotificationItem"
+		}
+	},
+	"to_PMNotificationTypeVH": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification%208')/to_PMNotificationTypeVH"
+		}
+	}
+}, {
+	"Mandt": "Mandt 9",
+	"Maintenancenotification": "Maintenancenotification 9",
+	"Notificationtext": "Notificationtext 9",
+	"Notificationtype": "Notificationtype 9",
+	"Notificationtypename": "Notificationtypename 9",
+	"Maintpriority": "Maintpriority 9",
+	"Maintprioritytext": "Maintprioritytext 9",
+	"Notifprocessingphase": "Notifprocessingphase 9",
+	"Notifprocessingphasedesc": "Notifprocessingphasedesc 9",
+	"Creationdate": "/Date(1250973018000)/",
+	"Creationtime": "PT4H10M48S",
+	"Maintprioritytype": "Maintprioritytype 9",
+	"Iscompleted": "Iscompleted 9",
+	"Isdeleted": "Isdeleted 9",
+	"Reportedbyuser": "Reportedbyuser 9",
+	"Reportedbyuserdescription": "Reportedbyuserdescription 9",
+	"Createdbyuser": "Createdbyuser 9",
+	"Createdbyuserdescription": "Createdbyuserdescription 9",
+	"Maintenanceobjectisdown": true,
+	"Malfunctionstartdate": "/Date(1420320618000)/",
+	"Malfunctionstarttime": "PT11H21M54S",
+	"Malfunctionenddate": "/Date(1469219418000)/",
+	"Malfunctionendtime": "PT21H27M10S",
+	"Maintobjectdowntimeduration": 1241.56,
+	"Maintobjdowntimedurationunit": "Maintobjdowntimedurationunit 9",
+	"Requiredstartdate": "/Date(1475094618000)/",
+	"Requiredstarttime": "PT4H53M1S",
+	"Requiredenddate": "/Date(1107379818000)/",
+	"Requiredendtime": "PT1H19M0S",
+	"Maintenancerevision": "Maintenancerevision 9",
+	"Maintenanceworkcenterplant": "Maintenanceworkcenterplant 9",
+	"Assetlocation": "Assetlocation 9",
+	"Maintenanceplant": "Maintenanceplant 9",
+	"__metadata": {
+		"uri": "PMNotifications('Maintenancenotification%209')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotification"
+	},
+	"to_PMNotificationItem": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification%209')/to_PMNotificationItem"
+		}
+	},
+	"to_PMNotificationTypeVH": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification%209')/to_PMNotificationTypeVH"
+		}
+	}
+}, {
+	"Mandt": "Mandt 10",
+	"Maintenancenotification": "Maintenancenotification 10",
+	"Notificationtext": "Notificationtext 10",
+	"Notificationtype": "Notificationtype 10",
+	"Notificationtypename": "Notificationtypename 10",
+	"Maintpriority": "Maintpriority 10",
+	"Maintprioritytext": "Maintprioritytext 10",
+	"Notifprocessingphase": "Notifprocessingphase 10",
+	"Notifprocessingphasedesc": "Notifprocessingphasedesc 10",
+	"Creationdate": "/Date(1518989418000)/",
+	"Creationtime": "PT2H25M36S",
+	"Maintprioritytype": "Maintprioritytype 10",
+	"Iscompleted": "Iscompleted 10",
+	"Isdeleted": "Isdeleted 10",
+	"Reportedbyuser": "Reportedbyuser 10",
+	"Reportedbyuserdescription": "Reportedbyuserdescription 10",
+	"Createdbyuser": "Createdbyuser 10",
+	"Createdbyuserdescription": "Createdbyuserdescription 10",
+	"Maintenanceobjectisdown": false,
+	"Malfunctionstartdate": "/Date(1326835818000)/",
+	"Malfunctionstarttime": "PT11H51M26S",
+	"Malfunctionenddate": "/Date(1259962218000)/",
+	"Malfunctionendtime": "PT18H29M22S",
+	"Maintobjectdowntimeduration": 4134.2,
+	"Maintobjdowntimedurationunit": "Maintobjdowntimedurationunit 10",
+	"Requiredstartdate": "/Date(961101018000)/",
+	"Requiredstarttime": "PT2H26M14S",
+	"Requiredenddate": "/Date(960323418000)/",
+	"Requiredendtime": "PT1H1M6S",
+	"Maintenancerevision": "Maintenancerevision 10",
+	"Maintenanceworkcenterplant": "Maintenanceworkcenterplant 10",
+	"Assetlocation": "Assetlocation 10",
+	"Maintenanceplant": "Maintenanceplant 10",
+	"__metadata": {
+		"uri": "PMNotifications('Maintenancenotification%2010')",
+		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotification"
+	},
+	"to_PMNotificationItem": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification%2010')/to_PMNotificationItem"
+		}
+	},
+	"to_PMNotificationTypeVH": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification%2010')/to_PMNotificationTypeVH"
+		}
+	}
+}]
