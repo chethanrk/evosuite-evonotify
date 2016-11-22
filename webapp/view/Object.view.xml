@@ -33,12 +33,8 @@
 					text="{Notificationtypename}"/>
 				<ObjectStatus title="{/#PMNotifications/Maintenanceobjectisdown/@sap:label}" 
 					text="{Maintenanceobjectisdown}"/>
-			</layout:VerticalLayout>
-			<layout:VerticalLayout>
 				<ObjectStatus title="{/#PMNotifications/Maintpriority/@sap:label}" 
 					text="{Maintprioritytext}"/>
-				<ObjectStatus title="{/#PMNotifications/Creationdate/@sap:label}" 
-					text="{path: 'Creationdate', formatter: '.formatter.date'} {path: 'Creationtime', formatter: '.formatter.time'}"/>
 			</layout:VerticalLayout>
 		</uxap:headerContent>
  
@@ -57,7 +53,7 @@
 				<uxap:subSections>
 					<uxap:ObjectPageSubSection>
 						<uxap:blocks>
-							<items:ItemsTableBlock id="itemsTable"/>
+							<items:ItemsTableBlock id="itemsTable" itemPress="onPressItem"/>
 						</uxap:blocks>
 					</uxap:ObjectPageSubSection>
 				</uxap:subSections>

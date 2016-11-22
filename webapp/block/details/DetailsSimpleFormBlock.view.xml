@@ -1,4 +1,5 @@
 <mvc:View 
+	controllerName="com.evorait.evolite.evonotify.block.details.DetailsSimpleFormBlockController"
 	xmlns:core="sap.ui.core" 
 	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" 
 	xmlns:form="sap.ui.layout.form"
@@ -7,7 +8,7 @@
 	<form:SimpleForm id="notificationForm"
 		minWidth="1024"
 		maxContainerCols="2"
-		editable="true"
+		editable="false"
 		layout="ResponsiveGridLayout"
 		labelSpanL="4"
 		labelSpanM="4"
@@ -17,13 +18,51 @@
 		columnsM="2"
 		class="editableForm">
 		<form:content>
-			<smartField:SmartLabel labelFor="NotificationtextId" />
-			<smartField:SmartField value="{Notificationtext}" id="NotificationtextId" class="editable"/>
-			<smartField:SmartLabel labelFor="NotificationtypenameId" />
-			<smartField:SmartField value="{Notificationtypename}" id="NotificationtypenameId" class="editable"/>
+			<core:Title text="General" />
+			<Label text="{/#PMNotifications/Maintenancenotification/@sap:label}" />
+			<Text text="{Maintenancenotification}" />
+			<Label text="{/#PMNotifications/Creationdate/@sap:label}" />
+			<Text text="{path: 'Creationdate', formatter: '.formatter.date'} {path: 'Creationtime', formatter: '.formatter.time'}" />
+			<Label text="{/#PMNotifications/Maintpriority/@sap:label}" />
+			<Text text="{Maintprioritytext}" />
+			<Label text="{/#PMNotifications/Reportedbyuser/@sap:label}" />
+			<Text text="{Reportedbyuser}" />
+			<Label text="{/#PMNotifications/Createdbyuser/@sap:label}" />
+			<Text text="{Createdbyuser}" />
+
+			<!--<smartField:SmartLabel labelFor="CreationdateId" />
+			<smartField:SmartField value="{Creationdate}" id="CreationdateId">
+				<smartField:configuration>
+					<smartField:Configuration controlType="datePicker"></smartField:Configuration>
+				</smartField:configuration>
+			</smartField:SmartField>-->
 			
-			<core:Title text="Online" />
-		
+			<core:Title text="Dates" />
+			<Label text="{/#PMNotifications/Requiredstartdate/@sap:label}" />
+			<Text text="{path: 'Requiredstartdate', formatter: '.formatter.date'} {path: 'Requiredstarttime', formatter: '.formatter.time'}" />
+			<Label text="{/#PMNotifications/Requiredenddate/@sap:label}" />
+			<Text text="{path: 'Requiredenddate', formatter: '.formatter.date'} {path: 'Requiredendtime', formatter: '.formatter.time'}" />
+			<Label text="{/#PMNotifications/Maintenancerevision/@sap:label}" />
+			<Text text="{Maintenancerevision}" />
+			
+			<core:Title text="Location" />
+			<Label text="{/#PMNotifications/Maintenanceworkcenterplant/@sap:label}" />
+			<Text text="{Maintenanceworkcenterplant}" />
+			<Label text="{/#PMNotifications/Assetlocation/@sap:label}" />
+			<Text text="{Assetlocation}" />
+			<Label text="{/#PMNotifications/Maintenanceplant/@sap:label}" />
+			<Text text="{Maintenanceplant}" />
+			
+			<core:Title text="Malfunction" />
+			<Label text="{/#PMNotifications/Malfunctionstartdate/@sap:label}" />
+			<Text text="{path: 'Malfunctionstartdate', formatter: '.formatter.date'} {path: 'Malfunctionstarttime', formatter: '.formatter.time'}" />
+			<Label text="{/#PMNotifications/Malfunctionenddate/@sap:label}" />
+			<Text text="{path: 'Malfunctionenddate', formatter: '.formatter.date'} {path: 'Malfunctionendtime', formatter: '.formatter.time'}" />
+			<Label text="{/#PMNotifications/Maintenanceobjectisdown/@sap:label}" />
+			<Text text="{Maintenanceobjectisdown}" />
+			<Label text="{/#PMNotifications/Maintobjectdowntimeduration/@sap:label}" />
+			<Text text="{Maintobjectdowntimeduration} {Maintobjdowntimedurationunit}" />
+			
 		</form:content>
 	</form:SimpleForm>
 </mvc:View>

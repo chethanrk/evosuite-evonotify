@@ -1,9 +1,9 @@
 /*global location*/
 sap.ui.define([
-		"com/evorait/evolite/evonotify/controller/BaseController",
+		"com/test/controller/BaseController",
 		"sap/ui/model/json/JSONModel",
 		"sap/ui/core/routing/History",
-		"com/evorait/evolite/evonotify/model/formatter"
+		"com/test/model/formatter"
 	], function (
 		BaseController,
 		JSONModel,
@@ -12,7 +12,7 @@ sap.ui.define([
 	) {
 		"use strict";
 
-		return BaseController.extend("com.evorait.evolite.evonotify.controller.Object", {
+		return BaseController.extend("com.evorait.evolite.evonotify.view.controller.ObjectItem", {
 
 			formatter: formatter,
 
@@ -44,45 +44,45 @@ sap.ui.define([
 						oViewModel.setProperty("/delay", iOriginalBusyDelay);
 					}
 				);
-				
-				// Model used to manipulate control states
-				oViewModel = new JSONModel({
-					itemsTableTitle : this.getResourceBundle().getText("itemsTableTitle"),
-					saveAsTileTitle: this.getResourceBundle().getText("itemsViewTitle"),
-					shareOnJamTitle: this.getResourceBundle().getText("itemsViewTitle"),
-					tableNoDataText : this.getResourceBundle().getText("tableNoDataText"),
-					tableBusyDelay : 0
-				});
-				this.setModel(oViewModel, "itemsView");
 			},
 
 			/* =========================================================== */
 			/* event handlers                                              */
 			/* =========================================================== */
 
+			/**
+			 * Event handler when the share in JAM button has been clicked
+			 * @public
+			 */
+			onShareInJamPress : function () {
+				var oViewModel = this.getModel("objectView"),
+					oShareDialog = sap.ui.getCore().createComponent({
+						name: "sap.collaboration.components.fiori.sharing.dialog",
+						settings: {
+							object:{
+								id: location.href,
+								share: oViewModel.getProperty("/shareOnJamTitle")
+							}
+						}
+					});
+				oShareDialog.open();
+			},
 
 			/**
 			 * Event handler  for navigating back.
-			 * It there is a history entry we go one step back in the browser history
+			 * It there is a history entry or an previous app-to-app navigation we go one step back in the browser history
 			 * If not, it will replace the current entry of the browser history with the worklist route.
 			 * @public
 			 */
 			onNavBack : function() {
-				var sPreviousHash = History.getInstance().getPreviousHash();
+				var sPreviousHash = History.getInstance().getPreviousHash(),
+					oCrossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation");
 
-				if (sPreviousHash !== undefined) {
+				if (sPreviousHash !== undefined || !oCrossAppNavigator.isInitialNavigation()) {
 					history.go(-1);
 				} else {
-					this.getRouter().navTo("itemsView", {}, true);
+					this.getRouter().navTo("worklist", {}, true);
 				}
-			},
-			
-			onChangeEditMode : function() {
-				var oView = this.getView();
-				var bFlag = !oView.byId("notificationForm").getEditable();
-		 
-				oView.byId("NotificationtypenameId").setContextEditable(bFlag);
-				oView.byId("NotificationtextId").setContextEditable(bFlag);
 			},
 
 			/* =========================================================== */
@@ -117,9 +117,6 @@ sap.ui.define([
 
 				this.getView().bindElement({
 					path: sObjectPath,
-					parameters: {
-						expand: "to_PMNotificationItem"
-					},
 					events: {
 						change: this._onBindingChange.bind(this),
 						dataRequested: function () {
@@ -141,8 +138,7 @@ sap.ui.define([
 			_onBindingChange : function () {
 				var oView = this.getView(),
 					oViewModel = this.getModel("objectView"),
-					oElementBinding = oView.getElementBinding(),
-					boundObject = oView.getModel().getProperty(oElementBinding.sPath);
+					oElementBinding = oView.getElementBinding();
 
 				// No data for the binding
 				if (!oElementBinding.getBoundContext()) {
@@ -150,61 +146,19 @@ sap.ui.define([
 					return;
 				}
 
+				var oResourceBundle = this.getResourceBundle(),
+					oObject = oView.getBindingContext().getObject(),
+					sObjectId = oObject.Maintenancenotification,
+					sObjectName = oObject.Notificationtext;
+
 				// Everything went fine.
 				oViewModel.setProperty("/busy", false);
-				this._getListObjects(boundObject.to_PMNotificationItem);
-			},
-			
-			
-			_getListObjects : function(oNode){
-				var oView = this.getView(),
-					itemsView = this.getModel("itemsView");
-				var results = [];
-				
-				itemsView.setProperty("/busy", true);
-			
-				if (oNode.__ref) {
-					oNode = this.oData[oNode.__ref];
-				} else if (oNode.__list) {
-					oNode = oNode.__list;
-				} else if (oNode.__deferred) {
-					oNode = null;
-				}
-				
-				if(oNode){
-					for (var i = 0; i < oNode.length; i++) {
-			            oView.getModel().read("/"+oNode[i],{
-		                    success: function(data){
-		                        results.push(data);
-		                    }
-		                });
-			        }
-				}
-				
-				// on successfull batch sent
-	             oView.getModel().attachBatchRequestCompleted(function(){
-	                itemsView.setProperty("/items", results);
-	                itemsView.setProperty("/busy", false);
-	            });
-	
-	            // on sent error of batch request
-	             oView.getModel().attachBatchRequestFailed(function(){
-	                itemsView.setProperty("/busy", false);
-	            });
-				
-			},
-			
-			onPressItem : function(oEvent) {
-				// The source is the list item that got pressed
-				var oItem = oEvent.getSource().getBindingContext();
-				console.log(oItem);
-				console.log(oItem.getProperty("Maintenancenotification"));
-				//this._showObject(oEvent.getSource());
-				
-				/*this.getRouter().navTo("object", {
-					objectId: oItem.getProperty("Maintenancenotification"),
-					itemId: oItem.getProperty("Maintenancenotification")
-				});*/
+				oViewModel.setProperty("/saveAsTileTitle", oResourceBundle.getText("saveAsTileTitle", [sObjectName]));
+				oViewModel.setProperty("/shareOnJamTitle", sObjectName);
+				oViewModel.setProperty("/shareSendEmailSubject",
+				oResourceBundle.getText("shareSendEmailObjectSubject", [sObjectId]));
+				oViewModel.setProperty("/shareSendEmailMessage",
+				oResourceBundle.getText("shareSendEmailObjectMessage", [sObjectName, sObjectId, location.href]));
 			}
 
 		});

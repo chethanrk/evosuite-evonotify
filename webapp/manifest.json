@@ -115,6 +115,13 @@
 					"target": [
 						"object"
 					]
+				},
+				{
+					"pattern": "PMNotifications/{objectId}/{itemId}",
+					"name": "item",
+					"target": [
+						"item"
+					]
 				}
 			],
 			"targets": {
@@ -127,6 +134,11 @@
 					"viewName": "Object",
 					"viewId": "object",
 					"viewLevel": 2
+				},
+				"item": {
+					"viewName": "ObjectItem",
+					"viewId": "item",
+					"viewLevel": 3
 				},
 				"objectNotFound": {
 					"viewName": "ObjectNotFound",
