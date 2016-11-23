@@ -33,8 +33,7 @@ sap.ui.define([
 			/* =========================================================== */
 
 			onPressItem : function (oEvent) {
-				var obj = oEvent.getSource().getBindingContext("itemsView").getObject();
-				this.oParentBlock.fireItemPress(oEvent.getSource());
+				this.oParentBlock.fireItemPress(oEvent.getParameters());
 			}
 
 

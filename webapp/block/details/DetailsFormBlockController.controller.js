@@ -24,13 +24,15 @@ sap.ui.define([
 			 */
 			onInit : function () {
 				
-			}
+			},
 
 			/* =========================================================== */
 			/* event handlers                                              */
 			/* =========================================================== */
 
-
+			onEditPress : function (oEvent) {
+				this.oParentBlock.fireEditPress(oEvent.getParameters());
+			}
 
 			/* =========================================================== */
 			/* internal methods                                            */

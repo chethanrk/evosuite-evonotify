@@ -89,12 +89,18 @@ sap.ui.define([
 			 */
 			_onObjectMatched : function (oEvent) {
 				var sObjectId =  oEvent.getParameter("arguments").objectId;
+				
+				this.getModel().setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
 				this.getModel().metadataLoaded().then( function() {
 					var sObjectPath = this.getModel().createKey("PMNotifications", {
 						MaintenanceNotification :  sObjectId
 					});
 					this._bindView("/" + sObjectPath);
 				}.bind(this));
+				
+				this.getModel().attachRejectChange(this,function(oEv){
+				 	console.log(oEv);
+				});
 			},
 
 			/**
@@ -186,15 +192,39 @@ sap.ui.define([
 				
 			},
 			
+			/**
+			 * table item row select
+			 * navigate to notification item
+			 */
 			onPressItem : function(oEvent) {
 				// The source is the list item that got pressed
-				var obj = oEvent.getSource().getBindingContext("itemsView").getObject();
-				console.log(obj);
+				var oParameters = oEvent.getParameters();
+				var sBinding = sap.ui.getCore().byId(oParameters.id).getBindingContext("itemsView");
+				var obj =sBinding.getObject();
 				
 				this.getRouter().navTo("item", {
 					objectId: obj.MaintenanceNotification,
 					itemId: obj.MaintenanceNotificationItem
 				});
+			},
+			
+			onPressEdit : function(oEvent) {
+				var oParameters = oEvent.getParameters();
+				//var sBinding = this.getView().getBindingContextPath();
+				
+				if(!oParameters.editable){
+					this.getView().getModel().submitChanges(function(){
+		 				alert("Update successful");
+	 				},function(){
+	 					alert("Update failed");
+					});
+					
+					/*oModel.update(sBinding.sPath, oData, {
+						success: function(){}, 
+						error: function(){}
+					});*/
+				}
+				
 			}
 
 		});
