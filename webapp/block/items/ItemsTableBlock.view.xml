@@ -8,7 +8,13 @@
 		id="notificationItemsTable"
 		width="auto"
 		class="sapUiNoMargin"
-		items="{itemsView>/items}"
+		items="{
+                path : 'itemsView>/items',
+                sorter : {
+                    path : 'MaintenanceNotificationItem',
+                    descending : false
+                }
+            }"
 		noDataText="{itemsView>/tableNoDataText}"
 		busyIndicatorDelay="{itemsView>/tableBusyDelay}"
 		growing="true"

@@ -13,7 +13,7 @@
 	xmlns:details="com.evorait.evolite.evonotify.block.details"
 	xmlns:items="com.evorait.evolite.evonotify.block.items">
 	
-	<Page title="Notification" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack" floatingFooter="false">
+	<Page title="{i18n>objectViewTitle}" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack">
 		
 		<uxap:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" >
 			<uxap:headerTitle>
@@ -43,7 +43,50 @@
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
-								<items:ItemsTableBlock id="itemsTable" itemPress="onPressItem"/>
+								<!--<items:ItemsTableBlock id="itemsTable" itemPress="onPressItem"/>-->
+								
+								<Table
+									id="notificationItemsTable"
+									width="auto"
+									class="sapUiNoMargin"
+									items="{
+							                path : 'itemsView>/items',
+							                sorter : {
+							                    path : 'MaintenanceNotificationItem',
+							                    descending : false
+							                }
+							            }"
+									noDataText="{itemsView>/tableNoDataText}"
+									busyIndicatorDelay="{itemsView>/tableBusyDelay}"
+									growing="true"
+									growingScrollToLoad="true"
+									updateFinished="onUpdateFinished">
+							
+									<headerToolbar>
+										<Toolbar>
+											<Title id="tableHeader" text="{itemsView>/itemsTableTitle}"/>
+										</Toolbar>
+									</headerToolbar>
+									<columns>
+										<Column>
+											<Text text="{/#PMNotificationItem/MaintenanceNotificationItem/@sap:label}"/>
+										</Column>
+										<Column>
+											<Text text="{/#PMNotificationItem/MaintNotifObjPrtCodeGroup/@sap:label}"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem type="Navigation" press="onPressItem">
+											<cells>
+												<ObjectIdentifier 
+												title="{itemsView>MaintenanceNotificationItem}"
+												text="{itemsView>MaintNotifItemText}"/>
+												<Text text="{itemsView>MaintNotifObjPrtCodeGroupName}"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+	
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>

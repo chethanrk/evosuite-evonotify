@@ -1,9 +1,9 @@
 /*global location*/
 sap.ui.define([
-		"com/test/controller/BaseController",
+		"com/evorait/evolite/evonotify/controller/BaseController",
 		"sap/ui/model/json/JSONModel",
 		"sap/ui/core/routing/History",
-		"com/test/model/formatter"
+		"com/evorait/evolite/evonotify/model/formatter"
 	], function (
 		BaseController,
 		JSONModel,
@@ -12,7 +12,7 @@ sap.ui.define([
 	) {
 		"use strict";
 
-		return BaseController.extend("com.evorait.evolite.evonotify.view.controller.ObjectItem", {
+		return BaseController.extend("com.evorait.evolite.evonotify.controller.ObjectItem", {
 
 			formatter: formatter,
 
@@ -34,7 +34,7 @@ sap.ui.define([
 						delay : 0
 					});
 
-				this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
+				this.getRouter().getRoute("item").attachPatternMatched(this._onObjectMatched, this);
 
 				// Store original busy indicator delay, so it can be restored later on
 				iOriginalBusyDelay = this.getView().getBusyIndicatorDelay();
@@ -75,13 +75,14 @@ sap.ui.define([
 			 * @public
 			 */
 			onNavBack : function() {
-				var sPreviousHash = History.getInstance().getPreviousHash(),
-					oCrossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation");
+			var sPreviousHash = History.getInstance().getPreviousHash();
+			var oObject = this.getView().getBindingContext().getObject(),
+				sObjectId = oObject.MaintenanceNotification;
 
-				if (sPreviousHash !== undefined || !oCrossAppNavigator.isInitialNavigation()) {
+				if (sPreviousHash !== undefined) {
 					history.go(-1);
 				} else {
-					this.getRouter().navTo("worklist", {}, true);
+					this.getRouter().navTo("object", {objectId: sObjectId}, true);
 				}
 			},
 
@@ -97,9 +98,11 @@ sap.ui.define([
 			 */
 			_onObjectMatched : function (oEvent) {
 				var sObjectId =  oEvent.getParameter("arguments").objectId;
+				var sItemId = oEvent.getParameter("arguments").itemId;
 				this.getModel().metadataLoaded().then( function() {
-					var sObjectPath = this.getModel().createKey("PMNotifications", {
-						MaintenanceNotification :  sObjectId
+					var sObjectPath = this.getModel().createKey("PMNotificationItems", {
+						MaintenanceNotification :  sObjectId,
+						MaintenanceNotificationItem : sItemId
 					});
 					this._bindView("/" + sObjectPath);
 				}.bind(this));

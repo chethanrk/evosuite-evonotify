@@ -1,42 +1,70 @@
 <mvc:View
-	controllerName="com.evorait.evolite.evonotify.view.controller.ObjectItem"
-	xmlns="sap.m"
+	controllerName="com.evorait.evolite.evonotify.controller.ObjectItem"
+	xmlns="sap.m" 
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:semantic="sap.m.semantic"
-	xmlns:footerbar="sap.ushell.ui.footerbar">
+	xmlns:semantic="sap.m.semantic" 
+	xmlns:form="sap.ui.layout.form" 
+	xmlns:core="sap.ui.core" 
+	xmlns:layout="sap.ui.layout"
+	xmlns:smartField="sap.ui.comp.smartfield" 
+	xmlns:smartForm="sap.ui.comp.smartform" 
+	xmlns:uxap="sap.uxap"
+	xmlns:smartTable="sap.ui.comp.smarttable">
 
-	<semantic:FullscreenPage
-		id="page"
-		navButtonPress="onNavBack"
-		showNavButton="true"
-		title="{i18n>objectTitle}"
-		busy="{objectView>/busy}"
-		busyIndicatorDelay="{objectView>/delay}">
-
-		<semantic:content>
-			<ObjectHeader
-				id="objectHeader"
-				title="{Notificationtext}"
-				number="{
-							path: 'Maintobjectdowntimeduration',
-							formatter: '.formatter.numberUnit'
-				}"
->
-			</ObjectHeader>
- 		</semantic:content>
-
-		<semantic:sendEmailAction>
-			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
-		</semantic:sendEmailAction>
-
-		<semantic:shareInJamAction>
-			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
-		</semantic:shareInJamAction>
-
-		<semantic:saveAsTileAction>
-			<footerbar:AddBookmarkButton id ="shareTile" title="{objectView>/saveAsTileTitle}" />
-		</semantic:saveAsTileAction>
-
-	</semantic:FullscreenPage>
-
+	<Page title="{i18n>itemViewTitle}" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack">
+		
+		<uxap:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" >
+			<uxap:headerTitle>
+				<uxap:ObjectPageHeader objectTitle="{MaintNotifItemText}">
+					<uxap:actions></uxap:actions>
+				</uxap:ObjectPageHeader>
+			</uxap:headerTitle>
+			
+			<uxap:headerContent></uxap:headerContent>
+			
+			<uxap:sections>
+				<uxap:ObjectPageSection id="general" title="General">
+					<uxap:subSections>
+						<uxap:ObjectPageSubSection>
+							<uxap:blocks>
+								
+								<smartForm:SmartForm editTogglable="false">
+									<smartForm:Group>
+										<smartForm:GroupElement>
+											<smartField:SmartField value="{MaintenanceNotification}"/>
+										</smartForm:GroupElement>
+										<smartForm:GroupElement>
+											<smartField:SmartField value="{MaintenanceNotificationItem}"/>
+										</smartForm:GroupElement>
+										<smartForm:GroupElement>
+											<smartField:SmartField value="{MaintNotifObjPrtCodeGroup}">
+												<smartField:configuration>
+													<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+												</smartField:configuration>
+											</smartField:SmartField>
+										</smartForm:GroupElement>
+										<smartForm:GroupElement>
+											<smartField:SmartField value="{MaintNotifObjPrtCodeGroupName}"/>
+										</smartForm:GroupElement>
+										<smartForm:GroupElement>
+											<smartField:SmartField value="{MaintNotifObjPrtCode}">
+												<smartField:configuration>
+													<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+												</smartField:configuration>
+											</smartField:SmartField>
+										</smartForm:GroupElement>
+										<smartForm:GroupElement>
+											<smartField:SmartField value="{MaintNotifObjPrtCodeName}"/>
+										</smartForm:GroupElement>
+									</smartForm:Group>
+								</smartForm:SmartForm>
+								
+							</uxap:blocks>
+						</uxap:ObjectPageSubSection>
+					</uxap:subSections>
+				</uxap:ObjectPageSection>
+			</uxap:sections>
+		</uxap:ObjectPageLayout>
+		
+	</Page>
 </mvc:View>

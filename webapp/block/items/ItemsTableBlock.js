@@ -3,7 +3,7 @@ sap.ui.define(["sap/uxap/BlockBase"], function (BlockBase) {
 	var myBlock = BlockBase.extend("com.evorait.evolite.evonotify.block.items.ItemsTableBlock", {
 		metadata: {
 			events: {
-				"savePress": {}
+				"itemPress": {}
 			},
 			views: {
 				Collapsed: {

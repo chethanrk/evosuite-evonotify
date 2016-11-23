@@ -1,10 +1,12 @@
 /*global location*/
 sap.ui.define([
 		"com/evorait/evolite/evonotify/controller/BaseController",
+		"sap/ui/core/routing/History",
 		"sap/ui/model/json/JSONModel",
 		"com/evorait/evolite/evonotify/model/formatter"
 	], function (
 		BaseController,
+		History,
 		JSONModel,
 		formatter
 	) {
@@ -31,7 +33,8 @@ sap.ui.define([
 			/* =========================================================== */
 
 			onPressItem : function (oEvent) {
-				this.oParentBlock.fireItemPress(oEvent.getParameters());
+				var obj = oEvent.getSource().getBindingContext("itemsView").getObject();
+				this.oParentBlock.fireItemPress(oEvent.getSource());
 			}
 
 

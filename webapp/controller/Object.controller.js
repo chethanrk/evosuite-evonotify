@@ -73,7 +73,7 @@ sap.ui.define([
 				if (sPreviousHash !== undefined) {
 					history.go(-1);
 				} else {
-					this.getRouter().navTo("itemsView", {}, true);
+					this.getRouter().navTo("worklist", {}, true);
 				}
 			},
 			
@@ -188,15 +188,13 @@ sap.ui.define([
 			
 			onPressItem : function(oEvent) {
 				// The source is the list item that got pressed
-				var oItem = oEvent.getSource().getBindingContext();
-				console.log(oItem);
-				console.log(oItem.getProperty("MaintenanceNotification"));
-				//this._showObject(oEvent.getSource());
+				var obj = oEvent.getSource().getBindingContext("itemsView").getObject();
+				console.log(obj);
 				
-				/*this.getRouter().navTo("object", {
-					objectId: oItem.getProperty("MaintenanceNotification"),
-					itemId: oItem.getProperty("MaintenanceNotification")
-				});*/
+				this.getRouter().navTo("item", {
+					objectId: obj.MaintenanceNotification,
+					itemId: obj.MaintenanceNotificationItem
+				});
 			}
 
 		});
