@@ -98,9 +98,9 @@ sap.ui.define([
 					this._bindView("/" + sObjectPath);
 				}.bind(this));
 				
-				this.getModel().attachRejectChange(this,function(oEv){
+				/*this.getModel().attachRejectChange(this,function(oEv){
 				 	console.log(oEv);
-				});
+				});*/
 			},
 
 			/**

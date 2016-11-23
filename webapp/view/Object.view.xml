@@ -51,12 +51,12 @@
 			</uxap:sections>
 		</uxap:ObjectPageLayout>
 		
-		<footer>
+		<!--<footer>
 			<Toolbar>
 				<ToolbarSpacer/>
 				<Button text="Cancel"></Button>
 				<Button text="Save" type="Accept"></Button>
 			</Toolbar>
-		</footer>
+		</footer>-->
 	</Page>
 </mvc:View>
