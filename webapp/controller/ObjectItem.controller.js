@@ -99,7 +99,7 @@ sap.ui.define([
 				var sObjectId =  oEvent.getParameter("arguments").objectId;
 				this.getModel().metadataLoaded().then( function() {
 					var sObjectPath = this.getModel().createKey("PMNotifications", {
-						Maintenancenotification :  sObjectId
+						MaintenanceNotification :  sObjectId
 					});
 					this._bindView("/" + sObjectPath);
 				}.bind(this));
@@ -148,8 +148,8 @@ sap.ui.define([
 
 				var oResourceBundle = this.getResourceBundle(),
 					oObject = oView.getBindingContext().getObject(),
-					sObjectId = oObject.Maintenancenotification,
-					sObjectName = oObject.Notificationtext;
+					sObjectId = oObject.MaintenanceNotification,
+					sObjectName = oObject.NotificationText;
 
 				// Everything went fine.
 				oViewModel.setProperty("/busy", false);

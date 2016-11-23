@@ -1,8 +1,8 @@
 [{
 	"Mandt": "Mandt 1",
-	"Maintenancenotification": "Maintenancenotification 1",
-	"Notificationtext": "Notificationtext 1",
-	"Notificationtype": "Notificationtype 1",
+	"MaintenanceNotification": "Maintenancenotification 1",
+	"NotificationText": "Notificationtext 1",
+	"NotificationType": "Notificationtype 1",
 	"Notificationtypename": "Notificationtypename 1",
 	"Maintpriority": "Maintpriority 1",
 	"Maintprioritytext": "Maintprioritytext 1",

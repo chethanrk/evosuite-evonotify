@@ -23,10 +23,10 @@
 
 		<columns>
 			<Column>
-				<Text text="{/#PMNotificationItem/Maintenancenotificationitem/@sap:label}"/>
+				<Text text="{/#PMNotificationItem/MaintenanceNotificationItem/@sap:label}"/>
 			</Column>
 			<Column>
-				<Text text="{/#PMNotificationItem/Maintnotifobjprtcodegroup/@sap:label}"/>
+				<Text text="{/#PMNotificationItem/MaintNotifObjPrtCodeGroup/@sap:label}"/>
 			</Column>
 		</columns>
 
@@ -36,9 +36,9 @@
 				press="onPressItem">
 				<cells>
 					<ObjectIdentifier 
-					title="{itemsView>Maintenancenotificationitem}"
-					text="{itemsView>Maintnotifitemtext}"/>
-					<Text text="{itemsView>Maintnotifobjprtcodegroupname}"/>
+					title="{itemsView>MaintenanceNotificationItem}"
+					text="{itemsView>MaintNotifItemText}"/>
+					<Text text="{itemsView>MaintNotifObjPrtCodeGroupName}"/>
 				</cells>
 			</ColumnListItem>
 		</items>

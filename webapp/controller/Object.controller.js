@@ -77,14 +77,6 @@ sap.ui.define([
 				}
 			},
 			
-			onChangeEditMode : function() {
-				var oView = this.getView();
-				var bFlag = !oView.byId("notificationForm").getEditable();
-		 
-				oView.byId("NotificationtypenameId").setContextEditable(bFlag);
-				oView.byId("NotificationtextId").setContextEditable(bFlag);
-			},
-
 			/* =========================================================== */
 			/* internal methods                                            */
 			/* =========================================================== */
@@ -99,7 +91,7 @@ sap.ui.define([
 				var sObjectId =  oEvent.getParameter("arguments").objectId;
 				this.getModel().metadataLoaded().then( function() {
 					var sObjectPath = this.getModel().createKey("PMNotifications", {
-						Maintenancenotification :  sObjectId
+						MaintenanceNotification :  sObjectId
 					});
 					this._bindView("/" + sObjectPath);
 				}.bind(this));
@@ -198,12 +190,12 @@ sap.ui.define([
 				// The source is the list item that got pressed
 				var oItem = oEvent.getSource().getBindingContext();
 				console.log(oItem);
-				console.log(oItem.getProperty("Maintenancenotification"));
+				console.log(oItem.getProperty("MaintenanceNotification"));
 				//this._showObject(oEvent.getSource());
 				
 				/*this.getRouter().navTo("object", {
-					objectId: oItem.getProperty("Maintenancenotification"),
-					itemId: oItem.getProperty("Maintenancenotification")
+					objectId: oItem.getProperty("MaintenanceNotification"),
+					itemId: oItem.getProperty("MaintenanceNotification")
 				});*/
 			}
 

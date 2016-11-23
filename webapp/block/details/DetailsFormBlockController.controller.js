@@ -10,7 +10,7 @@ sap.ui.define([
 	) {
 		"use strict";
 
-		return BaseController.extend("com.evorait.evolite.evonotify.block.details.DetailsSimpleFormBlockController", {
+		return BaseController.extend("com.evorait.evolite.evonotify.block.details.DetailsFormBlockController", {
 
 			formatter: formatter,
 

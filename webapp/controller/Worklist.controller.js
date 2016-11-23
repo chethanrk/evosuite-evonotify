@@ -101,7 +101,7 @@ sap.ui.define([
 					var sQuery = oEvent.getParameter("query");
 
 					if (sQuery && sQuery.length > 0) {
-						oTableSearchState = [new Filter("Notificationtext", FilterOperator.Contains, sQuery)];
+						oTableSearchState = [new Filter("NotificationText", FilterOperator.Contains, sQuery)];
 					}
 					this._applySearch(oTableSearchState);
 				}
@@ -130,7 +130,7 @@ sap.ui.define([
 			 */
 			_showObject : function (oItem) {
 				this.getRouter().navTo("object", {
-					objectId: oItem.getBindingContext().getProperty("Maintenancenotification")
+					objectId: oItem.getBindingContext().getProperty("MaintenanceNotification")
 				});
 			},
 
