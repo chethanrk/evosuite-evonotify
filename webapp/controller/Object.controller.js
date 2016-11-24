@@ -103,8 +103,8 @@ sap.ui.define([
 				//var sBinding = this.getView().getBindingContextPath();
 				
 				if(!oParameters.editable){
-					this.getView().getModel().submitChanges(function(){
-		 				alert("Update successful");
+					this.getView().getModel().submitChanges(function(response){
+		 				sap.m.MessageToast.show(response.toString());
 	 				},function(){
 	 					alert("Update failed");
 					});

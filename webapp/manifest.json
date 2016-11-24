@@ -122,6 +122,13 @@
 					"target": [
 						"item"
 					]
+				},
+				{
+					"pattern": "new",
+					"name": "new",
+					"target": [
+						"new"
+					]
 				}
 			],
 			"targets": {
@@ -139,6 +146,11 @@
 					"viewName": "ObjectItem",
 					"viewId": "item",
 					"viewLevel": 3
+				},
+				"new": {
+					"viewName": "ObjectNew",
+					"viewId": "new",
+					"viewLevel": 2
 				},
 				"objectNotFound": {
 					"viewName": "ObjectNotFound",

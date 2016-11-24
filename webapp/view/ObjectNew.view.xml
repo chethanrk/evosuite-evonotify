@@ -1,0 +1,119 @@
+<mvc:View 
+	xmlns="sap.m" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core" 
+	xmlns:semantic="sap.m.semantic" 
+	xmlns:form="sap.ui.layout.form"
+	xmlns:smartField="sap.ui.comp.smartfield" 
+	controllerName="com.evorait.evolite.evonotify.controller.ObjectNew">
+	<semantic:FullscreenPage id="page" showNavButton="true" navButtonPress="onNavBack" title="{i18n>worklistViewTitle}" floatingFooter="true">
+		
+		<semantic:cancelAction>
+			<semantic:CancelAction press="onCancelPress"/>
+		</semantic:cancelAction>
+		<semantic:saveAction>
+			<semantic:SaveAction press="onSavePress"/>
+		</semantic:saveAction>
+		
+		<semantic:content>
+			<ObjectHeader title="New Notifcation" responsive="true" />
+			
+			<Panel class="sapUiContentPadding">
+				<content>
+					<form:SimpleForm
+						id="AddNotificationForm"
+						busy="false"
+						busyIndicatorDelay="1000"
+						visible="true"
+						fieldGroupIds="[]"
+						maxContainerCols="2"
+						editable="true"
+						layout="ResponsiveLayout"
+						labelSpanXL="4"
+						labelSpanL="4"
+						labelSpanM="2"
+						labelSpanS="12"
+						adjustLabelSpan="true"
+						emptySpanXL="0"
+						emptySpanL="0"
+						emptySpanM="0"
+						emptySpanS="0"
+						columnsXL="2"
+						columnsL="2"
+						columnsM="2"
+						class="editableForm">
+						<form:content>
+							<core:Title text="General" />
+							<Label text="{/#PMNotification/NotificationType/@sap:label}" />
+							<Input value="{newEntry>/detail/NotificationType}" 
+								showSuggestion="true" showValueHelp="true" valueHelpRequest="handleValueHelp" suggestionItems="{/PMNotificationTypeVH}">
+								<suggestionItems>
+									<core:Item text="{NotificationTypeName}"/>
+								</suggestionItems>
+							</Input>
+							<Label text="{/#PMNotification/MaintenanceOrder/@sap:label}" />
+							<Input value="{newEntry>/detail/MaintenanceOrder}" 
+								showSuggestion="true" showValueHelp="true" valueHelpRequest="handleValueHelp" suggestionItems="{/PMNotificationTypeVH}">
+								<suggestionItems>
+									<core:Item text="{NotificationTypeName}"/>
+								</suggestionItems>
+							</Input>
+							<Label text="{/#PMNotification/MaintPriority/@sap:label}" />
+							<Input value="{newEntry>/detail/MaintPriority}" 
+								showSuggestion="true" showValueHelp="true" valueHelpRequest="handleValueHelp" suggestionItems="{/PMNotificationTypeVH}">
+								<suggestionItems>
+									<core:Item text="{NotificationTypeName}"/>
+								</suggestionItems>
+							</Input>
+							<Label text="{/#PMNotification/ReportedByUser/@sap:label}" />
+							<Input value="{newEntry>/detail/ReportedByUser}" 
+								showSuggestion="true" showValueHelp="true" valueHelpRequest="handleValueHelp" suggestionItems="{/PMNotificationTypeVH}">
+								<suggestionItems>
+									<core:Item text="{NotificationTypeName}"/>
+								</suggestionItems>
+							</Input>
+							
+							<core:Title text="Location" />
+							<Label text="{/#PMNotification/MaintenanceWorkCenterPlant/@sap:label}" />
+							<Input value="{newEntry>/detail/MaintenanceWorkCenterPlant}"
+								maxLength="{/#PMNotification/MaintenanceWorkCenterPlant/@MaxLength}"/>
+							<Label text="{/#PMNotification/AssetLocation/@sap:label}" />
+							<Input value="{newEntry>/detail/AssetLocation}"
+								maxLength="{/#PMNotification/AssetLocation/@MaxLength}"/>
+							<Label text="{/#PMNotification/MaintenancePlant/@sap:label}" />
+							<Input value="{newEntry>/detail/MaintenancePlant}" 
+								maxLength="{/#PMNotification/MaintenancePlant/@MaxLength}" />
+							
+							<core:Title text="Dates" />
+							<Label text="{/#PMNotification/RequiredStartDate/@sap:label}" />
+							<DatePicker value="{newEntry>/detail/RequiredStartDate}" displayFormat="short" />
+							<Label text="{/#PMNotification/RequiredStartTime/@sap:label}" />
+							<TimePicker value="{newEntry>/detail/RequiredStartTime}" displayFormat="HH:mm" />
+							<Label text="{/#PMNotification/RequiredEndDate/@sap:label}" />
+							<DatePicker value="{newEntry>/detail/RequiredEndDate}" displayFormat="short" />
+							<Label text="{/#PMNotification/RequiredEndTime/@sap:label}" />
+							<TimePicker value="{newEntry>/detail/RequiredEndTime}" displayFormat="HH:mm" />
+							<Label text="{/#PMNotification/MaintenanceRevision/@sap:label}" />
+							<Input value="{newEntry>/detail/MaintenanceRevision}" />
+							
+							<core:Title text="Malfunctional" />
+							<Label text="{/#PMNotification/MalfunctionStartDate/@sap:label}" />
+							<DatePicker value="{newEntry>/detail/MalfunctionStartDate}" displayFormat="short" />
+							<Label text="{/#PMNotification/MalfunctionStartTime/@sap:label}" />
+							<TimePicker value="{newEntry>/detail/MalfunctionStartTime}" displayFormat="HH:mm" />
+							<Label text="{/#PMNotification/MalfunctionEndDate/@sap:label}" />
+							<DatePicker value="{newEntry>/detail/MalfunctionEndDate}" displayFormat="short" />
+							<Label text="{/#PMNotification/MalfunctionEndTime/@sap:label}" />
+							<TimePicker value="{newEntry>/detail/MalfunctionEndTime}" displayFormat="HH:mm" />
+							<Label text="{/#PMNotification/MaintenanceObjectIsDown/@sap:label}" />
+							<CheckBox selected="{newEntry>/detail/MaintenanceObjectIsDown}" />
+							
+						</form:content>
+					</form:SimpleForm>
+				</content>
+			</Panel>
+			
+		</semantic:content>
+		
+	</semantic:FullscreenPage>
+</mvc:View>

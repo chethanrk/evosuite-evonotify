@@ -117,6 +117,10 @@ sap.ui.define([
 				var oTable = this.byId("table");
 				oTable.getBinding("items").refresh();
 			},
+			
+			onAddPress : function (){
+				this.getRouter().navTo("new", {}, true);
+			},
 
 			/* =========================================================== */
 			/* internal methods                                            */
