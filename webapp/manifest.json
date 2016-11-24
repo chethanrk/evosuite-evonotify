@@ -61,13 +61,13 @@
 			"id": "app"
 		},
 		"dependencies": {
-			"minUI5Version": "1.38.0",
+			"minUI5Version": "1.40.0",
 			"libs": {
 				"sap.ui.core": {
-					"minVersion": "1.38.0"
+					"minVersion": "1.40.0"
 				},
 				"sap.m": {
-					"minVersion": "1.38.0"
+					"minVersion": "1.40.0"
 				}
 			}
 		},
