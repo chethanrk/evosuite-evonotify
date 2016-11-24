@@ -9,10 +9,10 @@
 	<semantic:FullscreenPage id="page" showNavButton="true" navButtonPress="onNavBack" title="{i18n>worklistViewTitle}" floatingFooter="true">
 		
 		<semantic:cancelAction>
-			<semantic:CancelAction press="onCancelPress"/>
+			<semantic:CancelAction id="cancelButton" press="onCancelPress"/>
 		</semantic:cancelAction>
 		<semantic:saveAction>
-			<semantic:SaveAction press="onSavePress"/>
+			<semantic:SaveAction id="saveButton" press="onSavePress"/>
 		</semantic:saveAction>
 		
 		<semantic:content>
@@ -22,9 +22,8 @@
 				<content>
 					<form:SimpleForm
 						id="AddNotificationForm"
-						busy="false"
-						busyIndicatorDelay="1000"
-						visible="true"
+						busy="{newEntry>/busy}"
+						busyIndicatorDelay="{newEntry>/delay}"
 						fieldGroupIds="[]"
 						maxContainerCols="2"
 						editable="true"
@@ -33,7 +32,6 @@
 						labelSpanL="4"
 						labelSpanM="2"
 						labelSpanS="12"
-						adjustLabelSpan="true"
 						emptySpanXL="0"
 						emptySpanL="0"
 						emptySpanM="0"
@@ -51,6 +49,8 @@
 									<core:Item text="{NotificationTypeName}"/>
 								</suggestionItems>
 							</Input>
+							<Label text="{/#PMNotification/NotificationText/@sap:label}" />
+							<Input value="{newEntry>/detail/NotificationText}" />
 							<Label text="{/#PMNotification/MaintenanceOrder/@sap:label}" />
 							<Input value="{newEntry>/detail/MaintenanceOrder}" 
 								showSuggestion="true" showValueHelp="true" valueHelpRequest="handleValueHelp" suggestionItems="{/PMNotificationTypeVH}">

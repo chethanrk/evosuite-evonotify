@@ -57,11 +57,17 @@ sap.ui.define([
 			},
 			
 			onSavePress: function(oEvent) {
+				var oViewModel = this.getModel("newEntry");
+				var mNewEntry = oViewModel.getData().detail;
+				oViewModel.setProperty("/busy", true);
 				
+				//Todo: validation of fields
+				this._saveEntry(mNewEntry);
 			},
 			
 			onCancelPress: function(oEvent) {
-				
+				this.getModel("newEntry").setProperty("detail", {});
+				this.getRouter().navTo("worklist", {}, true);
 			},
 			
 			handleValueHelp: function(oEvent) {
@@ -77,6 +83,23 @@ sap.ui.define([
 				this.getModel().metadataLoaded().then( function() {
 					console.log(this.getModel().getMetaModel());
 				}.bind(this));
+			},
+			
+			_saveEntry: function(payload){
+				var oModel = this.getView().getModel();
+				var oViewModel = this.getModel("newEntry");
+				
+				oModel.create("/PMNotification", payload, {
+					success : function(response) {
+						oViewModel.setProperty("/busy", false);
+						console.log(response);
+						//this.getView().byId("cancelButton").firePress();
+					}.bind(this),
+					error : function() {
+						oViewModel.setProperty("/busy", false);
+						//this.showErrorAlert("Problem creating new entry");
+					}
+				});
 			}
 	
 		});
