@@ -17,8 +17,8 @@
             }"
 		noDataText="{itemsView>/tableNoDataText}"
 		busyIndicatorDelay="{itemsView>/tableBusyDelay}"
-		growing="true"
-		growingScrollToLoad="true"
+		growing="false"
+		growingScrollToLoad="false"
 		updateFinished="onUpdateFinished">
 
 		<headerToolbar>

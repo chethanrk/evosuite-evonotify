@@ -8,7 +8,18 @@
 	xmlns:smartForm="sap.ui.comp.smartform">
 	
 	<smartForm:SmartForm id="SmartNotificationForm" editTogglable="true" editToggled="onEditPress">
+		
+		<!--<smartForm:customToolbar>
+			<Toolbar>
+				<ToolbarSpacer />
+				<Button icon="sap-icon://settings" press="onPressButton" />
+			</Toolbar>
+		</smartForm:customToolbar>-->
+		
 		<smartForm:Group label="General">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S6" />
+			</smartForm:layout>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintenanceNotification}"/>
 			</smartForm:GroupElement>
@@ -48,6 +59,9 @@
 		</smartForm:Group>
 		
 		<smartForm:Group label="Location">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S6" />
+			</smartForm:layout>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintenanceWorkCenterPlant}"/>
 			</smartForm:GroupElement>
@@ -60,6 +74,9 @@
 		</smartForm:Group>
 		
 		<smartForm:Group label="Dates">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S6" linebreak="true" />
+			</smartForm:layout>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{RequiredStartDate}">
 					<smartField:configuration>
@@ -94,6 +111,9 @@
 		</smartForm:Group>
 		
 		<smartForm:Group label="Malfunctional">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S6" />
+			</smartForm:layout>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MalfunctionStartDate}">
 					<smartField:configuration>

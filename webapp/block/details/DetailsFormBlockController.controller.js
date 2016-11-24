@@ -32,6 +32,10 @@ sap.ui.define([
 
 			onEditPress : function (oEvent) {
 				this.oParentBlock.fireEditPress(oEvent.getParameters());
+			},
+			
+			onPressButton : function (oEvent) {
+				this.oParentBlock.firePressButton(oEvent.getParameters());
 			}
 
 			/* =========================================================== */

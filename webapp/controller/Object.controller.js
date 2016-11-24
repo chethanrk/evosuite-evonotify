@@ -35,6 +35,10 @@ sap.ui.define([
 					});
 
 				this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
+				
+				this.getView().addEventDelegate({
+				   onBeforeHide : this._triggerSave.bind(this)
+				});
 
 				// Store original busy indicator delay, so it can be restored later on
 				iOriginalBusyDelay = this.getView().getBusyIndicatorDelay();
@@ -55,7 +59,7 @@ sap.ui.define([
 				});
 				this.setModel(oViewModel, "itemsView");
 			},
-
+			
 			/* =========================================================== */
 			/* event handlers                                              */
 			/* =========================================================== */
@@ -74,6 +78,41 @@ sap.ui.define([
 					history.go(-1);
 				} else {
 					this.getRouter().navTo("worklist", {}, true);
+				}
+			},
+			
+			/**
+			 * table item row select
+			 * navigate to notification item
+			 */
+			onPressItem : function(oEvent) {
+				// The source is the list item that got pressed
+				var oParameters = oEvent.getParameters();
+				var sBinding = sap.ui.getCore().byId(oParameters.id).getBindingContext("itemsView");
+				var obj =sBinding.getObject();
+				
+				this.getRouter().navTo("item", {
+					objectId: obj.MaintenanceNotification,
+					itemId: obj.MaintenanceNotificationItem
+				});
+			},
+			
+			onPressEdit : function(oEvent) {
+				var oParameters = oEvent.getParameters();
+				this.oFormId = oParameters.id;
+				//var sBinding = this.getView().getBindingContextPath();
+				
+				if(!oParameters.editable){
+					this.getView().getModel().submitChanges(function(){
+		 				alert("Update successful");
+	 				},function(){
+	 					alert("Update failed");
+					});
+					
+					/*oModel.update(sBinding.sPath, oData, {
+						success: function(){}, 
+						error: function(){}
+					});*/
 				}
 			},
 			
@@ -172,9 +211,7 @@ sap.ui.define([
 				if(oNode){
 					for (var i = 0; i < oNode.length; i++) {
 			            oView.getModel().read("/"+oNode[i],{
-		                    success: function(data){
-		                        results.push(data);
-		                    }
+		                    success: function(data){ results.push(data); }
 		                });
 			        }
 				}
@@ -189,44 +226,21 @@ sap.ui.define([
 	             oView.getModel().attachBatchRequestFailed(function(){
 	                itemsView.setProperty("/busy", false);
 	            });
-				
 			},
 			
 			/**
-			 * table item row select
-			 * navigate to notification item
+			 * proof if form is on editmode when leaving page
+			 * then trigger save on EditMode
 			 */
-			onPressItem : function(oEvent) {
-				// The source is the list item that got pressed
-				var oParameters = oEvent.getParameters();
-				var sBinding = sap.ui.getCore().byId(oParameters.id).getBindingContext("itemsView");
-				var obj =sBinding.getObject();
-				
-				this.getRouter().navTo("item", {
-					objectId: obj.MaintenanceNotification,
-					itemId: obj.MaintenanceNotificationItem
-				});
-			},
-			
-			onPressEdit : function(oEvent) {
-				var oParameters = oEvent.getParameters();
-				//var sBinding = this.getView().getBindingContextPath();
-				
-				if(!oParameters.editable){
-					this.getView().getModel().submitChanges(function(){
-		 				alert("Update successful");
-	 				},function(){
-	 					alert("Update failed");
-					});
-					
-					/*oModel.update(sBinding.sPath, oData, {
-						success: function(){}, 
-						error: function(){}
-					});*/
+			_triggerSave : function(){
+				if(this.oFormId){
+					var oForm = sap.ui.getCore().byId(this.oFormId);
+					if(oForm.getEditable()){
+						oForm.setEditable(false);
+					}
 				}
-				
 			}
-
+			
 		});
 
 	}
