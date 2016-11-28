@@ -37,7 +37,6 @@ sap.ui.define([
 					tableBusyDelay : 0
 				});
 				this.setModel(oViewModel, "worklistView");
-
 			},
 
 			/* =========================================================== */
