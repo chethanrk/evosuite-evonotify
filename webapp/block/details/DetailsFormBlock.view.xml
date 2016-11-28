@@ -1,11 +1,4 @@
-<mvc:View 
-	controllerName="com.evorait.evolite.evonotify.block.details.DetailsFormBlockController"
-	xmlns:core="sap.ui.core" 
-	xmlns:mvc="sap.ui.core.mvc" 
-	xmlns="sap.m" 
-	xmlns:layout="sap.ui.layout"
-	xmlns:smartField="sap.ui.comp.smartfield" 
-	xmlns:smartForm="sap.ui.comp.smartform">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:smartField="sap.ui.comp.smartfield" xmlns:smartForm="sap.ui.comp.smartform" controllerName="com.evorait.evolite.evonotify.block.details.DetailsFormBlockController">
 	
 	<smartForm:SmartForm id="SmartNotificationForm" editTogglable="true" editToggled="onEditPress">
 		
@@ -18,7 +11,7 @@
 		
 		<smartForm:Group label="General">
 			<smartForm:layout>
-				<layout:GridData span="L6 M6 S6" />
+				<layout:GridData span="L6 M6 S6"/>
 			</smartForm:layout>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintenanceNotification}"/>
@@ -29,6 +22,9 @@
 						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
 					</smartField:configuration>
 				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{NotificationText}"/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintenanceOrder}"/>
@@ -60,10 +56,10 @@
 		
 		<smartForm:Group label="Location">
 			<smartForm:layout>
-				<layout:GridData span="L6 M6 S6" />
+				<layout:GridData span="L6 M6 S6"/>
 			</smartForm:layout>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintenanceWorkCenterPlant}"/>
+				<smartField:SmartField value="{MaintenanceWorkCenterPlant}" mandatory=""/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{AssetLocation}"/>
@@ -75,7 +71,7 @@
 		
 		<smartForm:Group label="Dates">
 			<smartForm:layout>
-				<layout:GridData span="L6 M6 S6" linebreak="true" />
+				<layout:GridData span="L6 M6 S6" linebreak="true"/>
 			</smartForm:layout>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{RequiredStartDate}">
@@ -112,7 +108,7 @@
 		
 		<smartForm:Group label="Malfunctional">
 			<smartForm:layout>
-				<layout:GridData span="L6 M6 S6" />
+				<layout:GridData span="L6 M6 S6"/>
 			</smartForm:layout>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MalfunctionStartDate}">
@@ -143,10 +139,10 @@
 				</smartField:SmartField>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintObjectDowntimeDuration}"></smartField:SmartField>
+				<smartField:SmartField value="{MaintObjectDowntimeDuration}"/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintenanceObjectIsDown}"></smartField:SmartField>
+				<smartField:SmartField value="{MaintenanceObjectIsDown}"/>
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		
