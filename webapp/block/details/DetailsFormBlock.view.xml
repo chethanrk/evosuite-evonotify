@@ -2,13 +2,6 @@
 	
 	<smartForm:SmartForm id="SmartNotificationForm" editTogglable="false" editToggled="onEditPress" editable="{objectView>/editMode}">
 		
-		<!--<smartForm:customToolbar>
-			<Toolbar>
-				<ToolbarSpacer />
-				<Button icon="sap-icon://cancel" press="onPressCancel" visible="{objectView>/editMode}" />
-			</Toolbar>
-		</smartForm:customToolbar>-->
-		
 		<smartForm:Group label="General">
 			<smartForm:layout>
 				<layout:GridData span="L6 M6 S6"/>

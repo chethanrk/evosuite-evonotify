@@ -49,7 +49,7 @@ sap.ui.define([
 				this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
 				
 				this.getView().addEventDelegate({
-				   //onBeforeHide : this._triggerPressEditButton.bind(this)
+				   //onBeforeHide : function(){}
 				});
 
 				// Store original busy indicator delay, so it can be restored later on
@@ -108,6 +108,9 @@ sap.ui.define([
 				});
 			},
 			
+			/**
+			 * show edit forms
+			 */
 			onPressEdit : function() {
 				this._setEditMode(true);
 			},
@@ -115,18 +118,26 @@ sap.ui.define([
 			/**
 			 * reset changed data
 			 */
-			onPressCancel : function(oEvent) {
+			onPressCancel : function() {
 				if(this.oForm){
-					this.getView().getModel().resetChanges();
-					var isEditable = this.oForm.getEditable();
-					this.oForm.setEditable(!isEditable);
+					var isNew = this.getModel("objectView").getProperty("/isNew");
+					
+					if(isNew){
+						var oContext = this.getView().getBindingContext();
+						this.getModel().deleteCreatedEntry(oContext);
+						this.onNavBack();
+					}else{
+						this.getView().getModel().resetChanges();
+						var isEditable = this.oForm.getEditable();
+						this.oForm.setEditable(!isEditable);
+					}
 				}
 			},
 			
 			/**
 			 * validate and submit form data changes
 			 */
-			onPressSave : function(oEvent) {
+			onPressSave : function() {
 				if(this.oForm){
 					var isEditable = this.oForm.getEditable();
 					this.oForm.setEditable(!isEditable);
@@ -146,6 +157,9 @@ sap.ui.define([
 				}
 			},
 			
+			/**
+			 * fired edit toggle event from subsection block DetailsFormBlock
+			 */
 			onFiredEditMode : function(oEvent) {
 				var oParameters = oEvent.getParameters();
 				this._setEditMode(oParameters.editable);
@@ -188,10 +202,6 @@ sap.ui.define([
 						this._bindView("/" + sObjectPath);
 					}
 				}.bind(this));
-				
-				/*this.getModel().attachRejectChange(this,function(oEv){
-				 	console.log(oEv);
-				});*/
 			},
 
 			/**
@@ -234,7 +244,6 @@ sap.ui.define([
 					boundObject = oView.getModel().getProperty(oElementBinding.sPath);
 
 				// No data for the binding
-				this.aDataCopy = JSON.parse(JSON.stringify(boundObject));
 				if (!oElementBinding.getBoundContext()) {
 					this.getRouter().getTargets().display("objectNotFound");
 					return;
@@ -245,7 +254,9 @@ sap.ui.define([
 				this._getListObjects(boundObject.to_PMNotificationItem);
 			},
 			
-			
+			/**
+			 * get related object notification items
+			 */
 			_getListObjects : function(oNode){
 				var oView = this.getView(),
 					itemsView = this.getModel("itemsView");
@@ -286,6 +297,9 @@ sap.ui.define([
 				this.getModel("objectView").setProperty("/editMode", isEdit);
 			},
 			
+			/**
+			 * save error dialog
+			 */
 			_showErrorPrompt : function(error){
 				var oBundle = this.getModel("i18n").getResourceBundle();
 				var sTitle = this.oBundle.getText("errorTitle");
@@ -306,20 +320,7 @@ sap.ui.define([
 	                afterClose: dialog.destroy
 	            });
 	            dialog.open();
-			},
-			
-			/**
-			 * proof if form is on editmode when leaving page
-			 * then trigger save on EditMode
-			 */
-			_triggerPressEditButton : function(){
-				if(this.oFormId){
-					var oForm = sap.ui.getCore().byId(this.oFormId);
-					var isEditable = oForm.getEditable();
-					oForm.setEditable(!isEditable);
-				}
 			}
 		});
-
 	}
 );

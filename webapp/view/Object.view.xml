@@ -14,7 +14,7 @@
 				<uxap:ObjectPageHeader id="objectPageHeader" objectTitle="{NotificationText}" objectSubtitle="{MaintenanceNotification}">
 					<uxap:actions>
 						<uxap:ObjectPageHeaderActionButton icon="sap-icon://edit" press="onPressEdit" type="Emphasized" visible="{objectView>/showMode}"/>
-						<uxap:ObjectPageHeaderActionButton icon="sap-icon://cancel" press="onPressCancel" type="Emphasized" visible="{objectView>/editMode}"/>
+						<uxap:ObjectPageHeaderActionButton icon="sap-icon://cancel" press="onPressCancel" visible="{objectView>/editMode}"/>
 						<uxap:ObjectPageHeaderActionButton icon="sap-icon://save" press="onPressSave" type="Emphasized" visible="{objectView>/editMode}"/>
 					</uxap:actions>
 				</uxap:ObjectPageHeader>
@@ -50,12 +50,5 @@
 			</uxap:sections>
 		</uxap:ObjectPageLayout>
 		
-		<!--<footer visible="{objectView>/editMode}">
-			<Toolbar>
-				<ToolbarSpacer/>
-				<Button text="Cancel"></Button>
-				<Button text="Save" type="Accept"></Button>
-			</Toolbar>
-		</footer>-->
 	</Page>
 </mvc:View>
