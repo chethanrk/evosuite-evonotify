@@ -31,13 +31,16 @@ sap.ui.define([
 				var iOriginalBusyDelay,
 					oViewModel = new JSONModel({
 						busy : true,
-						delay : 0
+						delay : 0,
+						isNew : false,
+						isEdit : false,
+						editMode : false
 					});
 
 				this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
 				
 				this.getView().addEventDelegate({
-				   onBeforeHide : this._triggerSave.bind(this)
+				   onBeforeHide : this._triggerPressEditButton.bind(this)
 				});
 
 				// Store original busy indicator delay, so it can be restored later on
@@ -73,7 +76,6 @@ sap.ui.define([
 			 */
 			onNavBack : function() {
 				var sPreviousHash = History.getInstance().getPreviousHash();
-
 				if (sPreviousHash !== undefined) {
 					history.go(-1);
 				} else {
@@ -89,7 +91,7 @@ sap.ui.define([
 				// The source is the list item that got pressed
 				var oParameters = oEvent.getParameters();
 				var sBinding = sap.ui.getCore().byId(oParameters.id).getBindingContext("itemsView");
-				var obj =sBinding.getObject();
+				var obj = sBinding.getObject();
 				
 				this.getRouter().navTo("item", {
 					objectId: obj.MaintenanceNotification,
@@ -127,14 +129,27 @@ sap.ui.define([
 			 * @private
 			 */
 			_onObjectMatched : function (oEvent) {
-				var sObjectId =  oEvent.getParameter("arguments").objectId;
+				var sObjectId =  oEvent.getParameter("arguments").objectId,
+					oViewModel = this.getModel("objectView"),
+					oDataModel = this.getModel(),
+					isNew = (sObjectId === "new");
 				
-				this.getModel().setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
-				this.getModel().metadataLoaded().then( function() {
-					var sObjectPath = this.getModel().createKey("PMNotifications", {
-						MaintenanceNotification :  sObjectId
-					});
-					this._bindView("/" + sObjectPath);
+				oDataModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
+				oDataModel.metadataLoaded().then( function() {
+					oViewModel.setProperty("/isNew", isNew);
+					oViewModel.setProperty("/isEdit", !isNew);
+					oViewModel.setProperty("/editMode", isNew);
+					
+					if(isNew){
+						var oContext = oDataModel.createEntry("/PMNotifications");
+						this.getView().setBindingContext(oContext);
+						oViewModel.setProperty("/busy", false);
+					}else{
+						var sObjectPath = this.getModel().createKey("PMNotifications", {
+							MaintenanceNotification :  sObjectId
+						});
+						this._bindView("/" + sObjectPath);
+					}
 				}.bind(this));
 				
 				/*this.getModel().attachRejectChange(this,function(oEv){
@@ -151,7 +166,7 @@ sap.ui.define([
 			_bindView : function (sObjectPath) {
 				var oViewModel = this.getModel("objectView"),
 					oDataModel = this.getModel();
-
+					
 				this.getView().bindElement({
 					path: sObjectPath,
 					parameters: {
@@ -232,15 +247,14 @@ sap.ui.define([
 			 * proof if form is on editmode when leaving page
 			 * then trigger save on EditMode
 			 */
-			_triggerSave : function(){
+			_triggerPressEditButton : function(){
 				if(this.oFormId){
 					var oForm = sap.ui.getCore().byId(this.oFormId);
-					if(oForm.getEditable()){
-						oForm.setEditable(false);
-					}
+					var isEditable = oForm.getEditable();
+					oForm.setEditable(!isEditable);
+					//this.getModel("objectView").setProperty("/editMode", !isEditable);
 				}
 			}
-			
 		});
 
 	}

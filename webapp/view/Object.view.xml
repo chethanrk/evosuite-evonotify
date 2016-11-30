@@ -11,29 +11,30 @@
 		
 		<uxap:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" >
 			<uxap:headerTitle>
-				<uxap:ObjectPageHeader objectSubtitle="{MaintenanceNotification}" objectTitle="{NotificationText}">
+				<uxap:ObjectPageHeader id="objectPageHeader" objectTitle="{NotificationText}" objectSubtitle="{MaintenanceNotification}">
 					<uxap:actions></uxap:actions>
 				</uxap:ObjectPageHeader>
 			</uxap:headerTitle>
 			
 			<uxap:headerContent>
-				<ObjectStatus title="{/#PMNotification/NotificationType/@sap:label}" text="{NotificationTypeName}" />
-				<ObjectStatus title="{/#PMNotification/MaintenanceOrder/@sap:label}" text="{MaintenanceOrder}" />
-				<ObjectStatus title="{/#PMNotification/MaintPriority/@sap:label}" text="{MaintPriorityText}" />
-				<ObjectStatus title="{/#PMNotification/MaintenanceObjectIsDown/@sap:label}" text="{MaintenanceObjectIsDown}" />
+				<ObjectStatus title="{/#PMNotification/NotificationType/@sap:label}" text="{NotificationTypeName}" visible="{objectView>/isEdit}" />
+				<ObjectStatus title="{/#PMNotification/MaintenanceOrder/@sap:label}" text="{MaintenanceOrder}" visible="{objectView>/isEdit}" />
+				<ObjectStatus title="{/#PMNotification/MaintPriority/@sap:label}" text="{MaintPriorityText}" visible="{objectView>/isEdit}" />
+				<ObjectStatus title="{/#PMNotification/MaintenanceObjectIsDown/@sap:label}" text="{MaintenanceObjectIsDown}" visible="{objectView>/isEdit}" />
 			</uxap:headerContent>
 			
 			<uxap:sections>
-				<uxap:ObjectPageSection id="general" title="General">
+				<uxap:ObjectPageSection id="generalSection" title="General">
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
-								<details:DetailsFormBlock id="detailsForm" editPress="onPressEdit" pressButton="_triggerSave" />
+								<details:DetailsFormBlock id="detailsForm" editPress="onPressEdit" pressButton="_triggerPressEditButton" />
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>
 				</uxap:ObjectPageSection>
-				<uxap:ObjectPageSection id="items" title="Items">
+				
+				<uxap:ObjectPageSection id="itemsSection" title="Items" visible="{objectView>/isEdit}">
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
@@ -45,12 +46,12 @@
 			</uxap:sections>
 		</uxap:ObjectPageLayout>
 		
-		<!--<footer>
+		<footer visible="{objectView>/editMode}">
 			<Toolbar>
 				<ToolbarSpacer/>
 				<Button text="Cancel"></Button>
 				<Button text="Save" type="Accept"></Button>
 			</Toolbar>
-		</footer>-->
+		</footer>
 	</Page>
 </mvc:View>

@@ -118,7 +118,9 @@ sap.ui.define([
 			},
 			
 			onAddPress : function (){
-				this.getRouter().navTo("new", {}, true);
+				this.getRouter().navTo("object", {
+					objectId: "new"
+				});
 			},
 
 			/* =========================================================== */
