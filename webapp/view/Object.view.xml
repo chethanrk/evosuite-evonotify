@@ -5,7 +5,8 @@
 	xmlns:core="sap.ui.core" 
 	xmlns:uxap="sap.uxap"
 	xmlns:details="com.evorait.evolite.evonotify.block.details"
-	xmlns:items="com.evorait.evolite.evonotify.block.items">
+	xmlns:items="com.evorait.evolite.evonotify.block.items"
+	xmlns:layout="sap.ui.layout">
 	
 	<Page title="{i18n>objectViewTitle}" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack">
 		
@@ -21,10 +22,33 @@
 			</uxap:headerTitle>
 			
 			<uxap:headerContent>
-				<ObjectStatus title="{/#PMNotification/NotificationType/@sap:label}" text="{NotificationTypeName}" visible="{objectView>/isEdit}" />
-				<ObjectStatus title="{/#PMNotification/MaintenanceOrder/@sap:label}" text="{MaintenanceOrder}" visible="{objectView>/isEdit}" />
-				<ObjectStatus title="{/#PMNotification/MaintPriority/@sap:label}" text="{MaintPriorityText}" visible="{objectView>/isEdit}" />
-				<ObjectStatus title="{/#PMNotification/MaintenanceObjectIsDown/@sap:label}" text="{MaintenanceObjectIsDown}" visible="{objectView>/isEdit}" />
+				<layout:VerticalLayout>
+					<layout:layoutData>
+						<uxap:ObjectPageHeaderLayoutData
+							showSeparatorAfter="false"/>
+					</layout:layoutData>
+					<ObjectStatus title="{/#PMNotification/NotificationType/@sap:label}" text="{NotificationTypeName}" visible="{objectView>/isEdit}" />
+					<ObjectStatus title="{/#PMNotification/MaintenanceOrder/@sap:label}" text="{MaintenanceOrder}" visible="{objectView>/isEdit}" />
+					<ObjectStatus title="{/#PMNotification/MaintPriority/@sap:label}" text="{MaintPriorityText}" visible="{objectView>/isEdit}" />
+					<ObjectStatus title="{/#PMNotification/MaintenanceObjectIsDown/@sap:label}" text="{MaintenanceObjectIsDown}" visible="{objectView>/isEdit}" state="Error"/>
+				</layout:VerticalLayout>
+				<layout:VerticalLayout>
+					<layout:layoutData>
+						<uxap:ObjectPageHeaderLayoutData
+							showSeparatorAfter="false"/>
+					</layout:layoutData>
+					<ObjectStatus title="Technical Object" text="{TechnicalObjectLabel}" visible="{objectView>/isEdit}" />
+					<ObjectStatus title="Technical Object Type" text="{TechObjIsEquipOrFuncnlLocDesc}" visible="{objectView>/isEdit}" />
+					<ObjectStatus title="{/#PMNotification/Assembly/@sap:label}" text="{AssemblyName}" visible="{objectView>/isEdit}" />
+				</layout:VerticalLayout>
+				<layout:VerticalLayout>
+					<layout:layoutData>
+						<uxap:ObjectPageHeaderLayoutData
+							showSeparatorAfter="false"/>
+					</layout:layoutData>
+					<ObjectStatus title="System Status" text="{ConcatenatedActSysStsName}" visible="{objectView>/isEdit}" />
+					<ObjectStatus title="User Status" text="{ConcatenatedActUserStsName}" visible="{objectView>/isEdit}" />
+				</layout:VerticalLayout>
 			</uxap:headerContent>
 			
 			<uxap:sections>

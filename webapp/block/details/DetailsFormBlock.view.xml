@@ -10,14 +10,14 @@
 				<smartField:SmartField value="{MaintenanceNotification}"/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
+				<smartField:SmartField value="{NotificationText}"/>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
 				<smartField:SmartField value="{NotificationType}">
 					<smartField:configuration>
 						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
 					</smartField:configuration>
 				</smartField:SmartField>
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{NotificationText}"/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintenanceOrder}"/>
@@ -47,18 +47,52 @@
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		
-		<smartForm:Group label="Location">
+		<smartForm:Group label="Location Data">
 			<smartForm:layout>
 				<layout:GridData span="L6 M6 S6"/>
 			</smartForm:layout>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintenanceWorkCenterPlant}" mandatory=""/>
+				<smartField:SmartField value="{MaintenanceWorkCenterPlant}">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>	
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{AssetLocation}"/>
+				<smartField:SmartField value="{ABCIndicator}">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>	
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintenancePlant}"/>
+				<smartField:SmartField value="{AssetLocation}">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>	
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenancePlant}">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>	
+			</smartForm:GroupElement>
+		</smartForm:Group>
+		
+		<smartForm:Group label="Reference Objects">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S6" linebreak="true"/>
+			</smartForm:layout>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{TechnicalObjectLabel}" />
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{TechObjIsEquipOrFuncnlLoc}" />
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{Assembly}" />
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		
