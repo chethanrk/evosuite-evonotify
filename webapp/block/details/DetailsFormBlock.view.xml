@@ -1,6 +1,6 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:smartField="sap.ui.comp.smartfield" xmlns:smartForm="sap.ui.comp.smartform" controllerName="com.evorait.evolite.evonotify.block.details.DetailsFormBlockController">
 	
-	<smartForm:SmartForm id="SmartNotificationForm" editTogglable="true" editToggled="onEditPress" editable="{objectView>/editMode}">
+	<smartForm:SmartForm id="SmartNotificationForm" editTogglable="false" editToggled="onEditPress" editable="{objectView>/editMode}">
 		
 		<!--<smartForm:customToolbar>
 			<Toolbar>

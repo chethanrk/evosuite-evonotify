@@ -3,12 +3,20 @@ sap.ui.define([
 		"com/evorait/evolite/evonotify/controller/BaseController",
 		"sap/ui/model/json/JSONModel",
 		"sap/ui/core/routing/History",
-		"com/evorait/evolite/evonotify/model/formatter"
+		"com/evorait/evolite/evonotify/model/formatter",
+		"sap/m/Dialog",
+	    "sap/m/Button",
+	    "sap/m/Text",
+	    "sap/m/MessageToast"
 	], function (
 		BaseController,
 		JSONModel,
 		History,
-		formatter
+		formatter,
+		Dialog,
+		Button,
+		Text,
+		MessageToast
 	) {
 		"use strict";
 
@@ -34,13 +42,14 @@ sap.ui.define([
 						delay : 0,
 						isNew : false,
 						isEdit : false,
+						showMode: false,
 						editMode : false
 					});
 
 				this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
 				
 				this.getView().addEventDelegate({
-				   onBeforeHide : this._triggerPressEditButton.bind(this)
+				   //onBeforeHide : this._triggerPressEditButton.bind(this)
 				});
 
 				// Store original busy indicator delay, so it can be restored later on
@@ -99,22 +108,50 @@ sap.ui.define([
 				});
 			},
 			
-			onPressEdit : function(oEvent) {
-				var oParameters = oEvent.getParameters();
-				this.oFormId = oParameters.id;
-				//var sBinding = this.getView().getBindingContextPath();
-				
-				if(!oParameters.editable){
-					this.getView().getModel().submitChanges(function(response){
-		 				sap.m.MessageToast.show(response.toString());
-	 				},function(){
-	 					alert("Update failed");
-					});
+			onPressEdit : function() {
+				this._setEditMode(true);
+			},
+			
+			/**
+			 * reset changed data
+			 */
+			onPressCancel : function(oEvent) {
+				if(this.oForm){
+					this.getView().getModel().resetChanges();
+					var isEditable = this.oForm.getEditable();
+					this.oForm.setEditable(!isEditable);
+				}
+			},
+			
+			/**
+			 * validate and submit form data changes
+			 */
+			onPressSave : function(oEvent) {
+				if(this.oForm){
+					var isEditable = this.oForm.getEditable();
+					this.oForm.setEditable(!isEditable);
 					
-					/*oModel.update(sBinding.sPath, oData, {
-						success: function(){}, 
-						error: function(){}
-					});*/
+					// validation ok when form editable triggered to false
+					if(!this.oForm.getEditable()){
+						this.getView().getModel().submitChanges({
+							success: function(result){
+								var sMsg = this.getModel("i18n").getResourceBundle().getText("saveSuccess");
+								MessageToast.show(sMsg, {duration: 5000});
+							}.bind(this),
+							error: function(oError){
+								this._showErrorPrompt(oError);
+							}.bind(this)
+						 });
+					}
+				}
+			},
+			
+			onFiredEditMode : function(oEvent) {
+				var oParameters = oEvent.getParameters();
+				this._setEditMode(oParameters.editable);
+				
+				if(!this.oForm){
+					this.oForm = sap.ui.getCore().byId(oParameters.id);
 				}
 			},
 			
@@ -138,7 +175,7 @@ sap.ui.define([
 				oDataModel.metadataLoaded().then( function() {
 					oViewModel.setProperty("/isNew", isNew);
 					oViewModel.setProperty("/isEdit", !isNew);
-					oViewModel.setProperty("/editMode", isNew);
+					this._setEditMode(isNew);
 					
 					if(isNew){
 						var oContext = oDataModel.createEntry("/PMNotifications");
@@ -197,6 +234,7 @@ sap.ui.define([
 					boundObject = oView.getModel().getProperty(oElementBinding.sPath);
 
 				// No data for the binding
+				this.aDataCopy = JSON.parse(JSON.stringify(boundObject));
 				if (!oElementBinding.getBoundContext()) {
 					this.getRouter().getTargets().display("objectNotFound");
 					return;
@@ -243,6 +281,33 @@ sap.ui.define([
 	            });
 			},
 			
+			_setEditMode : function(isEdit){
+				this.getModel("objectView").setProperty("/showMode", !isEdit);
+				this.getModel("objectView").setProperty("/editMode", isEdit);
+			},
+			
+			_showErrorPrompt : function(error){
+				var oBundle = this.getModel("i18n").getResourceBundle();
+				var sTitle = this.oBundle.getText("errorTitle");
+				var sMsg = oBundle.getText("errorText");
+	            var sBtn = oBundle.getText("buttonClose");
+	
+	            var dialog = new Dialog({
+	                title: sTitle,
+	                type: 'Message',
+	                state: 'Error',
+	                content: new Text({
+	                    text: sMsg
+	                }),
+	                beginButton: new Button({
+	                    text: sBtn,
+	                    press: dialog.close
+	                }),
+	                afterClose: dialog.destroy
+	            });
+	            dialog.open();
+			},
+			
 			/**
 			 * proof if form is on editmode when leaving page
 			 * then trigger save on EditMode
@@ -252,7 +317,6 @@ sap.ui.define([
 					var oForm = sap.ui.getCore().byId(this.oFormId);
 					var isEditable = oForm.getEditable();
 					oForm.setEditable(!isEditable);
-					//this.getModel("objectView").setProperty("/editMode", !isEditable);
 				}
 			}
 		});

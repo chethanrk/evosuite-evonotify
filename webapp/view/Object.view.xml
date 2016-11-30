@@ -12,7 +12,11 @@
 		<uxap:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" >
 			<uxap:headerTitle>
 				<uxap:ObjectPageHeader id="objectPageHeader" objectTitle="{NotificationText}" objectSubtitle="{MaintenanceNotification}">
-					<uxap:actions></uxap:actions>
+					<uxap:actions>
+						<uxap:ObjectPageHeaderActionButton icon="sap-icon://edit" press="onPressEdit" type="Emphasized" visible="{objectView>/showMode}"/>
+						<uxap:ObjectPageHeaderActionButton icon="sap-icon://cancel" press="onPressCancel" type="Emphasized" visible="{objectView>/editMode}"/>
+						<uxap:ObjectPageHeaderActionButton icon="sap-icon://save" press="onPressSave" type="Emphasized" visible="{objectView>/editMode}"/>
+					</uxap:actions>
 				</uxap:ObjectPageHeader>
 			</uxap:headerTitle>
 			
@@ -28,7 +32,7 @@
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
-								<details:DetailsFormBlock id="detailsForm" editPress="onPressEdit" pressButton="_triggerPressEditButton" />
+								<details:DetailsFormBlock id="detailsForm" editPress="onFiredEditMode" validatError="onFiredValidateError"/>
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>
@@ -46,12 +50,12 @@
 			</uxap:sections>
 		</uxap:ObjectPageLayout>
 		
-		<footer visible="{objectView>/editMode}">
+		<!--<footer visible="{objectView>/editMode}">
 			<Toolbar>
 				<ToolbarSpacer/>
 				<Button text="Cancel"></Button>
 				<Button text="Save" type="Accept"></Button>
 			</Toolbar>
-		</footer>
+		</footer>-->
 	</Page>
 </mvc:View>
