@@ -8,7 +8,7 @@
 	xmlns:items="com.evorait.evolite.evonotify.block.items"
 	xmlns:layout="sap.ui.layout">
 	
-	<Page title="{i18n>objectViewTitle}" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack">
+	<Page title="{i18n>objectViewTitle}" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack" floatingFooter="false">
 		
 		<uxap:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" >
 			<uxap:headerTitle>
@@ -74,5 +74,13 @@
 			</uxap:sections>
 		</uxap:ObjectPageLayout>
 		
+		<footer>
+			<Toolbar>
+				<content>
+					<ToolbarSpacer />
+					<Button icon="sap-icon://add" press="onAddItemPress" />
+				</content>
+			</Toolbar>
+		</footer>
 	</Page>
 </mvc:View>

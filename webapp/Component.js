@@ -2,8 +2,11 @@ sap.ui.define([
 		"sap/ui/core/UIComponent",
 		"sap/ui/Device",
 		"com/evorait/evolite/evonotify/model/models",
-		"com/evorait/evolite/evonotify/controller/ErrorHandler"
-	], function (UIComponent, Device, models, ErrorHandler) {
+		"com/evorait/evolite/evonotify/controller/ErrorHandler",
+		"sap/m/Dialog",
+	    "sap/m/Button",
+	    "sap/m/Text"
+	], function (UIComponent, Device, models, ErrorHandler, Dialog, Button, Text) {
 		"use strict";
 
 		return UIComponent.extend("com.evorait.evolite.evonotify.Component", {
@@ -64,6 +67,31 @@ sap.ui.define([
 					}
 				}
 				return this._sContentDensityClass;
+			},
+			
+			/**
+			 * save error dialog
+			 */
+			showSaveErrorPrompt : function(error){
+				var oBundle = this.getModel("i18n").getResourceBundle();
+				var sTitle = oBundle.getText("errorTitle");
+				var sMsg = oBundle.getText("errorText");
+	            var sBtn = oBundle.getText("buttonClose");
+	
+	            var dialog = new Dialog({
+	                title: sTitle,
+	                type: 'Message',
+	                state: 'Error',
+	                content: new Text({
+	                    text: sMsg
+	                }),
+	                beginButton: new Button({
+	                    text: sBtn,
+	                    press: dialog.close
+	                }),
+	                afterClose: dialog.destroy
+	            });
+	            dialog.open();
 			}
 
 		});

@@ -4,18 +4,12 @@ sap.ui.define([
 		"sap/ui/model/json/JSONModel",
 		"sap/ui/core/routing/History",
 		"com/evorait/evolite/evonotify/model/formatter",
-		"sap/m/Dialog",
-	    "sap/m/Button",
-	    "sap/m/Text",
 	    "sap/m/MessageToast"
 	], function (
 		BaseController,
 		JSONModel,
 		History,
 		formatter,
-		Dialog,
-		Button,
-		Text,
 		MessageToast
 	) {
 		"use strict";
@@ -123,6 +117,8 @@ sap.ui.define([
 				var sBinding = sap.ui.getCore().byId(oParameters.id).getBindingContext("itemsView");
 				var obj = sBinding.getObject();
 				
+				this.onPressCancel();
+				
 				this.getRouter().navTo("item", {
 					objectId: obj.MaintenanceNotification,
 					itemId: obj.MaintenanceNotificationItem
@@ -148,9 +144,9 @@ sap.ui.define([
 					
 					if(isEditable && !isNew){
 						this.getView().getModel().resetChanges();
-						//this._hideInvalidFields(invalidFields);
+						this._hideInvalidFields(invalidFields);
 						this.oForm.setEditable(!isEditable);
-						//this._showAllSmartFields();
+						this._showAllSmartFields();
 					}
 					if(isNew){
 						var oContext = this.getView().getBindingContext();
@@ -193,11 +189,23 @@ sap.ui.define([
 							error: function(oError){
 								this.getModel("objectView").setProperty("/busy", false);
 								this.oForm.setEditable(isEditable);
-								this._showErrorPrompt(oError);
+								this.getOwnerComponent().showSaveErrorPrompt(oError);
 							}.bind(this)
 						 });
 					}
 				}
+			},
+			
+			onAddItemPress : function(oEvent){
+				// The source is the list item that got pressed
+				var oParameters = oEvent.getParameters();
+				var sBinding = sap.ui.getCore().byId(oParameters.id).getBindingContext("itemsView");
+				var obj = sBinding.getObject();
+				
+				this.getRouter().navTo("item", {
+					objectId: obj.MaintenanceNotification,
+					itemId: "new"
+				});
 			},
 			
 			/**
@@ -383,33 +391,8 @@ sap.ui.define([
 						}
 					}
 				}
-			},
-			
-			/**
-			 * save error dialog
-			 */
-			_showErrorPrompt : function(error){
-				var oBundle = this.getModel("i18n").getResourceBundle();
-				var sTitle = oBundle.getText("errorTitle");
-				var sMsg = oBundle.getText("errorText");
-	            var sBtn = oBundle.getText("buttonClose");
-	            var sError = JSON.stringify(error);
-	
-	            var dialog = new Dialog({
-	                title: sTitle,
-	                type: 'Message',
-	                state: 'Error',
-	                content: new Text({
-	                    text: sMsg
-	                }),
-	                beginButton: new Button({
-	                    text: sBtn,
-	                    press: dialog.close
-	                }),
-	                afterClose: dialog.destroy
-	            });
-	            dialog.open();
 			}
+			
 		});
 	}
 );

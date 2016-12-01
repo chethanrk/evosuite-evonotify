@@ -4,7 +4,7 @@
 		
 		<smartForm:Group label="General">
 			<smartForm:layout>
-				<layout:GridData span="L6 M6 S6"/>
+				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layout>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintenanceNotification}"/>
@@ -49,7 +49,7 @@
 		
 		<smartForm:Group label="Location Data">
 			<smartForm:layout>
-				<layout:GridData span="L6 M6 S6"/>
+				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layout>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintenanceWorkCenterPlant}">
@@ -83,7 +83,7 @@
 		
 		<smartForm:Group label="Reference Objects">
 			<smartForm:layout>
-				<layout:GridData span="L6 M6 S6"/>
+				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layout>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{TechnicalObjectLabel}" />
@@ -98,7 +98,7 @@
 		
 		<smartForm:Group label="Dates">
 			<smartForm:layout>
-				<layout:GridData span="L6 M6 S6" linebreak="true"/>
+				<layout:GridData span="L6 M6 S12" linebreak="true"/>
 			</smartForm:layout>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{RequiredStartDate}">
@@ -135,7 +135,7 @@
 		
 		<smartForm:Group label="Malfunctional">
 			<smartForm:layout>
-				<layout:GridData span="L6 M6 S6"/>
+				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layout>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MalfunctionStartDate}">
@@ -170,6 +170,42 @@
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintenanceObjectIsDown}"/>
+			</smartForm:GroupElement>
+		</smartForm:Group>
+		
+		<smartForm:Group label="System and User Status">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S12" linebreak="true"/>
+			</smartForm:layout>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{ConcatenatedActSysStsName}" />
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{ConcatenatedActUserStsName}" />
+			</smartForm:GroupElement>
+		</smartForm:Group>
+		
+		<smartForm:Group label="System and User Status">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S12"/>
+			</smartForm:layout>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenancePlanningPlant}" />
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenancePlanningPlantName}" />
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenancePlannerGroup}" />
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenancePlannerGroupName}" />
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenanceWorkCenter}" />
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenanceWorkCenterText}" />
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		
