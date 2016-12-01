@@ -3,7 +3,8 @@ sap.ui.define(["sap/uxap/BlockBase"], function (BlockBase) {
 	var myBlock = BlockBase.extend("com.evorait.evolite.evonotify.block.details.DetailsFormBlock", {
 		metadata: {
 			events: {
-				"editPress": {}
+				"editPress": {},
+				"onChecked": {}
 			},
 			views: {
 				Collapsed: {

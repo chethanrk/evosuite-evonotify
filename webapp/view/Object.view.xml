@@ -56,7 +56,7 @@
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
-								<details:DetailsFormBlock id="detailsForm" editPress="onFiredEditMode" validatError="onFiredValidateError"/>
+								<details:DetailsFormBlock id="detailsForm" editPress="onFiredEditMode" onChecked="onFiredChecked"/>
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>
