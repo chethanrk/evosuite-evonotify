@@ -85,6 +85,13 @@ sap.ui.define([
 			 */
 			onNavBack : function() {
 				var sPreviousHash = History.getInstance().getPreviousHash();
+				var isNew = this.getModel("objectView").getProperty("/isNew");
+				
+				if(isNew){
+					var oContext = this.getView().getBindingContext();
+					this.getModel().deleteCreatedEntry(oContext);
+				}
+						
 				if (sPreviousHash !== undefined) {
 					history.go(-1);
 				} else {
@@ -121,10 +128,7 @@ sap.ui.define([
 			onPressCancel : function() {
 				if(this.oForm){
 					var isNew = this.getModel("objectView").getProperty("/isNew");
-					
 					if(isNew){
-						var oContext = this.getView().getBindingContext();
-						this.getModel().deleteCreatedEntry(oContext);
 						this.onNavBack();
 					}else{
 						this.getView().getModel().resetChanges();
@@ -148,6 +152,8 @@ sap.ui.define([
 							success: function(result){
 								var sMsg = this.getModel("i18n").getResourceBundle().getText("saveSuccess");
 								MessageToast.show(sMsg, {duration: 5000});
+								this.getModel("objectView").setProperty("/isNew", false);
+								this.getModel("objectView").setProperty("/isEdit", true);
 							}.bind(this),
 							error: function(oError){
 								this._showErrorPrompt(oError);
@@ -193,7 +199,11 @@ sap.ui.define([
 					
 					if(isNew){
 						var oContext = oDataModel.createEntry("/PMNotifications");
+						this.getView().unbindElement();
 						this.getView().setBindingContext(oContext);
+						
+						var oBundle = this.getModel("i18n").getResourceBundle();
+						oViewModel.setProperty("/Title", oBundle.getText("newNotificationTitle"));
 						oViewModel.setProperty("/busy", false);
 					}else{
 						var sObjectPath = this.getModel().createKey("PMNotifications", {
@@ -231,6 +241,7 @@ sap.ui.define([
 							});
 						},
 						dataReceived: function () {
+							oViewModel.setProperty("/Title", oDataModel.getProperty(sObjectPath+"/NotificationText"));
 							oViewModel.setProperty("/busy", false);
 						}
 					}
@@ -302,9 +313,10 @@ sap.ui.define([
 			 */
 			_showErrorPrompt : function(error){
 				var oBundle = this.getModel("i18n").getResourceBundle();
-				var sTitle = this.oBundle.getText("errorTitle");
+				var sTitle = oBundle.getText("errorTitle");
 				var sMsg = oBundle.getText("errorText");
 	            var sBtn = oBundle.getText("buttonClose");
+	            var sError = JSON.stringify(error);
 	
 	            var dialog = new Dialog({
 	                title: sTitle,
