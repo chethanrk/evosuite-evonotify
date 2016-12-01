@@ -41,7 +41,6 @@ sap.ui.define([
 					});
 
 				this.getRouter().getRoute("item").attachPatternMatched(this._onObjectMatched, this);
-				this.oForm = this.getView().byId("SmartNotificationItemForm");
 
 				// Store original busy indicator delay, so it can be restored later on
 				iOriginalBusyDelay = this.getView().getBusyIndicatorDelay();
@@ -84,12 +83,16 @@ sap.ui.define([
 			onNavBack : function() {
 				var sPreviousHash = History.getInstance().getPreviousHash();
 				var oObject = this.getView().getBindingContext().getObject(),
-					sObjectId = oObject.MaintenanceNotification;
+					sObjectId = oObject ? oObject.MaintenanceNotification : this.sObjectId;
+					
+					console.log(oObject);
 
 				if (sPreviousHash !== undefined) {
 					history.go(-1);
-				} else {
+				} else  if(sObjectId) {
 					this.getRouter().navTo("object", {objectId: sObjectId}, true);
+				}else{
+					this.getRouter().navTo("worklist", {}, true);
 				}
 			},
 			
@@ -105,15 +108,16 @@ sap.ui.define([
 					var oViewModel = this.getModel("objectView");
 					var isEditable = this.oForm.getEditable();
 					var invalidFields = this.oForm.check();
-					this.oForm.setEditable(!isEditable);
 					
 					// validation ok when form editable triggered to false
-					if(!this.oForm.getEditable()){
+					if(invalidFields.length === 0){
 						this.getModel("objectView").setProperty("/busy", true);
 						
 						this.getView().getModel().submitChanges({
 							success: function(){
 								oViewModel.setProperty("/busy", false);
+								this.oForm.setEditable(!isEditable);
+								
 								var sMsg = this.getModel("i18n").getResourceBundle().getText("saveSuccess");
 								MessageToast.show(sMsg, {duration: 5000});
 								
@@ -125,10 +129,11 @@ sap.ui.define([
 							
 							error: function(oError){
 								this.getModel("objectView").setProperty("/busy", false);
-								this.oForm.setEditable(isEditable);
 								this.getOwnerComponent().showSaveErrorPrompt(oError);
 							}.bind(this)
 						 });
+					}else{
+						this.oForm.setEditable(!isEditable);
 					}
 				}
 			},
@@ -151,7 +156,7 @@ sap.ui.define([
 						this._hideInvalidFields(invalidFields);
 						this.oForm.setEditable(!isEditable);
 						this.getModel().deleteCreatedEntry(oContext);
-						this.getRouter().navTo("worklist", {}, true);
+						this.getRouter().navTo("object", {objectId: this.sObjectId}, true);
 					}
 				}
 			},
@@ -179,13 +184,14 @@ sap.ui.define([
 			 * @private
 			 */
 			_onObjectMatched : function (oEvent) {
-				var sObjectId =  oEvent.getParameter("arguments").objectId,
-					sItemId = oEvent.getParameter("arguments").itemId,
+				var sItemId = oEvent.getParameter("arguments").itemId,
 					oViewModel = this.getModel("objectView"),
 					oDataModel = this.getModel(),
 					isNew = (sItemId === "new");
-				
+					
+				this.sObjectId =  oEvent.getParameter("arguments").objectId;
 				oDataModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
+				
 				oDataModel.metadataLoaded().then( function() {
 					oViewModel.setProperty("/isNew", isNew);
 					oViewModel.setProperty("/isEdit", !isNew);
@@ -194,6 +200,7 @@ sap.ui.define([
 					
 					if(isNew){
 						var oContext = oDataModel.createEntry("/PMNotificationItems");
+						oDataModel.setProperty(oContext.sPath+"/MaintenanceNotification", this.sObjectId);
 						this.getView().unbindElement();
 						this.getView().setBindingContext(oContext);
 						
@@ -202,7 +209,7 @@ sap.ui.define([
 						oViewModel.setProperty("/busy", false);
 					}else{
 						var sObjectPath = this.getModel().createKey("PMNotificationItems", {
-							MaintenanceNotification :  sObjectId,
+							MaintenanceNotification :  this.sObjectId,
 							MaintenanceNotificationItem : sItemId
 						});
 						this._bindView("/" + sObjectPath);

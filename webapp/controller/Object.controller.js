@@ -167,16 +167,16 @@ sap.ui.define([
 					var oViewModel = this.getModel("objectView");
 					var isEditable = this.oForm.getEditable();
 					var invalidFields = this.oForm.check();
-					console.log(invalidFields);
-					this.oForm.setEditable(!isEditable);
 					
 					// validation ok when form editable triggered to false
-					if(!this.oForm.getEditable()){
+					if(invalidFields.length === 0){
 						this.getModel("objectView").setProperty("/busy", true);
 						
 						this.getView().getModel().submitChanges({
 							success: function(){
 								oViewModel.setProperty("/busy", false);
+								this.oForm.setEditable(!isEditable);
+								
 								var sMsg = this.getModel("i18n").getResourceBundle().getText("saveSuccess");
 								MessageToast.show(sMsg, {duration: 5000});
 								
@@ -188,22 +188,21 @@ sap.ui.define([
 							
 							error: function(oError){
 								this.getModel("objectView").setProperty("/busy", false);
-								this.oForm.setEditable(isEditable);
 								this.getOwnerComponent().showSaveErrorPrompt(oError);
 							}.bind(this)
 						 });
+					}else{
+						this.oForm.setEditable(!isEditable);
 					}
 				}
 			},
 			
-			onAddItemPress : function(oEvent){
-				// The source is the list item that got pressed
-				var oParameters = oEvent.getParameters();
-				var sBinding = sap.ui.getCore().byId(oParameters.id).getBindingContext("itemsView");
-				var obj = sBinding.getObject();
-				
+			/**
+			 * navigate to new notification item
+			 */
+			onAddItemPress : function(){
 				this.getRouter().navTo("item", {
-					objectId: obj.MaintenanceNotification,
+					objectId: this.getView().getBindingContext().getProperty("MaintenanceNotification"),
 					itemId: "new"
 				});
 			},
