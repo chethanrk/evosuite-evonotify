@@ -10,7 +10,7 @@
 	<smartForm:SmartForm id="SmartNotificationItemForm" editTogglable="false" editToggled="onEditPress" editable="{objectView>/editMode}">
 		<smartForm:Group>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintenanceNotification}"/>
+				<smartField:SmartField value="{MaintenanceNotification}" editable="false"/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintenanceNotificationItem}"/>

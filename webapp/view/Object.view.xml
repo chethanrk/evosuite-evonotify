@@ -78,7 +78,7 @@
 			<Toolbar>
 				<content>
 					<ToolbarSpacer />
-					<Button icon="sap-icon://add" press="onAddItemPress" />
+					<Button icon="sap-icon://add" text="{i18n>newNotificationItemTitle}" press="onAddItemPress" />
 				</content>
 			</Toolbar>
 		</footer>

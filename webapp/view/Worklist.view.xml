@@ -33,7 +33,7 @@
 	    		showRowCount="true"
 	    		header="{i18n>worklistTableTitle}"
 	    		demandPopin="true">
-	    		<Table growing="true" class="sapUiLargeMarginBottom">
+	    		<Table growing="true">
 	    			<ColumnListItem type="Navigation" press="onPress">
 	    			</ColumnListItem>
 	    		</Table>
