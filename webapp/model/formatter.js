@@ -41,7 +41,6 @@ sap.ui.define([
 				}
 				
 			}
-
 		};
 
 	}

@@ -34,9 +34,17 @@ sap.ui.define([
 
 			onEditPress : function (oEvent) {
 				this.oParentBlock.fireEditPress(oEvent.getParameters());
+			},
+			
+			onEditChanged : function(oEvent){
+				var oSource = oEvent.getSource();
+				if(!oSource.getEditable() && !oSource.getValue() && this.getModel("objectView").getProperty("/isNew")){
+					oSource.setVisible(false);
+				}else{
+					oSource.setVisible(true);
+				}
 			}
-
-
+			
 			/* =========================================================== */
 			/* internal methods                                            */
 			/* =========================================================== */

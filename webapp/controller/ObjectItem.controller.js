@@ -85,6 +85,8 @@ sap.ui.define([
 				var oObject = this.getView().getBindingContext().getObject(),
 					sObjectId = oObject ? oObject.MaintenanceNotification : this.sObjectId;
 					
+				this.onPressCancel();
+					
 				if (sPreviousHash !== undefined) {
 					history.go(-1);
 				} else  if(sObjectId) {
@@ -260,7 +262,7 @@ sap.ui.define([
 					oObject = oView.getBindingContext().getObject(),
 					sObjectId = oObject.MaintenanceNotification,
 					sObjectName = oObject.NotificationText;
-
+					
 				// Everything went fine.
 				oViewModel.setProperty("/Title", oObject.MaintNotifItemText);
 				

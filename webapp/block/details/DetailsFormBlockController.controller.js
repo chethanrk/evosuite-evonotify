@@ -35,6 +35,15 @@ sap.ui.define([
 			
 			onChecked : function (oEvent) {
 				this.oParentBlock.fireOnChecked(oEvent.getParameters());
+			},
+			
+			onEditChanged : function(oEvent){
+				var oSource = oEvent.getSource();
+				if(!oSource.getEditable() && !oSource.getValue() && this.getModel("objectView").getProperty("/isNew")){
+					oSource.setVisible(false);
+				}else{
+					oSource.setVisible(true);
+				}
 			}
 			
 			/* =========================================================== */
