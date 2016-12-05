@@ -5,8 +5,9 @@ sap.ui.define([
 		"com/evorait/evolite/evonotify/controller/ErrorHandler",
 		"sap/m/Dialog",
 	    "sap/m/Button",
-	    "sap/m/Text"
-	], function (UIComponent, Device, models, ErrorHandler, Dialog, Button, Text) {
+	    "sap/m/Text",
+	    "sap/m/MessageToast"
+	], function (UIComponent, Device, models, ErrorHandler, Dialog, Button, Text, MessageToast) {
 		"use strict";
 
 		return UIComponent.extend("com.evorait.evolite.evonotify.Component", {
@@ -70,6 +71,42 @@ sap.ui.define([
 			},
 			
 			/**
+			 * save view form
+			 * if its a new entry set new header title on success
+			 */
+			saveSubmitHandling : function(_this){
+				var oViewModel = _this.getModel("objectView"),
+					oForm = _this.oForm,
+					isEditable = oForm.getEditable();
+				
+				// validation ok when form editable triggered to false
+				if(oForm.check().length === 0){
+					oViewModel.setProperty("/busy", true);
+					
+					// send only view Model else all data in global model will be submitted
+					return _this.getView().getModel().submitChanges({
+						success: function(){
+							oViewModel.setProperty("/busy", false);
+							oForm.setEditable(!isEditable);
+							
+							var sMsg = this.getModel("i18n").getResourceBundle().getText("saveSuccess");
+							MessageToast.show(sMsg, {duration: 5000});
+							_this._setNewHeaderTitle();
+							oViewModel.setProperty("/isNew", false);
+							oViewModel.setProperty("/isEdit", true);
+						}.bind(this),
+						
+						error: function(oError){
+							oViewModel.setProperty("/busy", false);
+							this.showSaveErrorPrompt(oError);
+						}.bind(this)
+					 });
+				}else{
+					oForm.setEditable(!isEditable);
+				}
+			},
+			
+			/**
 			 * save error dialog
 			 */
 			showSaveErrorPrompt : function(error){
@@ -92,6 +129,37 @@ sap.ui.define([
 	                afterClose: dialog.destroy
 	            });
 	            dialog.open();
+			},
+			
+			/**
+			 * maybe on a last step there needed to hide some SmartFields
+			 * so on Object view navigation all fields should visible again
+			 */
+			showAllSmartFields : function(oForm){
+				if(oForm){
+					var smarFields = oForm.getSmartFields();
+					for(var i=0; smarFields.length > i; i++){
+						smarFields[i].setVisible(true);
+					}
+				}
+			},
+			
+			/**
+			 * workaround for cancel a new entry
+			 * mandatory and filled fields are always validated
+			 * currently there is always a validation on change editable
+			 * but when fields are invisible validation breaks
+			 */
+			hideInvalidFields : function(oForm){
+				var invalidFields = oForm.check();
+				if(invalidFields.length > 0 && oForm){
+					var smarFields = oForm.getSmartFields();
+					for(var i=0; smarFields.length > i; i++){
+						if(invalidFields.indexOf(smarFields[i].sId) > -1){
+							smarFields[i].setVisible(false);
+						}
+					}
+				}
 			}
 
 		});

@@ -3,14 +3,12 @@ sap.ui.define([
 		"com/evorait/evolite/evonotify/controller/BaseController",
 		"sap/ui/model/json/JSONModel",
 		"sap/ui/core/routing/History",
-		"com/evorait/evolite/evonotify/model/formatter",
-	    "sap/m/MessageToast"
+		"com/evorait/evolite/evonotify/model/formatter"
 	], function (
 		BaseController,
 		JSONModel,
 		History,
-		formatter,
-		MessageToast
+		formatter
 	) {
 		"use strict";
 
@@ -81,18 +79,17 @@ sap.ui.define([
 				
 				if(this.oForm){
 					var isEditable = this.oForm.getEditable();
-					var invalidFields = this.oForm.check();
 					
 					if(isNew){
 						var oContext = this.getView().getBindingContext();
 						//need to hide mandatory fields so validation will be skipped on toggle editable
-						this._hideInvalidFields(invalidFields);
+						this.getOwnerComponent().hideInvalidFields(this.oForm);
 						this.oForm.setEditable(!isEditable);
 						this.getModel().deleteCreatedEntry(oContext);
 					}
 					if(isEdit && isEditable){
 						this.getView().getModel().resetChanges();
-						this._hideInvalidFields(invalidFields);
+						this.getOwnerComponent().hideInvalidFields(this.oForm);
 						this.oForm.setEditable(!isEditable);
 					}
 				}
@@ -136,19 +133,18 @@ sap.ui.define([
 			onPressCancel : function() {
 				if(this.oForm){
 					var isEditable = this.oForm.getEditable();
-					var invalidFields = this.oForm.check();
 					var isNew = this.getModel("objectView").getProperty("/isNew");
 					
 					if(isEditable && !isNew){
 						this.getView().getModel().resetChanges();
-						this._hideInvalidFields(invalidFields);
+						this.getOwnerComponent().hideInvalidFields(this.oForm);
 						this.oForm.setEditable(!isEditable);
-						this._showAllSmartFields();
+						this.getOwnerComponent().showAllSmartFields(this.oForm);
 					}
 					if(isNew){
 						var oContext = this.getView().getBindingContext();
 						//need to hide mandatory fields so validation will be skipped on toggle editable
-						this._hideInvalidFields(invalidFields);
+						this.getOwnerComponent().hideInvalidFields(this.oForm);
 						this.oForm.setEditable(!isEditable);
 						this.getModel().deleteCreatedEntry(oContext);
 						this.getRouter().navTo("worklist", {}, true);
@@ -161,36 +157,7 @@ sap.ui.define([
 			 */
 			onPressSave : function() {
 				if(this.oForm){
-					var oViewModel = this.getModel("objectView");
-					var isEditable = this.oForm.getEditable();
-					var invalidFields = this.oForm.check();
-					
-					// validation ok when form editable triggered to false
-					if(invalidFields.length === 0){
-						this.getModel("objectView").setProperty("/busy", true);
-						
-						this.getView().getModel().submitChanges({
-							success: function(){
-								oViewModel.setProperty("/busy", false);
-								this.oForm.setEditable(!isEditable);
-								
-								var sMsg = this.getModel("i18n").getResourceBundle().getText("saveSuccess");
-								MessageToast.show(sMsg, {duration: 5000});
-								
-								oViewModel.setProperty("/isNew", false);
-								oViewModel.setProperty("/isEdit", true);
-								var oContext = this.getView().getBindingContext();
-								oViewModel.setProperty("/Title", this.getModel().getProperty(oContext.sPath+"/NotificationText"));
-							}.bind(this),
-							
-							error: function(oError){
-								this.getModel("objectView").setProperty("/busy", false);
-								this.getOwnerComponent().showSaveErrorPrompt(oError);
-							}.bind(this)
-						 });
-					}else{
-						this.oForm.setEditable(!isEditable);
-					}
+					this.getOwnerComponent().saveSubmitHandling(this);
 				}
 			},
 			
@@ -243,7 +210,7 @@ sap.ui.define([
 					oViewModel.setProperty("/isNew", isNew);
 					oViewModel.setProperty("/isEdit", !isNew);
 					this._setEditMode(isNew);
-					this._showAllSmartFields();
+					this.getOwnerComponent().showAllSmartFields(this.oForm);                   
 					
 					if(isNew){
 						var oContext = oDataModel.createEntry("/PMNotifications");
@@ -335,34 +302,9 @@ sap.ui.define([
 				}
 			},
 			
-			/**
-			 * maybe on a last step there needed to hide some SmartFields
-			 * so on Object view navigation all fields should visible again
-			 */
-			_showAllSmartFields : function(){
-				if(this.oForm){
-					var smarFields = this.oForm.getSmartFields();
-					for(var i=0; smarFields.length > i; i++){
-						smarFields[i].setVisible(true);
-					}
-				}
-			},
-			
-			/**
-			 * workaround for cancel a new entry
-			 * mandatory and filled fields are always validated
-			 * currently there is always a validation on change editable
-			 * but when fields are invisible validation breaks
-			 */
-			_hideInvalidFields : function(invalidFields){
-				if(invalidFields.length > 0 && this.oForm){
-					var smarFields = this.oForm.getSmartFields();
-					for(var i=0; smarFields.length > i; i++){
-						if(invalidFields.indexOf(smarFields[i].sId) > -1){
-							smarFields[i].setVisible(false);
-						}
-					}
-				}
+			_setNewHeaderTitle : function(){
+				var oContext = this.getView().getBindingContext();
+				this.getModel("objectView").setProperty("/Title", this.getModel().getProperty(oContext.sPath+"/NotificationText"));
 			}
 			
 		});
