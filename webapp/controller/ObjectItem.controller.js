@@ -85,8 +85,6 @@ sap.ui.define([
 				var oObject = this.getView().getBindingContext().getObject(),
 					sObjectId = oObject ? oObject.MaintenanceNotification : this.sObjectId;
 					
-					console.log(oObject);
-
 				if (sPreviousHash !== undefined) {
 					history.go(-1);
 				} else  if(sObjectId) {

@@ -38,6 +38,7 @@ sap.ui.define([
 						isEdit : false,
 						editable: false,
 						editMode : false,
+						showAdd : false,
 						itemsTableTitle : this.getResourceBundle().getText("itemsTableTitle"),
 						saveAsTileTitle: this.getResourceBundle().getText("itemsViewTitle"),
 						shareOnJamTitle: this.getResourceBundle().getText("itemsViewTitle"),
@@ -110,11 +111,11 @@ sap.ui.define([
 			onPressItem : function(oEvent) {
 				// The source is the list item that got pressed
 				var oParameters = oEvent.getParameters();
-				var sBinding = sap.ui.getCore().byId(oParameters.id).getBindingContext("objectView");
-				var obj = sBinding.getObject();
+				var oRow = sap.ui.getCore().byId(oParameters.id);
+				var sPath = oRow.getBindingContextPath();
+				var obj = this.getModel().getProperty(sPath);
 				
 				this.onPressCancel();
-				
 				this.getRouter().navTo("item", {
 					objectId: obj.MaintenanceNotification,
 					itemId: obj.MaintenanceNotificationItem
@@ -197,6 +198,7 @@ sap.ui.define([
 			 * navigate to new notification item
 			 */
 			onAddItemPress : function(){
+				this.onPressCancel();
 				this.getRouter().navTo("item", {
 					objectId: this.getView().getBindingContext().getProperty("MaintenanceNotification"),
 					itemId: "new"
@@ -251,6 +253,7 @@ sap.ui.define([
 						
 						var oBundle = this.getModel("i18n").getResourceBundle();
 						oViewModel.setProperty("/Title", oBundle.getText("newNotificationTitle"));
+						oViewModel.setProperty("/showAdd", false);
 						oViewModel.setProperty("/busy", false);
 					}else{
 						var sObjectPath = this.getModel().createKey("PMNotifications", {
@@ -325,8 +328,10 @@ sap.ui.define([
 				var data = this.getModel().getProperty(oContext.sPath);
 				if(data && (data.IsCompleted || data.IsDeleted) || this.getModel("objectView").getProperty("/editMode")){
 					this.getModel("objectView").setProperty("/editable", false);
+					this.getModel("objectView").setProperty("/showAdd", false);
 				}else{
 					this.getModel("objectView").setProperty("/editable", true);
+					this.getModel("objectView").setProperty("/showAdd", true);
 				}
 			},
 			
