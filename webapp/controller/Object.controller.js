@@ -36,8 +36,13 @@ sap.ui.define([
 						delay : 0,
 						isNew : false,
 						isEdit : false,
-						showMode: false,
-						editMode : false
+						editable: false,
+						editMode : false,
+						itemsTableTitle : this.getResourceBundle().getText("itemsTableTitle"),
+						saveAsTileTitle: this.getResourceBundle().getText("itemsViewTitle"),
+						shareOnJamTitle: this.getResourceBundle().getText("itemsViewTitle"),
+						tableNoDataText : this.getResourceBundle().getText("tableNoDataText"),
+						tableBusyDelay : 0
 					});
 
 				this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
@@ -55,15 +60,6 @@ sap.ui.define([
 					}
 				);
 				
-				// Model used to manipulate control states
-				oViewModel = new JSONModel({
-					itemsTableTitle : this.getResourceBundle().getText("itemsTableTitle"),
-					saveAsTileTitle: this.getResourceBundle().getText("itemsViewTitle"),
-					shareOnJamTitle: this.getResourceBundle().getText("itemsViewTitle"),
-					tableNoDataText : this.getResourceBundle().getText("tableNoDataText"),
-					tableBusyDelay : 0
-				});
-				this.setModel(oViewModel, "itemsView");
 			},
 			
 			/* =========================================================== */
@@ -114,7 +110,7 @@ sap.ui.define([
 			onPressItem : function(oEvent) {
 				// The source is the list item that got pressed
 				var oParameters = oEvent.getParameters();
-				var sBinding = sap.ui.getCore().byId(oParameters.id).getBindingContext("itemsView");
+				var sBinding = sap.ui.getCore().byId(oParameters.id).getBindingContext("objectView");
 				var obj = sBinding.getObject();
 				
 				this.onPressCancel();
@@ -251,6 +247,7 @@ sap.ui.define([
 						var oContext = oDataModel.createEntry("/PMNotifications");
 						this.getView().unbindElement();
 						this.getView().setBindingContext(oContext);
+						this._isEditable(oContext);
 						
 						var oBundle = this.getModel("i18n").getResourceBundle();
 						oViewModel.setProperty("/Title", oBundle.getText("newNotificationTitle"));
@@ -302,10 +299,10 @@ sap.ui.define([
 				var oView = this.getView(),
 					oViewModel = this.getModel("objectView"),
 					oElementBinding = oView.getElementBinding(),
-					boundObject = oView.getModel().getProperty(oElementBinding.sPath);
+					oContext = oElementBinding.getBoundContext();
 
 				// No data for the binding
-				if (!oElementBinding.getBoundContext()) {
+				if (!oContext) {
 					this.getRouter().getTargets().display("objectNotFound");
 					return;
 				}
@@ -315,51 +312,22 @@ sap.ui.define([
 				}
 
 				// Everything went fine.
+				this._isEditable(oContext);
 				oViewModel.setProperty("/busy", false);
-				this._getListObjects(boundObject.to_PMNotificationItem);
-			},
-			
-			/**
-			 * get related object notification items
-			 */
-			_getListObjects : function(oNode){
-				var oView = this.getView(),
-					itemsView = this.getModel("itemsView");
-				var results = [];
-				
-				itemsView.setProperty("/busy", true);
-			
-				if (oNode.__ref) {
-					oNode = this.oData[oNode.__ref];
-				} else if (oNode.__list) {
-					oNode = oNode.__list;
-				} else if (oNode.__deferred) {
-					oNode = null;
-				}
-				
-				if(oNode){
-					for (var i = 0; i < oNode.length; i++) {
-			            oView.getModel().read("/"+oNode[i],{
-		                    success: function(data){ results.push(data); }
-		                });
-			        }
-				}
-				
-				// on successfull batch sent
-	             oView.getModel().attachBatchRequestCompleted(function(){
-	                itemsView.setProperty("/items", results);
-	                itemsView.setProperty("/busy", false);
-	            });
-	
-	            // on sent error of batch request
-	             oView.getModel().attachBatchRequestFailed(function(){
-	                itemsView.setProperty("/busy", false);
-	            });
 			},
 			
 			_setEditMode : function(isEdit){
-				this.getModel("objectView").setProperty("/showMode", !isEdit);
+				this.getModel("objectView").setProperty("/editable", !isEdit);
 				this.getModel("objectView").setProperty("/editMode", isEdit);
+			},
+			
+			_isEditable : function(oContext){
+				var data = this.getModel().getProperty(oContext.sPath);
+				if(data && (data.IsCompleted || data.IsDeleted) || this.getModel("objectView").getProperty("/editMode")){
+					this.getModel("objectView").setProperty("/editable", false);
+				}else{
+					this.getModel("objectView").setProperty("/editable", true);
+				}
 			},
 			
 			/**

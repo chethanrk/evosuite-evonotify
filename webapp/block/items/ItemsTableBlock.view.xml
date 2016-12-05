@@ -9,21 +9,21 @@
 		width="auto"
 		class="sapUiNoMargin"
 		items="{
-                path : 'itemsView>/items',
+                path : 'to_PMNotificationItem',
                 sorter : {
                     path : 'MaintenanceNotificationItem',
                     descending : false
                 }
             }"
-		noDataText="{itemsView>/tableNoDataText}"
-		busyIndicatorDelay="{itemsView>/tableBusyDelay}"
+		noDataText="{objectView>/tableNoDataText}"
+		busyIndicatorDelay="{objectView>/tableBusyDelay}"
 		growing="false"
 		growingScrollToLoad="false"
 		updateFinished="onUpdateFinished">
 
 		<headerToolbar>
 			<Toolbar>
-				<Title id="tableHeader" text="{itemsView>/itemsTableTitle}"/>
+				<Title id="tableHeader" text="{objectView>/itemsTableTitle}"/>
 			</Toolbar>
 		</headerToolbar>
 
@@ -42,9 +42,9 @@
 				press="onPressItem">
 				<cells>
 					<ObjectIdentifier 
-					title="{itemsView>MaintenanceNotificationItem}"
-					text="{itemsView>MaintNotifItemText}"/>
-					<Text text="{itemsView>MaintNotifObjPrtCodeGroupName}"/>
+					title="{MaintenanceNotificationItem}"
+					text="{MaintNotifItemText}"/>
+					<Text text="{MaintNotifObjPrtCodeGroupName}"/>
 				</cells>
 			</ColumnListItem>
 		</items>
