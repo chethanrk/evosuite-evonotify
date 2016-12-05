@@ -264,6 +264,8 @@ sap.ui.define([
 					sObjectName = oObject.NotificationText;
 
 				// Everything went fine.
+				oViewModel.setProperty("/Title", oObject.MaintNotifItemText);
+				
 				oViewModel.setProperty("/busy", false);
 				oViewModel.setProperty("/saveAsTileTitle", oResourceBundle.getText("saveAsTileTitle", [sObjectName]));
 				oViewModel.setProperty("/shareOnJamTitle", sObjectName);

@@ -8,13 +8,24 @@
 	xmlns:smartForm="sap.ui.comp.smartform">
 	
 	<smartForm:SmartForm id="SmartNotificationItemForm" editTogglable="false" editToggled="onEditPress" editable="{objectView>/editMode}">
-		<smartForm:Group>
+		<smartForm:Group label="General">
+			<smartForm:layout>
+				<layout:GridData span="L12 M12 S12"/>
+			</smartForm:layout>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintenanceNotification}" editable="false"/>
+				<smartField:SmartField value="{MaintenanceNotification}"/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintenanceNotificationItem}"/>
 			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintNotifItemText}"/>
+			</smartForm:GroupElement>
+		</smartForm:Group>
+		<smartForm:Group label="Object">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S12"/>
+			</smartForm:layout>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintNotifObjPrtCodeGroup}">
 					<smartField:configuration>
@@ -23,17 +34,30 @@
 				</smartField:SmartField>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintNotifObjPrtCodeGroupName}"/>
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintNotifObjPrtCode}">
 					<smartField:configuration>
 						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
 					</smartField:configuration>
 				</smartField:SmartField>
 			</smartForm:GroupElement>
+		</smartForm:Group>
+		<smartForm:Group label="Damage">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S12"/>
+			</smartForm:layout>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintNotifObjPrtCodeName}"/>
+				<smartField:SmartField value="{MaintNotifDamageCodeGroup}">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintNotifDamageCode}">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
 			</smartForm:GroupElement>
 		</smartForm:Group>
 	</smartForm:SmartForm>
