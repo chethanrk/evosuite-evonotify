@@ -37,7 +37,11 @@
 				</smartField:SmartField>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintPriority}"/>
+				<smartField:SmartField value="{MaintPriority}">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{ReportedByUser}"/>
