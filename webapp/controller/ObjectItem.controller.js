@@ -79,18 +79,21 @@ sap.ui.define([
 			 * @public
 			 */
 			onNavBack : function() {
+				if(this.oForm){
+					this.getOwnerComponent().cancelFormHandling(this);
+				}
+				this.navBack();
+			},
+			
+			navBack : function(){
 				var sPreviousHash = History.getInstance().getPreviousHash();
-				var oObject = this.getView().getBindingContext().getObject(),
-					sObjectId = oObject ? oObject.MaintenanceNotification : this.sObjectId;
-					
-				this.onPressCancel();
-					
+				
 				if (sPreviousHash !== undefined) {
 					history.go(-1);
-				} else  if(sObjectId) {
-					this.getRouter().navTo("object", {objectId: sObjectId}, true);
-				}else{
-					this.getRouter().navTo("worklist", {}, true);
+				} else {
+					var oContext = this.getView().getBindingContext();
+					var obj = oContext.getObject();
+					this.getRouter().navTo("object", {objectId: obj.MaintenanceNotification}, true);
 				}
 			},
 			
@@ -109,23 +112,7 @@ sap.ui.define([
 			
 			onPressCancel : function(){
 				if(this.oForm){
-					var isEditable = this.oForm.getEditable();
-					var isNew = this.getModel("objectView").getProperty("/isNew");
-					
-					if(isEditable && !isNew){
-						this.getView().getModel().resetChanges();
-						this.getOwnerComponent().hideInvalidFields(this.oForm);
-						this.oForm.setEditable(!isEditable);
-						this.getOwnerComponent().showAllSmartFields(this.oForm);
-					}
-					if(isNew){
-						var oContext = this.getView().getBindingContext();
-						//need to hide mandatory fields so validation will be skipped on toggle editable
-						this.getOwnerComponent().hideInvalidFields(this.oForm);
-						this.oForm.setEditable(!isEditable);
-						this.getModel().deleteCreatedEntry(oContext);
-						this.getRouter().navTo("object", {objectId: this.sObjectId}, true);
-					}
+					this.getOwnerComponent().cancelFormHandling(this);
 				}
 			},
 			
@@ -157,7 +144,7 @@ sap.ui.define([
 					oDataModel = this.getModel(),
 					isNew = (sItemId === "new");
 					
-				this.sObjectId =  oEvent.getParameter("arguments").objectId;
+				var sObjectId =  oEvent.getParameter("arguments").objectId;
 				oDataModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
 				
 				oDataModel.metadataLoaded().then( function() {
@@ -168,7 +155,7 @@ sap.ui.define([
 					
 					if(isNew){
 						var oContext = oDataModel.createEntry("/PMNotificationItems");
-						oDataModel.setProperty(oContext.sPath+"/MaintenanceNotification", this.sObjectId);
+						oDataModel.setProperty(oContext.sPath+"/MaintenanceNotification", sObjectId);
 						this.getView().unbindElement();
 						this.getView().setBindingContext(oContext);
 						
@@ -177,7 +164,7 @@ sap.ui.define([
 						oViewModel.setProperty("/busy", false);
 					}else{
 						var sObjectPath = this.getModel().createKey("PMNotificationItems", {
-							MaintenanceNotification :  this.sObjectId,
+							MaintenanceNotification :  sObjectId,
 							MaintenanceNotificationItem : sItemId
 						});
 						this._bindView("/" + sObjectPath);

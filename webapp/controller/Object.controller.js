@@ -73,27 +73,14 @@ sap.ui.define([
 			 * @public
 			 */
 			onNavBack : function() {
-				var sPreviousHash = History.getInstance().getPreviousHash();
-				var isNew = this.getModel("objectView").getProperty("/isNew");
-				var isEdit = this.getModel("objectView").getProperty("/isEdit");
-				
 				if(this.oForm){
-					var isEditable = this.oForm.getEditable();
-					
-					if(isNew){
-						var oContext = this.getView().getBindingContext();
-						//need to hide mandatory fields so validation will be skipped on toggle editable
-						this.getOwnerComponent().hideInvalidFields(this.oForm);
-						this.oForm.setEditable(!isEditable);
-						this.getModel().deleteCreatedEntry(oContext);
-					}
-					if(isEdit && isEditable){
-						this.getView().getModel().resetChanges();
-						this.getOwnerComponent().hideInvalidFields(this.oForm);
-						this.oForm.setEditable(!isEditable);
-					}
+					this.getOwnerComponent().cancelFormHandling(this);
 				}
-						
+				this.navBack();
+			},
+			
+			navBack : function(){
+				var sPreviousHash = History.getInstance().getPreviousHash();
 				if (sPreviousHash !== undefined) {
 					history.go(-1);
 				} else {
@@ -132,23 +119,7 @@ sap.ui.define([
 			 */
 			onPressCancel : function() {
 				if(this.oForm){
-					var isEditable = this.oForm.getEditable();
-					var isNew = this.getModel("objectView").getProperty("/isNew");
-					
-					if(isEditable && !isNew){
-						this.getView().getModel().resetChanges();
-						this.getOwnerComponent().hideInvalidFields(this.oForm);
-						this.oForm.setEditable(!isEditable);
-						this.getOwnerComponent().showAllSmartFields(this.oForm);
-					}
-					if(isNew){
-						var oContext = this.getView().getBindingContext();
-						//need to hide mandatory fields so validation will be skipped on toggle editable
-						this.getOwnerComponent().hideInvalidFields(this.oForm);
-						this.oForm.setEditable(!isEditable);
-						this.getModel().deleteCreatedEntry(oContext);
-						this.getRouter().navTo("worklist", {}, true);
-					}
+					this.getOwnerComponent().cancelFormHandling(this);
 				}
 			},
 			
@@ -182,11 +153,6 @@ sap.ui.define([
 				if(!this.oForm){
 					this.oForm = sap.ui.getCore().byId(oParameters.id);
 				}
-			},
-			
-			onFiredChecked : function(oEvent) {
-				var oParameters = oEvent.getParameters();
-				//console.log(oParameters);
 			},
 			
 			/* =========================================================== */

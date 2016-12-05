@@ -107,6 +107,31 @@ sap.ui.define([
 			},
 			
 			/**
+			 * reset form and close editable state
+			 * delete new created entry and nav back
+			 */
+			cancelFormHandling : function(_this){
+				var oForm = _this.oForm,
+					isEditable = oForm.getEditable(),
+					isNew = _this.getModel("objectView").getProperty("/isNew");
+				
+				if(isEditable && !isNew){
+					_this.getView().getModel().resetChanges();
+					this.hideInvalidFields(oForm);
+					oForm.setEditable(!isEditable);
+					this.showAllSmartFields(oForm);
+				}
+				if(isNew){
+					var oContext = _this.getView().getBindingContext();
+					//need to hide mandatory fields so validation will be skipped on toggle editable
+					this.hideInvalidFields(oForm);
+					oForm.setEditable(!isEditable);
+					_this.navBack();
+					this.getModel().deleteCreatedEntry(oContext);
+				}	
+			},
+			
+			/**
 			 * save error dialog
 			 */
 			showSaveErrorPrompt : function(error){
