@@ -117,17 +117,17 @@
 					]
 				},
 				{
-					"pattern": "PMNotifications/{objectId}/{itemId}",
+					"pattern": "PMNotifications/PMNotificationItems/{objectId}/{itemId}",
 					"name": "item",
 					"target": [
 						"item"
 					]
 				},
 				{
-					"pattern": "new",
-					"name": "new",
+					"pattern": "PMNotifications/PMNotificationTasks/{objectId}/{taskId}",
+					"name": "task",
 					"target": [
-						"new"
+						"task"
 					]
 				}
 			],
@@ -147,10 +147,10 @@
 					"viewId": "item",
 					"viewLevel": 3
 				},
-				"new": {
-					"viewName": "ObjectNew",
-					"viewId": "new",
-					"viewLevel": 2
+				"task": {
+					"viewName": "ObjectTask",
+					"viewId": "task",
+					"viewLevel": 3
 				},
 				"objectNotFound": {
 					"viewName": "ObjectNotFound",

@@ -12,7 +12,7 @@ sap.ui.define([
 	) {
 		"use strict";
 
-		return BaseController.extend("com.evorait.evolite.evonotify.controller.ObjectItem", {
+		return BaseController.extend("com.evorait.evolite.evonotify.controller.ObjectTask", {
 
 			formatter: formatter,
 
@@ -38,7 +38,7 @@ sap.ui.define([
 						editMode : false
 					});
 
-				this.getRouter().getRoute("item").attachPatternMatched(this._onObjectMatched, this);
+				this.getRouter().getRoute("task").attachPatternMatched(this._onObjectMatched, this);
 
 				// Store original busy indicator delay, so it can be restored later on
 				iOriginalBusyDelay = this.getView().getBusyIndicatorDelay();
@@ -53,24 +53,6 @@ sap.ui.define([
 			/* =========================================================== */
 			/* event handlers                                              */
 			/* =========================================================== */
-
-			/**
-			 * Event handler when the share in JAM button has been clicked
-			 * @public
-			 */
-			onShareInJamPress : function () {
-				var oViewModel = this.getModel("objectView"),
-					oShareDialog = sap.ui.getCore().createComponent({
-						name: "sap.collaboration.components.fiori.sharing.dialog",
-						settings: {
-							object:{
-								id: location.href,
-								share: oViewModel.getProperty("/shareOnJamTitle")
-							}
-						}
-					});
-				oShareDialog.open();
-			},
 
 			/**
 			 * Event handler  for navigating back.
@@ -141,7 +123,7 @@ sap.ui.define([
 			 * @private
 			 */
 			_onObjectMatched : function (oEvent) {
-				var sItemId = oEvent.getParameter("arguments").itemId,
+				var sItemId = oEvent.getParameter("arguments").taskId,
 					oViewModel = this.getModel("objectView"),
 					oDataModel = this.getModel(),
 					isNew = (sItemId === "new");
@@ -152,11 +134,11 @@ sap.ui.define([
 				oDataModel.metadataLoaded().then( function() {
 					oViewModel.setProperty("/isNew", isNew);
 					oViewModel.setProperty("/isEdit", !isNew);
-					this._setEditMode(isNew);
+					//this._setEditMode(isNew);
 					this.getOwnerComponent().showAllSmartFields(this.oForm);
 					
 					if(isNew){
-						var oContext = oDataModel.createEntry("/PMNotificationItems");
+						var oContext = oDataModel.createEntry("/PMNotificationTasks");
 						oDataModel.setProperty(oContext.sPath+"/MaintenanceNotification", sObjectId);
 						this.getView().unbindElement();
 						this.getView().setBindingContext(oContext);
@@ -164,10 +146,11 @@ sap.ui.define([
 						var oBundle = this.getModel("i18n").getResourceBundle();
 						oViewModel.setProperty("/Title", oBundle.getText("newNotificationItemTitle"));
 						oViewModel.setProperty("/busy", false);
+						
 					}else{
-						var sObjectPath = this.getModel().createKey("PMNotificationItems", {
+						var sObjectPath = this.getModel().createKey("PMNotificationTasks", {
 							MaintenanceNotification :  sObjectId,
-							MaintenanceNotificationItem : sItemId
+							MaintenanceNotificationTask : sItemId
 						});
 						this._bindView("/" + sObjectPath);
 					}
@@ -190,10 +173,6 @@ sap.ui.define([
 						change: this._onBindingChange.bind(this),
 						dataRequested: function () {
 							oDataModel.metadataLoaded().then(function () {
-								// Busy indicator on view should only be set if metadata is loaded,
-								// otherwise there may be two busy indications next to each other on the
-								// screen. This happens because route matched handler already calls '_bindView'
-								// while metadata is loaded.
 								oViewModel.setProperty("/busy", true);
 							});
 						},
@@ -214,22 +193,9 @@ sap.ui.define([
 					this.getRouter().getTargets().display("objectNotFound");
 					return;
 				}
-
-				var oResourceBundle = this.getResourceBundle(),
-					oObject = oView.getBindingContext().getObject(),
-					sObjectId = oObject.MaintenanceNotification,
-					sObjectName = oObject.NotificationText;
-					
 				// Everything went fine.
 				this._setNewHeaderTitle();
-				
 				oViewModel.setProperty("/busy", false);
-				oViewModel.setProperty("/saveAsTileTitle", oResourceBundle.getText("saveAsTileTitle", [sObjectName]));
-				oViewModel.setProperty("/shareOnJamTitle", sObjectName);
-				oViewModel.setProperty("/shareSendEmailSubject",
-				oResourceBundle.getText("shareSendEmailObjectSubject", [sObjectId]));
-				oViewModel.setProperty("/shareSendEmailMessage",
-				oResourceBundle.getText("shareSendEmailObjectMessage", [sObjectName, sObjectId, location.href]));
 			},
 			
 			_setEditMode : function(isEdit){
@@ -239,7 +205,7 @@ sap.ui.define([
 			
 			_setNewHeaderTitle : function(){
 				var oContext = this.getView().getBindingContext();
-				this.getModel("objectView").setProperty("/Title", this.getModel().getProperty(oContext.sPath+"/MaintNotifItemText"));
+				this.getModel("objectView").setProperty("/Title", this.getModel().getProperty(oContext.sPath+"/MaintNotifTaskText"));
 			}
 
 		});

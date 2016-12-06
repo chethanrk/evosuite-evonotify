@@ -93,16 +93,26 @@ sap.ui.define([
 			 * navigate to notification item
 			 */
 			onPressItem : function(oEvent) {
-				// The source is the list item that got pressed
-				var oParameters = oEvent.getParameters();
-				var oRow = sap.ui.getCore().byId(oParameters.id);
-				var sPath = oRow.getBindingContextPath();
-				var obj = this.getModel().getProperty(sPath);
+				var obj = this._getTableRowPath(oEvent.getParameters());
 				
 				this.onPressCancel();
 				this.getRouter().navTo("item", {
 					objectId: obj.MaintenanceNotification,
 					itemId: obj.MaintenanceNotificationItem
+				});
+			},
+			
+			/**
+			 * table task row select
+			 * navigate to notification task
+			 */
+			onPressTask : function(oEvent) {
+				var obj = this._getTableRowPath(oEvent.getParameters());
+				
+				this.onPressCancel();
+				this.getRouter().navTo("task", {
+					objectId: obj.MaintenanceNotification,
+					taskId: obj.MaintenanceNotificationTask
 				});
 			},
 			
@@ -271,6 +281,12 @@ sap.ui.define([
 			_setNewHeaderTitle : function(){
 				var oContext = this.getView().getBindingContext();
 				this.getModel("objectView").setProperty("/Title", this.getModel().getProperty(oContext.sPath+"/NotificationText"));
+			},
+			
+			_getTableRowPath : function(oParameters) {
+				var oRow = sap.ui.getCore().byId(oParameters.id);
+				var sPath = oRow.getBindingContextPath();
+				return this.getModel().getProperty(sPath);
 			}
 			
 		});
