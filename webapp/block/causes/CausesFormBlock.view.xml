@@ -1,0 +1,89 @@
+<mvc:View 
+	controllerName="com.evorait.evolite.evonotify.block.causes.CausesFormBlockController"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:layout="sap.ui.layout"
+	xmlns:smartField="sap.ui.comp.smartfield" 
+	xmlns:smartForm="sap.ui.comp.smartform">
+	
+	<smartForm:SmartForm id="SmartNotificationTaskForm" editTogglable="false" editToggled="onEditPress" editable="{objectView>/editMode}">
+		<smartForm:Group label="General">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S12"/>
+			</smartForm:layout>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenanceNotification}" editableChanged="onEditChanged"/>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenanceNotificationItem}" editableChanged="onEditChanged"/>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenanceNotificationTask}" editableChanged="onEditChanged"/>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintNotifTaskText}" editableChanged="onEditChanged"/>
+			</smartForm:GroupElement>
+		</smartForm:Group>
+		
+		<smartForm:Group label="Code">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S12"/>
+			</smartForm:layout>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintNotifTaskCodeGroup}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintNotiTtaskCodeGroupName}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+		</smartForm:Group>
+		
+		<smartForm:Group label="Status">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S12" linebreak="true"/>
+			</smartForm:layout>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{ConcatenatedActSysStsName}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{ConcatenatedActUserStsName}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+		</smartForm:Group>
+		
+		<smartForm:Group label="Status">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S12"/>
+			</smartForm:layout>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{ResponsiblePersonFunctionCode}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{ResponsiblePerson}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+		</smartForm:Group>
+	</smartForm:SmartForm>
+</mvc:View>

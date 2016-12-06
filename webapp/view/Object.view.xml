@@ -53,7 +53,7 @@
 			</uxap:headerContent>
 			
 			<uxap:sections>
-				<uxap:ObjectPageSection id="generalSection" title="General">
+				<uxap:ObjectPageSection title="General">
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
@@ -73,7 +73,7 @@
 					</uxap:subSections>
 				</uxap:ObjectPageSection>
 				
-				<uxap:ObjectPageSection id="tasksSection" title="Tasks" visible="{objectView>/isEdit}">
+				<uxap:ObjectPageSection title="Tasks" visible="{objectView>/isEdit}">
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>

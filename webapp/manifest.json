@@ -129,6 +129,13 @@
 					"target": [
 						"task"
 					]
+				},
+				{
+					"pattern": "PMNotifications/PMNotificationItems/PMNotificationCauses/{objectId}/{itemId}/{causeId}",
+					"name": "cause",
+					"target": [
+						"cause"
+					]
 				}
 			],
 			"targets": {
@@ -151,6 +158,11 @@
 					"viewName": "ObjectTask",
 					"viewId": "task",
 					"viewLevel": 3
+				},
+				"cause": {
+					"viewName": "ObjectCause",
+					"viewId": "cause",
+					"viewLevel": 4
 				},
 				"objectNotFound": {
 					"viewName": "ObjectNotFound",

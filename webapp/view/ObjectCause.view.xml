@@ -1,20 +1,18 @@
 <mvc:View
-	controllerName="com.evorait.evolite.evonotify.controller.ObjectItem"
+	controllerName="com.evorait.evolite.evonotify.controller.ObjectCause"
 	xmlns="sap.m" 
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:semantic="sap.m.semantic" 
 	xmlns:form="sap.ui.layout.form" 
 	xmlns:core="sap.ui.core" 
 	xmlns:uxap="sap.uxap"
-	xmlns:items="com.evorait.evolite.evonotify.block.items"
-	xmlns:causes="com.evorait.evolite.evonotify.block.causes"
-	xmlns:tasks="com.evorait.evolite.evonotify.block.tasks">
+	xmlns:causes="com.evorait.evolite.evonotify.block.causes">
 
-	<Page title="{i18n>itemViewTitle}" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack">
+	<Page title="{i18n>causeItemViewTitle}" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack">
 		
 		<uxap:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" >
 			<uxap:headerTitle>
-				<uxap:ObjectPageHeader objectTitle="{objectView>/Title}" objectSubtitle="{MaintenanceNotificationItem}">
+				<uxap:ObjectPageHeader objectTitle="{objectView>/Title}" objectSubtitle="{MaintenanceNotificationTask}">
 					<uxap:actions>
 						<uxap:ObjectPageHeaderActionButton icon="sap-icon://edit" press="onPressEdit" type="Emphasized" visible="{objectView>/showMode}"/>
 						<uxap:ObjectPageHeaderActionButton icon="sap-icon://cancel" press="onPressCancel" visible="{objectView>/editMode}"/>
@@ -30,27 +28,7 @@
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
-								<items:ItemsFormBlock id="itemsForm" editPress="onFiredEditMode"/>
-							</uxap:blocks>
-						</uxap:ObjectPageSubSection>
-					</uxap:subSections>
-				</uxap:ObjectPageSection>
-				
-				<uxap:ObjectPageSection title="Causes" visible="{objectView>/isEdit}">
-					<uxap:subSections>
-						<uxap:ObjectPageSubSection>
-							<uxap:blocks>
-								<causes:CausesTableBlock itemPress="onPressCause"/>
-							</uxap:blocks>
-						</uxap:ObjectPageSubSection>
-					</uxap:subSections>
-				</uxap:ObjectPageSection>
-				
-				<uxap:ObjectPageSection title="Tasks" visible="{objectView>/isEdit}">
-					<uxap:subSections>
-						<uxap:ObjectPageSubSection>
-							<uxap:blocks>
-								<tasks:TasksTableBlock itemPress="onPressTask"/>
+								<causes:CausesFormBlock editPress="onFiredEditMode"/>
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>

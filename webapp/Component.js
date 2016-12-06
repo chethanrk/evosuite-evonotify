@@ -185,6 +185,12 @@ sap.ui.define([
 						}
 					}
 				}
+			},
+			
+			getTableRowPath : function(oParameters) {
+				var oRow = sap.ui.getCore().byId(oParameters.id);
+				var sPath = oRow.getBindingContextPath();
+				return this.getModel().getProperty(sPath);
 			}
 
 		});

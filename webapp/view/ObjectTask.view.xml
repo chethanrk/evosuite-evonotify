@@ -24,7 +24,7 @@
 			<uxap:headerContent></uxap:headerContent>
 			
 			<uxap:sections>
-				<uxap:ObjectPageSection id="general">
+				<uxap:ObjectPageSection title="General">
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>

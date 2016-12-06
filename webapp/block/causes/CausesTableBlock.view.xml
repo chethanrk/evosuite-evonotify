@@ -1,13 +1,13 @@
 <mvc:View 
-	controllerName="com.evorait.evolite.evonotify.block.tasks.TasksTableBlockController"
+	controllerName="com.evorait.evolite.evonotify.block.causes.CausesTableBlockController"
 	xmlns="sap.m"
 	xmlns:core="sap.ui.core" 
 	xmlns:mvc="sap.ui.core.mvc">
 	
-	<Table id="notificationTasksTable" width="auto" class="sapUiNoMargin"
-		items="{path : 'to_PMNotificationTask',
+	<Table width="auto" class="sapUiNoMargin"
+		items="{path : 'to_PMNotificationCause',
                 sorter : {
-                    path : 'MaintenanceNotificationTask',
+                    path : 'MaintenanceNotificationCause',
                     descending : false
                 }}"
 		noDataText="{objectView>/tableNoDataText}"
@@ -17,10 +17,10 @@
 		
 		<columns>
 			<Column>
-				<Text text="{/#PMNotificationItem/MaintenanceNotificationTask/@sap:label}"/>
+				<Text text="{/#PMNotificationItem/MaintenanceNotificationCause/@sap:label}"/>
 			</Column>
 			<Column>
-				<Text text="{/#PMNotificationItem/MaintNotifTaskCodeGroup/@sap:label}"/>
+				<Text text="{/#PMNotificationItem/MaintNotifCauseCodeGroup/@sap:label}"/>
 			</Column>
 		</columns>
 
@@ -28,9 +28,9 @@
 			<ColumnListItem type="Navigation" press="onPressItem">
 				<cells>
 					<ObjectIdentifier 
-					title="{MaintenanceNotificationTask}"
-					text="{MaintNotifTaskText}"/>
-					<Text text="{MaintNotiTtaskCodeGroupName}"/>
+					title="{MaintenanceNotificationCause}"
+					text="{MaintNotifCauseText}"/>
+					<Text text="{MaintNotifCauseCodeGroup} {MaintNotifCauseCodeGroupName}"/>
 				</cells>
 			</ColumnListItem>
 		</items>

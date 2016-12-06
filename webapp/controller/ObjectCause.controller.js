@@ -12,7 +12,7 @@ sap.ui.define([
 	) {
 		"use strict";
 
-		return BaseController.extend("com.evorait.evolite.evonotify.controller.Object", {
+		return BaseController.extend("com.evorait.evolite.evonotify.controller.ObjectCause", {
 
 			formatter: formatter,
 
@@ -34,21 +34,11 @@ sap.ui.define([
 						delay : 0,
 						isNew : false,
 						isEdit : false,
-						editable: false,
-						editMode : false,
-						showAdd : false,
-						itemsTableTitle : this.getResourceBundle().getText("itemsTableTitle"),
-						saveAsTileTitle: this.getResourceBundle().getText("itemsViewTitle"),
-						shareOnJamTitle: this.getResourceBundle().getText("itemsViewTitle"),
-						tableNoDataText : this.getResourceBundle().getText("tableNoDataText"),
-						tableBusyDelay : 0
+						showMode: false,
+						editMode : false
 					});
 
-				this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
-				
-				this.getView().addEventDelegate({
-				   //onBeforeHide : function(){}
-				});
+				this.getRouter().getRoute("cause").attachPatternMatched(this._onObjectMatched, this);
 
 				// Store original busy indicator delay, so it can be restored later on
 				iOriginalBusyDelay = this.getView().getBusyIndicatorDelay();
@@ -58,17 +48,15 @@ sap.ui.define([
 						oViewModel.setProperty("/delay", iOriginalBusyDelay);
 					}
 				);
-				
 			},
-			
+
 			/* =========================================================== */
 			/* event handlers                                              */
 			/* =========================================================== */
 
-
 			/**
 			 * Event handler  for navigating back.
-			 * It there is a history entry we go one step back in the browser history
+			 * It there is a history entry or an previous app-to-app navigation we go one step back in the browser history
 			 * If not, it will replace the current entry of the browser history with the worklist route.
 			 * @public
 			 */
@@ -81,39 +69,16 @@ sap.ui.define([
 			
 			navBack : function(){
 				var sPreviousHash = History.getInstance().getPreviousHash();
+				var oContext = this.getView().getBindingContext();
+				
 				if (sPreviousHash !== undefined) {
 					history.go(-1);
-				} else {
+				} else if(oContext) {
+					var obj = oContext.getObject();
+					this.getRouter().navTo("object", {objectId: obj.MaintenanceNotification}, true);
+				}else{
 					this.getRouter().navTo("worklist", {}, true);
 				}
-			},
-			
-			/**
-			 * table item row select
-			 * navigate to notification item
-			 */
-			onPressItem : function(oEvent) {
-				var obj = this.getOwnerComponent().getTableRowPath(oEvent.getParameters());
-				
-				this.onPressCancel();
-				this.getRouter().navTo("item", {
-					objectId: obj.MaintenanceNotification,
-					itemId: obj.MaintenanceNotificationItem
-				});
-			},
-			
-			/**
-			 * table task row select
-			 * navigate to notification task
-			 */
-			onPressTask : function(oEvent) {
-				var obj = this.getOwnerComponent().getTableRowPath(oEvent.getParameters());
-				
-				this.onPressCancel();
-				this.getRouter().navTo("task", {
-					objectId: obj.MaintenanceNotification,
-					taskId: obj.MaintenanceNotificationTask
-				});
 			},
 			
 			/**
@@ -123,34 +88,16 @@ sap.ui.define([
 				this._setEditMode(true);
 			},
 			
-			/**
-			 * reset changed data
-			 * when create notification remove all values
-			 */
-			onPressCancel : function() {
-				if(this.oForm){
-					this.getOwnerComponent().cancelFormHandling(this);
-				}
-			},
-			
-			/**
-			 * validate and submit form data changes
-			 */
-			onPressSave : function() {
+			onPressSave : function(){
 				if(this.oForm){
 					this.getOwnerComponent().saveSubmitHandling(this);
 				}
 			},
 			
-			/**
-			 * navigate to new notification item
-			 */
-			onAddItemPress : function(){
-				this.onPressCancel();
-				this.getRouter().navTo("item", {
-					objectId: this.getView().getBindingContext().getProperty("MaintenanceNotification"),
-					itemId: "new"
-				});
+			onPressCancel : function(){
+				if(this.oForm){
+					this.getOwnerComponent().cancelFormHandling(this);
+				}
 			},
 			
 			/**
@@ -164,7 +111,7 @@ sap.ui.define([
 					this.oForm = sap.ui.getCore().byId(oParameters.id);
 				}
 			},
-			
+
 			/* =========================================================== */
 			/* internal methods                                            */
 			/* =========================================================== */
@@ -176,31 +123,37 @@ sap.ui.define([
 			 * @private
 			 */
 			_onObjectMatched : function (oEvent) {
-				var sObjectId =  oEvent.getParameter("arguments").objectId,
+				var sItemId = oEvent.getParameter("arguments").itemId,
+					sCauseId = oEvent.getParameter("arguments").causeId,
 					oViewModel = this.getModel("objectView"),
 					oDataModel = this.getModel(),
-					isNew = (sObjectId === "new");
-				
+					isNew = (sItemId === "new");
+					
+				var sObjectId =  oEvent.getParameter("arguments").objectId;
 				oDataModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
+				
 				oDataModel.metadataLoaded().then( function() {
 					oViewModel.setProperty("/isNew", isNew);
 					oViewModel.setProperty("/isEdit", !isNew);
-					this._setEditMode(isNew);
-					this.getOwnerComponent().showAllSmartFields(this.oForm);                   
+					//this._setEditMode(isNew);
+					this.getOwnerComponent().showAllSmartFields(this.oForm);
 					
 					if(isNew){
-						var oContext = oDataModel.createEntry("/PMNotifications");
+						var oContext = oDataModel.createEntry("/PMNotificationCauses");
+						oDataModel.setProperty(oContext.sPath+"/MaintenanceNotification", sObjectId);
+						oDataModel.setProperty(oContext.sPath+"/MaintenanceNotificationItem", sItemId);
 						this.getView().unbindElement();
 						this.getView().setBindingContext(oContext);
-						this._isEditable(oContext);
 						
 						var oBundle = this.getModel("i18n").getResourceBundle();
-						oViewModel.setProperty("/Title", oBundle.getText("newNotificationTitle"));
-						oViewModel.setProperty("/showAdd", false);
+						oViewModel.setProperty("/Title", oBundle.getText("newNotificationItemTitle"));
 						oViewModel.setProperty("/busy", false);
+						
 					}else{
-						var sObjectPath = this.getModel().createKey("PMNotifications", {
-							MaintenanceNotification :  sObjectId
+						var sObjectPath = this.getModel().createKey("PMNotificationCauses", {
+							MaintenanceNotification :  sObjectId,
+							MaintenanceNotificationItem : sItemId,
+							MaintenanceNotificationCause : sCauseId
 						});
 						this._bindView("/" + sObjectPath);
 					}
@@ -216,22 +169,17 @@ sap.ui.define([
 			_bindView : function (sObjectPath) {
 				var oViewModel = this.getModel("objectView"),
 					oDataModel = this.getModel();
-					
+
 				this.getView().bindElement({
 					path: sObjectPath,
 					events: {
 						change: this._onBindingChange.bind(this),
 						dataRequested: function () {
 							oDataModel.metadataLoaded().then(function () {
-								// Busy indicator on view should only be set if metadata is loaded,
-								// otherwise there may be two busy indications next to each other on the
-								// screen. This happens because route matched handler already calls '_bindView'
-								// while metadata is loaded.
 								oViewModel.setProperty("/busy", true);
 							});
 						},
 						dataReceived: function () {
-							oViewModel.setProperty("/Title", oDataModel.getProperty(sObjectPath+"/NotificationText"));
 							oViewModel.setProperty("/busy", false);
 						}
 					}
@@ -241,45 +189,29 @@ sap.ui.define([
 			_onBindingChange : function () {
 				var oView = this.getView(),
 					oViewModel = this.getModel("objectView"),
-					oElementBinding = oView.getElementBinding(),
-					oContext = oElementBinding.getBoundContext();
+					oElementBinding = oView.getElementBinding();
 
 				// No data for the binding
-				if (!oContext) {
+				if (!oElementBinding.getBoundContext()) {
 					this.getRouter().getTargets().display("objectNotFound");
 					return;
 				}
-				
-				if(this.oForm){
-					this.oForm.setEditable(false);
-				}
-
 				// Everything went fine.
-				this._isEditable(oContext);
+				this._setNewHeaderTitle();
 				oViewModel.setProperty("/busy", false);
 			},
 			
 			_setEditMode : function(isEdit){
-				this.getModel("objectView").setProperty("/editable", !isEdit);
+				this.getModel("objectView").setProperty("/showMode", !isEdit);
 				this.getModel("objectView").setProperty("/editMode", isEdit);
-			},
-			
-			_isEditable : function(oContext){
-				var data = this.getModel().getProperty(oContext.sPath);
-				if(data && (data.IsCompleted || data.IsDeleted) || this.getModel("objectView").getProperty("/editMode")){
-					this.getModel("objectView").setProperty("/editable", false);
-					this.getModel("objectView").setProperty("/showAdd", false);
-				}else{
-					this.getModel("objectView").setProperty("/editable", true);
-					this.getModel("objectView").setProperty("/showAdd", true);
-				}
 			},
 			
 			_setNewHeaderTitle : function(){
 				var oContext = this.getView().getBindingContext();
-				this.getModel("objectView").setProperty("/Title", this.getModel().getProperty(oContext.sPath+"/NotificationText"));
+				this.getModel("objectView").setProperty("/Title", this.getModel().getProperty(oContext.sPath+"/MaintNotifTaskText"));
 			}
-			
+
 		});
+
 	}
 );

@@ -119,6 +119,21 @@ sap.ui.define([
 			},
 			
 			/**
+			 * table task row select
+			 * navigate to notification task
+			 */
+			onPressCause : function(oEvent) {
+				var obj = this.getOwnerComponent().getTableRowPath(oEvent.getParameters());
+				
+				this.onPressCancel();
+				this.getRouter().navTo("cause", {
+					objectId: obj.MaintenanceNotification,
+					itemId: obj.MaintenanceNotificationItem,
+					causeId: obj.MaintenanceNotificationCause
+				});
+			},
+			
+			/**
 			 * fired edit toggle event from subsection block DetailsFormBlock
 			 */
 			onFiredEditMode : function(oEvent) {
@@ -190,10 +205,6 @@ sap.ui.define([
 						change: this._onBindingChange.bind(this),
 						dataRequested: function () {
 							oDataModel.metadataLoaded().then(function () {
-								// Busy indicator on view should only be set if metadata is loaded,
-								// otherwise there may be two busy indications next to each other on the
-								// screen. This happens because route matched handler already calls '_bindView'
-								// while metadata is loaded.
 								oViewModel.setProperty("/busy", true);
 							});
 						},
