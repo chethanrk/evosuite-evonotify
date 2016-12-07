@@ -216,6 +216,9 @@ sap.ui.define([
 
 				this.getView().bindElement({
 					path: sObjectPath,
+					parameters: {
+						expand: "to_PMNotificationCause,to_PMNotificationItemTask"	
+					},
 					events: {
 						change: this._onBindingChange.bind(this),
 						dataRequested: function () {
