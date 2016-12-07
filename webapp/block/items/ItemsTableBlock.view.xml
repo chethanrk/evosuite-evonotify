@@ -2,7 +2,8 @@
 	controllerName="com.evorait.evolite.evonotify.block.items.ItemsTableBlockController"
 	xmlns="sap.m"
 	xmlns:core="sap.ui.core" 
-	xmlns:mvc="sap.ui.core.mvc">
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:smartField="sap.ui.comp.smartfield">
 	
 	<Table
 		id="notificationItemsTable"
@@ -37,7 +38,11 @@
 					<ObjectIdentifier 
 					title="{MaintenanceNotificationItem}"
 					text="{MaintNotifItemText}"/>
-					<Text text="{MaintNotifObjPrtCodeGroupName}"/>
+					<smartField:SmartField value="{MaintNotifObjPrtCodeGroup}" editable="false">
+						<smartField:configuration>
+							<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+						</smartField:configuration>
+					</smartField:SmartField>
 				</cells>
 			</ColumnListItem>
 		</items>

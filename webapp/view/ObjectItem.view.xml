@@ -6,6 +6,7 @@
 	xmlns:form="sap.ui.layout.form" 
 	xmlns:core="sap.ui.core" 
 	xmlns:uxap="sap.uxap"
+	xmlns:smartField="sap.ui.comp.smartfield"
 	xmlns:items="com.evorait.evolite.evonotify.block.items"
 	xmlns:causes="com.evorait.evolite.evonotify.block.causes"
 	xmlns:tasks="com.evorait.evolite.evonotify.block.tasks">
@@ -80,9 +81,21 @@
 												<ObjectIdentifier 
 												title="{MaintenanceNotificationTask}"
 												text="{MaintNotifTaskText}"/>
-												<Text text="{MaintNotiTtaskCodeGroupName} ({MaintNotifTaskCodeGroup})"/>
-												<Text text="{MaintNotifTaskCodeName} ({MaintNotifTaskCode})"/>
-												<Text text="{ResponsiblePersonName} ({ResponsiblePerson})"/>
+												<smartField:SmartField value="{MaintNotifTaskCodeGroup}" editable="false">
+												<smartField:configuration>
+													<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+												</smartField:configuration>
+												</smartField:SmartField>
+												<smartField:SmartField value="{MaintNotifTaskCode}" editable="false">
+													<smartField:configuration>
+														<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+													</smartField:configuration>
+												</smartField:SmartField>
+												<smartField:SmartField value="{ResponsiblePerson}" editable="false">
+													<smartField:configuration>
+														<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+													</smartField:configuration>
+												</smartField:SmartField>
 											</cells>
 										</ColumnListItem>
 									</items>
