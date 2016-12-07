@@ -93,7 +93,7 @@ sap.ui.define([
 			 * navigate to notification item
 			 */
 			onPressItem : function(oEvent) {
-				var obj = this.getOwnerComponent().getTableRowPath(oEvent.getParameters());
+				var obj = this.getOwnerComponent().getTableRowObject(oEvent.getParameters());
 				
 				this.onPressCancel();
 				this.getRouter().navTo("item", {
@@ -107,12 +107,13 @@ sap.ui.define([
 			 * navigate to notification task
 			 */
 			onPressTask : function(oEvent) {
-				var obj = this.getOwnerComponent().getTableRowPath(oEvent.getParameters());
+				var obj = this.getOwnerComponent().getTableRowObject(oEvent.getParameters(), "Tasks");
 				
 				this.onPressCancel();
 				this.getRouter().navTo("task", {
 					objectId: obj.MaintenanceNotification,
-					taskId: obj.MaintenanceNotificationTask
+					taskId: obj.MaintenanceNotificationTask,
+					itemId: 0
 				});
 			},
 			
@@ -186,7 +187,7 @@ sap.ui.define([
 					oViewModel.setProperty("/isNew", isNew);
 					oViewModel.setProperty("/isEdit", !isNew);
 					this._setEditMode(isNew);
-					this.getOwnerComponent().showAllSmartFields(this.oForm);                   
+					this.getOwnerComponent().showAllSmartFields(this.oForm); 
 					
 					if(isNew){
 						var oContext = oDataModel.createEntry("/PMNotifications");
@@ -256,7 +257,16 @@ sap.ui.define([
 				if(this.oForm){
 					this.oForm.setEditable(false);
 				}
-
+				
+				var tasks = [],
+					tasksPaths = oContext.getProperty("to_PMNotificationTask");
+				if(tasksPaths){
+					for (var i=0; i<tasksPaths.length; i++){
+						tasks.push(this.getModel().getProperty("/"+tasksPaths[i]));
+					}
+				}
+				this.setModel(new JSONModel({modelData: tasks}), "Tasks");
+				
 				// Everything went fine.
 				this._isEditable(oContext);
 				oViewModel.setProperty("/busy", false);

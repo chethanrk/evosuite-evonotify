@@ -16,7 +16,7 @@
 				<smartField:SmartField value="{MaintenanceNotification}" editableChanged="onEditChanged"/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintenanceNotificationItem}" editableChanged="onEditChanged"/>
+				<smartField:SmartField id="MaintenanceNotificationItem" value="{MaintenanceNotificationItem}" editableChanged="onEditChanged"/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintenanceNotificationTask}" editableChanged="onEditChanged"/>
@@ -66,7 +66,7 @@
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		
-		<smartForm:Group label="Status">
+		<smartForm:Group label="Responsible">
 			<smartForm:layout>
 				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layout>
@@ -81,6 +81,40 @@
 				<smartField:SmartField value="{ResponsiblePerson}" editableChanged="onEditChanged">
 					<smartField:configuration>
 						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+		</smartForm:Group>
+		
+		<smartForm:Group label="Dates">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S12"/>
+			</smartForm:layout>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{PlannedStartDate}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="datePicker" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{PlannedStartTime}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="timePicker" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{PlannedEndDate}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="datePicker" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{PlannedEndTime}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="timePicker" displayBehaviour="descriptionAndId"/>
 					</smartField:configuration>
 				</smartField:SmartField>
 			</smartForm:GroupElement>

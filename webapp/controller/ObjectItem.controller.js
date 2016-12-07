@@ -123,13 +123,28 @@ sap.ui.define([
 			 * navigate to notification task
 			 */
 			onPressCause : function(oEvent) {
-				var obj = this.getOwnerComponent().getTableRowPath(oEvent.getParameters());
+				var obj = this.getOwnerComponent().getTableRowObject(oEvent.getParameters());
 				
 				this.onPressCancel();
 				this.getRouter().navTo("cause", {
 					objectId: obj.MaintenanceNotification,
 					itemId: obj.MaintenanceNotificationItem,
 					causeId: obj.MaintenanceNotificationCause
+				});
+			},
+			
+			/**
+			 * table task row select
+			 * navigate to notification task
+			 */
+			onPressTask : function(oEvent) {
+				var obj = this.getOwnerComponent().getTableRowObject(oEvent.getParameters(), "Tasks");
+				
+				this.onPressCancel();
+				this.getRouter().navTo("task", {
+					objectId: obj.MaintenanceNotification,
+					itemId: obj.MaintenanceNotificationItem,
+					taskId: obj.MaintenanceNotificationTask
 				});
 			},
 			
@@ -218,10 +233,11 @@ sap.ui.define([
 			_onBindingChange : function () {
 				var oView = this.getView(),
 					oViewModel = this.getModel("objectView"),
-					oElementBinding = oView.getElementBinding();
+					oElementBinding = oView.getElementBinding(),
+					oContext = oElementBinding.getBoundContext();
 
 				// No data for the binding
-				if (!oElementBinding.getBoundContext()) {
+				if (!oContext) {
 					this.getRouter().getTargets().display("objectNotFound");
 					return;
 				}
@@ -230,6 +246,16 @@ sap.ui.define([
 					oObject = oView.getBindingContext().getObject(),
 					sObjectId = oObject.MaintenanceNotification,
 					sObjectName = oObject.NotificationText;
+					
+				//to_PMNotificationItemTask
+				var tasks = [],
+					tasksPaths = oContext.getProperty("to_PMNotificationItemTask");
+				if(tasksPaths){
+					for (var i=0; i<tasksPaths.length; i++){
+						tasks.push(this.getModel().getProperty("/"+tasksPaths[i]));
+					}
+				}
+				this.setModel(new JSONModel({modelData: tasks}), "Tasks");
 					
 				// Everything went fine.
 				this._setNewHeaderTitle();

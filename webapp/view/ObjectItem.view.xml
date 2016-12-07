@@ -51,56 +51,7 @@
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
-								<Table width="auto" class="sapUiNoMargin"
-									items="{path : 'to_PMNotificationItemTask',
-							                sorter : {
-							                    path : 'MaintenanceNotificationTask',
-							                    descending : false
-							                }}"
-									noDataText="{objectView>/tableNoDataText}"
-									busyIndicatorDelay="{objectView>/tableBusyDelay}"
-									growing="false"
-									growingScrollToLoad="false">
-									<columns>
-										<Column>
-											<Text text="{/#PMNotificationTask/MaintenanceNotificationTask/@sap:label}"/>
-										</Column>
-										<Column>
-											<Text text="{/#PMNotificationTask/MaintNotifTaskCodeGroup/@sap:label}"/>
-										</Column>
-										<Column>
-											<Text text="{/#PMNotificationTask/MaintNotifTaskCode/@sap:label}"/>
-										</Column>
-										<Column>
-											<Text text="{/#PMNotificationTask/ResponsiblePerson/@sap:label}"/>
-										</Column>
-									</columns>
-									<items>
-										<ColumnListItem type="Navigation" press="onPressTask">
-											<cells>
-												<ObjectIdentifier 
-												title="{MaintenanceNotificationTask}"
-												text="{MaintNotifTaskText}"/>
-												<smartField:SmartField value="{MaintNotifTaskCodeGroup}" editable="false">
-												<smartField:configuration>
-													<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
-												</smartField:configuration>
-												</smartField:SmartField>
-												<smartField:SmartField value="{MaintNotifTaskCode}" editable="false">
-													<smartField:configuration>
-														<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
-													</smartField:configuration>
-												</smartField:SmartField>
-												<smartField:SmartField value="{ResponsiblePerson}" editable="false">
-													<smartField:configuration>
-														<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
-													</smartField:configuration>
-												</smartField:SmartField>
-											</cells>
-										</ColumnListItem>
-									</items>
-								</Table>
-								<!--<tasks:TasksTableBlock itemPress="onPressTask" />-->
+								<tasks:TasksTableBlock itemPress="onPressTask" />
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>

@@ -51,92 +51,6 @@
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		
-		<smartForm:Group label="Location Data">
-			<smartForm:layout>
-				<layout:GridData span="L6 M6 S12"/>
-			</smartForm:layout>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintenanceWorkCenterPlant}" editableChanged="onEditChanged">
-					<smartField:configuration>
-						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
-					</smartField:configuration>
-				</smartField:SmartField>	
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{ABCIndicator}" editableChanged="onEditChanged">
-					<smartField:configuration>
-						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
-					</smartField:configuration>
-				</smartField:SmartField>	
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{AssetLocation}" editableChanged="onEditChanged">
-					<smartField:configuration>
-						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
-					</smartField:configuration>
-				</smartField:SmartField>	
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintenancePlant}">
-					<smartField:configuration>
-						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
-					</smartField:configuration>
-				</smartField:SmartField>	
-			</smartForm:GroupElement>
-		</smartForm:Group>
-		
-		<smartForm:Group label="Reference Objects">
-			<smartForm:layout>
-				<layout:GridData span="L6 M6 S12"/>
-			</smartForm:layout>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{TechnicalObjectLabel}" editableChanged="onEditChanged" />
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{TechObjIsEquipOrFuncnlLoc}" editableChanged="onEditChanged" />
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{Assembly}" editableChanged="onEditChanged" />
-			</smartForm:GroupElement>
-		</smartForm:Group>
-		
-		<smartForm:Group label="Dates">
-			<smartForm:layout>
-				<layout:GridData span="L6 M6 S12" linebreak="true"/>
-			</smartForm:layout>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{RequiredStartDate}" editableChanged="onEditChanged">
-					<smartField:configuration>
-						<smartField:Configuration controlType="datePicker" displayBehaviour="descriptionAndId"/>
-					</smartField:configuration>
-				</smartField:SmartField>
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{RequiredStartTime}" editableChanged="onEditChanged">
-					<smartField:configuration>
-						<smartField:Configuration controlType="timePicker" displayBehaviour="descriptionAndId"/>
-					</smartField:configuration>
-				</smartField:SmartField>
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{RequiredEndDate}" editableChanged="onEditChanged">
-					<smartField:configuration>
-						<smartField:Configuration controlType="datePicker" displayBehaviour="descriptionAndId"/>
-					</smartField:configuration>
-				</smartField:SmartField>
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{RequiredEndTime}" editableChanged="onEditChanged">
-					<smartField:configuration>
-						<smartField:Configuration controlType="timePicker" displayBehaviour="descriptionAndId"/>
-					</smartField:configuration>
-				</smartField:SmartField>
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintenanceRevision}" editableChanged="onEditChanged"/>
-			</smartForm:GroupElement>
-		</smartForm:Group>
-		
 		<smartForm:Group label="Malfunctional">
 			<smartForm:layout>
 				<layout:GridData span="L6 M6 S12"/>
@@ -177,9 +91,98 @@
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		
+		<smartForm:Group label="Reference Objects">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S12"/>
+			</smartForm:layout>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{TechnicalObjectLabel}" editableChanged="onEditChanged" />
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{TechObjIsEquipOrFuncnlLoc}" editableChanged="onEditChanged" />
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{Assembly}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+		</smartForm:Group>
+		
+		<smartForm:Group label="Dates">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S12"/>
+			</smartForm:layout>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{RequiredStartDate}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="datePicker" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{RequiredStartTime}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="timePicker" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{RequiredEndDate}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="datePicker" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{RequiredEndTime}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="timePicker" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenanceRevision}" editableChanged="onEditChanged"/>
+			</smartForm:GroupElement>
+		</smartForm:Group>
+		
+		<smartForm:Group label="Location">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S12"/>
+			</smartForm:layout>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenanceWorkCenterPlant}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>	
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{AssetLocation}" editableChanged="onEditChanged" />
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{AssetLocationName}" editableChanged="onEditChanged" />
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{ABCIndicator}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>	
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenancePlant}">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>	
+			</smartForm:GroupElement>
+		</smartForm:Group>
+		
 		<smartForm:Group label="System and User Status">
 			<smartForm:layout>
-				<layout:GridData span="L6 M6 S12" linebreak="true"/>
+				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layout>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{ConcatenatedActSysStsName}" editableChanged="onEditChanged" />
@@ -189,7 +192,7 @@
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		
-		<smartForm:Group label="System and User Status">
+		<smartForm:Group label="Responsibility">
 			<smartForm:layout>
 				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layout>

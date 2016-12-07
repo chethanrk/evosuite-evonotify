@@ -27,7 +27,7 @@ sap.ui.define([
 			onInit : function () {
 				
 			},
-
+			
 			/* =========================================================== */
 			/* event handlers                                              */
 			/* =========================================================== */
@@ -37,8 +37,14 @@ sap.ui.define([
 			},
 			
 			onEditChanged : function(oEvent){
-				var oSource = oEvent.getSource();
-				if(!oSource.getEditable() && !oSource.getValue() && this.getModel("objectView").getProperty("/isNew")){
+				var oSource = oEvent.getSource(),
+					isNew = this.getModel("objectView").getProperty("/isNew"),
+					sValue = oSource.getValue();
+					
+				var hideItemField = this.getView().byId("MaintenanceNotificationItem");
+				
+				if((!oSource.getEditable() && !sValue && isNew) || 
+					(oSource.sId === hideItemField.sId && parseInt(sValue) === 0)){
 					oSource.setVisible(false);
 				}else{
 					oSource.setVisible(true);

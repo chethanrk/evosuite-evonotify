@@ -124,7 +124,7 @@
 					]
 				},
 				{
-					"pattern": "PMNotifications/PMNotificationTasks/{objectId}/{taskId}",
+					"pattern": "PMNotifications/PMNotificationTasks/{objectId}/{itemId}/{taskId}",
 					"name": "task",
 					"target": [
 						"task"
@@ -157,7 +157,7 @@
 				"task": {
 					"viewName": "ObjectTask",
 					"viewId": "task",
-					"viewLevel": 3
+					"viewLevel": 4
 				},
 				"cause": {
 					"viewName": "ObjectCause",

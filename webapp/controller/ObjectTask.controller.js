@@ -75,7 +75,14 @@ sap.ui.define([
 					history.go(-1);
 				} else if(oContext) {
 					var obj = oContext.getObject();
-					this.getRouter().navTo("object", {objectId: obj.MaintenanceNotification}, true);
+					if(parseInt(obj.MaintenanceNotificationItem) === 0){
+						this.getRouter().navTo("object", {objectId: obj.MaintenanceNotification}, true);
+					}else{
+						this.getRouter().navTo("item", {
+							objectId: obj.MaintenanceNotification,
+							itemId: obj.MaintenanceNotificationItem
+						}, true);
+					}
 				}else{
 					this.getRouter().navTo("worklist", {}, true);
 				}
@@ -123,12 +130,14 @@ sap.ui.define([
 			 * @private
 			 */
 			_onObjectMatched : function (oEvent) {
-				var sItemId = oEvent.getParameter("arguments").taskId,
+				var oParameters = oEvent.getParameter("arguments"),
+					sObjectId = oParameters.objectId,
+					sItemId = oParameters.itemId,
+					sTaskId = oParameters.taskId,
 					oViewModel = this.getModel("objectView"),
 					oDataModel = this.getModel(),
-					isNew = (sItemId === "new");
+					isNew = (sItemId === "new" || sTaskId === "new");
 					
-				var sObjectId =  oEvent.getParameter("arguments").objectId;
 				oDataModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
 				
 				oDataModel.metadataLoaded().then( function() {
@@ -150,7 +159,8 @@ sap.ui.define([
 					}else{
 						var sObjectPath = this.getModel().createKey("PMNotificationTasks", {
 							MaintenanceNotification :  sObjectId,
-							MaintenanceNotificationTask : sItemId
+							MaintenanceNotificationItem : sItemId,
+							MaintenanceNotificationTask : sTaskId
 						});
 						this._bindView("/" + sObjectPath);
 					}

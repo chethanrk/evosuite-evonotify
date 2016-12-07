@@ -5,8 +5,8 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:smartField="sap.ui.comp.smartfield">
 	
-	<Table width="auto" class="sapUiNoMargin"
-		items="{path : 'to_PMNotificationTask',
+	<Table id="notificationTaskTable" width="auto" class="sapUiNoMargin"
+		items="{path : 'Tasks>/modelData',
                 sorter : {
                     path : 'MaintenanceNotificationTask',
                     descending : false
@@ -30,26 +30,14 @@
 			</Column>
 		</columns>
 		<items>
-			<ColumnListItem type="Navigation" press="onPressTask">
+			<ColumnListItem type="Navigation" press="onPressItem">
 				<cells>
 					<ObjectIdentifier 
-					title="{MaintenanceNotificationTask}"
-					text="{MaintNotifTaskText}"/>
-					<smartField:SmartField value="{MaintNotifTaskCodeGroup}" editable="false">
-						<smartField:configuration>
-							<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
-						</smartField:configuration>
-					</smartField:SmartField>
-					<smartField:SmartField value="{MaintNotifTaskCode}" editable="false">
-						<smartField:configuration>
-							<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
-						</smartField:configuration>
-					</smartField:SmartField>
-					<smartField:SmartField value="{ResponsiblePerson}" editable="false">
-						<smartField:configuration>
-							<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
-						</smartField:configuration>
-					</smartField:SmartField>
+					title="{Tasks>MaintenanceNotificationTask}"
+					text="{Tasks>MaintNotifTaskText}"/>
+					<Text text="{Tasks>MaintNotiTtaskCodeGroupName} ({Tasks>MaintNotifTaskCodeGroup})"/>
+					<Text text="{Tasks>MaintNotifTaskCodeName} ({Tasks>MaintNotifTaskCode})"/>
+					<Text text="{Tasks>ResponsiblePerson}"/>
 				</cells>
 			</ColumnListItem>
 		</items>
