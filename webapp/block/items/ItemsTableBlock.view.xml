@@ -28,6 +28,9 @@
 			<Column>
 				<Text text="{/#PMNotificationItem/MaintNotifObjPrtCodeGroup/@sap:label}"/>
 			</Column>
+			<Column>
+				<Text text="{/#PMNotificationItem/MaintNotifObjPrtCode/@sap:label}"/>
+			</Column>
 		</columns>
 
 		<items>
@@ -39,6 +42,11 @@
 					title="{MaintenanceNotificationItem}"
 					text="{MaintNotifItemText}"/>
 					<smartField:SmartField value="{MaintNotifObjPrtCodeGroup}" editable="false">
+						<smartField:configuration>
+							<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+						</smartField:configuration>
+					</smartField:SmartField>
+					<smartField:SmartField value="{MaintNotifObjPrtCode}" editable="false">
 						<smartField:configuration>
 							<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
 						</smartField:configuration>
