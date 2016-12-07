@@ -7,6 +7,7 @@
 	xmlns:details="com.evorait.evolite.evonotify.block.details"
 	xmlns:items="com.evorait.evolite.evonotify.block.items"
 	xmlns:tasks="com.evorait.evolite.evonotify.block.tasks"
+	xmlns:activities="com.evorait.evolite.evonotify.block.activities"
 	xmlns:layout="sap.ui.layout">
 	
 	<Page title="{i18n>objectViewTitle}" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack" floatingFooter="false">
@@ -78,6 +79,16 @@
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
 								<tasks:TasksTableBlock id="taskTable" itemPress="onPressTask"/>
+							</uxap:blocks>
+						</uxap:ObjectPageSubSection>
+					</uxap:subSections>
+				</uxap:ObjectPageSection>
+				
+				<uxap:ObjectPageSection title="Activities" visible="{objectView>/isEdit}">
+					<uxap:subSections>
+						<uxap:ObjectPageSubSection>
+							<uxap:blocks>
+								<activities:ActivitiesTableBlock itemPress="onPressActivity"/>
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>

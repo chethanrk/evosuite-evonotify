@@ -1,0 +1,49 @@
+<mvc:View 
+	controllerName="com.evorait.evolite.evonotify.block.activities.ActivitiesTableBlockController"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:smartField="sap.ui.comp.smartfield">
+	
+	<Table id="notificationTaskTable" width="auto" class="sapUiNoMargin"
+		items="{path : 'Activities>/modelData',
+                sorter : {
+                    path : 'MaintNotificationActivity',
+                    descending : false
+                }}"
+		noDataText="{objectView>/tableNoDataText}"
+		busyIndicatorDelay="{objectView>/tableBusyDelay}"
+		growing="false"
+		growingScrollToLoad="false">
+		<columns>
+			<Column>
+				<Text text="{/#PMNotificationActivity/MaintNotificationActivity/@sap:label}"/>
+			</Column>
+			<Column demandPopin="true" minScreenWidth="Desktop">
+				<Text text="{/#PMNotificationActivity/MaintNotifActivityCodeGroup/@sap:label}"/>
+			</Column>
+			<Column demandPopin="true" minScreenWidth="Desktop">
+				<Text text="{/#PMNotificationActivity/MaintNotifActivityCode/@sap:label}"/>
+			</Column>
+			<Column demandPopin="true" minScreenWidth="Small">
+				<Text text="{/#PMNotificationActivity/PlannedStartDate/@sap:label}"/>
+			</Column>
+			<Column demandPopin="true" minScreenWidth="Small">
+				<Text text="{/#PMNotificationActivity/PlannedEndDate/@sap:label}"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem type="Navigation" press="onPressItem">
+				<cells>
+					<ObjectIdentifier 
+					title="{Activities>MaintNotificationActivity}"
+					text="{Activities>MaintNotifActyTxt}"/>
+					<Text text="{Activities>MaintNotifActivityCodeGrpName} ({Activities>MaintNotifActivityCodeGroup})"/>
+					<Text text="{Activities>MaintNotifActivityCodeName} ({Activities>MaintNotifActivityCode})"/>
+					<Text text="{Activities>PlannedStartDate} {PlannedStartTime}"/>
+					<Text text="{Activities>PlannedEndDate} {PlannedEndTime}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</mvc:View>

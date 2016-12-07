@@ -131,7 +131,14 @@
 					]
 				},
 				{
-					"pattern": "PMNotifications/PMNotificationItems/PMNotificationCauses/{objectId}/{itemId}/{causeId}",
+					"pattern": "PMNotifications/PMNotificationActivities/{objectId}/{itemId}/{activityId}",
+					"name": "activity",
+					"target": [
+						"activity"
+					]
+				},
+				{
+					"pattern": "PMNotifications/PMNotificationCauses/{objectId}/{itemId}/{causeId}",
 					"name": "cause",
 					"target": [
 						"cause"
@@ -157,7 +164,12 @@
 				"task": {
 					"viewName": "ObjectTask",
 					"viewId": "task",
-					"viewLevel": 4
+					"viewLevel": 3
+				},
+				"activity": {
+					"viewName": "ObjectActivity",
+					"viewId": "activity",
+					"viewLevel": 3
 				},
 				"cause": {
 					"viewName": "ObjectCause",

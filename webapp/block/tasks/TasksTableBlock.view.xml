@@ -19,13 +19,19 @@
 			<Column>
 				<Text text="{/#PMNotificationTask/MaintenanceNotificationTask/@sap:label}"/>
 			</Column>
-			<Column>
+			<Column demandPopin="true" minScreenWidth="Desktop">
 				<Text text="{/#PMNotificationTask/MaintNotifTaskCodeGroup/@sap:label}"/>
 			</Column>
-			<Column>
+			<Column demandPopin="true" minScreenWidth="Desktop">
 				<Text text="{/#PMNotificationTask/MaintNotifTaskCode/@sap:label}"/>
 			</Column>
-			<Column>
+			<Column demandPopin="true" minScreenWidth="Small">
+				<Text text="{/#PMNotificationTask/PlannedStartDate/@sap:label}"/>
+			</Column>
+			<Column demandPopin="true" minScreenWidth="Small">
+				<Text text="{/#PMNotificationTask/PlannedEndDate/@sap:label}"/>
+			</Column>
+			<Column demandPopin="true" minScreenWidth="Small">
 				<Text text="{/#PMNotificationTask/ResponsiblePerson/@sap:label}"/>
 			</Column>
 		</columns>
@@ -37,6 +43,8 @@
 					text="{Tasks>MaintNotifTaskText}"/>
 					<Text text="{Tasks>MaintNotiTtaskCodeGroupName} ({Tasks>MaintNotifTaskCodeGroup})"/>
 					<Text text="{Tasks>MaintNotifTaskCodeName} ({Tasks>MaintNotifTaskCode})"/>
+					<Text text="{Tasks>PlannedStartDate} {PlannedStartTime}"/>
+					<Text text="{Tasks>PlannedEndDate} {PlannedEndTime}"/>
 					<Text text="{Tasks>ResponsiblePerson}"/>
 				</cells>
 			</ColumnListItem>

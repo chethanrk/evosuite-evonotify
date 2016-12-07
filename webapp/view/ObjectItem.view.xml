@@ -9,7 +9,8 @@
 	xmlns:smartField="sap.ui.comp.smartfield"
 	xmlns:items="com.evorait.evolite.evonotify.block.items"
 	xmlns:causes="com.evorait.evolite.evonotify.block.causes"
-	xmlns:tasks="com.evorait.evolite.evonotify.block.tasks">
+	xmlns:tasks="com.evorait.evolite.evonotify.block.tasks"
+	xmlns:activities="com.evorait.evolite.evonotify.block.activities">
 
 	<Page title="{i18n>itemViewTitle}" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack">
 		
@@ -52,6 +53,16 @@
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
 								<tasks:TasksTableBlock itemPress="onPressTask" />
+							</uxap:blocks>
+						</uxap:ObjectPageSubSection>
+					</uxap:subSections>
+				</uxap:ObjectPageSection>
+				
+				<uxap:ObjectPageSection title="Activities" visible="{objectView>/isEdit}">
+					<uxap:subSections>
+						<uxap:ObjectPageSubSection>
+							<uxap:blocks>
+								<activities:ActivitiesTableBlock itemPress="onPressActivity"/>
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>

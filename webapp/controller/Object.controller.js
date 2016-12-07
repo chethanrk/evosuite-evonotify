@@ -118,6 +118,21 @@ sap.ui.define([
 			},
 			
 			/**
+			 * table task row select
+			 * navigate to notification task
+			 */
+			onPressActivity : function(oEvent) {
+				var obj = this.getOwnerComponent().getTableRowObject(oEvent.getParameters(), "Activities");
+				
+				this.onPressCancel();
+				this.getRouter().navTo("activity", {
+					objectId: obj.MaintenanceNotification,
+					activityId: obj.MaintNotificationActivity,
+					itemId: 0
+				});
+			},
+			
+			/**
 			 * show edit forms
 			 */
 			onPressEdit : function() {
@@ -221,7 +236,7 @@ sap.ui.define([
 				this.getView().bindElement({
 					path: sObjectPath,
 					parameters: {
-						expand: "to_PMNotificationItem,to_PMNotificationTask"	
+						expand: "to_PMNotificationItem,to_PMNotificationTask,to_PMNotificationActivity"	
 					},
 					events: {
 						change: this._onBindingChange.bind(this),
@@ -258,14 +273,11 @@ sap.ui.define([
 					this.oForm.setEditable(false);
 				}
 				
-				var tasks = [],
-					tasksPaths = oContext.getProperty("to_PMNotificationTask");
-				if(tasksPaths){
-					for (var i=0; i<tasksPaths.length; i++){
-						tasks.push(this.getModel().getProperty("/"+tasksPaths[i]));
-					}
-				}
-				this.setModel(new JSONModel({modelData: tasks}), "Tasks");
+				//to_PMNotificationTask
+				this.getOwnerComponent().generateHelperJsonModel(oContext, "to_PMNotificationTask", "Tasks");
+				
+				//to_PMNotificationActivity
+				this.getOwnerComponent().generateHelperJsonModel(oContext, "to_PMNotificationActivity", "Activities");
 				
 				// Everything went fine.
 				this._isEditable(oContext);

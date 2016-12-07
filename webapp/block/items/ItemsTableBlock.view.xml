@@ -25,10 +25,10 @@
 			<Column>
 				<Text text="{/#PMNotificationItem/MaintenanceNotificationItem/@sap:label}"/>
 			</Column>
-			<Column>
+			<Column demandPopin="true" minScreenWidth="Small">
 				<Text text="{/#PMNotificationItem/MaintNotifObjPrtCodeGroup/@sap:label}"/>
 			</Column>
-			<Column>
+			<Column demandPopin="true" minScreenWidth="Small">
 				<Text text="{/#PMNotificationItem/MaintNotifObjPrtCode/@sap:label}"/>
 			</Column>
 		</columns>

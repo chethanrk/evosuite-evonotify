@@ -3,11 +3,12 @@ sap.ui.define([
 		"sap/ui/Device",
 		"com/evorait/evolite/evonotify/model/models",
 		"com/evorait/evolite/evonotify/controller/ErrorHandler",
+		"sap/ui/model/json/JSONModel",
 		"sap/m/Dialog",
 	    "sap/m/Button",
 	    "sap/m/Text",
 	    "sap/m/MessageToast"
-	], function (UIComponent, Device, models, ErrorHandler, Dialog, Button, Text, MessageToast) {
+	], function (UIComponent, Device, models, ErrorHandler, JSONModel, Dialog, Button, Text, MessageToast) {
 		"use strict";
 
 		return UIComponent.extend("com.evorait.evolite.evonotify.Component", {
@@ -197,6 +198,21 @@ sap.ui.define([
 					return sBinding.getObject();
 				}
 				return this.getModel().getProperty(sPath);
+			},
+			
+			/**
+			 * generates a json model with a list of expanded entity properties
+			 * helper for reuse table blockviews
+			 */
+			generateHelperJsonModel : function(oContext, sPropertyName, sModelName){
+				var arr = [],
+					aPaths = oContext.getProperty(sPropertyName);
+				if(aPaths){
+					for (var i=0; i<aPaths.length; i++){
+						arr.push(this.getModel().getProperty("/"+aPaths[i]));
+					}
+				}
+				this.setModel(new JSONModel({modelData: arr}), sModelName);
 			}
 
 		});

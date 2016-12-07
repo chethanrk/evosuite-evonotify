@@ -20,10 +20,10 @@
 			<Column>
 				<Text text="{/#PMNotificationCause/MaintenanceNotificationCause/@sap:label}"/>
 			</Column>
-			<Column>
+			<Column demandPopin="true" minScreenWidth="Small">
 				<Text text="{/#PMNotificationCause/MaintNotifCauseCodeGroup/@sap:label}"/>
 			</Column>
-			<Column>
+			<Column demandPopin="true" minScreenWidth="Small">
 				<Text text="{/#PMNotificationCause/MaintNotificationCauseCode/@sap:label}"/>
 			</Column>
 		</columns>
