@@ -12,7 +12,7 @@
 		
 		<uxap:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" >
 			<uxap:headerTitle>
-				<uxap:ObjectPageHeader objectTitle="{objectView>/Title}" objectSubtitle="{MaintenanceNotificationTask}">
+				<uxap:ObjectPageHeader objectTitle="{objectView>/Title}" objectSubtitle="{MaintenanceNotificationCause}">
 					<uxap:actions>
 						<uxap:ObjectPageHeaderActionButton icon="sap-icon://edit" press="onPressEdit" type="Emphasized" visible="{objectView>/showMode}"/>
 						<uxap:ObjectPageHeaderActionButton icon="sap-icon://cancel" press="onPressCancel" visible="{objectView>/editMode}"/>

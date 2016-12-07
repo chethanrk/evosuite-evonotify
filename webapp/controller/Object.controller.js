@@ -180,7 +180,7 @@ sap.ui.define([
 					oViewModel = this.getModel("objectView"),
 					oDataModel = this.getModel(),
 					isNew = (sObjectId === "new");
-				
+					
 				oDataModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
 				oDataModel.metadataLoaded().then( function() {
 					oViewModel.setProperty("/isNew", isNew);
@@ -219,6 +219,9 @@ sap.ui.define([
 					
 				this.getView().bindElement({
 					path: sObjectPath,
+					parameters: {
+						expand: "to_PMNotificationItem,to_PMNotificationTask"	
+					},
 					events: {
 						change: this._onBindingChange.bind(this),
 						dataRequested: function () {

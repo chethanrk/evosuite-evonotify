@@ -75,7 +75,10 @@ sap.ui.define([
 					history.go(-1);
 				} else if(oContext) {
 					var obj = oContext.getObject();
-					this.getRouter().navTo("object", {objectId: obj.MaintenanceNotification}, true);
+					this.getRouter().navTo("item", {
+						objectId: obj.MaintenanceNotification,
+						itemId: obj.MaintenanceNotificationItem
+					}, true);
 				}else{
 					this.getRouter().navTo("worklist", {}, true);
 				}
@@ -146,7 +149,7 @@ sap.ui.define([
 						this.getView().setBindingContext(oContext);
 						
 						var oBundle = this.getModel("i18n").getResourceBundle();
-						oViewModel.setProperty("/Title", oBundle.getText("newNotificationItemTitle"));
+						oViewModel.setProperty("/Title", oBundle.getText("newNotificationCauseTitle"));
 						oViewModel.setProperty("/busy", false);
 						
 					}else{
@@ -208,7 +211,7 @@ sap.ui.define([
 			
 			_setNewHeaderTitle : function(){
 				var oContext = this.getView().getBindingContext();
-				this.getModel("objectView").setProperty("/Title", this.getModel().getProperty(oContext.sPath+"/MaintNotifTaskText"));
+				this.getModel("objectView").setProperty("/Title", this.getModel().getProperty(oContext.sPath+"/MaintNotifCauseText"));
 			}
 
 		});

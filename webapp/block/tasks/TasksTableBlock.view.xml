@@ -4,7 +4,7 @@
 	xmlns:core="sap.ui.core" 
 	xmlns:mvc="sap.ui.core.mvc">
 	
-	<Table id="notificationTasksTable" width="auto" class="sapUiNoMargin"
+	<Table width="auto" class="sapUiNoMargin"
 		items="{path : 'to_PMNotificationTask',
                 sorter : {
                     path : 'MaintenanceNotificationTask',
@@ -14,23 +14,29 @@
 		busyIndicatorDelay="{objectView>/tableBusyDelay}"
 		growing="false"
 		growingScrollToLoad="false">
-		
 		<columns>
 			<Column>
-				<Text text="{/#PMNotificationItem/MaintenanceNotificationTask/@sap:label}"/>
+				<Text text="{/#PMNotificationTask/MaintenanceNotificationTask/@sap:label}"/>
 			</Column>
 			<Column>
-				<Text text="{/#PMNotificationItem/MaintNotifTaskCodeGroup/@sap:label}"/>
+				<Text text="{/#PMNotificationTask/MaintNotifTaskCodeGroup/@sap:label}"/>
+			</Column>
+			<Column>
+				<Text text="{/#PMNotificationTask/MaintNotifTaskCode/@sap:label}"/>
+			</Column>
+			<Column>
+				<Text text="{/#PMNotificationTask/ResponsiblePerson/@sap:label}"/>
 			</Column>
 		</columns>
-
 		<items>
-			<ColumnListItem type="Navigation" press="onPressItem">
+			<ColumnListItem type="Navigation" press="onPressTask">
 				<cells>
 					<ObjectIdentifier 
 					title="{MaintenanceNotificationTask}"
 					text="{MaintNotifTaskText}"/>
-					<Text text="{MaintNotiTtaskCodeGroupName}"/>
+					<Text text="{MaintNotiTtaskCodeGroupName} ({MaintNotifTaskCodeGroup})"/>
+					<Text text="{MaintNotifTaskCodeName} ({MaintNotifTaskCode})"/>
+					<Text text="{ResponsiblePersonName} ({ResponsiblePerson})"/>
 				</cells>
 			</ColumnListItem>
 		</items>

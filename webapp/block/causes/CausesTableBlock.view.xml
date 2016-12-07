@@ -17,10 +17,13 @@
 		
 		<columns>
 			<Column>
-				<Text text="{/#PMNotificationItem/MaintenanceNotificationCause/@sap:label}"/>
+				<Text text="{/#PMNotificationCause/MaintenanceNotificationCause/@sap:label}"/>
 			</Column>
 			<Column>
-				<Text text="{/#PMNotificationItem/MaintNotifCauseCodeGroup/@sap:label}"/>
+				<Text text="{/#PMNotificationCause/MaintNotifCauseCodeGroup/@sap:label}"/>
+			</Column>
+			<Column>
+				<Text text="{/#PMNotificationCause/MaintNotificationCauseCode/@sap:label}"/>
 			</Column>
 		</columns>
 
@@ -30,7 +33,8 @@
 					<ObjectIdentifier 
 					title="{MaintenanceNotificationCause}"
 					text="{MaintNotifCauseText}"/>
-					<Text text="{MaintNotifCauseCodeGroup} {MaintNotifCauseCodeGroupName}"/>
+					<Text text="{MaintNotifCauseCodeGroupName} ({MaintNotifCauseCodeGroup})"/>
+					<Text text="{MaintNotificationCauseCodeCame} ({MaintNotificationCauseCode})"/>
 				</cells>
 			</ColumnListItem>
 		</items>
