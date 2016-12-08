@@ -1,0 +1,22 @@
+[{
+	"MaintenanceNotification": "10000957",
+	"MaintenanceNotificationTask": "0002",
+	"MaintenanceNotificationItem": "0000",
+	"MaintNotifTaskCodeGroup": "PM01",
+	"MaintNotiTtaskCodeGroupName": "Maintenance tasks",
+	"MaintNotifTaskCode": "3000",
+	"MaintNotifTaskCodeName": "",
+	"MaintNotifTaskText": "Betriebsingenieur benachrichtigen",
+	"ConcatenatedActSysStsName": "Deletion Flag, Task Completed",
+	"ConcatenatedActUserStsName": "",
+	"ResponsiblePersonFunctionCode": "VW",
+	"MaintNotifTaskPartFuncName": "Person Responsible",
+	"ResponsiblePerson": "",
+	"ResponsiblePersonName": "",
+	"PlannedStartDate": null,
+	"PlannedStartTime": "PT00H00M00S",
+	"PlannedEndDate": null,
+	"PlannedEndTime": "PT00H00M00S",
+	"MaintNotifTaskInternalID": "QA0000100009570002",
+	"NotificationType": "M2"
+}]

@@ -1,0 +1,17 @@
+[{
+	"MaintenanceNotification": "10000957",
+	"MaintNotificationActivity": "0001",
+	"MaintenancenNotificationItem": "0001",
+	"MaintNotifActivityCodeGroup": "PM01",
+	"MaintNotifActivityCodeGrpName": "General maintenance activities",
+	"MaintNotifActivityCode": "1003",
+	"MaintNotifActivityCodeName": "Carry Out Repair",
+	"MaintNotifActyTxt": "Dringende Reparatur durchführen",
+	"CreatedByUser": "KUNITZ",
+	"MaintNotifActyQtyFactor": "000",
+	"PlannedStartDate": null,
+	"PlannedStartTime": "PT00H00M00S",
+	"PlannedEndDate": null,
+	"PlannedEndTime": "PT00H00M00S",
+	"NotificationType": "M2"
+}]

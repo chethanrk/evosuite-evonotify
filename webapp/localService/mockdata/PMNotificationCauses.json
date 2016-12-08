@@ -1,0 +1,11 @@
+[{
+	"MaintenanceNotification": "10000957",
+	"MaintenanceNotificationCause": "0001",
+	"MaintenanceNotificationItem": "0001",
+	"MaintNotifCauseText": "Lackzufuhr unterbrochen",
+	"MaintNotifCauseCodeGroup": "PM03",
+	"MaintNotifCauseCodeGroupName": "Miscellaneous",
+	"MaintNotificationCauseCode": "2000",
+	"MaintNotificationCauseCodeName": "Unknown",
+	"NotificationType": "M2"
+}]

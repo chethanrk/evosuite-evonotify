@@ -1,81 +1,217 @@
 [{
-	"Mandt": "Mandt 1",
-	"Notificationtype": "Notificationtype 1",
-	"Notificationtypename": "Notificationtypename 1",
 	"__metadata": {
-		"uri": "PMNotificationTypeVH('Notificationtype%201')",
-		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationTypeVH"
-	}
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('MX')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('MX')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "MX",
+	"NotificationTypeName": ""
 }, {
-	"Mandt": "Mandt 2",
-	"Notificationtype": "Notificationtype 2",
-	"Notificationtypename": "Notificationtypename 2",
 	"__metadata": {
-		"uri": "PMNotificationTypeVH('Notificationtype%202')",
-		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationTypeVH"
-	}
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('N1')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('N1')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "N1",
+	"NotificationTypeName": "IT Support"
 }, {
-	"Mandt": "Mandt 3",
-	"Notificationtype": "Notificationtype 3",
-	"Notificationtypename": "Notificationtypename 3",
 	"__metadata": {
-		"uri": "PMNotificationTypeVH('Notificationtype%203')",
-		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationTypeVH"
-	}
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('MF')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('MF')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "MF",
+	"NotificationTypeName": "Pool Request"
 }, {
-	"Mandt": "Mandt 4",
-	"Notificationtype": "Notificationtype 4",
-	"Notificationtypename": "Notificationtypename 4",
 	"__metadata": {
-		"uri": "PMNotificationTypeVH('Notificationtype%204')",
-		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationTypeVH"
-	}
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('M3')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('M3')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "M3",
+	"NotificationTypeName": "Activity report"
 }, {
-	"Mandt": "Mandt 5",
-	"Notificationtype": "Notificationtype 5",
-	"Notificationtypename": "Notificationtypename 5",
 	"__metadata": {
-		"uri": "PMNotificationTypeVH('Notificationtype%205')",
-		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationTypeVH"
-	}
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('OS')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('OS')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "OS",
+	"NotificationTypeName": "IHS notification"
 }, {
-	"Mandt": "Mandt 6",
-	"Notificationtype": "Notificationtype 6",
-	"Notificationtypename": "Notificationtypename 6",
 	"__metadata": {
-		"uri": "PMNotificationTypeVH('Notificationtype%206')",
-		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationTypeVH"
-	}
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('TI')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('TI')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "TI",
+	"NotificationTypeName": "Track Inspection"
 }, {
-	"Mandt": "Mandt 7",
-	"Notificationtype": "Notificationtype 7",
-	"Notificationtypename": "Notificationtypename 7",
 	"__metadata": {
-		"uri": "PMNotificationTypeVH('Notificationtype%207')",
-		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationTypeVH"
-	}
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('ZC')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('ZC')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "ZC",
+	"NotificationTypeName": "Container request"
 }, {
-	"Mandt": "Mandt 8",
-	"Notificationtype": "Notificationtype 8",
-	"Notificationtypename": "Notificationtypename 8",
 	"__metadata": {
-		"uri": "PMNotificationTypeVH('Notificationtype%208')",
-		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationTypeVH"
-	}
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('ZJ')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('ZJ')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "ZJ",
+	"NotificationTypeName": "Inter-Office Memo"
 }, {
-	"Mandt": "Mandt 9",
-	"Notificationtype": "Notificationtype 9",
-	"Notificationtypename": "Notificationtypename 9",
 	"__metadata": {
-		"uri": "PMNotificationTypeVH('Notificationtype%209')",
-		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationTypeVH"
-	}
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('HI')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('HI')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "HI",
+	"NotificationTypeName": "Hi-Rail Inspection"
 }, {
-	"Mandt": "Mandt 10",
-	"Notificationtype": "Notificationtype 10",
-	"Notificationtypename": "Notificationtypename 10",
 	"__metadata": {
-		"uri": "PMNotificationTypeVH('Notificationtype%2010')",
-		"type": "/EVORA/EL_NOTIFICATION_SRV.PMNotificationTypeVH"
-	}
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('I1')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('I1')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "I1",
+	"NotificationTypeName": "Malfunct.report RE"
+}, {
+	"__metadata": {
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('M2')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('M2')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "M2",
+	"NotificationTypeName": "Malfunction report"
+}, {
+	"__metadata": {
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('MQ')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('MQ')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "MQ",
+	"NotificationTypeName": "Error msg. from QM"
+}, {
+	"__metadata": {
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('TO')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('TO')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "TO",
+	"NotificationTypeName": "Turnout Inspection"
+}, {
+	"__metadata": {
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('WI')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('WI')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "WI",
+	"NotificationTypeName": "Walking Inspection"
+}, {
+	"__metadata": {
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('ZP')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('ZP')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "ZP",
+	"NotificationTypeName": "PIR Maint. Request"
+}, {
+	"__metadata": {
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('M1')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('M1')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "M1",
+	"NotificationTypeName": "Maintenance request"
+}, {
+	"__metadata": {
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('P2')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('P2')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "P2",
+	"NotificationTypeName": "Post Maint. Request"
+}, {
+	"__metadata": {
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('P3')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('P3')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "P3",
+	"NotificationTypeName": "Maintenance request"
+}, {
+	"__metadata": {
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('Z1')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('Z1')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "Z1",
+	"NotificationTypeName": "Maintenance request"
+}, {
+	"__metadata": {
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('EC')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('EC')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "EC",
+	"NotificationTypeName": "Engineer Change Note"
+}, {
+	"__metadata": {
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('GC')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('GC')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "GC",
+	"NotificationTypeName": "Geom. Car Inspection"
+}, {
+	"__metadata": {
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('RX')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('RX')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "RX",
+	"NotificationTypeName": "Roadcross Inspection"
+}, {
+	"__metadata": {
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('Z8')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('Z8')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "Z8",
+	"NotificationTypeName": "MRS Maint Notfn (M1)"
+}, {
+	"__metadata": {
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('ZI')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('ZI')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "ZI",
+	"NotificationTypeName": "IT Support Notifica."
+}, {
+	"__metadata": {
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('ZU')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('ZU')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "ZU",
+	"NotificationTypeName": "Utility Work Request"
+}, {
+	"__metadata": {
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('M4')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('M4')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "M4",
+	"NotificationTypeName": "RF & RFID Maint Req"
+}, {
+	"__metadata": {
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('M5')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationTypeVH('M5')",
+		"type": "com.evorait.evolite.evonotify.PMNotificationTypeVH"
+	},
+	"NotificationType": "M5",
+	"NotificationTypeName": "Malfunction report E"
 }]
