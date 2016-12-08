@@ -7,8 +7,7 @@ sap.ui.define([
 	"sap/m/Dialog",
 	"sap/m/Button",
 	"sap/m/Text",
-	"sap/m/MessageToast",
-	"com/evorait/evolite/evonotify/test/opaTests"
+	"sap/m/MessageToast"
 ], function(UIComponent, Device, models, ErrorHandler, JSONModel, Dialog, Button, Text, MessageToast) {
 	"use strict";
 
@@ -208,9 +207,7 @@ sap.ui.define([
 		 * helper for reuse table blockviews
 		 */
 		generateHelperJsonModel: function(oContext, sPropertyName, sModelName) {
-			var arr = [
-					"com/evorait/evolite/evonotify/test/integration/opaTests.qunit"
-				],
+			var arr = [],
 				aPaths = oContext.getProperty(sPropertyName);
 			if (aPaths) {
 				for (var i = 0; i < aPaths.length; i++) {
