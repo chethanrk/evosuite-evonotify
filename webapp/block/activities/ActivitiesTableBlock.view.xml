@@ -40,8 +40,8 @@
 					text="{Activities>MaintNotifActyTxt}"/>
 					<Text text="{Activities>MaintNotifActivityCodeGrpName} ({Activities>MaintNotifActivityCodeGroup})"/>
 					<Text text="{Activities>MaintNotifActivityCodeName} ({Activities>MaintNotifActivityCode})"/>
-					<Text text="{Activities>PlannedStartDate} {PlannedStartTime}"/>
-					<Text text="{Activities>PlannedEndDate} {PlannedEndTime}"/>
+					<Text text="{path:'Activities>/PlannedStartDate', formatter:'.formatter.date'} {path:'Activities>/PlannedStartTime', formatter:'.formatter.time'}"/>
+					<Text text="{path:'Activities>/PlannedEndDate', formatter:'.formatter.date'} {path:'Activities>/PlannedEndTime', formatter:'.formatter.time'}"/>
 				</cells>
 			</ColumnListItem>
 		</items>

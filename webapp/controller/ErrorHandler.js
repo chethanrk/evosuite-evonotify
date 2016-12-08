@@ -51,7 +51,7 @@ sap.ui.define([
 					this._sErrorText,
 					{
 						id : "serviceErrorMessageBox",
-						details: sDetails,
+						details: this._extractError(sDetails),
 						styleClass: this._oComponent.getContentDensityClass(),
 						actions: [MessageBox.Action.CLOSE],
 						onClose: function () {
@@ -59,6 +59,41 @@ sap.ui.define([
 						}.bind(this)
 					}
 				);
+			},
+			
+			/**
+			* Extract errors from a backend message class.
+			* @param {object} sDetails a technical error
+			* @return a either messages from the backend message class or return the initial error object
+			* @function
+			* @private
+			*/
+			 
+			_extractError: function(sDetails) {
+			    if (sDetails.responseText) {
+			        var parsedJSError = null;
+			           try {
+			               parsedJSError = jQuery.sap.parseJS(sDetails.responseText);
+			            } catch (err) {
+			              return sDetails;
+			            }
+			               
+			            if (parsedJSError && parsedJSError.error && parsedJSError.error.code) {
+			              var strError = "";
+			               //check if the error is from our backend error class
+			               if (parsedJSError.error.code.split("/")[0] === "MY_MSG_CLASS") {
+			                   var array = parsedJSError.error.innererror.errordetails;
+			                       for (var i = 0; i < array.length; i++) {
+			                          strError += String.fromCharCode("8226") + " " + array[i].message + "\n";
+			                       }
+			                  } else {
+			                    //if there is no message class found
+			                       return sDetails;
+			                  }
+			                 return strError;
+			             }
+			      }
+			    return sDetails;
 			}
 		});
 	}

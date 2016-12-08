@@ -52,7 +52,9 @@
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
-								<tasks:TasksTableBlock itemPress="onPressTask" />
+								<tasks:TasksTableBlock itemPress="onPressTask">
+									<!--<uxap:ModelMapping externalModelName="" externalPath="/to_PMNotificationItemTask" internalModelName="Tasks"/>-->
+								</tasks:TasksTableBlock>
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>
