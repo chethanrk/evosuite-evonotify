@@ -75,12 +75,12 @@ sap.ui.define([
 					history.go(-1);
 				} else if(oContext) {
 					var obj = oContext.getObject();
-					if(parseInt(obj.MaintenanceNotificationItem) === 0){
+					if(parseInt(obj.MaintenancenNotificationItem) === 0){
 						this.getRouter().navTo("object", {objectId: obj.MaintenanceNotification}, true);
 					}else{
 						this.getRouter().navTo("item", {
 							objectId: obj.MaintenanceNotification,
-							itemId: obj.MaintenanceNotificationItem
+							itemId: obj.MaintenancenNotificationItem
 						}, true);
 					}
 				}else{
@@ -147,7 +147,7 @@ sap.ui.define([
 					this.getOwnerComponent().showAllSmartFields(this.oForm);
 					
 					if(isNew){
-						var oContext = oDataModel.createEntry("/PMNotificationActivity");
+						var oContext = oDataModel.createEntry("/PMNotificationActivities");
 						oDataModel.setProperty(oContext.sPath+"/MaintenanceNotification", sObjectId);
 						this.getView().unbindElement();
 						this.getView().setBindingContext(oContext);
@@ -157,7 +157,7 @@ sap.ui.define([
 						oViewModel.setProperty("/busy", false);
 						
 					}else{
-						var sObjectPath = this.getModel().createKey("PMNotificationActivity", {
+						var sObjectPath = this.getModel().createKey("PMNotificationActivities", {
 							MaintenanceNotification :  sObjectId,
 							MaintenancenNotificationItem : sItemId,
 							MaintNotificationActivity : sActivityId

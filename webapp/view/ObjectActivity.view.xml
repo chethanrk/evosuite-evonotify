@@ -8,7 +8,7 @@
 	xmlns:uxap="sap.uxap"
 	xmlns:activities="com.evorait.evolite.evonotify.block.activities">
 
-	<Page title="{i18n>taskViewTitle}" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack">
+	<Page title="{i18n>activityViewTitle}" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack">
 		
 		<uxap:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" >
 			<uxap:headerTitle>

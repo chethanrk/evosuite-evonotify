@@ -16,13 +16,13 @@
 				<smartField:SmartField value="{MaintenanceNotification}" editableChanged="onEditChanged"/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField id="MaintenanceNotificationItem" value="{MaintenanceNotificationItem}" editableChanged="onEditChanged"/>
+				<smartField:SmartField id="MaintenanceNotificationItem" value="{MaintenancenNotificationItem}" editableChanged="onEditChanged"/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintenanceNotificationTask}" editableChanged="onEditChanged"/>
+				<smartField:SmartField value="{MaintNotificationActivity}" editableChanged="onEditChanged"/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintNotifTaskText}" editableChanged="onEditChanged"/>
+				<smartField:SmartField value="{MaintNotifActyTxt}" editableChanged="onEditChanged"/>
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		
@@ -31,54 +31,14 @@
 				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layout>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintNotifTaskCodeGroup}" editableChanged="onEditChanged">
+				<smartField:SmartField value="{MaintNotifActivityCodeGroup}" editableChanged="onEditChanged">
 					<smartField:configuration>
 						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
 					</smartField:configuration>
 				</smartField:SmartField>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintNotiTtaskCodeGroupName}" editableChanged="onEditChanged">
-					<smartField:configuration>
-						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
-					</smartField:configuration>
-				</smartField:SmartField>
-			</smartForm:GroupElement>
-		</smartForm:Group>
-		
-		<smartForm:Group label="Status">
-			<smartForm:layout>
-				<layout:GridData span="L6 M6 S12" linebreak="true"/>
-			</smartForm:layout>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{ConcatenatedActSysStsName}" editableChanged="onEditChanged">
-					<smartField:configuration>
-						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
-					</smartField:configuration>
-				</smartField:SmartField>
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{ConcatenatedActUserStsName}" editableChanged="onEditChanged">
-					<smartField:configuration>
-						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
-					</smartField:configuration>
-				</smartField:SmartField>
-			</smartForm:GroupElement>
-		</smartForm:Group>
-		
-		<smartForm:Group label="Responsible">
-			<smartForm:layout>
-				<layout:GridData span="L6 M6 S12"/>
-			</smartForm:layout>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{ResponsiblePersonFunctionCode}" editableChanged="onEditChanged">
-					<smartField:configuration>
-						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
-					</smartField:configuration>
-				</smartField:SmartField>
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{ResponsiblePerson}" editableChanged="onEditChanged">
+				<smartField:SmartField value="{MaintNotifActivityCode}" editableChanged="onEditChanged">
 					<smartField:configuration>
 						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
 					</smartField:configuration>
@@ -88,7 +48,7 @@
 		
 		<smartForm:Group label="Dates">
 			<smartForm:layout>
-				<layout:GridData span="L6 M6 S12"/>
+				<layout:GridData span="L6 M6 S12" linebreak="true"/>
 			</smartForm:layout>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{PlannedStartDate}" editableChanged="onEditChanged">
