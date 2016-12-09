@@ -127,8 +127,8 @@ sap.ui.define([
 				this.onPressCancel();
 				this.getRouter().navTo("activity", {
 					objectId: obj.MaintenanceNotification,
-					activityId: obj.MaintNotificationActivity,
-					itemId: 0
+					itemId: 0,
+					activityId: obj.MaintNotificationActivity
 				});
 			},
 			
@@ -250,7 +250,6 @@ sap.ui.define([
 							});
 						},
 						dataReceived: function () {
-							oViewModel.setProperty("/Title", oDataModel.getProperty(sObjectPath+"/NotificationText"));
 							oViewModel.setProperty("/busy", false);
 						}
 					}

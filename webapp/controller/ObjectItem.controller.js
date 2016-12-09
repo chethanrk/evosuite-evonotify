@@ -154,14 +154,13 @@ sap.ui.define([
 			 */
 			onPressActivity : function(oEvent) {
 				var obj = this.getOwnerComponent().getTableRowObject(oEvent.getParameters(), "Activities");
-				console.log(obj);
 				
 				this.onPressCancel();
-				/*this.getRouter().navTo("activity", {
+				this.getRouter().navTo("activity", {
 					objectId: obj.MaintenanceNotification,
 					itemId: obj.MaintenancenNotificationItem,
 					activityId: obj.MaintNotificationActivity
-				});*/
+				});
 			},
 			
 			/**

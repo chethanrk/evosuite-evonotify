@@ -136,7 +136,7 @@ sap.ui.define([
 					sTaskId = oParameters.taskId,
 					oViewModel = this.getModel("objectView"),
 					oDataModel = this.getModel(),
-					isNew = (sItemId === "new" || sTaskId === "new");
+					isNew = (sTaskId === "new");
 					
 				oDataModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
 				

@@ -130,7 +130,7 @@ sap.ui.define([
 					sCauseId = oEvent.getParameter("arguments").causeId,
 					oViewModel = this.getModel("objectView"),
 					oDataModel = this.getModel(),
-					isNew = (sItemId === "new");
+					isNew = (sCauseId === "new");
 					
 				var sObjectId =  oEvent.getParameter("arguments").objectId;
 				oDataModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);

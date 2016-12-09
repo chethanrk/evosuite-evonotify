@@ -136,7 +136,7 @@ sap.ui.define([
 					sActivityId = oParameters.activityId,
 					oViewModel = this.getModel("objectView"),
 					oDataModel = this.getModel(),
-					isNew = (sItemId === "new" || sActivityId === "new");
+					isNew = (sActivityId === "new");
 					
 				oDataModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
 				
