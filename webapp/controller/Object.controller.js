@@ -262,7 +262,7 @@ sap.ui.define([
 					oViewModel = this.getModel("objectView"),
 					oElementBinding = oView.getElementBinding(),
 					oContext = oElementBinding.getBoundContext();
-
+					
 				// No data for the binding
 				if (!oContext) {
 					this.getRouter().getTargets().display("objectNotFound");
@@ -280,6 +280,7 @@ sap.ui.define([
 				this.getOwnerComponent().generateHelperJsonModel(oContext, "to_PMNotificationActivity", "Activities");
 				
 				// Everything went fine.
+				this._setNewHeaderTitle();
 				this._isEditable(oContext);
 				oViewModel.setProperty("/busy", false);
 			},
