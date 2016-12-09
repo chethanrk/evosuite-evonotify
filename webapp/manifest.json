@@ -68,6 +68,12 @@
 				},
 				"sap.m": {
 					"minVersion": "1.40.0"
+				},
+				"sap.uxap": {
+					"minVersion": ""
+				},
+				"sap.ui.comp": {
+					"minVersion": ""
 				}
 			}
 		},
