@@ -91,6 +91,15 @@
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		
+		<smartForm:Group label="Description">
+			<smartForm:layout>
+				<layout:GridData span="L12 M12 S12"/>
+			</smartForm:layout>
+			<smartForm:GroupElement>
+				<TextArea value="{MaintNotificationLongText}" rows="8" editable="{objectView>/editMode}" growing="true"/>
+			</smartForm:GroupElement>
+		</smartForm:Group>		
+		
 		<smartForm:Group label="{i18n>refObjectsSectionTitle}">
 			<smartForm:layout>
 				<layout:GridData span="L6 M6 S12"/>
