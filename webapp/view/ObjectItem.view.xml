@@ -28,7 +28,7 @@
 			<uxap:headerContent></uxap:headerContent>
 			
 			<uxap:sections>
-				<uxap:ObjectPageSection title="General">
+				<uxap:ObjectPageSection title="{i18n>generalSectionTitle}">
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
@@ -38,7 +38,7 @@
 					</uxap:subSections>
 				</uxap:ObjectPageSection>
 				
-				<uxap:ObjectPageSection title="Causes" visible="{objectView>/isEdit}">
+				<uxap:ObjectPageSection title="{i18n>causesTitle}" visible="{objectView>/isEdit}">
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
@@ -48,19 +48,17 @@
 					</uxap:subSections>
 				</uxap:ObjectPageSection>
 				
-				<uxap:ObjectPageSection title="Tasks" visible="{objectView>/isEdit}">
+				<uxap:ObjectPageSection title="{i18n>tasksTitle}" visible="{objectView>/isEdit}">
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
-								<tasks:TasksTableBlock itemPress="onPressTask">
-									<!--<uxap:ModelMapping externalModelName="" externalPath="/to_PMNotificationItemTask" internalModelName="Tasks"/>-->
-								</tasks:TasksTableBlock>
+								<tasks:TasksTableBlock itemPress="onPressTask" />
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>
 				</uxap:ObjectPageSection>
 				
-				<uxap:ObjectPageSection title="Activities" visible="{objectView>/isEdit}">
+				<uxap:ObjectPageSection title="{i18n>activitiesTitle}" visible="{objectView>/isEdit}">
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>

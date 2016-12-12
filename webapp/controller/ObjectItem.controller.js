@@ -28,6 +28,10 @@ sap.ui.define([
 				// Model used to manipulate control states. The chosen values make sure,
 				// detail page is busy indication immediately so there is no break in
 				// between the busy indication for loading the view's meta data
+				var tableNoDataTextCauses = this.getResourceBundle().getText("causesTitle"),
+					tableNoDataTextTasks = this.getResourceBundle().getText("tasksTitle"),
+					tableNoDataTextActivities = this.getResourceBundle().getText("activitiesTitle");
+					
 				var iOriginalBusyDelay,
 					oViewModel = new JSONModel({
 						busy : true,
@@ -35,7 +39,11 @@ sap.ui.define([
 						isNew : false,
 						isEdit : false,
 						showMode: false,
-						editMode : false
+						editMode : false,
+						tableNoDataTextCauses : this.getResourceBundle().getText("tableNoDataText", [tableNoDataTextCauses]),
+						tableNoDataTextTasks : this.getResourceBundle().getText("tableNoDataText", [tableNoDataTextTasks]),
+						tableNoDataTextActivities : this.getResourceBundle().getText("tableNoDataText", [tableNoDataTextActivities]),
+						tableBusyDelay : 0
 					});
 
 				this.getRouter().getRoute("item").attachPatternMatched(this._onObjectMatched, this);

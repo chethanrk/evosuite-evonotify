@@ -16,7 +16,7 @@
                     descending : false
                 }
             }"
-		noDataText="{objectView>/tableNoDataText}"
+		noDataText="{objectView>/tableNoDataTextItems}"
 		busyIndicatorDelay="{objectView>/tableBusyDelay}"
 		growing="false"
 		growingScrollToLoad="false">

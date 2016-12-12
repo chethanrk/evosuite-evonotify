@@ -8,7 +8,7 @@
 	xmlns:smartForm="sap.ui.comp.smartform">
 	
 	<smartForm:SmartForm id="SmartNotificationItemForm" editTogglable="false" editToggled="onEditPress" editable="{objectView>/editMode}">
-		<smartForm:Group label="General">
+		<smartForm:Group label="{i18n>generalSectionTitle}">
 			<smartForm:layout>
 				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layout>
@@ -22,7 +22,7 @@
 				<smartField:SmartField value="{MaintNotifItemText}" editableChanged="onEditChanged"/>
 			</smartForm:GroupElement>
 		</smartForm:Group>
-		<smartForm:Group label="Object">
+		<smartForm:Group label="{i18n>objectSectionTitle}">
 			<smartForm:layout>
 				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layout>
@@ -41,7 +41,7 @@
 				</smartField:SmartField>
 			</smartForm:GroupElement>
 		</smartForm:Group>
-		<smartForm:Group label="Damage">
+		<smartForm:Group label="{i18n>damageSectionTitle}">
 			<smartForm:layout>
 				<layout:GridData span="L6 M6 S12" linebreak="true"/>
 			</smartForm:layout>
