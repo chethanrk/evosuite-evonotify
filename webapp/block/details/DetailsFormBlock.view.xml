@@ -2,7 +2,7 @@
 	
 	<smartForm:SmartForm id="SmartNotificationForm" editTogglable="false" editToggled="onEditPress" checked="onChecked" editable="{objectView>/editMode}">
 		
-		<smartForm:Group label="General">
+		<smartForm:Group label="{i18n>generalSectionTitle}">
 			<smartForm:layout>
 				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layout>
@@ -51,7 +51,7 @@
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		
-		<smartForm:Group label="Malfunctional">
+		<smartForm:Group label="{i18n>malfunctionalSectionTitle}">
 			<smartForm:layout>
 				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layout>
@@ -91,7 +91,16 @@
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		
-		<smartForm:Group label="Reference Objects">
+		<smartForm:Group label="Description">
+			<smartForm:layout>
+				<layout:GridData span="L12 M12 S12"/>
+			</smartForm:layout>
+			<smartForm:GroupElement>
+				<TextArea value="{MaintNotificationLongText}" rows="8" editable="{objectView>/editMode}" growing="true"/>
+			</smartForm:GroupElement>
+		</smartForm:Group>		
+		
+		<smartForm:Group label="{i18n>refObjectsSectionTitle}">
 			<smartForm:layout>
 				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layout>
@@ -110,7 +119,7 @@
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		
-		<smartForm:Group label="Dates">
+		<smartForm:Group label="{i18n>datesSectionTitle}">
 			<smartForm:layout>
 				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layout>
@@ -147,7 +156,7 @@
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		
-		<smartForm:Group label="Location">
+		<smartForm:Group label="{i18n>locationSectionTitle}">
 			<smartForm:layout>
 				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layout>
@@ -159,10 +168,11 @@
 				</smartField:SmartField>	
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{AssetLocation}" editableChanged="onEditChanged" />
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{AssetLocationName}" editableChanged="onEditChanged" />
+				<smartField:SmartField value="{AssetLocation}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>	
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{ABCIndicator}" editableChanged="onEditChanged">
@@ -180,7 +190,7 @@
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		
-		<smartForm:Group label="System and User Status">
+		<smartForm:Group label="{i18n>systemUserStateSectionTitle}">
 			<smartForm:layout>
 				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layout>
@@ -192,27 +202,30 @@
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		
-		<smartForm:Group label="Responsibility">
+		<smartForm:Group label="{i18n>responsibilitySectionTitle}">
 			<smartForm:layout>
 				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layout>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintenancePlanningPlant}" editableChanged="onEditChanged" />
+				<smartField:SmartField value="{MaintenancePlanningPlant}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>						
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintenancePlanningPlantName}" editableChanged="onEditChanged" />
+				<smartField:SmartField value="{MaintenancePlannerGroup}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>						
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintenancePlannerGroup}" editableChanged="onEditChanged" />
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintenancePlannerGroupName}" editableChanged="onEditChanged" />
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintenanceWorkCenter}" editableChanged="onEditChanged" />
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintenanceWorkCenterText}" editableChanged="onEditChanged" />
+				<smartField:SmartField value="{MaintenanceWorkCenter}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>						
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		

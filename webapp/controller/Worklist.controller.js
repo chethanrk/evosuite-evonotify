@@ -27,13 +27,14 @@ sap.ui.define([
 				this._oTableSearchState = [];
 
 				// Model used to manipulate control states
+				var tableTitle = this.getResourceBundle().getText("worklistTableTitle");
 				oViewModel = new JSONModel({
 					worklistTableTitle : this.getResourceBundle().getText("worklistTableTitle"),
 					saveAsTileTitle: this.getResourceBundle().getText("worklistViewTitle"),
 					shareOnJamTitle: this.getResourceBundle().getText("worklistViewTitle"),
 					shareSendEmailSubject: this.getResourceBundle().getText("shareSendEmailWorklistSubject"),
 					shareSendEmailMessage: this.getResourceBundle().getText("shareSendEmailWorklistMessage", [location.href]),
-					tableNoDataText : this.getResourceBundle().getText("tableNoDataText"),
+					tableNoDataText : this.getResourceBundle().getText("tableNoDataText", [tableTitle]),
 					tableBusyDelay : 0
 				});
 				this.setModel(oViewModel, "worklistView");

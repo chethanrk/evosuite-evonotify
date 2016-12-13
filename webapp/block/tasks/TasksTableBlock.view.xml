@@ -11,7 +11,7 @@
                     path : 'MaintenanceNotificationTask',
                     descending : false
                 }}"
-		noDataText="{objectView>/tableNoDataText}"
+		noDataText="{objectView>/tableNoDataTextTasks}"
 		busyIndicatorDelay="{objectView>/tableBusyDelay}"
 		growing="false"
 		growingScrollToLoad="false">

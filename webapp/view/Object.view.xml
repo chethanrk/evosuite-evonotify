@@ -54,7 +54,7 @@
 			</uxap:headerContent>
 			
 			<uxap:sections>
-				<uxap:ObjectPageSection title="General">
+				<uxap:ObjectPageSection title="{i18n>generalSectionTitle}">
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
@@ -64,7 +64,7 @@
 					</uxap:subSections>
 				</uxap:ObjectPageSection>
 				
-				<uxap:ObjectPageSection id="itemsSection" title="Items" visible="{objectView>/isEdit}">
+				<uxap:ObjectPageSection id="itemsSection" title="{i18n>itemsTitle}" visible="{objectView>/isEdit}">
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
@@ -74,7 +74,7 @@
 					</uxap:subSections>
 				</uxap:ObjectPageSection>
 				
-				<uxap:ObjectPageSection title="Tasks" visible="{objectView>/isEdit}">
+				<uxap:ObjectPageSection title="{i18n>tasksTitle}" visible="{objectView>/isEdit}">
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
@@ -84,7 +84,7 @@
 					</uxap:subSections>
 				</uxap:ObjectPageSection>
 				
-				<uxap:ObjectPageSection title="Activities" visible="{objectView>/isEdit}">
+				<uxap:ObjectPageSection title="{i18n>activitiesTitle}" visible="{objectView>/isEdit}">
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>

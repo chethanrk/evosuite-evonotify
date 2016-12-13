@@ -28,6 +28,10 @@ sap.ui.define([
 				// Model used to manipulate control states. The chosen values make sure,
 				// detail page is busy indication immediately so there is no break in
 				// between the busy indication for loading the view's meta data
+				var tableNoDataTextItems = this.getResourceBundle().getText("itemsTableTitle"),
+					tableNoDataTextTasks = this.getResourceBundle().getText("tasksTitle"),
+					tableNoDataTextActivities = this.getResourceBundle().getText("activitiesTitle");
+					
 				var iOriginalBusyDelay,
 					oViewModel = new JSONModel({
 						busy : true,
@@ -37,10 +41,14 @@ sap.ui.define([
 						editable: false,
 						editMode : false,
 						showAdd : false,
-						itemsTableTitle : this.getResourceBundle().getText("itemsTableTitle"),
 						saveAsTileTitle: this.getResourceBundle().getText("itemsViewTitle"),
 						shareOnJamTitle: this.getResourceBundle().getText("itemsViewTitle"),
-						tableNoDataText : this.getResourceBundle().getText("tableNoDataText"),
+						itemsTableTitle : tableNoDataTextItems,
+						tasksTableTitle : tableNoDataTextTasks,
+						activitiesTableTitle : tableNoDataTextActivities,
+						tableNoDataTextItems : this.getResourceBundle().getText("tableNoDataText", [tableNoDataTextItems]),
+						tableNoDataTextTasks : this.getResourceBundle().getText("tableNoDataText", [tableNoDataTextTasks]),
+						tableNoDataTextActivities : this.getResourceBundle().getText("tableNoDataText", [tableNoDataTextActivities]),
 						tableBusyDelay : 0
 					});
 

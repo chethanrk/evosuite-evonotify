@@ -11,7 +11,7 @@
                     path : 'MaintenanceNotificationCause',
                     descending : false
                 }}"
-		noDataText="{objectView>/tableNoDataText}"
+		noDataText="{objectView>/tableNoDataTextCauses}"
 		busyIndicatorDelay="{objectView>/tableBusyDelay}"
 		growing="false"
 		growingScrollToLoad="false">

@@ -11,7 +11,7 @@
                     path : 'MaintNotificationActivity',
                     descending : false
                 }}"
-		noDataText="{objectView>/tableNoDataText}"
+		noDataText="{objectView>/tableNoDataTextActivities}"
 		busyIndicatorDelay="{objectView>/tableBusyDelay}"
 		growing="false"
 		growingScrollToLoad="false">
