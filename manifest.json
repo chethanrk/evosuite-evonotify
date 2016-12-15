@@ -16,9 +16,7 @@
 				"settings": {
 					"odataVersion": "2.0",
 					"localUri": "localService/metadata.xml",
-					"annotations": [
-						"annotations"
-					]
+					"annotations": ["annotations"]
 				}
 			},
 			"annotations": {
@@ -49,10 +47,7 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": [
-			"sap_hcb",
-			"sap_bluecrystal"
-		]
+		"supportedThemes": ["sap_hcb", "sap_bluecrystal", "sap_belize"]
 	},
 	"sap.ui5": {
 		"rootView": {
@@ -101,56 +96,35 @@
 				"controlId": "app",
 				"controlAggregation": "pages",
 				"bypassed": {
-					"target": [
-						"notFound"
-					]
+					"target": ["notFound"]
 				},
 				"async": true
 			},
-			"routes": [
-				{
-					"pattern": "",
-					"name": "worklist",
-					"target": [
-						"worklist"
-					]
-				},
-				{
-					"pattern": "PMNotifications/{objectId}",
-					"name": "object",
-					"target": [
-						"object"
-					]
-				},
-				{
-					"pattern": "PMNotifications/PMNotificationItems/{objectId}/{itemId}",
-					"name": "item",
-					"target": [
-						"item"
-					]
-				},
-				{
-					"pattern": "PMNotifications/PMNotificationTasks/{objectId}/{itemId}/{taskId}",
-					"name": "task",
-					"target": [
-						"task"
-					]
-				},
-				{
-					"pattern": "PMNotifications/PMNotificationActivities/{objectId}/{itemId}/{activityId}",
-					"name": "activity",
-					"target": [
-						"activity"
-					]
-				},
-				{
-					"pattern": "PMNotifications/PMNotificationCauses/{objectId}/{itemId}/{causeId}",
-					"name": "cause",
-					"target": [
-						"cause"
-					]
-				}
-			],
+			"routes": [{
+				"pattern": "",
+				"name": "worklist",
+				"target": ["worklist"]
+			}, {
+				"pattern": "PMNotifications/{objectId}",
+				"name": "object",
+				"target": ["object"]
+			}, {
+				"pattern": "PMNotifications/PMNotificationItems/{objectId}/{itemId}",
+				"name": "item",
+				"target": ["item"]
+			}, {
+				"pattern": "PMNotifications/PMNotificationTasks/{objectId}/{itemId}/{taskId}",
+				"name": "task",
+				"target": ["task"]
+			}, {
+				"pattern": "PMNotifications/PMNotificationActivities/{objectId}/{itemId}/{activityId}",
+				"name": "activity",
+				"target": ["activity"]
+			}, {
+				"pattern": "PMNotifications/PMNotificationCauses/{objectId}/{itemId}/{causeId}",
+				"name": "cause",
+				"target": ["cause"]
+			}],
 			"targets": {
 				"worklist": {
 					"viewName": "Worklist",
@@ -194,7 +168,7 @@
 		}
 	},
 	"sap.platform.hcp": {
-		"uri": "webapp",
+		"uri": "",
 		"_version": "1.1.0"
 	}
 }

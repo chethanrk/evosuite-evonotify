@@ -45,7 +45,7 @@
     "appid": "com.evorait.evolite.evonotify",
     "appdesc": "",
     "appversion": "0.0.1",
-    "debugMode": true,
+    "debugMode": false,
     "appIcon": {
       "defaultIcon": "",
       "defaultIconData": "",
@@ -119,11 +119,11 @@
       }
     },
     "kapselLogon": {
-      "type": "",
+      "type": "enterUsernamePassword",
       "logo": "",
       "logoText": "",
       "background": "",
-      "disablePasscode": false,
+      "disablePasscode": true,
       "hideLogoCopyright": false
     },
     "useAppDescriptor4UI5Libs": false,
