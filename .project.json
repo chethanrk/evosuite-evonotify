@@ -119,11 +119,11 @@
       }
     },
     "kapselLogon": {
-      "type": "enterUsernamePassword",
+      "type": "",
       "logo": "",
       "logoText": "",
       "background": "",
-      "disablePasscode": true,
+      "disablePasscode": false,
       "hideLogoCopyright": false
     },
     "useAppDescriptor4UI5Libs": false,
@@ -284,12 +284,12 @@
       },
       "kapsel": {
         "logon": {
-          "selected": false,
+          "selected": true,
           "registry": "kapsel-plugin-logon",
           "localBuild": true
         },
         "appupdate": {
-          "selected": false,
+          "selected": true,
           "registry": "kapsel-plugin-appupdate",
           "localBuild": true
         },

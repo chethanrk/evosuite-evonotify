@@ -37,7 +37,9 @@ com.evorait.evolite.evonotify.dev.devapp = {
 					var context = {
 						"serverHost": that.smpInfo.server,
 						"https": data.hybrid.msType === 0 ? "true" : "false",
-						"serverPort": that.smpInfo.port
+						"serverPort": that.smpInfo.port,
+						"refreshSAMLSessionOnResume":"always",
+						"auth":[{"type":"saml2.web.post"}]
 					};
 					that.devLogon = new com.evorait.evolite.evonotify.dev.devlogon();
 					that.devLogon.doLogonInit(context, that.smpInfo.appID);

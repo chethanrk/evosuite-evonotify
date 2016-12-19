@@ -11,7 +11,7 @@
 		},
 		"dataSources": {
 			"mainService": {
-				"uri": "/sap/opu/odata/evora/EL_NOTIFICATION_SRV/",
+				"uri": "mobile-ad74c0790.hana.ondemand.com/com.evorait.evolite.evonotify/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
