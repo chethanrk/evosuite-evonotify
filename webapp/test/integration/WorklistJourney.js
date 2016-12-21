@@ -14,9 +14,18 @@ sap.ui.require(
  
 			// Assertions
 			Then.onTheWorklistPage.theTableShouldHaveAllEntries().
-				and.theTitleShouldDisplayTheTotalAmountOfItems().
+				//and.theTitleShouldDisplayTheTotalAmountOfItems().
 				and.iTeardownMyAppFrame();
 		});
+		
+		/*opaTest("Should be able to load more items", function (Given, When, Then) {
+			//Actions
+			When.onTheWorklistPage.iPressOnMoreData();
+ 
+			// Assertions
+			Then.onTheWorklistPage.theTableShouldHaveAllEntries().
+				and.iTeardownMyAppFrame();
+		});*/
  
 	}
 );

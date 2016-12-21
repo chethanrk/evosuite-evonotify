@@ -7,7 +7,9 @@ QUnit.config.autostart = false;
 sap.ui.require([
 	"sap/ui/test/Opa5",
 	"com/evorait/evolite/evonotify/test/integration/pages/Common",
-	"com/evorait/evolite/evonotify/test/integration/pages/Worklist"
+	"com/evorait/evolite/evonotify/test/integration/pages/Browser",
+	"com/evorait/evolite/evonotify/test/integration/pages/Worklist",
+	"com/evorait/evolite/evonotify/test/integration/pages/Object"
 ], function (Opa5, Common) {
 	"use strict";
 	Opa5.extendConfig({
@@ -16,7 +18,8 @@ sap.ui.require([
 	});
  
 	sap.ui.require([
-		"com/evorait/evolite/evonotify/test/integration/WorklistJourney"
+		"com/evorait/evolite/evonotify/test/integration/WorklistJourney",
+		"com/evorait/evolite/evonotify/test/integration/ObjectJourney"
 	], function () {
 		QUnit.start();
 	});

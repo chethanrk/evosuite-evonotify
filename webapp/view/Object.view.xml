@@ -58,7 +58,7 @@
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
-								<details:DetailsFormBlock id="detailsForm" editPress="onFiredEditMode"/>
+								<details:DetailsFormBlock id="detailsFormBlock" editPress="onFiredEditMode"/>
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>
@@ -68,7 +68,7 @@
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
-								<items:ItemsTableBlock id="itemsTable" itemPress="onPressItem"/>
+								<items:ItemsTableBlock id="itemsTableBlock" itemPress="onPressItem"/>
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>
@@ -78,7 +78,7 @@
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
-								<tasks:TasksTableBlock id="taskTable" itemPress="onPressTask"/>
+								<tasks:TasksTableBlock id="taskTableBlock" itemPress="onPressTask"/>
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>
@@ -88,7 +88,7 @@
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
-								<activities:ActivitiesTableBlock itemPress="onPressActivity"/>
+								<activities:ActivitiesTableBlock id="activityTableBlock" itemPress="onPressActivity"/>
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>

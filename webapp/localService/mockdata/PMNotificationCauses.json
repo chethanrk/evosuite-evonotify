@@ -1,8 +1,38 @@
 [{
-	"MaintenanceNotification": "10000957",
-	"MaintenanceNotificationCause": "0001",
-	"MaintenanceNotificationItem": "0001",
+	"MaintenanceNotification": "Maintenancenotification1",
+	"MaintenanceNotificationCause": "MaintenanceNotificationCause11",
+	"MaintenanceNotificationItem": "MaintenanceNotificationItem1",
 	"MaintNotifCauseText": "Lackzufuhr unterbrochen",
+	"MaintNotifCauseCodeGroup": "PM03",
+	"MaintNotifCauseCodeGroupName": "Miscellaneous",
+	"MaintNotificationCauseCode": "2000",
+	"MaintNotificationCauseCodeName": "Unknown",
+	"NotificationType": "M2"
+},{
+	"MaintenanceNotification": "Maintenancenotification1",
+	"MaintenanceNotificationCause": "MaintenanceNotificationCause12",
+	"MaintenanceNotificationItem": "MaintenanceNotificationItem1",
+	"MaintNotifCauseText": "MaintNotifCauseText",
+	"MaintNotifCauseCodeGroup": "PM03",
+	"MaintNotifCauseCodeGroupName": "Miscellaneous",
+	"MaintNotificationCauseCode": "2000",
+	"MaintNotificationCauseCodeName": "Unknown",
+	"NotificationType": "M2"
+},{
+	"MaintenanceNotification": "Maintenancenotification2",
+	"MaintenanceNotificationCause": "MaintenanceNotificationCause21",
+	"MaintenanceNotificationItem": "MaintenanceNotificationItem2",
+	"MaintNotifCauseText": "Lackzufuhr unterbrochen",
+	"MaintNotifCauseCodeGroup": "PM03",
+	"MaintNotifCauseCodeGroupName": "Miscellaneous",
+	"MaintNotificationCauseCode": "2000",
+	"MaintNotificationCauseCodeName": "Unknown",
+	"NotificationType": "M2"
+},{
+	"MaintenanceNotification": "Maintenancenotification2",
+	"MaintenanceNotificationCause": "MaintenanceNotificationCause22",
+	"MaintenanceNotificationItem": "MaintenanceNotificationItem2",
+	"MaintNotifCauseText": "MaintNotifCauseText",
 	"MaintNotifCauseCodeGroup": "PM03",
 	"MaintNotifCauseCodeGroupName": "Miscellaneous",
 	"MaintNotificationCauseCode": "2000",
