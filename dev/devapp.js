@@ -5,6 +5,8 @@ com.evorait.evolite.evonotify.dev.devapp = {
 	smpInfo: {},
 	//the variable hold com.evorait.evolite.evonotify.dev.devlogon instance
 	devLogon: null,
+	// the variable hold the external URL of the oData service
+	externalURL: null,
 
 	//Application Constructor
 	initialize: function() {
@@ -32,6 +34,11 @@ com.evorait.evolite.evonotify.dev.devapp = {
 					that.smpInfo.server = data.hybrid.msType === 0 ? data.hybrid.hcpmsServer : data.hybrid.server;
 					that.smpInfo.port = data.hybrid.msType === 0 ? "443" : data.hybrid.port;
 					that.smpInfo.appID = data.hybrid.appid;
+					
+					//external Odata service url
+					if (data.hybrid.externalURL && data.hybrid.externalURL.length > 0) {
+						that.externalURL = data.hybrid.externalURL;
+					}
 				}
 				if (that.smpInfo.server && that.smpInfo.server.length > 0) {
 					var context = {
