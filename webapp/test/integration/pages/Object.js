@@ -13,7 +13,7 @@ sap.ui.require([
 		var sViewName = "Object";
  
 		Opa5.createPageObjects({
-			onThePostPage: {
+			onTheObjectPage: {
 				baseClass: Common,
 				actions: {
 					iPressTheBackButton: function () {
@@ -26,10 +26,22 @@ sap.ui.require([
 					},
 					iPressTheAddItemButton: function() {
 						return this.waitFor({
-							id: "objectPage",
+							id: "addNotificationItemButton",
 							viewName: sViewName,
 							actions: new Press(),
-							errorMessage: "Did not find the nav button on object page"
+							errorMessage: "Did not find the add notification item button on object page"
+						});
+					},
+					iPressOnTheBlockTableWithTheID: function (sBlockNamespace, sBlockName, sId, sPath) {
+						return this.waitFor({
+							controlType: "sap.m.ColumnListItem",
+							viewName: sBlockName,
+							viewNamespace : "com.evorait.evolite.evonotify.block."+sBlockNamespace,
+							matchers:  new BindingPath({
+								path: "/"+sPath+"('" + sId + "')"
+							}),
+							actions: new Press(),
+							errorMessage: "No list item with the id " + sId + " was found."
 						});
 					}
 				},
@@ -44,7 +56,7 @@ sap.ui.require([
 										objectTitle: sName,
 										objectSubtitle: sSubName
 									}),
-									success: function (oPage) {
+									success: function () {
 										Opa5.assert.ok(true, "was on the remembered detail page");
 									},
 									errorMessage: "The Notification "+sName+" ("+sSubName+") is not shown"
@@ -75,10 +87,11 @@ sap.ui.require([
 							errorMessage: "Was not able to see the block "+sBlockId
 						});
 					},
-					theTableShouldHaveAllEntries: function (sTableId, nLength) {
+					theBlockTableShouldHaveAllEntries: function (sBlockNamespace, sBlockName, sTableId, nLength) {
 						return this.waitFor({
 							id: sTableId,
-							viewName: sViewName,
+							viewName: sBlockName,
+							viewNamespace : "com.evorait.evolite.evonotify.block."+sBlockNamespace,
 							matchers:  new AggregationLengthEquals({
 								name: "items",
 								length: nLength

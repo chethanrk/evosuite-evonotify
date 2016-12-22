@@ -9,7 +9,8 @@ sap.ui.require([
 	"com/evorait/evolite/evonotify/test/integration/pages/Common",
 	"com/evorait/evolite/evonotify/test/integration/pages/Browser",
 	"com/evorait/evolite/evonotify/test/integration/pages/Worklist",
-	"com/evorait/evolite/evonotify/test/integration/pages/Object"
+	"com/evorait/evolite/evonotify/test/integration/pages/Object",
+	"com/evorait/evolite/evonotify/test/integration/pages/ObjectItem"
 ], function (Opa5, Common) {
 	"use strict";
 	Opa5.extendConfig({
