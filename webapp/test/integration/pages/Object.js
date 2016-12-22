@@ -32,6 +32,30 @@ sap.ui.require([
 							errorMessage: "Did not find the add notification item button on object page"
 						});
 					},
+					iPressTheEditButton: function(){
+						return this.waitFor({
+							id: "editNotificationButton",
+							viewName: sViewName,
+							actions: new Press(),
+							errorMessage: "Did not find the edit notification button on object page"
+						});
+					},
+					iPressTheCancelButton: function(){
+						return this.waitFor({
+							id: "cancelNotificationButton",
+							viewName: sViewName,
+							actions: new Press(),
+							errorMessage: "Did not find the cancel notification button on object page"
+						});
+					},
+					iPressTheSaveButton: function(){
+						return this.waitFor({
+							id: "saveNotificationButton",
+							viewName: sViewName,
+							actions: new Press(),
+							errorMessage: "Did not find the save notification button on object page"
+						});
+					},
 					iPressOnTheBlockTableWithTheID: function (sBlockNamespace, sBlockName, sId, sPath) {
 						return this.waitFor({
 							controlType: "sap.m.ColumnListItem",
@@ -64,15 +88,28 @@ sap.ui.require([
 							}
 						});
 					},
-					iShouldSeeTheButton: function(sButtonId, isVisible){
+					iShouldSeeTheActionButtonLength: function(n){
+						return this.waitFor({
+							controlType : "sap.uxap.ObjectPageHeaderActionButton",
+							viewName: sViewName,
+							check : function (aButtons) {
+		                        return aButtons.length === n;
+		                    },
+							success : function () {
+								Opa5.assert.ok(true, "There are visible "+n+" Actionbuttons");
+					        },
+							errorMessage: "Was not able to see the '"+n+"' Actionbuttons"
+						});
+					},
+					iShouldSeeTheActionButton: function(sButtonId){
 						return this.waitFor({
 							id: sButtonId,
 							viewName: sViewName,
 							matchers: new Properties({
-								visible: isVisible
+								visible: true
 							}),
 							success: function () {
-								Opa5.assert.ok(true, "The edit button '"+sButtonId+"' visibility should be "+isVisible);
+								Opa5.assert.ok(true, "The Actionbutton '"+sButtonId+"' should be visible");
 							},
 							errorMessage: "Was not able to see the '"+sButtonId+"' button"
 						});
@@ -100,6 +137,20 @@ sap.ui.require([
 								Opa5.assert.ok(true, "The table '"+sTableId+"' has "+nLength+" items");
 							},
 							errorMessage: "Table '"+sTableId+"' does not have all entries."
+						});
+					},
+					iShouldSeeTheForm: function (isEditable) {
+						return this.waitFor({
+							id: "SmartNotificationForm",
+							viewName: "DetailsFormBlock",
+							viewNamespace : "com.evorait.evolite.evonotify.block.details.",
+							matchers: new Properties({
+								editable: isEditable
+							}),
+							success: function () {
+								Opa5.assert.ok(true, "The smartform is visible and editable: "+isEditable);
+							},
+							errorMessage: "Was not able to see the smartform."
 						});
 					}
 				}

@@ -65,15 +65,18 @@ sap.ui.require([
 							}
 						});
 					},
-					iShouldSeeTheForm: function () {
+					iShouldSeeTheForm: function (isEditable) {
 						return this.waitFor({
 							id: "SmartNotificationItemForm",
 							viewName: "ItemsFormBlock",
 							viewNamespace : "com.evorait.evolite.evonotify.block.items.",
+							matchers: new Properties({
+								editable: isEditable
+							}),
 							success: function () {
-								Opa5.assert.ok(true, "The form is visible and editable");
+								Opa5.assert.ok(true, "The smartform is visible and editable: "+isEditable);
 							},
-							errorMessage: "Was not able to see the form."
+							errorMessage: "Was not able to see the smartform."
 						});
 					}
 				}

@@ -5,7 +5,7 @@ sap.ui.require(
  
 		QUnit.module("PMNotification");
  
-		opaTest("Should see the post page when a user clicks on an entry of the list", function (Given, When, Then) {
+		opaTest("Should see the notification page when a user clicks on an entry of the list", function (Given, When, Then) {
 			// Arrangements
 			Given.iStartMyApp();
 			//Actions
@@ -13,8 +13,10 @@ sap.ui.require(
  
 			// Assertions
 			Then.onTheObjectPage.theTitleShouldDisplayTheName("Notificationtext 1", "Maintenancenotification1")
-				.and.iShouldSeeTheButton("editNotificationButton", true)
+				.and.iShouldSeeTheActionButtonLength(1)
+				.and.iShouldSeeTheActionButton("editNotificationButton")
 				.and.iShouldSeeTheBlock("detailsFormBlock")
+				.and.iShouldSeeTheForm(false)
 				.and.iShouldSeeTheBlock("itemsTableBlock")
 				.and.theBlockTableShouldHaveAllEntries("items.", "ItemsTableBlock", "notificationItemsTable", 1)
 				.and.iShouldSeeTheBlock("taskTableBlock")
@@ -23,12 +25,31 @@ sap.ui.require(
 				.and.theBlockTableShouldHaveAllEntries("activities.", "ActivitiesTableBlock", "notificationActivityTable", 2);
 		});
 		
+		opaTest("Should show editable form view for the notification details", function(Given, When, Then){
+			// Actions
+			When.onTheObjectPage.iPressTheEditButton();
+			//Assertations
+			Then.onTheObjectPage.iShouldSeeTheForm(true)
+				.and.iShouldSeeTheActionButtonLength(2)
+				.and.iShouldSeeTheActionButton("cancelNotificationButton")
+				.and.iShouldSeeTheActionButton("saveNotificationButton");
+		});
+		
+		opaTest("Should cancel the form and toggle editable view for the notification details", function(Given, When, Then){
+			// Actions
+			When.onTheObjectPage.iPressTheCancelButton();
+			//Assertations
+			Then.onTheObjectPage.iShouldSeeTheForm(false)
+				.and.iShouldSeeTheActionButtonLength(1)
+				.and.iShouldSeeTheActionButton("editNotificationButton");
+		});
+		
 		opaTest("Should go to the add new notification item form page", function (Given, When, Then) {
 			// Actions
 			When.onTheObjectPage.iPressTheAddItemButton();
 			// Assertions
 			Then.onTheObjectItemPage.theTitleshouldDisplayNewItem()
-				.and.iShouldSeeTheForm();
+				.and.iShouldSeeTheForm(true);
 		});
 		
 		opaTest("Should go back to notification detail page", function (Given, When, Then) {
