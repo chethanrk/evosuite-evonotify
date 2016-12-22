@@ -23,6 +23,14 @@ sap.ui.require([
 							actions: new Press(),
 							errorMessage: "Did not find the nav button on object page"
 						});
+					},
+					iPressTheAddItemButton: function() {
+						return this.waitFor({
+							id: "objectPage",
+							viewName: sViewName,
+							actions: new Press(),
+							errorMessage: "Did not find the nav button on object page"
+						});
 					}
 				},
 				assertions: {
@@ -44,6 +52,19 @@ sap.ui.require([
 							}
 						});
 					},
+					iShouldSeeTheButton: function(sButtonId, isVisible){
+						return this.waitFor({
+							id: sButtonId,
+							viewName: sViewName,
+							matchers: new Properties({
+								visible: isVisible
+							}),
+							success: function () {
+								Opa5.assert.ok(true, "The edit button '"+sButtonId+"' visibility should be "+isVisible);
+							},
+							errorMessage: "Was not able to see the '"+sButtonId+"' button"
+						});
+					},
 					iShouldSeeTheBlock: function (sBlockId) {
 						return this.waitFor({
 							id: sBlockId,
@@ -56,7 +77,7 @@ sap.ui.require([
 					},
 					theTableShouldHaveAllEntries: function (sTableId, nLength) {
 						return this.waitFor({
-							id: "notificationTaskTable",
+							id: sTableId,
 							viewName: sViewName,
 							matchers:  new AggregationLengthEquals({
 								name: "items",

@@ -14,13 +14,16 @@ sap.ui.require(
  
 			// Assertions
 			Then.onThePostPage.theTitleShouldDisplayTheName("Notificationtext 1", "Maintenancenotification1")
+				.and.iShouldSeeTheButton("editNotificationButton", true)
+				//.and.iShouldSeeTheButton("addNotificationItemButton", true)
+				//.and.iShouldSeeTheButton("cancelNotificationButton", false)
 				.and.iShouldSeeTheBlock("detailsFormBlock")
 				.and.iShouldSeeTheBlock("itemsTableBlock")
 				.and.iShouldSeeTheBlock("taskTableBlock")
 				.and.iShouldSeeTheBlock("activityTableBlock");
 				//and.theTableShouldHaveAllEntries("notificationTaskTable", 1);
 		});
- 
+		
 		opaTest("Should go back to the TablePage", function (Given, When, Then) {
 			// Actions
 			When.onThePostPage.iPressTheBackButton();
