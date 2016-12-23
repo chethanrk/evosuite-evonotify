@@ -5,7 +5,7 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:smartField="sap.ui.comp.smartfield" >
 	
-	<Table width="auto" class="sapUiNoMargin"
+	<Table id="notificationCausesTable" width="auto" class="sapUiNoMargin"
 		items="{path : 'to_PMNotificationCause',
                 sorter : {
                     path : 'MaintenanceNotificationCause',

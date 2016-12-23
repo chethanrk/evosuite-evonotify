@@ -55,18 +55,6 @@ sap.ui.require([
 							actions: new Press(),
 							errorMessage: "Did not find the save notification button on object page"
 						});
-					},
-					iPressOnTheBlockTableWithTheID: function (sBlockNamespace, sBlockName, sId, sPath) {
-						return this.waitFor({
-							controlType: "sap.m.ColumnListItem",
-							viewName: sBlockName,
-							viewNamespace : "com.evorait.evolite.evonotify.block."+sBlockNamespace,
-							matchers:  new BindingPath({
-								path: "/"+sPath+"('" + sId + "')"
-							}),
-							actions: new Press(),
-							errorMessage: "No list item with the id " + sId + " was found."
-						});
 					}
 				},
 				assertions: {
@@ -84,6 +72,27 @@ sap.ui.require([
 										Opa5.assert.ok(true, "was on the remembered detail page");
 									},
 									errorMessage: "The Notification "+sName+" ("+sSubName+") is not shown"
+								});
+							}
+						});
+					},
+					theTitleshouldDisplayNewItem: function(){
+						return this.waitFor({
+							success: function () {
+								return this.waitFor({
+									id: "objectPageHeader",
+									viewName: sViewName,
+									matchers: function (oPage) {
+										var sExpectedText = oPage.getModel("i18n").getResourceBundle().getText("newNotificationTitle");
+										return new PropertyStrictEquals({
+											name: "objectTitle",
+											value: sExpectedText
+										}).isMatching(oPage);
+									},
+									success: function () {
+										Opa5.assert.ok(true, "was on the remembered add new Notification page");
+									},
+									errorMessage: "The new Notification Title is not shown"
 								});
 							}
 						});
@@ -122,21 +131,6 @@ sap.ui.require([
 								Opa5.assert.ok(true, "The block '"+sBlockId+"' is visible");
 							},
 							errorMessage: "Was not able to see the block "+sBlockId
-						});
-					},
-					theBlockTableShouldHaveAllEntries: function (sBlockNamespace, sBlockName, sTableId, nLength) {
-						return this.waitFor({
-							id: sTableId,
-							viewName: sBlockName,
-							viewNamespace : "com.evorait.evolite.evonotify.block."+sBlockNamespace,
-							matchers:  new AggregationLengthEquals({
-								name: "items",
-								length: nLength
-							}),
-							success: function () {
-								Opa5.assert.ok(true, "The table '"+sTableId+"' has "+nLength+" items");
-							},
-							errorMessage: "Table '"+sTableId+"' does not have all entries."
 						});
 					},
 					iShouldSeeTheForm: function (isEditable) {

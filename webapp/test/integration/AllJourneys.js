@@ -20,7 +20,8 @@ sap.ui.require([
  
 	sap.ui.require([
 		"com/evorait/evolite/evonotify/test/integration/WorklistJourney",
-		"com/evorait/evolite/evonotify/test/integration/ObjectJourney"
+		"com/evorait/evolite/evonotify/test/integration/ObjectJourney",
+		"com/evorait/evolite/evonotify/test/integration/ObjectItemJourney"
 	], function () {
 		QUnit.start();
 	});

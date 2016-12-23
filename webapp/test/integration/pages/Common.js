@@ -1,8 +1,13 @@
 sap.ui.define([
 		'sap/ui/test/Opa5',
-		'sap/ui/test/matchers/PropertyStrictEquals'
+		'sap/ui/test/matchers/AggregationLengthEquals',
+		'sap/ui/test/matchers/PropertyStrictEquals',
+		'com/evorait/evolite/evonotify/test/integration/pages/Common',
+		'sap/ui/test/matchers/BindingPath',
+		'sap/ui/test/actions/Press',
+		'sap/ui/test/matchers/Properties'
 	],
-	function (Opa5, PropertyStrictEquals) {
+	function (Opa5, AggregationLengthEquals, PropertyStrictEquals, Common, BindingPath, Press, Properties) {
 		"use strict";
  
 		function getFrameUrl(sHash, sUrlParameters) {
@@ -35,6 +40,40 @@ sap.ui.define([
  
 			iLookAtTheScreen: function () {
 				return this;
+			},
+			
+			iPressOnTheBlockTableWithTheID: function (sBlockNamespace, sBlockName, oPathProperties, sPath) {
+				var aIds = [];
+				for(var key in oPathProperties){
+					aIds.push(key+"='"+oPathProperties[key]+"'");
+				}
+				var sIds = aIds.join(",");
+				return this.waitFor({
+					controlType: "sap.m.ColumnListItem",
+					viewName: sBlockName,
+					viewNamespace : "com.evorait.evolite.evonotify.block."+sBlockNamespace,
+					matchers:  new BindingPath({
+						path: "/"+sPath+"("+sIds+")"
+					}),
+					actions: new Press(),
+					errorMessage: "No list item with path "+sPath+" and ids "+sIds+" was found."
+				});
+			},
+			
+			theBlockTableShouldHaveAllEntries: function (sBlockNamespace, sBlockName, sTableId, nLength) {
+				return this.waitFor({
+					id: sTableId,
+					viewName: sBlockName,
+					viewNamespace : "com.evorait.evolite.evonotify.block."+sBlockNamespace,
+					matchers:  new AggregationLengthEquals({
+						name: "items",
+						length: nLength
+					}),
+					success: function () {
+						Opa5.assert.ok(true, "The table '"+sTableId+"' has "+nLength+" items");
+					},
+					errorMessage: "Table '"+sTableId+"' does not have all entries."
+				});
 			}
  
 		});

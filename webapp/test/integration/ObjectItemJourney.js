@@ -3,47 +3,64 @@ sap.ui.require(
 	function (opaTest) {
 		"use strict";
  
-		QUnit.module("PMNotification");
+		QUnit.module("PMNotificationItem");
  
-		opaTest("Should see the post page when a user clicks on an entry of the list", function (Given, When, Then) {
+		opaTest("Should see the notification item page when a user clicks on an entry in items table", function (Given, When, Then) {
 			// Arrangements
 			Given.iStartMyApp();
- 
 			//Actions
 			When.onTheWorklistPage.iPressOnTheItemWithTheID("Maintenancenotification1");
+			var oPathProperties = {
+				MaintenanceNotification: "Maintenancenotification1",
+				MaintenanceNotificationItem: "MaintenanceNotificationItem1"
+			};
+			When.onTheObjectPage.iPressOnTheBlockTableWithTheID("items.", "ItemsTableBlock", oPathProperties, "PMNotificationItems");
  
 			// Assertions
-			Then.onTheObjectPage.theTitleShouldDisplayTheName("Notificationtext 1", "Maintenancenotification1")
-				.and.iShouldSeeTheButton("editNotificationButton", true)
-				.and.iShouldSeeTheBlock("detailsFormBlock")
-				.and.iShouldSeeTheBlock("taskTableBlock")
-				.and.theBlockTableShouldHaveAllEntries("block.tasks.", "TasksTableBlock", "notificationTaskTable", 1)
-				.and.iShouldSeeTheBlock("activityTableBlock")
-				.and.theBlockTableShouldHaveAllEntries("block.activities.", "ActivitiesTableBlock", "notificationActivityTable", 2);
+			Then.onTheObjectItemPage.theTitleShouldDisplayTheName("Abnormes Geräusch", "MaintenanceNotificationItem1")
+				.and.iShouldSeeTheActionButtonLength(1)
+				.and.iShouldSeeTheActionButton("editNotificationItemButton")
+				.and.iShouldSeeTheBlock("itemsFormBlock")
+				.and.iShouldSeeTheForm(false)
+				.and.iShouldSeeTheBlock("itemsCausesTableBlock")
+				.and.theBlockTableShouldHaveAllEntries("causes.", "CausesTableBlock", "notificationCausesTable", 0)
+				.and.iShouldSeeTheBlock("itemsTasksTableBlock")
+				.and.theBlockTableShouldHaveAllEntries("tasks.", "TasksTableBlock", "notificationTaskTable", 1)
+				.and.iShouldSeeTheBlock("itemsActivitiesTableBlock")
+				.and.theBlockTableShouldHaveAllEntries("activities.", "ActivitiesTableBlock", "notificationActivityTable", 2);
 		});
 		
-		opaTest("Should go to the add new notification item form page", function (Given, When, Then) {
+		opaTest("Should show editable form view for the item details", function(Given, When, Then){
 			// Actions
-			When.onTheObjectPage.iPressTheAddItemButton();
- 
-			// Assertions
-			Then.onTheWorklistPage.iShouldSeeTheTable();
+			When.onTheObjectItemPage.iPressTheEditButton();
+			//Assertations
+			Then.onTheObjectItemPage.iShouldSeeTheForm(true)
+				.and.iShouldSeeTheActionButtonLength(2)
+				.and.iShouldSeeTheActionButton("cancelNotificationItemButton")
+				.and.iShouldSeeTheActionButton("saveNotificationItemButton");
 		});
 		
-		opaTest("Should go back to the TablePage", function (Given, When, Then) {
+		opaTest("Should cancel the form and toggle editable view for the item details", function(Given, When, Then){
 			// Actions
-			When.onTheObjectPage.iPressTheBackButton();
- 
+			When.onTheObjectItemPage.iPressTheCancelButton();
+			//Assertations
+			Then.onTheObjectItemPage.iShouldSeeTheForm(false)
+				.and.iShouldSeeTheActionButtonLength(1)
+				.and.iShouldSeeTheActionButton("editNotificationItemButton");
+		});
+		
+		opaTest("Should go back to the NotificationPage", function (Given, When, Then) {
+			// Actions
+			When.onTheObjectItemPage.iPressTheBackButton();
 			// Assertions
-			Then.onTheWorklistPage.iShouldSeeTheTable();
+			Then.onTheObjectPage.iShouldSeeTheForm(false);
 		});
  
-		opaTest("Should be on the post page again when browser forwards is pressed", function (Given, When, Then) {
+		opaTest("Should be on the notification item page again when browser forwards is pressed", function (Given, When, Then) {
 			// Actions
 			When.onTheBrowser.iPressOnTheForwardButton();
- 
 			// Assertions
-			Then.onTheObjectPage.theTitleShouldDisplayTheName("Notificationtext 1", "Maintenancenotification1").
+			Then.onTheObjectItemPage.theTitleShouldDisplayTheName("Abnormes Geräusch", "MaintenanceNotificationItem1").
 				and.iTeardownMyAppFrame();
 		});
 	}

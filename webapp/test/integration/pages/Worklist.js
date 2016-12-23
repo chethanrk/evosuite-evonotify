@@ -26,6 +26,14 @@ sap.ui.require([
 							actions: new Press(),
 							errorMessage: "No list item with the id " + sId + " was found."
 						});
+					},
+					iPressTheAddItemButton: function() {
+						return this.waitFor({
+							id: "addNotificationButton",
+							viewName: sViewName,
+							actions: new Press(),
+							errorMessage: "Did not find the add notification button on object page"
+						});
 					}
 				},
 				assertions: {
