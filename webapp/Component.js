@@ -192,7 +192,6 @@ sap.ui.define([
 
 		getTableRowObject: function(oParameters, sModelName) {
 			var oRow = sap.ui.getCore().byId(oParameters.id);
-			console.log(oRow.getBindingContext());
 			var sPath = oRow.getBindingContextPath();
 			var oObj = this.getModel().getProperty(sPath);
 

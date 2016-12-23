@@ -29,9 +29,6 @@ sap.ui.require(
 		});
 		
 		opaTest("Should go to ActivityPage when user clicks on an entry in items table and from ItemPage click on activities table entry", function(Given, When, Then){
-			//go to object page
-			When.onTheWorklistPage.iPressOnTheItemWithTheID("Maintenancenotification1");
-			
 			//go to item page
 			var oPathProperties = {
 				MaintenanceNotification: "Maintenancenotification1",

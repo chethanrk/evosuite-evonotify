@@ -11,7 +11,8 @@ sap.ui.require([
 	"com/evorait/evolite/evonotify/test/integration/pages/Worklist",
 	"com/evorait/evolite/evonotify/test/integration/pages/Object",
 	"com/evorait/evolite/evonotify/test/integration/pages/ObjectItem",
-	"com/evorait/evolite/evonotify/test/integration/pages/ObjectActivity"
+	"com/evorait/evolite/evonotify/test/integration/pages/ObjectActivity",
+	"com/evorait/evolite/evonotify/test/integration/pages/ObjectTask"
 ], function (Opa5, Common) {
 	"use strict";
 	Opa5.extendConfig({
@@ -23,7 +24,8 @@ sap.ui.require([
 		"com/evorait/evolite/evonotify/test/integration/WorklistJourney",
 		"com/evorait/evolite/evonotify/test/integration/ObjectJourney",
 		"com/evorait/evolite/evonotify/test/integration/ObjectItemJourney",
-		"com/evorait/evolite/evonotify/test/integration/ObjectActivityJourney"
+		"com/evorait/evolite/evonotify/test/integration/ObjectActivityJourney",
+		"com/evorait/evolite/evonotify/test/integration/ObjectTaskJourney"
 	], function () {
 		QUnit.start();
 	});
