@@ -42,7 +42,7 @@ sap.ui.define([
 				return this;
 			},
 			
-			iPressOnTheBlockTableWithTheID: function (sBlockNamespace, sBlockName, oPathProperties, sPath) {
+			iPressOnTheBlockTableWithTheID: function (sBlockNamespace, sBlockName, sPath, oPathProperties) {
 				var aIds = [];
 				for(var key in oPathProperties){
 					aIds.push(key+"='"+oPathProperties[key]+"'");
@@ -57,6 +57,19 @@ sap.ui.define([
 					}),
 					actions: new Press(),
 					errorMessage: "No list item with path "+sPath+" and ids "+sIds+" was found."
+				});
+			},
+			
+			iPressOnTheBlockTableWithTheTitle: function (sBlockNamespace, sBlockName, sTitle) {
+				return this.waitFor({
+					controlType: "sap.m.ObjectIdentifier",
+					viewName: sBlockName,
+					viewNamespace : "com.evorait.evolite.evonotify.block."+sBlockNamespace,
+					matchers: new Properties({
+						title: sTitle
+					}),
+					actions: new Press(),
+					errorMessage: "No list item with title "+sTitle+" was found."
 				});
 			},
 			

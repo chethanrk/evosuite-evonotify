@@ -14,7 +14,7 @@ sap.ui.require(
 				MaintenanceNotification: "Maintenancenotification1",
 				MaintenanceNotificationItem: "MaintenanceNotificationItem1"
 			};
-			When.onTheObjectPage.iPressOnTheBlockTableWithTheID("items.", "ItemsTableBlock", oPathProperties, "PMNotificationItems");
+			When.onTheObjectPage.iPressOnTheBlockTableWithTheID("items.", "ItemsTableBlock", "PMNotificationItems", oPathProperties);
  
 			// Assertions
 			Then.onTheObjectItemPage.theTitleShouldDisplayTheName("Abnormes Geräusch", "MaintenanceNotificationItem1")
