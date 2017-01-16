@@ -88,7 +88,7 @@ sap.ui.define([
 			 */
 			onNavBack : function() {
 				if(this.oForm){
-					this.getOwnerComponent().cancelFormHandling(this);
+					this.cancelFormHandling(this.oForm);
 				}
 				if(!this.getModel("objectView").getProperty("/isNew")){
 					this.navBack();
@@ -118,13 +118,13 @@ sap.ui.define([
 			
 			onPressSave : function(){
 				if(this.oForm){
-					this.getOwnerComponent().saveSubmitHandling(this);
+					this.saveSubmitHandling(this.oForm);
 				}
 			},
 			
 			onPressCancel : function(){
 				if(this.oForm){
-					this.getOwnerComponent().cancelFormHandling(this);
+					this.cancelFormHandling(this.oForm);
 				}
 			},
 			
@@ -133,7 +133,7 @@ sap.ui.define([
 			 * navigate to notification task
 			 */
 			onPressCause : function(oEvent) {
-				var obj = this.getOwnerComponent().getTableRowObject(oEvent.getParameters());
+				var obj = this.getTableRowObject(oEvent.getParameters());
 				
 				this.onPressCancel();
 				this.getRouter().navTo("cause", {
@@ -148,7 +148,7 @@ sap.ui.define([
 			 * navigate to notification task
 			 */
 			onPressTask : function(oEvent) {
-				var obj = this.getOwnerComponent().getTableRowObject(oEvent.getParameters(), "Tasks");
+				var obj = this.getTableRowObject(oEvent.getParameters(), "Tasks");
 				
 				this.onPressCancel();
 				this.getRouter().navTo("task", {
@@ -163,7 +163,7 @@ sap.ui.define([
 			 * navigate to notification task
 			 */
 			onPressActivity : function(oEvent) {
-				var obj = this.getOwnerComponent().getTableRowObject(oEvent.getParameters(), "Activities");
+				var obj = this.getTableRowObject(oEvent.getParameters(), "Activities");
 				
 				this.onPressCancel();
 				this.getRouter().navTo("activity", {
@@ -208,7 +208,7 @@ sap.ui.define([
 					oViewModel.setProperty("/isNew", isNew);
 					oViewModel.setProperty("/isEdit", !isNew);
 					this._setEditMode(isNew);
-					this.getOwnerComponent().showAllSmartFields(this.oForm);
+					this.showAllSmartFields(this.oForm);
 					
 					if(isNew){
 						var oContext = oDataModel.createEntry("/PMNotificationItems");
@@ -276,10 +276,10 @@ sap.ui.define([
 					sObjectName = oObject.NotificationText;
 					
 				//to_PMNotificationItemTask
-				this.getOwnerComponent().generateHelperJsonModel(oContext, "to_PMNotificationItemTask", "Tasks");
+				this.generateHelperJsonModel(oContext, "to_PMNotificationItemTask", "Tasks");
 				
 				//to_PMNotificationItemActivity
-				this.getOwnerComponent().generateHelperJsonModel(oContext, "to_PMNotificationItemActivity", "Activities");
+				this.generateHelperJsonModel(oContext, "to_PMNotificationItemActivity", "Activities");
 					
 				// Everything went fine.
 				this._setNewHeaderTitle();

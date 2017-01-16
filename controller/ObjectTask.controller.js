@@ -62,7 +62,7 @@ sap.ui.define([
 			 */
 			onNavBack : function() {
 				if(this.oForm){
-					this.getOwnerComponent().cancelFormHandling(this);
+					this.cancelFormHandling(this.oForm);
 				}
 				if(!this.getModel("objectView").getProperty("/isNew")){
 					this.navBack();
@@ -99,13 +99,13 @@ sap.ui.define([
 			
 			onPressSave : function(){
 				if(this.oForm){
-					this.getOwnerComponent().saveSubmitHandling(this);
+					this.saveSubmitHandling(this.oForm);
 				}
 			},
 			
 			onPressCancel : function(){
 				if(this.oForm){
-					this.getOwnerComponent().cancelFormHandling(this);
+					this.cancelFormHandling(this.oForm);
 				}
 			},
 			
@@ -146,7 +146,7 @@ sap.ui.define([
 					oViewModel.setProperty("/isNew", isNew);
 					oViewModel.setProperty("/isEdit", !isNew);
 					//this._setEditMode(isNew);
-					this.getOwnerComponent().showAllSmartFields(this.oForm);
+					this.showAllSmartFields(this.oForm);
 					
 					if(isNew){
 						var oContext = oDataModel.createEntry("/PMNotificationTasks");
