@@ -1,5 +1,6 @@
 sap.ui.define([
-	] , function () {
+		"sap/ui/core/format/DateFormat"
+	] , function (DateFormat) {
 		"use strict";
 
 		return {
@@ -22,7 +23,7 @@ sap.ui.define([
 					return "";
 				}
 				var TZOffsetMs = new Date(0).getTimezoneOffset()*60*1000;
-				var oDateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({pattern: "yyyy-MM-dd"}); 
+				var oDateFormat = DateFormat.getDateTimeInstance({pattern: "yyyy-MM-dd"});
                 return oDateFormat.format(new Date(sValue.getTime() + TZOffsetMs));
 			},
 			
@@ -31,7 +32,7 @@ sap.ui.define([
 					return "";
 				}
 				var TZOffsetMs = new Date(0).getTimezoneOffset()*60*1000;
-				var oDateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({pattern: "kk:mm"}); 
+				var oDateFormat = DateFormat.getDateTimeInstance({pattern: "kk:mm"}); 
                 return oDateFormat.format(new Date(sValue.ms + TZOffsetMs));
 			},
 			
