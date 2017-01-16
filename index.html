@@ -70,9 +70,8 @@
 		}
 			
 		window.onload = function() {
+			jQuery.sap.require("com.evorait.evolite.evonotify.dev.devapp");
 			if (window.cordova || getUrlParameterName("companionbuster")) {
-				jQuery.sap.require("com.evorait.evolite.evonotify.dev.devapp");
-				
 				var page = window.location.pathname.split("/").pop();
                 if(page === "preview_hidden.html") {
                     window.sap_webide_FacadePreview = true;
