@@ -8,11 +8,11 @@
 	xmlns:uxap="sap.uxap"
 	xmlns:tasks="com.evorait.evolite.evonotify.block.tasks">
 
-	<Page title="{i18n>taskViewTitle}" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack">
+	<Page id="objectTaskPage" title="{i18n>taskViewTitle}" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack">
 		
-		<uxap:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" >
+		<uxap:ObjectPageLayout id="objectTaskPageLayout" enableLazyLoading="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" >
 			<uxap:headerTitle>
-				<uxap:ObjectPageHeader objectTitle="{objectView>/Title}" objectSubtitle="{MaintenanceNotificationTask}">
+				<uxap:ObjectPageHeader id="objectTaskPageHeader" objectTitle="{objectView>/Title}" objectSubtitle="{MaintenanceNotificationTask}">
 					<uxap:actions>
 						<uxap:ObjectPageHeaderActionButton icon="sap-icon://edit" press="onPressEdit" type="Emphasized" visible="{objectView>/showMode}"/>
 						<uxap:ObjectPageHeaderActionButton icon="sap-icon://cancel" press="onPressCancel" visible="{objectView>/editMode}"/>
@@ -28,7 +28,7 @@
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
-								<tasks:TasksFormBlock id="tasksForm" editPress="onFiredEditMode"/>
+								<tasks:TasksFormBlock id="tasksFormBlock" editPress="onFiredEditMode"/>
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>

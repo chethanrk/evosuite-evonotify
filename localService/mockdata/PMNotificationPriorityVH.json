@@ -1,343 +1,41 @@
 [{
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='CM',MaintPriority='1')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='CM',MaintPriority='1')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "CM",
-	"MaintPriority": "1",
-	"MaintPriorityText": "Very low"
+	"MaintPriorityType": "Maintprioritytype 1",
+	"MaintPriority": "Maintpriority 1",
+	"MaintPriorityText": "Maintprioritytext 1"
 }, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='CM',MaintPriority='2')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='CM',MaintPriority='2')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "CM",
-	"MaintPriority": "2",
-	"MaintPriorityText": "Low"
+	"MaintPriorityType": "Maintprioritytype 2",
+	"MaintPriority": "Maintpriority 2",
+	"MaintPriorityText": "Maintprioritytext 2"
 }, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='CM',MaintPriority='3')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='CM',MaintPriority='3')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "CM",
-	"MaintPriority": "3",
-	"MaintPriorityText": "Medium"
+	"MaintPriorityType": "Maintprioritytype 3",
+	"MaintPriority": "Maintpriority 3",
+	"MaintPriorityText": "Maintprioritytext 3"
 }, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='CM',MaintPriority='4')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='CM',MaintPriority='4')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "CM",
-	"MaintPriority": "4",
-	"MaintPriorityText": "High"
+	"MaintPriorityType": "Maintprioritytype 4",
+	"MaintPriority": "Maintpriority 4",
+	"MaintPriorityText": "Maintprioritytext 4"
 }, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='CM',MaintPriority='5')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='CM',MaintPriority='5')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "CM",
-	"MaintPriority": "5",
-	"MaintPriorityText": "Very high"
+	"MaintPriorityType": "Maintprioritytype 5",
+	"MaintPriority": "Maintpriority 5",
+	"MaintPriorityText": "Maintprioritytext 5"
 }, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='G0',MaintPriority='A')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='G0',MaintPriority='A')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "G0",
-	"MaintPriority": "A",
-	"MaintPriorityText": "High"
+	"MaintPriorityType": "Maintprioritytype 6",
+	"MaintPriority": "Maintpriority 6",
+	"MaintPriorityText": "Maintprioritytext 6"
 }, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='G0',MaintPriority='B')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='G0',MaintPriority='B')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "G0",
-	"MaintPriority": "B",
-	"MaintPriorityText": "Medium"
+	"MaintPriorityType": "Maintprioritytype 7",
+	"MaintPriority": "Maintpriority 7",
+	"MaintPriorityText": "Maintprioritytext 7"
 }, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='G0',MaintPriority='C')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='G0',MaintPriority='C')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "G0",
-	"MaintPriority": "C",
-	"MaintPriorityText": "Low"
+	"MaintPriorityType": "Maintprioritytype 8",
+	"MaintPriority": "Maintpriority 8",
+	"MaintPriorityText": "Maintprioritytext 8"
 }, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='HZ',MaintPriority='1')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='HZ',MaintPriority='1')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "HZ",
-	"MaintPriority": "1",
-	"MaintPriorityText": "5 SWO"
+	"MaintPriorityType": "Maintprioritytype 9",
+	"MaintPriority": "Maintpriority 9",
+	"MaintPriorityText": "Maintprioritytext 9"
 }, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='HZ',MaintPriority='2')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='HZ',MaintPriority='2')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "HZ",
-	"MaintPriority": "2",
-	"MaintPriorityText": "4 Low"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='HZ',MaintPriority='3')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='HZ',MaintPriority='3')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "HZ",
-	"MaintPriority": "3",
-	"MaintPriorityText": "3 Med"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='HZ',MaintPriority='4')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='HZ',MaintPriority='4')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "HZ",
-	"MaintPriority": "4",
-	"MaintPriorityText": "2 High"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='HZ',MaintPriority='5')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='HZ',MaintPriority='5')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "HZ",
-	"MaintPriority": "5",
-	"MaintPriorityText": "1 Critical"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='PM',MaintPriority='1')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='PM',MaintPriority='1')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "PM",
-	"MaintPriority": "1",
-	"MaintPriorityText": "Very high"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='PM',MaintPriority='2')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='PM',MaintPriority='2')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "PM",
-	"MaintPriority": "2",
-	"MaintPriorityText": "High"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='PM',MaintPriority='3')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='PM',MaintPriority='3')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "PM",
-	"MaintPriority": "3",
-	"MaintPriorityText": "Medium"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='PM',MaintPriority='4')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='PM',MaintPriority='4')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "PM",
-	"MaintPriority": "4",
-	"MaintPriorityText": "Low"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='QM',MaintPriority='1')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='QM',MaintPriority='1')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "QM",
-	"MaintPriority": "1",
-	"MaintPriorityText": "Very high"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='QM',MaintPriority='2')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='QM',MaintPriority='2')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "QM",
-	"MaintPriority": "2",
-	"MaintPriorityText": "High"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='QM',MaintPriority='3')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='QM',MaintPriority='3')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "QM",
-	"MaintPriority": "3",
-	"MaintPriorityText": "Medium"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='QM',MaintPriority='4')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='QM',MaintPriority='4')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "QM",
-	"MaintPriority": "4",
-	"MaintPriorityText": "Low"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='RF',MaintPriority='1')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='RF',MaintPriority='1')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "RF",
-	"MaintPriority": "1",
-	"MaintPriorityText": "Very high"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='RF',MaintPriority='2')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='RF',MaintPriority='2')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "RF",
-	"MaintPriority": "2",
-	"MaintPriorityText": "High"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='RF',MaintPriority='3')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='RF',MaintPriority='3')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "RF",
-	"MaintPriority": "3",
-	"MaintPriorityText": "Medium"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='RF',MaintPriority='4')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='RF',MaintPriority='4')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "RF",
-	"MaintPriority": "4",
-	"MaintPriorityText": "Low"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='RJ',MaintPriority='1')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='RJ',MaintPriority='1')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "RJ",
-	"MaintPriority": "1",
-	"MaintPriorityText": "Emergency"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='RJ',MaintPriority='2')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='RJ',MaintPriority='2')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "RJ",
-	"MaintPriority": "2",
-	"MaintPriorityText": "High Priority"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='RJ',MaintPriority='3')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='RJ',MaintPriority='3')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "RJ",
-	"MaintPriority": "3",
-	"MaintPriorityText": "Normal Process"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='RJ',MaintPriority='4')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='RJ',MaintPriority='4')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "RJ",
-	"MaintPriority": "4",
-	"MaintPriorityText": "Memorandum"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='SM',MaintPriority='1')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='SM',MaintPriority='1')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "SM",
-	"MaintPriority": "1",
-	"MaintPriorityText": "Very high"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='SM',MaintPriority='2')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='SM',MaintPriority='2')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "SM",
-	"MaintPriority": "2",
-	"MaintPriorityText": "High"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='SM',MaintPriority='3')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='SM',MaintPriority='3')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "SM",
-	"MaintPriority": "3",
-	"MaintPriorityText": "Medium"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='SM',MaintPriority='4')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='SM',MaintPriority='4')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "SM",
-	"MaintPriority": "4",
-	"MaintPriorityText": "Low"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='SM',MaintPriority='5')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='SM',MaintPriority='5')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "SM",
-	"MaintPriority": "5",
-	"MaintPriorityText": "very low"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='SR',MaintPriority='1')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='SR',MaintPriority='1')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "SR",
-	"MaintPriority": "1",
-	"MaintPriorityText": "Low"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='SR',MaintPriority='2')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='SR',MaintPriority='2')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "SR",
-	"MaintPriority": "2",
-	"MaintPriorityText": "Medium"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='SR',MaintPriority='3')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='SR',MaintPriority='3')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "SR",
-	"MaintPriority": "3",
-	"MaintPriorityText": "High"
-}, {
-	"__metadata": {
-		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='SR',MaintPriority='4')",
-		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EL_NOTIFICATION_SRV/PMNotificationPriorityVH(MaintPriorityType='SR',MaintPriority='4')",
-		"type": "com.evorait.evolite.evonotify.PMNotificationPriorityVH"
-	},
-	"MaintPriorityType": "SR",
-	"MaintPriority": "4",
-	"MaintPriorityText": "Very high"
+	"MaintPriorityType": "Maintprioritytype 10",
+	"MaintPriority": "Maintpriority 10",
+	"MaintPriorityText": "Maintprioritytext 10"
 }]

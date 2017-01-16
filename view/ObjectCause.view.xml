@@ -8,11 +8,11 @@
 	xmlns:uxap="sap.uxap"
 	xmlns:causes="com.evorait.evolite.evonotify.block.causes">
 
-	<Page title="{i18n>causeItemViewTitle}" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack">
+	<Page id="objectCausePage" title="{i18n>causeItemViewTitle}" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack">
 		
-		<uxap:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" >
+		<uxap:ObjectPageLayout id="objectCausePageLayout" enableLazyLoading="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" >
 			<uxap:headerTitle>
-				<uxap:ObjectPageHeader objectTitle="{objectView>/Title}" objectSubtitle="{MaintenanceNotificationCause}">
+				<uxap:ObjectPageHeader id="objectCausePageHeader" objectTitle="{objectView>/Title}" objectSubtitle="{MaintenanceNotificationCause}">
 					<uxap:actions>
 						<uxap:ObjectPageHeaderActionButton icon="sap-icon://edit" press="onPressEdit" type="Emphasized" visible="{objectView>/showMode}"/>
 						<uxap:ObjectPageHeaderActionButton icon="sap-icon://cancel" press="onPressCancel" visible="{objectView>/editMode}"/>
@@ -28,7 +28,7 @@
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
-								<causes:CausesFormBlock editPress="onFiredEditMode"/>
+								<causes:CausesFormBlock id="causesFormBlock" editPress="onFiredEditMode"/>
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>

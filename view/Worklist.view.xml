@@ -8,7 +8,7 @@
 	controllerName="com.evorait.evolite.evonotify.controller.Worklist">
 	<semantic:FullscreenPage id="page" navButtonPress="onNavBack" title="{i18n>worklistViewTitle}" floatingFooter="false">
 		<semantic:addAction>
-			<semantic:AddAction press="onAddPress"/>
+			<semantic:AddAction id="addNotificationButton" press="onAddPress"/>
 		</semantic:addAction>
 		<semantic:content>
 	    	<smartFilterBar:SmartFilterBar 
@@ -33,7 +33,7 @@
 	    		showRowCount="true"
 	    		header="{i18n>worklistTableTitle}"
 	    		demandPopin="true">
-	    		<Table growing="true">
+	    		<Table id="responsiveNotificationTable" growing="true">
 	    			<ColumnListItem type="Navigation" press="onPress">
 	    			</ColumnListItem>
 	    		</Table>

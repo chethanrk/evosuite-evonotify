@@ -84,7 +84,9 @@ sap.ui.define([
 				if(this.oForm){
 					this.getOwnerComponent().cancelFormHandling(this);
 				}
-				this.navBack();
+				if(!this.getModel("objectView").getProperty("/isNew")){
+					this.navBack();
+				}
 			},
 			
 			navBack : function(){

@@ -10,15 +10,15 @@
 	xmlns:activities="com.evorait.evolite.evonotify.block.activities"
 	xmlns:layout="sap.ui.layout">
 	
-	<Page title="{i18n>objectViewTitle}" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack" floatingFooter="false">
+	<Page id="objectPage" title="{i18n>objectViewTitle}" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack" floatingFooter="false">
 		
-		<uxap:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" >
+		<uxap:ObjectPageLayout id="objectPageLayout" enableLazyLoading="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" >
 			<uxap:headerTitle>
 				<uxap:ObjectPageHeader id="objectPageHeader" objectTitle="{objectView>/Title}" objectSubtitle="{MaintenanceNotification}">
 					<uxap:actions>
-						<uxap:ObjectPageHeaderActionButton icon="sap-icon://edit" press="onPressEdit" type="Emphasized" visible="{objectView>/editable}"/>
-						<uxap:ObjectPageHeaderActionButton icon="sap-icon://cancel" press="onPressCancel" visible="{objectView>/editMode}"/>
-						<uxap:ObjectPageHeaderActionButton icon="sap-icon://save" press="onPressSave" type="Emphasized" visible="{objectView>/editMode}"/>
+						<uxap:ObjectPageHeaderActionButton id="editNotificationButton" icon="sap-icon://edit" press="onPressEdit" type="Emphasized" visible="{objectView>/editable}"/>
+						<uxap:ObjectPageHeaderActionButton id="cancelNotificationButton" icon="sap-icon://cancel" press="onPressCancel" visible="{objectView>/editMode}"/>
+						<uxap:ObjectPageHeaderActionButton id="saveNotificationButton" icon="sap-icon://save" press="onPressSave" type="Emphasized" visible="{objectView>/editMode}"/>
 					</uxap:actions>
 				</uxap:ObjectPageHeader>
 			</uxap:headerTitle>
@@ -58,7 +58,7 @@
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
-								<details:DetailsFormBlock id="detailsForm" editPress="onFiredEditMode"/>
+								<details:DetailsFormBlock id="detailsFormBlock" editPress="onFiredEditMode"/>
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>
@@ -68,7 +68,7 @@
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
-								<items:ItemsTableBlock id="itemsTable" itemPress="onPressItem"/>
+								<items:ItemsTableBlock id="itemsTableBlock" itemPress="onPressItem"/>
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>
@@ -78,7 +78,7 @@
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
-								<tasks:TasksTableBlock id="taskTable" itemPress="onPressTask"/>
+								<tasks:TasksTableBlock id="taskTableBlock" itemPress="onPressTask"/>
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>
@@ -88,7 +88,7 @@
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
-								<activities:ActivitiesTableBlock itemPress="onPressActivity"/>
+								<activities:ActivitiesTableBlock id="activityTableBlock" itemPress="onPressActivity"/>
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>
@@ -100,7 +100,7 @@
 			<Toolbar>
 				<content>
 					<ToolbarSpacer />
-					<Button icon="sap-icon://add" text="{i18n>newNotificationItemTitle}" press="onAddItemPress" visible="{objectView>/showAdd}" />
+					<Button id="addNotificationItemButton" icon="sap-icon://add" text="{i18n>newNotificationItemTitle}" press="onAddItemPress" visible="{objectView>/showAdd}" />
 				</content>
 			</Toolbar>
 		</footer>
