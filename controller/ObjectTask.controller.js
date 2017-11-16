@@ -68,7 +68,6 @@ sap.ui.define([
 					this.navBack();
 				}
 			},
-			
 			navBack : function(){
 				var sPreviousHash = History.getInstance().getPreviousHash();
 				var oContext = this.getView().getBindingContext();
