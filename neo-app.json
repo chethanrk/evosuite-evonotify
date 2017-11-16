@@ -23,7 +23,7 @@
       "path": "/sap/opu/odata",
       "target": {
         "type": "destination",
-        "name": "ED1",
+        "name": "ED1CloudConnector",
         "entryPath": "/sap/opu/odata"
       },
       "description": "ED1 - Main ERP backend system"

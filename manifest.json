@@ -112,7 +112,15 @@
 				"pattern": "PMNotifications/PMNotificationItems/{objectId}/{itemId}",
 				"name": "item",
 				"target": ["item"]
-			}, {
+			},{
+					"pattern": "PMNotifications/PMNotificationTasks/{objectId}/{taskId}",
+					"name": "objtask",
+					"target": ["task"]
+				},{
+					"pattern": "PMNotifications/PMNotificationActivities/{objectId}/{activityId}",
+					"name": "objactivity",
+					"target": ["activity"]
+				},{
 				"pattern": "PMNotifications/PMNotificationTasks/{objectId}/{itemId}/{taskId}",
 				"name": "task",
 				"target": ["task"]

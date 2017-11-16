@@ -41,6 +41,9 @@ sap.ui.define([
 						editable: false,
 						editMode : false,
 						showAdd : false,
+						inpro : false,
+						postp : false,
+						compl : false,
 						saveAsTileTitle: this.getResourceBundle().getText("itemsViewTitle"),
 						shareOnJamTitle: this.getResourceBundle().getText("itemsViewTitle"),
 						itemsTableTitle : tableNoDataTextItems,
@@ -141,14 +144,38 @@ sap.ui.define([
 					activityId: obj.MaintNotificationActivity
 				});
 			},
+			/** 
+			 * changing the status to Put in Process
+			 */
+			onPressInpro : function(){
+				if(this.oForm){
+					this.statusInproHandling(this.oForm);
+				}
+			}, 
 			
+			/** 
+			 * changing the status to Put in Process
+			 */
+			onPressPostpone : function(){
+				if(this.oForm){
+					this.statusPostponeHandling(this.oForm);
+				}
+			}, 
+			
+			/** 
+			 * changing the status to Put in Process
+			 */
+			onPressComplete : function(){
+				if(this.oForm){
+					this.statusCompleteHandling(this.oForm);
+				}
+			}, 
 			/**
 			 * show edit forms
 			 */
 			onPressEdit : function() {
 				this._setEditMode(true);
 			},
-			
 			/**
 			 * reset changed data
 			 * when create notification remove all values
@@ -178,14 +205,34 @@ sap.ui.define([
 					itemId: "new"
 				});
 			},
-			
+			/**
+			 * navigate to new notification item
+			 */
+			onAddTaskPress : function(){
+				this.onPressCancel();
+				this.getRouter().navTo("objtask", {
+					objectId: this.getView().getBindingContext().getProperty("MaintenanceNotification"),
+					taskId: "new"
+				});
+			},
+			/**
+			 * navigate to new notification item
+			 */
+			onAddActivityPress : function(){
+				this.onPressCancel();
+				this.getRouter().navTo("objactivity", {
+					objectId: this.getView().getBindingContext().getProperty("MaintenanceNotification"),
+					activityId: "new"
+				});
+			},
 			/**
 			 * fired edit toggle event from subsection block DetailsFormBlock
 			 */
 			onFiredEditMode : function(oEvent) {
 				var oParameters = oEvent.getParameters();
 				this._setEditMode(oParameters.editable);
-				
+				var isEdit = this.getModel("objectView").getProperty("/editMode");
+				this._setStatusVisible(isEdit);
 				if(!this.oForm){
 					this.oForm = sap.ui.getCore().byId(oParameters.id);
 				}
@@ -298,7 +345,27 @@ sap.ui.define([
 				this.getModel("objectView").setProperty("/editable", !isEdit);
 				this.getModel("objectView").setProperty("/editMode", isEdit);
 			},
-			
+			/** Set the statuses 
+			 * based on the phase value 
+			 */ 
+			_setStatusVisible : function(isEdit){
+					var phaseVal = this.getView().getBindingContext().getProperty("NotifProcessingPhase");
+				    if(phaseVal < "2" || !isEdit){
+						this.getModel("objectView").setProperty("/inpro", isEdit);
+						this.getModel("objectView").setProperty("/compl", isEdit);
+						this.getModel("objectView").setProperty("/postp", isEdit);
+				    }
+				    else if(phaseVal === "2"){
+					    this.getModel("objectView").setProperty("/inpro", isEdit);
+						this.getModel("objectView").setProperty("/compl", isEdit);
+						this.getModel("objectView").setProperty("/postp", !isEdit);
+				    }
+				    else if(phaseVal === "3"){
+					    this.getModel("objectView").setProperty("/inpro", !isEdit);
+						this.getModel("objectView").setProperty("/compl", isEdit);
+						this.getModel("objectView").setProperty("/postp", !isEdit);	
+				    }	
+			},
 			_isEditable : function(oContext){
 				var data = this.getModel().getProperty(oContext.sPath);
 				if(data && (data.IsCompleted || data.IsDeleted) || this.getModel("objectView").getProperty("/editMode")){

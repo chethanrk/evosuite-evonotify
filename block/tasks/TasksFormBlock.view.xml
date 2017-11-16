@@ -38,7 +38,7 @@
 				</smartField:SmartField>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintNotiTtaskCodeGroupName}" editableChanged="onEditChanged">
+				<smartField:SmartField value="{MaintNotifTaskCode}" editableChanged="onEditChanged">
 					<smartField:configuration>
 						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
 					</smartField:configuration>

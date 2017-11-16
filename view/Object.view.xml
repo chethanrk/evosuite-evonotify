@@ -17,6 +17,9 @@
 				<uxap:ObjectPageHeader id="objectPageHeader" objectTitle="{objectView>/Title}" objectSubtitle="{MaintenanceNotification}">
 					<uxap:actions>
 						<uxap:ObjectPageHeaderActionButton id="editNotificationButton" icon="sap-icon://edit" press="onPressEdit" type="Emphasized" visible="{objectView>/editable}"/>
+						<uxap:ObjectPageHeaderActionButton id="putInProcessStatusButton" icon="sap-icon://begin" tooltip ="Put in Process" press="onPressInpro" visible="{objectView>/inpro}"/>
+						<uxap:ObjectPageHeaderActionButton id="postponesStatusButton" icon="sap-icon://pause" tooltip ="Postpone" press="onPressPostpone" visible="{objectView>/postp}"/>
+						<uxap:ObjectPageHeaderActionButton id="completeStatusButton" icon="sap-icon://flag" tooltip ="Complete" press="onPressComplete" visible="{objectView>/compl}"/>
 						<uxap:ObjectPageHeaderActionButton id="cancelNotificationButton" icon="sap-icon://cancel" press="onPressCancel" visible="{objectView>/editMode}"/>
 						<uxap:ObjectPageHeaderActionButton id="saveNotificationButton" icon="sap-icon://save" press="onPressSave" type="Emphasized" visible="{objectView>/editMode}"/>
 					</uxap:actions>
@@ -100,7 +103,9 @@
 			<Toolbar>
 				<content>
 					<ToolbarSpacer />
-					<Button id="addNotificationItemButton" icon="sap-icon://add" text="{i18n>newNotificationItemTitle}" press="onAddItemPress" visible="{objectView>/showAdd}" />
+					<Button id="addNewNotificationItem" icon="sap-icon://add" text="{i18n>newNotificationItemTitle}" press="onAddItemPress" visible="{objectView>/showAdd}" />
+					<Button id="addNewTask" icon="sap-icon://add" text="{i18n>newNotificationTaskTitle}" press="onAddTaskPress" visible="{objectView>/showAdd}" />
+					<Button id="addNewActivity" icon="sap-icon://add" text="{i18n>newNotificationActivityTitle}" press="onAddActivityPress" visible="{objectView>/showAdd}" />
 				</content>
 			</Toolbar>
 		</footer>

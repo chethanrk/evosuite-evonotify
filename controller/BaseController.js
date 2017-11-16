@@ -60,7 +60,120 @@ sap.ui.define([
 					oViewModel.getProperty("/shareSendEmailMessage")
 				);
 			},
+			/*
+		 * change the header status to In Process 
+		*/
+		
+		statusInproHandling: function(oForm) {
+			var MaintNotification = this.getView().getBindingContext().getProperty("MaintenanceNotification"),
+		    oViewModel = this.getModel("objectView"),
+			isEditable = oForm.getEditable();
+			// validation ok when form editable triggered to false
+			if (oForm.check().length === 0) {
+		    	oViewModel.setProperty("/busy", true);
+		    	
+		    	//call the function import to update the header status to In-process 
+				return this.getView().getModel().callFunction("/UpdateHeaderStatus", {
+															method: "POST",
+															 urlParameters: { "MaintNotification" : MaintNotification ,
+																			  "MaintHeaderStatus"   : "INPRO"
+															 },
+															 success: function(oData, response) {
+															 		this.getView().getModel().refresh(true);
+															 		oViewModel.setProperty("/busy", false);
+															 		oViewModel.setProperty("/inpro", false);
+															 		
+															 		var sMsg = this.getModel("i18n").getResourceBundle().getText("NotifStatusInpro");
+																	MessageToast.show(sMsg, {
+																	duration: 5000
+																	});
+															 }.bind(this), // callback function for success
+                                        					 error: function(oError){
+                                        					 	oViewModel.setProperty("/busy", false);
+                                        						this.showSaveErrorPrompt(oError);
+                                        					 }.bind(this)
+			});
+			} else {
+					oForm.setEditable(!isEditable);
+				}			
 			
+		},   
+			/*
+		 * change the header status to Postpone 
+		*/
+		
+		statusPostponeHandling: function(oForm) {
+			var MaintNotification = this.getView().getBindingContext().getProperty("MaintenanceNotification"),
+			isEditable = oForm.getEditable(),
+		    oViewModel = this.getModel("objectView");
+			// validation ok when form editable triggered to false
+			if (oForm.check().length === 0) {
+		    	oViewModel.setProperty("/busy", true);
+		    	
+		    	//call the function import to update the header status to In-process
+			    return this.getView().getModel().callFunction("/UpdateHeaderStatus", {
+															method: "POST",
+															 urlParameters: { "MaintNotification" : MaintNotification ,
+																			  "MaintHeaderStatus"   : "POSTP"
+															 },
+															 success: function(oData, response) {
+															 	    this.getView().getModel().refresh(true);
+															 		oViewModel.setProperty("/busy", false);
+															 		oViewModel.setProperty("/inpro", false);
+															 		
+															 		var sMsg = this.getModel("i18n").getResourceBundle().getText("NotifStatusPostp");
+																	MessageToast.show(sMsg, {
+																	duration: 5000
+																	});
+															 }.bind(this), // callback function for success
+                                        					 error: function(oError){
+                                        					 	oViewModel.setProperty("/busy", false);
+                                        						this.showSaveErrorPrompt(oError);
+                                        					 }.bind(this)
+			});
+			} else {
+					oForm.setEditable(!isEditable);
+				}		
+			},             
+		
+		/*
+		 * change the header status to Complete
+		*/
+		
+		statusCompleteHandling: function(oForm) {
+			var MaintNotification = this.getView().getBindingContext().getProperty("MaintenanceNotification"),
+			isEditable = oForm.getEditable(),
+		    oViewModel = this.getModel("objectView");
+			// validation ok when form editable triggered to false
+				if (oForm.check().length === 0) {
+		    	oViewModel.setProperty("/busy", true);
+		    	
+		    	//call the function import to update the header status to In-process
+			return this.getView().getModel().callFunction("/UpdateHeaderStatus", {
+															method: "POST",
+															 urlParameters: { "MaintNotification" : MaintNotification ,
+																			  "MaintHeaderStatus"   : "COMPL"
+															 },
+															 success: function(oData, response) {
+															 	    this.getView().getModel().refresh(true);
+															 		oViewModel.setProperty("/busy", false);
+															 		oViewModel.setProperty("/inpro", false);
+															 		
+															 		var sMsg = this.getModel("i18n").getResourceBundle().getText("NotifStatusCompl");
+																	MessageToast.show(sMsg, {
+																	duration: 5000
+																	});
+															 }.bind(this), // callback function for success
+                                        					 error: function(oError){
+                                        					 	oViewModel.setProperty("/busy", false);
+                                        						this.showSaveErrorPrompt(oError);
+                                        					 }.bind(this)
+			});
+		} 
+		else {
+			oForm.setEditable(!isEditable);
+			}		
+		},
 			/**
 			 * save view form
 			 * if its a new entry set new header title on success

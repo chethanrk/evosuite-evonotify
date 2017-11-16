@@ -38,7 +38,7 @@ sap.ui.define([
 						editMode : false
 					});
 
-				this.getRouter().getRoute("activity").attachPatternMatched(this._onObjectMatched, this);
+				this.getRouter().getRoute("objactivity").attachPatternMatched(this._onObjectMatched, this);
 
 				// Store original busy indicator delay, so it can be restored later on
 				iOriginalBusyDelay = this.getView().getBusyIndicatorDelay();
@@ -77,12 +77,12 @@ sap.ui.define([
 					history.go(-1);
 				} else if(oContext) {
 					var obj = oContext.getObject();
-					if(parseInt(obj.MaintenancenNotificationItem) === 0){
+					if(parseInt(obj.MaintenanceNotificationItem) === 0){
 						this.getRouter().navTo("object", {objectId: obj.MaintenanceNotification}, true);
 					}else{
 						this.getRouter().navTo("item", {
 							objectId: obj.MaintenanceNotification,
-							itemId: obj.MaintenancenNotificationItem
+							itemId: obj.MaintenanceNotificationItem
 						}, true);
 					}
 				}else{
@@ -145,7 +145,7 @@ sap.ui.define([
 				oDataModel.metadataLoaded().then( function() {
 					oViewModel.setProperty("/isNew", isNew);
 					oViewModel.setProperty("/isEdit", !isNew);
-					//this._setEditMode(isNew);
+					this._setEditMode(isNew);
 					this.showAllSmartFields(this.oForm);
 					
 					if(isNew){
@@ -155,13 +155,13 @@ sap.ui.define([
 						this.getView().setBindingContext(oContext);
 						
 						var oBundle = this.getModel("i18n").getResourceBundle();
-						oViewModel.setProperty("/Title", oBundle.getText("newNotificationItemTitle"));
+						oViewModel.setProperty("/Title", oBundle.getText("newNotificationActivityTitle"));
 						oViewModel.setProperty("/busy", false);
 						
 					}else{
 						var sObjectPath = this.getModel().createKey("PMNotificationActivities", {
 							MaintenanceNotification :  sObjectId,
-							MaintenancenNotificationItem : sItemId,
+							MaintenanceNotificationItem : sItemId,
 							MaintNotificationActivity : sActivityId
 						});
 						this._bindView("/" + sObjectPath);
