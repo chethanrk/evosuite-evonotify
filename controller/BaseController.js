@@ -64,7 +64,7 @@ sap.ui.define([
 		 * change the header status to In Process 
 		*/
 		
-		statusInproHandling: function(oForm) {
+		statusInproHandling: function(oForm, statusCode) {
 			var MaintNotification = this.getView().getBindingContext().getProperty("MaintenanceNotification"),
 		    oViewModel = this.getModel("objectView"),
 			isEditable = oForm.getEditable();
@@ -76,14 +76,14 @@ sap.ui.define([
 				return this.getView().getModel().callFunction("/UpdateHeaderStatus", {
 															method: "POST",
 															 urlParameters: { "MaintNotification" : MaintNotification ,
-																			  "MaintHeaderStatus"   : "INPRO"
+																			  "MaintHeaderStatus" : statusCode
 															 },
 															 success: function(oData, response) {
 															 		this.getView().getModel().refresh(true);
 															 		oViewModel.setProperty("/busy", false);
 															 		oViewModel.setProperty("/inpro", false);
 															 		
-															 		var sMsg = this.getModel("i18n").getResourceBundle().getText("NotifStatusInpro");
+															 		var sMsg = this.getResourceBundle().getText("NotifStatusInpro");
 																	MessageToast.show(sMsg, {
 																	duration: 5000
 																	});
@@ -102,7 +102,7 @@ sap.ui.define([
 		 * change the header status to Postpone 
 		*/
 		
-		statusPostponeHandling: function(oForm) {
+		statusPostponeHandling: function(oForm, statusCode) {
 			var MaintNotification = this.getView().getBindingContext().getProperty("MaintenanceNotification"),
 			isEditable = oForm.getEditable(),
 		    oViewModel = this.getModel("objectView");
@@ -114,14 +114,14 @@ sap.ui.define([
 			    return this.getView().getModel().callFunction("/UpdateHeaderStatus", {
 															method: "POST",
 															 urlParameters: { "MaintNotification" : MaintNotification ,
-																			  "MaintHeaderStatus"   : "POSTP"
+																			  "MaintHeaderStatus" : statusCode
 															 },
 															 success: function(oData, response) {
 															 	    this.getView().getModel().refresh(true);
 															 		oViewModel.setProperty("/busy", false);
 															 		oViewModel.setProperty("/inpro", false);
 															 		
-															 		var sMsg = this.getModel("i18n").getResourceBundle().getText("NotifStatusPostp");
+															 		var sMsg = this.getResourceBundle().getText("NotifStatusPostp");
 																	MessageToast.show(sMsg, {
 																	duration: 5000
 																	});
@@ -140,7 +140,7 @@ sap.ui.define([
 		 * change the header status to Complete
 		*/
 		
-		statusCompleteHandling: function(oForm) {
+		statusCompleteHandling: function(oForm, statusCode) {
 			var MaintNotification = this.getView().getBindingContext().getProperty("MaintenanceNotification"),
 			isEditable = oForm.getEditable(),
 		    oViewModel = this.getModel("objectView");
@@ -152,14 +152,14 @@ sap.ui.define([
 			return this.getView().getModel().callFunction("/UpdateHeaderStatus", {
 															method: "POST",
 															 urlParameters: { "MaintNotification" : MaintNotification ,
-																			  "MaintHeaderStatus"   : "COMPL"
+																			  "MaintHeaderStatus"   : statusCode
 															 },
 															 success: function(oData, response) {
 															 	    this.getView().getModel().refresh(true);
 															 		oViewModel.setProperty("/busy", false);
 															 		oViewModel.setProperty("/inpro", false);
 															 		
-															 		var sMsg = this.getModel("i18n").getResourceBundle().getText("NotifStatusCompl");
+															 		var sMsg = this.getResourceBundle().getText("NotifStatusCompl");
 																	MessageToast.show(sMsg, {
 																	duration: 5000
 																	});
@@ -168,6 +168,8 @@ sap.ui.define([
                                         					 	oViewModel.setProperty("/busy", false);
                                         						this.showSaveErrorPrompt(oError);
                                         					 }.bind(this)
+                                        					 //refreshAfterChange: true
+                                        					 
 			});
 		} 
 		else {
@@ -253,9 +255,9 @@ sap.ui.define([
 					}),
 					beginButton: new Button({
 						text: sBtn,
-						press: dialog.close
+						press: this.close
 					}),
-					afterClose: dialog.destroy
+					afterClose: this.destroy
 				});
 				dialog.open();
 			},

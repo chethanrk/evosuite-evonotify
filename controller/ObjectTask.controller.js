@@ -37,7 +37,7 @@ sap.ui.define([
 						showMode: false,
 						editMode : false
 					});
-
+				
 				this.getRouter().getRoute("objtask").attachPatternMatched(this._onObjectMatched, this);
 
 				// Store original busy indicator delay, so it can be restored later on

@@ -3,12 +3,16 @@ sap.ui.define([
 		"com/evorait/evolite/evonotify/controller/BaseController",
 		"sap/ui/model/json/JSONModel",
 		"sap/ui/core/routing/History",
-		"com/evorait/evolite/evonotify/model/formatter"
+		"com/evorait/evolite/evonotify/model/formatter",
+		'sap/ui/core/Fragment',
+		'sap/ui/model/Filter'
 	], function (
 		BaseController,
 		JSONModel,
 		History,
-		formatter
+		formatter,
+		Fragment,
+		Filter
 	) {
 		"use strict";
 
@@ -41,9 +45,6 @@ sap.ui.define([
 						editable: false,
 						editMode : false,
 						showAdd : false,
-						inpro : false,
-						postp : false,
-						compl : false,
 						saveAsTileTitle: this.getResourceBundle().getText("itemsViewTitle"),
 						shareOnJamTitle: this.getResourceBundle().getText("itemsViewTitle"),
 						itemsTableTitle : tableNoDataTextItems,
@@ -54,7 +55,10 @@ sap.ui.define([
 						tableNoDataTextActivities : this.getResourceBundle().getText("tableNoDataText", [tableNoDataTextActivities]),
 						tableBusyDelay : 0
 					});
-
+				//Model for status to be created
+				var oStatusModel = new JSONModel("/status.json");
+				this.setModel(oStatusModel, "objectStatus");
+				
 				this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
 				
 				this.getView().addEventDelegate({
@@ -147,29 +151,86 @@ sap.ui.define([
 			/** 
 			 * changing the status to Put in Process
 			 */
-			onPressInpro : function(){
+			onPressInpro : function(statusCode){
 				if(this.oForm){
-					this.statusInproHandling(this.oForm);
+					this.statusInproHandling(this.oForm, statusCode);
 				}
 			}, 
 			
 			/** 
 			 * changing the status to Put in Process
 			 */
-			onPressPostpone : function(){
+			onPressPostpone : function(statusCode){
 				if(this.oForm){
-					this.statusPostponeHandling(this.oForm);
+					this.statusPostponeHandling(this.oForm, statusCode);
 				}
 			}, 
 			
 			/** 
 			 * changing the status to Put in Process
 			 */
-			onPressComplete : function(){
+			onPressComplete : function(statusCode){
 				if(this.oForm){
-					this.statusCompleteHandling(this.oForm);
+					this.statusCompleteHandling(this.oForm, statusCode);
 				}
 			}, 
+			/** on press for status change
+			 * 
+			 */
+			 onPressStatus : function () {
+			 	if (!this._oDialog) {
+				this._oDialog = sap.ui.xmlfragment("com.evorait.evolite.evonotify.Dialog", this);
+				var oStatusModel = this.getModel("objectStatus");        
+				this._oDialog.setModel(oStatusModel);
+			 	}
+				// update old search filter
+			//	var isEdit = this.getModel("objectView").getProperty("/editMode");
+				var isNew = this.getModel("objectView").getProperty("/isNew");
+				var phaseVal = this.getView().getBindingContext().getProperty("NotifProcessingPhase");
+				if(phaseVal < "2" || isNew){
+					var sValue1 = "";
+					var oFilter = new Filter("StatusCode",sap.ui.model.FilterOperator.Contains, sValue1);
+				}
+				else if(phaseVal === "2"){
+					    sValue1 = "I0069";
+						 oFilter = new Filter("StatusCode",sap.ui.model.FilterOperator.NE, sValue1);
+				}
+				else if(phaseVal === "3"){
+				    	sValue1 = "I0072";
+				    	 oFilter = new Filter("StatusCode",sap.ui.model.FilterOperator.Contains, sValue1);	
+				}	
+				var oBinding = this._oDialog.getBinding("items");
+				oBinding.filter([oFilter]);
+				// toggle compact style
+				jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialog);
+				
+				this._oDialog.open();
+				
+				},
+				handleSearch: function(oEvent) {
+				var sValue = "I0069";
+				var oFilter = new Filter("StatusDescription", sap.ui.model.FilterOperator.Contains, sValue);
+				var oBinding = oEvent.getSource().getBinding("items");
+				oBinding.filter([oFilter]);
+				},
+				/* Handle Dailog Close
+				*/
+				handleClose: function(oEvent) {
+					var aContexts = oEvent.getParameter("selectedContexts");
+					if (aContexts.length) {
+						var statusCode = aContexts.map(function(oContext){ return oContext.getObject().StatusCode; } );
+						if( statusCode.join() === "I0069"){
+							this.onPressPostpone(statusCode);
+						}
+						else if( statusCode.join() === "I0070"){
+							this.onPressInpro(statusCode);
+						}
+						else if( statusCode.join() === "I0072"){
+							this.onPressComplete(statusCode);
+						}
+					}
+					oEvent.getSource().getBinding("items").filter([]);
+				},
 			/**
 			 * show edit forms
 			 */
@@ -231,8 +292,8 @@ sap.ui.define([
 			onFiredEditMode : function(oEvent) {
 				var oParameters = oEvent.getParameters();
 				this._setEditMode(oParameters.editable);
-				var isEdit = this.getModel("objectView").getProperty("/editMode");
-				this._setStatusVisible(isEdit);
+				//var isEdit = this.getModel("objectView").getProperty("/editMode");
+				//this._setStatusVisible(isEdit);
 				if(!this.oForm){
 					this.oForm = sap.ui.getCore().byId(oParameters.id);
 				}
@@ -344,28 +405,9 @@ sap.ui.define([
 			_setEditMode : function(isEdit){
 				this.getModel("objectView").setProperty("/editable", !isEdit);
 				this.getModel("objectView").setProperty("/editMode", isEdit);
+				this.getModel("objectView").setProperty("/showStatus", isEdit);
 			},
-			/** Set the statuses 
-			 * based on the phase value 
-			 */ 
-			_setStatusVisible : function(isEdit){
-					var phaseVal = this.getView().getBindingContext().getProperty("NotifProcessingPhase");
-				    if(phaseVal < "2" || !isEdit){
-						this.getModel("objectView").setProperty("/inpro", isEdit);
-						this.getModel("objectView").setProperty("/compl", isEdit);
-						this.getModel("objectView").setProperty("/postp", isEdit);
-				    }
-				    else if(phaseVal === "2"){
-					    this.getModel("objectView").setProperty("/inpro", isEdit);
-						this.getModel("objectView").setProperty("/compl", isEdit);
-						this.getModel("objectView").setProperty("/postp", !isEdit);
-				    }
-				    else if(phaseVal === "3"){
-					    this.getModel("objectView").setProperty("/inpro", !isEdit);
-						this.getModel("objectView").setProperty("/compl", isEdit);
-						this.getModel("objectView").setProperty("/postp", !isEdit);	
-				    }	
-			},
+			
 			_isEditable : function(oContext){
 				var data = this.getModel().getProperty(oContext.sPath);
 				if(data && (data.IsCompleted || data.IsDeleted) || this.getModel("objectView").getProperty("/editMode")){
