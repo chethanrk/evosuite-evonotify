@@ -3,12 +3,14 @@ sap.ui.define([
 		"com/evorait/evolite/evonotify/controller/BaseController",
 		"sap/ui/model/json/JSONModel",
 		"sap/ui/core/routing/History",
-		"com/evorait/evolite/evonotify/model/formatter"
+		"com/evorait/evolite/evonotify/model/formatter",
+		'sap/ui/model/Filter'
 	], function (
 		BaseController,
 		JSONModel,
 		History,
-		formatter
+		formatter,
+		Filter
 	) {
 		"use strict";
 
@@ -39,7 +41,9 @@ sap.ui.define([
 					});
 				
 				this.getRouter().getRoute("objtask").attachPatternMatched(this._onObjectMatched, this);
-
+				//Model for status to be created
+				var oStatusModel = new JSONModel("/TaskStatus.json");
+				this.setModel(oStatusModel, "objectStatus");
 				// Store original busy indicator delay, so it can be restored later on
 				iOriginalBusyDelay = this.getView().getBusyIndicatorDelay();
 				this.setModel(oViewModel, "objectView");
@@ -77,14 +81,14 @@ sap.ui.define([
 					history.go(-1);
 				} else if(oContext) {
 					var obj = oContext.getObject();
-					if(parseInt(obj.MaintenanceNotificationItem) === 0 ){
+					//if(parseInt(obj.MaintenanceNotificationItem) === 0 ){
 						this.getRouter().navTo("object", {objectId: obj.MaintenanceNotification}, true);
-					}else{
+					/*}else{
 						this.getRouter().navTo("item", {
 							objectId: obj.MaintenanceNotification,
 							itemId: obj.MaintenanceNotificationItem
 						}, true);
-					}
+					}*/
 				}else{
 					this.getRouter().navTo("worklist", {}, true);
 				}
@@ -108,7 +112,34 @@ sap.ui.define([
 					this.cancelFormHandling(this.oForm);
 				}
 			},
-			
+			/** on press for status change
+			 * 
+			 */
+			 onPressStatus : function () {
+			 	if (!this._oDialogTask) {
+				this._oDialogTask = sap.ui.xmlfragment("com.evorait.evolite.evonotify.TaskStatusDialog", this);
+				var oStatusModel = this.getModel("objectStatus");        
+				this._oDialogTask.setModel(oStatusModel);
+			 	}
+				var oBinding = this._oDialogTask.getBinding("items");
+					var sValue1 = "";
+					var oFilter = new Filter("StatusCode",sap.ui.model.FilterOperator.Contains, sValue1);
+
+				oBinding.filter([oFilter]);
+				// toggle compact style
+				jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialogTask);
+				
+				this._oDialogTask.open();
+				
+				},
+				handleClose: function(oEvent) {
+					var aContexts = oEvent.getParameter("selectedContexts");
+					if (aContexts.length) {
+						var statusCode = aContexts.map(function(oContext){ return oContext.getObject().StatusCode; } );
+						this.taskStatusChangeHandling(this.oForm, statusCode);
+					}
+					oEvent.getSource().getBinding("items").filter([]);
+				},
 			/**
 			 * fired edit toggle event from subsection block DetailsFormBlock
 			 */
@@ -151,6 +182,7 @@ sap.ui.define([
 					if(isNew){
 						var oContext = oDataModel.createEntry("/PMNotificationTasks");
 						oDataModel.setProperty(oContext.sPath+"/MaintenanceNotification", sObjectId);
+						oDataModel.setProperty(oContext.sPath+"/MaintNotifTaskCodeCatalog", 2);
 						this.getView().unbindElement();
 						this.getView().setBindingContext(oContext);
 						
@@ -198,10 +230,15 @@ sap.ui.define([
 			_onBindingChange : function () {
 				var oView = this.getView(),
 					oViewModel = this.getModel("objectView"),
-					oElementBinding = oView.getElementBinding();
-
-				// No data for the binding
-				if (!oElementBinding.getBoundContext()) {
+					oElementBinding = oView.getElementBinding(),
+			    	oContext = oElementBinding.getBoundContext(),
+			    	data = this.getModel().getProperty(oContext.sPath);
+					
+					if(data.MaintNotifTaskCodeCatalog === ""){
+						data.MaintNotifTaskCodeCatalog = 2;
+					}
+					// No data for the binding
+				if (!oContext) {
 					this.getRouter().getTargets().display("objectNotFound");
 					return;
 				}
@@ -214,7 +251,6 @@ sap.ui.define([
 				this.getModel("objectView").setProperty("/showMode", !isEdit);
 				this.getModel("objectView").setProperty("/editMode", isEdit);
 			},
-			
 			_setNewHeaderTitle : function(){
 				var oContext = this.getView().getBindingContext();
 				this.getModel("objectView").setProperty("/Title", this.getModel().getProperty(oContext.sPath+"/MaintNotifTaskText"));

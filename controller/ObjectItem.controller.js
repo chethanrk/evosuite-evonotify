@@ -213,6 +213,8 @@ sap.ui.define([
 					if(isNew){
 						var oContext = oDataModel.createEntry("/PMNotificationItems");
 						oDataModel.setProperty(oContext.sPath+"/MaintenanceNotification", sObjectId);
+						oDataModel.setProperty(oContext.sPath+"/MaintNotifObjPrtCodeCatalog", 'B');
+						oDataModel.setProperty(oContext.sPath+"/MaintNotifDamageCodeCatalog", 'C');
 						this.getView().unbindElement();
 						this.getView().setBindingContext(oContext);
 						
@@ -262,8 +264,15 @@ sap.ui.define([
 				var oView = this.getView(),
 					oViewModel = this.getModel("objectView"),
 					oElementBinding = oView.getElementBinding(),
-					oContext = oElementBinding.getBoundContext();
-
+					oContext = oElementBinding.getBoundContext(),
+			    	data = this.getModel().getProperty(oContext.sPath);
+					
+					if(data.MaintNotifObjPrtCodeCatalog === ""){
+						data.MaintNotifObjPrtCodeCatalog = 'B';
+					}
+					if(data.MaintNotifDamageCodeCatalog === ""){
+						data.MaintNotifDamageCodeCatalog = 'C';
+					}
 				// No data for the binding
 				if (!oContext) {
 					this.getRouter().getTargets().display("objectNotFound");

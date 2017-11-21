@@ -1,0 +1,27 @@
+{
+	"SystemStatus": [
+		{
+			"ObjectCategory": "DX7",
+			"StatusCode": "I0055",
+			"Language": "EN",
+			"StatusText": "TSRL",
+			"StatusDescription": "Task Released"
+		},
+		{
+			"ObjectCategory": "DX7",
+			"StatusCode": "I0056",
+			"Language": "EN",
+			"StatusText": "TSCO",
+			"StatusDescription": "Task Completed"
+		},
+		{
+			"ObjectCategory": "DX7",
+			"StatusCode": "I0057",
+			"Language": "EN",
+			"StatusText": "TSSC",
+			"StatusDescription": "Task Successful"
+			
+		}
+	]
+
+			}

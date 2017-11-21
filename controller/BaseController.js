@@ -64,7 +64,7 @@ sap.ui.define([
 		 * change the header status to In Process 
 		*/
 		
-		statusInproHandling: function(oForm, statusCode) {
+		headerStatusChangeHandling: function(oForm, statusCode) {
 			var MaintNotification = this.getView().getBindingContext().getProperty("MaintenanceNotification"),
 		    oViewModel = this.getModel("objectView"),
 			isEditable = oForm.getEditable();
@@ -76,14 +76,17 @@ sap.ui.define([
 				return this.getView().getModel().callFunction("/UpdateHeaderStatus", {
 															method: "POST",
 															 urlParameters: { "MaintNotification" : MaintNotification ,
-																			  "MaintHeaderStatus" : statusCode
+																			  "MaintStatus" : statusCode
 															 },
 															 success: function(oData, response) {
 															 		this.getView().getModel().refresh(true);
 															 		oViewModel.setProperty("/busy", false);
 															 		oViewModel.setProperty("/inpro", false);
-															 		
-															 		var sMsg = this.getResourceBundle().getText("NotifStatusInpro");
+															 		if(response.headers["sap-message"] === undefined){
+															 		var	sMsg = oData.MaintenanceNotification + " " + this.getResourceBundle().getText("NotifStatus");
+															 		} else{
+															 		 sMsg = oData.MaintenanceNotification + " " + JSON.parse(response.headers["sap-message"]).message;
+															 		}
 																	MessageToast.show(sMsg, {
 																	duration: 5000
 																	});
@@ -98,30 +101,31 @@ sap.ui.define([
 				}			
 			
 		},   
-			/*
-		 * change the header status to Postpone 
-		*/
-		
-		statusPostponeHandling: function(oForm, statusCode) {
+		taskStatusChangeHandling: function(oForm, statusCode) {
 			var MaintNotification = this.getView().getBindingContext().getProperty("MaintenanceNotification"),
-			isEditable = oForm.getEditable(),
-		    oViewModel = this.getModel("objectView");
+		    MaintNotifTask = this.getView().getBindingContext().getProperty("MaintenanceNotificationTask"),
+		    oViewModel = this.getModel("objectView"),
+			isEditable = oForm.getEditable();
 			// validation ok when form editable triggered to false
 			if (oForm.check().length === 0) {
 		    	oViewModel.setProperty("/busy", true);
 		    	
-		    	//call the function import to update the header status to In-process
-			    return this.getView().getModel().callFunction("/UpdateHeaderStatus", {
+		    	//call the function import to update the header status to In-process 
+				return this.getView().getModel().callFunction("/UpdateTaskStatus", {
 															method: "POST",
 															 urlParameters: { "MaintNotification" : MaintNotification ,
-																			  "MaintHeaderStatus" : statusCode
+																			  "MaintNotifTask" : MaintNotifTask,
+																			  "MaintStatus" : statusCode
 															 },
 															 success: function(oData, response) {
-															 	    this.getView().getModel().refresh(true);
+															 		this.getView().getModel().refresh(true);
 															 		oViewModel.setProperty("/busy", false);
 															 		oViewModel.setProperty("/inpro", false);
-															 		
-															 		var sMsg = this.getResourceBundle().getText("NotifStatusPostp");
+															 		if(response.headers["sap-message"] === undefined){
+															 		var	sMsg = oData.MaintenanceNotification + "/" + oData.MaintenanceNotificationTask + " " + this.getResourceBundle().getText("TaskStatus");
+															 		} else{
+															 		 sMsg = oData.MaintenanceNotification + "/" + oData.MaintenanceNotificationTask + " " + JSON.parse(response.headers["sap-message"]).message;
+															 		}
 																	MessageToast.show(sMsg, {
 																	duration: 5000
 																	});
@@ -130,52 +134,13 @@ sap.ui.define([
                                         					 	oViewModel.setProperty("/busy", false);
                                         						this.showSaveErrorPrompt(oError);
                                         					 }.bind(this)
+                                        					 //refreshAfterChange : true
 			});
 			} else {
 					oForm.setEditable(!isEditable);
-				}		
-			},             
-		
-		/*
-		 * change the header status to Complete
-		*/
-		
-		statusCompleteHandling: function(oForm, statusCode) {
-			var MaintNotification = this.getView().getBindingContext().getProperty("MaintenanceNotification"),
-			isEditable = oForm.getEditable(),
-		    oViewModel = this.getModel("objectView");
-			// validation ok when form editable triggered to false
-				if (oForm.check().length === 0) {
-		    	oViewModel.setProperty("/busy", true);
-		    	
-		    	//call the function import to update the header status to In-process
-			return this.getView().getModel().callFunction("/UpdateHeaderStatus", {
-															method: "POST",
-															 urlParameters: { "MaintNotification" : MaintNotification ,
-																			  "MaintHeaderStatus"   : statusCode
-															 },
-															 success: function(oData, response) {
-															 	    this.getView().getModel().refresh(true);
-															 		oViewModel.setProperty("/busy", false);
-															 		oViewModel.setProperty("/inpro", false);
-															 		
-															 		var sMsg = this.getResourceBundle().getText("NotifStatusCompl");
-																	MessageToast.show(sMsg, {
-																	duration: 5000
-																	});
-															 }.bind(this), // callback function for success
-                                        					 error: function(oError){
-                                        					 	oViewModel.setProperty("/busy", false);
-                                        						this.showSaveErrorPrompt(oError);
-                                        					 }.bind(this)
-                                        					 //refreshAfterChange: true
-                                        					 
-			});
-		} 
-		else {
-			oForm.setEditable(!isEditable);
-			}		
-		},
+				}			
+			
+		},   
 			/**
 			 * save view form
 			 * if its a new entry set new header title on success

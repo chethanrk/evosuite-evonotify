@@ -56,7 +56,7 @@ sap.ui.define([
 						tableBusyDelay : 0
 					});
 				//Model for status to be created
-				var oStatusModel = new JSONModel("/status.json");
+				var oStatusModel = new JSONModel("/HeaderStatus.json");
 				this.setModel(oStatusModel, "objectStatus");
 				
 				this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
@@ -127,10 +127,10 @@ sap.ui.define([
 				var obj = this.getTableRowObject(oEvent.getParameters(), "Tasks");
 				
 				this.onPressCancel();
-				this.getRouter().navTo("task", {
+				this.getRouter().navTo("objtask", {
 					objectId: obj.MaintenanceNotification,
-					taskId: obj.MaintenanceNotificationTask,
-					itemId: 0
+					taskId: obj.MaintenanceNotificationTask
+					//itemId: 0
 				});
 			},
 			
@@ -142,7 +142,7 @@ sap.ui.define([
 				var obj = this.getTableRowObject(oEvent.getParameters(), "Activities");
 				
 				this.onPressCancel();
-				this.getRouter().navTo("activity", {
+				this.getRouter().navTo("objactivity", {
 					objectId: obj.MaintenanceNotification,
 					itemId: 0,
 					activityId: obj.MaintNotificationActivity
@@ -150,41 +150,40 @@ sap.ui.define([
 			},
 			/** 
 			 * changing the status to Put in Process
-			 */
+			
 			onPressInpro : function(statusCode){
 				if(this.oForm){
-					this.statusInproHandling(this.oForm, statusCode);
+					this.statusChangeHandling(this.oForm, statusCode);
 				}
 			}, 
 			
 			/** 
 			 * changing the status to Put in Process
-			 */
+			
 			onPressPostpone : function(statusCode){
 				if(this.oForm){
-					this.statusPostponeHandling(this.oForm, statusCode);
+					this.statusChangeHandling(this.oForm, statusCode);
 				}
 			}, 
 			
 			/** 
 			 * changing the status to Put in Process
-			 */
+			
 			onPressComplete : function(statusCode){
 				if(this.oForm){
-					this.statusCompleteHandling(this.oForm, statusCode);
+					this.statusChangeHandling(this.oForm, statusCode);
 				}
-			}, 
+			}, */
 			/** on press for status change
 			 * 
 			 */
 			 onPressStatus : function () {
 			 	if (!this._oDialog) {
-				this._oDialog = sap.ui.xmlfragment("com.evorait.evolite.evonotify.Dialog", this);
+				this._oDialog = sap.ui.xmlfragment("com.evorait.evolite.evonotify.HeaderStatusDialog", this);
 				var oStatusModel = this.getModel("objectStatus");        
 				this._oDialog.setModel(oStatusModel);
 			 	}
 				// update old search filter
-			//	var isEdit = this.getModel("objectView").getProperty("/editMode");
 				var isNew = this.getModel("objectView").getProperty("/isNew");
 				var phaseVal = this.getView().getBindingContext().getProperty("NotifProcessingPhase");
 				if(phaseVal < "2" || isNew){
@@ -207,27 +206,31 @@ sap.ui.define([
 				this._oDialog.open();
 				
 				},
-				handleSearch: function(oEvent) {
-				var sValue = "I0069";
-				var oFilter = new Filter("StatusDescription", sap.ui.model.FilterOperator.Contains, sValue);
-				var oBinding = oEvent.getSource().getBinding("items");
-				oBinding.filter([oFilter]);
-				},
+				//handleSearch: function(oEvent) {
+				//var sValue = "I0069";
+				//var oFilter = new Filter("StatusDescription", sap.ui.model.FilterOperator.Contains, sValue);
+				//var oBinding = oEvent.getSource().getBinding("items");
+				//oBinding.filter([oFilter]);
+				//},
 				/* Handle Dailog Close
 				*/
 				handleClose: function(oEvent) {
 					var aContexts = oEvent.getParameter("selectedContexts");
 					if (aContexts.length) {
 						var statusCode = aContexts.map(function(oContext){ return oContext.getObject().StatusCode; } );
-						if( statusCode.join() === "I0069"){
+						this.headerStatusChangeHandling(this.oForm, statusCode);
+						/*if( statusCode.join() === "I0069"){
 							this.onPressPostpone(statusCode);
+							this.statusChangeHandling(this.oForm, statusCode);
 						}
 						else if( statusCode.join() === "I0070"){
 							this.onPressInpro(statusCode);
+							this.statusChangeHandling(this.oForm, statusCode);
 						}
 						else if( statusCode.join() === "I0072"){
 							this.onPressComplete(statusCode);
-						}
+							this.statusChangeHandling(this.oForm, statusCode);
+						}*/
 					}
 					oEvent.getSource().getBinding("items").filter([]);
 				},

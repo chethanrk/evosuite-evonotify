@@ -77,14 +77,14 @@ sap.ui.define([
 					history.go(-1);
 				} else if(oContext) {
 					var obj = oContext.getObject();
-					if(parseInt(obj.MaintenanceNotificationItem) === 0){
+					//if(parseInt(obj.MaintenanceNotificationItem) === 0){
 						this.getRouter().navTo("object", {objectId: obj.MaintenanceNotification}, true);
-					}else{
+					/*}else{
 						this.getRouter().navTo("item", {
 							objectId: obj.MaintenanceNotification,
 							itemId: obj.MaintenanceNotificationItem
 						}, true);
-					}
+					}*/
 				}else{
 					this.getRouter().navTo("worklist", {}, true);
 				}
@@ -151,6 +151,7 @@ sap.ui.define([
 					if(isNew){
 						var oContext = oDataModel.createEntry("/PMNotificationActivities");
 						oDataModel.setProperty(oContext.sPath+"/MaintenanceNotification", sObjectId);
+						oDataModel.setProperty(oContext.sPath+"/MaintNotifAcivityCodeCatalog", 'A');
 						this.getView().unbindElement();
 						this.getView().setBindingContext(oContext);
 						
@@ -198,8 +199,18 @@ sap.ui.define([
 			_onBindingChange : function () {
 				var oView = this.getView(),
 					oViewModel = this.getModel("objectView"),
-					oElementBinding = oView.getElementBinding();
-
+					oElementBinding = oView.getElementBinding(),
+					oContext = oElementBinding.getBoundContext(),
+			    	data = this.getModel().getProperty(oContext.sPath);
+					
+					if(data.MaintNotifAcivityCodeCatalog === ""){
+						data.MaintNotifAcivityCodeCatalog = 'A';
+					}
+				
+				if(this.oForm){
+					this.oForm.setEditable(false);
+				}
+				
 				// No data for the binding
 				if (!oElementBinding.getBoundContext()) {
 					this.getRouter().getTargets().display("objectNotFound");
@@ -214,6 +225,7 @@ sap.ui.define([
 				this.getModel("objectView").setProperty("/showMode", !isEdit);
 				this.getModel("objectView").setProperty("/editMode", isEdit);
 			},
+			
 			
 			_setNewHeaderTitle : function(){
 				var oContext = this.getView().getBindingContext();

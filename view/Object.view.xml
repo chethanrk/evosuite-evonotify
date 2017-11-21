@@ -17,7 +17,7 @@
 				<uxap:ObjectPageHeader id="objectPageHeader" objectTitle="{objectView>/Title}" objectSubtitle="{MaintenanceNotification}">
 					<uxap:actions>
 						<uxap:ObjectPageHeaderActionButton id="editNotificationButton" icon="sap-icon://edit" press="onPressEdit" type="Emphasized" visible="{objectView>/editable}"/>
-						<uxap:ObjectPageHeaderActionButton id="completeStatusButton" icon="sap-icon://edit" text="System Status" hideText="false" press="onPressStatus" visible="{objectView>/editMode}"/>
+						<uxap:ObjectPageHeaderActionButton id="completeStatusButton" icon="sap-icon://edit" text="{i18n>SystemStatus}" hideText="false" press="onPressStatus" visible="{objectView>/editMode}"/>
 						<uxap:ObjectPageHeaderActionButton id="cancelNotificationButton" icon="sap-icon://cancel" press="onPressCancel" visible="{objectView>/editMode}"/>
 						<uxap:ObjectPageHeaderActionButton id="saveNotificationButton" icon="sap-icon://save" press="onPressSave" type="Emphasized" visible="{objectView>/editMode}"/>
 					</uxap:actions>
