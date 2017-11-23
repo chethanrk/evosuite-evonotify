@@ -6,7 +6,7 @@
 	xmlns:smartField="sap.ui.comp.smartfield">
 	
 	<Table id="notificationTaskTable" width="auto" class="sapUiNoMargin"
-		items="{path : 'Tasks>/modelData',
+		items="{path : 'to_PMNotificationTask',
                 sorter : {
                     path : 'MaintenanceNotificationTask',
                     descending : false
@@ -39,12 +39,12 @@
 			<ColumnListItem type="Navigation" press="onPressItem">
 				<cells>
 					<ObjectIdentifier 
-					title="{Tasks>MaintenanceNotificationTask}"
-					text="{Tasks>MaintNotifTaskText}"/>
-					<Text text="{Tasks>MaintNotiTtaskCodeGroupName} ({Tasks>MaintNotifTaskCodeGroup})"/>
-					<Text text="{Tasks>MaintNotifTaskCodeName} ({Tasks>MaintNotifTaskCode})"/>
-					<Text text="{path:'Tasks>/PlannedStartDate', formatter:'.formatter.date'} {path:'Tasks>/PlannedStartTime', formatter:'.formatter.time'}"/>
-					<Text text="{path:'Tasks>/PlannedEndDate', formatter:'.formatter.date'} {path:'Tasks>/PlannedEndTime', formatter:'.formatter.time'}"/>
+					title="{MaintenanceNotificationTask}"
+					text="{MaintNotifTaskText}"/>
+					<Text text="{MaintNotiTtaskCodeGroupName} ({MaintNotifTaskCodeGroup})"/>
+					<Text text="{MaintNotifTaskCodeName} ({MaintNotifTaskCode})"/>
+					<Text text="{path:'/PlannedStartDate', formatter:'.formatter.date'} {path:'/PlannedStartTime', formatter:'.formatter.time'}"/>
+					<Text text="{path:'/PlannedEndDate', formatter:'.formatter.date'} {path:'/PlannedEndTime', formatter:'.formatter.time'}"/>
 					<Text text="{Tasks>ResponsiblePerson}"/>
 				</cells>
 			</ColumnListItem>
