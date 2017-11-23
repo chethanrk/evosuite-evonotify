@@ -79,22 +79,33 @@ sap.ui.define([
 																			  "MaintStatus" : statusCode
 															 },
 															 success: function(oData, response) {
-															 		this.getView().getModel().refresh(true);
-															 		oViewModel.setProperty("/busy", false);
-															 		oViewModel.setProperty("/inpro", false);
-															 		if(response.headers["sap-message"] === undefined){
-															 		var	sMsg = oData.MaintenanceNotification + " " + this.getResourceBundle().getText("NotifStatus");
-															 		} else{
-															 		 sMsg = oData.MaintenanceNotification + " " + JSON.parse(response.headers["sap-message"]).message;
+															 	    oViewModel.setProperty("/busy", false);
+															 		oForm.setEditable(!isEditable);
+															 		var sMsg = ""; 
+															 		var errMsg = sap.ui.getCore().getMessageManager().getMessageModel().getData();
+															 		 for( var i=0; i < errMsg.length; i++){
+															 		 	sMsg = sMsg + errMsg[i].message;
+															 		 }
+															 		 if(sMsg === ""){
+															 		  sMsg = oData.MaintenanceNotification + " " + this.getResourceBundle().getText("NotifStatus");
+															 		  if(oData.IsCompleted){
+															 		  	this.getModel("objectView").setProperty("/editable", false);
+															 		  }
+
 															 		}
 																	MessageToast.show(sMsg, {
 																	duration: 5000
 																	});
+																	this._setNewHeaderTitle();
+																	this._setNewHeaderTitle();
+																	oViewModel.setProperty("/isNew", false);
+																	oViewModel.setProperty("/isEdit", true);
 															 }.bind(this), // callback function for success
                                         					 error: function(oError){
                                         					 	oViewModel.setProperty("/busy", false);
                                         						this.showSaveErrorPrompt(oError);
-                                        					 }.bind(this)
+                                        					 }.bind(this),
+                                        					 refreshAfterChange : true
 			});
 			} else {
 					oForm.setEditable(!isEditable);
@@ -112,29 +123,39 @@ sap.ui.define([
 		    	
 		    	//call the function import to update the header status to In-process 
 				return this.getView().getModel().callFunction("/UpdateTaskStatus", {
-															method: "POST",
-															 urlParameters: { "MaintNotification" : MaintNotification ,
-																			  "MaintNotifTask" : MaintNotifTask,
-																			  "MaintStatus" : statusCode
-															 },
-															 success: function(oData, response) {
-															 		this.getView().getModel().refresh(true);
-															 		oViewModel.setProperty("/busy", false);
-															 		oViewModel.setProperty("/inpro", false);
-															 		if(response.headers["sap-message"] === undefined){
-															 		var	sMsg = oData.MaintenanceNotification + "/" + oData.MaintenanceNotificationTask + " " + this.getResourceBundle().getText("TaskStatus");
-															 		} else{
-															 		 sMsg = oData.MaintenanceNotification + "/" + oData.MaintenanceNotificationTask + " " + JSON.parse(response.headers["sap-message"]).message;
-															 		}
-																	MessageToast.show(sMsg, {
-																	duration: 5000
-																	});
-															 }.bind(this), // callback function for success
-                                        					 error: function(oError){
-                                        					 	oViewModel.setProperty("/busy", false);
-                                        						this.showSaveErrorPrompt(oError);
-                                        					 }.bind(this)
-                                        					 //refreshAfterChange : true
+					method: "POST",
+					 urlParameters: { "MaintNotification" : MaintNotification ,
+									  "MaintNotifTask" : MaintNotifTask,
+									  "MaintStatus" : statusCode
+					 },
+					 success: function(oData, response) {
+					 		oViewModel.setProperty("/busy", false);
+					 		oViewModel.setProperty("/inpro", false);
+					 		oForm.setEditable(!isEditable);
+					 		var sMsg = ""; 
+					 		var errMsg = sap.ui.getCore().getMessageManager().getMessageModel().getData();
+					 		 for( var i=0; i < errMsg.length; i++){
+					 		 	sMsg = sMsg + errMsg[i].message;
+					 		 }
+					 		 if(sMsg === ""){
+					 		  	sMsg = oData.MaintenanceNotification + "/" + oData.MaintenanceNotificationTask + " " 
+					 		  	+ this.getResourceBundle().getText("TaskStatus");
+					 		  	 if(oData.IsCompleted){
+									this.getModel("objectView").setProperty("/showMode", false);
+								 }
+					 		}
+							MessageToast.show(sMsg, {
+							duration: 5000
+							});
+							this._setNewHeaderTitle();
+							oViewModel.setProperty("/isNew", false);
+							oViewModel.setProperty("/isEdit", true);
+					 }.bind(this), // callback function for success
+					 error: function(oError){
+					 	oViewModel.setProperty("/busy", false);
+						this.showSaveErrorPrompt(oError);
+					 }.bind(this),
+					 refreshAfterChange : "true"
 			});
 			} else {
 					oForm.setEditable(!isEditable);
@@ -158,8 +179,15 @@ sap.ui.define([
 						success: function() {
 							oViewModel.setProperty("/busy", false);
 							oForm.setEditable(!isEditable);
-	
-							var sMsg = this.getModel("i18n").getResourceBundle().getText("saveSuccess");
+							var sMsg = ""; 
+					 		var errMsg = sap.ui.getCore().getMessageManager().getMessageModel().getData();
+					 		 for( var i=0; i < errMsg.length; i++){
+					 		 	sMsg = sMsg + errMsg[i].message;
+					 		 }
+					 		 if(sMsg === ""){
+					 		    sMsg = this.getModel("i18n").getResourceBundle().getText("saveSuccess");
+					 		}
+						
 							MessageToast.show(sMsg, {
 								duration: 5000
 							});

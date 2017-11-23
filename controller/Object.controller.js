@@ -148,35 +148,6 @@ sap.ui.define([
 					activityId: obj.MaintNotificationActivity
 				});
 			},
-			/** 
-			 * changing the status to Put in Process
-			
-			onPressInpro : function(statusCode){
-				if(this.oForm){
-					this.statusChangeHandling(this.oForm, statusCode);
-				}
-			}, 
-			
-			/** 
-			 * changing the status to Put in Process
-			
-			onPressPostpone : function(statusCode){
-				if(this.oForm){
-					this.statusChangeHandling(this.oForm, statusCode);
-				}
-			}, 
-			
-			/** 
-			 * changing the status to Put in Process
-			
-			onPressComplete : function(statusCode){
-				if(this.oForm){
-					this.statusChangeHandling(this.oForm, statusCode);
-				}
-			}, */
-			/** on press for status change
-			 * 
-			 */
 			 onPressStatus : function () {
 			 	if (!this._oDialog) {
 				this._oDialog = sap.ui.xmlfragment("com.evorait.evolite.evonotify.HeaderStatusDialog", this);
@@ -206,31 +177,11 @@ sap.ui.define([
 				this._oDialog.open();
 				
 				},
-				//handleSearch: function(oEvent) {
-				//var sValue = "I0069";
-				//var oFilter = new Filter("StatusDescription", sap.ui.model.FilterOperator.Contains, sValue);
-				//var oBinding = oEvent.getSource().getBinding("items");
-				//oBinding.filter([oFilter]);
-				//},
-				/* Handle Dailog Close
-				*/
 				handleClose: function(oEvent) {
 					var aContexts = oEvent.getParameter("selectedContexts");
 					if (aContexts.length) {
 						var statusCode = aContexts.map(function(oContext){ return oContext.getObject().StatusCode; } );
 						this.headerStatusChangeHandling(this.oForm, statusCode);
-						/*if( statusCode.join() === "I0069"){
-							this.onPressPostpone(statusCode);
-							this.statusChangeHandling(this.oForm, statusCode);
-						}
-						else if( statusCode.join() === "I0070"){
-							this.onPressInpro(statusCode);
-							this.statusChangeHandling(this.oForm, statusCode);
-						}
-						else if( statusCode.join() === "I0072"){
-							this.onPressComplete(statusCode);
-							this.statusChangeHandling(this.oForm, statusCode);
-						}*/
 					}
 					oEvent.getSource().getBinding("items").filter([]);
 				},
@@ -339,6 +290,7 @@ sap.ui.define([
 						var sObjectPath = this.getModel().createKey("PMNotifications", {
 							MaintenanceNotification :  sObjectId
 						});
+						
 						this._bindView("/" + sObjectPath);
 					}
 				}.bind(this));

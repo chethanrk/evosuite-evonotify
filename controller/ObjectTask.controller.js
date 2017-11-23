@@ -81,14 +81,14 @@ sap.ui.define([
 					history.go(-1);
 				} else if(oContext) {
 					var obj = oContext.getObject();
-					//if(parseInt(obj.MaintenanceNotificationItem) === 0 ){
+					if(parseInt(obj.MaintenanceNotificationItem) === 0 ){
 						this.getRouter().navTo("object", {objectId: obj.MaintenanceNotification}, true);
-					/*}else{
+					}else{
 						this.getRouter().navTo("item", {
 							objectId: obj.MaintenanceNotification,
 							itemId: obj.MaintenanceNotificationItem
 						}, true);
-					}*/
+					}
 				}else{
 					this.getRouter().navTo("worklist", {}, true);
 				}
@@ -182,7 +182,7 @@ sap.ui.define([
 					if(isNew){
 						var oContext = oDataModel.createEntry("/PMNotificationTasks");
 						oDataModel.setProperty(oContext.sPath+"/MaintenanceNotification", sObjectId);
-						oDataModel.setProperty(oContext.sPath+"/MaintNotifTaskCodeCatalog", 2);
+						oDataModel.setProperty(oContext.sPath+"/MaintNotifTaskCodeCatalog", '2');
 						this.getView().unbindElement();
 						this.getView().setBindingContext(oContext);
 						
@@ -234,19 +234,26 @@ sap.ui.define([
 			    	oContext = oElementBinding.getBoundContext(),
 			    	data = this.getModel().getProperty(oContext.sPath);
 					
-					if(data.MaintNotifTaskCodeCatalog === ""){
-						data.MaintNotifTaskCodeCatalog = 2;
-					}
-					// No data for the binding
+				if(data.MaintNotifTaskCodeCatalog === ""){
+					data.MaintNotifTaskCodeCatalog = '2';
+				}
+				// No data for the binding
 				if (!oContext) {
 					this.getRouter().getTargets().display("objectNotFound");
 					return;
 				}
 				// Everything went fine.
 				this._setNewHeaderTitle();
+				this._isEditable(data);
 				oViewModel.setProperty("/busy", false);
 			},
-			
+			_isEditable : function(data){
+				if(data && (data.IsCompleted || data.IsDeleted) || this.getModel("objectView").getProperty("/editMode")){
+					this.getModel("objectView").setProperty("/showMode", false);
+				}else{
+					this.getModel("objectView").setProperty("/showMode", true);
+				}
+			},
 			_setEditMode : function(isEdit){
 				this.getModel("objectView").setProperty("/showMode", !isEdit);
 				this.getModel("objectView").setProperty("/editMode", isEdit);
