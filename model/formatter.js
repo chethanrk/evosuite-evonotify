@@ -41,6 +41,13 @@ sap.ui.define([
 					return "";
 				}
 				
+			},
+			editable : function(isCompleted, isDeleted, isEditMode){
+				if(isCompleted || isDeleted || isEditMode ){
+					return false;
+				}else{
+					return true;
+				}
 			}
 		};
 

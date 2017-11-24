@@ -88,10 +88,6 @@ sap.ui.define([
 															 		 }
 															 		 if(sMsg === ""){
 															 		  sMsg = oData.MaintenanceNotification + " " + this.getResourceBundle().getText("NotifStatus");
-															 		  if(oData.IsCompleted){
-															 		  	this.getModel("objectView").setProperty("/editable", false);
-															 		  }
-
 															 		}
 																	MessageToast.show(sMsg, {
 																	duration: 5000
@@ -130,7 +126,6 @@ sap.ui.define([
 					 },
 					 success: function(oData, response) {
 					 		oViewModel.setProperty("/busy", false);
-					 		oViewModel.setProperty("/inpro", false);
 					 		oForm.setEditable(!isEditable);
 					 		var sMsg = ""; 
 					 		var errMsg = sap.ui.getCore().getMessageManager().getMessageModel().getData();
@@ -140,9 +135,6 @@ sap.ui.define([
 					 		 if(sMsg === ""){
 					 		  	sMsg = oData.MaintenanceNotification + "/" + oData.MaintenanceNotificationTask + " " 
 					 		  	+ this.getResourceBundle().getText("TaskStatus");
-					 		  	 if(oData.IsCompleted){
-									this.getModel("objectView").setProperty("/showMode", false);
-								 }
 					 		}
 							MessageToast.show(sMsg, {
 							duration: 5000

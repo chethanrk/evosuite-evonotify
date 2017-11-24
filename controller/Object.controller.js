@@ -42,9 +42,7 @@ sap.ui.define([
 						delay : 0,
 						isNew : false,
 						isEdit : false,
-						editable: false,
 						editMode : false,
-						showAdd : false,
 						saveAsTileTitle: this.getResourceBundle().getText("itemsViewTitle"),
 						shareOnJamTitle: this.getResourceBundle().getText("itemsViewTitle"),
 						itemsTableTitle : tableNoDataTextItems,
@@ -68,7 +66,7 @@ sap.ui.define([
 				// Store original busy indicator delay, so it can be restored later on
 				iOriginalBusyDelay = this.getView().getBusyIndicatorDelay();
 				this.setModel(oViewModel, "objectView");
-				this.getOwnerComponent().getModel().metadataLoaded().then(function () {
+			    this.getOwnerComponent().getModel().metadataLoaded().then(function () {
 						// Restore original busy indicator delay for the object view
 						oViewModel.setProperty("/delay", iOriginalBusyDelay);
 					}
@@ -246,8 +244,6 @@ sap.ui.define([
 			onFiredEditMode : function(oEvent) {
 				var oParameters = oEvent.getParameters();
 				this._setEditMode(oParameters.editable);
-				//var isEdit = this.getModel("objectView").getProperty("/editMode");
-				//this._setStatusVisible(isEdit);
 				if(!this.oForm){
 					this.oForm = sap.ui.getCore().byId(oParameters.id);
 				}
@@ -280,11 +276,9 @@ sap.ui.define([
 						var oContext = oDataModel.createEntry("/PMNotifications");
 						this.getView().unbindElement();
 						this.getView().setBindingContext(oContext);
-						this._isEditable(oContext);
 						
 						var oBundle = this.getModel("i18n").getResourceBundle();
 						oViewModel.setProperty("/Title", oBundle.getText("newNotificationTitle"));
-						oViewModel.setProperty("/showAdd", false);
 						oViewModel.setProperty("/busy", false);
 					}else{
 						var sObjectPath = this.getModel().createKey("PMNotifications", {
@@ -353,25 +347,12 @@ sap.ui.define([
 				
 				// Everything went fine.
 				this._setNewHeaderTitle();
-				this._isEditable(oContext);
 				oViewModel.setProperty("/busy", false);
 			},
 			
 			_setEditMode : function(isEdit){
-				this.getModel("objectView").setProperty("/editable", !isEdit);
 				this.getModel("objectView").setProperty("/editMode", isEdit);
 				this.getModel("objectView").setProperty("/showStatus", isEdit);
-			},
-			
-			_isEditable : function(oContext){
-				var data = this.getModel().getProperty(oContext.sPath);
-				if(data && (data.IsCompleted || data.IsDeleted) || this.getModel("objectView").getProperty("/editMode")){
-					this.getModel("objectView").setProperty("/editable", false);
-					this.getModel("objectView").setProperty("/showAdd", false);
-				}else{
-					this.getModel("objectView").setProperty("/editable", true);
-					this.getModel("objectView").setProperty("/showAdd", true);
-				}
 			},
 			
 			_setNewHeaderTitle : function(){

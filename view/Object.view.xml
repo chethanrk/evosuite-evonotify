@@ -16,7 +16,7 @@
 			<uxap:headerTitle>
 				<uxap:ObjectPageHeader id="objectPageHeader" objectTitle="{objectView>/Title}" objectSubtitle="{MaintenanceNotification}">
 					<uxap:actions>
-						<uxap:ObjectPageHeaderActionButton id="editNotificationButton" icon="sap-icon://edit" press="onPressEdit" type="Emphasized" visible="{objectView>/editable}"/>
+						<uxap:ObjectPageHeaderActionButton id="editNotificationButton" icon="sap-icon://edit" press="onPressEdit" type="Emphasized" visible="{ parts: [{path: 'IsCompleted'},{path: 'IsDeleted'},{path: 'objectView>/editMode'}], formatter:'.formatter.editable'}"/>
 						<uxap:ObjectPageHeaderActionButton id="completeStatusButton" icon="sap-icon://edit" text="{i18n>SystemStatus}" hideText="false" press="onPressStatus" visible="{objectView>/editMode}"/>
 						<uxap:ObjectPageHeaderActionButton id="cancelNotificationButton" icon="sap-icon://cancel" press="onPressCancel" visible="{objectView>/editMode}"/>
 						<uxap:ObjectPageHeaderActionButton id="saveNotificationButton" icon="sap-icon://save" press="onPressSave" type="Emphasized" visible="{objectView>/editMode}"/>
@@ -101,9 +101,9 @@
 			<Toolbar>
 				<content>
 					<ToolbarSpacer />
-					<Button id="addNewNotificationItem" icon="sap-icon://add" text="{i18n>newNotificationItemTitle}" press="onAddItemPress" visible="{objectView>/showAdd}" />
-					<Button id="addNewTask" icon="sap-icon://add" text="{i18n>newNotificationTaskTitle}" press="onAddTaskPress" visible="{objectView>/showAdd}" />
-					<Button id="addNewActivity" icon="sap-icon://add" text="{i18n>newNotificationActivityTitle}" press="onAddActivityPress" visible="{objectView>/showAdd}" />
+					<Button id="addNewNotificationItem" icon="sap-icon://add" text="{i18n>newNotificationItemTitle}" press="onAddItemPress" visible="{ parts: [{path: 'IsCompleted'},{path: 'IsDeleted'},{path: 'objectView>/editMode'}], formatter:'.formatter.editable'}" />
+					<Button id="addNewTask" icon="sap-icon://add" text="{i18n>newNotificationTaskTitle}" press="onAddTaskPress" visible="{ parts: [{path: 'IsCompleted'},{path: 'IsDeleted'},{path: 'objectView>/editMode'}], formatter:'.formatter.editable'}" />
+					<Button id="addNewActivity" icon="sap-icon://add" text="{i18n>newNotificationActivityTitle}" press="onAddActivityPress" visible="{ parts: [{path: 'IsCompleted'},{path: 'IsDeleted'},{path: 'objectView>/editMode'}], formatter:'.formatter.editable'}" />
 				</content>
 			</Toolbar>
 		</footer>

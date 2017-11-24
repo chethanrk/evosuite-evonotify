@@ -43,8 +43,8 @@
 					text="{MaintNotifTaskText}"/>
 					<Text text="{MaintNotiTtaskCodeGroupName} ({MaintNotifTaskCodeGroup})"/>
 					<Text text="{MaintNotifTaskCodeName} ({MaintNotifTaskCode})"/>
-					<Text text="{path:'/PlannedStartDate', formatter:'.formatter.date'} {path:'/PlannedStartTime', formatter:'.formatter.time'}"/>
-					<Text text="{path:'/PlannedEndDate', formatter:'.formatter.date'} {path:'/PlannedEndTime', formatter:'.formatter.time'}"/>
+					<Text text="{path: 'PlannedStartDate', formatter:'.formatter.date'} {path: 'PlannedStartTime', formatter:'.formatter.time'}"/>
+					<Text text="{path: 'PlannedEndDate', formatter:'.formatter.date'} {path: 'PlannedEndTime', formatter:'.formatter.time'}"/>
 					<Text text="{Tasks>ResponsiblePerson}"/>
 				</cells>
 			</ColumnListItem>

@@ -36,7 +36,6 @@ sap.ui.define([
 						delay : 0,
 						isNew : false,
 						isEdit : false,
-						showMode: false,
 						editMode : false
 					});
 				
@@ -244,18 +243,9 @@ sap.ui.define([
 				}
 				// Everything went fine.
 				this._setNewHeaderTitle();
-				this._isEditable(data);
 				oViewModel.setProperty("/busy", false);
 			},
-			_isEditable : function(data){
-				if(data && (data.IsCompleted || data.IsDeleted) || this.getModel("objectView").getProperty("/editMode")){
-					this.getModel("objectView").setProperty("/showMode", false);
-				}else{
-					this.getModel("objectView").setProperty("/showMode", true);
-				}
-			},
 			_setEditMode : function(isEdit){
-				this.getModel("objectView").setProperty("/showMode", !isEdit);
 				this.getModel("objectView").setProperty("/editMode", isEdit);
 			},
 			_setNewHeaderTitle : function(){
