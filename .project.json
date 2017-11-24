@@ -360,6 +360,6 @@
   "hcpdeploy": {
     "account": "ad74c0790",
     "name": "evonotify",
-    "lastVersionWeTriedToDeploy": "1.0.4"
+    "lastVersionWeTriedToDeploy": "1.0.5"
   }
 }
