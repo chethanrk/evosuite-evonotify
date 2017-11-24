@@ -98,14 +98,14 @@
 		</uxap:ObjectPageLayout>
 		
 		<footer>
-			<Toolbar>
+			<OverflowToolbar>
 				<content>
 					<ToolbarSpacer />
 					<Button id="addNewNotificationItem" icon="sap-icon://add" text="{i18n>newNotificationItemTitle}" press="onAddItemPress" visible="{ parts: [{path: 'IsCompleted'},{path: 'IsDeleted'},{path: 'objectView>/editMode'}], formatter:'.formatter.editable'}" />
 					<Button id="addNewTask" icon="sap-icon://add" text="{i18n>newNotificationTaskTitle}" press="onAddTaskPress" visible="{ parts: [{path: 'IsCompleted'},{path: 'IsDeleted'},{path: 'objectView>/editMode'}], formatter:'.formatter.editable'}" />
 					<Button id="addNewActivity" icon="sap-icon://add" text="{i18n>newNotificationActivityTitle}" press="onAddActivityPress" visible="{ parts: [{path: 'IsCompleted'},{path: 'IsDeleted'},{path: 'objectView>/editMode'}], formatter:'.formatter.editable'}" />
 				</content>
-			</Toolbar>
+			</OverflowToolbar>
 		</footer>
 	</Page>
 </mvc:View>
