@@ -14,9 +14,9 @@
 			<uxap:headerTitle>
 				<uxap:ObjectPageHeader id="objectCausePageHeader" objectTitle="{objectView>/Title}" objectSubtitle="{MaintenanceNotificationCause}">
 					<uxap:actions>
-						<uxap:ObjectPageHeaderActionButton icon="sap-icon://edit" press="onPressEdit" type="Emphasized" visible="{objectView>/showMode}"/>
-						<uxap:ObjectPageHeaderActionButton icon="sap-icon://cancel" press="onPressCancel" visible="{objectView>/editMode}"/>
-						<uxap:ObjectPageHeaderActionButton icon="sap-icon://save" press="onPressSave" type="Emphasized" visible="{objectView>/editMode}"/>
+						<uxap:ObjectPageHeaderActionButton text="{i18n>objectHeaderActionEdit}" press="onPressEdit" type="Emphasized" visible="{objectView>/showMode}"/>
+						<uxap:ObjectPageHeaderActionButton text="{i18n>objectHeaderActionCancel}" press="onPressCancel" visible="{objectView>/editMode}"/>
+						<uxap:ObjectPageHeaderActionButton text="{i18n>objectHeaderActionSave}" press="onPressSave" type="Emphasized" visible="{objectView>/editMode}"/>
 					</uxap:actions>
 				</uxap:ObjectPageHeader>
 			</uxap:headerTitle>

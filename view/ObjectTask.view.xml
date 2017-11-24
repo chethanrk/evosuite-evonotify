@@ -14,10 +14,10 @@
 			<uxap:headerTitle>
 				<uxap:ObjectPageHeader id="objectTaskPageHeader" objectTitle="{objectView>/Title}" objectSubtitle="{MaintenanceNotificationTask}">
 					<uxap:actions>
-						<uxap:ObjectPageHeaderActionButton icon="sap-icon://edit" press="onPressEdit" type="Emphasized" visible="{ parts: [{path: 'IsCompleted'},{path: 'IsDeleted'},{path: 'objectView>/editMode'}], formatter:'.formatter.editable'}"/>
+						<uxap:ObjectPageHeaderActionButton text="{i18n>objectHeaderActionEdit}" press="onPressEdit" type="Emphasized" visible="{ parts: [{path: 'IsCompleted'},{path: 'IsDeleted'},{path: 'objectView>/editMode'}], formatter:'.formatter.editable'}"/>
 						<uxap:ObjectPageHeaderActionButton id="completeStatusButton" icon="sap-icon://edit" text="{i18n>SystemStatus}" hideText="false" press="onPressStatus" visible="{objectView>/editMode}"/>
-						<uxap:ObjectPageHeaderActionButton icon="sap-icon://cancel" press="onPressCancel" visible="{objectView>/editMode}"/>
-						<uxap:ObjectPageHeaderActionButton icon="sap-icon://save" press="onPressSave" type="Emphasized" visible="{objectView>/editMode}"/>
+						<uxap:ObjectPageHeaderActionButton text="{i18n>objectHeaderActionCancel}" press="onPressCancel" visible="{objectView>/editMode}"/>
+						<uxap:ObjectPageHeaderActionButton text="{i18n>objectHeaderActionSave}" press="onPressSave" type="Emphasized" visible="{objectView>/editMode}"/>
 					</uxap:actions>
 				</uxap:ObjectPageHeader>
 			</uxap:headerTitle>
