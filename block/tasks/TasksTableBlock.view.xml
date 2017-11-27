@@ -6,7 +6,7 @@
 	xmlns:smartField="sap.ui.comp.smartfield">
 	
 	<Table id="notificationTaskTable" width="auto" class="sapUiNoMargin"
-		items="{path : 'to_PMNotificationTask',
+		items="{path : '{objectView>/taskViewPath}',
                 sorter : {
                     path : 'MaintenanceNotificationTask',
                     descending : false

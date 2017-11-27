@@ -40,6 +40,8 @@ sap.ui.define([
 						isEdit : false,
 						showMode: false,
 						editMode : false,
+						taskViewPath : "",
+						actViewPath : "",
 						tableNoDataTextCauses : this.getResourceBundle().getText("tableNoDataText", [tableNoDataTextCauses]),
 						tableNoDataTextTasks : this.getResourceBundle().getText("tableNoDataText", [tableNoDataTextTasks]),
 						tableNoDataTextActivities : this.getResourceBundle().getText("tableNoDataText", [tableNoDataTextActivities]),
@@ -240,7 +242,8 @@ sap.ui.define([
 			_bindView : function (sObjectPath) {
 				var oViewModel = this.getModel("objectView"),
 					oDataModel = this.getModel();
-
+				oViewModel.setProperty("/taskViewPath","to_PMNotificationItemTask");
+				oViewModel.setProperty("/actViewPath","to_PMNotificationItemActivity");
 				this.getView().bindElement({
 					path: sObjectPath,
 					parameters: {

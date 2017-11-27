@@ -43,6 +43,8 @@ sap.ui.define([
 						isNew : false,
 						isEdit : false,
 						editMode : false,
+						taskViewPath : "",
+						actViewPath : "",
 						saveAsTileTitle: this.getResourceBundle().getText("itemsViewTitle"),
 						shareOnJamTitle: this.getResourceBundle().getText("itemsViewTitle"),
 						itemsTableTitle : tableNoDataTextItems,
@@ -299,7 +301,8 @@ sap.ui.define([
 			_bindView : function (sObjectPath) {
 				var oViewModel = this.getModel("objectView"),
 					oDataModel = this.getModel();
-					
+					oViewModel.setProperty("/taskViewPath" , "to_PMNotificationTask");
+					oViewModel.setProperty("/actViewPath" , "to_PMNotificationActivity");
 				this.getView().bindElement({
 					path: sObjectPath,
 					parameters: {
