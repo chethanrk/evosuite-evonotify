@@ -35,7 +35,8 @@ sap.ui.define([
 						isNew : false,
 						isEdit : false,
 						showMode: false,
-						editMode : false
+						editMode : false,
+						MaintenanceNotification : 0
 					});
 
 				this.getRouter().getRoute("cause").attachPatternMatched(this._onObjectMatched, this);
@@ -140,9 +141,10 @@ sap.ui.define([
 				oDataModel.metadataLoaded().then( function() {
 					oViewModel.setProperty("/isNew", isNew);
 					oViewModel.setProperty("/isEdit", !isNew);
-					//this._setEditMode(isNew);
+					oViewModel.setProperty("/MaintenanceNotification",sObjectId);
+					this._setEditMode(isNew);
 					this.showAllSmartFields(this.oForm);
-					
+					 
 					if(isNew){
 						var oContext = oDataModel.createEntry("/PMNotificationCauses");
 						oDataModel.setProperty(oContext.sPath+"/MaintenanceNotification", sObjectId);
@@ -194,8 +196,13 @@ sap.ui.define([
 			_onBindingChange : function () {
 				var oView = this.getView(),
 					oViewModel = this.getModel("objectView"),
-					oElementBinding = oView.getElementBinding();
-
+					oElementBinding = oView.getElementBinding(),
+					oContext = oElementBinding.getBoundContext(),
+			    	data = this.getModel().getProperty(oContext.sPath);
+					
+					if(data.MaintNotifCauseCodeCatalog === ""){
+						data.MaintNotifCauseCodeCatalog = '5';
+					}
 				// No data for the binding
 				if (!oElementBinding.getBoundContext()) {
 					this.getRouter().getTargets().display("objectNotFound");
@@ -207,8 +214,21 @@ sap.ui.define([
 			},
 			
 			_setEditMode : function(isEdit){
-				this.getModel("objectView").setProperty("/showMode", !isEdit);
-				this.getModel("objectView").setProperty("/editMode", isEdit);
+				if(isEdit){
+					this.getModel("objectView").setProperty("/showMode", !isEdit);
+					this.getModel("objectView").setProperty("/editMode", isEdit); 
+				}else{
+					var MaintenanceNotification = this.getModel("objectView").getProperty("/MaintenanceNotification"),
+					sPath = this.getModel().getContext("/PMNotifications").getPath(),
+					isCompleted = this.getModel().getProperty(sPath+"('"+MaintenanceNotification+"')/IsCompleted"),
+					isDeleted = this.getModel().getProperty(sPath+"('"+MaintenanceNotification+"')/IsDeleted");
+					
+					if(isCompleted || isDeleted){
+						this.getModel("objectView").setProperty("/showMode", isEdit);
+					}else{
+						this.getModel("objectView").setProperty("/showMode", !isEdit);
+					}
+				}
 			},
 			
 			_setNewHeaderTitle : function(){

@@ -16,7 +16,7 @@
 				<smartField:SmartField value="{MaintenanceNotification}" editableChanged="onEditChanged"/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField id="MaintenanceNotificationItem" value="{MaintenancenNotificationItem}" editableChanged="onEditChanged"/>
+				<smartField:SmartField id="MaintenanceNotificationItem" value="{MaintenanceNotificationItem}" editableChanged="onEditChanged"/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintNotificationActivity}" editableChanged="onEditChanged"/>

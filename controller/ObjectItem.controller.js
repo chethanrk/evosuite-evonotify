@@ -40,8 +40,7 @@ sap.ui.define([
 						isEdit : false,
 						showMode: false,
 						editMode : false,
-						taskViewPath : "",
-						actViewPath : "",
+						MaintenanceNotification : 0,
 						tableNoDataTextCauses : this.getResourceBundle().getText("tableNoDataText", [tableNoDataTextCauses]),
 						tableNoDataTextTasks : this.getResourceBundle().getText("tableNoDataText", [tableNoDataTextTasks]),
 						tableNoDataTextActivities : this.getResourceBundle().getText("tableNoDataText", [tableNoDataTextActivities]),
@@ -170,11 +169,43 @@ sap.ui.define([
 				this.onPressCancel();
 				this.getRouter().navTo("activity", {
 					objectId: obj.MaintenanceNotification,
-					itemId: obj.MaintenancenNotificationItem,
+					itemId: obj.MaintenanceNotificationItem,
 					activityId: obj.MaintNotificationActivity
 				});
 			},
-			
+			/**
+			 * navigate to new notification item
+			 */
+			onAddItemCausePress : function(){
+				this.onPressCancel();
+				this.getRouter().navTo("cause", {
+					objectId: this.getView().getBindingContext().getProperty("MaintenanceNotification"),
+					itemId: this.getView().getBindingContext().getProperty("MaintenanceNotificationItem"),
+					causeId: "new"
+				});
+			},
+			/**
+			 * navigate to new notification item
+			 */
+			onAddItemTaskPress : function(){
+				this.onPressCancel();
+				this.getRouter().navTo("task", {
+					objectId: this.getView().getBindingContext().getProperty("MaintenanceNotification"),
+					itemId: this.getView().getBindingContext().getProperty("MaintenanceNotificationItem"),
+					taskId: "new"
+				});
+			},
+			/**
+			 * navigate to new notification item
+			 */
+			onAddItemActivityPress : function(){
+				this.onPressCancel();
+				this.getRouter().navTo("activity", {
+					objectId: this.getView().getBindingContext().getProperty("MaintenanceNotification"),
+					itemId: this.getView().getBindingContext().getProperty("MaintenanceNotificationItem"),
+					activityId: "new"
+				});
+			},
 			/**
 			 * fired edit toggle event from subsection block DetailsFormBlock
 			 */
@@ -204,6 +235,7 @@ sap.ui.define([
 					isNew = (sItemId === "new");
 					
 				var sObjectId =  oEvent.getParameter("arguments").objectId;
+			    oViewModel.setProperty("/MaintenanceNotification",sObjectId);
 				oDataModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
 				
 				oDataModel.metadataLoaded().then( function() {
@@ -242,8 +274,8 @@ sap.ui.define([
 			_bindView : function (sObjectPath) {
 				var oViewModel = this.getModel("objectView"),
 					oDataModel = this.getModel();
-				oViewModel.setProperty("/taskViewPath","to_PMNotificationItemTask");
-				oViewModel.setProperty("/actViewPath","to_PMNotificationItemActivity");
+				//oViewModel.setProperty("/taskViewPath","to_PMNotificationItemTask");
+				//oViewModel.setProperty("/actViewPath","to_PMNotificationItemActivity");
 				this.getView().bindElement({
 					path: sObjectPath,
 					parameters: {
@@ -288,14 +320,13 @@ sap.ui.define([
 					sObjectName = oObject.NotificationText;
 					
 				//to_PMNotificationItemTask
-				this.generateHelperJsonModel(oContext, "to_PMNotificationItemTask", "Tasks");
+			//	this.generateHelperJsonModel(oContext, "to_PMNotificationItemTask", "Tasks");
 				
 				//to_PMNotificationItemActivity
-				this.generateHelperJsonModel(oContext, "to_PMNotificationItemActivity", "Activities");
+			//	this.generateHelperJsonModel(oContext, "to_PMNotificationItemActivity", "Activities");
 					
 				// Everything went fine.
-				this._setNewHeaderTitle();
-				
+				this._setNewHeaderTitle(); 
 				oViewModel.setProperty("/busy", false);
 				oViewModel.setProperty("/saveAsTileTitle", oResourceBundle.getText("saveAsTileTitle", [sObjectName]));
 				oViewModel.setProperty("/shareOnJamTitle", sObjectName);
@@ -306,8 +337,21 @@ sap.ui.define([
 			},
 			
 			_setEditMode : function(isEdit){
+				if(isEdit){
 				this.getModel("objectView").setProperty("/showMode", !isEdit);
-				this.getModel("objectView").setProperty("/editMode", isEdit);
+				this.getModel("objectView").setProperty("/editMode", isEdit); 
+				}else{
+					var MaintenanceNotification = this.getModel("objectView").getProperty("/MaintenanceNotification"),
+					sPath = this.getModel().getContext("/PMNotifications").getPath(),
+					isCompleted = this.getModel().getProperty(sPath+"('"+MaintenanceNotification+"')/IsCompleted"),
+					isDeleted = this.getModel().getProperty(sPath+"('"+MaintenanceNotification+"')/IsDeleted");
+					
+					if(isCompleted || isDeleted){
+						this.getModel("objectView").setProperty("/showMode", isEdit);
+					}else{
+						this.getModel("objectView").setProperty("/showMode", !isEdit);
+					}
+				}
 			},
 			
 			_setNewHeaderTitle : function(){

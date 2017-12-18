@@ -129,8 +129,8 @@ sap.ui.define([
 				this.onPressCancel();
 				this.getRouter().navTo("objtask", {
 					objectId: obj.MaintenanceNotification,
-					taskId: obj.MaintenanceNotificationTask
-					//itemId: 0
+					taskId: obj.MaintenanceNotificationTask,
+					itemId: 0
 				});
 			},
 			
@@ -227,6 +227,7 @@ sap.ui.define([
 				this.onPressCancel();
 				this.getRouter().navTo("objtask", {
 					objectId: this.getView().getBindingContext().getProperty("MaintenanceNotification"),
+					itemId: 0,
 					taskId: "new"
 				});
 			},
@@ -237,6 +238,7 @@ sap.ui.define([
 				this.onPressCancel();
 				this.getRouter().navTo("objactivity", {
 					objectId: this.getView().getBindingContext().getProperty("MaintenanceNotification"),
+					itemId: 0,
 					activityId: "new"
 				});
 			},
@@ -306,8 +308,8 @@ sap.ui.define([
 				this.getView().bindElement({
 					path: sObjectPath,
 					parameters: {
-						expand: "to_PMNotificationItem,to_PMNotificationTask,to_PMNotificationActivity"	
-					},
+							expand: "to_PMNotificationItem,to_PMNotificationTask,to_PMNotificationActivity"	
+ 				},
 					events: {
 						change: this._onBindingChange.bind(this),
 						dataRequested: function () {
@@ -343,10 +345,10 @@ sap.ui.define([
 				}
 				
 				//to_PMNotificationTask
-				this.generateHelperJsonModel(oContext, "to_PMNotificationTask", "Tasks");
+				//this.generateHelperJsonModel(oContext, "to_PMNotificationTask", "Tasks");
 				
 				//to_PMNotificationActivity
-				this.generateHelperJsonModel(oContext, "to_PMNotificationActivity", "Activities");
+			//this.generateHelperJsonModel(oContext, "to_PMNotificationActivity", "Activities");
 				
 				// Everything went fine.
 				this._setNewHeaderTitle();

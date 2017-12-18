@@ -7,9 +7,9 @@
 	xmlns:smartTable="sap.ui.comp.smarttable" 
 	controllerName="com.evorait.evolite.evonotify.controller.Worklist">
 	<semantic:FullscreenPage id="page" navButtonPress="onNavBack" title="{i18n>worklistViewTitle}" floatingFooter="false">
-		<semantic:addAction>
-			<semantic:AddAction id="addNotificationButton" press="onAddPress"/>
-		</semantic:addAction>
+		<semantic:customFooterContent>
+                    <Button icon="sap-icon://add" text="{i18n>newNotification}" press="onAddPress" />
+          </semantic:customFooterContent>
 		<semantic:content>
 	    	<smartFilterBar:SmartFilterBar 
 	    		id="NotificationFilter" 

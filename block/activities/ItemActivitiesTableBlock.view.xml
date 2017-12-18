@@ -5,8 +5,8 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:smartField="sap.ui.comp.smartfield">
 	
-	<Table id="notificationActivityTable" width="auto" class="sapUiNoMargin"
-		items="{path : 'to_PMNotificationActivity',  
+	<Table id="notificationItemActivityTable" width="auto" class="sapUiNoMargin"
+		items="{path : 'to_PMNotificationItemActivity',  
                 sorter : {
                     path : 'MaintNotificationActivity',
                     descending : false

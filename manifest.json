@@ -92,6 +92,10 @@
 			"": {
 				"dataSource": "mainService",
 				"preload": true
+			},
+			"@i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
 			}
 		},
 		"routing": {
@@ -131,14 +135,14 @@
 					]
 				},
 				{
-					"pattern": "PMNotifications/PMNotificationTasks/{objectId}/{taskId}",
+					"pattern": "PMNotifications/PMNotificationTasks/{objectId}/{itemId}/{taskId}",
 					"name": "objtask",
 					"target": [
 						"task"
 					]
 				},
 				{
-					"pattern": "PMNotifications/PMNotificationActivities/{objectId}/{activityId}",
+					"pattern": "PMNotifications/PMNotificationActivities/{objectId}/{itemId}/{activityId}",
 					"name": "objactivity",
 					"target": [
 						"activity"
@@ -148,21 +152,21 @@
 					"pattern": "PMNotifications/PMNotificationTasks/{objectId}/{itemId}/{taskId}",
 					"name": "task",
 					"target": [
-						"task"
+						"itemtask"
 					]
 				},
 				{
 					"pattern": "PMNotifications/PMNotificationActivities/{objectId}/{itemId}/{activityId}",
 					"name": "activity",
 					"target": [
-						"activity"
+						"itemactivity"
 					]
 				},
 				{
 					"pattern": "PMNotifications/PMNotificationCauses/{objectId}/{itemId}/{causeId}",
 					"name": "cause",
 					"target": [
-						"cause"
+						"itemcause"
 					]
 				}
 			],
@@ -192,7 +196,17 @@
 					"viewId": "activity",
 					"viewLevel": 3
 				},
-				"cause": {
+				"itemtask": {
+					"viewName": "ObjectTask",
+					"viewId": "task",
+					"viewLevel": 4
+				},
+				"itemactivity": {
+					"viewName": "ObjectActivity",
+					"viewId": "activity",
+					"viewLevel": 4
+				},
+				"itemcause": {
 					"viewName": "ObjectCause",
 					"viewId": "cause",
 					"viewLevel": 4

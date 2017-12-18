@@ -52,7 +52,7 @@
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
-								<tasks:TasksTableBlock id="itemsTasksTableBlock" itemPress="onPressTask" />
+								<tasks:ItemTasksTableBlock id="itemsTasksTableBlock" itemPress="onPressTask" />
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>
@@ -62,7 +62,7 @@
 					<uxap:subSections>
 						<uxap:ObjectPageSubSection>
 							<uxap:blocks>
-								<activities:ActivitiesTableBlock id="itemsActivitiesTableBlock" itemPress="onPressActivity"/>
+								<activities:ItemActivitiesTableBlock id="itemsActivitiesTableBlock" itemPress="onPressActivity"/>
 							</uxap:blocks>
 						</uxap:ObjectPageSubSection>
 					</uxap:subSections>
@@ -70,5 +70,15 @@
 			</uxap:sections>
 		</uxap:ObjectPageLayout>
 		
+		<footer>
+			<OverflowToolbar>
+				<content>
+					<ToolbarSpacer />
+					<Button id="addNewCause" icon="sap-icon://add" text="{i18n>newNotificationItemCauseTitle}" press="onAddItemCausePress" visible="{objectView>/showMode}" />
+					<Button id="addNewTask" icon="sap-icon://add" text="{i18n>newNotificationItemTaskTitle}" press="onAddItemTaskPress" visible="{objectView>/showMode}" />
+					<Button id="addNewActivity" icon="sap-icon://add" text="{i18n>newNotificationItemActivityTitle}" press="onAddItemActivityPress" visible="{objectView>/showMode}" />
+				</content>
+			</OverflowToolbar>
+		</footer>
 	</Page>
 </mvc:View>

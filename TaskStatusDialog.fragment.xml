@@ -7,7 +7,7 @@
 		showSearch="false"
 		search="handleSearch"
 		confirm="handleClose"
-		close="handleClose"
+		close="handleClose" 
 		items="{
 			path: '/SystemStatus'
 		}" >

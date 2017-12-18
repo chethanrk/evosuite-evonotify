@@ -181,6 +181,7 @@ sap.ui.define([
 					if(isNew){
 						var oContext = oDataModel.createEntry("/PMNotificationTasks");
 						oDataModel.setProperty(oContext.sPath+"/MaintenanceNotification", sObjectId);
+						oDataModel.setProperty(oContext.sPath+"/MaintenanceNotificationItem", sItemId);
 						oDataModel.setProperty(oContext.sPath+"/MaintNotifTaskCodeCatalog", '2');
 						this.getView().unbindElement();
 						this.getView().setBindingContext(oContext);

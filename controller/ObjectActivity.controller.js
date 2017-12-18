@@ -35,7 +35,8 @@ sap.ui.define([
 						isNew : false,
 						isEdit : false,
 						showMode: false,
-						editMode : false
+						editMode : false,
+						MaintenanceNotification : 0
 					});
 
 				this.getRouter().getRoute("objactivity").attachPatternMatched(this._onObjectMatched, this);
@@ -145,12 +146,14 @@ sap.ui.define([
 				oDataModel.metadataLoaded().then( function() {
 					oViewModel.setProperty("/isNew", isNew);
 					oViewModel.setProperty("/isEdit", !isNew);
+					oViewModel.setProperty("/MaintenanceNotification",sObjectId);
 					this._setEditMode(isNew);
 					this.showAllSmartFields(this.oForm);
 					
 					if(isNew){
 						var oContext = oDataModel.createEntry("/PMNotificationActivities");
 						oDataModel.setProperty(oContext.sPath+"/MaintenanceNotification", sObjectId);
+						oDataModel.setProperty(oContext.sPath+"/MaintenanceNotificationItem", sItemId);
 						oDataModel.setProperty(oContext.sPath+"/MaintNotifAcivityCodeCatalog", 'A');
 						this.getView().unbindElement();
 						this.getView().setBindingContext(oContext);
@@ -222,8 +225,21 @@ sap.ui.define([
 			},
 			
 			_setEditMode : function(isEdit){
-				this.getModel("objectView").setProperty("/showMode", !isEdit);
-				this.getModel("objectView").setProperty("/editMode", isEdit);
+				if(isEdit){
+					this.getModel("objectView").setProperty("/showMode", !isEdit);
+					this.getModel("objectView").setProperty("/editMode", isEdit); 
+				}else{
+					var MaintenanceNotification = this.getModel("objectView").getProperty("/MaintenanceNotification"),
+					sPath = this.getModel().getContext("/PMNotifications").getPath(),
+					isCompleted = this.getModel().getProperty(sPath+"('"+MaintenanceNotification+"')/IsCompleted"),
+					isDeleted = this.getModel().getProperty(sPath+"('"+MaintenanceNotification+"')/IsDeleted");
+					
+					if(isCompleted || isDeleted){
+						this.getModel("objectView").setProperty("/showMode", isEdit);
+					}else{
+						this.getModel("objectView").setProperty("/showMode", !isEdit);
+					}
+				}
 			},
 			
 			
