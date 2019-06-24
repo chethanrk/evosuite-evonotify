@@ -1,0 +1,52 @@
+{
+	"HeaderStatus": [
+		{
+			"ObjectCategory": "QMI",
+			"StatusCode": "I0069",
+			"Language": "EN",
+			"StatusText": "NOPO",
+			"StatusDescription": "Notification postponed",
+			"PhaseValue": "2"
+		},
+		{
+			"ObjectCategory": "QMI",
+			"StatusCode": "I0070",
+			"Language": "EN",
+			"StatusText": "NOPR",
+			"StatusDescription": "Notification in process",
+			"PhaseValue": "3"
+		},
+		{
+			"ObjectCategory": "QMI",
+			"StatusCode": "I0072",
+			"Language": "EN",
+			"StatusText": "NOCO",
+			"StatusDescription": "Notification Complete",
+			"PhaseValue": "4"
+			
+		}
+	],
+	"TaskStatus": [
+		{
+			"ObjectCategory": "QA0",
+			"StatusCode": "I0155",
+			"Language": "EN",
+			"StatusText": "TSRL",
+			"StatusDescription": "Task Released"
+		},
+		{
+			"ObjectCategory": "QA0",
+			"StatusCode": "I0156",
+			"Language": "EN",
+			"StatusText": "TSCO",
+			"StatusDescription": "Task Completed"
+		},
+		{
+			"ObjectCategory": "QA0",
+			"StatusCode": "I0157",
+			"Language": "EN",
+			"StatusText": "TSSC",
+			"StatusDescription": "Task Successful"
+		}
+	]
+}

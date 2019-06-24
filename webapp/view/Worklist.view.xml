@@ -1,0 +1,54 @@
+<mvc:View 
+	xmlns="sap.m" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:semantic="sap.m.semantic"
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" 
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:core="sap.ui.core"
+	controllerName="com.evorait.evolite.evonotify.controller.Worklist">
+	<semantic:FullscreenPage id="page" navButtonPress="onNavBack" title="{i18n>worklistViewTitle}" floatingFooter="false">
+		<semantic:customFooterContent>
+                    <Button icon="sap-icon://add" text="{i18n>newNotification}" press="onAddPress" />
+          </semantic:customFooterContent>
+		<semantic:content>
+	    	<smartFilterBar:SmartFilterBar 
+	    		id="NotificationFilter" 
+	    		entityType="PMNotification"
+	    		expandAdvancedArea="true" 
+	    		showGoButton="true">
+	        	<smartFilterBar:controlConfiguration>
+	            	<smartFilterBar:ControlConfiguration id="__configuration0"/>
+	        	</smartFilterBar:controlConfiguration>
+	    	</smartFilterBar:SmartFilterBar>
+	    	<smartTable:SmartTable 
+	    		height="100%" 
+	    		width="100%" 
+	    		direction="Column" 
+	    		fitContainer="true" 
+	    		tableType="ResponsiveTable" 
+	    		enableAutoBinding="true" 
+	    		id="NotificationTable" 
+	    		entitySet="PMNotifications" 
+	    		smartFilterId="NotificationFilter"
+	    		showRowCount="true"
+	    		header="{i18n>worklistTableTitle}"
+	    		demandPopin="true">
+	    		<Table id="responsiveNotificationTable" growing="true">
+					<columns>
+						<Column width="3rem">
+							<Text text = "{NotifProcessingPhase/##com.sap.vocabularies.Common.v1.Label/String}"/>
+							<customData>
+								<core:CustomData key="p13nData" value='\{"columnKey": "IsCompleted","leadingProperty": "IsCompleted"}'/>
+							</customData>
+						</Column>
+					</columns>
+					<ColumnListItem type="Navigation" press="onPressTableRow">
+						<cells>
+							<core:Icon src="{path: 'NotifProcessingPhase',formatter: '.formatter.formatIsEditableIcon'}" alt="{path: 'NotifProcessingPhaseDesc'}"/>
+						</cells>
+					</ColumnListItem>
+	    		</Table>
+	    	</smartTable:SmartTable>
+		</semantic:content>
+	</semantic:FullscreenPage>
+</mvc:View>

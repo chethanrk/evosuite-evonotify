@@ -1,0 +1,233 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:smartField="sap.ui.comp.smartfield" xmlns:smartForm="sap.ui.comp.smartform" controllerName="com.evorait.evolite.evonotify.block.details.DetailsFormBlockController">
+	
+	<smartForm:SmartForm id="SmartNotificationForm" editTogglable="false" editToggled="onEditPress" checked="onChecked" editable="{objectView>/editMode}">
+		
+		<smartForm:Group label="{i18n>generalSectionTitle}">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S12"/>
+			</smartForm:layout>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenanceNotification}" editableChanged="onEditChanged"/>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{NotificationText}" editableChanged="onEditChanged"/>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{NotificationType}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenanceOrder}" editableChanged="onEditChanged"/>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{CreationDate}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="datePicker" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{CreationTime}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="timePicker" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintPriority}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{ReportedByUser}" editableChanged="onEditChanged"/>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement visible="false">
+				<smartField:SmartField value="{CreatedByUser}" editableChanged="onEditChanged"/>
+			</smartForm:GroupElement>
+		</smartForm:Group>
+		
+		<smartForm:Group label="{i18n>malfunctionalSectionTitle}">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S12"/>
+			</smartForm:layout>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MalfunctionStartDate}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="datePicker" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MalfunctionStartTime}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="timePicker" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MalfunctionEndDate}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="datePicker" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MalfunctionEndTime}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="timePicker" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintObjectDowntimeDuration}" editableChanged="onEditChanged"/>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenanceObjectIsDown}" editableChanged="onEditChanged"/>
+			</smartForm:GroupElement>
+		</smartForm:Group>
+		
+		<smartForm:Group label="Description">
+			<smartForm:layout>
+				<layout:GridData span="L12 M12 S12"/>
+			</smartForm:layout>
+			<smartForm:GroupElement>
+				<TextArea value="{MaintNotificationLongText}" rows="8" editable="{objectView>/editMode}" growing="true"/>
+			</smartForm:GroupElement>
+		</smartForm:Group>		
+		
+		<smartForm:Group label="{i18n>refObjectsSectionTitle}">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S12"/>
+			</smartForm:layout>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{TechnicalObjectLabel}" editableChanged="onEditChanged" />
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{TechObjIsEquipOrFunclLoc}" editableChanged="onEditChanged" />
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{Assembly}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+		</smartForm:Group>
+		
+		<smartForm:Group label="{i18n>datesSectionTitle}">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S12"/>
+			</smartForm:layout>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{RequiredStartDate}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="datePicker" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{RequiredStartTime}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="timePicker" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{RequiredEndDate}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="datePicker" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{RequiredEndTime}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="timePicker" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenanceRevision}" editableChanged="onEditChanged"/>
+			</smartForm:GroupElement>
+		</smartForm:Group>
+		
+		<smartForm:Group label="{i18n>locationSectionTitle}">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S12"/>
+			</smartForm:layout>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenanceWorkCenterPlant}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>	
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{AssetLocation}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>	
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{ABCIndicator}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>	
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenancePlant}">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>	
+			</smartForm:GroupElement>
+		</smartForm:Group>
+		
+		<smartForm:Group label="{i18n>systemUserStateSectionTitle}">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S12"/>
+			</smartForm:layout>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{ConcatenatedActSysStsName}" editableChanged="onEditChanged" />
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{ConcatenatedActUserStsName}" editableChanged="onEditChanged" />
+			</smartForm:GroupElement>
+		</smartForm:Group>
+		
+		<smartForm:Group label="{i18n>responsibilitySectionTitle}">
+			<smartForm:layout>
+				<layout:GridData span="L6 M6 S12"/>
+			</smartForm:layout>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenancePlanningPlant}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>						
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenancePlannerGroup}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>						
+			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{MaintenanceWorkCenter}" editableChanged="onEditChanged">
+					<smartField:configuration>
+						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+					</smartField:configuration>
+				</smartField:SmartField>						
+			</smartForm:GroupElement>
+		</smartForm:Group>
+		
+	</smartForm:SmartForm>
+</mvc:View>

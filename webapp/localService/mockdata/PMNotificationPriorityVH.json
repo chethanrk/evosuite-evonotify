@@ -1,0 +1,41 @@
+[{
+	"MaintPriorityType": "Maintprioritytype 1",
+	"MaintPriority": "Maintpriority 1",
+	"MaintPriorityText": "Maintprioritytext 1"
+}, {
+	"MaintPriorityType": "Maintprioritytype 2",
+	"MaintPriority": "Maintpriority 2",
+	"MaintPriorityText": "Maintprioritytext 2"
+}, {
+	"MaintPriorityType": "Maintprioritytype 3",
+	"MaintPriority": "Maintpriority 3",
+	"MaintPriorityText": "Maintprioritytext 3"
+}, {
+	"MaintPriorityType": "Maintprioritytype 4",
+	"MaintPriority": "Maintpriority 4",
+	"MaintPriorityText": "Maintprioritytext 4"
+}, {
+	"MaintPriorityType": "Maintprioritytype 5",
+	"MaintPriority": "Maintpriority 5",
+	"MaintPriorityText": "Maintprioritytext 5"
+}, {
+	"MaintPriorityType": "Maintprioritytype 6",
+	"MaintPriority": "Maintpriority 6",
+	"MaintPriorityText": "Maintprioritytext 6"
+}, {
+	"MaintPriorityType": "Maintprioritytype 7",
+	"MaintPriority": "Maintpriority 7",
+	"MaintPriorityText": "Maintprioritytext 7"
+}, {
+	"MaintPriorityType": "Maintprioritytype 8",
+	"MaintPriority": "Maintpriority 8",
+	"MaintPriorityText": "Maintprioritytext 8"
+}, {
+	"MaintPriorityType": "Maintprioritytype 9",
+	"MaintPriority": "Maintpriority 9",
+	"MaintPriorityText": "Maintprioritytext 9"
+}, {
+	"MaintPriorityType": "Maintprioritytype 10",
+	"MaintPriority": "Maintpriority 10",
+	"MaintPriorityText": "Maintprioritytext 10"
+}]

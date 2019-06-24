@@ -1,0 +1,67 @@
+[{
+	"MaintNotifDamageCodeGroup": "PUMP/100",
+	"Mandt": "",
+	"MaintenanceNotification": "Maintenancenotification1",
+	"MaintNotifDamageCodeGroupName": "Pump damage",
+	"MaintenanceNotificationItem": "MaintenanceNotificationItem1",
+	"MaintNotifDamageCode": "1005",
+	"MaintNotifDamageCodeName": "Unusual Noises",
+	"MaintNotifItemText": "Abnormes Geräusch",
+	"MaintNotifObjPrtCodeGroup": "PUMP/100",
+	"MaintNotifObjPrtCodeGroupName": "Pump assemblies",
+	"MaintNotifObjPrtCode": "1001",
+	"MaintNotifObjPrtCodeName": "Inlet/Outlet",
+	"to_PMNotificationCause": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification1',MaintenanceNotificationItem='MaintenanceNotificationItem1')/to_PMNotificationCause"
+		}
+	},
+	"to_PMNotificationTask": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification1',MaintenanceNotificationItem='MaintenanceNotificationItem1')/to_PMNotificationTask"
+		}
+	},
+	"to_PMNotificationItemActivity": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification1',MaintenanceNotificationItem='MaintenanceNotificationItem1')/to_PMNotificationItemActivity"
+		}
+	},
+	"PMNotification": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification1',MaintenanceNotificationItem='MaintenanceNotificationItem1')/PMNotification"
+		}
+	}
+},{
+	"MaintNotifDamageCodeGroup": "PUMP/100",
+	"Mandt": "",
+	"MaintenanceNotification": "Maintenancenotification2",
+	"MaintNotifDamageCodeGroupName": "Pump damage",
+	"MaintenanceNotificationItem": "MaintenanceNotificationItem2",
+	"MaintNotifDamageCode": "1005",
+	"MaintNotifDamageCodeName": "Unusual Noises",
+	"MaintNotifItemText": "Abnormes Geräusch",
+	"MaintNotifObjPrtCodeGroup": "PUMP/100",
+	"MaintNotifObjPrtCodeGroupName": "Pump assemblies",
+	"MaintNotifObjPrtCode": "1001",
+	"MaintNotifObjPrtCodeName": "Inlet/Outlet",
+	"to_PMNotificationCause": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification2',MaintenanceNotificationItem='MaintenanceNotificationItem2')/to_PMNotificationCause"
+		}
+	},
+	"to_PMNotificationTask": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification2',MaintenanceNotificationItem='MaintenanceNotificationItem2')/to_PMNotificationTask"
+		}
+	},
+	"to_PMNotificationItemActivity": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification2',MaintenanceNotificationItem='MaintenanceNotificationItem2')/to_PMNotificationItemActivity"
+		}
+	},
+	"PMNotification": {
+		"__deferred": {
+			"uri": "PMNotifications('Maintenancenotification2',MaintenanceNotificationItem='MaintenanceNotificationItem2')/PMNotification"
+		}
+	}
+}]
