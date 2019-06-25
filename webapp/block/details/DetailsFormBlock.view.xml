@@ -30,11 +30,7 @@
 				</smartField:SmartField>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{CreationTime}" editableChanged="onEditChanged">
-					<smartField:configuration>
-						<smartField:Configuration controlType="timePicker" displayBehaviour="descriptionAndId"/>
-					</smartField:configuration>
-				</smartField:SmartField>
+				<smartField:SmartField value="{CreationTime}" editableChanged="onEditChanged"/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintPriority}" editableChanged="onEditChanged">
@@ -63,11 +59,7 @@
 				</smartField:SmartField>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MalfunctionStartTime}" editableChanged="onEditChanged">
-					<smartField:configuration>
-						<smartField:Configuration controlType="timePicker" displayBehaviour="descriptionAndId"/>
-					</smartField:configuration>
-				</smartField:SmartField>
+				<smartField:SmartField value="{MalfunctionStartTime}" editableChanged="onEditChanged"/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MalfunctionEndDate}" editableChanged="onEditChanged">
@@ -77,11 +69,7 @@
 				</smartField:SmartField>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MalfunctionEndTime}" editableChanged="onEditChanged">
-					<smartField:configuration>
-						<smartField:Configuration controlType="timePicker" displayBehaviour="descriptionAndId"/>
-					</smartField:configuration>
-				</smartField:SmartField>
+				<smartField:SmartField value="{MalfunctionEndTime}" editableChanged="onEditChanged"/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintObjectDowntimeDuration}" editableChanged="onEditChanged"/>
@@ -105,7 +93,7 @@
 				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layout>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{TechnicalObjectLabel}" editableChanged="onEditChanged" />
+				<smartField:SmartField value="{TechnicalObject}" editableChanged="onEditChanged" />
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{TechObjIsEquipOrFunclLoc}" editableChanged="onEditChanged" />
@@ -131,11 +119,7 @@
 				</smartField:SmartField>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{RequiredStartTime}" editableChanged="onEditChanged">
-					<smartField:configuration>
-						<smartField:Configuration controlType="timePicker" displayBehaviour="descriptionAndId"/>
-					</smartField:configuration>
-				</smartField:SmartField>
+				<smartField:SmartField value="{RequiredStartTime}" editableChanged="onEditChanged"/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{RequiredEndDate}" editableChanged="onEditChanged">
@@ -145,11 +129,7 @@
 				</smartField:SmartField>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{RequiredEndTime}" editableChanged="onEditChanged">
-					<smartField:configuration>
-						<smartField:Configuration controlType="timePicker" displayBehaviour="descriptionAndId"/>
-					</smartField:configuration>
-				</smartField:SmartField>
+				<smartField:SmartField value="{RequiredEndTime}" editableChanged="onEditChanged"/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintenanceRevision}" editableChanged="onEditChanged"/>

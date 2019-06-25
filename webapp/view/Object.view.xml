@@ -40,7 +40,7 @@
 						<uxap:ObjectPageHeaderLayoutData
 							showSeparatorAfter="false"/>
 					</layout:layoutData>
-					<ObjectStatus title="{i18n>technicalObject}" text="{TechnicalObjectLabel}" visible="{objectView>/isEdit}" />
+					<ObjectStatus title="{i18n>technicalObject}" text="{TechnicalObject}" visible="{objectView>/isEdit}" />
 					<ObjectStatus title="{i18n>technicalObjectType}" text="{TechObjIsEquipOrFuncnlLocDesc}" visible="{objectView>/isEdit}" />
 					<ObjectStatus title="{/#PMNotification/Assembly/@sap:label}" text="{AssemblyName}" visible="{objectView>/isEdit}" />
 				</layout:VerticalLayout>

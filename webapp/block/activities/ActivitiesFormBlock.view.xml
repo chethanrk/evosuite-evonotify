@@ -58,11 +58,7 @@
 				</smartField:SmartField>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{PlannedStartTime}" editableChanged="onEditChanged">
-					<smartField:configuration>
-						<smartField:Configuration controlType="timePicker" displayBehaviour="descriptionAndId"/>
-					</smartField:configuration>
-				</smartField:SmartField>
+				<smartField:SmartField value="{PlannedStartTime}" editableChanged="onEditChanged"/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{PlannedEndDate}" editableChanged="onEditChanged">
@@ -72,11 +68,7 @@
 				</smartField:SmartField>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{PlannedEndTime}" editableChanged="onEditChanged">
-					<smartField:configuration>
-						<smartField:Configuration controlType="timePicker" displayBehaviour="descriptionAndId"/>
-					</smartField:configuration>
-				</smartField:SmartField>
+				<smartField:SmartField value="{PlannedEndTime}" editableChanged="onEditChanged"/>
 			</smartForm:GroupElement>
 		</smartForm:Group>
 	</smartForm:SmartForm>
