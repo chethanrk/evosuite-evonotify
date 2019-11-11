@@ -1,84 +1,90 @@
 <mvc:View
-	controllerName="com.evorait.evolite.evonotify.controller.ObjectItem"
+	controllerName="com.evorait.evonotify.controller.ObjectItem"
 	xmlns="sap.m" 
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:semantic="sap.m.semantic" 
-	xmlns:form="sap.ui.layout.form" 
-	xmlns:core="sap.ui.core" 
+	xmlns:core="sap.ui.core"
 	xmlns:uxap="sap.uxap"
-	xmlns:smartField="sap.ui.comp.smartfield"
-	xmlns:items="com.evorait.evolite.evonotify.block.items"
-	xmlns:causes="com.evorait.evolite.evonotify.block.causes"
-	xmlns:tasks="com.evorait.evolite.evonotify.block.tasks"
-	xmlns:activities="com.evorait.evolite.evonotify.block.activities">
+	xmlns:items="com.evorait.evonotify.block.items"
+	xmlns:causes="com.evorait.evonotify.block.causes"
+	xmlns:tasks="com.evorait.evonotify.block.tasks"
+	xmlns:activities="com.evorait.evonotify.block.activities">
 
-	<Page id="objectItemPage" title="{i18n>itemViewTitle}" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack">
-		
-		<uxap:ObjectPageLayout id="objectItemPageLayout" enableLazyLoading="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" >
-			<uxap:headerTitle>
-				<uxap:ObjectPageHeader id="objectItemPageHeader" objectTitle="{objectView>/Title}" objectSubtitle="{MaintenanceNotificationItem}">
-					<uxap:actions>
-						<uxap:ObjectPageHeaderActionButton id="editNotificationItemButton" text="{i18n>objectHeaderActionEdit}" hideText="false" press="onPressEdit" type="Emphasized" visible="{objectView>/showMode}"/>
-						<uxap:ObjectPageHeaderActionButton id="cancelNotificationItemButton" text="{i18n>objectHeaderActionCancel}" hideText="false" press="onPressCancel" visible="{objectView>/editMode}"/>
-						<uxap:ObjectPageHeaderActionButton id="saveNotificationItemButton" text="{i18n>objectHeaderActionSave}" hideText="false" press="onPressSave" type="Emphasized" visible="{objectView>/editMode}"/>
-					</uxap:actions>
-				</uxap:ObjectPageHeader>
-			</uxap:headerTitle>
-			
-			<uxap:headerContent></uxap:headerContent>
-			
-			<uxap:sections>
-				<uxap:ObjectPageSection title="{i18n>generalSectionTitle}">
-					<uxap:subSections>
-						<uxap:ObjectPageSubSection>
-							<uxap:blocks>
-								<items:ItemsFormBlock id="itemsFormBlock" editPress="onFiredEditMode"/>
-							</uxap:blocks>
-						</uxap:ObjectPageSubSection>
-					</uxap:subSections>
-				</uxap:ObjectPageSection>
-				
-				<uxap:ObjectPageSection title="{i18n>causesTitle}" visible="{objectView>/isEdit}">
-					<uxap:subSections>
-						<uxap:ObjectPageSubSection>
-							<uxap:blocks>
-								<causes:CausesTableBlock id="itemsCausesTableBlock" itemPress="onPressCause"/>
-							</uxap:blocks>
-						</uxap:ObjectPageSubSection>
-					</uxap:subSections>
-				</uxap:ObjectPageSection>
-				
-				<uxap:ObjectPageSection title="{i18n>tasksTitle}" visible="{objectView>/isEdit}">
-					<uxap:subSections>
-						<uxap:ObjectPageSubSection>
-							<uxap:blocks>
-								<tasks:ItemTasksTableBlock id="itemsTasksTableBlock" itemPress="onPressTask" />
-							</uxap:blocks>
-						</uxap:ObjectPageSubSection>
-					</uxap:subSections>
-				</uxap:ObjectPageSection>
-				
-				<uxap:ObjectPageSection title="{i18n>activitiesTitle}" visible="{objectView>/isEdit}">
-					<uxap:subSections>
-						<uxap:ObjectPageSubSection>
-							<uxap:blocks>
-								<activities:ItemActivitiesTableBlock id="itemsActivitiesTableBlock" itemPress="onPressActivity"/>
-							</uxap:blocks>
-						</uxap:ObjectPageSubSection>
-					</uxap:subSections>
-				</uxap:ObjectPageSection>
-			</uxap:sections>
-		</uxap:ObjectPageLayout>
-		
-		<footer>
-			<OverflowToolbar>
-				<content>
-					<ToolbarSpacer />
-					<Button id="addNewCause" icon="sap-icon://add" text="{i18n>newNotificationItemCauseTitle}" press="onAddItemCausePress" visible="{objectView>/showMode}" />
-					<Button id="addNewTask" icon="sap-icon://add" text="{i18n>newNotificationItemTaskTitle}" press="onAddItemTaskPress" visible="{objectView>/showMode}" />
-					<Button id="addNewActivity" icon="sap-icon://add" text="{i18n>newNotificationItemActivityTitle}" press="onAddItemActivityPress" visible="{objectView>/showMode}" />
-				</content>
-			</OverflowToolbar>
-		</footer>
-	</Page>
+	<uxap:ObjectPageLayout id="objectItemPageLayout"
+						   enableLazyLoading="true"
+						   isChildPage="true"
+						   showFooter="false"
+						   busy="{viewModel>/busy}"
+						   busyIndicatorDelay="{viewModel>/delay}" >
+		<uxap:headerTitle>
+			<uxap:ObjectPageHeader id="objectItemPageHeader" objectTitle="{viewModel>/Title}" objectSubtitle="{MaintenanceNotificationItem}">
+				<uxap:actions>
+					<uxap:ObjectPageHeaderActionButton id="editNotificationItemButton" text="{i18n>objectHeaderActionEdit}" hideText="false" press="onPressEdit" type="Emphasized" visible="{viewModel>/showMode}"/>
+					<uxap:ObjectPageHeaderActionButton id="cancelNotificationItemButton" text="{i18n>objectHeaderActionCancel}" hideText="false" press="onPressCancel" visible="{viewModel>/editMode}"/>
+					<uxap:ObjectPageHeaderActionButton id="saveNotificationItemButton" text="{i18n>objectHeaderActionSave}" hideText="false" press="onPressSave" type="Emphasized" visible="{viewModel>/editMode}"/>
+				</uxap:actions>
+
+				<uxap:breadcrumbs>
+					<Breadcrumbs currentLocationText="{/#PMNotificationItem/MaintenanceNotificationItem/@sap:label} {MaintenanceNotificationItem}">
+						<Link text="{i18n>tit.workList}" press="onNavBack"/>
+						<Link text="{/#PMNotificationItem/MaintenanceNotification/@sap:label} {MaintenanceNotification}" press="onNavBack"/>
+					</Breadcrumbs>
+				</uxap:breadcrumbs>
+
+				<uxap:navigationBar>
+					<Bar>
+						<contentLeft>
+							<Button icon="sap-icon://nav-back" tooltip="nav-back" press="onNavBack"/>
+						</contentLeft>
+						<contentMiddle>
+							<Title text="{/#PMNotificationItem/MaintenanceNotification/@sap:label} {/#PMNotificationItem/MaintenanceNotificationItem/@sap:label}"/>
+						</contentMiddle>
+					</Bar>
+				</uxap:navigationBar>
+			</uxap:ObjectPageHeader>
+
+		</uxap:headerTitle>
+
+		<uxap:sections>
+			<uxap:ObjectPageSection title="{i18n>generalSectionTitle}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection>
+						<uxap:blocks>
+							<items:ItemsFormBlock id="itemsFormBlock" editPress="onFiredEditMode"/>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+
+			<uxap:ObjectPageSection title="{i18n>causesTitle}" visible="{viewModel>/isEdit}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection>
+						<uxap:blocks>
+							<causes:CausesTableBlock id="itemsCausesTableBlock"/>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+
+			<uxap:ObjectPageSection title="{i18n>tasksTitle}" visible="{viewModel>/isEdit}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection>
+						<uxap:blocks>
+							<tasks:TasksTableBlock id="itemsTasksTableBlock" />
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+
+			<uxap:ObjectPageSection title="{i18n>activitiesTitle}" visible="{viewModel>/isEdit}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection>
+						<uxap:blocks>
+							<activities:ActivitiesTableBlock id="itemsActivitiesTableBlock" />
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+		</uxap:sections>
+	</uxap:ObjectPageLayout>
+
 </mvc:View>

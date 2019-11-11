@@ -1,27 +1,49 @@
 <mvc:View
-	controllerName="com.evorait.evolite.evonotify.controller.ObjectCause"
+	controllerName="com.evorait.evonotify.controller.ObjectCause"
 	xmlns="sap.m" 
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:semantic="sap.m.semantic" 
 	xmlns:form="sap.ui.layout.form" 
 	xmlns:core="sap.ui.core" 
 	xmlns:uxap="sap.uxap"
-	xmlns:causes="com.evorait.evolite.evonotify.block.causes">
+	xmlns:causes="com.evorait.evonotify.block.causes">
 
-	<Page id="objectCausePage" title="{i18n>causeItemViewTitle}" class="sapUiNoContentPadding" showNavButton="true" navButtonPress="onNavBack">
-		
-		<uxap:ObjectPageLayout id="objectCausePageLayout" enableLazyLoading="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" >
+		<uxap:ObjectPageLayout id="objectCausePageLayout"
+							   enableLazyLoading="true"
+							   isChildPage="true"
+							   showFooter="false"
+							   busy="{viewModel>/busy}"
+							   busyIndicatorDelay="{viewModel>/delay}" >
 			<uxap:headerTitle>
-				<uxap:ObjectPageHeader id="objectCausePageHeader" objectTitle="{objectView>/Title}" objectSubtitle="{MaintenanceNotificationCause}">
+				<uxap:ObjectPageHeader id="objectCausePageHeader" objectTitle="{viewModel>/Title}" objectSubtitle="{MaintenanceNotificationCause}">
 					<uxap:actions>
-						<uxap:ObjectPageHeaderActionButton text="{i18n>objectHeaderActionEdit}" hideText="false" press="onPressEdit" type="Emphasized" visible="{objectView>/showMode}"/>
-						<uxap:ObjectPageHeaderActionButton text="{i18n>objectHeaderActionCancel}" hideText="false" press="onPressCancel" visible="{objectView>/editMode}"/>
-						<uxap:ObjectPageHeaderActionButton text="{i18n>objectHeaderActionSave}" hideText="false" press="onPressSave" type="Emphasized" visible="{objectView>/editMode}"/>
+						<uxap:ObjectPageHeaderActionButton text="{i18n>objectHeaderActionEdit}" hideText="false" press="onPressEdit" type="Emphasized" visible="{viewModel>/showMode}"/>
+						<uxap:ObjectPageHeaderActionButton text="{i18n>objectHeaderActionCancel}" hideText="false" press="onPressCancel" visible="{viewModel>/editMode}"/>
+						<uxap:ObjectPageHeaderActionButton text="{i18n>objectHeaderActionSave}" hideText="false" press="onPressSave" type="Emphasized" visible="{viewModel>/editMode}"/>
 					</uxap:actions>
+
+					<uxap:breadcrumbs>
+						<Breadcrumbs currentLocationText="{/#PMNotificationCause/MaintenanceNotificationCause/@sap:label} {MaintenanceNotificationCause}">
+							<Link text="{i18n>tit.workList}" press="onNavBack"/>
+							<Link text="{/#PMNotificationCause/MaintenanceNotification/@sap:label} {MaintenanceNotification}" press="onNavBack"/>
+							<Link text="{/#PMNotificationCause/MaintenanceNotificationItem/@sap:label} {MaintenanceNotificationItem}" visible="{path: 'MaintenanceNotificationItem' , formatter:'.formatter.setVisible'}" press="onNavBack"/>
+						</Breadcrumbs>
+					</uxap:breadcrumbs>
+
+					<uxap:navigationBar>
+						<Bar>
+							<contentLeft>
+								<Button icon="sap-icon://nav-back" tooltip="nav-back" press="onNavBack"/>
+							</contentLeft>
+							<contentMiddle>
+								<Title text="{/#PMNotificationCause/MaintenanceNotification/@sap:label}"/>
+								<Title text="{/#PMNotificationCause/MaintenanceNotificationItem/@sap:label}" visible="{path: 'MaintenanceNotificationItem' , formatter:'.formatter.setVisible'}"/>
+								<Title text="{/#PMNotificationCause/MaintenanceNotificationCause/@sap:label}"/>
+							</contentMiddle>
+						</Bar>
+					</uxap:navigationBar>
 				</uxap:ObjectPageHeader>
 			</uxap:headerTitle>
-			
-			<uxap:headerContent></uxap:headerContent>
 			
 			<uxap:sections>
 				<uxap:ObjectPageSection title="{i18n>generalSectionTitle}">
@@ -36,5 +58,4 @@
 			</uxap:sections>
 		</uxap:ObjectPageLayout>
 		
-	</Page>
 </mvc:View>

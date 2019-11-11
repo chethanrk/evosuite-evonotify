@@ -1,39 +1,58 @@
 <mvc:View 
 	xmlns="sap.m" 
 	xmlns:mvc="sap.ui.core.mvc" 
-	xmlns:semantic="sap.m.semantic"
+	xmlns:f="sap.f"
 	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" 
 	xmlns:smartTable="sap.ui.comp.smarttable"
 	xmlns:core="sap.ui.core"
-	controllerName="com.evorait.evolite.evonotify.controller.Worklist">
-	<semantic:FullscreenPage id="page" navButtonPress="onNavBack" title="{i18n>worklistViewTitle}" floatingFooter="false">
-		<semantic:customFooterContent>
-                    <Button icon="sap-icon://add" text="{i18n>newNotification}" press="onAddPress" />
-          </semantic:customFooterContent>
-		<semantic:content>
-	    	<smartFilterBar:SmartFilterBar 
-	    		id="NotificationFilter" 
-	    		entityType="PMNotification"
-	    		expandAdvancedArea="true" 
-	    		showGoButton="true">
-	        	<smartFilterBar:controlConfiguration>
-	            	<smartFilterBar:ControlConfiguration id="__configuration0"/>
-	        	</smartFilterBar:controlConfiguration>
-	    	</smartFilterBar:SmartFilterBar>
-	    	<smartTable:SmartTable 
-	    		height="100%" 
-	    		width="100%" 
-	    		direction="Column" 
-	    		fitContainer="true" 
-	    		tableType="ResponsiveTable" 
-	    		enableAutoBinding="true" 
-	    		id="NotificationTable" 
-	    		entitySet="PMNotifications" 
-	    		smartFilterId="NotificationFilter"
-	    		showRowCount="true"
-	    		header="{i18n>worklistTableTitle}"
-	    		demandPopin="true">
-	    		<Table id="responsiveNotificationTable" growing="true">
+	controllerName="com.evorait.evonotify.controller.Worklist">
+
+	<f:DynamicPage preserveHeaderStateOnScroll="true" showFooter="true">
+
+		<f:header>
+			<f:DynamicPageHeader>
+				<f:content>
+					<smartFilterBar:SmartFilterBar
+							id="NotificationFilter"
+							entitySet="{viewModel>/worklistEntitySet}"
+							expandAdvancedArea="true"
+							persistencyKey="com.evorait.evonotify.NotificationFilterbar">
+						<smartFilterBar:controlConfiguration>
+							<smartFilterBar:ControlConfiguration id="__configuration0"/>
+						</smartFilterBar:controlConfiguration>
+					</smartFilterBar:SmartFilterBar>
+				</f:content>
+			</f:DynamicPageHeader>
+		</f:header>
+
+		<f:content>
+			<smartTable:SmartTable
+					id="NotificationTable"
+					entitySet="{viewModel>/worklistEntitySet}"
+					smartFilterId="NotificationFilter"
+					tableType="Table"
+					useExportToExcel="true"
+					beforeExport="onBeforeExport"
+					useVariantManagement="true"
+					useTablePersonalisation="true"
+					header="{i18n>tit.notifications}"
+					showRowCount="true"
+					persistencyKey="com.evorait.evonotify.NotificationTable"
+					enableAutoBinding="true"
+					class="sapUiResponsiveContentPadding">
+				<!-- layout data used to make the table growing but the filter bar fixed -->
+				<smartTable:layoutData>
+					<FlexItemData growFactor="1" baseSize="0%"/>
+				</smartTable:layoutData>
+
+				<smartTable:customToolbar>
+					<OverflowToolbar design="Transparent">
+						<ToolbarSpacer/>
+						<OverflowToolbarButton icon="sap-icon://add" text="Sort" press="onAddPress" />
+					</OverflowToolbar>
+				</smartTable:customToolbar>
+
+				<Table id="responsiveNotificationTable" sticky="ColumnHeaders,HeaderToolbar,InfoToolbar" growing="true">
 					<columns>
 						<Column width="3rem">
 							<Text text = "{NotifProcessingPhase/##com.sap.vocabularies.Common.v1.Label/String}"/>
@@ -47,8 +66,8 @@
 							<core:Icon src="{path: 'NotifProcessingPhase',formatter: '.formatter.formatIsEditableIcon'}" alt="{path: 'NotifProcessingPhaseDesc'}"/>
 						</cells>
 					</ColumnListItem>
-	    		</Table>
-	    	</smartTable:SmartTable>
-		</semantic:content>
-	</semantic:FullscreenPage>
+				</Table>
+			</smartTable:SmartTable>
+		</f:content>
+	</f:DynamicPage>
 </mvc:View>

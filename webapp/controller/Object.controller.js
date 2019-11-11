@@ -1,9 +1,9 @@
 /*global location*/
 sap.ui.define([
-		"com/evorait/evolite/evonotify/controller/BaseController",
+		"com/evorait/evonotify/controller/BaseController",
 		"sap/ui/model/json/JSONModel",
 		"sap/ui/core/routing/History",
-		"com/evorait/evolite/evonotify/model/formatter",
+		"com/evorait/evonotify/model/formatter",
 		"sap/ui/core/Fragment",
 		"sap/ui/model/Filter"
 	], function (
@@ -16,9 +16,11 @@ sap.ui.define([
 	) {
 		"use strict";
 
-		return BaseController.extend("com.evorait.evolite.evonotify.controller.Object", {
+		return BaseController.extend("com.evorait.evonotify.controller.Object", {
 
 			formatter: formatter,
+
+			_oContext: null,
 
 			/* =========================================================== */
 			/* lifecycle methods                                           */
@@ -29,46 +31,7 @@ sap.ui.define([
 			 * @public
 			 */
 			onInit : function () {
-				// Model used to manipulate control states. The chosen values make sure,
-				// detail page is busy indication immediately so there is no break in
-				// between the busy indication for loading the view"s meta data
-				var tableNoDataTextItems = this.getResourceBundle().getText("itemsTableTitle"),
-					tableNoDataTextTasks = this.getResourceBundle().getText("tasksTitle"),
-					tableNoDataTextActivities = this.getResourceBundle().getText("activitiesTitle");
-					
-				var iOriginalBusyDelay,
-					oViewModel = new JSONModel({
-						busy : true,
-						delay : 0,
-						isNew : false,
-						isEdit : false,
-						editMode : false,
-						taskViewPath : "",
-						actViewPath : "",
-						itemsTableTitle : tableNoDataTextItems,
-						tasksTableTitle : tableNoDataTextTasks,
-						activitiesTableTitle : tableNoDataTextActivities,
-						tableNoDataTextItems : this.getResourceBundle().getText("tableNoDataText", [tableNoDataTextItems]),
-						tableNoDataTextTasks : this.getResourceBundle().getText("tableNoDataText", [tableNoDataTextTasks]),
-						tableNoDataTextActivities : this.getResourceBundle().getText("tableNoDataText", [tableNoDataTextActivities]),
-						tableBusyDelay : 0
-					});
-				
 				this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
-				
-				this.getView().addEventDelegate({
-				   //onBeforeHide : function(){}
-				});
-
-				// Store original busy indicator delay, so it can be restored later on
-				iOriginalBusyDelay = this.getView().getBusyIndicatorDelay();
-				this.setModel(oViewModel, "objectView");
-			    this.getOwnerComponent().getModel().metadataLoaded().then(function () {
-						// Restore original busy indicator delay for the object view
-						oViewModel.setProperty("/delay", iOriginalBusyDelay);
-					}
-				);
-				
 			},
 
 			onExit: function(){
@@ -90,17 +53,8 @@ sap.ui.define([
 				if(this.oForm){
 					this.cancelFormHandling(this.oForm);
 				}
-				if(!this.getModel("objectView").getProperty("/isNew")){
+				if(!this.getModel("viewModel").getProperty("/isNew")){
 					this.navBack();
-				}
-			},
-			
-			navBack : function(){
-				var sPreviousHash = History.getInstance().getPreviousHash();
-				if (sPreviousHash !== undefined) {
-					history.go(-1);
-				} else {
-					this.getRouter().navTo("worklist", {}, true);
 				}
 			},
 			
@@ -117,51 +71,21 @@ sap.ui.define([
 					itemId: obj.MaintenanceNotificationItem
 				});
 			},
-			
-			/**
-			 * table task row select
-			 * navigate to notification task
-			 */
-			onPressTask : function(oEvent) {
-				var obj = this.getTableRowObject(oEvent.getParameters(), "Tasks");
-				
-				this.onPressCancel();
-				this.getRouter().navTo("objtask", {
-					objectId: obj.MaintenanceNotification,
-					taskId: obj.MaintenanceNotificationTask,
-					itemId: 0
-				});
-			},
-			
-			/**
-			 * table task row select
-			 * navigate to notification task
-			 */
-			onPressActivity : function(oEvent) {
-				var obj = this.getTableRowObject(oEvent.getParameters(), "Activities");
-				
-				this.onPressCancel();
-				this.getRouter().navTo("objactivity", {
-					objectId: obj.MaintenanceNotification,
-					itemId: 0,
-					activityId: obj.MaintNotificationActivity
-				});
-			},
 
 			/**
 			 * Show select statuso dialog with maybe pre-selected filter
 			 * @param oEvent
 			 */
-			onPressStatus : function (oEvent) {
-				var oFilter = null,
-					phaseVal = this.getView().getBindingContext().getProperty("NotifProcessingPhase");
+			onSelectStatus : function (oEvent) {
+				var oParams = oEvent.getParameters(),
+					statusKey = oParams.item.getKey();
 
-				if(phaseVal === "2"){
-					oFilter = new Filter("StatusCode",sap.ui.model.FilterOperator.NE, "I0069");
-				} else if(phaseVal === "3"){
-					oFilter = new Filter("StatusCode",sap.ui.model.FilterOperator.Contains, "I0072");
+				if(statusKey){
+					this.saveNewStatus("/UpdateHeaderStatus", {
+						"MaintNotification": this._oContext.getProperty("MaintenanceNotification"),
+						"MaintStatus": statusKey
+					});
 				}
-				this.getOwnerComponent().statusChangeDialog.open(this.getView(), "HeaderStatus", oFilter);
 			},
 			/**
 			 * show edit forms
@@ -187,39 +111,7 @@ sap.ui.define([
 					this.saveSubmitHandling(this.oForm);
 				}
 			},
-			
-			/**
-			 * navigate to new notification item
-			 */
-			onAddItemPress : function(){
-				this.onPressCancel();
-				this.getRouter().navTo("item", {
-					objectId: this.getView().getBindingContext().getProperty("MaintenanceNotification"),
-					itemId: "new"
-				});
-			},
-			/**
-			 * navigate to new notification item
-			 */
-			onAddTaskPress : function(){
-				this.onPressCancel();
-				this.getRouter().navTo("objtask", {
-					objectId: this.getView().getBindingContext().getProperty("MaintenanceNotification"),
-					itemId: 0,
-					taskId: "new"
-				});
-			},
-			/**
-			 * navigate to new notification item
-			 */
-			onAddActivityPress : function(){
-				this.onPressCancel();
-				this.getRouter().navTo("objactivity", {
-					objectId: this.getView().getBindingContext().getProperty("MaintenanceNotification"),
-					itemId: 0,
-					activityId: "new"
-				});
-			},
+
 			/**
 			 * fired edit toggle event from subsection block DetailsFormBlock
 			 */
@@ -243,11 +135,10 @@ sap.ui.define([
 			 */
 			_onObjectMatched : function (oEvent) {
 				var sObjectId =  oEvent.getParameter("arguments").objectId,
-					oViewModel = this.getModel("objectView"),
+					oViewModel = this.getModel("viewModel"),
 					oDataModel = this.getModel(),
 					isNew = (sObjectId === "new");
 					
-				oDataModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
 				oDataModel.metadataLoaded().then( function() {
 					oViewModel.setProperty("/isNew", isNew);
 					oViewModel.setProperty("/isEdit", !isNew);
@@ -255,9 +146,9 @@ sap.ui.define([
 					this.showAllSmartFields(this.oForm); 
 					
 					if(isNew){
-						var oContext = oDataModel.createEntry("/PMNotifications");
+						this._oContext = oDataModel.createEntry("/PMNotifications");
 						this.getView().unbindElement();
-						this.getView().setBindingContext(oContext);
+						this.getView().setBindingContext(this._oContext);
 						
 						var oBundle = this.getModel("i18n").getResourceBundle();
 						oViewModel.setProperty("/Title", oBundle.getText("newNotificationTitle"));
@@ -279,10 +170,15 @@ sap.ui.define([
 			 * @private
 			 */
 			_bindView : function (sObjectPath) {
-				var oViewModel = this.getModel("objectView"),
+				var oViewModel = this.getModel("viewModel"),
 					oDataModel = this.getModel();
-					oViewModel.setProperty("/taskViewPath" , "to_PMNotificationTask");
-					oViewModel.setProperty("/actViewPath" , "to_PMNotificationActivity");
+
+					oViewModel.setProperty("/activityEntitySet" , "PMNotificationActivities");
+					oViewModel.setProperty("/activityTableBindingPath" , "to_PMNotificationActivity");
+					oViewModel.setProperty("/taskEntitySet" , "PMNotificationTasks");
+					oViewModel.setProperty("/taskTableBindingPath" , "to_PMNotificationTask");
+
+
 				this.getView().bindElement({
 					path: sObjectPath,
 					parameters: {
@@ -292,10 +188,6 @@ sap.ui.define([
 						change: this._onBindingChange.bind(this),
 						dataRequested: function () {
 							oDataModel.metadataLoaded().then(function () {
-								// Busy indicator on view should only be set if metadata is loaded,
-								// otherwise there may be two busy indications next to each other on the
-								// screen. This happens because route matched handler already calls "_bindView"
-								// while metadata is loaded.
 								oViewModel.setProperty("/busy", true);
 							});
 						},
@@ -308,12 +200,12 @@ sap.ui.define([
 
 			_onBindingChange : function () {
 				var oView = this.getView(),
-					oViewModel = this.getModel("objectView"),
-					oElementBinding = oView.getElementBinding(),
-					oContext = oElementBinding.getBoundContext();
+					oViewModel = this.getModel("viewModel"),
+					oElementBinding = oView.getElementBinding();
+				this._oContext = oElementBinding.getBoundContext();
 					
 				// No data for the binding
-				if (!oContext) {
+				if (!this._oContext) {
 					this.getRouter().getTargets().display("objectNotFound");
 					return;
 				}
@@ -323,18 +215,13 @@ sap.ui.define([
 				}
 				
 				// Everything went fine.
-				this._setNewHeaderTitle();
+				this.getModel("viewModel").setProperty("/Title", this._oContext.getProperty("NotificationText"));
 				oViewModel.setProperty("/busy", false);
 			},
 			
 			_setEditMode : function(isEdit){
-				this.getModel("objectView").setProperty("/editMode", isEdit);
-				this.getModel("objectView").setProperty("/showStatus", isEdit);
-			},
-			
-			_setNewHeaderTitle : function(){
-				var oContext = this.getView().getBindingContext();
-				this.getModel("objectView").setProperty("/Title", this.getModel().getProperty(oContext.sPath+"/NotificationText"));
+				this.getModel("viewModel").setProperty("/editMode", isEdit);
+				this.getModel("viewModel").setProperty("/showStatus", isEdit);
 			}
 			
 		});

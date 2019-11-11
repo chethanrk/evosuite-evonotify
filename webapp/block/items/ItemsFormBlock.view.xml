@@ -1,5 +1,5 @@
 <mvc:View 
-	controllerName="com.evorait.evolite.evonotify.block.items.ItemsFormBlockController"
+	controllerName="com.evorait.evonotify.block.items.ItemsFormBlockController"
 	xmlns="sap.m"
 	xmlns:core="sap.ui.core" 
 	xmlns:mvc="sap.ui.core.mvc"
@@ -7,7 +7,7 @@
 	xmlns:smartField="sap.ui.comp.smartfield" 
 	xmlns:smartForm="sap.ui.comp.smartform">
 	
-	<smartForm:SmartForm id="SmartNotificationItemForm" editTogglable="false" editToggled="onEditPress" editable="{objectView>/editMode}">
+	<smartForm:SmartForm id="SmartNotificationItemForm" editTogglable="false" editToggled="onEditPress" editable="{viewModel>/editMode}">
 		<smartForm:Group label="{i18n>generalSectionTitle}">
 			<smartForm:layout>
 				<layout:GridData span="L6 M6 S12"/>

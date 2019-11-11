@@ -1,17 +1,21 @@
 {
-	"_version": "1.4.0",
+	"_version": "1.12.0",
 	"sap.app": {
-		"id": "com.evorait.evolite.evonotify",
+		"id": "com.evorait.evonotify",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
-		"title": "{{appTitle}}",
-		"description": "{{appDescription}}",
 		"applicationVersion": {
 			"version": "1.0.0"
 		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		},
 		"dataSources": {
 			"mainService": {
-				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/evora/EL_NOTIFICATION_SRV/",
+				"uri": "/sap/opu/odata/evora/EL_NOTIFICATION_SRV/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
@@ -28,16 +32,12 @@
 					"localUri": "annotations/annotations.xml"
 				}
 			}
-		},
-		"sourceTemplate": {
-			"id": "sap.ui.ui5-template-plugin.1worklist",
-			"version": "1.38.3"
 		}
 	},
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
-			"icon": "sap-icon://task",
+			"icon": "",
 			"favIcon": "",
 			"phone": "",
 			"phone@2": "",
@@ -48,34 +48,22 @@
 			"desktop": true,
 			"tablet": true,
 			"phone": true
-		},
-		"supportedThemes": [
-			"sap_hcb",
-			"sap_bluecrystal",
-			"sap_belize"
-		]
+		}
 	},
 	"sap.ui5": {
+		"flexEnabled": false,
 		"rootView": {
-			"viewName": "com.evorait.evolite.evonotify.view.App",
+			"viewName": "com.evorait.evonotify.view.App",
 			"type": "XML",
-			"id": "app"
+			"async": true,
+			"id": "App"
 		},
 		"dependencies": {
-			"minUI5Version": "1.40.0",
+			"minUI5Version": "1.65.6",
 			"libs": {
-				"sap.ui.core": {
-					"minVersion": "1.40.0"
-				},
-				"sap.m": {
-					"minVersion": "1.40.0"
-				},
-				"sap.uxap": {
-					"minVersion": ""
-				},
-				"sap.ui.comp": {
-					"minVersion": ""
-				}
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
 			}
 		},
 		"contentDensities": {
@@ -86,35 +74,39 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "com.evorait.evolite.evonotify.i18n.i18n"
+					"bundleName": "com.evorait.evonotify.i18n.i18n"
 				}
 			},
 			"": {
 				"dataSource": "mainService",
-				"preload": true
-			},
-			"@i18n": {
-				"type": "sap.ui.model.resource.ResourceModel",
-				"uri": "i18n/i18n.properties"
+				"preload": false
 			},
 			"StatusVH": {
 				"type": "sap.ui.model.json.JSONModel",
 				"uri": "model/StatusVH.json"
 			}
 		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
 		"routing": {
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"viewPath": "com.evorait.evolite.evonotify.view",
-				"controlId": "app",
+				"async": true,
+				"viewPath": "com.evorait.evonotify.view",
 				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false,
 				"bypassed": {
 					"target": [
 						"notFound"
 					]
-				},
-				"async": true
+				}
 			},
 			"routes": [
 				{
@@ -125,52 +117,38 @@
 					]
 				},
 				{
-					"pattern": "PMNotifications/{objectId}",
+					"pattern": "Notification/{objectId}",
 					"name": "object",
 					"target": [
 						"object"
 					]
 				},
 				{
-					"pattern": "PMNotifications/PMNotificationItems/{objectId}/{itemId}",
+					"pattern": "Notification/{objectId}/Item/{itemId}",
 					"name": "item",
 					"target": [
 						"item"
 					]
 				},
 				{
-					"pattern": "PMNotifications/PMNotificationTasks/{objectId}/{itemId}/{taskId}",
-					"name": "objtask",
+					"pattern": "Notification/{objectId}/Item/{itemId}/Task/{taskId}",
+					"name": "task",
 					"target": [
 						"task"
 					]
 				},
 				{
-					"pattern": "PMNotifications/PMNotificationActivities/{objectId}/{itemId}/{activityId}",
-					"name": "objactivity",
+					"pattern": "Notification/{objectId}/Item/{itemId}/Activity/{activityId}",
+					"name": "activity",
 					"target": [
 						"activity"
 					]
 				},
 				{
-					"pattern": "PMNotifications/PMNotificationTasks/{objectId}/{itemId}/{taskId}",
-					"name": "task",
-					"target": [
-						"itemtask"
-					]
-				},
-				{
-					"pattern": "PMNotifications/PMNotificationActivities/{objectId}/{itemId}/{activityId}",
-					"name": "activity",
-					"target": [
-						"itemactivity"
-					]
-				},
-				{
-					"pattern": "PMNotifications/PMNotificationCauses/{objectId}/{itemId}/{causeId}",
+					"pattern": "Notification/{objectId}/Item/{itemId}/Cause/{causeId}",
 					"name": "cause",
 					"target": [
-						"itemcause"
+						"cause"
 					]
 				}
 			],
@@ -200,17 +178,7 @@
 					"viewId": "activity",
 					"viewLevel": 3
 				},
-				"itemtask": {
-					"viewName": "ObjectTask",
-					"viewId": "task",
-					"viewLevel": 4
-				},
-				"itemactivity": {
-					"viewName": "ObjectActivity",
-					"viewId": "activity",
-					"viewLevel": 4
-				},
-				"itemcause": {
+				"cause": {
 					"viewName": "ObjectCause",
 					"viewId": "cause",
 					"viewLevel": 4
@@ -225,9 +193,5 @@
 				}
 			}
 		}
-	},
-	"sap.platform.hcp": {
-		"uri": "",
-		"_version": "1.1.0"
 	}
 }

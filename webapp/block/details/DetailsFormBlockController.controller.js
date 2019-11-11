@@ -1,8 +1,8 @@
 /*global location*/
 sap.ui.define([
-		"com/evorait/evolite/evonotify/controller/BaseController",
+		"com/evorait/evonotify/controller/BaseController",
 		"sap/ui/model/json/JSONModel",
-		"com/evorait/evolite/evonotify/model/formatter"
+		"com/evorait/evonotify/model/formatter"
 	], function (
 		BaseController,
 		JSONModel,
@@ -10,7 +10,7 @@ sap.ui.define([
 	) {
 		"use strict";
 
-		return BaseController.extend("com.evorait.evolite.evonotify.block.details.DetailsFormBlockController", {
+		return BaseController.extend("com.evorait.evonotify.block.details.DetailsFormBlockController", {
 
 			formatter: formatter,
 
@@ -39,7 +39,7 @@ sap.ui.define([
 			
 			onEditChanged : function(oEvent){
 				var oSource = oEvent.getSource();
-				if(!oSource.getEditable() && !oSource.getValue() && this.getModel("objectView").getProperty("/isNew")){
+				if(!oSource.getEditable() && !oSource.getValue() && this.getModel("viewModel").getProperty("/isNew")){
 					oSource.setVisible(false);
 				}else{
 					oSource.setVisible(true);

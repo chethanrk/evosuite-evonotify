@@ -1,18 +1,12 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"com/evorait/evolite/evonotify/model/models",
-	"com/evorait/evolite/evonotify/controller/ErrorHandler",
-	"com/evorait/evolite/evonotify/controller/StatusChangeDialog",
-	"sap/ui/model/json/JSONModel",
-	"sap/m/Dialog",
-	"sap/m/Button",
-	"sap/m/Text",
-	"sap/m/MessageToast"
-], function(UIComponent, Device, models, ErrorHandler, StatusChangeDialog, JSONModel, Dialog, Button, Text, MessageToast) {
+	"com/evorait/evonotify/model/models",
+	"com/evorait/evonotify/controller/ErrorHandler",
+], function (UIComponent, Device, models, ErrorHandler) {
 	"use strict";
 
-	return UIComponent.extend("com.evorait.evolite.evonotify.Component", {
+	return UIComponent.extend("com.evorait.evonotify.Component", {
 
 		metadata: {
 			manifest: "json"
@@ -20,43 +14,20 @@ sap.ui.define([
 
 		/**
 		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
-		 * In this function, the device models are set and the router is initialized.
 		 * @public
 		 * @override
 		 */
-		init: function() {
+		init: function () {
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
-
 
 			// handle the main oData model based on the environment
 			// the path for mobile applications depends on the current information from
 			// the logon plugin - if it's not running as hybrid application then the initialization
 			// of the oData service happens by the entries in the manifest.json which is used
 			// as metadata reference
-			var oModel;
-		    var externalURL = com.evorait.evolite.evonotify.dev.devapp.externalURL;
-		    var appContext;
-		    if (com.evorait.evolite.evonotify.dev.devapp.devLogon) {
-			  appContext = com.evorait.evolite.evonotify.dev.devapp.devLogon.appContext;
-		    }
-		    
-		    if (window.cordova && appContext && !window.sap_webide_companion && !externalURL) {
-				var url = appContext.applicationEndpointURL + "/";
-				var oHeader = {
-					"X-SMP-APPCID": appContext.applicationConnectionId
-				};
-				
-				// this would allow to pass basic authentication from the user registration to the
-				// backend request - do not do this yet
-				/**
-				if (appContext.registrationContext.user) {
-					oHeader.Authorization = "Basic " + btoa(appContext.registrationContext.user + ":" + appContext.registrationContext.password);
-				}
-				**/
-				// set the central model (default model has no name)
-				oModel = new sap.ui.model.odata.ODataModel(url, true, null, null, oHeader);
-				this.setModel(oModel);
+			if(window.cordova){
+				this._initCordovaHandling();
 			}
 
 			// initialize the error handler with the component
@@ -65,7 +36,33 @@ sap.ui.define([
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
 
-			this.statusChangeDialog = new StatusChangeDialog();
+
+			// set global helper view model
+			// Model used to manipulate control states. The chosen values make sure,
+			// detail page is busy indication immediately so there is no break in
+			// between the busy indication for loading the view"s meta data
+			/*var oResourceBundle = this.getModel("i18n"),
+				tableNoDataTextItems = oResourceBundle.getText("itemsTableTitle"),
+				tableNoDataTextTasks = oResourceBundle.getText("tasksTitle"),
+				tableNoDataTextActivities = oResourceBundle.getText("activitiesTitle");*/
+
+			this.setModel(models.createHelperModel({
+				busy : true,
+				delay : 0,
+				isNew : false,
+				isEdit : false,
+				editMode : false,
+				worklistEntitySet: "PMNotifications",
+				taskViewPath : "",
+				actViewPath : "",
+				/*itemsTableTitle : tableNoDataTextItems,
+				tasksTableTitle : tableNoDataTextTasks,
+				activitiesTableTitle : tableNoDataTextActivities,
+				tableNoDataTextItems : oResourceBundle.getText("tableNoDataText", [tableNoDataTextItems]),
+				tableNoDataTextTasks : oResourceBundle.getText("tableNoDataText", [tableNoDataTextTasks]),
+				tableNoDataTextActivities : oResourceBundle.getText("tableNoDataText", [tableNoDataTextActivities]),
+				tableBusyDelay : 0*/
+			}), "viewModel");
 
 			// create the views based on the url/hash
 			this.getRouter().initialize();
@@ -103,8 +100,38 @@ sap.ui.define([
 				}
 			}
 			return this._sContentDensityClass;
+		},
+
+		/**
+		 * init cordova
+		 * call Kapsel logon and login to SMP
+		 * @private
+		 */
+		_initCordovaHandling: function(){
+			var oModel;
+			var externalURL = com.evorait.evolite.evonotify.dev.devapp.externalURL;
+			var appContext;
+			if (com.evorait.evolite.evonotify.dev.devapp.devLogon) {
+				appContext = com.evorait.evolite.evonotify.dev.devapp.devLogon.appContext;
+			}
+
+			if (window.cordova && appContext && !window.sap_webide_companion && !externalURL) {
+				var url = appContext.applicationEndpointURL + "/";
+				var oHeader = {
+					"X-SMP-APPCID": appContext.applicationConnectionId
+				};
+
+				// this would allow to pass basic authentication from the user registration to the
+				// backend request - do not do this yet
+				/**
+				 if (appContext.registrationContext.user) {
+					oHeader.Authorization = "Basic " + btoa(appContext.registrationContext.user + ":" + appContext.registrationContext.password);
+				}
+				 **/
+				// set the central model (default model has no name)
+				oModel = new sap.ui.model.odata.ODataModel(url, true, null, null, oHeader);
+				this.setModel(oModel);
+			}
 		}
-
 	});
-
 });

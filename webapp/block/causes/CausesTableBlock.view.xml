@@ -1,51 +1,38 @@
 <mvc:View 
-	controllerName="com.evorait.evolite.evonotify.block.causes.CausesTableBlockController"
+	controllerName="com.evorait.evonotify.block.causes.CausesTableBlockController"
 	xmlns="sap.m"
-	xmlns:core="sap.ui.core" 
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:smartField="sap.ui.comp.smartfield" >
-	
-	<Table id="notificationCausesTable" width="auto" class="sapUiNoMargin"
-		items="{path : 'to_PMNotificationCause',
-                sorter : {
-                    path : 'MaintenanceNotificationCause',
-                    descending : false
-                }}"
-		noDataText="{objectView>/tableNoDataTextCauses}"
-		busyIndicatorDelay="{objectView>/tableBusyDelay}"
-		growing="false"
-		growingScrollToLoad="false">
-		
-		<columns>
-			<Column>
-				<Text text="{/#PMNotificationCause/MaintenanceNotificationCause/@sap:label}"/>
-			</Column>
-			<Column demandPopin="true" minScreenWidth="Small">
-				<Text text="{/#PMNotificationCause/MaintNotifCauseCodeGroup/@sap:label}"/>
-			</Column>
-			<Column demandPopin="true" minScreenWidth="Small">
-				<Text text="{/#PMNotificationCause/MaintNotificationCauseCode/@sap:label}"/>
-			</Column>
-		</columns>
+	xmlns:core="sap.ui.core"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:mvc="sap.ui.core.mvc">
 
-		<items>
-			<ColumnListItem type="Navigation" press="onPressItem">
-				<cells>
-					<ObjectIdentifier 
-					title="{MaintenanceNotificationCause}"
-					text="{MaintNotifCauseText}"/>
-					<smartField:SmartField value="{MaintNotifCauseCodeGroup}" editable="false">
-						<smartField:configuration>
-							<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
-						</smartField:configuration>
-					</smartField:SmartField>
-					<smartField:SmartField value="{MaintNotificationCauseCode}" editable="false">
-						<smartField:configuration>
-							<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
-						</smartField:configuration>
-					</smartField:SmartField>
-				</cells>
-			</ColumnListItem>
-		</items>
-	</Table>
+	<smartTable:SmartTable height="100%"
+						   width="100%"
+						   id="notificationCauseTable"
+						   tableType="ResponsiveTable"
+						   useExportToExcel="false"
+						   useVariantManagement="true"
+						   useTablePersonalisation="true"
+						   showRowCount="true"
+						   persistencyKey="com.evorait.evonotify.causeTable"
+						   enableAutoBinding="true"
+						   demandPopin="true"
+						   entitySet="PMNotificationCauses"
+						   tableBindingPath="to_PMNotificationCause">
+
+		<smartTable:customToolbar>
+			<OverflowToolbar design="Transparent">
+				<ToolbarSpacer/>
+				<OverflowToolbarButton icon="sap-icon://add" text="Sort" press="onPressAdd" visible="{ parts: [{path: 'IsCompleted'},{path: 'IsDeleted'},{path: 'viewModel>/editMode'}], formatter:'.formatter.editable'}"/>
+			</OverflowToolbar>
+		</smartTable:customToolbar>
+
+		<!-- layout data used to make the table growing but the filter bar fixed -->
+		<smartTable:layoutData>
+			<FlexItemData growFactor="1" baseSize="0%"/>
+		</smartTable:layoutData>
+
+		<Table growing="true">
+			<ColumnListItem type="Navigation" press="onPressItem"></ColumnListItem>
+		</Table>
+	</smartTable:SmartTable>
 </mvc:View>

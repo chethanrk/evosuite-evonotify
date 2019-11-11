@@ -1,34 +1,22 @@
 sap.ui.define([
-		"com/evorait/evolite/evonotify/controller/BaseController",
-		"sap/ui/model/json/JSONModel"
-	], function (BaseController, JSONModel) {
-		"use strict";
+	"com/evorait/evonotify/controller/BaseController"
+], function (BaseController) {
+	"use strict";
 
-		return BaseController.extend("com.evorait.evolite.evonotify.controller.App", {
+	return BaseController.extend("com.evorait.evonotify.controller.App", {
+		onInit: function () {
+			var oViewModel = this.getModel("viewModel"),
+				fnSetAppNotBusy,
+				iOriginalBusyDelay = this.getView().getBusyIndicatorDelay();
 
-			onInit : function () {
-				var oViewModel,
-					fnSetAppNotBusy,
-					iOriginalBusyDelay = this.getView().getBusyIndicatorDelay();
+			fnSetAppNotBusy = function() {
+				oViewModel.setProperty("/busy", false);
+				oViewModel.setProperty("/delay", iOriginalBusyDelay);
+			};
+			this.getModel().metadataLoaded().then(fnSetAppNotBusy);
 
-				oViewModel = new JSONModel({
-					busy : true,
-					delay : 0
-				});
-				this.setModel(oViewModel, "appView");
-
-				fnSetAppNotBusy = function() {
-					oViewModel.setProperty("/busy", false);
-					oViewModel.setProperty("/delay", iOriginalBusyDelay);
-				};
-
-				this.getOwnerComponent().getModel().metadataLoaded().
-					then(fnSetAppNotBusy);
-
-				// apply content density mode to root view
-				this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
-			}
-		});
-
-	}
-);
+			// apply content density mode to root view
+			this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
+		}
+	});
+});

@@ -1,9 +1,9 @@
 /*global location*/
 sap.ui.define([
-        "com/evorait/evolite/evonotify/controller/BaseController",
+        "com/evorait/evonotify/controller/BaseController",
         "sap/ui/model/json/JSONModel",
         "sap/ui/core/routing/History",
-        "com/evorait/evolite/evonotify/model/formatter",
+        "com/evorait/evonotify/model/formatter",
         'sap/ui/model/Filter'
     ], function (
     BaseController,
@@ -14,7 +14,7 @@ sap.ui.define([
     ) {
         "use strict";
 
-        return BaseController.extend("com.evorait.evolite.evonotify.controller.ObjectTask", {
+        return BaseController.extend("com.evorait.evonotify.controller.ObjectTask", {
 
             formatter: formatter,
 
@@ -27,28 +27,7 @@ sap.ui.define([
              * @public
              */
             onInit: function () {
-                // Model used to manipulate control states. The chosen values make sure,
-                // detail page is busy indication immediately so there is no break in
-                // between the busy indication for loading the view's meta data
-                var iOriginalBusyDelay,
-                    oViewModel = new JSONModel({
-                        busy: true,
-                        delay: 0,
-                        isNew: false,
-                        isEdit: false,
-                        editMode: false
-                    });
-
-                this.getRouter().getRoute("objtask").attachPatternMatched(this._onObjectMatched, this);
-
-                // Store original busy indicator delay, so it can be restored later on
-                iOriginalBusyDelay = this.getView().getBusyIndicatorDelay();
-                this.setModel(oViewModel, "objectView");
-                this.getOwnerComponent().getModel().metadataLoaded().then(function () {
-                        // Restore original busy indicator delay for the object view
-                        oViewModel.setProperty("/delay", iOriginalBusyDelay);
-                    }
-                );
+                this.getRouter().getRoute("task").attachPatternMatched(this._onObjectMatched, this);
             },
 
             /* =========================================================== */
@@ -65,7 +44,7 @@ sap.ui.define([
                 if (this.oForm) {
                     this.cancelFormHandling(this.oForm);
                 }
-                if (!this.getModel("objectView").getProperty("/isNew")) {
+                if (!this.getModel("viewModel").getProperty("/isNew")) {
                     this.navBack();
                 }
             },
@@ -109,13 +88,24 @@ sap.ui.define([
                     this.cancelFormHandling(this.oForm);
                 }
             },
+
             /**
-             * on press for status change
+             * Show select status dialog with maybe pre-selected filter
              * @param oEvent
              */
-            onPressStatus: function (oEvent) {
-                this.getOwnerComponent().statusChangeDialog.open(this.getView(), "TaskStatus");
+            onSelectStatus : function (oEvent) {
+                var oParams = oEvent.getParameters(),
+                    statusKey = oParams.item.getKey();
+
+                if(statusKey){
+                    this.saveNewStatus("/UpdateTaskStatus", {
+                        "MaintNotification": this._oContext.getProperty("MaintenanceNotification"),
+                        "MaintNotifTask": this._oContext.getProperty("MaintenanceNotificationTask"),
+                        "MaintStatus": statusKey
+                    });
+                }
             },
+
             /**
              * fired edit toggle event from subsection block DetailsFormBlock
              */
@@ -143,11 +133,9 @@ sap.ui.define([
                     sObjectId = oParameters.objectId,
                     sItemId = oParameters.itemId,
                     sTaskId = oParameters.taskId,
-                    oViewModel = this.getModel("objectView"),
+                    oViewModel = this.getModel("viewModel"),
                     oDataModel = this.getModel(),
                     isNew = (sTaskId === "new");
-
-                oDataModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
 
                 oDataModel.metadataLoaded().then(function () {
                     oViewModel.setProperty("/isNew", isNew);
@@ -185,7 +173,7 @@ sap.ui.define([
              * @private
              */
             _bindView: function (sObjectPath) {
-                var oViewModel = this.getModel("objectView"),
+                var oViewModel = this.getModel("viewModel"),
                     oDataModel = this.getModel();
 
                 this.getView().bindElement({
@@ -206,7 +194,7 @@ sap.ui.define([
 
             _onBindingChange: function () {
                 var oView = this.getView(),
-                    oViewModel = this.getModel("objectView"),
+                    oViewModel = this.getModel("viewModel"),
                     oElementBinding = oView.getElementBinding(),
                     oContext = oElementBinding.getBoundContext(),
                     data = this.getModel().getProperty(oContext.sPath);
@@ -224,11 +212,11 @@ sap.ui.define([
                 oViewModel.setProperty("/busy", false);
             },
             _setEditMode: function (isEdit) {
-                this.getModel("objectView").setProperty("/editMode", isEdit);
+                this.getModel("viewModel").setProperty("/editMode", isEdit);
             },
             _setNewHeaderTitle: function () {
                 var oContext = this.getView().getBindingContext();
-                this.getModel("objectView").setProperty("/Title", this.getModel().getProperty(oContext.sPath + "/MaintNotifTaskText"));
+                this.getModel("viewModel").setProperty("/Title", this.getModel().getProperty(oContext.sPath + "/MaintNotifTaskText"));
             }
 
         });

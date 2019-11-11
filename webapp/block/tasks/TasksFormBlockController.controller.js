@@ -1,9 +1,9 @@
 /*global location*/
 sap.ui.define([
-		"com/evorait/evolite/evonotify/controller/BaseController",
+		"com/evorait/evonotify/controller/BaseController",
 		"sap/ui/core/routing/History",
 		"sap/ui/model/json/JSONModel",
-		"com/evorait/evolite/evonotify/model/formatter"
+		"com/evorait/evonotify/model/formatter"
 	], function (
 		BaseController,
 		History,
@@ -12,7 +12,7 @@ sap.ui.define([
 	) {
 		"use strict";
 
-		return BaseController.extend("com.evorait.evolite.evonotify.block.tasks.TasksFormBlockController", {
+		return BaseController.extend("com.evorait.evonotify.block.tasks.TasksFormBlockController", {
 
 			formatter: formatter,
 
@@ -38,7 +38,7 @@ sap.ui.define([
 			
 			onEditChanged : function(oEvent){
 				var oSource = oEvent.getSource(),
-					isNew = this.getModel("objectView").getProperty("/isNew"),
+					isNew = this.getModel("viewModel").getProperty("/isNew"),
 					sValue = oSource.getValue();
 					
 				var hideItemField = this.getView().byId("MaintenanceNotificationItem");

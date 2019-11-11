@@ -1,14 +1,15 @@
 sap.ui.define([
         "sap/ui/core/mvc/Controller",
         "sap/ui/model/json/JSONModel",
+        "sap/ui/core/routing/History",
         "sap/m/Dialog",
         "sap/m/Button",
         "sap/m/Text",
         "sap/m/MessageToast"
-    ], function (Controller, JSONModel, Dialog, Button, Text, MessageToast) {
+    ], function (Controller, JSONModel, History, Dialog, Button, Text, MessageToast) {
         "use strict";
 
-        return Controller.extend("com.evorait.evolite.evonotify.controller.BaseController", {
+        return Controller.extend("com.evorait.evonotify.controller.BaseController", {
             /**
              * Convenience method for accessing the router.
              * @public
@@ -25,7 +26,10 @@ sap.ui.define([
              * @returns {sap.ui.model.Model} the model instance
              */
             getModel: function (sName) {
-                return this.getView().getModel(sName);
+                if(this.getView().getModel){
+                    return this.getView().getModel(sName);
+                }
+                return this.getOwnerComponent().getModel(sName);
             },
 
             /**
@@ -40,6 +44,18 @@ sap.ui.define([
             },
 
             /**
+             * navigate a history page back or to home page
+             */
+            navBack : function(){
+                var sPreviousHash = History.getInstance().getPreviousHash();
+                if (sPreviousHash !== undefined) {
+                    history.go(-1);
+                } else {
+                    this.getRouter().navTo("worklist", {}, true);
+                }
+            },
+
+            /**
              * Getter for the resource bundle.
              * @public
              * @returns {sap.ui.model.resource.ResourceModel} the resourceModel of the component
@@ -47,12 +63,25 @@ sap.ui.define([
             getResourceBundle: function () {
                 return this.getOwnerComponent().getModel("i18n").getResourceBundle();
             },
+
+            /**
+             * translate the stausKey from model to app lagunage
+             * @param sValue
+             * @returns {string|*}
+             */
+            translateStatusKey: function(sValue){
+                if(sValue){
+                    return this.getResourceBundle().getText(sValue);
+                }
+                return "";
+            },
+
             /**
              * save view form
              * if its a new entry set new header title on success
              */
             saveSubmitHandling: function (oForm) {
-                var oViewModel = this.getModel("objectView"),
+                var oViewModel = this.getModel("viewModel"),
                     isEditable = oForm.getEditable();
 
                 // validation ok when form editable triggered to false
@@ -60,7 +89,7 @@ sap.ui.define([
                     oViewModel.setProperty("/busy", true);
 
                     // send only view Model else all data in global model will be submitted
-                    return this.getView().getModel().submitChanges({
+                    return this.getModel().submitChanges({
                         success: function () {
                             oViewModel.setProperty("/busy", false);
                             oForm.setEditable(!isEditable);
@@ -97,21 +126,23 @@ sap.ui.define([
              */
             cancelFormHandling: function (oForm) {
                 var isEditable = oForm.getEditable(),
-                    isNew = this.getModel("objectView").getProperty("/isNew");
+                    isNew = this.getModel("viewModel").getProperty("/isNew");
 
                 if (isEditable && !isNew) {
-                    this.getView().getModel().resetChanges();
-                    this.hideInvalidFields(oForm);
+                    this.getModel().resetChanges();
+                    //this.hideInvalidFields(oForm);
+                    this.getView().unbindElement();
                     oForm.setEditable(!isEditable);
                     this.showAllSmartFields(oForm);
                 }
                 if (isNew) {
                     var oContext = this.getView().getBindingContext();
                     //need to hide mandatory fields so validation will be skipped on toggle editable
-                    this.hideInvalidFields(oForm);
+                    //this.hideInvalidFields(oForm);
+                    this.getModel().deleteCreatedEntry(oContext);
+                    this.getView().unbindElement();
                     oForm.setEditable(!isEditable);
                     this.navBack();
-                    this.getModel().deleteCreatedEntry(oContext);
                 }
             },
 
@@ -198,6 +229,39 @@ sap.ui.define([
                     return sBinding.getObject();
                 }
                 return this.getModel().getProperty(sPath);
+            },
+
+            /**
+             * saves a new status for notifcation header or task
+             */
+            saveNewStatus: function (sRequestName, obj) {
+                var oViewModel = this.getModel("viewModel");
+
+                this.getModel().callFunction(sRequestName, {
+                    method: "POST",
+                    urlParameters: obj,
+                    success: function (oData, response) {
+                        oViewModel.setProperty("/busy", false);
+                        var sMsg = "";
+                        var errMsg = sap.ui.getCore().getMessageManager().getMessageModel().getData();
+                        for (var i = 0; i < errMsg.length; i++) {
+                            sMsg = sMsg + errMsg[i].message;
+                        }
+                        if (sMsg === "") {
+                            sMsg = oData.MaintenanceNotification + "/" + (oData.MaintenanceNotificationTask || "") + " "
+                                + this.getResourceBundle().getText("msg.saveStatusSuccess");
+                        }
+                        MessageToast.show(sMsg, {
+                            duration: 5000
+                        });
+
+                    }.bind(this), // callback function for success
+
+                    error: function (oError) {
+                        oViewModel.setProperty("/busy", false);
+                        this.showSaveErrorPrompt(oError);
+                    }.bind(this)
+                });
             }
 
         });

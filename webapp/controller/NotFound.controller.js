@@ -1,9 +1,9 @@
 sap.ui.define([
-		"com/evorait/evolite/evonotify/controller/BaseController"
+		"com/evorait/evonotify/controller/BaseController"
 	], function (BaseController) {
 		"use strict";
 
-		return BaseController.extend("com.evorait.evolite.evonotify.controller.NotFound", {
+		return BaseController.extend("com.evorait.evonotify.controller.NotFound", {
 
 			/**
 			 * Navigates to the worklist when the link is pressed

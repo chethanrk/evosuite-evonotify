@@ -1,9 +1,9 @@
 /*global location*/
 sap.ui.define([
-		"com/evorait/evolite/evonotify/controller/BaseController",
+		"com/evorait/evonotify/controller/BaseController",
 		"sap/ui/model/json/JSONModel",
 		"sap/ui/core/routing/History",
-		"com/evorait/evolite/evonotify/model/formatter"
+		"com/evorait/evonotify/model/formatter"
 	], function (
 		BaseController,
 		JSONModel,
@@ -12,7 +12,7 @@ sap.ui.define([
 	) {
 		"use strict";
 
-		return BaseController.extend("com.evorait.evolite.evonotify.controller.ObjectCause", {
+		return BaseController.extend("com.evorait.evonotify.controller.ObjectCause", {
 
 			formatter: formatter,
 
@@ -25,30 +25,7 @@ sap.ui.define([
 			 * @public
 			 */
 			onInit : function () {
-				// Model used to manipulate control states. The chosen values make sure,
-				// detail page is busy indication immediately so there is no break in
-				// between the busy indication for loading the view's meta data
-				var iOriginalBusyDelay,
-					oViewModel = new JSONModel({
-						busy : true,
-						delay : 0,
-						isNew : false,
-						isEdit : false,
-						showMode: false,
-						editMode : false,
-						MaintenanceNotification : 0
-					});
-
 				this.getRouter().getRoute("cause").attachPatternMatched(this._onObjectMatched, this);
-
-				// Store original busy indicator delay, so it can be restored later on
-				iOriginalBusyDelay = this.getView().getBusyIndicatorDelay();
-				this.setModel(oViewModel, "objectView");
-				this.getOwnerComponent().getModel().metadataLoaded().then(function () {
-						// Restore original busy indicator delay for the object view
-						oViewModel.setProperty("/delay", iOriginalBusyDelay);
-					}
-				);
 			},
 
 			/* =========================================================== */
@@ -65,7 +42,7 @@ sap.ui.define([
 				if(this.oForm){
 					this.cancelFormHandling(this.oForm);
 				}
-				if(!this.getModel("objectView").getProperty("/isNew")){
+				if(!this.getModel("viewModel").getProperty("/isNew")){
 					this.navBack();
 				}
 			},
@@ -131,13 +108,12 @@ sap.ui.define([
 			_onObjectMatched : function (oEvent) {
 				var sItemId = oEvent.getParameter("arguments").itemId,
 					sCauseId = oEvent.getParameter("arguments").causeId,
-					oViewModel = this.getModel("objectView"),
+					oViewModel = this.getModel("viewModel"),
 					oDataModel = this.getModel(),
 					isNew = (sCauseId === "new");
 					
 				var sObjectId =  oEvent.getParameter("arguments").objectId;
-				oDataModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
-				
+
 				oDataModel.metadataLoaded().then( function() {
 					oViewModel.setProperty("/isNew", isNew);
 					oViewModel.setProperty("/isEdit", !isNew);
@@ -174,7 +150,7 @@ sap.ui.define([
 			 * @private
 			 */
 			_bindView : function (sObjectPath) {
-				var oViewModel = this.getModel("objectView"),
+				var oViewModel = this.getModel("viewModel"),
 					oDataModel = this.getModel();
 
 				this.getView().bindElement({
@@ -195,7 +171,7 @@ sap.ui.define([
 
 			_onBindingChange : function () {
 				var oView = this.getView(),
-					oViewModel = this.getModel("objectView"),
+					oViewModel = this.getModel("viewModel"),
 					oElementBinding = oView.getElementBinding(),
 					oContext = oElementBinding.getBoundContext(),
 			    	data = this.getModel().getProperty(oContext.sPath);
@@ -215,25 +191,25 @@ sap.ui.define([
 			
 			_setEditMode : function(isEdit){
 				if(isEdit){
-					this.getModel("objectView").setProperty("/showMode", !isEdit);
-					this.getModel("objectView").setProperty("/editMode", isEdit); 
+					this.getModel("viewModel").setProperty("/showMode", !isEdit);
+					this.getModel("viewModel").setProperty("/editMode", isEdit);
 				}else{
-					var MaintenanceNotification = this.getModel("objectView").getProperty("/MaintenanceNotification"),
+					var MaintenanceNotification = this.getModel("viewModel").getProperty("/MaintenanceNotification"),
 					sPath = this.getModel().getContext("/PMNotifications").getPath(),
 					isCompleted = this.getModel().getProperty(sPath+"('"+MaintenanceNotification+"')/IsCompleted"),
 					isDeleted = this.getModel().getProperty(sPath+"('"+MaintenanceNotification+"')/IsDeleted");
 					
 					if(isCompleted || isDeleted){
-						this.getModel("objectView").setProperty("/showMode", isEdit);
+						this.getModel("viewModel").setProperty("/showMode", isEdit);
 					}else{
-						this.getModel("objectView").setProperty("/showMode", !isEdit);
+						this.getModel("viewModel").setProperty("/showMode", !isEdit);
 					}
 				}
 			},
 			
 			_setNewHeaderTitle : function(){
 				var oContext = this.getView().getBindingContext();
-				this.getModel("objectView").setProperty("/Title", this.getModel().getProperty(oContext.sPath+"/MaintNotifCauseText"));
+				this.getModel("viewModel").setProperty("/Title", this.getModel().getProperty(oContext.sPath+"/MaintNotifCauseText"));
 			}
 
 		});

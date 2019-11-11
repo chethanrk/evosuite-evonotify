@@ -1,9 +1,9 @@
 /*global location*/
 sap.ui.define([
-		"com/evorait/evolite/evonotify/controller/BaseController",
+		"com/evorait/evonotify/controller/BaseController",
 		"sap/ui/core/routing/History",
 		"sap/ui/model/json/JSONModel",
-		"com/evorait/evolite/evonotify/model/formatter"
+		"com/evorait/evonotify/model/formatter"
 	], function (
 		BaseController,
 		History,
@@ -12,7 +12,7 @@ sap.ui.define([
 	) {
 		"use strict";
 
-		return BaseController.extend("com.evorait.evolite.evonotify.block.activities.ActivitiesTableBlockController", {
+		return BaseController.extend("com.evorait.evonotify.block.activities.ActivitiesTableBlockController", {
 
 			formatter: formatter,
 
@@ -33,7 +33,24 @@ sap.ui.define([
 			/* =========================================================== */
 
 			onPressItem : function (oEvent) {
-				this.oParentBlock.fireItemPress(oEvent.getParameters());
+				var obj = this.getView().getBindingContext().getObject();
+				var oContext = oEvent.getSource().getBindingContext();
+				if(oContext){
+					this.getRouter().navTo("activity", {
+						objectId: obj.MaintenanceNotification,
+						itemId: 0,
+						activityId: obj.MaintNotificationActivity
+					});
+				}
+			},
+
+
+			onPressAdd: function (oEvent) {
+				this.getRouter().navTo("activity", {
+					objectId: this.getView().getBindingContext().getProperty("MaintenanceNotification"),
+					itemId: 0,
+					activityId: "new"
+				});
 			}
 
 
