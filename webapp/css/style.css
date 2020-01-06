@@ -1,1 +1,16 @@
 /* Enter your custom styles here */
+
+.workorderSmartTable > div:first-child {
+    top: 0;
+    z-index: 1;
+    background-color: #fff;
+    position: sticky;
+    position: -webkit-sticky;
+}
+
+.workorderSmartTable .sapMSticky4 .sapMTableTH,
+.workorderSmartTable .sapMSticky5>.sapMListHdr,
+.workorderSmartTable .sapMSticky6>.sapMListInfoTBarContainer,
+.workorderSmartTable .sapMSticky7>.sapMListHdr {
+    top: 2.5rem;
+}

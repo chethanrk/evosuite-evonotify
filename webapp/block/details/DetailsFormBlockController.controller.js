@@ -1,16 +1,11 @@
 /*global location*/
 sap.ui.define([
-		"com/evorait/evonotify/controller/BaseController",
-		"sap/ui/model/json/JSONModel",
+		"com/evorait/evonotify/controller/FormController",
 		"com/evorait/evonotify/model/formatter"
-	], function (
-		BaseController,
-		JSONModel,
-		formatter
-	) {
+	], function (FormController, formatter) {
 		"use strict";
 
-		return BaseController.extend("com.evorait.evonotify.block.details.DetailsFormBlockController", {
+		return FormController.extend("com.evorait.evonotify.block.details.DetailsFormBlockController", {
 
 			formatter: formatter,
 
@@ -23,32 +18,30 @@ sap.ui.define([
 			 * @public
 			 */
 			onInit : function () {
+				var eventBus = sap.ui.getCore().getEventBus();
+				eventBus.subscribe("Object", "validateFields", this._validateForm, this);
 			},
 
 			/* =========================================================== */
 			/* event handlers                                              */
 			/* =========================================================== */
 
-			onEditPress : function (oEvent) {
-				this.oParentBlock.fireEditPress(oEvent.getParameters());
-			},
-			
-			onChecked : function (oEvent) {
-				this.oParentBlock.fireOnChecked(oEvent.getParameters());
-			},
-			
-			onEditChanged : function(oEvent){
-				var oSource = oEvent.getSource();
-				if(!oSource.getEditable() && !oSource.getValue() && this.getModel("viewModel").getProperty("/isNew")){
-					oSource.setVisible(false);
-				}else{
-					oSource.setVisible(true);
-				}
-			}
 			
 			/* =========================================================== */
 			/* internal methods                                            */
 			/* =========================================================== */
+
+			/**
+			 * Validate smartForm with custom fields
+			 * @public
+			 */
+			_validateForm: function (sChannel, sEvent, oData) {
+				var oForm = this.getView().byId("idNotificationForm");
+
+				if(this.validateForm({form: oForm})){
+					this.saveChangedEntry();
+				}
+			}
 
 		});
 

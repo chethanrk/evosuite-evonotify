@@ -37,15 +37,10 @@ sap.ui.define([
 			 * @param oEvent
 			 */
 			onPressItem : function (oEvent) {
-				var obj = this.getView().getBindingContext().getObject();
-				var oContext = oEvent.getSource().getBindingContext();
-				if(oContext){
-					this.getRouter().navTo("cause", {
-						objectId: obj.MaintenanceNotification,
-						itemId: obj.MaintenanceNotificationItem,
-						causeId: obj.MaintenanceNotificationCause
-					});
-				}
+				var mParams = {
+					oContext: oEvent.getSource().getBindingContext()
+				};
+				this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditCause");
 			},
 
 			/**
@@ -53,11 +48,15 @@ sap.ui.define([
 			 * @param oEvent
 			 */
 			onPressAdd: function (oEvent) {
-				this.getRouter().navTo("cause", {
-					objectId: this.getView().getBindingContext().getProperty("MaintenanceNotification"),
-					itemId: this.getView().getBindingContext().getProperty("MaintenanceNotificationItem"),
-					causeId: "new"
-				});
+				var oView = this.getView(),
+					mParams = {
+						sSetPath: "/PMNotificationCauses",
+						mKeys: {
+							MaintenanceNotification: oView.getBindingContext().getProperty("MaintenanceNotification"),
+							MaintenanceNotificationItem: oView.getBindingContext().getProperty("MaintenanceNotificationItem"),
+						}
+					};
+				this.getOwnerComponent().oAddEntryDialog.open(oView, mParams, "AddEditCause");
 			}
 
 

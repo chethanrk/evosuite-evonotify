@@ -1,18 +1,11 @@
 /*global location*/
 sap.ui.define([
-		"com/evorait/evonotify/controller/BaseController",
-		"sap/ui/core/routing/History",
-		"sap/ui/model/json/JSONModel",
+		"com/evorait/evonotify/controller/FormController",
 		"com/evorait/evonotify/model/formatter"
-	], function (
-		BaseController,
-		History,
-		JSONModel,
-		formatter
-	) {
+	], function (FormController, formatter) {
 		"use strict";
 
-		return BaseController.extend("com.evorait.evonotify.block.tasks.TasksFormBlockController", {
+		return FormController.extend("com.evorait.evonotify.block.details.AddNotifBlockController", {
 
 			formatter: formatter,
 
@@ -25,36 +18,34 @@ sap.ui.define([
 			 * @public
 			 */
 			onInit : function () {
-				
+				var eventBus = sap.ui.getCore().getEventBus();
+				eventBus.subscribe("ObjectNew", "validateFields", this._validateForm, this);
 			},
-			
+
 			/* =========================================================== */
 			/* event handlers                                              */
 			/* =========================================================== */
 
-			onEditPress : function (oEvent) {
-				this.oParentBlock.fireEditPress(oEvent.getParameters());
-			},
-			
-			onEditChanged : function(oEvent){
-				var oSource = oEvent.getSource(),
-					isNew = this.getModel("viewModel").getProperty("/isNew"),
-					sValue = oSource.getValue();
-					
-				var hideItemField = this.getView().byId("MaintenanceNotificationItem");
-				
-				if((!oSource.getEditable() && !sValue && isNew) || 
-					(oSource.sId === hideItemField.sId && parseInt(sValue) === 0)){
-					oSource.setVisible(false);
-				}else{
-					oSource.setVisible(true);
-				}
-			}
 			
 			/* =========================================================== */
 			/* internal methods                                            */
 			/* =========================================================== */
-			
+
+			/**
+			 * Validate smartForm with custom fields
+			 * @public
+			 */
+			_validateForm: function (sChannel, sEvent, oData) {
+				var oForm = this.getView().byId("idNewNotificationForm");
+
+				if(this.validateForm({form: oForm})){
+					this.saveNewEntry({
+						entryKey: "MaintenanceNotification",
+						navPath: "object",
+						success: this.navBack.bind(this)
+					});
+				}
+			}
 
 		});
 

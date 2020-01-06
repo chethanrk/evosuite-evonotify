@@ -166,8 +166,7 @@ sap.ui.define([
 					oViewModel.setProperty("/isNew", isNew);
 					oViewModel.setProperty("/isEdit", !isNew);
 					this._setEditMode(isNew);
-					this.showAllSmartFields(this.oForm);
-					
+
 					if(isNew){
 						var oContext = oDataModel.createEntry("/PMNotificationItems"),
 							sPath = oContext.getPath();

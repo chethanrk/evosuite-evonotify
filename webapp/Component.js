@@ -3,7 +3,8 @@ sap.ui.define([
 	"sap/ui/Device",
 	"com/evorait/evonotify/model/models",
 	"com/evorait/evonotify/controller/ErrorHandler",
-], function (UIComponent, Device, models, ErrorHandler) {
+	"com/evorait/evonotify/controller/AddEntryDialog"
+], function (UIComponent, Device, models, ErrorHandler, AddEntryDialog) {
 	"use strict";
 
 	return UIComponent.extend("com.evorait.evonotify.Component", {
@@ -11,6 +12,8 @@ sap.ui.define([
 		metadata: {
 			manifest: "json"
 		},
+
+		oAddEntryDialog: new AddEntryDialog(),
 
 		/**
 		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
@@ -55,6 +58,8 @@ sap.ui.define([
 				worklistEntitySet: "PMNotifications",
 				taskViewPath : "",
 				actViewPath : "",
+				rootPath: jQuery.sap.getModulePath("com.evorait.evonotify"), // your resource root
+				logoPath: "/img/logo_color_transp_50pxh.png"
 				/*itemsTableTitle : tableNoDataTextItems,
 				tasksTableTitle : tableNoDataTextTasks,
 				activitiesTableTitle : tableNoDataTextActivities,

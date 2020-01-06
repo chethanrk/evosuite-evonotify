@@ -47,10 +47,16 @@ sap.ui.define([
 			},
 
 			onPressAdd: function (oEvetn) {
-				this.getRouter().navTo("item", {
-					objectId: this.getView().getBindingContext().getProperty("MaintenanceNotification"),
-					itemId: "new"
-				});
+				var oView = this.getView(),
+					mParams = {
+						sSetPath: "/PMNotificationItems",
+						mKeys: {
+							MaintenanceNotification: oView.getBindingContext().getProperty("MaintenanceNotification"),
+							MaintNotifObjPrtCodeCatalog: "B",
+							MaintNotifDamageCodeCatalog: "C"
+						}
+					};
+				this.getOwnerComponent().oAddEntryDialog.open(oView, mParams, "AddEditItem");
 			}
 
 

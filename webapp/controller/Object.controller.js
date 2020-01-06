@@ -1,22 +1,18 @@
 /*global location*/
 sap.ui.define([
-		"com/evorait/evonotify/controller/BaseController",
+		"com/evorait/evonotify/controller/FormController",
 		"sap/ui/model/json/JSONModel",
 		"sap/ui/core/routing/History",
-		"com/evorait/evonotify/model/formatter",
-		"sap/ui/core/Fragment",
-		"sap/ui/model/Filter"
+		"com/evorait/evonotify/model/formatter"
 	], function (
-		BaseController,
+		FormController,
 		JSONModel,
 		History,
-		formatter,
-		Fragment,
-		Filter
+		formatter
 	) {
 		"use strict";
 
-		return BaseController.extend("com.evorait.evonotify.controller.Object", {
+		return FormController.extend("com.evorait.evonotify.controller.Object", {
 
 			formatter: formatter,
 
@@ -50,30 +46,15 @@ sap.ui.define([
 			 * @public
 			 */
 			onNavBack : function() {
-				if(this.oForm){
-					this.cancelFormHandling(this.oForm);
-				}
-				if(!this.getModel("viewModel").getProperty("/isNew")){
+				if(this.getModel("viewModel").getProperty("/editMode")){
+					this.cancelFormHandling(true);
+				}else{
 					this.navBack();
 				}
 			},
-			
-			/**
-			 * table item row select
-			 * navigate to notification item
-			 */
-			onPressItem : function(oEvent) {
-				var obj = this.getTableRowObject(oEvent.getParameters());
-				
-				this.onPressCancel();
-				this.getRouter().navTo("item", {
-					objectId: obj.MaintenanceNotification,
-					itemId: obj.MaintenanceNotificationItem
-				});
-			},
 
 			/**
-			 * Show select statuso dialog with maybe pre-selected filter
+			 * Show select status dialog with maybe pre-selected filter
 			 * @param oEvent
 			 */
 			onSelectStatus : function (oEvent) {
@@ -91,36 +72,24 @@ sap.ui.define([
 			 * show edit forms
 			 */
 			onPressEdit : function() {
-				this._setEditMode(true);
+				this.getModel("viewModel").setProperty("/editMode", true);
 			},
 			/**
 			 * reset changed data
 			 * when create notification remove all values
 			 */
 			onPressCancel : function() {
-				if(this.oForm){
-					this.cancelFormHandling(this.oForm);
-				}
+				//show confirm message
+				this.cancelFormHandling();
 			},
 			
 			/**
 			 * validate and submit form data changes
 			 */
 			onPressSave : function() {
-				if(this.oForm){
-					this.saveSubmitHandling(this.oForm);
-				}
-			},
-
-			/**
-			 * fired edit toggle event from subsection block DetailsFormBlock
-			 */
-			onFiredEditMode : function(oEvent) {
-				var oParameters = oEvent.getParameters();
-				this._setEditMode(oParameters.editable);
-				if(!this.oForm){
-					this.oForm = sap.ui.getCore().byId(oParameters.id);
-				}
+				console.log(oEvent);
+				var eventBus = sap.ui.getCore().getEventBus();
+				eventBus.publish("Object", "validateFields", {});
 			},
 			
 			/* =========================================================== */
@@ -136,30 +105,18 @@ sap.ui.define([
 			_onObjectMatched : function (oEvent) {
 				var sObjectId =  oEvent.getParameter("arguments").objectId,
 					oViewModel = this.getModel("viewModel"),
-					oDataModel = this.getModel(),
-					isNew = (sObjectId === "new");
+					oDataModel = this.getModel();
 					
 				oDataModel.metadataLoaded().then( function() {
-					oViewModel.setProperty("/isNew", isNew);
-					oViewModel.setProperty("/isEdit", !isNew);
-					this._setEditMode(isNew);
-					this.showAllSmartFields(this.oForm); 
-					
-					if(isNew){
-						this._oContext = oDataModel.createEntry("/PMNotifications");
-						this.getView().unbindElement();
-						this.getView().setBindingContext(this._oContext);
-						
-						var oBundle = this.getModel("i18n").getResourceBundle();
-						oViewModel.setProperty("/Title", oBundle.getText("newNotificationTitle"));
-						oViewModel.setProperty("/busy", false);
-					}else{
-						var sObjectPath = this.getModel().createKey("PMNotifications", {
-							MaintenanceNotification :  sObjectId
-						});
-						
-						this._bindView("/" + sObjectPath);
-					}
+					oViewModel.setProperty("/isNew", false);
+					oViewModel.setProperty("/isEdit", true);
+					oViewModel.setProperty("/editMode", false);
+
+
+					var sObjectPath = this.getModel().createKey("PMNotifications", {
+						MaintenanceNotification :  sObjectId
+					});
+					this._bindView("/" + sObjectPath);
 				}.bind(this));
 			},
 
@@ -210,18 +167,8 @@ sap.ui.define([
 					return;
 				}
 				
-				if(this.oForm){
-					this.oForm.setEditable(false);
-				}
-				
 				// Everything went fine.
-				this.getModel("viewModel").setProperty("/Title", this._oContext.getProperty("NotificationText"));
 				oViewModel.setProperty("/busy", false);
-			},
-			
-			_setEditMode : function(isEdit){
-				this.getModel("viewModel").setProperty("/editMode", isEdit);
-				this.getModel("viewModel").setProperty("/showStatus", isEdit);
 			}
 			
 		});

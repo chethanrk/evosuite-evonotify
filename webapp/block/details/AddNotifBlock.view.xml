@@ -1,14 +1,11 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:smartField="sap.ui.comp.smartfield" xmlns:smartForm="sap.ui.comp.smartform" controllerName="com.evorait.evonotify.block.details.DetailsFormBlockController">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:smartField="sap.ui.comp.smartfield" xmlns:smartForm="sap.ui.comp.smartform" controllerName="com.evorait.evonotify.block.details.AddNotifBlockController">
 	
-	<smartForm:SmartForm id="idNotificationForm" editable="{viewModel>/editMode}">
+	<smartForm:SmartForm id="idNewNotificationForm" editable="{viewModel>/editMode}">
 		
 		<smartForm:Group label="{i18n>@GENERAL}">
 			<smartForm:layout>
 				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layout>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintenanceNotification}" />
-			</smartForm:GroupElement>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{NotificationText}" />
 			</smartForm:GroupElement>
@@ -20,19 +17,6 @@
 				</smartField:SmartField>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintenanceOrder}" />
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{CreationDate}" >
-					<smartField:configuration>
-						<smartField:Configuration controlType="datePicker" displayBehaviour="descriptionAndId"/>
-					</smartField:configuration>
-				</smartField:SmartField>
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{CreationTime}" />
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintPriority}" >
 					<smartField:configuration>
 						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
@@ -41,9 +25,6 @@
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{ReportedByUser}" />
-			</smartForm:GroupElement>
-			<smartForm:GroupElement visible="false">
-				<smartField:SmartField value="{CreatedByUser}" />
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		
@@ -72,9 +53,6 @@
 				<smartField:SmartField value="{MalfunctionEndTime}" />
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintObjectDowntimeDuration}" />
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintenanceObjectIsDown}" />
 			</smartForm:GroupElement>
 		</smartForm:Group>
@@ -94,9 +72,6 @@
 			</smartForm:layout>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{TechnicalObject}"  />
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{TechObjIsEquipOrFunclLoc}"  />
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{Assembly}" >
@@ -167,18 +142,6 @@
 						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
 					</smartField:configuration>
 				</smartField:SmartField>	
-			</smartForm:GroupElement>
-		</smartForm:Group>
-		
-		<smartForm:Group label="{i18n>tit.systemUserStateSection}">
-			<smartForm:layout>
-				<layout:GridData span="L6 M6 S12"/>
-			</smartForm:layout>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{ConcatenatedActSysStsName}"  />
-			</smartForm:GroupElement>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{ConcatenatedActUserStsName}"  />
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		

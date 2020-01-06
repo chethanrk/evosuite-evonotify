@@ -36,26 +36,25 @@ sap.ui.define([
 			 * @param oEvent
 			 */
 			onPressItem : function (oEvent) {
-				var oContext = oEvent.getSource().getBindingContext();
-				if(oContext){
-					var obj = oContext.getObject();
-					this.getRouter().navTo("task", {
-						objectId: obj.MaintenanceNotification,
-						taskId: obj.MaintenanceNotificationTask,
-						itemId: 0
-					});
-				}
+				var mParams = {
+					oContext: oEvent.getSource().getBindingContext()
+				};
+				this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditTask");
 			},
 
 			/**
 			 * @param oEvent
 			 */
 			onPressAdd: function (oEvent) {
-				this.getRouter().navTo("task", {
-					objectId: this.getView().getBindingContext().getProperty("MaintenanceNotification"),
-					itemId: 0,
-					taskId: "new"
-				});
+				var oContext = this.getView().getBindingContext(),
+					mParams = {
+						sSetPath: "/PMNotificationTasks",
+						mKeys: {
+							MaintenanceNotification: oContext.getProperty("MaintenanceNotification"),
+							MaintenanceNotificationItem: oContext.getProperty("MaintenanceNotificationItem")
+						}
+					};
+				this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditTask");
 			}
 
 

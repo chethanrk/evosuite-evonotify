@@ -15,7 +15,7 @@
 		},
 		"dataSources": {
 			"mainService": {
-				"uri": "/sap/opu/odata/evora/EL_NOTIFICATION_SRV/",
+				"uri": "/sap/opu/odata/EVOCU/EN_MAIN_SRV/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
@@ -104,7 +104,7 @@
 				"clearControlAggregation": false,
 				"bypassed": {
 					"target": [
-						"notFound"
+						"worklist"
 					]
 				}
 			},
@@ -114,6 +114,13 @@
 					"name": "worklist",
 					"target": [
 						"worklist"
+					]
+				},
+				{
+					"pattern": "Notification/new",
+					"name": "objectNew",
+					"target": [
+						"objectNew"
 					]
 				},
 				{
@@ -161,6 +168,11 @@
 				"object": {
 					"viewName": "Object",
 					"viewId": "object",
+					"viewLevel": 2
+				},
+				"objectNew": {
+					"viewName": "ObjectNew",
+					"viewId": "objectNew",
 					"viewLevel": 2
 				},
 				"item": {

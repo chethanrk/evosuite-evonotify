@@ -123,8 +123,7 @@ sap.ui.define([
 					oViewModel.setProperty("/isEdit", !isNew);
 					oViewModel.setProperty("/MaintenanceNotification",sObjectId);
 					this._setEditMode(isNew);
-					this.showAllSmartFields(this.oForm);
-					
+
 					if(isNew){
 						var oContext = oDataModel.createEntry("/PMNotificationActivities");
 						oDataModel.setProperty(oContext.sPath+"/MaintenanceNotification", sObjectId);

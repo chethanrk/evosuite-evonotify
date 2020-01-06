@@ -7,7 +7,8 @@ sap.ui.define([
 		"1": "sap-icon://circle-task", //open
 		"2": "sap-icon://overlay", //on hold
 		"3": "sap-icon://busy", //in progress
-		"4": "sap-icon://circle-task-2" //completed
+		"4": "sap-icon://circle-task-2", //completed
+		"5": "sap-icon://status-negative" //default
 	};
 
 	return {
@@ -86,7 +87,7 @@ sap.ui.define([
 		 */
 		formatIsEditableIcon: function (sValue) {
 			if (!sValue || !statusIcons[sValue]) {
-				return "";
+				return statusIcons["5"];
 			}
 			return statusIcons[sValue];
 		},

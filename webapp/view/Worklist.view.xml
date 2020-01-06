@@ -9,6 +9,17 @@
 
 	<f:DynamicPage preserveHeaderStateOnScroll="true" showFooter="true">
 
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Image src="{viewModel>/rootPath}{viewModel>/logoPath}" densityAware="false" height="30px" alt="EvoNotify" id="imageLogo"/>
+				</f:heading>
+				<f:actions>
+					<!--<Button icon="sap-icon://alert" text="{= ${message>/}.length }" type="Emphasized" press="onMessageManagerPress"/>-->
+				</f:actions>
+			</f:DynamicPageTitle>
+		</f:title>
+
 		<f:header>
 			<f:DynamicPageHeader>
 				<f:content>
@@ -28,6 +39,7 @@
 		<f:content>
 			<smartTable:SmartTable
 					id="NotificationTable"
+					class="workorderSmartTable"
 					entitySet="{viewModel>/worklistEntitySet}"
 					smartFilterId="NotificationFilter"
 					tableType="Table"
@@ -38,8 +50,7 @@
 					header="{i18n>tit.notifications}"
 					showRowCount="true"
 					persistencyKey="com.evorait.evonotify.NotificationTable"
-					enableAutoBinding="true"
-					class="sapUiResponsiveContentPadding">
+					enableAutoBinding="true">
 				<!-- layout data used to make the table growing but the filter bar fixed -->
 				<smartTable:layoutData>
 					<FlexItemData growFactor="1" baseSize="0%"/>
@@ -48,7 +59,7 @@
 				<smartTable:customToolbar>
 					<OverflowToolbar design="Transparent">
 						<ToolbarSpacer/>
-						<OverflowToolbarButton icon="sap-icon://add" text="Sort" press="onAddPress" />
+						<Button icon="sap-icon://add" text="{i18n>btn.createNotification}" press="onAddPress"/>
 					</OverflowToolbar>
 				</smartTable:customToolbar>
 

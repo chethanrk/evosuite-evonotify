@@ -1,0 +1,55 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:smartField="sap.ui.comp.smartfield"
+                         xmlns:smartForm="sap.ui.comp.smartform" xmlns:layout="sap.ui.layout">
+    <Dialog title="{i18n>tit.addItem}" class="sapUiTinyMargin" id="idAddNotifCause" draggable="true" stretch="true">
+        <content>
+
+            <smartForm:SmartForm id="SmartNotificationCauseForm" editTogglable="false" editable="true">
+                <smartForm:Group label="{i18n>tit.generalSection}">
+                    <smartForm:layout>
+                        <layout:GridData span="L6 M6 S12"/>
+                    </smartForm:layout>
+                    <smartForm:GroupElement>
+                        <smartField:SmartField value="{MaintenanceNotification}" />
+                    </smartForm:GroupElement>
+                    <smartForm:GroupElement>
+                        <smartField:SmartField value="{MaintenanceNotificationItem}" />
+                    </smartForm:GroupElement>
+                    <smartForm:GroupElement>
+                        <smartField:SmartField value="{MaintenanceNotificationCause}" />
+                    </smartForm:GroupElement>
+                    <smartForm:GroupElement>
+                        <smartField:SmartField value="{MaintNotifCauseText}" />
+                    </smartForm:GroupElement>
+                </smartForm:Group>
+
+                <smartForm:Group label="{i18n>tit.codeSection}">
+                    <smartForm:layout>
+                        <layout:GridData span="L6 M6 S12"/>
+                    </smartForm:layout>
+                    <smartForm:GroupElement>
+                        <smartField:SmartField value="{MaintNotifCauseCodeGroup}" >
+                            <smartField:configuration>
+                                <smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+                            </smartField:configuration>
+                        </smartField:SmartField>
+                    </smartForm:GroupElement>
+                    <smartForm:GroupElement>
+                        <smartField:SmartField value="{MaintNotificationCauseCode}" >
+                            <smartField:configuration>
+                                <smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
+                            </smartField:configuration>
+                        </smartField:SmartField>
+                    </smartForm:GroupElement>
+                </smartForm:Group>
+
+            </smartForm:SmartForm>
+
+        </content>
+        <beginButton>
+            <Button text="{i18n>btn.cancel}" press="onPressCancel"/>
+        </beginButton>
+        <endButton>
+            <Button text="{i18n>btn.save}" type="Emphasized" press="onPressSave"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

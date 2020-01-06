@@ -33,24 +33,24 @@ sap.ui.define([
 			/* =========================================================== */
 
 			onPressItem : function (oEvent) {
-				var obj = this.getView().getBindingContext().getObject();
-				var oContext = oEvent.getSource().getBindingContext();
-				if(oContext){
-					this.getRouter().navTo("activity", {
-						objectId: obj.MaintenanceNotification,
-						itemId: 0,
-						activityId: obj.MaintNotificationActivity
-					});
-				}
+				var mParams = {
+					oContext: oEvent.getSource().getBindingContext()
+				};
+				this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditActivity");
 			},
 
 
 			onPressAdd: function (oEvent) {
-				this.getRouter().navTo("activity", {
-					objectId: this.getView().getBindingContext().getProperty("MaintenanceNotification"),
-					itemId: 0,
-					activityId: "new"
-				});
+				var oView = this.getView(),
+					oContext = oView.getBindingContext(),
+					mParams = {
+						sSetPath: "/PMNotificationActivities",
+						mKeys: {
+							MaintenanceNotification: oContext.getProperty("MaintenanceNotification"),
+							MaintenanceNotificationItem: oContext.getProperty("MaintenanceNotificationItem")
+						}
+					};
+				this.getOwnerComponent().oAddEntryDialog.open(oView, mParams, "AddEditActivity");
 			}
 
 
