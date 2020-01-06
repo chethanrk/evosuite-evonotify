@@ -1,176 +1,171 @@
 /*global location*/
 sap.ui.define([
-		"com/evorait/evonotify/controller/FormController",
-		"sap/ui/model/json/JSONModel",
-		"sap/ui/core/routing/History",
-		"com/evorait/evonotify/model/formatter"
-	], function (
-		FormController,
-		JSONModel,
-		History,
-		formatter
-	) {
-		"use strict";
+	"com/evorait/evonotify/controller/FormController",
+	"sap/ui/model/json/JSONModel",
+	"sap/ui/core/routing/History",
+	"com/evorait/evonotify/model/formatter"
+], function (
+	FormController,
+	JSONModel,
+	History,
+	formatter
+) {
+	"use strict";
 
-		return FormController.extend("com.evorait.evonotify.controller.Object", {
+	return FormController.extend("com.evorait.evonotify.controller.Object", {
 
-			formatter: formatter,
+		formatter: formatter,
 
-			_oContext: null,
+		_oContext: null,
 
-			/* =========================================================== */
-			/* lifecycle methods                                           */
-			/* =========================================================== */
+		/* =========================================================== */
+		/* lifecycle methods                                           */
+		/* =========================================================== */
 
-			/**
-			 * Called when the worklist controller is instantiated.
-			 * @public
-			 */
-			onInit : function () {
-				this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
-			},
+		/**
+		 * Called when the worklist controller is instantiated.
+		 * @public
+		 */
+		onInit: function () {
+			this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
+		},
 
-			onExit: function(){
+		onExit: function () {
 
-			},
-			
-			/* =========================================================== */
-			/* event handlers                                              */
-			/* =========================================================== */
+		},
 
+		/* =========================================================== */
+		/* event handlers                                              */
+		/* =========================================================== */
 
-			/**
-			 * Event handler  for navigating back.
-			 * It there is a history entry we go one step back in the browser history
-			 * If not, it will replace the current entry of the browser history with the worklist route.
-			 * @public
-			 */
-			onNavBack : function() {
-				if(this.getModel("viewModel").getProperty("/editMode")){
-					this.cancelFormHandling(true);
-				}else{
-					this.navBack();
-				}
-			},
-
-			/**
-			 * Show select status dialog with maybe pre-selected filter
-			 * @param oEvent
-			 */
-			onSelectStatus : function (oEvent) {
-				var oParams = oEvent.getParameters(),
-					statusKey = oParams.item.getKey();
-
-				if(statusKey){
-					this.saveNewStatus("/UpdateHeaderStatus", {
-						"MaintNotification": this._oContext.getProperty("MaintenanceNotification"),
-						"MaintStatus": statusKey
-					});
-				}
-			},
-			/**
-			 * show edit forms
-			 */
-			onPressEdit : function() {
-				this.getModel("viewModel").setProperty("/editMode", true);
-			},
-			/**
-			 * reset changed data
-			 * when create notification remove all values
-			 */
-			onPressCancel : function() {
-				//show confirm message
-				this.cancelFormHandling();
-			},
-			
-			/**
-			 * validate and submit form data changes
-			 */
-			onPressSave : function() {
-				console.log(oEvent);
-				var eventBus = sap.ui.getCore().getEventBus();
-				eventBus.publish("Object", "validateFields", {});
-			},
-			
-			/* =========================================================== */
-			/* internal methods                                            */
-			/* =========================================================== */
-
-			/**
-			 * Binds the view to the object path.
-			 * @function
-			 * @param {sap.ui.base.Event} oEvent pattern match event in route "object"
-			 * @private
-			 */
-			_onObjectMatched : function (oEvent) {
-				var sObjectId =  oEvent.getParameter("arguments").objectId,
-					oViewModel = this.getModel("viewModel"),
-					oDataModel = this.getModel();
-					
-				oDataModel.metadataLoaded().then( function() {
-					oViewModel.setProperty("/isNew", false);
-					oViewModel.setProperty("/isEdit", true);
-					oViewModel.setProperty("/editMode", false);
-
-
-					var sObjectPath = this.getModel().createKey("PMNotifications", {
-						MaintenanceNotification :  sObjectId
-					});
-					this._bindView("/" + sObjectPath);
-				}.bind(this));
-			},
-
-			/**
-			 * Binds the view to the object path.
-			 * @function
-			 * @param {string} sObjectPath path to the object to be bound
-			 * @private
-			 */
-			_bindView : function (sObjectPath) {
-				var oViewModel = this.getModel("viewModel"),
-					oDataModel = this.getModel();
-
-					oViewModel.setProperty("/activityEntitySet" , "PMNotificationActivities");
-					oViewModel.setProperty("/activityTableBindingPath" , "to_PMNotificationActivity");
-					oViewModel.setProperty("/taskEntitySet" , "PMNotificationTasks");
-					oViewModel.setProperty("/taskTableBindingPath" , "to_PMNotificationTask");
-
-
-				this.getView().bindElement({
-					path: sObjectPath,
-					parameters: {
-							expand: "to_PMNotificationItem,to_PMNotificationTask,to_PMNotificationActivity"	
- 				},
-					events: {
-						change: this._onBindingChange.bind(this),
-						dataRequested: function () {
-							oDataModel.metadataLoaded().then(function () {
-								oViewModel.setProperty("/busy", true);
-							});
-						},
-						dataReceived: function () {
-							oViewModel.setProperty("/busy", false);
-						}
-					}
-				});
-			},
-
-			_onBindingChange : function () {
-				var oView = this.getView(),
-					oViewModel = this.getModel("viewModel"),
-					oElementBinding = oView.getElementBinding();
-				this._oContext = oElementBinding.getBoundContext();
-					
-				// No data for the binding
-				if (!this._oContext) {
-					this.getRouter().getTargets().display("objectNotFound");
-					return;
-				}
-				
-				// Everything went fine.
-				oViewModel.setProperty("/busy", false);
+		/**
+		 * Event handler  for navigating back.
+		 * It there is a history entry we go one step back in the browser history
+		 * If not, it will replace the current entry of the browser history with the worklist route.
+		 * @public
+		 */
+		onNavBack: function () {
+			if (this.getModel("viewModel").getProperty("/editMode")) {
+				this.cancelFormHandling(true);
+			} else {
+				this.navBack();
 			}
-			
-		});
-	}
-);
+		},
+
+		/**
+		 * Show select status dialog with maybe pre-selected filter
+		 * @param oEvent
+		 */
+		onSelectStatus: function (oEvent) {
+			var oParams = oEvent.getParameters(),
+				statusKey = oParams.item.getKey();
+
+			if (statusKey) {
+				this.saveNewStatus("/UpdateHeaderStatus", {
+					"MaintNotification": this._oContext.getProperty("MaintenanceNotification"),
+					"MaintStatus": statusKey
+				});
+			}
+		},
+		/**
+		 * show edit forms
+		 */
+		onPressEdit: function () {
+			this.getModel("viewModel").setProperty("/editMode", true);
+		},
+		/**
+		 * reset changed data
+		 * when create notification remove all values
+		 */
+		onPressCancel: function () {
+			//show confirm message
+			this.cancelFormHandling();
+		},
+
+		/**
+		 * validate and submit form data changes
+		 */
+		onPressSave: function () {
+			var eventBus = sap.ui.getCore().getEventBus();
+			eventBus.publish("Object", "validateFields", {});
+		},
+
+		/* =========================================================== */
+		/* internal methods                                            */
+		/* =========================================================== */
+
+		/**
+		 * Binds the view to the object path.
+		 * @function
+		 * @param {sap.ui.base.Event} oEvent pattern match event in route "object"
+		 * @private
+		 */
+		_onObjectMatched: function (oEvent) {
+			var sObjectId = oEvent.getParameter("arguments").objectId,
+				oViewModel = this.getModel("viewModel"),
+				oDataModel = this.getModel();
+
+			oDataModel.metadataLoaded().then(function () {
+				oViewModel.setProperty("/isNew", false);
+				oViewModel.setProperty("/isEdit", true);
+				oViewModel.setProperty("/editMode", false);
+
+				var sObjectPath = this.getModel().createKey("PMNotificationSet", {
+					MaintenanceNotification: sObjectId
+				});
+				this._bindView("/" + sObjectPath);
+			}.bind(this));
+		},
+
+		/**
+		 * Binds the view to the object path.
+		 * @function
+		 * @param {string} sObjectPath path to the object to be bound
+		 * @private
+		 */
+		_bindView: function (sObjectPath) {
+			var oViewModel = this.getModel("viewModel"),
+				oDataModel = this.getModel();
+
+			oViewModel.setProperty("/activityEntitySet", "PMNotificationActivitySet");
+			oViewModel.setProperty("/activityTableBindingPath", "NavToActivity");
+			oViewModel.setProperty("/taskEntitySet", "PMNotificationTaskSet");
+			oViewModel.setProperty("/taskTableBindingPath", "NavToTasks");
+
+			this.getView().bindElement({
+				path: sObjectPath,
+				parameters: {
+					expand: "NavToItems,NavToTasks,NavToActivity"
+				},
+				events: {
+					change: this._onBindingChange.bind(this),
+					dataRequested: function () {
+						oDataModel.metadataLoaded().then(function () {
+							oViewModel.setProperty("/busy", true);
+						});
+					},
+					dataReceived: function () {
+						oViewModel.setProperty("/busy", false);
+					}
+				}
+			});
+		},
+
+		_onBindingChange: function () {
+			var oView = this.getView(),
+				oViewModel = this.getModel("viewModel"),
+				oElementBinding = oView.getElementBinding();
+			this._oContext = oElementBinding.getBoundContext();
+
+			// No data for the binding
+			if (!this._oContext) {
+				this.getRouter().getTargets().display("objectNotFound");
+				return;
+			}
+
+			// Everything went fine.
+			oViewModel.setProperty("/busy", false);
+		}
+
+	});
+});

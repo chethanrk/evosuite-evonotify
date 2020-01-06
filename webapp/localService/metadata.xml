@@ -1,678 +1,485 @@
-<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
-	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="https://ed1.evorait.net:50103/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
-		<edmx:Include Namespace="com.sap.vocabularies.Common.v1"/>
-	</edmx:Reference>
-	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="https://ed1.evorait.net:50103/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
-		<edmx:Include Namespace="Org.OData.Core.V1"/>
-	</edmx:Reference>
-	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="https://ed1.evorait.net:50103/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
-		<edmx:Include Namespace="com.sap.vocabularies.UI.v1"/>
-	</edmx:Reference>
-	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="https://ed1.evorait.net:50103/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
-		<edmx:Include Namespace="com.sap.vocabularies.Communication.v1"/>
-	</edmx:Reference>
-	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="https://ed1.evorait.net:50103/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://webidetesting9500707-ad74c0790.dispatcher.hana.ondemand.com/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
 		<edmx:Include Namespace="Org.OData.Capabilities.V1"/>
 	</edmx:Reference>
-	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="https://ed1.evorait.net:50103/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://webidetesting9500707-ad74c0790.dispatcher.hana.ondemand.com/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="Org.OData.Core.V1"/>
+	</edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://webidetesting9500707-ad74c0790.dispatcher.hana.ondemand.com/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.Common.v1"/>
+	</edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://webidetesting9500707-ad74c0790.dispatcher.hana.ondemand.com/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.Communication.v1"/>
+	</edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://webidetesting9500707-ad74c0790.dispatcher.hana.ondemand.com/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
 		<edmx:Include Namespace="Org.OData.Measures.V1"/>
 	</edmx:Reference>
-	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="https://ed1.evorait.net:50103/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_TIMELINE',Version='0001',SAP__Origin='LOCAL')/$value">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://webidetesting9500707-ad74c0790.dispatcher.hana.ondemand.com/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_TIMELINE',Version='0001',SAP__Origin='LOCAL')/$value">
 		<edmx:Include Namespace="com.sap.vocabularies.Timeline.v1"/>
 	</edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://webidetesting9500707-ad74c0790.dispatcher.hana.ondemand.com/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
 	<edmx:DataServices m:DataServiceVersion="2.0">
-		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="com.evorait.evolite.evonotify" xml:lang="en" sap:schema-version="1">
-			<EntityType Name="PMInspectionCodeVH" sap:content-version="1">
-				<Key>
-					<PropertyRef Name="MaintNotifCatalog"/>
-					<PropertyRef Name="MaintNotifCode"/>
-					<PropertyRef Name="MaintNotifCodeGroup"/>
-				</Key>
-				<Property Name="MaintNotifCatalog" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Catalog"/>
-				<Property Name="MaintNotifCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Code"/>
-				<Property Name="MaintNotifCodeGroup" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Code group"/>
-				<Property Name="MaintNotifCodeName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Short text"/>
-			</EntityType>
-			<EntityType Name="PMInspectionCodeGrpVH" sap:content-version="1">
-				<Key>
-					<PropertyRef Name="MaintNotifCodeGroup"/>
-					<PropertyRef Name="MaintNotifCatalog"/>
-				</Key>
-				<Property Name="MaintNotifCodeGroup" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Code group"/>
-				<Property Name="MaintNotifCatalog" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Catalog"/>
-				<Property Name="MaintNotifCodeGroupName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Short text"/>
-			</EntityType>
-			<EntityType Name="PMNotificationCause" sap:content-version="1">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="com.evorait.evocu.evonotify" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="PMNotification" sap:content-version="1">
 				<Key>
 					<PropertyRef Name="MaintenanceNotification"/>
-					<PropertyRef Name="MaintenanceNotificationCause"/>
-					<PropertyRef Name="MaintenanceNotificationItem"/>
 				</Key>
-				<Property Name="MaintNotifCauseCodeCatalog" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Catalog type"/>
-				<Property Name="MaintenanceNotification" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Notification" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="MaintenanceNotificationCause" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Cause" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="MaintenanceNotificationItem" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Item" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="MaintNotifCauseText" Type="Edm.String" MaxLength="40" sap:label="Cause text"/>
-				<Property Name="MaintNotifCauseCodeGroup" Type="Edm.String" MaxLength="8" sap:label="Code group"/>
-				<Property Name="MaintNotifCauseCodeGroupName" Type="Edm.String" MaxLength="50"/>
-				<Property Name="MaintNotificationCauseCode" Type="Edm.String" MaxLength="4" sap:label="Cause code"/>
-				<Property Name="MaintNotificationCauseCodeName" Type="Edm.String" MaxLength="40" sap:label="Short text"/>
-				<Property Name="NotificationType" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Notifictn type"/>
+				<Property Name="ABCIndicator" Type="Edm.String" MaxLength="1" sap:label="ABC indic." sap:updatable="false" sap:filterable="false"/>
+				<Property Name="ABCIndicatorDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="ABC IndicText" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="Assembly" Type="Edm.String" MaxLength="18" sap:label="Assembly" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="AssemblyName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="AssetLocation" Type="Edm.String" MaxLength="10" sap:label="Location" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="AssetLocationName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Text, 40 Characters Long"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="ChangedByUser" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Changed by" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="ChangedDate" Type="Edm.DateTime" Precision="7" sap:label="Changed On" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="CodeGroup" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Code group" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="CodeGroupText" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Short text" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="CreatedByUser" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Created By" sap:updatable="false"/>
+				<Property Name="CreatedByUserDescription" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Description" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="CreationDate" Type="Edm.DateTime" Precision="7" sap:label="Created On" sap:updatable="false"/>
+				<Property Name="CreationTime" Type="Edm.Time" Precision="0" sap:label="Created at" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Equipment" Type="Edm.String" MaxLength="18" sap:label="Equipment" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="FunctionalLocation" Type="Edm.String" MaxLength="40" sap:label="Functional loc." sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="IsCompleted" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Single-Character Flag" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="IsDeleted" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Single-Character Flag" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="IsInProgress" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="TRUE"/>
+				<Property Name="IsOutStanding" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="TRUE"/>
+				<Property Name="IsPostponed" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="TRUE"/>
+				<Property Name="MaintenanceNotification" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Notification" sap:updatable="false"/>
+				<Property Name="MaintenanceObjectIsDown" Type="Edm.Boolean" sap:label="Breakdown" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="MaintenanceOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Order" sap:updatable="false"/>
+				<Property Name="MaintenancePlannerGroup" Type="Edm.String" MaxLength="3" sap:label="Planner group" sap:updatable="false"/>
+				<Property Name="MaintenancePlannerGroupName" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="PM PlGrp name"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="MaintenancePlanningPlant" Type="Edm.String" MaxLength="4" sap:label="Planning plant" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintenancePlanningPlantName" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Name 1" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintenancePlant" Type="Edm.String" MaxLength="4" sap:label="MaintPlant" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="MaintenancePlantName" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Name 1" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintenanceRevision" Type="Edm.String" MaxLength="8" sap:label="Revision" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="MaintenanceWorkCenter" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Work center" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintenanceWorkCenterPlant" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Plt for WorkCtr"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="MaintenanceWorkCenterText" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintObjDowntimeDurationUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Unit" sap:updatable="false"
+					sap:filterable="false" sap:semantics="unit-of-measure"/>
+				<Property Name="MaintObjectDowntimeDuration" Type="Edm.Double" sap:label="Breakdown dur."/>
+				<Property Name="MaintPriority" Type="Edm.String" MaxLength="1" sap:label="Priority" sap:updatable="false"/>
+				<Property Name="MaintPriorityText" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Priority"/>
+				<Property Name="MaintPriorityType" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="PriorityType" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MalfunctionEndDate" Type="Edm.DateTime" Precision="7" sap:label="Malfunct.end" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="MalfunctionEndTime" Type="Edm.Time" Precision="0" sap:label="Field of type TIMS" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MalfunctionStartDate" Type="Edm.DateTime" Precision="7" sap:label="Malfunct. start" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MalfunctionStartTime" Type="Edm.Time" Precision="0" sap:label="Start Malfn (T)" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="NotificationText" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description"/>
+				<Property Name="NotificationType" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Notifictn type" sap:updatable="false"/>
+				<Property Name="NotificationTypeName" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="NotifcatnType" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="NotifProcessingPhase" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Notif. Phase" sap:updatable="false"/>
+				<Property Name="NotifProcessingPhaseDesc" Type="Edm.String" Nullable="false" MaxLength="60" sap:label="Short Descript."/>
+				<Property Name="ObjectNumber" Type="Edm.String" Nullable="false" MaxLength="22" sap:label="Object number" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="ReportedByUser" Type="Edm.String" MaxLength="12" sap:label="Reported by" sap:updatable="false"/>
+				<Property Name="ReportedByUserDescription" Type="Edm.String" MaxLength="80" sap:label="Description" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="RequiredEndDate" Type="Edm.DateTime" Precision="7" sap:label="Required End" sap:updatable="false"/>
+				<Property Name="RequiredEndTime" Type="Edm.Time" Precision="0" sap:label="Req. end time" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="RequiredStartDate" Type="Edm.DateTime" Precision="7" sap:label="Req. start" sap:updatable="false"/>
+				<Property Name="RequiredStartTime" Type="Edm.Time" Precision="0" sap:label="Req. start time" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="StatusProfile" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Status Profile" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="SystemStatus" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Char255" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="TechObjIsEquipOrFunclLoc" Type="Edm.String" MaxLength="1" sap:label="Single-Character Flag" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="TechObjIsEquipOrFuncnlLocDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="TObj.Type Desc."
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="UserStatus" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Char255" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="Notes" Type="Edm.String" Nullable="false" sap:label="Notification Long Text"/>
+				<Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="20"/>
+				<NavigationProperty Name="NavToItems" Relationship="com.evorait.evocu.evonotify.NotificationToItem" FromRole="FromRole_NotificationToItem"
+					ToRole="ToRole_NotificationToItem"/>
+				<NavigationProperty Name="NavToActivity" Relationship="com.evorait.evocu.evonotify.NotificationToActivity"
+					FromRole="FromRole_NotificationToActivity" ToRole="ToRole_NotificationToActivity"/>
+				<NavigationProperty Name="NavToTasks" Relationship="com.evorait.evocu.evonotify.NotificationToTask" FromRole="FromRole_NotificationToTask"
+					ToRole="ToRole_NotificationToTask"/>
 			</EntityType>
 			<EntityType Name="PMNotificationTask" sap:content-version="1">
 				<Key>
 					<PropertyRef Name="MaintenanceNotification"/>
 					<PropertyRef Name="MaintenanceNotificationTask"/>
 				</Key>
-				<Property Name="IsCompleted" Type="Edm.String" Nullable="false" MaxLength="1"/>
-				<Property Name="MaintenanceNotification" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Notification" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="IsDeleted" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Delete"/>
-				<Property Name="MaintNotifTaskCodeCatalog" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Catalog type"/>
-				<Property Name="MaintenanceNotificationTask" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Task" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="MaintenanceNotificationItem" Type="Edm.String" MaxLength="4" sap:label="Item" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="MaintNotifTaskCodeGroup" Type="Edm.String" MaxLength="8" sap:label="Code group"/>
-				<Property Name="MaintNotiTtaskCodeGroupName" Type="Edm.String" MaxLength="50"/>
-				<Property Name="MaintNotifTaskCode" Type="Edm.String" MaxLength="4" sap:label="Task code"/>
-				<Property Name="MaintNotifTaskCodeName" Type="Edm.String" MaxLength="50"/>
-				<Property Name="MaintNotifTaskText" Type="Edm.String" MaxLength="40" sap:label="Task text"/>
-				<Property Name="ConcatenatedActSysStsName" Type="Edm.String" MaxLength="1333" sap:label="System Status" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="ConcatenatedActUserStsName" Type="Edm.String" MaxLength="1333" sap:label="User Status" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="ResponsiblePersonFunctionCode" Type="Edm.String" MaxLength="2" sap:label="Task processor"/>
-				<Property Name="MaintNotifTaskPartFuncName" Type="Edm.String" MaxLength="20" sap:label="Name"/>
-				<Property Name="ResponsiblePerson" Type="Edm.String" MaxLength="12" sap:label="Responsible"/>
-				<Property Name="ResponsiblePersonName" Type="Edm.String" MaxLength="50"/>
-				<Property Name="PlannedStartDate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:label="Planned Start Date"/>
-				<Property Name="PlannedStartTime" Type="Edm.Time" Precision="0" sap:label="Planned Start Time"/>
-				<Property Name="PlannedEndDate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:label="Planned End Date"/>
-				<Property Name="PlannedEndTime" Type="Edm.Time" Precision="0" sap:label="Planned End Time"/>
-				<Property Name="MaintNotifTaskInternalID" Type="Edm.String" MaxLength="22" sap:label="Object number"/>
-				<Property Name="NotificationType" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Notifictn type"/>
+				<Property Name="ConcatenatedActSysStsName" Type="Edm.String" Nullable="false" MaxLength="225" sap:label="System Status"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="ConcatenatedActUserStsName" Type="Edm.String" Nullable="false" MaxLength="225" sap:label="User Status" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="IsCompleted" Type="Edm.String" Nullable="false" MaxLength="1" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="IsDeleted" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Delete" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="MaintenanceNotification" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Notification" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintenanceNotificationItem" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Item" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintenanceNotificationTask" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Task" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotifTaskCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Task code" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotifTaskCodeCatalog" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Catalog type" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotifTaskCodeGroup" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Code group" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotifTaskCodeName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Char"/>
+				<Property Name="MaintNotifTaskInternalID" Type="Edm.String" Nullable="false" MaxLength="22" sap:label="Object number" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotifTaskPartFuncName" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Name"/>
+				<Property Name="MaintNotifTaskText" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Task text"/>
+				<Property Name="MaintNotiTaskCodeGroupName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Char"/>
+				<Property Name="NotificationType" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Notifictn type" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="PlannedEndDate" Type="Edm.DateTime" Precision="7" sap:label="Planned finish" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="PlannedEndTime" Type="Edm.Time" Precision="0" sap:label="Planned time" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="PlannedStartDate" Type="Edm.DateTime" Precision="7" sap:label="Planned start" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="PlannedStartTime" Type="Edm.Time" Precision="0" sap:label="Planned time" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="ResponsiblePerson" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Responsible" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="ResponsiblePersonFunctionCode" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Task processor"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="ResponsiblePersonName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Char"/>
+				<Property Name="Notes" Type="Edm.String" Nullable="false"/>
+				<NavigationProperty Name="NavToNotification" Relationship="com.evorait.evocu.evonotify.NotificationToTask"
+					FromRole="ToRole_NotificationToTask" ToRole="FromRole_NotificationToTask"/>
 			</EntityType>
-			<EntityType Name="PMNotificationActivity" sap:content-version="1">
+			<EntityType Name="PMNotificationPriorityVH" sap:content-version="1">
 				<Key>
-					<PropertyRef Name="MaintenanceNotification"/>
-					<PropertyRef Name="MaintNotificationActivity"/>
+					<PropertyRef Name="PriorityType"/>
+					<PropertyRef Name="Priority"/>
 				</Key>
-				<Property Name="MaintenanceNotification" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Notification" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="MaintNotifAcivityCodeCatalog" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Catalog type"/>
-				<Property Name="MaintNotificationActivity" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Activity" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="MaintenanceNotificationItem" Type="Edm.String" MaxLength="4" sap:label="Item" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="MaintNotifActivityCodeGroup" Type="Edm.String" MaxLength="8" sap:label="Code group"/>
-				<Property Name="MaintNotifActivityCodeGrpName" Type="Edm.String" MaxLength="50"/>
-				<Property Name="MaintNotifActivityCode" Type="Edm.String" MaxLength="4" sap:label="Activity code"/>
-				<Property Name="MaintNotifActivityCodeName" Type="Edm.String" MaxLength="50"/>
-				<Property Name="MaintNotifActyTxt" Type="Edm.String" MaxLength="40" sap:label="Activity text"/>
-				<Property Name="CreatedByUser" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Created By"/>
-				<Property Name="MaintNotifActyQtyFactor" Type="Edm.String" MaxLength="3" sap:label="Quant.factor"/>
-				<Property Name="PlannedStartDate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:label="Planned Start Date"/>
-				<Property Name="PlannedStartTime" Type="Edm.Time" Precision="0" sap:label="Planned Start Time"/>
-				<Property Name="PlannedEndDate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:label="Planned End Date"/>
-				<Property Name="PlannedEndTime" Type="Edm.Time" Precision="0" sap:label="Planned End Time"/>
-				<Property Name="NotificationType" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Notifictn type"/>
+				<Property Name="PriorityType" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="PriorityType"/>
+				<Property Name="Priority" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Priority"/>
+				<Property Name="PriorityText" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Priority"/>
 			</EntityType>
-			<EntityType Name="PMDocument" sap:content-version="1">
+			<EntityType Name="PMNotificationReportedByVH" sap:content-version="1">
 				<Key>
-					<PropertyRef Name="Notification"/>
-					<PropertyRef Name="DocumentId"/>
+					<PropertyRef Name="PersonNumber"/>
 				</Key>
-				<Property Name="Notification" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Notification"/>
-				<Property Name="DocumentId" Type="Edm.String" Nullable="false" MaxLength="42" sap:label="Document ID"/>
-				<Property Name="FileName" Type="Edm.String" Nullable="false"/>
-				<Property Name="Extension" Type="Edm.String" Nullable="false" MaxLength="64" sap:label="Name extension"/>
-				<Property Name="MimeType" Type="Edm.String" Nullable="false" MaxLength="128" sap:label="MIME type"/>
-				<Property Name="CreatedBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Created"/>
-				<Property Name="CreatedByName" Type="Edm.String" Nullable="false" MaxLength="35" sap:label="SAPoffice: Full name of creator"/>
-				<Property Name="CreatedDate" Type="Edm.DateTime" Nullable="false" Precision="7"/>
-				<Property Name="CreatedTime" Type="Edm.Time" Nullable="false" Precision="0"/>
-				<Property Name="FileSize" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Size of SAPoffice Document (for API1)"/>
-				<Property Name="FileContent" Type="Edm.Binary" Nullable="false"/>
-			</EntityType>
-			<EntityType Name="PMNotification" sap:content-version="1">
-				<Key>
-					<PropertyRef Name="MaintenanceNotification"/>
-				</Key>
-				<Property Name="ABCIndicator" Type="Edm.String" MaxLength="1" sap:label="ABC Indicator"/>
-				<Property Name="FunctionalLocation" Type="Edm.String" MaxLength="40" sap:label="Functional loc."/>
-				<Property Name="ABCIndicatorDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="ABC Indicator Description"/>
-				<Property Name="Equipment" Type="Edm.String" MaxLength="18" sap:field-control="FieldControlOptional" sap:label="Equipment"/>
-				<Property Name="Assembly" Type="Edm.String" MaxLength="18" sap:label="Assembly"/>
-				<Property Name="DispEquipment" Type="Edm.String" Nullable="false" MaxLength="10"/>
-				<Property Name="AssemblyName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Assembly Name"/>
-				<Property Name="DispFloc" Type="Edm.String" Nullable="false" MaxLength="10"/>
-				<Property Name="AssetLocation" Type="Edm.String" MaxLength="10" sap:field-control="FieldControlOptional" sap:label="Asset Location"/>
-				<Property Name="AssetLocationName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Asset Location Name"/>
-				<Property Name="ConcatenatedActSysStsName" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="System Status" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="ConcatenatedActUserStsName" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="User Status" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="CreatedByUser" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Created By" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="CreatedByUserDescription" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Created By User Name" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="CreationDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:display-format="Date" sap:label="Created On" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="CreationTime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Created at" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="FieldControlHidden" Type="Edm.String" Nullable="false" MaxLength="1"/>
-				<Property Name="FieldControlReadOnly" Type="Edm.String" Nullable="false" MaxLength="1"/>
-				<Property Name="FieldControlOptional" Type="Edm.String" Nullable="false" MaxLength="1"/>
-				<Property Name="FieldControlMandatory" Type="Edm.String" Nullable="false" MaxLength="1"/>
-				<Property Name="IsCompleted" Type="Edm.Boolean"/>
-				<Property Name="IsDeleted" Type="Edm.Boolean"/>
-				<Property Name="MaintenanceOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Maintenance Order" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="MaintenanceNotification" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Notification" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="MaintenanceObjectIsDown" Type="Edm.Boolean" sap:label="Breakdown"/>
-				<Property Name="MaintenancePlannerGroup" Type="Edm.String" MaxLength="3" sap:label="Planner Group"/>
-				<Property Name="MaintenancePlannerGroupName" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="Planner Group Name"/>
-				<Property Name="MaintenancePlanningPlant" Type="Edm.String" MaxLength="4" sap:label="Planning Plant"/>
-				<Property Name="MaintenancePlanningPlantName" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Planning Plant Name"/>
-				<Property Name="MaintenancePlant" Type="Edm.String" MaxLength="4" sap:label="Maintenance Plant"/>
-				<Property Name="MaintenancePlantName" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Maintenance Plant Name"/>
-				<Property Name="MaintenanceRevision" Type="Edm.String" MaxLength="8" sap:label="Revision"/>
-				<Property Name="MaintenanceWorkCenter" Type="Edm.String" MaxLength="8" sap:label="Maintenance Work Center"/>
-				<Property Name="MaintenanceWorkCenterText" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Maintenance Work Center Name"/>
-				<Property Name="MaintenanceWorkCenterPlant" Type="Edm.String" MaxLength="4" sap:label="Maintenance Work Center Plant"/>
-				<Property Name="MaintNotificationLongText" Type="Edm.String" MaxLength="255"/>
-				<Property Name="MaintObjectDowntimeDuration" Type="Edm.Decimal" Nullable="false" Precision="31" Scale="14" sap:unit="MaintObjDowntimeDurationUnit" sap:label="Downtime Duration" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="MaintObjDowntimeDurationUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Unit" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
-				<Property Name="MaintPriority" Type="Edm.String" MaxLength="1" sap:label="Priority"/>
-				<Property Name="MaintPriorityText" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Priority"/>
-				<Property Name="MaintPriorityType" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="PriorityType" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="MalfunctionStartDate" Type="Edm.DateTime" Precision="7" sap:label="Malfunction Start"/>
-				<Property Name="MalfunctionStartTime" Type="Edm.Time" Precision="0" sap:label="Malfunction started at"/>
-				<Property Name="MalfunctionEndDate" Type="Edm.DateTime" Precision="7" sap:label="Malfunction End"/>
-				<Property Name="MalfunctionEndTime" Type="Edm.Time" Precision="0" sap:label="Malfunction ended at"/>
-				<Property Name="NotificationText" Type="Edm.String" MaxLength="40" sap:label="Notification Text"/>
-				<Property Name="NotificationType" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Notification Type" sap:updatable="false"/>
-				<Property Name="NotificationTypeName" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="NotifcatnType"/>
-				<Property Name="NotifProcessingPhase" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Notification Processing Phase"/>
-				<Property Name="NotifProcessingPhaseDesc" Type="Edm.String" Nullable="false" MaxLength="60" sap:label="Short Descript."/>
-				<Property Name="ReportedByUser" Type="Edm.String" MaxLength="12" sap:label="Reported by"/>
-				<Property Name="ReportedByUserDescription" Type="Edm.String" MaxLength="80" sap:label="Reported by User Name" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="RequiredStartDate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:label="Required Start"/>
-				<Property Name="RequiredStartTime" Type="Edm.Time" Precision="0" sap:label="Required Start Time"/>
-				<Property Name="RequiredEndDate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:label="Required End"/>
-				<Property Name="RequiredEndTime" Type="Edm.Time" Precision="0" sap:label="Required End Time"/>
-				<Property Name="TechnicalObject" Type="Edm.String" MaxLength="30" sap:label="Technical Object"/>
-				<Property Name="TechObjIsEquipOrFunclLoc" Type="Edm.String" MaxLength="1"/>
-				<Property Name="TechObjIsEquipOrFuncnlLocDesc" Type="Edm.String" MaxLength="60" sap:label="Technical Object Type Text"/>
-				<NavigationProperty Name="to_PMNotificationTask" Relationship="com.evorait.evolite.evonotify.TO_PMNotificationTask" FromRole="FromRole_TO_PMNotificationTask" ToRole="ToRole_TO_PMNotificationTask"/>
-				<NavigationProperty Name="to_PMNotificationActivity" Relationship="com.evorait.evolite.evonotify.TO_PMNotificationActivity" FromRole="FromRole_TO_PMNotificationActivity" ToRole="ToRole_TO_PMNotificationActivity"/>
-				<NavigationProperty Name="to_PMDocument" Relationship="com.evorait.evolite.evonotify.TO_PMDocument" FromRole="FromRole_TO_PMDocument" ToRole="ToRole_TO_PMDocument"/>
-				<NavigationProperty Name="to_PMNotificationItem" Relationship="com.evorait.evolite.evonotify.TO_PMNotificationItem" FromRole="FromRole_TO_PMNotificationItem" ToRole="ToRole_TO_PMNotificationItem"/>
-				<NavigationProperty Name="to_PMNotificationTypeVH" Relationship="com.evorait.evolite.evonotify.TO_PMNotificationTypeVH" FromRole="FromRole_TO_PMNotificationTypeVH" ToRole="ToRole_TO_PMNotificationTypeVH"/>
-				<NavigationProperty Name="to_ReportedByUserVH" Relationship="com.evorait.evolite.evonotify.TO_ReportedByUserVH" FromRole="FromRole_TO_ReportedByUserVH" ToRole="ToRole_TO_ReportedByUserVH"/>
+				<Property Name="PersonNumber" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Personnel no."/>
+				<Property Name="UserName" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="System ID"/>
 			</EntityType>
 			<EntityType Name="PMNotificationItem" sap:content-version="1">
 				<Key>
 					<PropertyRef Name="MaintenanceNotification"/>
 					<PropertyRef Name="MaintenanceNotificationItem"/>
 				</Key>
+				<Property Name="MaintenanceNotification" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Notification"/>
+				<Property Name="MaintenanceNotificationItem" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Item"/>
+				<Property Name="MaintNotifDamageCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Damage Code"/>
 				<Property Name="MaintNotifDamageCodeCatalog" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Defect types"/>
-				<Property Name="MaintNotifDamageCodeGroup" Type="Edm.String" MaxLength="8" sap:label="Code group"/>
+				<Property Name="MaintNotifDamageCodeGroup" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Code group"/>
+				<Property Name="MaintNotifDamageCodeGroupName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Char"/>
+				<Property Name="MaintNotifDamageCodeName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Short text"/>
+				<Property Name="MaintNotifItemText" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Text"/>
+				<Property Name="MaintNotifObjPrtCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="ObjectPartCode"/>
 				<Property Name="MaintNotifObjPrtCodeCatalog" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Catalog type"/>
-				<Property Name="MaintenanceNotification" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Notification" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="MaintNotifDamageCodeGroupName" Type="Edm.String" MaxLength="50"/>
-				<Property Name="MaintenanceNotificationItem" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Item" sap:creatable="false" sap:updatable="false"/>
-				<Property Name="MaintNotifDamageCode" Type="Edm.String" MaxLength="4" sap:label="Damage Code"/>
-				<Property Name="MaintNotifDamageCodeName" Type="Edm.String" MaxLength="40" sap:label="Short text"/>
-				<Property Name="MaintNotifItemText" Type="Edm.String" MaxLength="40" sap:label="Text"/>
-				<Property Name="MaintNotifObjPrtCodeGroup" Type="Edm.String" MaxLength="8" sap:label="Code group"/>
-				<Property Name="MaintNotifObjPrtCodeGroupName" Type="Edm.String" MaxLength="50"/>
-				<Property Name="MaintNotifObjPrtCode" Type="Edm.String" MaxLength="4" sap:label="ObjectPartCode"/>
-				<Property Name="MaintNotifObjPrtCodeName" Type="Edm.String" MaxLength="40" sap:label="Short text"/>
-				<NavigationProperty Name="to_PMNotificationCause" Relationship="com.evorait.evolite.evonotify.TO_PMNotificationCause" FromRole="FromRole_TO_PMNotificationCause" ToRole="ToRole_TO_PMNotificationCause"/>
-				<NavigationProperty Name="to_PMNotificationItemTask" Relationship="com.evorait.evolite.evonotify.TO_PMNotificationItemTask" FromRole="FromRole_TO_PMNotificationItemTask" ToRole="ToRole_TO_PMNotificationItemTask"/>
-				<NavigationProperty Name="to_PMNotificationItemActivity" Relationship="com.evorait.evolite.evonotify.TO_PMNotificationItemActivity" FromRole="FromRole_TO_PMNotificationItemActivity" ToRole="ToRole_TO_PMNotificationItemActivity"/>
-				<NavigationProperty Name="PMNotification" Relationship="com.evorait.evolite.evonotify.TO_PMNotificationItem" FromRole="ToRole_TO_PMNotificationItem" ToRole="FromRole_TO_PMNotificationItem"/>
+				<Property Name="MaintNotifObjPrtCodeGroup" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Code group"/>
+				<Property Name="MaintNotifObjPrtCodeGroupName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Char"/>
+				<Property Name="MaintNotifObjPrtCodeName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Short text"/>
+				<Property Name="Notificationtype" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Notifictn type"/>
+				<Property Name="Notes" Type="Edm.String" Nullable="false"/>
+				<NavigationProperty Name="NavToNotification" Relationship="com.evorait.evocu.evonotify.NotificationToItem"
+					FromRole="ToRole_NotificationToItem" ToRole="FromRole_NotificationToItem"/>
+			</EntityType>
+			<EntityType Name="PMNotificationActivity" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="MaintenanceNotification"/>
+					<PropertyRef Name="MaintNotificationActivity"/>
+				</Key>
+				<Property Name="ActivitySortNumber" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Sort number" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotifActivityCodeGrpName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Short text"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="MaintenanceNotification" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Notification" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotifActivityCodeName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Short text" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotifAcivityCodeCatalog" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Catalog type"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="MaintNotificationActivity" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Activity" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintenanceNotificationItem" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Item" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotifActivityCodeGroup" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Code group" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotifActivityCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Activity code" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotifActyTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Activity text" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="CreatedByUser" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Created By" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotifActyQtyFactor" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Quant.factor" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="PlannedStartDate" Type="Edm.DateTime" Precision="7" sap:label="Start" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="PlannedStartTime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Time" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="PlannedEndDate" Type="Edm.DateTime" Precision="7" sap:label="End" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="PlannedEndTime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Time" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="NotificationType" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Notifictn type" sap:updatable="false"
+					sap:filterable="false"/>
+				<NavigationProperty Name="NavToNotification" Relationship="com.evorait.evocu.evonotify.NotificationToActivity"
+					FromRole="ToRole_NotificationToActivity" ToRole="FromRole_NotificationToActivity"/>
+			</EntityType>
+			<EntityType Name="PMNotificationItemCause" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="MaintenanceNotification"/>
+					<PropertyRef Name="MaintenanceNotificationCause"/>
+					<PropertyRef Name="MaintenanceNotificationItem"/>
+				</Key>
+				<Property Name="MaintenanceNotification" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Notification" sap:updatable="false"/>
+				<Property Name="MaintNotifCauseCodeCatalog" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Catalog type" sap:updatable="false"/>
+				<Property Name="MaintenanceNotificationCause" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Cause" sap:updatable="false"/>
+				<Property Name="MaintenanceNotificationItem" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Item" sap:updatable="false"/>
+				<Property Name="MaintNotifCauseText" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Cause text" sap:updatable="false"/>
+				<Property Name="MaintNotifCauseCodeGroup" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Code group" sap:updatable="false"/>
+				<Property Name="MaintNotifCauseCodeGroupName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Short text" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotificationCauseCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Cause code" sap:updatable="false"/>
+				<Property Name="MaintNotificationCauseCodeName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Short text"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="NotificationType" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Notifictn type" sap:updatable="false"/>
+				<Property Name="CauseSortNumber" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Sort number" sap:updatable="false"/>
+			</EntityType>
+			<EntityType Name="PMNotificationItemActivity" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="MaintNotificationActivity"/>
+					<PropertyRef Name="MaintenanceNotificationItem"/>
+					<PropertyRef Name="MaintenanceNotification"/>
+				</Key>
+				<Property Name="PlannedStartTime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Time" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="PlannedStartDate" Type="Edm.DateTime" Precision="7" sap:label="Start" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="PlannedEndTime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Time" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="PlannedEndDate" Type="Edm.DateTime" Precision="7" sap:label="End" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="NotificationType" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Notifictn type" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotificationActivity" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Activity" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotifActyTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Activity text" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotifActyQtyFactor" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Quant.factor" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotifActivityCodeName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Short text" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotifActivityCodeGrpName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Short text"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="MaintNotifActivityCodeGroup" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Code group" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotifActivityCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Activity code" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotifAcivityCodeCatalog" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Catalog type"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="MaintenanceNotificationItem" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Item" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintenanceNotification" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Notification" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="CreatedByUser" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Created By" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="ActivitySortNumber" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Sort number" sap:updatable="false"
+					sap:filterable="false"/>
+			</EntityType>
+			<EntityType Name="PMNotificationItemTask" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="MaintenanceNotificationTask"/>
+					<PropertyRef Name="MaintenanceNotificationItem"/>
+					<PropertyRef Name="MaintenanceNotification"/>
+				</Key>
+				<Property Name="ResponsiblePersonName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Char"/>
+				<Property Name="ResponsiblePersonFunctionCode" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Task processor"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="ResponsiblePerson" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Responsible" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="PlannedStartTime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Planned time" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="PlannedStartDate" Type="Edm.DateTime" Precision="7" sap:label="Planned start" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="PlannedEndTime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Planned time" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="PlannedEndDate" Type="Edm.DateTime" Precision="7" sap:label="Planned finish" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="NotificationType" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Notifictn type" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotiTaskCodeGroupName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Task text"/>
+				<Property Name="MaintNotifTaskText" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Name"/>
+				<Property Name="MaintNotifTaskPartFuncName" Type="Edm.String" Nullable="false" MaxLength="22" sap:label="Object number"/>
+				<Property Name="MaintNotifTaskInternalID" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Char" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotifTaskCodeName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Char"/>
+				<Property Name="MaintNotifTaskCodeGroup" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Code group" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotifTaskCodeCatalog" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Catalog type" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintNotifTaskCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Task code" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintenanceNotificationTask" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Task" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintenanceNotificationItem" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Item" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="MaintenanceNotification" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Notification" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="IsDeleted" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Delete" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="IsCompleted" Type="Edm.String" Nullable="false" MaxLength="1" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="ConcatenatedActUserStsName" Type="Edm.String" Nullable="false" MaxLength="225" sap:label="User Status" sap:updatable="false"
+					sap:filterable="false"/>
+				<Property Name="ConcatenatedActSysStsName" Type="Edm.String" Nullable="false" MaxLength="225" sap:label="System Status"
+					sap:updatable="false" sap:filterable="false"/>
 			</EntityType>
 			<EntityType Name="PMNotificationTypeVH" sap:content-version="1">
 				<Key>
 					<PropertyRef Name="NotificationType"/>
 				</Key>
-				<Property Name="NotificationType" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Notifictn type" sap:filterable="false"/>
-				<Property Name="NotificationTypeName" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="NotifcatnType"/>
+				<Property Name="NotificationType" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Notifictn type"/>
+				<Property Name="CatalogProfile" Type="Edm.String" Nullable="false" MaxLength="9" sap:label="Catalog profile"/>
+				<Property Name="NotificationCategory" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Notif.cat"/>
+				<Property Name="StatusProfile" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Status Profile"/>
+				<Property Name="TaskStatusProfile" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Status Profile"/>
+				<Property Name="CatalogType" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Defect types"/>
+				<Property Name="CatalogTypeForCauses" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Catalog type"/>
+				<Property Name="CatalogTypeForTasks" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Catalog type"/>
+				<Property Name="CatalogTypeForActivities" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Catalog type"/>
+				<Property Name="CatalogTypeForObjParts" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Catalog type"/>
+				<Property Name="CatalogTypeForCoding" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Catalog type"/>
+				<Property Name="PartnerFunctionForCust" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Customer"/>
+				<Property Name="PartnerFunctionForContactPer" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Contact person"/>
+				<Property Name="PartneFunctionForImpl" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Impl. dept"/>
+				<Property Name="PartnerFunctionForVendor" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Vendor"/>
+				<Property Name="PartnerFunctionForManufacturer" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Manufacturer"/>
+				<Property Name="PartnerFunctionForPersonResp" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Pers.resp."/>
+				<Property Name="PartnerFunctionForAuthorNotif" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Author function"/>
+				<Property Name="PartnerFunOfPersonRespForTask" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Task processor"/>
+				<Property Name="PriorityType" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="PriorityType"/>
+				<Property Name="NotificationTypeText" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="NotifcatnType"/>
 			</EntityType>
-			<EntityType Name="UserVH" sap:content-version="1">
+			<EntityType Name="FunctionalLocationVH" sap:content-version="1">
 				<Key>
-					<PropertyRef Name="UserID"/>
+					<PropertyRef Name="FunctionalLocation"/>
 				</Key>
-				<Property Name="UserID" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="User"/>
-				<Property Name="UserDescription" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Description"/>
+				<Property Name="FunctionalLocation" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Functional loc."/>
+				<Property Name="MaintPlanningPlant" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Planning plant"/>
+				<Property Name="PlannerGroup" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Planner group"/>
+				<Property Name="WorkCenterObjId" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Work Center"/>
+				<Property Name="WorkCenter" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Work center"/>
+				<Property Name="CatalogProfile" Type="Edm.String" Nullable="false" MaxLength="9" sap:label="Catalog profile"/>
+				<Property Name="FunctionalLocationDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description"/>
 			</EntityType>
-			<EntityType Name="PMNotificationPriorityVH" sap:content-version="1">
-				<Key>
-					<PropertyRef Name="MaintPriorityType"/>
-					<PropertyRef Name="MaintPriority"/>
-				</Key>
-				<Property Name="MaintPriorityType" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="PriorityType"/>
-				<Property Name="MaintPriority" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Priority"/>
-				<Property Name="MaintPriorityText" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Priority"/>
-			</EntityType>
-			<Association Name="TO_PMNotificationTask" sap:content-version="1">
-				<End Type="com.evorait.evolite.evonotify.PMNotification" Multiplicity="0..1" Role="FromRole_TO_PMNotificationTask"/>
-				<End Type="com.evorait.evolite.evonotify.PMNotificationTask" Multiplicity="*" Role="ToRole_TO_PMNotificationTask"/>
+			<Association Name="NotificationToActivity" sap:content-version="1">
+				<End Type="com.evorait.evocu.evonotify.PMNotification" Multiplicity="1" Role="FromRole_NotificationToActivity"/>
+				<End Type="com.evorait.evocu.evonotify.PMNotificationActivity" Multiplicity="*" Role="ToRole_NotificationToActivity"/>
 				<ReferentialConstraint>
-					<Principal Role="FromRole_TO_PMNotificationTask">
+					<Principal Role="FromRole_NotificationToActivity">
 						<PropertyRef Name="MaintenanceNotification"/>
 					</Principal>
-					<Dependent Role="ToRole_TO_PMNotificationTask">
+					<Dependent Role="ToRole_NotificationToActivity">
 						<PropertyRef Name="MaintenanceNotification"/>
 					</Dependent>
 				</ReferentialConstraint>
 			</Association>
-			<Association Name="TO_PMNotificationActivity" sap:content-version="1">
-				<End Type="com.evorait.evolite.evonotify.PMNotification" Multiplicity="0..1" Role="FromRole_TO_PMNotificationActivity"/>
-				<End Type="com.evorait.evolite.evonotify.PMNotificationActivity" Multiplicity="*" Role="ToRole_TO_PMNotificationActivity"/>
+			<Association Name="NotificationToTask" sap:content-version="1">
+				<End Type="com.evorait.evocu.evonotify.PMNotification" Multiplicity="*" Role="FromRole_NotificationToTask"/>
+				<End Type="com.evorait.evocu.evonotify.PMNotificationTask" Multiplicity="*" Role="ToRole_NotificationToTask"/>
 				<ReferentialConstraint>
-					<Principal Role="FromRole_TO_PMNotificationActivity">
+					<Principal Role="FromRole_NotificationToTask">
 						<PropertyRef Name="MaintenanceNotification"/>
 					</Principal>
-					<Dependent Role="ToRole_TO_PMNotificationActivity">
+					<Dependent Role="ToRole_NotificationToTask">
 						<PropertyRef Name="MaintenanceNotification"/>
 					</Dependent>
 				</ReferentialConstraint>
 			</Association>
-			<Association Name="TO_PMDocument" sap:content-version="1">
-				<End Type="com.evorait.evolite.evonotify.PMNotification" Multiplicity="1" Role="FromRole_TO_PMDocument"/>
-				<End Type="com.evorait.evolite.evonotify.PMDocument" Multiplicity="*" Role="ToRole_TO_PMDocument"/>
+			<Association Name="NotificationToItem" sap:content-version="1">
+				<End Type="com.evorait.evocu.evonotify.PMNotification" Multiplicity="*" Role="FromRole_NotificationToItem"/>
+				<End Type="com.evorait.evocu.evonotify.PMNotificationItem" Multiplicity="*" Role="ToRole_NotificationToItem"/>
 				<ReferentialConstraint>
-					<Principal Role="FromRole_TO_PMDocument">
+					<Principal Role="FromRole_NotificationToItem">
 						<PropertyRef Name="MaintenanceNotification"/>
 					</Principal>
-					<Dependent Role="ToRole_TO_PMDocument">
-						<PropertyRef Name="Notification"/>
-					</Dependent>
-				</ReferentialConstraint>
-			</Association>
-			<Association Name="TO_PMNotificationItem" sap:content-version="1">
-				<End Type="com.evorait.evolite.evonotify.PMNotification" Multiplicity="0..1" Role="FromRole_TO_PMNotificationItem"/>
-				<End Type="com.evorait.evolite.evonotify.PMNotificationItem" Multiplicity="*" Role="ToRole_TO_PMNotificationItem"/>
-				<ReferentialConstraint>
-					<Principal Role="FromRole_TO_PMNotificationItem">
-						<PropertyRef Name="MaintenanceNotification"/>
-					</Principal>
-					<Dependent Role="ToRole_TO_PMNotificationItem">
+					<Dependent Role="ToRole_NotificationToItem">
 						<PropertyRef Name="MaintenanceNotification"/>
 					</Dependent>
 				</ReferentialConstraint>
 			</Association>
-			<Association Name="TO_PMNotificationTypeVH" sap:content-version="1">
-				<End Type="com.evorait.evolite.evonotify.PMNotification" Multiplicity="1" Role="FromRole_TO_PMNotificationTypeVH"/>
-				<End Type="com.evorait.evolite.evonotify.PMNotificationTypeVH" Multiplicity="1" Role="ToRole_TO_PMNotificationTypeVH"/>
-			</Association>
-			<Association Name="TO_ReportedByUserVH" sap:content-version="1">
-				<End Type="com.evorait.evolite.evonotify.PMNotification" Multiplicity="1" Role="FromRole_TO_ReportedByUserVH"/>
-				<End Type="com.evorait.evolite.evonotify.UserVH" Multiplicity="0..1" Role="ToRole_TO_ReportedByUserVH"/>
-			</Association>
-			<Association Name="TO_PMNotificationItemTask" sap:content-version="1">
-				<End Type="com.evorait.evolite.evonotify.PMNotificationItem" Multiplicity="1" Role="FromRole_TO_PMNotificationItemTask"/>
-				<End Type="com.evorait.evolite.evonotify.PMNotificationTask" Multiplicity="*" Role="ToRole_TO_PMNotificationItemTask"/>
-				<ReferentialConstraint>
-					<Principal Role="FromRole_TO_PMNotificationItemTask">
-						<PropertyRef Name="MaintenanceNotificationItem"/>
-						<PropertyRef Name="MaintenanceNotification"/>
-					</Principal>
-					<Dependent Role="ToRole_TO_PMNotificationItemTask">
-						<PropertyRef Name="MaintenanceNotificationItem"/>
-						<PropertyRef Name="MaintenanceNotification"/>
-					</Dependent>
-				</ReferentialConstraint>
-			</Association>
-			<Association Name="TO_PMNotificationItemActivity" sap:content-version="1">
-				<End Type="com.evorait.evolite.evonotify.PMNotificationItem" Multiplicity="1" Role="FromRole_TO_PMNotificationItemActivity"/>
-				<End Type="com.evorait.evolite.evonotify.PMNotificationActivity" Multiplicity="*" Role="ToRole_TO_PMNotificationItemActivity"/>
-				<ReferentialConstraint>
-					<Principal Role="FromRole_TO_PMNotificationItemActivity">
-						<PropertyRef Name="MaintenanceNotificationItem"/>
-						<PropertyRef Name="MaintenanceNotification"/>
-					</Principal>
-					<Dependent Role="ToRole_TO_PMNotificationItemActivity">
-						<PropertyRef Name="MaintenanceNotificationItem"/>
-						<PropertyRef Name="MaintenanceNotification"/>
-					</Dependent>
-				</ReferentialConstraint>
-			</Association>
-			<Association Name="TO_PMNotificationCause" sap:content-version="1">
-				<End Type="com.evorait.evolite.evonotify.PMNotificationItem" Multiplicity="1" Role="FromRole_TO_PMNotificationCause"/>
-				<End Type="com.evorait.evolite.evonotify.PMNotificationCause" Multiplicity="*" Role="ToRole_TO_PMNotificationCause"/>
-				<ReferentialConstraint>
-					<Principal Role="FromRole_TO_PMNotificationCause">
-						<PropertyRef Name="MaintenanceNotificationItem"/>
-						<PropertyRef Name="MaintenanceNotification"/>
-					</Principal>
-					<Dependent Role="ToRole_TO_PMNotificationCause">
-						<PropertyRef Name="MaintenanceNotification"/>
-						<PropertyRef Name="MaintenanceNotificationItem"/>
-					</Dependent>
-				</ReferentialConstraint>
-			</Association>
-			<EntityContainer Name="com_evorait_evolite_evonotify_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
-				<EntitySet Name="PMInspectionCodeVH" EntityType="com.evorait.evolite.evonotify.PMInspectionCodeVH" sap:content-version="1"/>
-				<EntitySet Name="PMInspectionCodeGrpVH" EntityType="com.evorait.evolite.evonotify.PMInspectionCodeGrpVH" sap:content-version="1"/>
-				<EntitySet Name="PMNotificationCauses" EntityType="com.evorait.evolite.evonotify.PMNotificationCause" sap:deletable="false" sap:content-version="1"/>
-				<EntitySet Name="PMNotificationTasks" EntityType="com.evorait.evolite.evonotify.PMNotificationTask" sap:deletable="false" sap:content-version="1"/>
-				<EntitySet Name="PMNotificationActivities" EntityType="com.evorait.evolite.evonotify.PMNotificationActivity" sap:deletable="false" sap:content-version="1"/>
-				<EntitySet Name="PMDocuments" EntityType="com.evorait.evolite.evonotify.PMDocument" sap:content-version="1"/>
-				<EntitySet Name="PMNotifications" EntityType="com.evorait.evolite.evonotify.PMNotification" sap:deletable="false" sap:content-version="1"/>
-				<EntitySet Name="PMNotificationItems" EntityType="com.evorait.evolite.evonotify.PMNotificationItem" sap:deletable="false" sap:content-version="1"/>
-				<EntitySet Name="PMNotificationTypeVH" EntityType="com.evorait.evolite.evonotify.PMNotificationTypeVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
-				<EntitySet Name="UserVH" EntityType="com.evorait.evolite.evonotify.UserVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
-				<EntitySet Name="PMNotificationPriorityVH" EntityType="com.evorait.evolite.evonotify.PMNotificationPriorityVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
-				<AssociationSet Name="TO_PMNotificationItemActivitySet" Association="com.evorait.evolite.evonotify.TO_PMNotificationItemActivity" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-					<End EntitySet="PMNotificationItems" Role="FromRole_TO_PMNotificationItemActivity"/>
-					<End EntitySet="PMNotificationActivities" Role="ToRole_TO_PMNotificationItemActivity"/>
+			<EntityContainer Name="com_evorait_evocu_evonotify_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+				<EntitySet Name="PMNotificationSet" EntityType="com.evorait.evocu.evonotify.PMNotification" sap:content-version="1"/>
+				<EntitySet Name="PMNotificationTaskSet" EntityType="com.evorait.evocu.evonotify.PMNotificationTask" sap:content-version="1"/>
+				<EntitySet Name="PMNotificationPriorityVHSet" EntityType="com.evorait.evocu.evonotify.PMNotificationPriorityVH" sap:content-version="1"/>
+				<EntitySet Name="PMNotificationReportedByVHSet" EntityType="com.evorait.evocu.evonotify.PMNotificationReportedByVH" sap:content-version="1"/>
+				<EntitySet Name="PMNotificationItemSet" EntityType="com.evorait.evocu.evonotify.PMNotificationItem" sap:content-version="1"/>
+				<EntitySet Name="PMNotificationActivitySet" EntityType="com.evorait.evocu.evonotify.PMNotificationActivity" sap:content-version="1"/>
+				<EntitySet Name="PMNotificationItemCauseSet" EntityType="com.evorait.evocu.evonotify.PMNotificationItemCause" sap:content-version="1"/>
+				<EntitySet Name="PMNotificationItemActivitySet" EntityType="com.evorait.evocu.evonotify.PMNotificationItemActivity" sap:content-version="1"/>
+				<EntitySet Name="PMNotificationItemTaskSet" EntityType="com.evorait.evocu.evonotify.PMNotificationItemTask" sap:content-version="1"/>
+				<EntitySet Name="PMNotificationTypeVHSet" EntityType="com.evorait.evocu.evonotify.PMNotificationTypeVH" sap:content-version="1"/>
+				<EntitySet Name="FunctionalLocationVHSet" EntityType="com.evorait.evocu.evonotify.FunctionalLocationVH" sap:content-version="1"/>
+				<AssociationSet Name="NotificationToItemSet" Association="com.evorait.evocu.evonotify.NotificationToItem" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="PMNotificationSet" Role="FromRole_NotificationToItem"/>
+					<End EntitySet="PMNotificationItemSet" Role="ToRole_NotificationToItem"/>
 				</AssociationSet>
-				<AssociationSet Name="TO_PMNotificationTypeVHSet" Association="com.evorait.evolite.evonotify.TO_PMNotificationTypeVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-					<End EntitySet="PMNotifications" Role="FromRole_TO_PMNotificationTypeVH"/>
-					<End EntitySet="PMNotificationTypeVH" Role="ToRole_TO_PMNotificationTypeVH"/>
+				<AssociationSet Name="NotificationToActivitySet" Association="com.evorait.evocu.evonotify.NotificationToActivity" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="PMNotificationSet" Role="FromRole_NotificationToActivity"/>
+					<End EntitySet="PMNotificationActivitySet" Role="ToRole_NotificationToActivity"/>
 				</AssociationSet>
-				<AssociationSet Name="TO_ReportedByUserVHSet" Association="com.evorait.evolite.evonotify.TO_ReportedByUserVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-					<End EntitySet="PMNotifications" Role="FromRole_TO_ReportedByUserVH"/>
-					<End EntitySet="UserVH" Role="ToRole_TO_ReportedByUserVH"/>
+				<AssociationSet Name="NotificationToTaskSet" Association="com.evorait.evocu.evonotify.NotificationToTask" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="PMNotificationSet" Role="FromRole_NotificationToTask"/>
+					<End EntitySet="PMNotificationTaskSet" Role="ToRole_NotificationToTask"/>
 				</AssociationSet>
-				<AssociationSet Name="TO_PMNotificationItemTaskSet" Association="com.evorait.evolite.evonotify.TO_PMNotificationItemTask" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-					<End EntitySet="PMNotificationItems" Role="FromRole_TO_PMNotificationItemTask"/>
-					<End EntitySet="PMNotificationTasks" Role="ToRole_TO_PMNotificationItemTask"/>
-				</AssociationSet>
-				<AssociationSet Name="TO_PMNotificationItemSet" Association="com.evorait.evolite.evonotify.TO_PMNotificationItem" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-					<End EntitySet="PMNotifications" Role="FromRole_TO_PMNotificationItem"/>
-					<End EntitySet="PMNotificationItems" Role="ToRole_TO_PMNotificationItem"/>
-				</AssociationSet>
-				<AssociationSet Name="TO_PMNotificationTaskSet" Association="com.evorait.evolite.evonotify.TO_PMNotificationTask" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-					<End EntitySet="PMNotifications" Role="FromRole_TO_PMNotificationTask"/>
-					<End EntitySet="PMNotificationTasks" Role="ToRole_TO_PMNotificationTask"/>
-				</AssociationSet>
-				<AssociationSet Name="TO_PMDocumentSet" Association="com.evorait.evolite.evonotify.TO_PMDocument" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-					<End EntitySet="PMNotifications" Role="FromRole_TO_PMDocument"/>
-					<End EntitySet="PMDocuments" Role="ToRole_TO_PMDocument"/>
-				</AssociationSet>
-				<AssociationSet Name="TO_PMNotificationActivitySet" Association="com.evorait.evolite.evonotify.TO_PMNotificationActivity" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-					<End EntitySet="PMNotifications" Role="FromRole_TO_PMNotificationActivity"/>
-					<End EntitySet="PMNotificationActivities" Role="ToRole_TO_PMNotificationActivity"/>
-				</AssociationSet>
-				<AssociationSet Name="TO_PMNotificationCauseSet" Association="com.evorait.evolite.evonotify.TO_PMNotificationCause" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-					<End EntitySet="PMNotificationItems" Role="FromRole_TO_PMNotificationCause"/>
-					<End EntitySet="PMNotificationCauses" Role="ToRole_TO_PMNotificationCause"/>
-				</AssociationSet>
-				<FunctionImport Name="UpdateTaskStatus" ReturnType="com.evorait.evolite.evonotify.PMNotificationTask" EntitySet="PMNotificationTasks" m:HttpMethod="POST" sap:action-for="com.evorait.evolite.evonotify.PMNotificationTask">
-					<Parameter Name="MaintNotifTask" Type="Edm.String" Mode="In"/>
-					<Parameter Name="MaintNotification" Type="Edm.String" Mode="In"/>
-					<Parameter Name="MaintStatus" Type="Edm.String" Mode="In"/>
-				</FunctionImport>
-				<FunctionImport Name="UpdateHeaderStatus" ReturnType="com.evorait.evolite.evonotify.PMNotification" EntitySet="PMNotifications" m:HttpMethod="POST" sap:action-for="com.evorait.evolite.evonotify.PMNotification">
-					<Parameter Name="MaintStatus" Type="Edm.String" Mode="In"/>
-					<Parameter Name="MaintNotification" Type="Edm.String" Mode="In"/>
-				</FunctionImport>
 			</EntityContainer>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/ABCIndicator">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="ABCIndicatorDesc"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/ABCIndicatorDesc">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/Assembly">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="AssemblyName"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/AssemblyName">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/ReadOnly"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/AssetLocation">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="AssetLocationName"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" Path="FieldControlOptional"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/AssetLocationName">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/ConcatenatedActSysStsName">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/ConcatenatedActUserStsName">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/CreatedByUser">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="CreatedByUserDescription"/>
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/CreatedByUserDescription">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/CreationDate">
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/CreationTime">
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/MaintenanceNotification">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="NotificationText"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/ReadOnly"/>
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/NotificationText">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/MaintenanceObjectIsDown">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/MaintenanceOrder">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/ReadOnly"/>
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/MaintenancePlannerGroup">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintenancePlannerGroupName"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/MaintenancePlannerGroupName">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/MaintenancePlanningPlant">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintenancePlanningPlantName"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/MaintenancePlanningPlantName">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/MaintenancePlant">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintenancePlantName"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/MaintenancePlantName">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/MaintenanceRevision">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/MaintenanceWorkCenter">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintenanceWorkCenterText"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/MaintenanceWorkCenterText">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/MaintenanceWorkCenterPlant">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintenanceWorkCenterPlantName"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/MaintObjectDowntimeDuration">
-				<Annotation Term="Org.OData.Measures.V1.Unit" Path="MaintObjDowntimeDurationUnit"/>
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/MaintObjDowntimeDurationUnit">
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/MaintPriority">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintPriorityText"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
-					<Record Type="com.sap.vocabularies.Common.v1.ValueListType">
-						<PropertyValue Property="Label" String="Notification Priority"/>
-						<PropertyValue Property="CollectionPath" String="PMNotificationPriorityVH"/>
-						<PropertyValue Property="CollectionRoot" String=""/>
-						<PropertyValue Property="SearchSupported" Bool="false"/>
-						<PropertyValue Property="Parameters">
-							<Collection>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintPriorityType"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintPriorityType"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintPriority"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintPriority"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
-									<PropertyValue Property="ValueListProperty" String="MaintPriorityText"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/MaintPriorityType">
-				<Annotation Term="Org.OData.Core.V1.Immutable" Bool="true"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/MalfunctionStartDate">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/MalfunctionStartTime">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/MalfunctionEndDate">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/MalfunctionEndTime">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/NotificationType">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="NotificationTypeName"/>
-				<Annotation Term="Org.OData.Core.V1.Immutable" Bool="true"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Mandatory"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
-					<Record Type="com.sap.vocabularies.Common.v1.ValueListType">
-						<PropertyValue Property="Label" String="Notification Type"/>
-						<PropertyValue Property="CollectionPath" String="PMNotificationTypeVH"/>
-						<PropertyValue Property="CollectionRoot" String=""/>
-						<PropertyValue Property="SearchSupported" Bool="false"/>
-						<PropertyValue Property="Parameters">
-							<Collection>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="NotificationType"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="NotificationType"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
-									<PropertyValue Property="ValueListProperty" String="NotificationTypeName"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/NotifProcessingPhase">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="NotifProcessingPhaseDesc"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/ReportedByUser">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="ReportedByUserDescription"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
-					<Record Type="com.sap.vocabularies.Common.v1.ValueListType">
-						<PropertyValue Property="Label" String="Reporting User"/>
-						<PropertyValue Property="CollectionPath" String="UserVH"/>
-						<PropertyValue Property="CollectionRoot" String=""/>
-						<PropertyValue Property="SearchSupported" Bool="false"/>
-						<PropertyValue Property="Parameters">
-							<Collection>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="UserID"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="ReportedByUser"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
-									<PropertyValue Property="ValueListProperty" String="UserDescription"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/ReportedByUserDescription">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/RequiredStartDate">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/RequiredStartTime">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/RequiredEndDate">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/RequiredEndTime">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/TechnicalObject">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="TechnicalObjectLabel"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/TechnicalObjectLabel">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/TechObjIsEquipOrFuncLoc">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="TechObjIsEquipOrFuncnlLocDesc"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/TechObjIsEquipOrFuncnlLocDesc">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/FunctionalLocation"/>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification/Equipment">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" Path="FieldControlOptional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification">
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification">
 				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
 					<Collection>
 						<PropertyPath>MaintenanceNotification</PropertyPath>
-						<PropertyPath>NotificationType</PropertyPath>
-						<PropertyPath>RequiredStartDate</PropertyPath>
-						<PropertyPath>RequiredEndDate</PropertyPath>
-						<PropertyPath>CreationDate</PropertyPath>
-						<PropertyPath>NotifProcessingPhase</PropertyPath>
-						<PropertyPath>CreatedByUser</PropertyPath>
 						<PropertyPath>MaintenanceOrder</PropertyPath>
+						<PropertyPath>MaintenancePlannerGroup</PropertyPath>
+						<PropertyPath>NotifProcessingPhase</PropertyPath>
+						<PropertyPath>NotificationType</PropertyPath>
+						<PropertyPath>ReportedByUser</PropertyPath>
+						<PropertyPath>RequiredEndDate</PropertyPath>
+						<PropertyPath>RequiredStartDate</PropertyPath>
 						<PropertyPath>MaintPriority</PropertyPath>
-						<PropertyPath>MaintenanceObjectIsDown</PropertyPath>
+						<PropertyPath>CreatedByUser</PropertyPath>
 					</Collection>
 				</Annotation>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification">
 				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
 					<Collection>
 						<Record Type="com.sap.vocabularies.UI.v1.DataField">
 							<PropertyValue Property="Value" Path="MaintenanceNotification"/>
-							<Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.Importance/High"/>
 						</Record>
 						<Record Type="com.sap.vocabularies.UI.v1.DataField">
 							<PropertyValue Property="Value" Path="NotificationType"/>
-							<Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.Importance/Medium"/>
 						</Record>
 						<Record Type="com.sap.vocabularies.UI.v1.DataField">
 							<PropertyValue Property="Value" Path="RequiredStartDate"/>
@@ -689,621 +496,460 @@
 						<Record Type="com.sap.vocabularies.UI.v1.DataField">
 							<PropertyValue Property="Value" Path="NotifProcessingPhase"/>
 						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/ABCIndicator">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="ABC Indicator"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/ABCIndicatorDesc">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="ABC Indicator Description"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/Assembly">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Assembly"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/AssemblyName">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Assembly Name"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/AssetLocation">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Asset Location"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/AssetLocationName">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Asset Location Name"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/ChangedByUser">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Changed By User"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/ChangedDate"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/CodeGroup">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Code Group"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/CodeGroupText">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Code Group Text"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/CreatedByUser"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/CreatedByUserDescription"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/CreationDate"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/CreationTime">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Creation Time"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/Equipment"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/FunctionalLocation">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Functional Location"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/IsCompleted"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/IsDeleted"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotification/MaintObjDowntimeDurationUnit">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Downtime Duration Unit"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/MaintPriority">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Priority"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/MaintPriorityType">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Priority Type"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/MaintenanceNotification">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="NotificationText"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/MaintenanceObjectIsDown"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/MaintenanceOrder"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/MaintenancePlannerGroup">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintenancePlannerGroupName"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/MaintenancePlannerGroupName">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Maintenance Planner Group Name Desc"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/MaintenancePlanningPlant">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Maintenance Planning Plant"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotification/MaintenancePlanningPlantName"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/MaintenancePlant">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Maintenance Plant"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/MaintenancePlantName">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Maintenance Plant Description"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/MaintenanceRevision">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Maintenance Revision"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/MaintenanceWorkCenter">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Maintenance Workcenter"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/MaintenanceWorkCenterPlant">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Maintenance Workcenter Plant"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/MaintenanceWorkCenterText">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Maintenance Workcenter Plant Desc"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/MalfunctionEndDate">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Malfunctioning End Date"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/MalfunctionEndTime">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Malfunction End Time"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/MalfunctionStartDate">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Malfunctioning Start Date"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/MalfunctionStartTime">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Malfunction Start Time"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/NotifProcessingPhase">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Notif. Processing Phase"/>
+				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="NotifProcessingPhaseDesc"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/NotificationType">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Notification Type"/>
+				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="NotificationTypeName"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/NotificationTypeName">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Notification Type Description"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/ObjectNumber"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/ReportedByUser">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="ReportedByUserDescription"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/ReportedByUserDescription"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/RequiredEndDate">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Required End Date"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/RequiredEndTime"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/RequiredStartDate">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Required Start Date"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/RequiredStartTime"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/StatusProfile"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/SystemStatus">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="System Status"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/TechObjIsEquipOrFunclLoc"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotification/TechObjIsEquipOrFuncnlLocDesc"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification/UserStatus">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="User Status"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationActivity">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection/>
+				</Annotation>
+				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+					<Collection>
 						<Record Type="com.sap.vocabularies.UI.v1.DataField">
-							<PropertyValue Property="Value" Path="MaintenanceOrder"/>
+							<PropertyValue Property="Value" Path="ActivitySortNumber"/>
 						</Record>
 						<Record Type="com.sap.vocabularies.UI.v1.DataField">
-							<PropertyValue Property="Value" Path="MaintPriority"/>
+							<PropertyValue Property="Value" Path="MaintNotifActivityCodeGroup"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="MaintNotifActivityCode"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="PlannedStartDate"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="PlannedEndDate"/>
 						</Record>
 					</Collection>
 				</Annotation>
 			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification">
-				<Annotation Term="com.sap.vocabularies.UI.v1.HeaderInfo">
-					<Record Type="com.sap.vocabularies.UI.v1.HeaderInfoType">
-						<PropertyValue Property="TypeName" String="Maintenance Notification"/>
-						<PropertyValue Property="TypeNamePlural" String="Maintenance Notifications"/>
-						<PropertyValue Property="TypeImageUrl" String=""/>
-						<PropertyValue Property="Title">
-							<Record Type="com.sap.vocabularies.UI.v1.DataField">
-								<PropertyValue Property="Value" Path="MaintenanceNotification"/>
-								<PropertyValue Property="Description">
-									<Record Type="com.sap.vocabularies.UI.v1.DataField">
-										<PropertyValue Property="Value" Path="NotificationText"/>
-										<PropertyValue Property="ImageUrl" String=""/>
-									</Record>
-								</PropertyValue>
-							</Record>
-						</PropertyValue>
-					</Record>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationActivity/ActivitySortNumber">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Activity"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationActivity/CreatedByUser"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationActivity/MaintNotifAcivityCodeCatalog"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationActivity/MaintNotifActivityCode"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationActivity/MaintNotifActivityCodeGroup">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifActivityCodeGrpName"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationActivity/MaintNotifActivityCodeGrpName"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationActivity/MaintNotifActivityCodeName">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifActivityCodeName"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationActivity/MaintNotifActyQtyFactor"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationActivity/MaintNotifActyTxt"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationActivity/MaintNotificationActivity"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationActivity/MaintenanceNotification"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationActivity/MaintenanceNotificationItem"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationActivity/NotificationType"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationActivity/PlannedEndDate">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Planned End Date"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationActivity/PlannedEndTime"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationActivity/PlannedStartDate">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Planned Start Date"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationActivity/PlannedStartTime"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationTask">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection/>
+				</Annotation>
+				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+					<Collection>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="MaintenanceNotificationTask"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="MaintNotifTaskCodeGroup"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="MaintNotifTaskCode"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="PlannedStartDate"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="PlannedEndDate"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="ResponsiblePerson"/>
+						</Record>
+					</Collection>
 				</Annotation>
 			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotification">
-				<Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="Dates">
-					<Record Type="com.sap.vocabularies.UI.v1.FieldGroupType">
-						<PropertyValue Property="Label" String="Dates"/>
-						<PropertyValue Property="Data">
-							<Collection>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="RequiredStartDate"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="RequiredStartTime"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="RequiredEndDate"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="RequiredEndTime"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="MaintenanceRevision"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
-				<Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="General">
-					<Record Type="com.sap.vocabularies.UI.v1.FieldGroupType">
-						<PropertyValue Property="Label" String="General"/>
-						<PropertyValue Property="Data">
-							<Collection>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="MaintenanceNotification"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="MaintenanceOrder"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="CreationDate"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="CreationTime"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="MaintPriority"/>
-									<Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.Importance/High"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="ReportedByUser"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="CreatedByUser"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
-				<Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="HeaderGeneral">
-					<Record Type="com.sap.vocabularies.UI.v1.FieldGroupType">
-						<PropertyValue Property="Label" String="Priority"/>
-						<PropertyValue Property="Data">
-							<Collection>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="NotificationType"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="MaintenanceOrder"/>
-									<PropertyValue Property="Label" String="Maintenance Order"/>
-									<Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.Importance/High"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="MaintPriority"/>
-									<Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.Importance/High"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="MaintenanceObjectIsDown"/>
-									<Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.Importance/High"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
-				<Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="HeaderStatus">
-					<Record Type="com.sap.vocabularies.UI.v1.FieldGroupType">
-						<PropertyValue Property="Label" String="System and User Status"/>
-						<PropertyValue Property="Data">
-							<Collection>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="ConcatenatedActSysStsName"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="ConcatenatedActUserStsName"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
-				<Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="Location">
-					<Record Type="com.sap.vocabularies.UI.v1.FieldGroupType">
-						<PropertyValue Property="Label" String="Location Data"/>
-						<PropertyValue Property="Data">
-							<Collection>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="MaintenanceWorkCenterPlant"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="ABCIndicator"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="AssetLocation"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="MaintenancePlant"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
-				<Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="Malfunction1">
-					<Record Type="com.sap.vocabularies.UI.v1.FieldGroupType">
-						<PropertyValue Property="Label" String="Malfunction Start Date and Time"/>
-						<PropertyValue Property="Data">
-							<Collection>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="MalfunctionStartDate"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="MalfunctionStartTime"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
-				<Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="Malfunction2">
-					<Record Type="com.sap.vocabularies.UI.v1.FieldGroupType">
-						<PropertyValue Property="Label" String="Malfunction End Date and Time"/>
-						<PropertyValue Property="Data">
-							<Collection>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="MalfunctionEndDate"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="MalfunctionEndTime"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
-				<Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="Malfunction3">
-					<Record Type="com.sap.vocabularies.UI.v1.FieldGroupType">
-						<PropertyValue Property="Data">
-							<Collection>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="MaintObjectDowntimeDuration"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="MaintObjDowntimeDurationUnit"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
-				<Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="Reference">
-					<Record Type="com.sap.vocabularies.UI.v1.FieldGroupType">
-						<PropertyValue Property="Label" String="Reference Objects"/>
-						<PropertyValue Property="Data">
-							<Collection>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="Assembly"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="AssemblyName"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
-				<Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="Responsibility">
-					<Record Type="com.sap.vocabularies.UI.v1.FieldGroupType">
-						<PropertyValue Property="Label" String="Responsibility"/>
-						<PropertyValue Property="Data">
-							<Collection>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="MaintenancePlanningPlant"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="MaintenancePlannerGroup"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.UI.v1.DataField">
-									<PropertyValue Property="Value" Path="MaintenanceWorkCenter"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationTask/ConcatenatedActSysStsName"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationTask/ConcatenatedActUserStsName"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationTask/IsCompleted"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationTask/IsDeleted"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationTask/MaintNotifTaskCode">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Task Code"/>
+				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifTaskCodeName"/>
 			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationItem/MaintenanceNotification">
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationTask/MaintNotifTaskCodeCatalog"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationTask/MaintNotifTaskCodeGroup">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Code Group"/>
+				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotiTaskCodeGroupName"/>
 			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationItem/MaintenanceNotificationItem">
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifItemText"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationItem/MaintNotifObjPrtCode">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifObjPrtCodeName"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
-					<Record Type="com.sap.vocabularies.Common.v1.ValueListType">
-						<PropertyValue Property="Label" String=""/>
-						<PropertyValue Property="CollectionPath" String="PMInspectionCodeVH"/>
-						<PropertyValue Property="CollectionRoot" String=""/>
-						<PropertyValue Property="SearchSupported" Bool="false"/>
-						<PropertyValue Property="Parameters">
-							<Collection>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCatalog"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifObjPrtCodeCatalog"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCodeGroup"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifObjPrtCodeGroup"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCode"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifObjPrtCode"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCodeName"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifObjPrtCodeName"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationItem/MaintNotifObjPrtCodeGroup">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifObjPrtCodeGroupName"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
-					<Record Type="com.sap.vocabularies.Common.v1.ValueListType">
-						<PropertyValue Property="Label" String=""/>
-						<PropertyValue Property="CollectionPath" String="PMInspectionCodeGrpVH"/>
-						<PropertyValue Property="CollectionRoot" String=""/>
-						<PropertyValue Property="SearchSupported" Bool="false"/>
-						<PropertyValue Property="Parameters">
-							<Collection>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCatalog"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifObjPrtCodeCatalog"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCodeGroup"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifObjPrtCodeGroup"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifObjPrtCodeGroupName"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationItem/MaintNotifDamageCode">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifObjPrtCodeName"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
-					<Record Type="com.sap.vocabularies.Common.v1.ValueListType">
-						<PropertyValue Property="Label" String=""/>
-						<PropertyValue Property="CollectionPath" String="PMInspectionCodeVH"/>
-						<PropertyValue Property="CollectionRoot" String=""/>
-						<PropertyValue Property="SearchSupported" Bool="false"/>
-						<PropertyValue Property="Parameters">
-							<Collection>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCatalog"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifDamageCodeCatalog"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCodeGroup"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifDamageCodeGroup"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCode"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifDamageCode"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCodeName"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifDamageCodeName"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationItem/MaintNotifDamageCodeGroup">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifDamageCodeGroupName"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
-					<Record Type="com.sap.vocabularies.Common.v1.ValueListType">
-						<PropertyValue Property="Label" String=""/>
-						<PropertyValue Property="CollectionPath" String="PMInspectionCodeGrpVH"/>
-						<PropertyValue Property="CollectionRoot" String=""/>
-						<PropertyValue Property="SearchSupported" Bool="false"/>
-						<PropertyValue Property="Parameters">
-							<Collection>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCatalog"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifDamageCodeCatalog"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCodeGroup"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifDamageCodeGroup"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCodeGroupName"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifDamageCodeGroupName"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationCause/MaintenanceNotification">
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationCause/MaintenanceNotificationItem">
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationCause/MaintenanceNotificationCause">
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifCauseText"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationCause/MaintNotifcationCauseCode">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotificationCauseCodeName"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
-					<Record Type="com.sap.vocabularies.Common.v1.ValueListType">
-						<PropertyValue Property="Label" String=""/>
-						<PropertyValue Property="CollectionPath" String="PMInspectionCodeVH"/>
-						<PropertyValue Property="CollectionRoot" String=""/>
-						<PropertyValue Property="SearchSupported" Bool="false"/>
-						<PropertyValue Property="Parameters">
-							<Collection>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCatalog"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifCauseCodeCatalog"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCodeGroup"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifCauseCodeGroup"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCode"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifcationCauseCode"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
-									<PropertyValue Property="ValueListProperty" String="MaintNotificationCauseCodeName"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationCause/MaintNotifCauseCodeGroup">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifCauseCodeGroupName"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
-					<Record Type="com.sap.vocabularies.Common.v1.ValueListType">
-						<PropertyValue Property="Label" String=""/>
-						<PropertyValue Property="CollectionPath" String="PMInspectionCodeGrpVH"/>
-						<PropertyValue Property="CollectionRoot" String=""/>
-						<PropertyValue Property="SearchSupported" Bool="false"/>
-						<PropertyValue Property="Parameters">
-							<Collection>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCatalog"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifCauseCodeCatalog"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCodeGroup"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifCauseCodeGroup"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCodeGroupName"/>
-									<PropertyValue Property="LocalDataProperty" String="MaintNotifCauseCodeGroupName"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationTask/MaintenanceNotification">
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationTask/MaintenanceNotificationItem">
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationTask/MaintenanceNotificationTask">
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationTask/MaintNotifTaskInternalID"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationTask/MaintenanceNotification"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationTask/MaintenanceNotificationItem"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationTask/MaintenanceNotificationTask">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Task"/>
 				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifTaskText"/>
 			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationTask/MaintNotifTaskCode">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifTaskCodeName"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
-					<Record Type="com.sap.vocabularies.Common.v1.ValueListType">
-						<PropertyValue Property="Label" String=""/>
-						<PropertyValue Property="CollectionPath" String="PMInspectionCodeVH"/>
-						<PropertyValue Property="CollectionRoot" String=""/>
-						<PropertyValue Property="SearchSupported" Bool="false"/>
-						<PropertyValue Property="Parameters">
-							<Collection>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCatalog"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifTaskCodeCatalog"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCodeGroup"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifTaskCodeGroup"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCode"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifTaskCode"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCodeName"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifTaskCodeName"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationTask/NotificationType"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationTask/PlannedEndDate">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Planned End Date"/>
 			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationTask/MaintNotifTaskCodeGroup">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifTaskCodeGroupName"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
-					<Record Type="com.sap.vocabularies.Common.v1.ValueListType">
-						<PropertyValue Property="Label" String=""/>
-						<PropertyValue Property="CollectionPath" String="PMInspectionCodeGrpVH"/>
-						<PropertyValue Property="CollectionRoot" String=""/>
-						<PropertyValue Property="SearchSupported" Bool="false"/>
-						<PropertyValue Property="Parameters">
-							<Collection>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCatalog"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifTaskCodeCatalog"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCodeGroup"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifTaskCodeGroup"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCodeGroupName"/>
-									<PropertyValue Property="LocalDataProperty" String="MaintNotifTaskCodeGroupName"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</Annotation>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationTask/PlannedEndTime"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationTask/PlannedStartDate">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Planned Start Date"/>
 			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationTask/PlannedStartDate">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationTask/PlannedStartTime">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationTask/PlannedEndDate">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationTask/PlannedEndTime">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationTask/ResponsiblePerson">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationTask/PlannedStartTime"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationTask/ResponsiblePerson">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Responsible"/>
 				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="ResponsiblePersonName"/>
 			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationTask/ResponsiblePersonFunctionCode">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationTask/ResponsiblePersonFunctionCode">
 				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifTaskPartFuncName"/>
 			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationTask/ConcatenatedActSysStsName">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationTask/ConcatenatedActUserStsName">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationActivity/MaintenanceNotification">
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationActivity/MaintenanceNotificationItem">
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationActivity/MaintNotificationActivity">
-				<Annotation Term="Org.OData.Core.V1.Computed" Bool="true"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifActyTxt"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationActivity/MaintNotifActivityCode">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifActivityCodeName"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
-					<Record Type="com.sap.vocabularies.Common.v1.ValueListType">
-						<PropertyValue Property="Label" String=""/>
-						<PropertyValue Property="CollectionPath" String="PMInspectionCodeVH"/>
-						<PropertyValue Property="CollectionRoot" String=""/>
-						<PropertyValue Property="SearchSupported" Bool="false"/>
-						<PropertyValue Property="Parameters">
-							<Collection>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCatalog"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifAcivityCodeCatalog"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCodeGroup"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifActivityCodeGroup"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCode"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifActivityCode"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCodeName"/>
-									<PropertyValue Property="LocalDataProperty" String="MaintNotifActivityCodeName"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItemCause">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection/>
+				</Annotation>
+				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+					<Collection>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="CauseSortNumber"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="MaintNotifCauseCodeGroup"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="MaintNotificationCauseCode"/>
+						</Record>
+					</Collection>
 				</Annotation>
 			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationActivity/MaintNotifActivityCodeGroup">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItemCause/CauseSortNumber"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemCause/MaintNotifCauseCodeCatalog"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemCause/MaintNotifCauseCodeGroup">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifCauseCodeGroupName"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemCause/MaintNotifCauseCodeGroupName"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemCause/MaintNotifCauseText"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemCause/MaintNotificationCauseCode">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotificationCauseCodeName"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemCause/MaintNotificationCauseCodeName"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemCause/MaintenanceNotification"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemCause/MaintenanceNotificationCause"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemCause/MaintenanceNotificationItem"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItemCause/NotificationType"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItemTask">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection/>
+				</Annotation>
+				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+					<Collection>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="MaintenanceNotificationTask"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="MaintNotifTaskCodeGroup"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="MaintNotifTaskCode"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="PlannedStartDate"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="PlannedEndDate"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="ResponsiblePerson"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemTask/ConcatenatedActSysStsName"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemTask/ConcatenatedActUserStsName"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItemTask/IsCompleted"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItemTask/IsDeleted"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItemTask/MaintNotifTaskCode">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Task Code"/>
+				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifTaskCodeName"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemTask/MaintNotifTaskCodeCatalog"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemTask/MaintNotifTaskCodeGroup">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Code Group"/>
+				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotiTaskCodeGroupName"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemTask/MaintNotifTaskInternalID"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemTask/MaintenanceNotification"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemTask/MaintenanceNotificationItem"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemTask/MaintenanceNotificationTask">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Task"/>
+				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifTaskText"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItemTask/NotificationType"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItemTask/PlannedEndDate">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Planned End Date"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItemTask/PlannedEndTime"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItemTask/PlannedStartDate">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Planned Start Date"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItemTask/PlannedStartTime"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItemTask/ResponsiblePerson">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Responsible"/>
+				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="ResponsiblePersonName"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemTask/ResponsiblePersonFunctionCode">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifTaskPartFuncName"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItemActivity">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection/>
+				</Annotation>
+				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+					<Collection>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="ActivitySortNumber"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="MaintNotifActivityCodeGroup"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="MaintNotifActivityCode"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="PlannedStartDate"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="PlannedEndDate"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemActivity/ActivitySortNumber">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Activity"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItemActivity/CreatedByUser"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemActivity/MaintNotifAcivityCodeCatalog"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemActivity/MaintNotifActivityCode"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemActivity/MaintNotifActivityCodeGroup">
 				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifActivityCodeGrpName"/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
-					<Record Type="com.sap.vocabularies.Common.v1.ValueListType">
-						<PropertyValue Property="Label" String=""/>
-						<PropertyValue Property="CollectionPath" String="PMInspectionCodeGrpVH"/>
-						<PropertyValue Property="CollectionRoot" String=""/>
-						<PropertyValue Property="SearchSupported" Bool="false"/>
-						<PropertyValue Property="Parameters">
-							<Collection>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCatalog"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifAcivityCodeCatalog"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCodeGroup"/>
-									<PropertyValue Property="LocalDataProperty" PropertyPath="MaintNotifActivityCodeGroup"/>
-								</Record>
-								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
-									<PropertyValue Property="ValueListProperty" String="MaintNotifCodeGroupName"/>
-									<PropertyValue Property="LocalDataProperty" String="MaintNotifActivityCodeGrpName"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemActivity/MaintNotifActivityCodeGrpName"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemActivity/MaintNotifActivityCodeName">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="MaintNotifActivityCodeName"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemActivity/MaintNotifActyQtyFactor"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemActivity/MaintNotifActyTxt"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemActivity/MaintNotificationActivity"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemActivity/MaintenanceNotification"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemActivity/MaintenanceNotificationItem"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemActivity/NotificationType"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItemActivity/PlannedEndDate">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Planned End Date"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItemActivity/PlannedEndTime"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemActivity/PlannedStartDate">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Planned Start Date"/>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="com.evorait.evocu.evonotify.PMNotificationItemActivity/PlannedStartTime"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItem">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection/>
+				</Annotation>
+				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+					<Collection/>
 				</Annotation>
 			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationActivity/PlannedStartDate">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationActivity/PlannedStartTime">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationActivity/PlannedEndDate">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationActivity/PlannedEndTime">
-				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String=""/>
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationActivity/CreatedByUser">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationActivity/MaintNotifActyQtyFactor">
-				<Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional"/>
-			</Annotations>
-			<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="https://ed1.evorait.net:50103/sap/opu/odata/evora/EL_NOTIFICATION_SRV/$metadata"/>
-			<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="https://ed1.evorait.net:50103/sap/opu/odata/evora/EL_NOTIFICATION_SRV/$metadata"/>
+			<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self"
+				href="https://webidetesting9500707-ad74c0790.dispatcher.hana.ondemand.com/sap/opu/odata/EVOCU/EN_MAIN_SRV/$metadata"/>
+			<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
+				href="https://webidetesting9500707-ad74c0790.dispatcher.hana.ondemand.com/sap/opu/odata/EVOCU/EN_MAIN_SRV/$metadata"/>
 		</Schema>
 	</edmx:DataServices>
 </edmx:Edmx>

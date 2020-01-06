@@ -1,36 +1,19 @@
-<mvc:View 
-	controllerName="com.evorait.evonotify.block.items.ItemsTableBlockController"
-	xmlns="sap.m"
-	xmlns:core="sap.ui.core" 
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:smartTable="sap.ui.comp.smarttable">
-
-	<smartTable:SmartTable height="100%"
-						   width="100%"
-						   id="notificationItemsTable"
-						   tableType="ResponsiveTable"
-						   useExportToExcel="false"
-						   useVariantManagement="true"
-						   useTablePersonalisation="true"
-						   showRowCount="true"
-						   persistencyKey="com.evorait.evonotify.itemTable"
-						   enableAutoBinding="true"
-						   demandPopin="true"
-						   entitySet="PMNotificationItems"
-						   tableBindingPath="to_PMNotificationItem">
-
+<mvc:View controllerName="com.evorait.evonotify.block.items.ItemsTableBlockController" xmlns="sap.m" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:smartTable="sap.ui.comp.smarttable">
+	<smartTable:SmartTable height="100%" width="100%" id="notificationItemsTable" tableType="ResponsiveTable" useExportToExcel="false"
+		useVariantManagement="true" useTablePersonalisation="true" showRowCount="true" persistencyKey="com.evorait.evonotify.itemTable"
+		enableAutoBinding="true" demandPopin="true" entitySet="PMNotificationItemSet" tableBindingPath="NavToItems">
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
-				<OverflowToolbarButton icon="sap-icon://add" text="Sort" press="onPressAdd" visible="{ parts: [{path: 'IsCompleted'},{path: 'IsDeleted'},{path: 'viewModel>/editMode'}], formatter:'.formatter.editable'}"/>
+				<OverflowToolbarButton icon="sap-icon://add" text="Sort" press="onPressAdd"
+					visible="{ parts: [{path: 'IsCompleted'},{path: 'IsDeleted'},{path: 'viewModel>/editMode'}], formatter:'.formatter.editable'}"/>
 			</OverflowToolbar>
 		</smartTable:customToolbar>
-
 		<!-- layout data used to make the table growing but the filter bar fixed -->
 		<smartTable:layoutData>
 			<FlexItemData growFactor="1" baseSize="0%"/>
 		</smartTable:layoutData>
-
 		<Table growing="true">
 			<ColumnListItem type="Navigation" press="onPressItem"></ColumnListItem>
 		</Table>

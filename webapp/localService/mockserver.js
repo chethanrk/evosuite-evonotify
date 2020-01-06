@@ -18,7 +18,7 @@ sap.ui.define([
 				var oUriParameters = jQuery.sap.getUriParameters(),
 					sJsonFilesUrl = jQuery.sap.getModulePath(_sJsonFilesModulePath),
 					sManifestUrl = jQuery.sap.getModulePath(_sAppModulePath + "manifest", ".json"),
-					sEntity = "PMNotifications",
+					sEntity = "PMNotificationSet",
 					sErrorParam = oUriParameters.get("errorType"),
 					iErrorCode = sErrorParam === "badRequest" ? 400 : 500,
 					oManifest = jQuery.sap.syncGetJSON(sManifestUrl).data,

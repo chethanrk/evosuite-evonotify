@@ -29,7 +29,7 @@ sap.ui.define([
 			// the logon plugin - if it's not running as hybrid application then the initialization
 			// of the oData service happens by the entries in the manifest.json which is used
 			// as metadata reference
-			if(window.cordova){
+			if (window.cordova) {
 				this._initCordovaHandling();
 			}
 
@@ -38,7 +38,6 @@ sap.ui.define([
 
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
-
 
 			// set global helper view model
 			// Model used to manipulate control states. The chosen values make sure,
@@ -50,23 +49,16 @@ sap.ui.define([
 				tableNoDataTextActivities = oResourceBundle.getText("activitiesTitle");*/
 
 			this.setModel(models.createHelperModel({
-				busy : true,
-				delay : 0,
-				isNew : false,
-				isEdit : false,
-				editMode : false,
-				worklistEntitySet: "PMNotifications",
-				taskViewPath : "",
-				actViewPath : "",
+				busy: true,
+				delay: 0,
+				isNew: false,
+				isEdit: false,
+				editMode: false,
+				worklistEntitySet: "PMNotificationSet",
+				taskViewPath: "",
+				actViewPath: "",
 				rootPath: jQuery.sap.getModulePath("com.evorait.evonotify"), // your resource root
 				logoPath: "/img/logo_color_transp_50pxh.png"
-				/*itemsTableTitle : tableNoDataTextItems,
-				tasksTableTitle : tableNoDataTextTasks,
-				activitiesTableTitle : tableNoDataTextActivities,
-				tableNoDataTextItems : oResourceBundle.getText("tableNoDataText", [tableNoDataTextItems]),
-				tableNoDataTextTasks : oResourceBundle.getText("tableNoDataText", [tableNoDataTextTasks]),
-				tableNoDataTextActivities : oResourceBundle.getText("tableNoDataText", [tableNoDataTextActivities]),
-				tableBusyDelay : 0*/
 			}), "viewModel");
 
 			// create the views based on the url/hash
@@ -79,7 +71,7 @@ sap.ui.define([
 		 * @public
 		 * @override
 		 */
-		destroy: function() {
+		destroy: function () {
 			this._oErrorHandler.destroy();
 			// call the base component's destroy function
 			UIComponent.prototype.destroy.apply(this, arguments);
@@ -91,7 +83,7 @@ sap.ui.define([
 		 * @public
 		 * @return {string} css class, either 'sapUiSizeCompact' or 'sapUiSizeCozy' - or an empty string if no css class should be set
 		 */
-		getContentDensityClass: function() {
+		getContentDensityClass: function () {
 			if (this._sContentDensityClass === undefined) {
 				// check whether FLP has already set the content density class; do nothing in this case
 				if (jQuery(document.body).hasClass("sapUiSizeCozy") || jQuery(document.body).hasClass("sapUiSizeCompact")) {
@@ -112,7 +104,7 @@ sap.ui.define([
 		 * call Kapsel logon and login to SMP
 		 * @private
 		 */
-		_initCordovaHandling: function(){
+		_initCordovaHandling: function () {
 			var oModel;
 			var externalURL = com.evorait.evolite.evonotify.dev.devapp.externalURL;
 			var appContext;

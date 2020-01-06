@@ -82,7 +82,7 @@ sap.ui.define([
 				this.oViewModel.setProperty("/isNew", true);
 				this.oViewModel.setProperty("/editMode", true);
 
-				var oContext = this.getModel().createEntry("/PMNotifications");
+				var oContext = this.getModel().createEntry("/PMNotificationSet");
 				this.getView().unbindElement();
 				this.getView().setBindingContext(oContext);
 				this.oViewModel.setProperty("/busy", false);
