@@ -32,6 +32,11 @@ sap.ui.define([
 		/* event handlers                                              */
 		/* =========================================================== */
 
+		/**
+		 * show dialog with activity details
+		 * in edit mode
+		 * @param oEvent
+		 */
 		onPressItem: function (oEvent) {
 			var mParams = {
 				oContext: oEvent.getSource().getBindingContext()
@@ -39,14 +44,20 @@ sap.ui.define([
 			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditActivity");
 		},
 
+		/**
+		 * add a new activity
+		 * create a new entry based on if its on Notifcation header level or Notification Item level
+		 * @param oEvent
+		 */
 		onPressAdd: function (oEvent) {
 			var oView = this.getView(),
 				oContext = oView.getBindingContext(),
+				sItemId = oContext.getProperty("MaintenanceNotificationItem"),
 				mParams = {
-					sSetPath: "/PMNotificationActivitySet",
+					sSetPath: sItemId ? "/PMNotificationItemActivitySet" : "/PMNotificationActivitySet",
 					mKeys: {
 						MaintenanceNotification: oContext.getProperty("MaintenanceNotification"),
-						MaintenanceNotificationItem: oContext.getProperty("MaintenanceNotificationItem")
+						MaintenanceNotificationItem: sItemId
 					}
 				};
 			this.getOwnerComponent().oAddEntryDialog.open(oView, mParams, "AddEditActivity");

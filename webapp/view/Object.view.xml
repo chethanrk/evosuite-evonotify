@@ -1,93 +1,74 @@
-<mvc:View height="100%" 
-	controllerName="com.evorait.evonotify.controller.Object"
-	xmlns="sap.m" 
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:core="sap.ui.core" 
-	xmlns:uxap="sap.uxap"
-	xmlns:details="com.evorait.evonotify.block.details"
-	xmlns:items="com.evorait.evonotify.block.items"
-	xmlns:tasks="com.evorait.evonotify.block.tasks"
-	xmlns:activities="com.evorait.evonotify.block.activities"
-	xmlns:layout="sap.ui.layout">
-	
-	<uxap:ObjectPageLayout enableLazyLoading="true"
-						   isChildPage="true"
-						   showFooter="false"
-						   busy="{viewModel>/busy}"
-						   busyIndicatorDelay="{viewModel>/delay}">
+<mvc:View height="100%" controllerName="com.evorait.evonotify.controller.Object" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:details="com.evorait.evonotify.block.details"
+	xmlns:items="com.evorait.evonotify.block.items" xmlns:tasks="com.evorait.evonotify.block.tasks"
+	xmlns:activities="com.evorait.evonotify.block.activities" xmlns:layout="sap.ui.layout">
+	<uxap:ObjectPageLayout enableLazyLoading="true" isChildPage="true" showFooter="false" busy="{viewModel>/busy}"
+		busyIndicatorDelay="{viewModel>/delay}">
 		<uxap:headerTitle>
-			<uxap:ObjectPageHeader id="objectPageHeader"
-								   objectTitle="{NotificationText}"
-								   objectSubtitle="{MaintenanceNotification}">
+			<uxap:ObjectPageHeader id="objectPageHeader" objectTitle="{NotificationText}" objectSubtitle="{MaintenanceNotification}">
 				<uxap:actions>
-					<uxap:ObjectPageHeaderActionButton id="editNotificationButton" text="{i18n>btn.edit}" hideText="false" press="onPressEdit" type="Emphasized" visible="{parts: ['IsCompleted','IsDeleted','viewModel>/editMode'], formatter:'.formatter.editable'}"/>
-					<uxap:ObjectPageHeaderActionButton id="cancelNotificationButton" text="{i18n>btn.cancel}" hideText="false" press="onPressCancel" visible="{viewModel>/editMode}"/>
-					<uxap:ObjectPageHeaderActionButton id="saveNotificationButton" text="{i18n>btn.save}" hideText="false" press="onPressSave" type="Emphasized" visible="{viewModel>/editMode}"/>
-
+					<uxap:ObjectPageHeaderActionButton id="editNotificationButton" text="{i18n>btn.edit}" hideText="false" press="onPressEdit" type="Emphasized"
+						visible="{parts: ['IsCompleted','IsDeleted','viewModel>/editMode'], formatter:'.formatter.editable'}"/>
+					<uxap:ObjectPageHeaderActionButton id="cancelNotificationButton" text="{i18n>btn.cancel}" hideText="false" press="onPressCancel"
+						visible="{viewModel>/editMode}"/>
+					<uxap:ObjectPageHeaderActionButton id="saveNotificationButton" text="{i18n>btn.save}" hideText="false" press="onPressSave" type="Emphasized"
+						visible="{viewModel>/editMode}"/>
 					<MenuButton text="{i18n>btn.changeSystemStatus}"
-								visible="{parts: ['IsCompleted','IsDeleted','viewModel>/editMode'], formatter:'.formatter.showStatusButton'}">
+						visible="{parts: ['IsCompleted','IsDeleted','viewModel>/editMode'], formatter:'.formatter.showStatusButton'}">
 						<menu>
-							<Menu itemSelected="onSelectStatus"
-								  items="{path: 'StatusVH>/HeaderStatus'}">
-								<MenuItem key="{StatusVH>StatusCode}" text="{path: 'StatusVH>TranslateKey', formatter: '.translateStatusKey'}" />
+							<Menu itemSelected="onSelectStatus" items="{path: 'StatusVH>/HeaderStatus'}">
+								<MenuItem key="{StatusVH>StatusCode}" text="{path: 'StatusVH>TranslateKey', formatter: '.translateStatusKey'}"/>
 							</Menu>
 						</menu>
 					</MenuButton>
 				</uxap:actions>
-
 				<uxap:breadcrumbs>
 					<Breadcrumbs currentLocationText="{/#PMNotification/MaintenanceNotification/@sap:label} {MaintenanceNotification}">
 						<Link text="{i18n>tit.notifications}" press="onNavBack"/>
 					</Breadcrumbs>
 				</uxap:breadcrumbs>
-
 				<uxap:navigationBar>
 					<core:Fragment fragmentName="com.evorait.evonotify.view.fragments.SubPageHeader" type="XML"/>
 				</uxap:navigationBar>
 			</uxap:ObjectPageHeader>
 		</uxap:headerTitle>
-
 		<uxap:headerContent>
 			<layout:VerticalLayout visible="{viewModel>/isEdit}">
 				<layout:layoutData>
-					<uxap:ObjectPageHeaderLayoutData
-						showSeparatorAfter="false"/>
+					<uxap:ObjectPageHeaderLayoutData showSeparatorAfter="false"/>
 				</layout:layoutData>
-				<ObjectStatus title="{/#PMNotification/NotificationType/@sap:label}" text="{NotificationTypeName}" />
-				<ObjectStatus title="{/#PMNotification/MaintenanceOrder/@sap:label}" text="{MaintenanceOrder}" />
-				<ObjectStatus title="{/#PMNotification/MaintPriority/@sap:label}" text="{MaintPriorityText}" />
+				<ObjectStatus title="{/#PMNotification/NotificationType/@sap:label}" text="{NotificationTypeName}"/>
+				<ObjectStatus title="{/#PMNotification/MaintenanceOrder/@sap:label}" text="{MaintenanceOrder}"/>
+				<ObjectStatus title="{/#PMNotification/MaintPriority/@sap:label}" text="{MaintPriorityText}"/>
 				<ObjectStatus title="{/#PMNotification/MaintenanceObjectIsDown/@sap:label}" text="{MaintenanceObjectIsDown}" state="Error"/>
 			</layout:VerticalLayout>
 			<layout:VerticalLayout visible="{viewModel>/isEdit}">
 				<layout:layoutData>
-					<uxap:ObjectPageHeaderLayoutData
-						showSeparatorAfter="false"/>
+					<uxap:ObjectPageHeaderLayoutData showSeparatorAfter="false"/>
 				</layout:layoutData>
-				<ObjectStatus title="{/#PMNotification/TechnicalObject/@sap:label}" text="{TechnicalObject}" />
-				<ObjectStatus title="{/#PMNotification/TechObjIsEquipOrFuncnlLocDesc/@sap:label}" text="{TechObjIsEquipOrFuncnlLocDesc}" />
-				<ObjectStatus title="{/#PMNotification/Assembly/@sap:label}" text="{AssemblyName}" />
+				<ObjectStatus title="{/#PMNotification/FunctionalLocation/@sap:label}" text="{FunctionalLocation}"/>
+				<ObjectStatus title="{/#PMNotification/Equipment/@sap:label}" text="{Equipment}"/>
+				<ObjectStatus title="{/#PMNotification/TechObjIsEquipOrFuncnlLocDesc/@sap:label}" text="{TechObjIsEquipOrFuncnlLocDesc}"/>
+				<ObjectStatus title="{/#PMNotification/Assembly/@sap:label}" text="{AssemblyName}"/>
 			</layout:VerticalLayout>
 			<layout:VerticalLayout visible="{viewModel>/isEdit}">
 				<layout:layoutData>
-					<uxap:ObjectPageHeaderLayoutData
-						showSeparatorAfter="false"/>
+					<uxap:ObjectPageHeaderLayoutData showSeparatorAfter="false"/>
 				</layout:layoutData>
-				<ObjectStatus title="{/#PMNotification/SystemStatus/@sap:label}" text="{SystemStatus}" />
-				<ObjectStatus title="{/#PMNotification/SystemStatus/@sap:label}" text="{SystemStatus}" />
+				<ObjectStatus title="{/#PMNotification/SystemStatus/@sap:label}" text="{SystemStatus}"/>
+				<ObjectStatus title="{/#PMNotification/UserStatus/@sap:label}" text="{UserStatus}"/>
 			</layout:VerticalLayout>
 		</uxap:headerContent>
-
 		<uxap:sections>
 			<uxap:ObjectPageSection title="{i18n>tit.generalSection}">
 				<uxap:subSections>
 					<uxap:ObjectPageSubSection>
 						<uxap:blocks>
-							<details:DetailsFormBlock id="detailsFormBlock" />
+							<details:DetailsFormBlock id="detailsFormBlock"/>
 						</uxap:blocks>
 					</uxap:ObjectPageSubSection>
 				</uxap:subSections>
 			</uxap:ObjectPageSection>
-
 			<uxap:ObjectPageSection id="itemsSection" title="{i18n>tit.items}" visible="{= !${viewModel>/editMode}}">
 				<uxap:subSections>
 					<uxap:ObjectPageSubSection>
@@ -97,7 +78,6 @@
 					</uxap:ObjectPageSubSection>
 				</uxap:subSections>
 			</uxap:ObjectPageSection>
-
 			<uxap:ObjectPageSection title="{i18n>tit.tasks}" visible="{= !${viewModel>/editMode}}">
 				<uxap:subSections>
 					<uxap:ObjectPageSubSection>
@@ -107,17 +87,15 @@
 					</uxap:ObjectPageSubSection>
 				</uxap:subSections>
 			</uxap:ObjectPageSection>
-
 			<uxap:ObjectPageSection title="{i18n>tit.activities}" visible="{= !${viewModel>/editMode}}">
 				<uxap:subSections>
 					<uxap:ObjectPageSubSection>
 						<uxap:blocks>
-							<activities:ActivitiesTableBlock id="activityTableBlock" />
+							<activities:ActivitiesTableBlock id="activityTableBlock"/>
 						</uxap:blocks>
 					</uxap:ObjectPageSubSection>
 				</uxap:subSections>
 			</uxap:ObjectPageSection>
 		</uxap:sections>
 	</uxap:ObjectPageLayout>
-
 </mvc:View>
