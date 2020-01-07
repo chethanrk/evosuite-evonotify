@@ -178,7 +178,27 @@ sap.ui.define([
                         this.showSaveErrorPrompt(oError);
                     }.bind(this)
                 });
-            }
+            },
+            
+         /**
+		 * show a message toast for 5 seconds
+		 * @param msg
+		 */
+		showMessageToast: function (msg) {
+			sap.m.MessageToast.show(msg, {
+				duration: 5000, // default
+				my: "center bottom", // default
+				at: "center bottom", // default
+				of: window, // default
+				offset: "0 20", // default
+				collision: "fit fit", // default
+				onClose: null, // default
+				autoClose: true, // default
+				animationTimingFunction: "ease", // default
+				animationDuration: 1000, // default
+				closeOnBrowserNavigation: true // default
+			});
+		},
 
         });
 
