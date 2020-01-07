@@ -3,9 +3,9 @@
 	<smartForm:SmartForm id="idNotificationForm" editable="{viewModel>/editMode}">
 		
 		<smartForm:Group label="{i18n>@GENERAL}">
-			<smartForm:layout>
+			<smartForm:layoutData>
 				<layout:GridData span="L6 M6 S12"/>
-			</smartForm:layout>
+			</smartForm:layoutData>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintenanceNotification}" />
 			</smartForm:GroupElement>
@@ -48,9 +48,9 @@
 		</smartForm:Group>
 		
 		<smartForm:Group label="{i18n>tit.malfunctionalSection}">
-			<smartForm:layout>
+			<smartForm:layoutData>
 				<layout:GridData span="L6 M6 S12"/>
-			</smartForm:layout>
+			</smartForm:layoutData>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MalfunctionStartDate}" >
 					<smartField:configuration>
@@ -80,18 +80,18 @@
 		</smartForm:Group>
 
 		<smartForm:Group label="Description">
-			<smartForm:layout>
+			<smartForm:layoutData>
 				<layout:GridData span="L12 M12 S12"/>
-			</smartForm:layout>
+			</smartForm:layoutData>
 			<smartForm:GroupElement>
 				<TextArea value="{MaintNotificationLongText}" rows="8" editable="{viewModel>/editMode}" growing="true"/>
 			</smartForm:GroupElement>
 		</smartForm:Group>
 
 		<smartForm:Group label="{i18n>tit.refObjectsSection}">
-			<smartForm:layout>
+			<smartForm:layoutData>
 				<layout:GridData span="L6 M6 S12"/>
-			</smartForm:layout>
+			</smartForm:layoutData>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{TechnicalObject}"  />
 			</smartForm:GroupElement>
@@ -108,9 +108,9 @@
 		</smartForm:Group>
 		
 		<smartForm:Group label="{i18n>tit.datesSection}">
-			<smartForm:layout>
+			<smartForm:layoutData>
 				<layout:GridData span="L6 M6 S12"/>
-			</smartForm:layout>
+			</smartForm:layoutData>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{RequiredStartDate}" >
 					<smartField:configuration>
@@ -137,9 +137,9 @@
 		</smartForm:Group>
 		
 		<smartForm:Group label="{i18n>tit.locationSection}">
-			<smartForm:layout>
+			<smartForm:layoutData>
 				<layout:GridData span="L6 M6 S12"/>
-			</smartForm:layout>
+			</smartForm:layoutData>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintenanceWorkCenterPlant}" >
 					<smartField:configuration>
@@ -171,21 +171,21 @@
 		</smartForm:Group>
 		
 		<smartForm:Group label="{i18n>tit.systemUserStateSection}">
-			<smartForm:layout>
+			<smartForm:layoutData>
 				<layout:GridData span="L6 M6 S12"/>
-			</smartForm:layout>
+			</smartForm:layoutData>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{ConcatenatedActSysStsName}"  />
+				<smartField:SmartField value="{SystemStatus}"  />
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{ConcatenatedActUserStsName}"  />
+				<smartField:SmartField value="{SystemStatus}"  />
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		
 		<smartForm:Group label="{i18n>tit.responsibilitySection}">
-			<smartForm:layout>
+			<smartForm:layoutData>
 				<layout:GridData span="L6 M6 S12"/>
-			</smartForm:layout>
+			</smartForm:layoutData>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintenancePlanningPlant}" >
 					<smartField:configuration>

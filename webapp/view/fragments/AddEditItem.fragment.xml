@@ -5,9 +5,9 @@
 
             <smartForm:SmartForm editable="true">
                 <smartForm:Group label="{i18n>tit.generalSection}">
-                    <smartForm:layout>
+                    <smartForm:layoutData>
                         <layout:GridData span="L6 M6 S12"/>
-                    </smartForm:layout>
+                    </smartForm:layoutData>
                     <smartForm:GroupElement visible="{= !${viewModel>/isNewEntry}}">
                         <smartField:SmartField value="{MaintenanceNotificationItem}" />
                     </smartForm:GroupElement>
@@ -16,9 +16,9 @@
                     </smartForm:GroupElement>
                 </smartForm:Group>
                 <smartForm:Group label="{i18n>tit.objectSection}">
-                    <smartForm:layout>
+                    <smartForm:layoutData>
                         <layout:GridData span="L6 M6 S12"/>
-                    </smartForm:layout>
+                    </smartForm:layoutData>
                     <smartForm:GroupElement>
                         <smartField:SmartField value="{MaintNotifObjPrtCodeGroup}">
                             <smartField:configuration>
@@ -35,9 +35,9 @@
                     </smartForm:GroupElement>
                 </smartForm:Group>
                 <smartForm:Group label="{i18n>tit.damageSection}">
-                    <smartForm:layout>
+                    <smartForm:layoutData>
                         <layout:GridData span="L6 M6 S12" linebreak="true"/>
-                    </smartForm:layout>
+                    </smartForm:layoutData>
                     <smartForm:GroupElement>
                         <smartField:SmartField value="{MaintNotifDamageCodeGroup}">
                             <smartField:configuration>

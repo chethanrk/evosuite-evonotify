@@ -42,7 +42,7 @@ sap.ui.define([
                     isValid = (validatedSmartFields.length === 0),
                     invalidFields = validatedSmartFields;
 
-                console.log(mParams.form.check());
+                //console.log(mParams.form.check());
 
                 //validate custom input fields
                 for (var i = 0; i < aCustomFields.length; i++) {

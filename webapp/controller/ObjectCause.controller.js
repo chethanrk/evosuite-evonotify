@@ -176,7 +176,7 @@ sap.ui.define([
 				data = this.getModel().getProperty(oContext.sPath);
 
 			if (data.MaintNotifCauseCodeCatalog === "") {
-				data.MaintNotifCauseCodeCatalog = '5';
+				data.MaintNotifCauseCodeCatalog = "5";
 			}
 			// No data for the binding
 			if (!oElementBinding.getBoundContext()) {

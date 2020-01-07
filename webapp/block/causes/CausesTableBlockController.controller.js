@@ -53,7 +53,7 @@ sap.ui.define([
 						sSetPath: "/PMNotificationCauses",
 						mKeys: {
 							MaintenanceNotification: oView.getBindingContext().getProperty("MaintenanceNotification"),
-							MaintenanceNotificationItem: oView.getBindingContext().getProperty("MaintenanceNotificationItem"),
+							MaintenanceNotificationItem: oView.getBindingContext().getProperty("MaintenanceNotificationItem")
 						}
 					};
 				this.getOwnerComponent().oAddEntryDialog.open(oView, mParams, "AddEditCause");

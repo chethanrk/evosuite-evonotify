@@ -4,7 +4,7 @@ sap.ui.define([
         "sap/ui/model/json/JSONModel",
         "sap/ui/core/routing/History",
         "com/evorait/evonotify/model/formatter",
-        'sap/ui/model/Filter'
+        "sap/ui/model/Filter"
     ], function (
     BaseController,
     JSONModel,
@@ -146,7 +146,7 @@ sap.ui.define([
                         var oContext = oDataModel.createEntry("/PMNotificationTasks");
                         oDataModel.setProperty(oContext.sPath + "/MaintenanceNotification", sObjectId);
                         oDataModel.setProperty(oContext.sPath + "/MaintenanceNotificationItem", sItemId);
-                        oDataModel.setProperty(oContext.sPath + "/MaintNotifTaskCodeCatalog", '2');
+                        oDataModel.setProperty(oContext.sPath + "/MaintNotifTaskCodeCatalog", "2");
                         this.getView().unbindElement();
                         this.getView().setBindingContext(oContext);
 
@@ -199,7 +199,7 @@ sap.ui.define([
                     data = this.getModel().getProperty(oContext.sPath);
 
                 if (data.MaintNotifTaskCodeCatalog === "") {
-                    data.MaintNotifTaskCodeCatalog = '2';
+                    data.MaintNotifTaskCodeCatalog = "2";
                 }
                 // No data for the binding
                 if (!oContext) {

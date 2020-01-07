@@ -72,8 +72,8 @@
 					<uxap:ObjectPageHeaderLayoutData
 						showSeparatorAfter="false"/>
 				</layout:layoutData>
-				<ObjectStatus title="{/#PMNotification/ConcatenatedActSysStsName/@sap:label}" text="{ConcatenatedActSysStsName}" />
-				<ObjectStatus title="{/#PMNotification/ConcatenatedActUserStsName/@sap:label}" text="{ConcatenatedActUserStsName}" />
+				<ObjectStatus title="{/#PMNotification/SystemStatus/@sap:label}" text="{SystemStatus}" />
+				<ObjectStatus title="{/#PMNotification/SystemStatus/@sap:label}" text="{SystemStatus}" />
 			</layout:VerticalLayout>
 		</uxap:headerContent>
 

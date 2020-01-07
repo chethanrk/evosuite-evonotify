@@ -26,7 +26,7 @@
 					<smartFilterBar:SmartFilterBar
 							id="NotificationFilter"
 							entitySet="{viewModel>/worklistEntitySet}"
-							expandAdvancedArea="true"
+							filterBarExpanded="true"
 							persistencyKey="com.evorait.evonotify.NotificationFilterbar">
 						<smartFilterBar:controlConfiguration>
 							<smartFilterBar:ControlConfiguration id="__configuration0"/>

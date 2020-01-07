@@ -59,14 +59,14 @@ sap.ui.define([
 						this.saveChangedEntry({
 							view: this._oView,
 							success: this._closeDialog.bind(this)
-						})
+						});
 					}
 
 				}
 			}
 		},
 
-		/**
+		/*
 		 * init dialog with right fragment name
 		 * and set context to the view
 		 * @returns {sap.ui.core.Control|sap.ui.core.Control[]}
@@ -94,7 +94,7 @@ sap.ui.define([
 			}
 		},
 
-		/**
+		/*
 		 * set context dependencies
 		 * @param mParams
 		 * @private
@@ -109,7 +109,7 @@ sap.ui.define([
 			}
 		},
 
-		/**
+		/*
 		 * reset all global variables and destroy dialog view
 		 * @private
 		 */

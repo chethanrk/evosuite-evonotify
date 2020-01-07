@@ -88,8 +88,9 @@ sap.ui.define([
                     this.getModel().setProperty(oContext.getPath() + "/Status", "");
                     return true;
                 } else if (oParams.state === "error") {
-                    return false
+                    return false;
                 }
+                return false;
             },
 
             /**
@@ -132,8 +133,8 @@ sap.ui.define([
 
                 var dialog = new Dialog({
                     title: sTitle,
-                    type: 'Message',
-                    state: 'Error',
+                    type: "Message",
+                    state: "Error",
                     content: new Text({
                         text: sMsg
                     }),

@@ -48,7 +48,7 @@ sap.ui.define([
 			onPressAdd: function (oEvent) {
 				var oContext = this.getView().getBindingContext(),
 					mParams = {
-						sSetPath: "/PMNotificationTasks",
+						sSetPath: "/PMNotificationTaskSet",
 						mKeys: {
 							MaintenanceNotification: oContext.getProperty("MaintenanceNotification"),
 							MaintenanceNotificationItem: oContext.getProperty("MaintenanceNotificationItem")

@@ -42,7 +42,7 @@ sap.ui.define([
 			
 			onAddPress : function (){
 				this.getRouter().navTo("objectNew");
-			},
+			}
 
 		});
 	}

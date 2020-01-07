@@ -9,9 +9,9 @@
 	
 	<smartForm:SmartForm id="SmartNotificationItemForm" editTogglable="false" editToggled="onEditPress" editable="{viewModel>/editMode}">
 		<smartForm:Group label="{i18n>generalSectionTitle}">
-			<smartForm:layout>
+			<smartForm:layoutData>
 				<layout:GridData span="L6 M6 S12"/>
-			</smartForm:layout>
+			</smartForm:layoutData>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintenanceNotification}" editableChanged="onEditChanged"/>
 			</smartForm:GroupElement>
@@ -23,9 +23,9 @@
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		<smartForm:Group label="{i18n>objectSectionTitle}">
-			<smartForm:layout>
+			<smartForm:layoutData>
 				<layout:GridData span="L6 M6 S12"/>
-			</smartForm:layout>
+			</smartForm:layoutData>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintNotifObjPrtCodeGroup}" editableChanged="onEditChanged">
 					<smartField:configuration>
@@ -42,9 +42,9 @@
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		<smartForm:Group label="{i18n>damageSectionTitle}">
-			<smartForm:layout>
+			<smartForm:layoutData>
 				<layout:GridData span="L6 M6 S12" linebreak="true"/>
-			</smartForm:layout>
+			</smartForm:layoutData>
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{MaintNotifDamageCodeGroup}" editableChanged="onEditChanged">
 					<smartField:configuration>

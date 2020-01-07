@@ -49,7 +49,7 @@ sap.ui.define([
 			onPressAdd: function (oEvetn) {
 				var oView = this.getView(),
 					mParams = {
-						sSetPath: "/PMNotificationItems",
+						sSetPath: "/PMNotificationItemSet",
 						mKeys: {
 							MaintenanceNotification: oView.getBindingContext().getProperty("MaintenanceNotification"),
 							MaintNotifObjPrtCodeCatalog: "B",

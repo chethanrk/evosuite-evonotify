@@ -174,8 +174,8 @@ sap.ui.define([
 						sPath = oContext.getPath();
 
 					oDataModel.setProperty(sPath + "/MaintenanceNotification", sObjectId);
-					oDataModel.setProperty(sPath + "/MaintNotifObjPrtCodeCatalog", 'B');
-					oDataModel.setProperty(sPath + "/MaintNotifDamageCodeCatalog", 'C');
+					oDataModel.setProperty(sPath + "/MaintNotifObjPrtCodeCatalog", "B");
+					oDataModel.setProperty(sPath + "/MaintNotifDamageCodeCatalog", "C");
 					this.getView().unbindElement();
 					this.getView().setBindingContext(oContext);
 
@@ -244,10 +244,10 @@ sap.ui.define([
 				sObjectName = oObject.NotificationText;
 
 			if (oObject.MaintNotifObjPrtCodeCatalog === "") {
-				oObject.MaintNotifObjPrtCodeCatalog = 'B';
+				oObject.MaintNotifObjPrtCodeCatalog = "B";
 			}
 			if (oObject.MaintNotifDamageCodeCatalog === "") {
-				oObject.MaintNotifDamageCodeCatalog = 'C';
+				oObject.MaintNotifDamageCodeCatalog = "C";
 			}
 
 			// Everything went fine.

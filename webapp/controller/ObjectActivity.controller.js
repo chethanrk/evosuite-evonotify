@@ -130,7 +130,7 @@ sap.ui.define([
 					var oContext = oDataModel.createEntry("/PMNotificationActivities");
 					oDataModel.setProperty(oContext.sPath + "/MaintenanceNotification", sObjectId);
 					oDataModel.setProperty(oContext.sPath + "/MaintenanceNotificationItem", sItemId);
-					oDataModel.setProperty(oContext.sPath + "/MaintNotifAcivityCodeCatalog", 'A');
+					oDataModel.setProperty(oContext.sPath + "/MaintNotifAcivityCodeCatalog", "A");
 					this.getView().unbindElement();
 					this.getView().setBindingContext(oContext);
 
@@ -183,7 +183,7 @@ sap.ui.define([
 				data = this.getModel().getProperty(oContext.sPath);
 
 			if (data.MaintNotifAcivityCodeCatalog === "") {
-				data.MaintNotifAcivityCodeCatalog = 'A';
+				data.MaintNotifAcivityCodeCatalog = "A";
 			}
 
 			if (this.oForm) {

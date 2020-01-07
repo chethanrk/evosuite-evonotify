@@ -39,7 +39,7 @@ sap.ui.define([
 				var oForm = this.getView().byId("idNotificationForm");
 
 				if(this.validateForm({form: oForm})){
-					this.saveChangedEntry();
+					this.saveChangedEntry(oForm);
 				}
 			}
 
