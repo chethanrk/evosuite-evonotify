@@ -133,6 +133,7 @@ sap.ui.define([
                                 mParams.success();
                             }
                             oViewModel.setProperty("/busy", false);
+                            oViewModel.setProperty("/editMode", false);
                         }.bind(this), 1500);
                     }.bind(this),
                     error: function (oError) {
