@@ -80,7 +80,12 @@
 		"resources": {
 			"css": [
 				{
-					"uri": "css/style.css"
+					"uri": "assets/css/style.css"
+				}
+			],
+			"js": [
+				{
+					"uri": "assets/js/promise-polyfills.js"
 				}
 			]
 		},
@@ -127,27 +132,6 @@
 					"target": [
 						"item"
 					]
-				},
-				{
-					"pattern": "Notification/{objectId}/Item/{itemId}/Task/{taskId}",
-					"name": "task",
-					"target": [
-						"task"
-					]
-				},
-				{
-					"pattern": "Notification/{objectId}/Item/{itemId}/Activity/{activityId}",
-					"name": "activity",
-					"target": [
-						"activity"
-					]
-				},
-				{
-					"pattern": "Notification/{objectId}/Item/{itemId}/Cause/{causeId}",
-					"name": "cause",
-					"target": [
-						"cause"
-					]
 				}
 			],
 			"targets": {
@@ -171,21 +155,6 @@
 					"viewId": "item",
 					"viewLevel": 3
 				},
-				"task": {
-					"viewName": "ObjectTask",
-					"viewId": "task",
-					"viewLevel": 3
-				},
-				"activity": {
-					"viewName": "ObjectActivity",
-					"viewId": "activity",
-					"viewLevel": 3
-				},
-				"cause": {
-					"viewName": "ObjectCause",
-					"viewId": "cause",
-					"viewLevel": 4
-				},
 				"objectNotFound": {
 					"viewName": "ObjectNotFound",
 					"viewId": "objectNotFound"
@@ -196,5 +165,9 @@
 				}
 			}
 		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
 	}
 }

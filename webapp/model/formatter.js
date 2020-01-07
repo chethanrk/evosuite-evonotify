@@ -112,6 +112,10 @@ sap.ui.define([
 		 */
 		setVisible: function (sValue) {
 			return sValue && sValue !== "0";
+		},
+
+		showItemField: function (isNew, isItem) {
+			return !isNew && !!isItem;
 		}
 	};
 

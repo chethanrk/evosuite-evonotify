@@ -1,59 +1,52 @@
-<mvc:View 
-	controllerName="com.evorait.evonotify.block.items.ItemsFormBlockController"
-	xmlns="sap.m"
-	xmlns:core="sap.ui.core" 
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:layout="sap.ui.layout"
-	xmlns:smartField="sap.ui.comp.smartfield" 
-	xmlns:smartForm="sap.ui.comp.smartform">
-	
-	<smartForm:SmartForm id="SmartNotificationItemForm" editTogglable="false" editToggled="onEditPress" editable="{viewModel>/editMode}">
-		<smartForm:Group label="{i18n>generalSectionTitle}">
+<mvc:View controllerName="com.evorait.evonotify.block.items.ItemsFormBlockController" xmlns="sap.m" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:layout="sap.ui.layout" xmlns:smartField="sap.ui.comp.smartfield" xmlns:smartForm="sap.ui.comp.smartform">
+	<smartForm:SmartForm id="SmartNotificationItemForm" editTogglable="false" editable="{viewModel>/editMode}">
+		<smartForm:Group label="{i18n>tit.generalSection}">
 			<smartForm:layoutData>
 				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layoutData>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintenanceNotification}" editableChanged="onEditChanged"/>
+				<smartField:SmartField value="{MaintenanceNotification}"/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintenanceNotificationItem}" editableChanged="onEditChanged"/>
+				<smartField:SmartField value="{MaintenanceNotificationItem}"/>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintNotifItemText}" editableChanged="onEditChanged"/>
+				<smartField:SmartField value="{MaintNotifItemText}"/>
 			</smartForm:GroupElement>
 		</smartForm:Group>
-		<smartForm:Group label="{i18n>objectSectionTitle}">
+		<smartForm:Group label="{i18n>tit.objectSection}">
 			<smartForm:layoutData>
 				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layoutData>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintNotifObjPrtCodeGroup}" editableChanged="onEditChanged">
+				<smartField:SmartField value="{MaintNotifObjPrtCodeGroup}">
 					<smartField:configuration>
 						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
 					</smartField:configuration>
 				</smartField:SmartField>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintNotifObjPrtCode}" editableChanged="onEditChanged">
+				<smartField:SmartField value="{MaintNotifObjPrtCode}">
 					<smartField:configuration>
 						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
 					</smartField:configuration>
 				</smartField:SmartField>
 			</smartForm:GroupElement>
 		</smartForm:Group>
-		<smartForm:Group label="{i18n>damageSectionTitle}">
+		<smartForm:Group label="{i18n>tit.damageSection}">
 			<smartForm:layoutData>
 				<layout:GridData span="L6 M6 S12" linebreak="true"/>
 			</smartForm:layoutData>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintNotifDamageCodeGroup}" editableChanged="onEditChanged">
+				<smartField:SmartField value="{MaintNotifDamageCodeGroup}">
 					<smartField:configuration>
 						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
 					</smartField:configuration>
 				</smartField:SmartField>
 			</smartForm:GroupElement>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintNotifDamageCode}" editableChanged="onEditChanged">
+				<smartField:SmartField value="{MaintNotifDamageCode}">
 					<smartField:configuration>
 						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
 					</smartField:configuration>

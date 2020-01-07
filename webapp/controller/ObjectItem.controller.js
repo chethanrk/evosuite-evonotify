@@ -33,33 +33,12 @@ sap.ui.define([
 		/* =========================================================== */
 
 		/**
-		 * Event handler when the share in JAM button has been clicked
-		 * @public
-		 */
-		onShareInJamPress: function () {
-			var oViewModel = this.getModel("viewModel"),
-				oShareDialog = sap.ui.getCore().createComponent({
-					name: "sap.collaboration.components.fiori.sharing.dialog",
-					settings: {
-						object: {
-							id: location.href,
-							share: oViewModel.getProperty("/shareOnJamTitle")
-						}
-					}
-				});
-			oShareDialog.open();
-		},
-
-		/**
 		 * Event handler  for navigating back.
 		 * It there is a history entry or an previous app-to-app navigation we go one step back in the browser history
 		 * If not, it will replace the current entry of the browser history with the worklist route.
 		 * @public
 		 */
 		onNavBack: function () {
-			if (this.oForm) {
-				this.cancelFormHandling(this.oForm);
-			}
 			if (!this.getModel("viewModel").getProperty("/isNew")) {
 				this.navBack();
 			}
@@ -89,60 +68,11 @@ sap.ui.define([
 		},
 
 		onPressSave: function () {
-			if (this.oForm) {
-				this.saveSubmitHandling(this.oForm);
-			}
+
 		},
 
 		onPressCancel: function () {
-			if (this.oForm) {
-				this.cancelFormHandling(this.oForm);
-			}
-		},
 
-		/**
-		 * navigate to new notification item
-		 */
-		onAddItemCausePress: function () {
-			this.onPressCancel();
-			this.getRouter().navTo("cause", {
-				objectId: this.getView().getBindingContext().getProperty("MaintenanceNotification"),
-				itemId: this.getView().getBindingContext().getProperty("MaintenanceNotificationItem"),
-				causeId: "new"
-			});
-		},
-		/**
-		 * navigate to new notification item
-		 */
-		onAddItemTaskPress: function () {
-			this.onPressCancel();
-			this.getRouter().navTo("task", {
-				objectId: this.getView().getBindingContext().getProperty("MaintenanceNotification"),
-				itemId: this.getView().getBindingContext().getProperty("MaintenanceNotificationItem"),
-				taskId: "new"
-			});
-		},
-		/**
-		 * navigate to new notification item
-		 */
-		onAddItemActivityPress: function () {
-			this.onPressCancel();
-			this.getRouter().navTo("activity", {
-				objectId: this.getView().getBindingContext().getProperty("MaintenanceNotification"),
-				itemId: this.getView().getBindingContext().getProperty("MaintenanceNotificationItem"),
-				activityId: "new"
-			});
-		},
-		/**
-		 * fired edit toggle event from subsection block DetailsFormBlock
-		 */
-		onFiredEditMode: function (oEvent) {
-			var oParameters = oEvent.getParameters();
-			this._setEditMode(oParameters.editable);
-
-			if (!this.oForm) {
-				this.oForm = sap.ui.getCore().byId(oParameters.id);
-			}
 		},
 
 		/* =========================================================== */
@@ -158,37 +88,18 @@ sap.ui.define([
 		_onObjectMatched: function (oEvent) {
 			var sItemId = oEvent.getParameter("arguments").itemId,
 				oViewModel = this.getModel("viewModel"),
-				oDataModel = this.getModel(),
-				isNew = (sItemId === "new");
+				oDataModel = this.getModel();
 
 			var sObjectId = oEvent.getParameter("arguments").objectId;
-			oViewModel.setProperty("/MaintenanceNotification", sObjectId);
 
 			oDataModel.metadataLoaded().then(function () {
-				oViewModel.setProperty("/isNew", isNew);
-				oViewModel.setProperty("/isEdit", !isNew);
-				this._setEditMode(isNew);
+				oViewModel.setProperty("/isEdit", false);
 
-				if (isNew) {
-					var oContext = oDataModel.createEntry("/PMNotificationItems"),
-						sPath = oContext.getPath();
-
-					oDataModel.setProperty(sPath + "/MaintenanceNotification", sObjectId);
-					oDataModel.setProperty(sPath + "/MaintNotifObjPrtCodeCatalog", "B");
-					oDataModel.setProperty(sPath + "/MaintNotifDamageCodeCatalog", "C");
-					this.getView().unbindElement();
-					this.getView().setBindingContext(oContext);
-
-					var oBundle = this.getModel("i18n").getResourceBundle();
-					oViewModel.setProperty("/Title", oBundle.getText("newNotificationItemTitle"));
-					oViewModel.setProperty("/busy", false);
-				} else {
-					var sObjectPath = this.getModel().createKey("PMNotificationItems", {
-						MaintenanceNotification: sObjectId,
-						MaintenanceNotificationItem: sItemId
-					});
-					this._bindView("/" + sObjectPath);
-				}
+				var sObjectPath = this.getModel().createKey("PMNotificationItemSet", {
+					MaintenanceNotification: sObjectId,
+					MaintenanceNotificationItem: sItemId
+				});
+				this._bindView("/" + sObjectPath);
 			}.bind(this));
 		},
 
@@ -202,9 +113,10 @@ sap.ui.define([
 			var oViewModel = this.getModel("viewModel"),
 				oDataModel = this.getModel();
 
-			oViewModel.setProperty("/activityEntitySet", "PMNotificationActivities");
+			//Todo: Navigation properties from Item to Anctivity, Task and Cause is missing
+			oViewModel.setProperty("/activityEntitySet", "PMNotificationItemActivitySet");
 			oViewModel.setProperty("/activityTableBindingPath", "to_PMNotificationItemActivity");
-			oViewModel.setProperty("/taskEntitySet", "PMNotificationTasks");
+			oViewModel.setProperty("/taskEntitySet", "PMNotificationItemTaskSet");
 			oViewModel.setProperty("/taskTableBindingPath", "to_PMNotificationItemTask");
 
 			this.getView().bindElement({
@@ -238,10 +150,7 @@ sap.ui.define([
 				return;
 			}
 
-			var oResourceBundle = this.getResourceBundle(),
-				oObject = oView.getBindingContext().getObject(),
-				sObjectId = oObject.MaintenanceNotification,
-				sObjectName = oObject.NotificationText;
+			var oObject = oView.getBindingContext().getObject();
 
 			if (oObject.MaintNotifObjPrtCodeCatalog === "") {
 				oObject.MaintNotifObjPrtCodeCatalog = "B";
@@ -251,7 +160,6 @@ sap.ui.define([
 			}
 
 			// Everything went fine.
-			this._setNewHeaderTitle();
 			oViewModel.setProperty("/busy", false);
 		},
 
@@ -271,11 +179,6 @@ sap.ui.define([
 					this.getModel("viewModel").setProperty("/showMode", !isEdit);
 				}
 			}
-		},
-
-		_setNewHeaderTitle: function () {
-			var oContext = this.getView().getBindingContext();
-			this.getModel("viewModel").setProperty("/Title", this.getModel().getProperty(oContext.sPath + "/MaintNotifItemText"));
 		}
 
 	});

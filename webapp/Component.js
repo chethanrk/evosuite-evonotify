@@ -43,10 +43,6 @@ sap.ui.define([
 			// Model used to manipulate control states. The chosen values make sure,
 			// detail page is busy indication immediately so there is no break in
 			// between the busy indication for loading the view"s meta data
-			/*var oResourceBundle = this.getModel("i18n"),
-				tableNoDataTextItems = oResourceBundle.getText("itemsTableTitle"),
-				tableNoDataTextTasks = oResourceBundle.getText("tasksTitle"),
-				tableNoDataTextActivities = oResourceBundle.getText("activitiesTitle");*/
 
 			this.setModel(models.createHelperModel({
 				busy: true,
@@ -58,7 +54,7 @@ sap.ui.define([
 				taskViewPath: "",
 				actViewPath: "",
 				rootPath: jQuery.sap.getModulePath("com.evorait.evonotify"), // your resource root
-				logoPath: "/img/logo_color_transp_50pxh.png"
+				logoPath: "/assets/img/logo_color_transp_50pxh.png"
 			}), "viewModel");
 
 			// create the views based on the url/hash
