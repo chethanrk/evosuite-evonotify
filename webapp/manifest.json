@@ -70,7 +70,10 @@
 			},
 			"": {
 				"dataSource": "mainService",
-				"preload": false
+				"preload": false,
+				"settings": {
+					"defaultBindingMode": "TwoWay"
+				}
 			},
 			"StatusVH": {
 				"type": "sap.ui.model.json.JSONModel",

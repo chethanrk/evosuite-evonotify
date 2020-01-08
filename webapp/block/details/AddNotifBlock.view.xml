@@ -60,7 +60,7 @@
 				<layout:GridData span="L12 M12 S12"/>
 			</smartForm:layoutData>
 			<smartForm:GroupElement>
-				<TextArea value="{MaintNotificationLongText}" rows="8" editable="{viewModel>/editMode}" growing="true"/>
+				<TextArea value="{Notes}" rows="8" editable="{viewModel>/editMode}" growing="true"/>
 			</smartForm:GroupElement>
 		</smartForm:Group>
 		<smartForm:Group label="{i18n>tit.refObjectsSection}">
