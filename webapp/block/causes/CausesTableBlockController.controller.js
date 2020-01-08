@@ -50,21 +50,37 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onPressAdd: function (oEvent) {
-			var oView = this.getView(),
-				mParams = {
-					sSetPath: "/PMNotificationItemCauseSet",
-					mKeys: {
-						MaintenanceNotification: oView.getBindingContext().getProperty("MaintenanceNotification"),
-						MaintenanceNotificationItem: oView.getBindingContext().getProperty("MaintenanceNotificationItem")
-					}
-				};
-			this.getOwnerComponent().oAddEntryDialog.open(oView, mParams, "AddEditCause");
-		}
+			var oContextData = this.getView().getBindingContext().getObject();
+
+			this.getNotifTypeDependencies(oContextData).then(function (result) {
+				this._openAddDialog(oContextData, result);
+			}.bind(this)).catch(function (error) {
+				this._openAddDialog(oContextData);
+			}.bind(this));
+		},
 
 		/* =========================================================== */
 		/* internal methods                                            */
 		/* =========================================================== */
 
+		/**
+		 * open add dialog 
+		 * and set add cause dependencies like catalog from NotificationType
+		 */
+		_openAddDialog: function (oContextData, mResults) {
+			var mParams = {
+				sSetPath: "/PMNotificationItemCauseSet",
+				mKeys: {
+					MaintenanceNotification: oContextData.MaintenanceNotification,
+					MaintenanceNotificationItem: oContextData.MaintenanceNotificationItem
+				}
+			};
+
+			if (mResults) {
+				mParams.mKeys.MaintNotifCauseCodeCatalog = mResults.CatalogTypeForCauses;
+			}
+			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditCause");
+		}
 	});
 
 });

@@ -113,16 +113,17 @@ sap.ui.define([
 			var oViewModel = this.getModel("viewModel"),
 				oDataModel = this.getModel();
 
-			//Todo: Navigation properties from Item to Anctivity, Task and Cause is missing
 			oViewModel.setProperty("/activityEntitySet", "PMNotificationItemActivitySet");
-			oViewModel.setProperty("/activityTableBindingPath", "to_PMNotificationItemActivity");
+			oViewModel.setProperty("/activityTableBindingPath", "NavToItemActivity");
 			oViewModel.setProperty("/taskEntitySet", "PMNotificationItemTaskSet");
-			oViewModel.setProperty("/taskTableBindingPath", "to_PMNotificationItemTask");
+			oViewModel.setProperty("/taskTableBindingPath", "NavToItemTask");
+			oViewModel.setProperty("/causeEntitySet", "PMNotificationItemCauseSet");
+			oViewModel.setProperty("/causeTableBindingPath", "NavToItemCause");
 
 			this.getView().bindElement({
 				path: sObjectPath,
 				parameters: {
-					expand: "to_PMNotificationCause,to_PMNotificationItemTask,to_PMNotificationItemActivity"
+					expand: "NavToItemCause,NavToItemTask,NavToItemActivity"
 				},
 				events: {
 					change: this._onBindingChange.bind(this),

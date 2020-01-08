@@ -2,7 +2,7 @@
 	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:mvc="sap.ui.core.mvc">
 	<smartTable:SmartTable height="100%" width="100%" id="notificationCauseTable" tableType="ResponsiveTable" useExportToExcel="false"
 		useVariantManagement="true" useTablePersonalisation="true" showRowCount="true" persistencyKey="com.evorait.evonotify.causeTable"
-		enableAutoBinding="true" demandPopin="true" entitySet="PMNotificationCauses" tableBindingPath="to_PMNotificationCause">
+		enableAutoBinding="true" demandPopin="true" entitySet="{viewModel>/causeEntitySet}" tableBindingPath="{viewModel>/causeTableBindingPath}">
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>

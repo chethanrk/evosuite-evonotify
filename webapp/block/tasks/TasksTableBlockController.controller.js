@@ -53,11 +53,21 @@ sap.ui.define([
 			var oContextData = this.getView().getBindingContext().getObject();
 
 			this.getNotifTypeDependencies(oContextData).then(function (result) {
-				console.log(result);
-			}).catch(function (error) {
+				this._openAddDialog(oContextData, result);
+			}.bind(this)).catch(function (error) {
+				this._openAddDialog(oContextData);
+			}.bind(this));
+		},
 
-			});
+		/* =========================================================== */
+		/* internal methods                                            */
+		/* =========================================================== */
 
+		/**
+		 * open add dialog 
+		 * and set add task dependencies like catalog from NotificationType
+		 */
+		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
 				sSetPath: oContextData.MaintenanceNotificationItem ? "/PMNotificationItemTaskSet" : "/PMNotificationTaskSet",
 				mKeys: {
@@ -65,13 +75,13 @@ sap.ui.define([
 					MaintenanceNotificationItem: oContextData.MaintenanceNotificationItem
 				}
 			};
+
+			if (mResults) {
+				mParams.mKeys.MaintNotifTaskCodeCatalog = mResults.CatalogTypeForTasks;
+				mParams.mKeys.ResponsiblePersonFunctionCode = mResults.PartnerFunOfPersonRespForTask;
+			}
 			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditTask");
 		}
-
-		/* =========================================================== */
-		/* internal methods                                            */
-		/* =========================================================== */
-
 	});
 
 });

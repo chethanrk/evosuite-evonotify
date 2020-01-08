@@ -50,23 +50,37 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onPressAdd: function (oEvent) {
-			var oView = this.getView(),
-				oContext = oView.getBindingContext(),
-				sItemId = oContext.getProperty("MaintenanceNotificationItem"),
-				mParams = {
-					sSetPath: sItemId ? "/PMNotificationItemActivitySet" : "/PMNotificationActivitySet",
-					mKeys: {
-						MaintenanceNotification: oContext.getProperty("MaintenanceNotification"),
-						MaintenanceNotificationItem: sItemId
-					}
-				};
-			this.getOwnerComponent().oAddEntryDialog.open(oView, mParams, "AddEditActivity");
-		}
+			var oContextData = this.getView().getBindingContext().getObject();
+
+			this.getNotifTypeDependencies(oContextData).then(function (result) {
+				this._openAddDialog(oContextData, result);
+			}.bind(this)).catch(function (error) {
+				this._openAddDialog(oContextData);
+			}.bind(this));
+		},
 
 		/* =========================================================== */
 		/* internal methods                                            */
 		/* =========================================================== */
 
+		/**
+		 * open add dialog 
+		 * and set add cause dependencies like catalog from NotificationType
+		 */
+		_openAddDialog: function (oContextData, mResults) {
+			var mParams = {
+				sSetPath: oContextData.MaintenanceNotificationItem ? "/PMNotificationItemActivitySet" : "/PMNotificationActivitySet",
+				mKeys: {
+					MaintenanceNotification: oContextData.MaintenanceNotification,
+					MaintenanceNotificationItem: oContextData.MaintenanceNotificationItem
+				}
+			};
+
+			if (mResults) {
+				mParams.mKeys.MaintNotifAcivityCodeCatalog = mResults.CatalogTypeForActivities;
+			}
+			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditActivity");
+		}
 	});
 
 });
