@@ -1,6 +1,10 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:smartField="sap.ui.comp.smartfield"
 	xmlns:smartForm="sap.ui.comp.smartform" xmlns:layout="sap.ui.layout">
+<<<<<<< HEAD
 	<Dialog title="{viewModel>/addEditEntryTitle}" class="sapUiTinyMargin" id="idAddNotifCause" draggable="true" contentWidth="100%">
+=======
+	<Dialog title="{= ${viewModel>/isNewEntry} ? ${i18n>tit.addCause} : ${i18n>tit.editCause}}" class="sapUiTinyMargin" id="idAddNotifCause" draggable="true" contentWidth="100%">
+>>>>>>> refs/heads/Refactor_SmartControls
 		<content>
 			<smartForm:SmartForm id="SmartNotificationCauseForm" editTogglable="false" editable="true">
 				<smartForm:Group label="{i18n>tit.generalSection}">
