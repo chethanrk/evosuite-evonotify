@@ -50,7 +50,7 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onPressAdd: function (oEvent) {
-			this.getDependenciesAndOpenAddDialog(this._openAddDialog.bind(this));
+			this.getDependenciesAndCallback(this._openAddDialog.bind(this));
 		},
 
 		/* =========================================================== */

@@ -1,18 +1,18 @@
 /*global location*/
 sap.ui.define([
-	"com/evorait/evonotify/controller/BaseController",
+	"com/evorait/evonotify/controller/FormController",
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/core/routing/History",
 	"com/evorait/evonotify/model/formatter"
 ], function (
-	BaseController,
+	FormController,
 	JSONModel,
 	History,
 	formatter
 ) {
 	"use strict";
 
-	return BaseController.extend("com.evorait.evonotify.controller.ObjectItem", {
+	return FormController.extend("com.evorait.evonotify.controller.ObjectItem", {
 
 		formatter: formatter,
 
@@ -39,7 +39,9 @@ sap.ui.define([
 		 * @public
 		 */
 		onNavBack: function () {
-			if (!this.getModel("viewModel").getProperty("/isNew")) {
+			if (this.getModel("viewModel").getProperty("/editMode")) {
+				this.cancelFormHandling(true);
+			} else {
 				this.navBack();
 			}
 		},
@@ -64,15 +66,23 @@ sap.ui.define([
 		 * show edit forms
 		 */
 		onPressEdit: function () {
-			this._setEditMode(true);
+			this.getModel("viewModel").setProperty("/editMode", true);
+
+			//set based on NotificationType catalog properties when they are missed
+			var oData = this.getView().getBindingContext().getObject();
+			if (!oData.MaintNotifObjPrtCodeCatalog || !oData.MaintNotifDamageCodeCatalog) {
+				this.getDependenciesAndCallback(this._addRequiredProperties.bind(this));
+			}
 		},
 
 		onPressSave: function () {
-
+			var eventBus = sap.ui.getCore().getEventBus();
+			eventBus.publish("ItemObject", "validateFields", {});
 		},
 
 		onPressCancel: function () {
-
+			//show confirm message
+			this.cancelFormHandling();
 		},
 
 		/* =========================================================== */
@@ -132,6 +142,9 @@ sap.ui.define([
 			});
 		},
 
+		/**
+		 * on page bindinge change load new data
+		 */
 		_onBindingChange: function () {
 			var oView = this.getView(),
 				oViewModel = this.getModel("viewModel"),
@@ -144,35 +157,23 @@ sap.ui.define([
 				return;
 			}
 
-			//Todo set catalogs
-			var oObject = oView.getBindingContext().getObject();
-
-			if (oObject.MaintNotifObjPrtCodeCatalog === "") {
-				oObject.MaintNotifObjPrtCodeCatalog = "B";
-			}
-			if (oObject.MaintNotifDamageCodeCatalog === "") {
-				oObject.MaintNotifDamageCodeCatalog = "C";
-			}
-
 			// Everything went fine.
 			oViewModel.setProperty("/busy", false);
 		},
 
-		_setEditMode: function (isEdit) {
-			if (isEdit) {
-				this.getModel("viewModel").setProperty("/showMode", !isEdit);
-				this.getModel("viewModel").setProperty("/editMode", isEdit);
-			} else {
-				var MaintenanceNotification = this.getModel("viewModel").getProperty("/MaintenanceNotification"),
-					sPath = this.getModel().getContext("/PMNotificationSet").getPath(),
-					isCompleted = this.getModel().getProperty(sPath + "('" + MaintenanceNotification + "')/IsCompleted"),
-					isDeleted = this.getModel().getProperty(sPath + "('" + MaintenanceNotification + "')/IsDeleted");
-
-				if (isCompleted || isDeleted) {
-					this.getModel("viewModel").setProperty("/showMode", isEdit);
-				} else {
-					this.getModel("viewModel").setProperty("/showMode", !isEdit);
-				}
+		/**
+		 * when edit of an item is allowed and edit was pressed
+		 * also when some properties like catalog was not filled
+		 * set this properties in editMode
+		 * @param {string} oContextData
+		 * @param {string} mResults
+		 * @private
+		 */
+		_addRequiredProperties: function (oContextData, mResults) {
+			if (mResults) {
+				var sPath = this.getView().getBindingContext().getPath();
+				this.getModel().setProperty(sPath + "/MaintNotifObjPrtCodeCatalog", mResults.CatalogTypeForObjParts);
+				this.getModel().setProperty(sPath + "/MaintNotifDamageCodeCatalog", mResults.CatalogTypeForDamage);
 			}
 		}
 

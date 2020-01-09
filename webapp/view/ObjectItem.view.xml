@@ -7,7 +7,7 @@
 			<uxap:ObjectPageHeader id="objectItemPageHeader" objectTitle="{viewModel>/Title}" objectSubtitle="{MaintenanceNotificationItem}">
 				<uxap:actions>
 					<uxap:ObjectPageHeaderActionButton id="editNotificationItemButton" text="{i18n>btn.edit}" hideText="false" press="onPressEdit"
-						type="Emphasized" visible="{viewModel>/showMode}"/>
+						type="Emphasized" visible="{parts: ['IsCompleted','IsDeleted','viewModel>/editMode'], formatter:'.formatter.editable'}"/>
 					<uxap:ObjectPageHeaderActionButton id="cancelNotificationItemButton" text="{i18n>btn.cancel}" hideText="false" press="onPressCancel"
 						visible="{viewModel>/editMode}"/>
 					<uxap:ObjectPageHeaderActionButton id="saveNotificationItemButton" text="{i18n>btn.save}" hideText="false" press="onPressSave"
