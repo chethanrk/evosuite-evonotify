@@ -55,8 +55,8 @@
 				<layout:layoutData>
 					<uxap:ObjectPageHeaderLayoutData showSeparatorAfter="false"/>
 				</layout:layoutData>
-				<ObjectStatus title="{/#PMNotification/SystemStatus/@sap:label}" text="{SystemStatus}"/>
-				<ObjectStatus title="{/#PMNotification/UserStatus/@sap:label}" text="{UserStatus}"/>
+				<ObjectStatus title="{SystemStatus/##com.sap.vocabularies.Common.v1.Label/String}" text="{SystemStatus}"/>
+				<ObjectStatus title="{UserStatus/##com.sap.vocabularies.Common.v1.Label/String}" text="{UserStatus}"/>
 			</layout:VerticalLayout>
 		</uxap:headerContent>
 		<uxap:sections>
