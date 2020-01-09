@@ -24,7 +24,7 @@
 				</uxap:actions>
 				<uxap:breadcrumbs>
 					<Breadcrumbs currentLocationText="{/#PMNotification/MaintenanceNotification/@sap:label} {MaintenanceNotification}">
-						<Link text="{i18n>tit.notifications}" press="onNavBack"/>
+						<Link text="{i18n>tit.notifications}" press="onNavToList"/>
 					</Breadcrumbs>
 				</uxap:breadcrumbs>
 				<uxap:navigationBar>

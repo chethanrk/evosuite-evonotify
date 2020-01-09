@@ -57,6 +57,10 @@ sap.ui.define([
 			}
 		},
 
+		onNavToList: function () {
+			this.getRouter().navTo("worklist", {}, true);
+		},
+
 		/**
 		 * Getter for the resource bundle.
 		 * @public

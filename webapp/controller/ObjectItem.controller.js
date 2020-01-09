@@ -45,7 +45,10 @@ sap.ui.define([
 				this.navBack();
 			}
 		},
-
+		/**
+		 * navigate back in history or a special page
+		 * @public
+		 */
 		navBack: function () {
 			var sPreviousHash = History.getInstance().getPreviousHash();
 			var oContext = this.getView().getBindingContext();
@@ -63,16 +66,21 @@ sap.ui.define([
 		},
 
 		/**
+		 * navigate on breadcrumb link back to notifcation detail page
+		 * @public
+		 */
+		onNavToNotification: function () {
+			var obj = this.getView().getBindingContext().getObject();
+			this.getRouter().navTo("object", {
+				objectId: obj.MaintenanceNotification
+			}, true);
+		},
+
+		/**
 		 * show edit forms
 		 */
 		onPressEdit: function () {
 			this.getModel("viewModel").setProperty("/editMode", true);
-
-			//set based on NotificationType catalog properties when they are missed
-			var oData = this.getView().getBindingContext().getObject();
-			if (!oData.MaintNotifObjPrtCodeCatalog || !oData.MaintNotifDamageCodeCatalog) {
-				this.getDependenciesAndCallback(this._addRequiredProperties.bind(this));
-			}
 		},
 
 		onPressSave: function () {

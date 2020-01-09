@@ -1,56 +1,56 @@
 /*global location*/
 sap.ui.define([
-		"com/evorait/evonotify/controller/BaseController",
-		"sap/ui/core/routing/History",
-		"sap/ui/model/json/JSONModel",
-		"com/evorait/evonotify/model/formatter"
-	], function (
-		BaseController,
-		History,
-		JSONModel,
-		formatter
-	) {
-		"use strict";
+	"com/evorait/evonotify/controller/FormController",
+	"sap/ui/core/routing/History",
+	"sap/ui/model/json/JSONModel",
+	"com/evorait/evonotify/model/formatter"
+], function (
+	FormController,
+	History,
+	JSONModel,
+	formatter
+) {
+	"use strict";
 
-		return BaseController.extend("com.evorait.evonotify.block.items.ItemsFormBlockController", {
+	return FormController.extend("com.evorait.evonotify.block.items.ItemsFormBlockController", {
 
-			formatter: formatter,
+		formatter: formatter,
 
-			/* =========================================================== */
-			/* lifecycle methods                                           */
-			/* =========================================================== */
+		/* =========================================================== */
+		/* lifecycle methods                                           */
+		/* =========================================================== */
 
-			/**
-			 * Called when the worklist controller is instantiated.
-			 * @public
-			 */
-			onInit : function () {
-				var eventBus = sap.ui.getCore().getEventBus();
-				eventBus.subscribe("ItemObject", "validateFields", this._validateForm, this);
-			},
+		/**
+		 * Called when the worklist controller is instantiated.
+		 * @public
+		 */
+		onInit: function () {
+			var eventBus = sap.ui.getCore().getEventBus();
+			eventBus.subscribe("ItemObject", "validateFields", this._validateForm, this);
+		},
 
-			/* =========================================================== */
-			/* event handlers                                              */
-			/* =========================================================== */
+		/* =========================================================== */
+		/* event handlers                                              */
+		/* =========================================================== */
 
-			
-			/* =========================================================== */
-			/* internal methods                                            */
-			/* =========================================================== */
+		/* =========================================================== */
+		/* internal methods                                            */
+		/* =========================================================== */
 
-			/**
-			 * Validate smartForm with custom fields
-			 * @public
-			 */
-			_validateForm: function (sChannel, sEvent, oData) {
-				var oForm = this.getView().byId("SmartNotificationItemForm");
+		/**
+		 * Validate smartForm with custom fields
+		 * @public
+		 */
+		_validateForm: function (sChannel, sEvent, oData) {
+			var oForm = this.getView().byId("SmartNotificationItemForm");
 
-				if(this.validateForm({form: oForm})){
-					this.saveChangedEntry();
-				}
+			if (this.validateForm({
+					form: oForm
+				})) {
+				this.saveChangedEntry({});
 			}
+		}
 
-		});
+	});
 
-	}
-);
+});

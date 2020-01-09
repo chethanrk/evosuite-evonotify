@@ -16,13 +16,16 @@ sap.ui.define([
 		open: function (oView, mParams, sFragmentName) {
 			this._oView = oView;
 			this._sFragmentName = sFragmentName;
+			this._oResourceBundle = this._oView.getModel("i18n").getResourceBundle();
 
 			if (mParams.oContext) {
 				this._oContext = mParams.oContext;
 				this._oView.getModel("viewModel").setProperty("/isNewEntry", false);
+				this._oView.getModel("viewModel").setProperty("/addEditEntryTitle", this._oResourceBundle.getText("tit.change" + sFragmentName));
 
 			} else {
 				this._oView.getModel("viewModel").setProperty("/isNewEntry", true);
+				this._oView.getModel("viewModel").setProperty("/addEditEntryTitle", this._oResourceBundle.getText("tit.new" + sFragmentName));
 				this._oContext = this._oView.getModel().createEntry(mParams.sSetPath);
 				this._setContextKeys(mParams);
 			}
