@@ -23,13 +23,6 @@ sap.ui.define([
 		},
 
 		/**
-		 * life cycle event before view rendering
-		 */
-		onBeforeRendering: function () {
-
-		},
-
-		/**
 		 * on press back button
 		 * @param oEvent
 		 */
@@ -85,6 +78,7 @@ sap.ui.define([
 				var oContext = this.getModel().createEntry("/PMNotificationSet");
 				this.getView().unbindElement();
 				this.getView().setBindingContext(oContext);
+
 				this.oViewModel.setProperty("/busy", false);
 			}.bind(this));
 		}

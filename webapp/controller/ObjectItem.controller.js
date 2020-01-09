@@ -19,7 +19,6 @@ sap.ui.define([
 		/* =========================================================== */
 		/* lifecycle methods                                           */
 		/* =========================================================== */
-
 		/**
 		 * Called when the worklist controller is instantiated.
 		 * @public
@@ -167,22 +166,6 @@ sap.ui.define([
 
 			// Everything went fine.
 			oViewModel.setProperty("/busy", false);
-		},
-
-		/**
-		 * when edit of an item is allowed and edit was pressed
-		 * also when some properties like catalog was not filled
-		 * set this properties in editMode
-		 * @param {string} oContextData
-		 * @param {string} mResults
-		 * @private
-		 */
-		_addRequiredProperties: function (oContextData, mResults) {
-			if (mResults) {
-				var sPath = this.getView().getBindingContext().getPath();
-				this.getModel().setProperty(sPath + "/MaintNotifObjPrtCodeCatalog", mResults.CatalogTypeForObjParts);
-				this.getModel().setProperty(sPath + "/MaintNotifDamageCodeCatalog", mResults.CatalogTypeForDamage);
-			}
 		}
 
 	});
