@@ -7,13 +7,7 @@
 					<smartForm:layoutData>
 						<layout:GridData span="L6 M6 S12"/>
 					</smartForm:layoutData>
-					<smartForm:GroupElement>
-						<smartField:SmartField value="{MaintenanceNotification}"/>
-					</smartForm:GroupElement>
-					<smartForm:GroupElement>
-						<smartField:SmartField value="{MaintenanceNotificationItem}"/>
-					</smartForm:GroupElement>
-					<smartForm:GroupElement>
+					<smartForm:GroupElement visible="{= !${viewModel>/isNewEntry}}">
 						<smartField:SmartField value="{MaintenanceNotificationCause}"/>
 					</smartForm:GroupElement>
 					<smartForm:GroupElement>

@@ -4,7 +4,7 @@ sap.ui.define([
 	"sap/ui/core/Fragment"
 ], function (FormController, formatter, Fragment) {
 	"use strict";
-	return FormController.extend("com.evorait.evonotify.controller.AddEntryDialog", {
+	return FormController.extend("com.evorait.evonotify.controller.AddEditEntryDialog", {
 
 		formatter: formatter,
 
@@ -34,6 +34,9 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onPressCancel: function (oEvent) {
+			if (this._oView.getModel("viewModel").getProperty("/isNewEntry")) {
+				this._oView.getModel().deleteCreatedEntry(this._oContext);
+			}
 			this._closeDialog();
 		},
 
@@ -115,7 +118,6 @@ sap.ui.define([
 		 */
 		_closeDialog: function () {
 			this._oDialog.close();
-			this._oView.getModel().deleteCreatedEntry(this._oContext);
 
 			this._oView = null;
 			this._sFragmentName = null;

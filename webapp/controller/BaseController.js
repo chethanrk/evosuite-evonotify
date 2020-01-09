@@ -206,7 +206,7 @@ sap.ui.define([
 		 * fetch based on context NotifcationType parameters 
 		 * and open the Add Dialog
 		 */
-		getDependenciesAndOpenAddDialog: function (callbackFn) {
+		getDependenciesAndCallback: function (callbackFn) {
 			var oContextData = this.getView().getBindingContext().getObject();
 			this.getNotifTypeDependencies(oContextData).then(function (result) {
 				callbackFn(oContextData, result);

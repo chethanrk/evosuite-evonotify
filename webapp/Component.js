@@ -3,8 +3,8 @@ sap.ui.define([
 	"sap/ui/Device",
 	"com/evorait/evonotify/model/models",
 	"com/evorait/evonotify/controller/ErrorHandler",
-	"com/evorait/evonotify/controller/AddEntryDialog"
-], function (UIComponent, Device, models, ErrorHandler, AddEntryDialog) {
+	"com/evorait/evonotify/controller/AddEditEntryDialog"
+], function (UIComponent, Device, models, ErrorHandler, AddEditEntryDialog) {
 	"use strict";
 
 	return UIComponent.extend("com.evorait.evonotify.Component", {
@@ -13,7 +13,7 @@ sap.ui.define([
 			manifest: "json"
 		},
 
-		oAddEntryDialog: new AddEntryDialog(),
+		oAddEntryDialog: new AddEditEntryDialog(),
 
 		/**
 		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
