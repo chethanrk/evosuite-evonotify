@@ -12,7 +12,7 @@ sap.ui.define([
 ) {
 	"use strict";
 
-	return BaseController.extend("com.evorait.evonotify.block.activities.ActivitiesTableBlockController", {
+	return BaseController.extend("com.evorait.evonotify.block.activities.ActivitiesItemTableBlockController", {
 
 		formatter: formatter,
 
@@ -69,7 +69,7 @@ sap.ui.define([
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				sSetPath: "/PMNotificationActivitySet",
+				sSetPath: "/PMNotificationItemActivitySet",
 				mKeys: {
 					MaintenanceNotification: oContextData.MaintenanceNotification,
 					MaintenanceNotificationItem: oContextData.MaintenanceNotificationItem

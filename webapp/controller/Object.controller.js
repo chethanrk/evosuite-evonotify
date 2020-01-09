@@ -127,11 +127,6 @@ sap.ui.define([
 			var oViewModel = this.getModel("viewModel"),
 				oDataModel = this.getModel();
 
-			oViewModel.setProperty("/activityEntitySet", "PMNotificationActivitySet");
-			oViewModel.setProperty("/activityTableBindingPath", "NavToActivity");
-			oViewModel.setProperty("/taskEntitySet", "PMNotificationTaskSet");
-			oViewModel.setProperty("/taskTableBindingPath", "NavToTasks");
-
 			this.getView().bindElement({
 				path: sObjectPath,
 				parameters: {

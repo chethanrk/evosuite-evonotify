@@ -1,7 +1,7 @@
 <mvc:View controllerName="com.evorait.evonotify.controller.ObjectItem" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
 	xmlns:uxap="sap.uxap" xmlns:items="com.evorait.evonotify.block.items" xmlns:causes="com.evorait.evonotify.block.causes"
 	xmlns:tasks="com.evorait.evonotify.block.tasks" xmlns:activities="com.evorait.evonotify.block.activities">
-	<uxap:ObjectPageLayout id="objectItemPageLayout" enableLazyLoading="true" isChildPage="true" showFooter="false" busy="{viewModel>/busy}"
+	<uxap:ObjectPageLayout id="objectItemPageLayout" enableLazyLoading="false" isChildPage="true" showFooter="false" busy="{viewModel>/busy}"
 		busyIndicatorDelay="{viewModel>/delay}">
 		<uxap:headerTitle>
 			<uxap:ObjectPageHeader id="objectItemPageHeader" objectTitle="{viewModel>/Title}" objectSubtitle="{MaintenanceNotificationItem}">
@@ -41,7 +41,7 @@
 					</uxap:ObjectPageSubSection>
 				</uxap:subSections>
 			</uxap:ObjectPageSection>
-			<uxap:ObjectPageSection title="{i18n>tit.causes}" visible="{viewModel>/isEdit}">
+			<uxap:ObjectPageSection title="{i18n>tit.causes}" visible="{= !${viewModel>/editMode}}">
 				<uxap:subSections>
 					<uxap:ObjectPageSubSection>
 						<uxap:blocks>
@@ -50,20 +50,20 @@
 					</uxap:ObjectPageSubSection>
 				</uxap:subSections>
 			</uxap:ObjectPageSection>
-			<uxap:ObjectPageSection title="{i18n>tit.tasks}" visible="{viewModel>/isEdit}">
+			<uxap:ObjectPageSection title="{i18n>tit.tasks}" visible="{= !${viewModel>/editMode}}">
 				<uxap:subSections>
 					<uxap:ObjectPageSubSection>
 						<uxap:blocks>
-							<tasks:TasksTableBlock id="itemsTasksTableBlock"/>
+							<tasks:TasksItemTableBlock id="itemsTasksTableBlock"/>
 						</uxap:blocks>
 					</uxap:ObjectPageSubSection>
 				</uxap:subSections>
 			</uxap:ObjectPageSection>
-			<uxap:ObjectPageSection title="{i18n>tit.activities}" visible="{viewModel>/isEdit}">
+			<uxap:ObjectPageSection title="{i18n>tit.activities}" visible="{= !${viewModel>/editMode}}">
 				<uxap:subSections>
 					<uxap:ObjectPageSubSection>
 						<uxap:blocks>
-							<activities:ActivitiesTableBlock id="itemsActivitiesTableBlock"/>
+							<activities:ActivitiesItemTableBlock id="itemsActivitiesTableBlock"/>
 						</uxap:blocks>
 					</uxap:ObjectPageSubSection>
 				</uxap:subSections>

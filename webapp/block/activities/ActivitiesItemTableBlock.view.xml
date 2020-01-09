@@ -1,8 +1,8 @@
-<mvc:View controllerName="com.evorait.evonotify.block.activities.ActivitiesTableBlockController" xmlns="sap.m"
+<mvc:View controllerName="com.evorait.evonotify.block.activities.ActivitiesItemTableBlockController" xmlns="sap.m"
 	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
 	<smartTable:SmartTable height="100%" width="100%" id="notificationActivityTable" tableType="ResponsiveTable" useExportToExcel="false"
-		useVariantManagement="true" useTablePersonalisation="true" showRowCount="true" persistencyKey="com.evorait.evonotify.activityTable"
-		enableAutoBinding="true" demandPopin="true" entitySet="PMNotificationActivitySet" tableBindingPath="NavToActivity">
+		useVariantManagement="true" useTablePersonalisation="true" showRowCount="true" persistencyKey="com.evorait.evonotify.activityItemTable"
+		enableAutoBinding="true" demandPopin="true" entitySet="PMNotificationItemActivitySet" tableBindingPath="NavToItemActivity">
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>

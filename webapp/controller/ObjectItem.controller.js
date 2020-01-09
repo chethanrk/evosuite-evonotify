@@ -113,13 +113,6 @@ sap.ui.define([
 			var oViewModel = this.getModel("viewModel"),
 				oDataModel = this.getModel();
 
-			oViewModel.setProperty("/activityEntitySet", "PMNotificationItemActivitySet");
-			oViewModel.setProperty("/activityTableBindingPath", "NavToItemActivity");
-			oViewModel.setProperty("/taskEntitySet", "PMNotificationItemTaskSet");
-			oViewModel.setProperty("/taskTableBindingPath", "NavToItemTask");
-			oViewModel.setProperty("/causeEntitySet", "PMNotificationItemCauseSet");
-			oViewModel.setProperty("/causeTableBindingPath", "NavToItemCause");
-
 			this.getView().bindElement({
 				path: sObjectPath,
 				parameters: {
@@ -151,6 +144,7 @@ sap.ui.define([
 				return;
 			}
 
+			//Todo set catalogs
 			var oObject = oView.getBindingContext().getObject();
 
 			if (oObject.MaintNotifObjPrtCodeCatalog === "") {

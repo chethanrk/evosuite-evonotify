@@ -12,7 +12,7 @@ sap.ui.define([
 ) {
 	"use strict";
 
-	return BaseController.extend("com.evorait.evonotify.block.activities.ActivitiesTableBlockController", {
+	return BaseController.extend("com.evorait.evonotify.block.tasks.TasksItemTableBlockController", {
 
 		formatter: formatter,
 
@@ -33,7 +33,7 @@ sap.ui.define([
 		/* =========================================================== */
 
 		/**
-		 * show dialog with activity details
+		 * show dialog with task details
 		 * in edit mode
 		 * @param oEvent
 		 */
@@ -41,11 +41,11 @@ sap.ui.define([
 			var mParams = {
 				oContext: oEvent.getSource().getBindingContext()
 			};
-			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditActivity");
+			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditTask");
 		},
 
 		/**
-		 * add a new activity
+		 * add a new task
 		 * create a new entry based on if its on Notifcation header level or Notification Item level
 		 * @param oEvent
 		 */
@@ -65,11 +65,11 @@ sap.ui.define([
 
 		/**
 		 * open add dialog 
-		 * and set add cause dependencies like catalog from NotificationType
+		 * and set add task dependencies like catalog from NotificationType
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				sSetPath: "/PMNotificationActivitySet",
+				sSetPath: "/PMNotificationItemTaskSet",
 				mKeys: {
 					MaintenanceNotification: oContextData.MaintenanceNotification,
 					MaintenanceNotificationItem: oContextData.MaintenanceNotificationItem
@@ -77,9 +77,10 @@ sap.ui.define([
 			};
 
 			if (mResults) {
-				mParams.mKeys.MaintNotifAcivityCodeCatalog = mResults.CatalogTypeForActivities;
+				mParams.mKeys.MaintNotifTaskCodeCatalog = mResults.CatalogTypeForTasks;
+				mParams.mKeys.ResponsiblePersonFunctionCode = mResults.PartnerFunOfPersonRespForTask;
 			}
-			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditActivity");
+			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditTask");
 		}
 	});
 
