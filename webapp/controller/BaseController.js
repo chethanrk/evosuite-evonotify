@@ -203,28 +203,36 @@ sap.ui.define([
 		},
 
 		/**
+		 * fetch based on context NotifcationType parameters 
+		 * and open the Add Dialog
+		 */
+		getDependenciesAndOpenAddDialog: function (callbackFn) {
+			var oContextData = this.getView().getBindingContext().getObject();
+			this.getNotifTypeDependencies(oContextData).then(function (result) {
+				callbackFn(oContextData, result);
+			}.bind(this)).catch(function (error) {
+				callbackFn(oContextData);
+			}.bind(this));
+		},
+
+		/**
 		 * based on Notifcation type get default catalogs and groups
 		 * @return Promise
 		 */
 		getNotifTypeDependencies: function (oData) {
 			return new Promise(function (resolve, reject) {
-				if (oData.NotificationType) {
-					var sPath = this.getModel().createKey("PMNotificationTypeVHSet", {
-						NotificationType: oData.NotificationType
-					});
+				var sPath = this.getModel().createKey("PMNotificationTypeVHSet", {
+					NotificationType: oData.NotificationType || oData.Notificationtype
+				});
 
-					var aFilters = [];
-					aFilters.push(new Filter("NotificationType", FilterOperator.EQ, oData.NotificationType));
-
-					this.getModel().read("/" + sPath, {
-						success: function (result) {
-							resolve(result);
-						}.bind(this),
-						error: function (error) {
-							reject(error);
-						}
-					});
-				}
+				this.getModel().read("/" + sPath, {
+					success: function (result) {
+						resolve(result);
+					}.bind(this),
+					error: function (error) {
+						reject(error);
+					}
+				});
 			}.bind(this));
 		}
 

@@ -47,13 +47,7 @@ sap.ui.define([
 		},
 
 		onPressAdd: function (oEvent) {
-			var oContextData = this.getView().getBindingContext().getObject();
-
-			this.getNotifTypeDependencies(oContextData).then(function (result) {
-				this._openAddDialog(oContextData, result);
-			}.bind(this)).catch(function (error) {
-				this._openAddDialog(oContextData);
-			}.bind(this));
+			this.getDependenciesAndOpenAddDialog(this._openAddDialog.bind(this));
 		},
 
 		/* =========================================================== */
