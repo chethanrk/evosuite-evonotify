@@ -2,7 +2,7 @@
 	xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:details="com.evorait.evonotify.block.details"
 	xmlns:items="com.evorait.evonotify.block.items" xmlns:tasks="com.evorait.evonotify.block.tasks"
 	xmlns:activities="com.evorait.evonotify.block.activities" xmlns:layout="sap.ui.layout">
-	<uxap:ObjectPageLayout enableLazyLoading="false" isChildPage="true" showFooter="false" busy="{viewModel>/busy}"
+	<uxap:ObjectPageLayout enableLazyLoading="true" isChildPage="true" showFooter="false" busy="{viewModel>/busy}"
 		busyIndicatorDelay="{viewModel>/delay}">
 		<uxap:headerTitle>
 			<uxap:ObjectPageHeader id="objectPageHeader" objectTitle="{NotificationText}" objectSubtitle="{MaintenanceNotification}">
@@ -55,8 +55,8 @@
 				<layout:layoutData>
 					<uxap:ObjectPageHeaderLayoutData showSeparatorAfter="false"/>
 				</layout:layoutData>
-				<ObjectStatus title="{/#PMNotification/SystemStatus/@sap:label}" text="{SystemStatus}"/>
-				<ObjectStatus title="{/#PMNotification/UserStatus/@sap:label}" text="{UserStatus}"/>
+				<ObjectStatus title="{SystemStatus/##com.sap.vocabularies.Common.v1.Label/String}" text="{SystemStatus}"/>
+				<ObjectStatus title="{UserStatus/##com.sap.vocabularies.Common.v1.Label/String}" text="{UserStatus}"/>
 			</layout:VerticalLayout>
 		</uxap:headerContent>
 		<uxap:sections>
