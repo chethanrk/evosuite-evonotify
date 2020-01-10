@@ -87,7 +87,8 @@ sap.ui.define([
 		 */
 		onPressSave: function (oEvent) {
 			var oDialogContent = this._oDialog.getContent();
-
+			this._oDialog.setBusy(true);
+			
 			if (oDialogContent && oDialogContent.length > 0 && (oDialogContent[0] instanceof sap.ui.comp.smartform.SmartForm)) {
 				if (this.validateForm({
 						view: this._oView,
@@ -96,13 +97,27 @@ sap.ui.define([
 
 					if (this._oView.getModel("viewModel").getProperty("/isNewEntry")) {
 						this.saveNewEntry({
+							context:this,
 							view: this._oView,
-							success: this._closeDialog.bind(this)
+							success: function(){
+								this.context._oDialog.setBusy(false);
+								this.context._closeDialog();
+							},
+							error:function(){
+								this.context._oDialog.setBusy(false);
+							}
 						});
 					} else {
 						this.saveChangedEntry({
+							context:this,
 							view: this._oView,
-							success: this._closeDialog.bind(this)
+							success: function(){
+								this.context._oDialog.setBusy(false);
+								this.context._closeDialog();
+							},
+							error:function(){
+								this.context._oDialog.setBusy(false);
+							}
 						});
 					}
 

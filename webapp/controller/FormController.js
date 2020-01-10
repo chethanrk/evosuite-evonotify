@@ -85,27 +85,37 @@ sap.ui.define([
 
 					oViewModel.setProperty("/busy", false);
 					//success
-					if (batch.__changeResponses) {
-						if (batch && (batch.__changeResponses[0].data)) {
-							sCreatedEntryId = batch.__changeResponses[0].data[sParamId];
+					if(response.__batchResponses[0].response.statusCode === "400"){
+						if (mParams.error) {
+							mParams.error();
 						}
-						if (sCreatedEntryId && sCreatedEntryId !== "" && sNavPath) {
-							oViewModel.setProperty("/newCreatedEntry", true);
-							var obj = {};
-							obj[sParamId] = sCreatedEntryId;
-							this.getRouter().navTo(sNavPath, obj);
-						} else {
-							var msg = oView.getModel("i18n").getResourceBundle().getText("msg.saveSuccess");
-							sap.m.MessageToast.show(msg);
-
-							if (mParams.success) {
-								mParams.success();
+					}
+					else{
+						if (batch.__changeResponses) {
+							if (batch && (batch.__changeResponses[0].data)) {
+								sCreatedEntryId = batch.__changeResponses[0].data[sParamId];
+							}
+							if (sCreatedEntryId && sCreatedEntryId !== "" && sNavPath) {
+								oViewModel.setProperty("/newCreatedEntry", true);
+								var obj = {};
+								obj[sParamId] = sCreatedEntryId;
+								this.getRouter().navTo(sNavPath, obj);
+							} else {
+								var msg = oView.getModel("i18n").getResourceBundle().getText("msg.saveSuccess");
+								sap.m.MessageToast.show(msg);
+	
+								if (mParams.success) {
+									mParams.success();
+								}
 							}
 						}
 					}
 				}.bind(this),
 				error: function (oError) {
 					oViewModel.setProperty("/busy", false);
+					if (mParams.error) {
+						mParams.error();
+					}
 					this.showSaveErrorPrompt(oError);
 				}.bind(this)
 			});
@@ -136,6 +146,9 @@ sap.ui.define([
 				}.bind(this),
 				error: function (oError) {
 					oViewModel.setProperty("/busy", false);
+					if (mParams.success) {
+						mParams.success();
+					}
 					this.showSaveErrorPrompt(oError);
 				}.bind(this)
 			});
