@@ -81,17 +81,19 @@ sap.ui.define([
 			            if (parsedJSError && parsedJSError.error && parsedJSError.error.code) {
 			              var strError = "";
 			               //check if the error is from our backend error class
-			               if (parsedJSError.error.code.split("/")[0] === "MY_MSG_CLASS") {
+			               //if (parsedJSError.error.code.split("/")[0] === "MY_MSG_CLASS") {
 			                   var array = parsedJSError.error.innererror.errordetails;
 			                       for (var i = 0; i < array.length; i++) {
 			                          strError += String.fromCharCode("8226") + " " + array[i].message + "\n";
 			                       }
-			                  } else {
-			                    //if there is no message class found
-			                       return sDetails;
-			                  }
+			                  //} else {
+			                  //  //if there is no message class found
+			                  //     return sDetails;
+			                  //}
 			                 return strError;
 			             }
+			             else
+			             return sDetails;
 			      }
 			    return sDetails;
 			}
