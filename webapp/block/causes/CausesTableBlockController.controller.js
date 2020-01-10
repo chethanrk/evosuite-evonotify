@@ -64,6 +64,8 @@ sap.ui.define([
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
 				sSetPath: "/PMNotificationItemCauseSet",
+				sSortField: "CauseSortNumber",
+				sNavTo:"/NavToItemCause/",
 				mKeys: {
 					MaintenanceNotification: oContextData.MaintenanceNotification,
 					MaintenanceNotificationItem: oContextData.MaintenanceNotificationItem
