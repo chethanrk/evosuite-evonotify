@@ -27,9 +27,47 @@ sap.ui.define([
 				this._oView.getModel("viewModel").setProperty("/isNewEntry", true);
 				this._oView.getModel("viewModel").setProperty("/addEditEntryTitle", this._oResourceBundle.getText("tit.new" + sFragmentName));
 				this._oContext = this._oView.getModel().createEntry(mParams.sSetPath);
+				this.getNextSortNumber(this._oView, mParams, this._setNewSortNumber.bind(this));
 				this._setContextKeys(mParams);
 			}
 			this._loadDialog();
+		},
+		
+		/**
+		 * Set Operation sort number in the new context
+		 */
+		_setNewSortNumber: function (sSortNumber, oParameters) {
+			if (sSortNumber) {
+				this._oView.getModel().setProperty(this._oContext.sPath + "/" + oParameters.sSortField, sSortNumber);
+			}
+		},
+		
+		/**
+		* get the next Item sorting number
+		* and count one upwards
+		*/
+		getNextSortNumber: function (oView, oParameters, callbackFn) {
+			var oModel = oView.getModel(),
+				sPath = oView.getBindingContext().sPath;
+			oModel.read(sPath+oParameters.sNavTo, {
+				sorters: [new sap.ui.model.Sorter(oParameters.sSortField, "DESCENDING")],
+				success: function (items) {
+					var sortNo = "";
+					if (items.results.length > 0) {
+						sortNo = items.results[0][oParameters.sSortField];
+						sortNo = parseInt(sortNo) || 0;
+						sortNo = (sortNo + 1);
+						sortNo = formatter.formatSortNumber(sortNo.toString(), 4);
+					} else {
+						sortNo = "0001";
+					}
+					//oModel.setProperty(oParameters.sSetPath + oParameters.sSortField, sortNo);
+					callbackFn(sortNo, oParameters);
+				},
+				error: function (error) {
+					//do nothing
+				}
+			});
 		},
 
 		/**

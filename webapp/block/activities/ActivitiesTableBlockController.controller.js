@@ -64,6 +64,8 @@ sap.ui.define([
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
 				sSetPath: "/PMNotificationActivitySet",
+				sSortField: "ActivitySortNumber",
+				sNavTo:"/NavToActivity/",
 				mKeys: {
 					MaintenanceNotification: oContextData.MaintenanceNotification,
 					MaintenanceNotificationItem: oContextData.MaintenanceNotificationItem

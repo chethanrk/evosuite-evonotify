@@ -13,6 +13,13 @@
 					<smartForm:GroupElement>
 						<smartField:SmartField value="{MaintNotifItemText}"/>
 					</smartForm:GroupElement>
+					<smartForm:GroupElement>
+						<smartField:SmartField value="{MaintNotifItemSortNumber}">
+							<smartField:configuration>
+							<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId" preventInitialDataFetchInValueHelpDialog="false"/>
+						</smartField:configuration>
+						</smartField:SmartField>
+					</smartForm:GroupElement>
 				</smartForm:Group>
 				<smartForm:Group label="{i18n>tit.objectSection}">
 					<smartForm:layoutData>
