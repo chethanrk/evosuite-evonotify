@@ -85,7 +85,7 @@ sap.ui.define([
 
 					oViewModel.setProperty("/busy", false);
 					//success
-					if(response.__batchResponses[0].response.statusCode === "400"){
+					if(response.__batchResponses[0].response && response.__batchResponses[0].response.statusCode === "400"){
 						if (mParams.error) {
 							mParams.error();
 						}
@@ -126,7 +126,7 @@ sap.ui.define([
 		 */
 		saveChangedEntry: function (mParams) {
 			var oView = mParams.view || this.getView(),
-				oViewModel = this.getModel("viewModel");
+				oViewModel = oView.getModel("viewModel");
 
 			oViewModel.setProperty("/busy", true);
 
