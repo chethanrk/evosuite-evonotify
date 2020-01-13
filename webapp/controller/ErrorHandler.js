@@ -47,11 +47,12 @@ sap.ui.define([
 					return;
 				}
 				this._bMessageOpen = true;
+				var extractedError = this._extractError(sDetails);
 				MessageBox.error(
 					this._sErrorText,
 					{
 						id : "serviceErrorMessageBox",
-						details: this._extractError(sDetails).replace(/\n/g, "<br/>"),
+						details: typeof(extractedError) === "string" ? extractedError.replace(/\n/g, "<br/>") : extractedError,
 						styleClass: this._oComponent.getContentDensityClass(),
 						actions: [MessageBox.Action.CLOSE],
 						onClose: function () {
