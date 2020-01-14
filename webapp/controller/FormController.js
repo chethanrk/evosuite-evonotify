@@ -97,9 +97,6 @@ sap.ui.define([
 							}
 							if (sCreatedEntryId && sCreatedEntryId !== "" && sNavPath) {
 								oViewModel.setProperty("/newCreatedEntry", true);
-								// var obj = {};
-								// obj[sParamId] = sCreatedEntryId;
-								// this.getRouter().navTo(sNavPath, obj);
 								this.getRouter().navTo("object", {
 									objectId: sCreatedEntryId
 								});
