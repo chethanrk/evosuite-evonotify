@@ -97,9 +97,12 @@ sap.ui.define([
 							}
 							if (sCreatedEntryId && sCreatedEntryId !== "" && sNavPath) {
 								oViewModel.setProperty("/newCreatedEntry", true);
-								var obj = {};
-								obj[sParamId] = sCreatedEntryId;
-								this.getRouter().navTo(sNavPath, obj);
+								// var obj = {};
+								// obj[sParamId] = sCreatedEntryId;
+								// this.getRouter().navTo(sNavPath, obj);
+								this.getRouter().navTo("object", {
+									objectId: sCreatedEntryId
+								});
 							} else {
 								var msg = oView.getModel("i18n").getResourceBundle().getText("msg.saveSuccess");
 								sap.m.MessageToast.show(msg);

@@ -133,7 +133,7 @@ sap.ui.define([
 		 */
 		_loadDialog: function () {
 			var setFragmentDetails = function (_this) {
-				_this._oDialog.bindElement(_this._oContext.getPath());
+				_this._oDialog.setBindingContext(_this._oContext);
 
 				_this._oView.addDependent(_this._oDialog);
 				_this._oDialog.open();
