@@ -41,7 +41,8 @@ sap.ui.define([
 				var obj = oContext.getObject();
 				this.getRouter().navTo("item", {
 					objectId: obj.MaintenanceNotification,
-					itemId: obj.MaintenanceNotificationItem
+					itemId: obj.MaintenanceNotificationItem,
+					mParams: this.mParams
 				});
 			}
 		},
@@ -59,7 +60,7 @@ sap.ui.define([
 		 * and set add cause dependencies like catalog from NotificationType
 		 */
 		_openAddDialog: function (oContextData, mResults) {
-			var mParams = {
+			this.mParams = {
 				sSetPath: "/PMNotificationItemSet",
 				sSortField: "MaintNotifItemSortNumber",
 				sNavTo:"/NavToItems/",
@@ -69,10 +70,10 @@ sap.ui.define([
 			};
 
 			if (mResults) {
-				mParams.mKeys.MaintNotifObjPrtCodeCatalog = mResults.CatalogTypeForObjParts;
-				mParams.mKeys.MaintNotifDamageCodeCatalog = mResults.CatalogTypeForDamage;
+				this.mParams.mKeys.MaintNotifObjPrtCodeCatalog = mResults.CatalogTypeForObjParts;
+				this.mParams.mKeys.MaintNotifDamageCodeCatalog = mResults.CatalogTypeForDamage;
 			}
-			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditItem");
+			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), this.mParams, "AddEditItem");
 		}
 
 	});
