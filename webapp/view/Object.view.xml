@@ -17,7 +17,8 @@
 						visible="{parts: ['IsCompleted','IsDeleted','viewModel>/editMode'], formatter:'.formatter.showStatusButton'}">
 						<menu>
 							<Menu itemSelected="onSelectStatus" items="{path: 'StatusVH>/HeaderStatus'}">
-								<MenuItem key="{StatusVH>StatusCode}" text="{path: 'StatusVH>TranslateKey', formatter: '.translateStatusKey'}"/>
+								<MenuItem key="{StatusVH>Status}" text="{path: 'StatusVH>TranslateKey', formatter: '.translateStatusKey'}"
+								visible="{StatusVH>Visible}"/>
 							</Menu>
 						</menu>
 					</MenuButton>

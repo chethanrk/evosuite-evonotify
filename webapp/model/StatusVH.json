@@ -5,40 +5,51 @@
 		"Language": "EN",
 		"StatusText": "NOPO",
 		"TranslateKey": "lbl.NOPO",
-		"PhaseValue": "2"
+		"PhaseValue": "2",
+		"Status":"POSTPONED",
+		"Visible": true
 	}, {
 		"ObjectCategory": "QMI",
 		"StatusCode": "I0070",
 		"Language": "EN",
 		"StatusText": "NOPR",
 		"TranslateKey": "lbl.NOPR",
-		"PhaseValue": "3"
+		"PhaseValue": "3",
+		"Status":"INPROGRESS",
+		"Visible": true
 	}, {
 		"ObjectCategory": "QMI",
 		"StatusCode": "I0072",
 		"Language": "EN",
 		"StatusText": "NOCO",
 		"TranslateKey": "lbl.NOCO",
-		"PhaseValue": "4"
-
+		"PhaseValue": "4",
+		"Status":"COMPLETED",
+		"Visible": true
 	}],
 	"TaskStatus": [{
 		"ObjectCategory": "QA0",
 		"StatusCode": "I0155",
 		"Language": "EN",
 		"StatusText": "TSRL",
-		"TranslateKey": "lbl.TSRL"
+		"TranslateKey": "lbl.TSRL",
+		"Status":"",
+		"Visible": true
 	}, {
 		"ObjectCategory": "QA0",
 		"StatusCode": "I0156",
 		"Language": "EN",
 		"StatusText": "TSCO",
-		"TranslateKey": "lbl.TSCO"
+		"TranslateKey": "lbl.TSCO",
+		"Status":"",
+		"Visible": true
 	}, {
 		"ObjectCategory": "QA0",
 		"StatusCode": "I0157",
 		"Language": "EN",
 		"StatusText": "TSSC",
-		"TranslateKey": "lbl.TSSC"
+		"TranslateKey": "lbl.TSSC",
+		"Status":"",
+		"Visible": true
 	}]
 }

@@ -59,13 +59,25 @@ sap.ui.define([
 		onSelectStatus: function (oEvent) {
 			var oParams = oEvent.getParameters(),
 				statusKey = oParams.item.getKey();
+			var oContext = oEvent.getSource().getBindingContext(),
+				obj = oContext.getObject();
 
-			if (statusKey) {
-				this.saveNewStatus("/UpdateHeaderStatus", {
-					"MaintNotification": this._oContext.getProperty("MaintenanceNotification"),
-					"MaintStatus": statusKey
+			this.oContext.setBusy(true);
+			if (obj.IsOutStanding === true || obj.IsInProgress === true || obj.IsPostponed === true) {
+				this.getModel().setProperty(oContext.getPath() + "/Status", statusKey);
+				this.saveChangedEntry({
+					context: this,
+					view: this._oView,
+					success: function () {
+						this.oContext.setBusy(false);
+						this.getModel().refresh();
+					},
+					error: function () {
+						this.oContext.setBusy(false);
+					}
 				});
 			}
+
 		},
 		/**
 		 * show edit forms
@@ -156,10 +168,40 @@ sap.ui.define([
 			if (!this._oContext) {
 				this.getRouter().getTargets().display("objectNotFound");
 				return;
-			}
+			} else
+				this._setStatusModel(this._oContext.getObject());
 
 			// Everything went fine.
 			oViewModel.setProperty("/busy", false);
+		},
+
+		_setStatusModel: function (oObject) {
+			var statusModel = this.getModel("StatusVH"),
+				statusArray = statusModel.getData().HeaderStatus;
+			if (oObject.IsOutStanding) {
+				statusArray.forEach(function (oValue, i) {
+					oValue.Visible = true;
+				});
+			}
+			if (oObject.IsInProgress) {
+				statusArray.forEach(function (oValue, i) {
+					if (oValue.Status === "INPROGRESS") {
+						oValue.Visible = false;
+					} else {
+						oValue.Visible = true;
+					}
+				});
+			}
+			if (oObject.IsPostponed) {
+				statusArray.forEach(function (oValue, i) {
+					if (oValue.Status === "POSTPONED") {
+						oValue.Visible = false;
+					} else {
+						oValue.Visible = true;
+					}
+				});
+			}
+			statusModel.refresh();
 		}
 
 	});
