@@ -1,14 +1,6 @@
-<mvc:View 
-	xmlns="sap.m" 
-	xmlns:mvc="sap.ui.core.mvc" 
-	xmlns:f="sap.f"
-	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" 
-	xmlns:smartTable="sap.ui.comp.smarttable"
-	xmlns:core="sap.ui.core"
-	controllerName="com.evorait.evonotify.controller.Worklist">
-
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:core="sap.ui.core" controllerName="com.evorait.evonotify.controller.Worklist">
 	<f:DynamicPage preserveHeaderStateOnScroll="true" showFooter="true">
-
 		<f:title>
 			<f:DynamicPageTitle>
 				<f:heading>
@@ -19,15 +11,11 @@
 				</f:actions>
 			</f:DynamicPageTitle>
 		</f:title>
-
 		<f:header>
 			<f:DynamicPageHeader>
 				<f:content>
-					<smartFilterBar:SmartFilterBar
-							id="NotificationFilter"
-							entitySet="{viewModel>/worklistEntitySet}"
-							filterBarExpanded="true"
-							persistencyKey="com.evorait.evonotify.NotificationFilterbar">
+					<smartFilterBar:SmartFilterBar id="NotificationFilter" entitySet="{viewModel>/worklistEntitySet}" filterBarExpanded="true"
+						persistencyKey="com.evorait.evonotify.NotificationFilterbar">
 						<smartFilterBar:controlConfiguration>
 							<smartFilterBar:ControlConfiguration id="__configuration0"/>
 						</smartFilterBar:controlConfiguration>
@@ -35,38 +23,25 @@
 				</f:content>
 			</f:DynamicPageHeader>
 		</f:header>
-
 		<f:content>
-			<smartTable:SmartTable
-					id="NotificationTable"
-					class="workorderSmartTable"
-					entitySet="{viewModel>/worklistEntitySet}"
-					smartFilterId="NotificationFilter"
-					tableType="Table"
-					useExportToExcel="true"
-					beforeExport="onBeforeExport"
-					useVariantManagement="true"
-					useTablePersonalisation="true"
-					header="{i18n>tit.notifications}"
-					showRowCount="true"
-					persistencyKey="com.evorait.evonotify.NotificationTable"
-					enableAutoBinding="true">
+			<smartTable:SmartTable id="NotificationTable" class="workorderSmartTable" entitySet="{viewModel>/worklistEntitySet}"
+				smartFilterId="NotificationFilter" tableType="Table" useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="true"
+				useTablePersonalisation="true" header="{i18n>tit.worklistTable}" showRowCount="true"
+				persistencyKey="com.evorait.evonotify.NotificationTable" enableAutoBinding="true">
 				<!-- layout data used to make the table growing but the filter bar fixed -->
 				<smartTable:layoutData>
 					<FlexItemData growFactor="1" baseSize="0%"/>
 				</smartTable:layoutData>
-
 				<smartTable:customToolbar>
 					<OverflowToolbar design="Transparent">
 						<ToolbarSpacer/>
 						<Button icon="sap-icon://add" text="{i18n>btn.createNotification}" press="onAddPress"/>
 					</OverflowToolbar>
 				</smartTable:customToolbar>
-
 				<Table id="responsiveNotificationTable" sticky="ColumnHeaders,HeaderToolbar,InfoToolbar" growing="true">
 					<columns>
 						<Column width="3rem">
-							<Text text = "{NotifProcessingPhase/##com.sap.vocabularies.Common.v1.Label/String}"/>
+							<Text text="{NotifProcessingPhase/##com.sap.vocabularies.Common.v1.Label/String}"/>
 							<customData>
 								<core:CustomData key="p13nData" value='\{"columnKey": "IsCompleted","leadingProperty": "IsCompleted"}'/>
 							</customData>
