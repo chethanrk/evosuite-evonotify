@@ -26,7 +26,7 @@
 			<items>
 				<ColumnListItem type="DetailAndActive" press="onPressItem" detailPress="onPressItem">
 					<cells>
-						<MenuButton text="" icon="sap-icon://drop-down-list">
+						<MenuButton text="{i18n>tit.changeStatus}">
 							<menu>
 								<Menu id="idMenuTask" itemSelected="onSelectStatus" items="{path: 'StatusVH>/TaskStatus', templateShareable:'false'}">
 									<MenuItem key="{StatusVH>Status}" text="{path: 'StatusVH>TranslateKey', formatter: '.translateStatusKey'}"
