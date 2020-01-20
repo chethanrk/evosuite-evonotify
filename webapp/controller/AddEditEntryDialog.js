@@ -32,7 +32,7 @@ sap.ui.define([
 			}
 			this._loadDialog();
 		},
-		
+
 		/**
 		 * Set Operation sort number in the new context
 		 */
@@ -41,15 +41,15 @@ sap.ui.define([
 				this._oView.getModel().setProperty(this._oContext.sPath + "/" + oParameters.sSortField, sSortNumber);
 			}
 		},
-		
+
 		/**
-		* get the next Item sorting number
-		* and count one upwards
-		*/
+		 * get the next Item sorting number
+		 * and count one upwards
+		 */
 		getNextSortNumber: function (oView, oParameters, callbackFn) {
 			var oModel = oView.getModel(),
 				sPath = oView.getBindingContext().sPath;
-			oModel.read(sPath+oParameters.sNavTo, {
+			oModel.read(sPath + oParameters.sNavTo, {
 				sorters: [new sap.ui.model.Sorter(oParameters.sSortField, "DESCENDING")],
 				success: function (items) {
 					var sortNo = "";
@@ -87,35 +87,35 @@ sap.ui.define([
 		 */
 		onPressSave: function (oEvent) {
 			var oDialogContent = this._oDialog.getContent();
-			this._oDialog.setBusy(true);
-			
+
 			if (oDialogContent && oDialogContent.length > 0 && (oDialogContent[0] instanceof sap.ui.comp.smartform.SmartForm)) {
 				if (this.validateForm({
 						view: this._oView,
 						form: oDialogContent[0]
 					})) {
 
+					this._oDialog.setBusy(true);
 					if (this._oView.getModel("viewModel").getProperty("/isNewEntry")) {
 						this.saveNewEntry({
-							context:this,
+							context: this,
 							view: this._oView,
-							success: function(){
+							success: function () {
 								this.context._oDialog.setBusy(false);
 								this.context._closeDialog();
 							},
-							error:function(){
+							error: function () {
 								this.context._oDialog.setBusy(false);
 							}
 						});
 					} else {
 						this.saveChangedEntry({
-							context:this,
+							context: this,
 							view: this._oView,
-							success: function(){
+							success: function () {
 								this.context._oDialog.setBusy(false);
 								this.context._closeDialog();
 							},
-							error:function(){
+							error: function () {
 								this.context._oDialog.setBusy(false);
 							}
 						});
