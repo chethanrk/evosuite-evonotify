@@ -137,7 +137,7 @@ sap.ui.define([
 		_bindView: function (sObjectPath) {
 			var oViewModel = this.getModel("viewModel"),
 				oDataModel = this.getModel();
-
+			this.getModel().refresh(true);
 			this.getView().bindElement({
 				path: sObjectPath,
 				parameters: {
