@@ -187,6 +187,103 @@ sap.ui.define([
 		},
 
 		/**
+		 * submit a new entry to SAP
+		 * @param sParamId
+		 * @param sNavPath
+		 */
+		saveNewEntry: function (mParams) {
+			var sParamId = mParams.entryKey,
+				sNavPath = mParams.navPath;
+
+			var oView = mParams.view || this.getView(),
+				oModel = oView.getModel(),
+				oViewModel = oView.getModel("viewModel");
+
+			oViewModel.setProperty("/busy", true);
+			oModel.submitChanges({
+				success: function (response) {
+					var batch = response.__batchResponses[0],
+						sCreatedEntryId = null;
+
+					oViewModel.setProperty("/busy", false);
+					//success
+					if (response.__batchResponses[0].response && response.__batchResponses[0].response.statusCode === "400") {
+						if (mParams.error) {
+							mParams.error();
+						}
+					} else {
+						oView.getModel().refresh(true);
+						if (batch.__changeResponses) {
+							if (batch && (batch.__changeResponses[0].data)) {
+								sCreatedEntryId = batch.__changeResponses[0].data[sParamId];
+							}
+							if (sCreatedEntryId && sCreatedEntryId !== "" && sNavPath) {
+								oViewModel.setProperty("/newCreatedEntry", true);
+								this.getRouter().navTo("object", {
+									objectId: sCreatedEntryId
+								});
+							} else {
+								var msg = oView.getModel("i18n").getResourceBundle().getText("msg.saveSuccess");
+								sap.m.MessageToast.show(msg);
+
+								if (mParams.success) {
+									mParams.success();
+								}
+							}
+						}
+					}
+				}.bind(this),
+				error: function (oError) {
+					oViewModel.setProperty("/busy", false);
+					if (mParams.error) {
+						mParams.error();
+					}
+					this.showSaveErrorPrompt(oError);
+				}.bind(this)
+			});
+		},
+
+		/**
+		 * save entry who was in edit mode
+		 */
+		saveChangedEntry: function (mParams) {
+			var oView = mParams.view || this.getView(),
+				oViewModel = oView.getModel("viewModel");
+
+			oViewModel.setProperty("/busy", true);
+
+			oView.getModel().submitChanges({
+				success: function (response) {
+					if (response.__batchResponses && response.__batchResponses[0].response && response.__batchResponses[0].response.statusCode ===
+						"400") {
+						oViewModel.setProperty("/busy", false);
+						if (mParams.error) {
+							mParams.error();
+						}
+					} else {
+						var successMsg = oView.getModel("i18n").getResourceBundle().getText("msg.submitSuccess");
+						this.showMessageToast(successMsg);
+						oView.getModel().refresh(true);
+						setTimeout(function () {
+							if (mParams.success) {
+								mParams.success();
+							}
+							oViewModel.setProperty("/busy", false);
+							oViewModel.setProperty("/editMode", false);
+						}.bind(this), 1500);
+					}
+				}.bind(this),
+				error: function (oError) {
+					oViewModel.setProperty("/busy", false);
+					if (mParams.error) {
+						mParams.error();
+					}
+					this.showSaveErrorPrompt(oError);
+				}.bind(this)
+			});
+		},
+
+		/**
 		 * show a message toast for 5 seconds
 		 * @param msg
 		 */

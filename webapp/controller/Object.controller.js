@@ -62,18 +62,16 @@ sap.ui.define([
 			var oContext = oEvent.getSource().getBindingContext(),
 				obj = oContext.getObject();
 
-			this.oContext.setBusy(true);
 			if (obj.IsOutStanding === true || obj.IsInProgress === true || obj.IsPostponed === true) {
 				this.getModel().setProperty(oContext.getPath() + "/Status", statusKey);
 				this.saveChangedEntry({
 					context: this,
 					view: this._oView,
 					success: function () {
-						this.oContext.setBusy(false);
-						this.getModel().refresh();
+						//this.view.setBusy(false);
 					},
 					error: function () {
-						this.oContext.setBusy(false);
+						// this.oContext.setBusy(false);
 					}
 				});
 			}
@@ -118,6 +116,7 @@ sap.ui.define([
 				oDataModel = this.getModel();
 
 			oDataModel.metadataLoaded().then(function () {
+				this.getView().setBusy(true);
 				oViewModel.setProperty("/isNew", false);
 				oViewModel.setProperty("/isEdit", true);
 				oViewModel.setProperty("/editMode", false);
@@ -168,41 +167,10 @@ sap.ui.define([
 			if (!this._oContext) {
 				this.getRouter().getTargets().display("objectNotFound");
 				return;
-			} else
-				this._setStatusModel(this._oContext.getObject());
-
+			}
+			this.getView().setBusy(false);
 			// Everything went fine.
 			oViewModel.setProperty("/busy", false);
-		},
-
-		_setStatusModel: function (oObject) {
-			var statusModel = this.getModel("StatusVH"),
-				statusArray = statusModel.getData().HeaderStatus;
-			if (oObject.IsOutStanding) {
-				statusArray.forEach(function (oValue, i) {
-					oValue.Visible = true;
-				});
-			}
-			if (oObject.IsInProgress) {
-				statusArray.forEach(function (oValue, i) {
-					if (oValue.Status === "INPROGRESS") {
-						oValue.Visible = false;
-					} else {
-						oValue.Visible = true;
-					}
-				});
-			}
-			if (oObject.IsPostponed) {
-				statusArray.forEach(function (oValue, i) {
-					if (oValue.Status === "POSTPONED") {
-						oValue.Visible = false;
-					} else {
-						oValue.Visible = true;
-					}
-				});
-			}
-			statusModel.refresh();
 		}
-
 	});
 });
