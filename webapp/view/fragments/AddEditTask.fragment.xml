@@ -52,7 +52,7 @@
 						</smartField:SmartField>
 					</smartForm:GroupElement>
 					<smartForm:GroupElement>
-						<smartField:SmartField value="{ConcatenatedActSysStsName}">
+						<smartField:SmartField value="{Status}">
 							<smartField:configuration>
 								<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
 							</smartField:configuration>
