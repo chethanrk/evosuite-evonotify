@@ -92,7 +92,7 @@ sap.ui.define([
 							oViewModel.setProperty("/isNew", false);
 						} else {
 							//reset changes from object path
-							this.getModel().resetChanges(sPath);
+							this.getModel().resetChanges([sPath]);
 							if (doNavBack) {
 								//on edit cancel and nav back unbind object
 								this.getView().unbindElement();
