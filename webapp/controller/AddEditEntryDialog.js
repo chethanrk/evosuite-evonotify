@@ -77,6 +77,9 @@ sap.ui.define([
 		onPressCancel: function (oEvent) {
 			if (this._oView.getModel("viewModel").getProperty("/isNewEntry")) {
 				this._oView.getModel().deleteCreatedEntry(this._oContext);
+			} else {
+				var sPath = this._oContext.getPath();
+				this._oView.getModel().resetChanges([sPath]);
 			}
 			this._closeDialog();
 		},
