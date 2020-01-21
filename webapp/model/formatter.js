@@ -81,6 +81,56 @@ sap.ui.define([
 			return true;
 		},
 		/**
+		 * checks if an menuitem of task is visible
+		 * Hide/show menuitem status
+		 * @param isOutstanding
+		 * @param isReleased
+		 * @param isCompleted
+		 * @param isSuccessful
+		 * @param status
+		 * @returns {boolean}
+		 */
+		taskStatusVisibility: function (isOutstanding, isReleased, isCompleted, isSuccessful, status) {
+			if (isOutstanding === true && (status === "RELEASED" || status === "COMPLETED")) {
+				return true;
+			}
+			if (isReleased === true && status === "COMPLETED") {
+				return true;
+			}
+			if (isCompleted === true && status === "SUCCESSFUL") {
+				return true;
+			}
+			if (isSuccessful === true) {
+				return false;
+			}
+			return false;
+		},
+		/**
+		 * checks if an menuitem of notification is visible
+		 * Hide/show menuitem status
+		 * @param isOutstanding
+		 * @param isInProgress
+		 * @param isPostponed
+		 * @param isCompleted
+		 * @param status
+		 * @returns {boolean}
+		 */
+		notificationStatusVisibility: function (isOutstanding, isInProgress, isPostponed, isCompleted, status) {
+			if (isOutstanding === true && (status === "INPROGRESS" || status === "POSTPONED" || status === "COMPLETED")) {
+				return true;
+			}
+			if (isPostponed === true && (status === "INPROGRESS" || status === "COMPLETED")) {
+				return true;
+			}
+			if (isInProgress === true && status === "COMPLETED") {
+				return true;
+			}
+			if (isCompleted === true) {
+				return false;
+			}
+			return false;
+		},
+		/**
 		 *
 		 * @param sValue
 		 * @returns {string|*}

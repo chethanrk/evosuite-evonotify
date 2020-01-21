@@ -77,6 +77,32 @@ sap.ui.define([
 				mParams.mKeys.ResponsiblePersonFunctionCode = mResults.PartnerFunOfPersonRespForTask;
 			}
 			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditTask");
+		},
+		/**
+		 * Save the selected status
+		 * @param oEvent
+		 */
+		onSelectStatus: function (oEvent) {
+			var oParams = oEvent.getParameters(),
+				statusKey = oParams.item.getKey(),
+				oContext = oEvent.getSource().getBindingContext(),
+				obj = oContext.getObject();
+
+			if (obj.IsOutstanding === true || obj.IsReleased === true || obj.IsCompleted === true) {
+				this.getView().setBusy(true);
+				this.getModel().setProperty(oContext.getPath() + "/Status", statusKey);
+				this.saveChangedEntry({
+					context: this,
+					view: this.getView(),
+					success: function () {
+						this.context.oView.setBusy(false);
+						//this.view.getModel().refresh(true);
+					},
+					error: function () {
+						this.context.oView.setBusy(false);
+					}
+				});
+			}
 		}
 	});
 

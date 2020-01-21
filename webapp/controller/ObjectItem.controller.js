@@ -155,17 +155,23 @@ sap.ui.define([
 		_onBindingChange: function () {
 			var oView = this.getView(),
 				oViewModel = this.getModel("viewModel"),
-				oElementBinding = oView.getElementBinding(),
-				oContext = oElementBinding.getBoundContext();
+				oElementBinding = oView.getElementBinding();
+			this.oContext = oElementBinding.getBoundContext();
 
 			// No data for the binding
-			if (!oContext) {
+			if (!this.oContext) {
 				this.getRouter().getTargets().display("objectNotFound");
 				return;
+			} else {
+				this.getDependenciesAndCallback(this._oBindDependencies.bind(this));
 			}
-
 			// Everything went fine.
 			oViewModel.setProperty("/busy", false);
+		},
+
+		_oBindDependencies: function (oContextData, mResults) {
+			var sPath = this.oContext.getPath();
+			this.getModel().setProperty(sPath + "/MaintNotifDamageCodeCatalog", mResults.CatalogTypeForDamage);
 		}
 
 	});

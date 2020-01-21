@@ -71,6 +71,7 @@ sap.ui.define([
 		_onRouteMatched: function (oEvent) {
 			this.oViewModel = this.getModel("viewModel");
 			this.oViewModel.setProperty("/busy", true);
+			this.getModel().refresh(true);
 			this.getModel().metadataLoaded().then(function () {
 				this.oViewModel.setProperty("/isNew", true);
 				this.oViewModel.setProperty("/editMode", true);

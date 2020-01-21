@@ -15,7 +15,28 @@
 			<FlexItemData growFactor="1" baseSize="0%"/>
 		</smartTable:layoutData>
 		<Table growing="true">
-			<ColumnListItem type="DetailAndActive" press="onPressItem" detailPress="onPressItem"></ColumnListItem>
+			<columns>
+				<Column width="100px" hAlign="End">
+					<customData>
+						<core:CustomData key="p13nData"
+							value='\{"columnKey": "MaintNotifTaskSortNumber","columnIndex":"99", "leadingProperty": "MaintNotifTaskSortNumber"}'/>
+					</customData>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem type="DetailAndActive" press="onPressItem" detailPress="onPressItem">
+					<cells>
+						<MenuButton text="{i18n>tit.changeStatus}">
+							<menu>
+								<Menu id="idMenuTask" itemSelected="onSelectStatus" items="{path: 'StatusVH>/TaskStatus', templateShareable:'false'}">
+									<MenuItem key="{StatusVH>Status}" text="{path: 'StatusVH>TranslateKey', formatter: '.translateStatusKey'}"
+										visible="{parts: ['IsOutstanding', 'IsReleased', 'IsCompleted', 'IsSuccessfull', 'StatusVH>Status'], formatter:'.formatter.taskStatusVisibility'}"/>
+								</Menu>
+							</menu>
+						</MenuButton>
+					</cells>
+				</ColumnListItem>
+			</items>
 		</Table>
 	</smartTable:SmartTable>
 </mvc:View>

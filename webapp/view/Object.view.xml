@@ -18,7 +18,7 @@
 						<menu>
 							<Menu itemSelected="onSelectStatus" items="{path: 'StatusVH>/HeaderStatus'}">
 								<MenuItem key="{StatusVH>Status}" text="{path: 'StatusVH>TranslateKey', formatter: '.translateStatusKey'}"
-								visible="{StatusVH>Visible}"/>
+								visible="{parts: ['IsOutStanding', 'IsInProgress', 'IsPostponed', 'IsCompleted','StatusVH>Status'], formatter:'.formatter.notificationStatusVisibility'}"/>
 							</Menu>
 						</menu>
 					</MenuButton>
