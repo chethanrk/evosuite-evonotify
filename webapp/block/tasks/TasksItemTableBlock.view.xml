@@ -21,7 +21,7 @@
 						<core:CustomData key="p13nData"
 							value='\{"columnKey": "Status","columnIndex":"99", "leadingProperty": "MaintNotifTaskSortNumber"}'/>
 					</customData>
-					<Text text="" />
+					<Text text="Status" />
 				</Column>
 			</columns>
 			<items>
