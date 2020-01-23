@@ -17,11 +17,10 @@
 		<Table growing="true">
 			<columns>
 				<Column width="100px" hAlign="End">
+					<Text text="{Status/##com.sap.vocabularies.Common.v1.Label/String}"/>
 					<customData>
-						<core:CustomData key="p13nData"
-							value='\{"columnKey": "Status","columnIndex":"99", "leadingProperty": "MaintNotifTaskSortNumber"}'/>
+						<core:CustomData key="p13nData" value='\{"columnKey": "IsOutstanding","columnIndex":"99", "leadingProperty": "IsOutstanding"}'/>
 					</customData>
-					<Text text="Status" />
 				</Column>
 			</columns>
 			<items>
