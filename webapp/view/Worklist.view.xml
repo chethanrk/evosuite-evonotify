@@ -49,7 +49,7 @@
 					</columns>
 					<ColumnListItem type="Navigation" press="onPressTableRow">
 						<cells>
-							<core:Icon src="{path: 'NotifProcessingPhase',formatter: '.formatter.formatIsEditableIcon'}" alt="{path: 'NotifProcessingPhaseDesc'}"/>
+							<core:Icon src="{path: 'NotifProcessingPhase',formatter: '.formatter.formatIsEditableIcon'}" alt="{path: 'NotifProcessingPhaseDesc'}" tooltip="{path: 'NotifProcessingPhaseDesc'}"/>
 						</cells>
 					</ColumnListItem>
 				</Table>
