@@ -1,5 +1,48 @@
 {
 	"d": {
-		"results": []
+		"results": [{
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationItemSet(MaintenanceNotification='218',MaintenanceNotificationItem='0001')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationItemSet(MaintenanceNotification='218',MaintenanceNotificationItem='0001')",
+				"type": "com.evorait.evocu.evonotify.PMNotificationItem"
+			},
+			"MaintenanceNotification": "218",
+			"MaintNotifItemSortNumber": "0001",
+			"MaintenanceNotificationItem": "0001",
+			"MaintNotifDamageCode": "0020",
+			"MaintNotifDamageCodeCatalog": "9",
+			"MaintNotifDamageCodeGroup": "QS-00001",
+			"MaintNotifDamageCodeGroupName": "Nonconformity types / screws",
+			"MaintNotifDamageCodeName": "Nonconforming Thread Length",
+			"MaintNotifItemText": "",
+			"MaintNotifObjPrtCode": "",
+			"MaintNotifObjPrtCodeCatalog": "",
+			"MaintNotifObjPrtCodeGroup": "",
+			"MaintNotifObjPrtCodeGroupName": "",
+			"MaintNotifObjPrtCodeName": "",
+			"Notificationtype": "F2",
+			"Notes": "",
+			"NavToNotification": {
+				"__deferred": {
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationItemSet(MaintenanceNotification='218',MaintenanceNotificationItem='0001')/NavToNotification"
+				}
+			},
+			"NavToItemCause": {
+				"__deferred": {
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationItemSet(MaintenanceNotification='218',MaintenanceNotificationItem='0001')/NavToItemCause"
+				}
+			},
+			"NavToItemTask": {
+				"__deferred": {
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationItemSet(MaintenanceNotification='218',MaintenanceNotificationItem='0001')/NavToItemTask"
+				}
+			},
+			"NavToItemActivity": {
+				"__deferred": {
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationItemSet(MaintenanceNotification='218',MaintenanceNotificationItem='0001')/NavToItemActivity"
+				}
+			}
+
+		}]
 	}
 }
