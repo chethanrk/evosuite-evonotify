@@ -1,0 +1,687 @@
+{
+	"d": {
+		"results": [{
+				"__metadata": {
+					"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('1')",
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('1')",
+					"type": "com.evorait.evocu.evonotify.PMNotification"
+				},
+				"CreatedByUser": "VAN DIJK",
+				"CreationDate": "\/Date(802051200000)\/",
+				"IsCompleted": true,
+				"MaintenanceNotification": "1",
+				"NotificationText": "",
+				"NotificationType": "F3",
+				"NotificationTypeName": "Material error",
+				"NotifProcessingPhase": "4",
+				"NotifProcessingPhaseDesc": "Completed",
+				"RequiredEndDate": null,
+				"RequiredStartDate": null
+			}, {
+				"__metadata": {
+					"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('94')",
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('94')",
+					"type": "com.evorait.evocu.evonotify.PMNotification"
+				},
+				"CreatedByUser": "RICKAYZEN",
+				"CreationDate": "\/Date(827798400000)\/",
+				"IsCompleted": true,
+				"MaintenanceNotification": "94",
+				"NotificationText": "Check the ration of the mix",
+				"NotificationType": "Q1",
+				"NotificationTypeName": "Customer Complaint",
+				"NotifProcessingPhase": "4",
+				"NotifProcessingPhaseDesc": "Completed",
+				"RequiredEndDate": "\/Date(827884800000)\/",
+				"RequiredStartDate": "\/Date(827798400000)\/"
+			}, {
+				"__metadata": {
+					"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('124')",
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('124')",
+					"type": "com.evorait.evocu.evonotify.PMNotification"
+				},
+				"CreatedByUser": "WESTERMANN",
+				"CreationDate": "\/Date(831686400000)\/",
+				"IsCompleted": true,
+				"MaintenanceNotification": "124",
+				"NotificationText": "Kratzer und FingerabdrÃ¼cke festgestellt",
+				"NotificationType": "F2",
+				"NotificationTypeName": "Vendor error",
+				"NotifProcessingPhase": "4",
+				"NotifProcessingPhaseDesc": "Completed",
+				"RequiredEndDate": "\/Date(832032000000)\/",
+				"RequiredStartDate": "\/Date(831686400000)\/"
+			}, {
+				"__metadata": {
+					"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('1000010')",
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('1000010')",
+					"type": "com.evorait.evocu.evonotify.PMNotification"
+				},
+				"CreatedByUser": "DITTMARAN",
+				"CreationDate": "\/Date(1020384000000)\/",
+				"IsCompleted": false,
+				"MaintenanceNotification": "1000010",
+				"NotificationText": "Shutte zum Flughafen  (Zubringerdienst)",
+				"NotificationType": "01",
+				"NotificationTypeName": "ISR: Incurs Costs",
+				"NotifProcessingPhase": "1",
+				"NotifProcessingPhaseDesc": "Outstanding",
+				"RequiredEndDate": "\/Date(1025568000000)\/",
+				"RequiredStartDate": "\/Date(1020384000000)\/"
+			}, {
+				"__metadata": {
+					"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('1000011')",
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('1000011')",
+					"type": "com.evorait.evocu.evonotify.PMNotification"
+				},
+				"CreatedByUser": "DITTMARAN",
+				"CreationDate": "\/Date(1020384000000)\/",
+				"IsCompleted": false,
+				"MaintenanceNotification": "1000011",
+				"NotificationText": "Shutte zum Flughafen  (Zubringerdienst)",
+				"NotificationType": "01",
+				"NotificationTypeName": "ISR: Incurs Costs",
+				"NotifProcessingPhase": "1",
+				"NotifProcessingPhaseDesc": "Outstanding",
+				"RequiredEndDate": "\/Date(1025568000000)\/",
+				"RequiredStartDate": "\/Date(1020384000000)\/"
+			}, {
+				"__metadata": {
+					"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('600000003')",
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('600000003')",
+					"type": "com.evorait.evocu.evonotify.PMNotification"
+				},
+				"CreatedByUser": "KREYSCHER",
+				"CreationDate": "\/Date(991958400000)\/",
+				"IsCompleted": false,
+				"MaintenanceNotification": "600000003",
+				"NotificationText": "Request for PC Purchase Order",
+				"NotificationType": "01",
+				"NotificationTypeName": "ISR: Incurs Costs",
+				"NotifProcessingPhase": "1",
+				"NotifProcessingPhaseDesc": "Outstanding",
+				"RequiredEndDate": "\/Date(997142400000)\/",
+				"RequiredStartDate": "\/Date(991958400000)\/"
+			}, {
+				"__metadata": {
+					"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('10005940')",
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('10005940')",
+					"type": "com.evorait.evocu.evonotify.PMNotification"
+				},
+				"CreatedByUser": "PALAND",
+				"CreationDate": "\/Date(1578960000000)\/",
+				"IsCompleted": false,
+				"MaintenanceNotification": "10005940",
+				"NotificationText": "14-01 Test5",
+				"NotificationType": "M1",
+				"NotificationTypeName": "Maintenance request",
+				"NotifProcessingPhase": "2",
+				"NotifProcessingPhaseDesc": "Postponed",
+				"RequiredEndDate": null,
+				"RequiredStartDate": "\/Date(1578960000000)\/"
+			}, {
+				"__metadata": {
+					"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('10005941')",
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('10005941')",
+					"type": "com.evorait.evocu.evonotify.PMNotification"
+				},
+				"CreatedByUser": "PALAND",
+				"CreationDate": "\/Date(1578960000000)\/",
+				"IsCompleted": false,
+				"MaintenanceNotification": "10005941",
+				"NotificationText": "Create Notification Test",
+				"NotificationType": "M1",
+				"NotificationTypeName": "Maintenance request",
+				"NotifProcessingPhase": "2",
+				"NotifProcessingPhaseDesc": "Postponed",
+				"RequiredEndDate": null,
+				"RequiredStartDate": "\/Date(1578960000000)\/"
+			}, {
+				"__metadata": {
+					"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('10005947')",
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('10005947')",
+					"type": "com.evorait.evocu.evonotify.PMNotification"
+				},
+				"CreatedByUser": "PALAND",
+				"CreationDate": "\/Date(1579305600000)\/",
+				"IsCompleted": false,
+				"MaintenanceNotification": "10005947",
+				"NotificationText": "Task status change test",
+				"NotificationType": "M1",
+				"NotificationTypeName": "Maintenance request",
+				"NotifProcessingPhase": "2",
+				"NotifProcessingPhaseDesc": "Postponed",
+				"RequiredEndDate": null,
+				"RequiredStartDate": "\/Date(1579305600000)\/"
+			}, {
+				"__metadata": {
+					"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('600000001')",
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('600000001')",
+					"type": "com.evorait.evocu.evonotify.PMNotification"
+				},
+				"CreatedByUser": "KREYSCHER",
+				"CreationDate": "\/Date(991958400000)\/",
+				"IsCompleted": false,
+				"MaintenanceNotification": "600000001",
+				"NotificationText": "Request for PC Purchase Order",
+				"NotificationType": "01",
+				"NotificationTypeName": "ISR: Incurs Costs",
+				"NotifProcessingPhase": "3",
+				"NotifProcessingPhaseDesc": "In Process",
+				"RequiredEndDate": "\/Date(997142400000)\/",
+				"RequiredStartDate": "\/Date(991958400000)\/"
+			}, {
+				"__metadata": {
+					"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('600000002')",
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('600000002')",
+					"type": "com.evorait.evocu.evonotify.PMNotification"
+				},
+				"ABCIndicator": "",
+				"ABCIndicatorDesc": "",
+				"Assembly": "",
+				"AssemblyName": "",
+				"AssetLocation": "",
+				"AssetLocationName": "",
+				"ChangedByUser": "",
+				"ChangedDate": "\/Date(991958400000)\/",
+				"CodeGroup": "",
+				"CodeGroupText": "",
+				"CreatedByUser": "KREYSCHER",
+				"CreatedByUserDescription": "",
+				"CreationDate": "\/Date(991958400000)\/",
+				"CreationTime": "PT00H00M00S",
+				"Equipment": "",
+				"FunctionalLocation": "",
+				"IsCompleted": false,
+				"IsDeleted": false,
+				"IsInProgress": true,
+				"IsOutStanding": false,
+				"IsPostponed": false,
+				"MaintenanceNotification": "600000002",
+				"MaintenanceObjectIsDown": false,
+				"MaintenanceOrder": "",
+				"MaintenancePlannerGroup": "",
+				"MaintenancePlannerGroupName": "",
+				"MaintenancePlanningPlant": "",
+				"MaintenancePlanningPlantName": "",
+				"MaintenancePlant": "",
+				"MaintenancePlantName": "",
+				"MaintenanceRevision": "",
+				"MaintenanceWorkCenter": "",
+				"MaintenanceWorkCenterPlant": "",
+				"MaintenanceWorkCenterText": "",
+				"MaintObjDowntimeDurationUnit": "H",
+				"MaintObjectDowntimeDuration": "0",
+				"MaintPriority": "",
+				"MaintPriorityText": "",
+				"MaintPriorityType": "SR",
+				"MalfunctionEndDate": null,
+				"MalfunctionEndTime": "PT00H00M00S",
+				"MalfunctionStartDate": null,
+				"MalfunctionStartTime": "PT00H00M00S",
+				"NotificationText": "Request for PC Purchase Order",
+				"NotificationType": "01",
+				"NotificationTypeName": "ISR: Incurs Costs",
+				"NotifProcessingPhase": "3",
+				"NotifProcessingPhaseDesc": "In Process",
+				"ObjectNumber": "QM000600000002",
+				"ReportedByUser": "KREYSCHER",
+				"ReportedByUserDescription": "",
+				"RequiredEndDate": "\/Date(997142400000)\/",
+				"RequiredEndTime": "PT16H24M22S",
+				"RequiredStartDate": "\/Date(991958400000)\/",
+				"RequiredStartTime": "PT16H24M22S",
+				"StatusProfile": "",
+				"SystemStatus": " Notification in process(NOPR), Outstanding task(s) exist(s)(OSTS), Approval: OK(APOK)",
+				"TechObjIsEquipOrFunclLoc": "",
+				"TechObjIsEquipOrFuncnlLocDesc": "",
+				"UserStatus": "",
+				"Notes": "",
+				"Status": "",
+				"NavToItems": {
+					"results": [
+
+					]
+				},
+				"NavToActivity": {
+					"results": [
+
+					]
+				},
+				"NavToTasks": {
+					"results": [{
+						"__metadata": {
+							"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='600000002',MaintenanceNotificationTask='0001')",
+							"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='600000002',MaintenanceNotificationTask='0001')",
+							"type": "com.evorait.evocu.evonotify.PMNotificationTask"
+						},
+						"ConcatenatedActSysStsName": "",
+						"IsOutstanding": false,
+						"IsReleased": true,
+						"IsCompleted": false,
+						"IsSuccessfull": false,
+						"ConcatenatedActUserStsName": "",
+						"MaintNotifTaskSortNumber": "0001",
+						"Status": "",
+						"IsDeleted": false,
+						"MaintenanceNotification": "600000002",
+						"MaintenanceNotificationTask": "0001",
+						"MaintNotifTaskCode": "SRPC",
+						"MaintNotifTaskCodeCatalog": "2",
+						"MaintNotifTaskCodeGroup": "SAPISR",
+						"MaintNotifTaskCodeName": "PC service",
+						"MaintNotifTaskInternalID": "QA0006000000020001",
+						"MaintNotifTaskPartFuncName": "",
+						"MaintNotifTaskText": "Install new PC",
+						"MaintNotiTaskCodeGroupName": "Tasks for ISR",
+						"NotificationType": "01",
+						"PlannedEndDate": "\/Date(997142400000)\/",
+						"PlannedEndTime": "PT16H24M22S",
+						"PlannedStartDate": "\/Date(991958400000)\/",
+						"PlannedStartTime": "PT16H24M22S",
+						"ResponsiblePerson": "",
+						"ResponsiblePersonFunctionCode": "Â§P",
+						"ResponsiblePersonName": "",
+						"Notes": "",
+						"NavToNotification": {
+							"__deferred": {
+								"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='600000002',MaintenanceNotificationTask='0001')/NavToNotification"
+							}
+						}
+					}]
+				}
+			}, {
+				"__metadata": {
+					"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('600000032')",
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('600000032')",
+					"type": "com.evorait.evocu.evonotify.PMNotification"
+				},
+				"CreatedByUser": "CHAMBERSS",
+				"CreationDate": "\/Date(1043971200000)\/",
+				"IsCompleted": false,
+				"MaintenanceNotification": "600000032",
+				"NotificationText": "Regular Employment - Short Form",
+				"NotificationType": "58",
+				"NotificationTypeName": "RQ with Approval",
+				"NotifProcessingPhase": "3",
+				"NotifProcessingPhaseDesc": "In Process",
+				"RequiredEndDate": "\/Date(1049155200000)\/",
+				"RequiredStartDate": "\/Date(1043971200000)\/"
+			}, {
+				"__metadata": {
+					"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('218')",
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationSet('218')",
+					"type": "com.evorait.evocu.evonotify.PMNotification"
+				},
+				"ABCIndicator": "",
+				"ABCIndicatorDesc": "",
+				"Assembly": "",
+				"AssemblyName": "",
+				"AssetLocation": "",
+				"AssetLocationName": "",
+				"ChangedByUser": "",
+				"ChangedDate": "\/Date(955670400000)\/",
+				"CodeGroup": "QM",
+				"CodeGroupText": "Description",
+				"CreatedByUser": "WESTERMANN",
+				"CreatedByUserDescription": "",
+				"CreationDate": "\/Date(955584000000)\/",
+				"CreationTime": "PT00H00M00S",
+				"Equipment": "",
+				"FunctionalLocation": "",
+				"IsCompleted": false,
+				"IsDeleted": false,
+				"IsInProgress": true,
+				"IsOutStanding": false,
+				"IsPostponed": false,
+				"MaintenanceNotification": "218",
+				"MaintenanceObjectIsDown": false,
+				"MaintenanceOrder": "",
+				"MaintenancePlannerGroup": "",
+				"MaintenancePlannerGroupName": "",
+				"MaintenancePlanningPlant": "",
+				"MaintenancePlanningPlantName": "",
+				"MaintenancePlant": "",
+				"MaintenancePlantName": "",
+				"MaintenanceRevision": "",
+				"MaintenanceWorkCenter": "",
+				"MaintenanceWorkCenterPlant": "",
+				"MaintenanceWorkCenterText": "",
+				"MaintObjDowntimeDurationUnit": "H",
+				"MaintObjectDowntimeDuration": "0",
+				"MaintPriority": "2",
+				"MaintPriorityText": "",
+				"MaintPriorityType": "QM",
+				"MalfunctionEndDate": null,
+				"MalfunctionEndTime": "PT00H00M00S",
+				"MalfunctionStartDate": "\/Date(955584000000)\/",
+				"MalfunctionStartTime": "PT18H25M07S",
+				"NotificationText": "Problem mit Schrauben M8 x 40",
+				"NotificationType": "F2",
+				"NotificationTypeName": "Vendor error",
+				"NotifProcessingPhase": "3",
+				"NotifProcessingPhaseDesc": "In Process",
+				"ObjectNumber": "QM000000000218",
+				"ReportedByUser": "WESTERMANN",
+				"ReportedByUserDescription": "",
+				"RequiredEndDate": "\/Date(955929600000)\/",
+				"RequiredEndTime": "PT16H46M45S",
+				"RequiredStartDate": "\/Date(955584000000)\/",
+				"RequiredStartTime": "PT16H46M45S",
+				"StatusProfile": "",
+				"SystemStatus": " Notification in process(NOPR), All Tasks Completed(ATCO), Notification (external)(NOTE)",
+				"TechObjIsEquipOrFunclLoc": "",
+				"TechObjIsEquipOrFuncnlLocDesc": "",
+				"UserStatus": "",
+				"Notes": "",
+				"Status": "",
+				"NavToItems": {
+					"results": [{
+						"__metadata": {
+							"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationItemSet(MaintenanceNotification='218',MaintenanceNotificationItem='0001')",
+							"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationItemSet(MaintenanceNotification='218',MaintenanceNotificationItem='0001')",
+							"type": "com.evorait.evocu.evonotify.PMNotificationItem"
+						},
+						"MaintenanceNotification": "218",
+						"MaintNotifItemSortNumber": "0001",
+						"MaintenanceNotificationItem": "0001",
+						"MaintNotifDamageCode": "0020",
+						"MaintNotifDamageCodeCatalog": "9",
+						"MaintNotifDamageCodeGroup": "QS-00001",
+						"MaintNotifDamageCodeGroupName": "Nonconformity types / screws",
+						"MaintNotifDamageCodeName": "Nonconforming Thread Length",
+						"MaintNotifItemText": "",
+						"MaintNotifObjPrtCode": "",
+						"MaintNotifObjPrtCodeCatalog": "",
+						"MaintNotifObjPrtCodeGroup": "",
+						"MaintNotifObjPrtCodeGroupName": "",
+						"MaintNotifObjPrtCodeName": "",
+						"Notificationtype": "F2",
+						"Notes": "",
+						"NavToNotification": {
+							"__deferred": {
+								"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationItemSet(MaintenanceNotification='218',MaintenanceNotificationItem='0001')/NavToNotification"
+							}
+						},
+						"NavToItemCause": {
+							"__deferred": {
+								"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationItemSet(MaintenanceNotification='218',MaintenanceNotificationItem='0001')/NavToItemCause"
+							}
+						},
+						"NavToItemTask": {
+							"__deferred": {
+								"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationItemSet(MaintenanceNotification='218',MaintenanceNotificationItem='0001')/NavToItemTask"
+							}
+						},
+						"NavToItemActivity": {
+							"__deferred": {
+								"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationItemSet(MaintenanceNotification='218',MaintenanceNotificationItem='0001')/NavToItemActivity"
+							}
+						}
+					}, {
+						"__metadata": {
+							"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationItemSet(MaintenanceNotification='218',MaintenanceNotificationItem='0002')",
+							"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationItemSet(MaintenanceNotification='218',MaintenanceNotificationItem='0002')",
+							"type": "com.evorait.evocu.evonotify.PMNotificationItem"
+						},
+						"MaintenanceNotification": "218",
+						"MaintNotifItemSortNumber": "0002",
+						"MaintenanceNotificationItem": "0002",
+						"MaintNotifDamageCode": "0040",
+						"MaintNotifDamageCodeCatalog": "9",
+						"MaintNotifDamageCodeGroup": "QS-00001",
+						"MaintNotifDamageCodeGroupName": "Nonconformity types / screws",
+						"MaintNotifDamageCodeName": "Tension Test Failed",
+						"MaintNotifItemText": "",
+						"MaintNotifObjPrtCode": "",
+						"MaintNotifObjPrtCodeCatalog": "",
+						"MaintNotifObjPrtCodeGroup": "",
+						"MaintNotifObjPrtCodeGroupName": "",
+						"MaintNotifObjPrtCodeName": "",
+						"Notificationtype": "F2",
+						"Notes": "",
+						"NavToNotification": {
+							"__deferred": {
+								"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationItemSet(MaintenanceNotification='218',MaintenanceNotificationItem='0002')/NavToNotification"
+							}
+						},
+						"NavToItemCause": {
+							"__deferred": {
+								"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationItemSet(MaintenanceNotification='218',MaintenanceNotificationItem='0002')/NavToItemCause"
+							}
+						},
+						"NavToItemTask": {
+							"__deferred": {
+								"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationItemSet(MaintenanceNotification='218',MaintenanceNotificationItem='0002')/NavToItemTask"
+							}
+						},
+						"NavToItemActivity": {
+							"__deferred": {
+								"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationItemSet(MaintenanceNotification='218',MaintenanceNotificationItem='0002')/NavToItemActivity"
+							}
+						}
+					}]
+				},
+				"NavToActivity": {
+					"results": [{
+						"__metadata": {
+							"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationActivitySet(MaintenanceNotification='218',MaintNotificationActivity='0002')",
+							"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationActivitySet(MaintenanceNotification='218',MaintNotificationActivity='0002')",
+							"type": "com.evorait.evocu.evonotify.PMNotificationActivity"
+						},
+						"ActivitySortNumber": "0001",
+						"MaintNotifActivityCodeGrpName": "General actions for complaints to vendor",
+						"MaintenanceNotification": "218",
+						"MaintNotifActivityCodeName": "Shipping Notification for Returned Goods",
+						"MaintNotifAcivityCodeCatalog": "8",
+						"MaintNotificationActivity": "0002",
+						"MaintenanceNotificationItem": "0000",
+						"MaintNotifActivityCodeGroup": "QM-G2",
+						"MaintNotifActivityCode": "0004",
+						"MaintNotifActyTxt": "Karl hat es erledigt",
+						"CreatedByUser": "WESTERMANN",
+						"MaintNotifActyQtyFactor": "000",
+						"PlannedStartDate": "\/Date(955584000000)\/",
+						"PlannedStartTime": "PT00H00M00S",
+						"PlannedEndDate": "\/Date(955584000000)\/",
+						"PlannedEndTime": "PT18H29M55S",
+						"NotificationType": "F2",
+						"NavToNotification": {
+							"__deferred": {
+								"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationActivitySet(MaintenanceNotification='218',MaintNotificationActivity='0002')/NavToNotification"
+							}
+						}
+					}, {
+						"__metadata": {
+							"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationActivitySet(MaintenanceNotification='218',MaintNotificationActivity='0003')",
+							"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationActivitySet(MaintenanceNotification='218',MaintNotificationActivity='0003')",
+							"type": "com.evorait.evocu.evonotify.PMNotificationActivity"
+						},
+						"ActivitySortNumber": "0002",
+						"MaintNotifActivityCodeGrpName": "General actions for complaints to vendor",
+						"MaintenanceNotification": "218",
+						"MaintNotifActivityCodeName": "Standard Complaint Against the Vendor",
+						"MaintNotifAcivityCodeCatalog": "8",
+						"MaintNotificationActivity": "0003",
+						"MaintenanceNotificationItem": "0000",
+						"MaintNotifActivityCodeGroup": "QM-G2",
+						"MaintNotifActivityCode": "0001",
+						"MaintNotifActyTxt": "Karl hat es erledigt",
+						"CreatedByUser": "WESTERMANN",
+						"MaintNotifActyQtyFactor": "000",
+						"PlannedStartDate": "\/Date(955584000000)\/",
+						"PlannedStartTime": "PT00H00M00S",
+						"PlannedEndDate": "\/Date(955584000000)\/",
+						"PlannedEndTime": "PT18H29M55S",
+						"NotificationType": "F2",
+						"NavToNotification": {
+							"__deferred": {
+								"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationActivitySet(MaintenanceNotification='218',MaintNotificationActivity='0003')/NavToNotification"
+							}
+						}
+					}]
+				},
+				"NavToTasks": {
+					"results": [{
+						"__metadata": {
+							"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0001')",
+							"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0001')",
+							"type": "com.evorait.evocu.evonotify.PMNotificationTask"
+						},
+						"ConcatenatedActSysStsName": "",
+						"IsOutstanding": false,
+						"IsReleased": false,
+						"IsCompleted": true,
+						"IsSuccessfull": false,
+						"ConcatenatedActUserStsName": "",
+						"MaintNotifTaskSortNumber": "0001",
+						"Status": "",
+						"IsDeleted": false,
+						"MaintenanceNotification": "218",
+						"MaintenanceNotificationTask": "0001",
+						"MaintNotifTaskCode": "0002",
+						"MaintNotifTaskCodeCatalog": "2",
+						"MaintNotifTaskCodeGroup": "QM-G2",
+						"MaintNotifTaskCodeName": "Return Delivery",
+						"MaintNotifTaskInternalID": "QA0000000002180001",
+						"MaintNotifTaskPartFuncName": "",
+						"MaintNotifTaskText": "erledigt mit Bestandsbuchung im VE",
+						"MaintNotiTaskCodeGroupName": "General tasks for complaints to vendors",
+						"NotificationType": "F2",
+						"PlannedEndDate": "\/Date(955584000000)\/",
+						"PlannedEndTime": "PT18H20M51S",
+						"PlannedStartDate": "\/Date(955584000000)\/",
+						"PlannedStartTime": "PT00H00M00S",
+						"ResponsiblePerson": "WESTERMANN",
+						"ResponsiblePersonFunctionCode": "VU",
+						"ResponsiblePersonName": "",
+						"Notes": "",
+						"NavToNotification": {
+							"__deferred": {
+								"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0001')/NavToNotification"
+							}
+						}
+					}, {
+						"__metadata": {
+							"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0002')",
+							"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0002')",
+							"type": "com.evorait.evocu.evonotify.PMNotificationTask"
+						},
+						"ConcatenatedActSysStsName": "",
+						"IsOutstanding": false,
+						"IsReleased": false,
+						"IsCompleted": true,
+						"IsSuccessfull": true,
+						"ConcatenatedActUserStsName": "",
+						"MaintNotifTaskSortNumber": "0002",
+						"Status": "",
+						"IsDeleted": false,
+						"MaintenanceNotification": "218",
+						"MaintenanceNotificationTask": "0002",
+						"MaintNotifTaskCode": "0003",
+						"MaintNotifTaskCodeCatalog": "2",
+						"MaintNotifTaskCodeGroup": "QM-G2",
+						"MaintNotifTaskCodeName": "Substitute Delivery",
+						"MaintNotifTaskInternalID": "QA0000000002180002",
+						"MaintNotifTaskPartFuncName": "",
+						"MaintNotifTaskText": "erledigt mit PrÃ¼flos 2471",
+						"MaintNotiTaskCodeGroupName": "General tasks for complaints to vendors",
+						"NotificationType": "F2",
+						"PlannedEndDate": "\/Date(955584000000)\/",
+						"PlannedEndTime": "PT18H22M38S",
+						"PlannedStartDate": "\/Date(955584000000)\/",
+						"PlannedStartTime": "PT18H22M38S",
+						"ResponsiblePerson": "",
+						"ResponsiblePersonFunctionCode": "VU",
+						"ResponsiblePersonName": "",
+						"Notes": "",
+						"NavToNotification": {
+							"__deferred": {
+								"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0002')/NavToNotification"
+							}
+						}
+					}, {
+						"__metadata": {
+							"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0004')",
+							"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0004')",
+							"type": "com.evorait.evocu.evonotify.PMNotificationTask"
+						},
+						"ConcatenatedActSysStsName": "",
+						"IsOutstanding": false,
+						"IsReleased": false,
+						"IsCompleted": true,
+						"IsSuccessfull": false,
+						"ConcatenatedActUserStsName": "",
+						"MaintNotifTaskSortNumber": "0003",
+						"Status": "",
+						"IsDeleted": false,
+						"MaintenanceNotification": "218",
+						"MaintenanceNotificationTask": "0004",
+						"MaintNotifTaskCode": "0021",
+						"MaintNotifTaskCodeCatalog": "2",
+						"MaintNotifTaskCodeGroup": "QM-G2",
+						"MaintNotifTaskCodeName": "Transfer Posting Unrestr. -> Blocked",
+						"MaintNotifTaskInternalID": "QA0000000002180004",
+						"MaintNotifTaskPartFuncName": "",
+						"MaintNotifTaskText": "",
+						"MaintNotiTaskCodeGroupName": "General tasks for complaints to vendors",
+						"NotificationType": "F2",
+						"PlannedEndDate": "\/Date(955670400000)\/",
+						"PlannedEndTime": "PT20H25M53S",
+						"PlannedStartDate": "\/Date(955670400000)\/",
+						"PlannedStartTime": "PT20H25M53S",
+						"ResponsiblePerson": "",
+						"ResponsiblePersonFunctionCode": "VU",
+						"ResponsiblePersonName": "",
+						"Notes": "",
+						"NavToNotification": {
+							"__deferred": {
+								"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0004')/NavToNotification"
+							}
+						}
+					}, {
+						"__metadata": {
+							"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0005')",
+							"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0005')",
+							"type": "com.evorait.evocu.evonotify.PMNotificationTask"
+						},
+						"ConcatenatedActSysStsName": "",
+						"IsOutstanding": false,
+						"IsReleased": false,
+						"IsCompleted": true,
+						"IsSuccessfull": false,
+						"ConcatenatedActUserStsName": "",
+						"MaintNotifTaskSortNumber": "0004",
+						"Status": "",
+						"IsDeleted": false,
+						"MaintenanceNotification": "218",
+						"MaintenanceNotificationTask": "0005",
+						"MaintNotifTaskCode": "0027",
+						"MaintNotifTaskCodeCatalog": "2",
+						"MaintNotifTaskCodeGroup": "QM-G2",
+						"MaintNotifTaskCodeName": "Scrapping",
+						"MaintNotifTaskInternalID": "QA0000000002180005",
+						"MaintNotifTaskPartFuncName": "",
+						"MaintNotifTaskText": "",
+						"MaintNotiTaskCodeGroupName": "General tasks for complaints to vendors",
+						"NotificationType": "F2",
+						"PlannedEndDate": "\/Date(955670400000)\/",
+						"PlannedEndTime": "PT20H26M53S",
+						"PlannedStartDate": "\/Date(955670400000)\/",
+						"PlannedStartTime": "PT20H26M53S",
+						"ResponsiblePerson": "",
+						"ResponsiblePersonFunctionCode": "VU",
+						"ResponsiblePersonName": "",
+						"Notes": "",
+						"NavToNotification": {
+							"__deferred": {
+								"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0005')/NavToNotification"
+							}
+						}
+					}]
+				}
+			}
+
+		]
+	}
+}

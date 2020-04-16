@@ -1,5 +1,1255 @@
 {
-  "d": {
-    "results": []
-  }
+	"d": {
+		"results": [{
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000461')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000461')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000461",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000466')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000466')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000466",
+			"MaintPlanningPlant": "1200",
+			"PlannerGroup": "100",
+			"WorkCenter": "MECHANIK"
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000467')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000467')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000467",
+			"MaintPlanningPlant": "1200",
+			"PlannerGroup": "",
+			"WorkCenter": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000470')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000470')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000470",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000476')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000476')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000476",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000492')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000492')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000492",
+			"MaintPlanningPlant": "0001",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000496')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000496')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000496",
+			"MaintPlanningPlant": "1000",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000497')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000497')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000497",
+			"MaintPlanningPlant": "1000",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000498')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000498')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000498",
+			"MaintPlanningPlant": "1200",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000509')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000509')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000509",
+			"MaintPlanningPlant": "1200",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000510')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000510')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000510",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": "ELECMNT"
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000511')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000511')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000511",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000512')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000512')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000512",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000513')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000513')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000513",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000514')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000514')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000514",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000515')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000515')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000515",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000516')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000516')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000516",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000517')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000517')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000517",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000518')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000518')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000518",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000519')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000519')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000519",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000520')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000520')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000520",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000521')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000521')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000521",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000522')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000522')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000522",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000523')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000523')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000523",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000524')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000524')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000524",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000525')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000525')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000525",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000526')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000526')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000526",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000527')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000527')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000527",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000528')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000528')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000528",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000529')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000529')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000529",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000530')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000530')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000530",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000531')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000531')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000531",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000532')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000532')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000532",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000533')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000533')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000533",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000534')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000534')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000534",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000535')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000535')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000535",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000536')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000536')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000536",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000537')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000537')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000537",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000538')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000538')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000538",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000539')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000539')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000539",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000540')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000540')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000540",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000541')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000541')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000541",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000542')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000542')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000542",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000543')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000543')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000543",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000544')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000544')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000544",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000545')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000545')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000545",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000546')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000546')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000546",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000547')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000547')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000547",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000548')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000548')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000548",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000549')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000549')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000549",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000550')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000550')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000550",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000551')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000551')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000551",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000552')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000552')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000552",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000553')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000553')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000553",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000554')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000554')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000554",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000555')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000555')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000555",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000556')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000556')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000556",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000557')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000557')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000557",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000558')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000558')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000558",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000559')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000559')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000559",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000560')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000560')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000560",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000561')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000561')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000561",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000562')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000562')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000562",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000563')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000563')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000563",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000564')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000564')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000564",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000565')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000565')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000565",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000566')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000566')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000566",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000567')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000567')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000567",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000568')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000568')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000568",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000569')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000569')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000569",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000570')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000570')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000570",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000571')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000571')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000571",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000572')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000572')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000572",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000573')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000573')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000573",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000574')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000574')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000574",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000575')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000575')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000575",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000576')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000576')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000576",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000577')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000577')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000577",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000578')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000578')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000578",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000579')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000579')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000579",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000580')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000580')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000580",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000581')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000581')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000581",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000582')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000582')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000582",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000583')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000583')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000583",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000584')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000584')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000584",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000585')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000585')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000585",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000586')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000586')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000586",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000587')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000587')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000587",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000588')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000588')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000588",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000589')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000589')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000589",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000590')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000590')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000590",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000591')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000591')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000591",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000592')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000592')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000592",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000593')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000593')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000593",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000594')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000594')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000594",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000595')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000595')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000595",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000596')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000596')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000596",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000597')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000597')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000597",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000598')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000598')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000598",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000599')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000599')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000599",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000600')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000600')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000600",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000601')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000601')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000601",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000602')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000602')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000602",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000603')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000603')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000603",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000604')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000604')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000604",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000605')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000605')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000605",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000606')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000606')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000606",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000607')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000607')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000607",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000608')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000608')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000608",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000609')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000609')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000609",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000610')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000610')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000610",
+			"MaintPlanningPlant": "3000",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000611')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000611')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000611",
+			"MaintPlanningPlant": "3000",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000612')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000612')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000612",
+			"MaintPlanningPlant": "3000",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000613')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000613')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000613",
+			"MaintPlanningPlant": "3000",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000614')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000614')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000614",
+			"MaintPlanningPlant": "3000",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000615')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000615')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000615",
+			"MaintPlanningPlant": "3000",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000616')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000616')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000616",
+			"MaintPlanningPlant": "3000",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000617')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000617')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000617",
+			"MaintPlanningPlant": "3000",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000618')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000618')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000618",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000619')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000619')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000619",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000620')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000620')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000620",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000621')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000621')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000621",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000622')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000622')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000622",
+			"MaintPlanningPlant": "",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000628')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000628')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000628",
+			"MaintPlanningPlant": "1200",
+			"PlannerGroup": "",
+			"WorkCenter": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000629')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/EquipmentVHSet('10000629')",
+				"type": "com.evorait.evocu.evonotify.EquipmentVH"
+			},
+			"EquipmentNumber": "10000629",
+			"MaintPlanningPlant": "3000",
+			"PlannerGroup": "",
+			"WorkCenter": ""
+		}]
+	}
 }
