@@ -2,7 +2,7 @@
 	xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:details="com.evorait.evonotify.block.details"
 	xmlns:items="com.evorait.evonotify.block.items" xmlns:tasks="com.evorait.evonotify.block.tasks"
 	xmlns:activities="com.evorait.evonotify.block.activities" xmlns:layout="sap.ui.layout">
-	<uxap:ObjectPageLayout enableLazyLoading="false" isChildPage="true" showFooter="false" busy="{viewModel>/busy}"
+	<uxap:ObjectPageLayout id="ObjectPageLayout"  enableLazyLoading="false" isChildPage="true" showFooter="false" busy="{viewModel>/busy}"
 		busyIndicatorDelay="{viewModel>/delay}">
 		<uxap:headerTitle>
 			<uxap:ObjectPageHeader id="objectPageHeader" objectTitle="{NotificationText}" objectSubtitle="{MaintenanceNotification}">
@@ -38,7 +38,7 @@
 				<layout:layoutData>
 					<uxap:ObjectPageHeaderLayoutData showSeparatorAfter="false"/>
 				</layout:layoutData>
-				<ObjectStatus title="{/#PMNotification/NotificationType/@sap:label}" text="{NotificationTypeName}"/>
+				<ObjectStatus id="idNotificationType" title="{/#PMNotification/NotificationType/@sap:label}" text="{NotificationTypeName}"/>
 				<ObjectStatus title="{/#PMNotification/MaintenanceOrder/@sap:label}" text="{MaintenanceOrder}"/>
 				<ObjectStatus title="{/#PMNotification/MaintPriority/@sap:label}" text="{MaintPriorityText}"/>
 				<ObjectStatus title="{/#PMNotification/MaintenanceObjectIsDown/@sap:label}" text="{MaintenanceObjectIsDown}" state="Error"/>
@@ -47,8 +47,8 @@
 				<layout:layoutData>
 					<uxap:ObjectPageHeaderLayoutData showSeparatorAfter="false"/>
 				</layout:layoutData>
-				<ObjectStatus title="{/#PMNotification/FunctionalLocation/@sap:label}" text="{FunctionalLocation}"/>
-				<ObjectStatus title="{/#PMNotification/Equipment/@sap:label}" text="{Equipment}"/>
+				<ObjectStatus id="idFunctionalLocation" title="{/#PMNotification/FunctionalLocation/@sap:label}" text="{FunctionalLocation}"/>
+				<ObjectStatus id="idEquipment" title="{/#PMNotification/Equipment/@sap:label}" text="{Equipment}"/>
 				<ObjectStatus title="{/#PMNotification/TechObjIsEquipOrFuncnlLocDesc/@sap:label}" text="{TechObjIsEquipOrFuncnlLocDesc}"/>
 				<ObjectStatus title="{/#PMNotification/Assembly/@sap:label}" text="{AssemblyName}"/>
 			</layout:VerticalLayout>
