@@ -1,0 +1,239 @@
+{
+	"d": {
+		"results": [{
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='600000002',MaintenanceNotificationTask='0001')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='600000002',MaintenanceNotificationTask='0001')",
+				"type": "com.evorait.evocu.evonotify.PMNotificationTask"
+			},
+			"ConcatenatedActSysStsName": "",
+			"IsOutstanding": false,
+			"IsReleased": true,
+			"IsCompleted": false,
+			"IsSuccessfull": false,
+			"ConcatenatedActUserStsName": "",
+			"MaintNotifTaskSortNumber": "0001",
+			"Status": "",
+			"IsDeleted": false,
+			"MaintenanceNotification": "600000002",
+			"MaintenanceNotificationTask": "0001",
+			"MaintNotifTaskCode": "SRPC",
+			"MaintNotifTaskCodeCatalog": "2",
+			"MaintNotifTaskCodeGroup": "SAPISR",
+			"MaintNotifTaskCodeName": "PC service",
+			"MaintNotifTaskInternalID": "QA0006000000020001",
+			"MaintNotifTaskPartFuncName": "",
+			"MaintNotifTaskText": "Install new PC",
+			"MaintNotiTaskCodeGroupName": "Tasks for ISR",
+			"NotificationType": "01",
+			"PlannedEndDate": "\/Date(997142400000)\/",
+			"PlannedEndTime": "PT16H24M22S",
+			"PlannedStartDate": "\/Date(991958400000)\/",
+			"PlannedStartTime": "PT16H24M22S",
+			"ResponsiblePerson": "",
+			"ResponsiblePersonFunctionCode": "Â§P",
+			"ResponsiblePersonName": "",
+			"Notes": "",
+			"NavToNotification": {
+				"__deferred": {
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='600000002',MaintenanceNotificationTask='0001')/NavToNotification"
+				}
+			}
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='600000002',MaintenanceNotificationTask='0001')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='600000002',MaintenanceNotificationTask='0001')",
+				"type": "com.evorait.evocu.evonotify.PMNotificationTask"
+			},
+			"ConcatenatedActSysStsName": "",
+			"IsOutstanding": false,
+			"IsReleased": true,
+			"IsCompleted": false,
+			"IsSuccessfull": false,
+			"ConcatenatedActUserStsName": "",
+			"MaintNotifTaskSortNumber": "0001",
+			"Status": "",
+			"IsDeleted": false,
+			"MaintenanceNotification": "600000002",
+			"MaintenanceNotificationTask": "0001",
+			"MaintNotifTaskCode": "SRPC",
+			"MaintNotifTaskCodeCatalog": "2",
+			"MaintNotifTaskCodeGroup": "SAPISR",
+			"MaintNotifTaskCodeName": "PC service",
+			"MaintNotifTaskInternalID": "QA0006000000020001",
+			"MaintNotifTaskPartFuncName": "",
+			"MaintNotifTaskText": "Install new PC",
+			"MaintNotiTaskCodeGroupName": "Tasks for ISR",
+			"NotificationType": "01",
+			"PlannedEndDate": "\/Date(997142400000)\/",
+			"PlannedEndTime": "PT16H24M22S",
+			"PlannedStartDate": "\/Date(991958400000)\/",
+			"PlannedStartTime": "PT16H24M22S",
+			"ResponsiblePerson": "",
+			"ResponsiblePersonFunctionCode": "Â§P",
+			"ResponsiblePersonName": "",
+			"Notes": "",
+			"NavToNotification": {
+				"__deferred": {
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='600000002',MaintenanceNotificationTask='0001')/NavToNotification"
+				}
+			}
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0001')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0001')",
+				"type": "com.evorait.evocu.evonotify.PMNotificationTask"
+			},
+			"ConcatenatedActSysStsName": "",
+			"IsOutstanding": false,
+			"IsReleased": false,
+			"IsCompleted": true,
+			"IsSuccessfull": false,
+			"ConcatenatedActUserStsName": "",
+			"MaintNotifTaskSortNumber": "0001",
+			"Status": "",
+			"IsDeleted": false,
+			"MaintenanceNotification": "218",
+			"MaintenanceNotificationTask": "0001",
+			"MaintNotifTaskCode": "0002",
+			"MaintNotifTaskCodeCatalog": "2",
+			"MaintNotifTaskCodeGroup": "QM-G2",
+			"MaintNotifTaskCodeName": "Return Delivery",
+			"MaintNotifTaskInternalID": "QA0000000002180001",
+			"MaintNotifTaskPartFuncName": "",
+			"MaintNotifTaskText": "erledigt mit Bestandsbuchung im VE",
+			"MaintNotiTaskCodeGroupName": "General tasks for complaints to vendors",
+			"NotificationType": "F2",
+			"PlannedEndDate": "\/Date(955584000000)\/",
+			"PlannedEndTime": "PT18H20M51S",
+			"PlannedStartDate": "\/Date(955584000000)\/",
+			"PlannedStartTime": "PT00H00M00S",
+			"ResponsiblePerson": "WESTERMANN",
+			"ResponsiblePersonFunctionCode": "VU",
+			"ResponsiblePersonName": "",
+			"Notes": "",
+			"NavToNotification": {
+				"__deferred": {
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0001')/NavToNotification"
+				}
+			}
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0002')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0002')",
+				"type": "com.evorait.evocu.evonotify.PMNotificationTask"
+			},
+			"ConcatenatedActSysStsName": "",
+			"IsOutstanding": false,
+			"IsReleased": false,
+			"IsCompleted": true,
+			"IsSuccessfull": true,
+			"ConcatenatedActUserStsName": "",
+			"MaintNotifTaskSortNumber": "0002",
+			"Status": "",
+			"IsDeleted": false,
+			"MaintenanceNotification": "218",
+			"MaintenanceNotificationTask": "0002",
+			"MaintNotifTaskCode": "0003",
+			"MaintNotifTaskCodeCatalog": "2",
+			"MaintNotifTaskCodeGroup": "QM-G2",
+			"MaintNotifTaskCodeName": "Substitute Delivery",
+			"MaintNotifTaskInternalID": "QA0000000002180002",
+			"MaintNotifTaskPartFuncName": "",
+			"MaintNotifTaskText": "erledigt mit PrÃ¼flos 2471",
+			"MaintNotiTaskCodeGroupName": "General tasks for complaints to vendors",
+			"NotificationType": "F2",
+			"PlannedEndDate": "\/Date(955584000000)\/",
+			"PlannedEndTime": "PT18H22M38S",
+			"PlannedStartDate": "\/Date(955584000000)\/",
+			"PlannedStartTime": "PT18H22M38S",
+			"ResponsiblePerson": "",
+			"ResponsiblePersonFunctionCode": "VU",
+			"ResponsiblePersonName": "",
+			"Notes": "",
+			"NavToNotification": {
+				"__deferred": {
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0002')/NavToNotification"
+				}
+			}
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0004')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0004')",
+				"type": "com.evorait.evocu.evonotify.PMNotificationTask"
+			},
+			"ConcatenatedActSysStsName": "",
+			"IsOutstanding": false,
+			"IsReleased": false,
+			"IsCompleted": true,
+			"IsSuccessfull": false,
+			"ConcatenatedActUserStsName": "",
+			"MaintNotifTaskSortNumber": "0003",
+			"Status": "",
+			"IsDeleted": false,
+			"MaintenanceNotification": "218",
+			"MaintenanceNotificationTask": "0004",
+			"MaintNotifTaskCode": "0021",
+			"MaintNotifTaskCodeCatalog": "2",
+			"MaintNotifTaskCodeGroup": "QM-G2",
+			"MaintNotifTaskCodeName": "Transfer Posting Unrestr. -> Blocked",
+			"MaintNotifTaskInternalID": "QA0000000002180004",
+			"MaintNotifTaskPartFuncName": "",
+			"MaintNotifTaskText": "",
+			"MaintNotiTaskCodeGroupName": "General tasks for complaints to vendors",
+			"NotificationType": "F2",
+			"PlannedEndDate": "\/Date(955670400000)\/",
+			"PlannedEndTime": "PT20H25M53S",
+			"PlannedStartDate": "\/Date(955670400000)\/",
+			"PlannedStartTime": "PT20H25M53S",
+			"ResponsiblePerson": "",
+			"ResponsiblePersonFunctionCode": "VU",
+			"ResponsiblePersonName": "",
+			"Notes": "",
+			"NavToNotification": {
+				"__deferred": {
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0004')/NavToNotification"
+				}
+			}
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0005')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0005')",
+				"type": "com.evorait.evocu.evonotify.PMNotificationTask"
+			},
+			"ConcatenatedActSysStsName": "",
+			"IsOutstanding": false,
+			"IsReleased": false,
+			"IsCompleted": true,
+			"IsSuccessfull": false,
+			"ConcatenatedActUserStsName": "",
+			"MaintNotifTaskSortNumber": "0004",
+			"Status": "",
+			"IsDeleted": false,
+			"MaintenanceNotification": "218",
+			"MaintenanceNotificationTask": "0005",
+			"MaintNotifTaskCode": "0027",
+			"MaintNotifTaskCodeCatalog": "2",
+			"MaintNotifTaskCodeGroup": "QM-G2",
+			"MaintNotifTaskCodeName": "Scrapping",
+			"MaintNotifTaskInternalID": "QA0000000002180005",
+			"MaintNotifTaskPartFuncName": "",
+			"MaintNotifTaskText": "",
+			"MaintNotiTaskCodeGroupName": "General tasks for complaints to vendors",
+			"NotificationType": "F2",
+			"PlannedEndDate": "\/Date(955670400000)\/",
+			"PlannedEndTime": "PT20H26M53S",
+			"PlannedStartDate": "\/Date(955670400000)\/",
+			"PlannedStartTime": "PT20H26M53S",
+			"ResponsiblePerson": "",
+			"ResponsiblePersonFunctionCode": "VU",
+			"ResponsiblePersonName": "",
+			"Notes": "",
+			"NavToNotification": {
+				"__deferred": {
+					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationTaskSet(MaintenanceNotification='218',MaintenanceNotificationTask='0005')/NavToNotification"
+				}
+			}
+		}]
+	}
+}

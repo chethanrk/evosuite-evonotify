@@ -170,7 +170,7 @@ sap.ui.define([
 		
 		formatSortNumber: function (sortNo, max) {
 			return sortNo.length < max ? this.formatSortNumber("0" + sortNo, max) : sortNo;
-		},
+		}
 	};
 
 });
