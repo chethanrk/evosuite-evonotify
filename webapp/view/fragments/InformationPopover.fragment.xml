@@ -28,7 +28,7 @@
 				</Label>
 				<Text text="{user>/Fullname} ({user>/Username})">
 				</Text>
-				<Label text="{i18n>xfld.evoplanVersion}">
+				<Label text="{i18n>xfld.evonotifyVersion}">
 				</Label>
 				<Text text="{InformationModel>/appVersion}">
 				</Text>
