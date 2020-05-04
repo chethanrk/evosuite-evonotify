@@ -56,6 +56,23 @@ sap.ui.define([
 				rootPath: jQuery.sap.getModulePath("com.evorait.evonotify"), // your resource root
 				logoPath: "/assets/img/logo_color_transp_50pxh.png"
 			}), "viewModel");
+			
+			this.setModel(models.createUserModel(this), "user");
+			
+			var aPromises = [];
+			aPromises.push(this._getSystemInformation());
+            //sets user model - model has to be intantiated before any view is loaded
+            Promise.all(aPromises).then(function (data) {
+                this.getModel("user").setData(data[0]);
+                if(data[1].results.length > 0){
+                	this.getModel("navLinks").setData(data[1].results);
+                }
+                // create the views based on the url/hash
+                this.getRouter().initialize();
+            }.bind(this));
+
+			//creates the Information model and sets to the component
+			this.setModel(models.createInformationModel(this), "InformationModel");
 
 			// create the views based on the url/hash
 			this.getRouter().initialize();
@@ -125,6 +142,44 @@ sap.ui.define([
 				oModel = new sap.ui.model.odata.ODataModel(url, true, null, null, oHeader);
 				this.setModel(oModel);
 			}
+		},
+		
+		/**
+		 * Calls the GetSystemInformation 
+		 */
+		_getSystemInformation: function () {
+			return new Promise(function (resolve, reject) {
+				this.getModel().callFunction("/GetSystemInformation", {
+					method: "GET",
+					success: function (oData, oResponse) {
+						resolve(oData);
+						//Handle Success
+						// this.getModel("user").setData(oData);
+						// console.log(oData);
+					}.bind(this),
+					error: function (oError) {
+						//Handle Error
+						reject(oError);
+					}.bind(this)
+				});
+			}.bind(this));
+		},
+		
+		/**
+		 * Calls the GetSystemInformation 
+		 */
+		_getData: function (sUri, aFilters) {
+			return new Promise(function (resolve, reject) {
+				this.getModel().read(sUri, {
+				success: function (oData, oResponse) {
+					resolve(oData);
+				}.bind(this),
+				error: function (oError) {
+					//Handle Error
+					reject(oError);
+				}.bind(this)
+			});
+			}.bind(this));
 		}
 	});
 });
