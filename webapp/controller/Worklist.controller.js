@@ -45,7 +45,6 @@ sap.ui.define([
 
 		/**
 		 * Initialize and open the Information dialog with necessary details
-		 * @Author Rahul
 		 * @param oEvent Button press event
 		 */
 		onIconPress: function (oEvent) {
@@ -59,7 +58,6 @@ sap.ui.define([
 
 		/**
 		 * Closes the information dialog
-		 * @Author Rahul
 		 */
 		onCloseDialog: function () {
 			this._infoDialog.close();
