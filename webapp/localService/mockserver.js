@@ -51,6 +51,19 @@ sap.ui.define([
 						}, sMessage);
 					};
 				};
+ 
+			aRequests.push({
+				method: "GET",
+				path: new RegExp("GetSystemInformation(.*)"),
+				response: function (oXhr, sUrlParams) {
+					jQuery.sap.log.debug("Incoming request for GetSystemInformation");
+					var oResponse = jQuery.sap.sjax({
+						url: sJsonFilesUrl + "/GetSystemInformation.json"
+					});
+					oXhr.respondJSON(200, {}, JSON.stringify(oResponse.data));
+					return true;
+				}
+			});
 
 			// handling the metadata error test
 			if (oUriParameters.get("metadataError")) {
@@ -69,20 +82,6 @@ sap.ui.define([
 					}
 				});
 			}
-
-			aRequests.push({
-				method: "GET",
-				path: new RegExp("GetSystemInformation(.*)"),
-				response: function (oXhr, sUrlParams) {
-					jQuery.sap.log.debug("Incoming request for GetSystemInformation");
-					var oResponse = jQuery.sap.sjax({
-						url: sJsonFilesUrl + "/GetSystemInformation.json"
-					});
-					oXhr.respondJSON(200, {}, JSON.stringify(oResponse.data));
-					return true;
-				}
-			});
-
 			oMockServer.setRequests(aRequests);
 			oMockServer.start();
 
