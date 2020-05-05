@@ -205,6 +205,27 @@
 				<Property Name="CatalogProfile" Type="Edm.String" Nullable="false" MaxLength="9" sap:label="Catalog profile"/>
 				<Property Name="FunctionalLocationDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description"/>
 			</EntityType>
+			<EntityType Name="SystemInformation" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Username"/>
+				</Key>
+				<Property Name="Username" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="User Name"/>
+				<Property Name="Firstname" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="First name"/>
+				<Property Name="Client" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Client"/>
+				<Property Name="Systemid" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="SAP System ID"/>
+				<Property Name="Lastname" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Last name"/>
+				<Property Name="Fullname" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Full Name"/>
+				<Property Name="ServerPath" Type="Edm.String" Nullable="false" sap:label="Server path"/>
+				<Property Name="CoreVersion" Type="Edm.String" Nullable="false" sap:label="Core version"/>
+				<Property Name="IntegrationVersion" Type="Edm.String" Nullable="false" sap:label="Integration version"/>
+				<Property Name="POOL_FUNCTION_ENABLED" Type="Edm.Boolean" sap:label="Is Pool function off" sap:is-extension-field="true"/>
+				<Property Name="ASSET_PLANNING_ENABLED" Type="Edm.Boolean" sap:label="Is Asset Plannin ON?" sap:is-extension-field="true"/>
+				<Property Name="MULTI_ASSIGNMENT_ENABLED" Type="Edm.Boolean" sap:label="Multi Assignment" sap:is-extension-field="true"/>
+				<Property Name="ENABLE_DRAG_DROP" Type="Edm.Boolean" sap:label="DragDrop" sap:is-extension-field="true"/>
+				<Property Name="ENABLE_RESIZE" Type="Edm.Boolean" sap:label="Enable Resize" sap:is-extension-field="true"/>
+				<Property Name="DEFAULT_ORDER_TYPE" Type="Edm.String" MaxLength="4" sap:label="Order Type" sap:is-extension-field="true"/>
+				<Property Name="EMP_ENABLED" Type="Edm.Boolean" sap:label="EMP is on/off" sap:is-extension-field="true"/>
+			</EntityType>
 			<EntityType Name="EquipmentVH" sap:content-version="1">
 				<Key>
 					<PropertyRef Name="EquipmentNumber"/>
@@ -560,6 +581,7 @@
 				<EntitySet Name="PMNotificationPriorityVHSet" EntityType="com.evorait.evocu.evonotify.PMNotificationPriorityVH" sap:content-version="1"/>
 				<EntitySet Name="PMNotificationReportedByVHSet" EntityType="com.evorait.evocu.evonotify.PMNotificationReportedByVH" sap:content-version="1"/>
 				<EntitySet Name="FunctionalLocationVHSet" EntityType="com.evorait.evocu.evonotify.FunctionalLocationVH" sap:content-version="1"/>
+				<EntitySet Name="SystemInformationSet" EntityType="com.evorait.evocu.evonotify.SystemInformation" sap:content-version="1"/>
 				<EntitySet Name="EquipmentVHSet" EntityType="com.evorait.evocu.evonotify.EquipmentVH" sap:content-version="1"/>
 				<EntitySet Name="WorkcenterVHSet" EntityType="com.evorait.evocu.evonotify.WorkcenterVH" sap:content-version="1"/>
 				<EntitySet Name="PMInspectionCodeGrpVHSet" EntityType="com.evorait.evocu.evonotify.PMInspectionCodeGrpVH" sap:content-version="1"/>
@@ -604,6 +626,7 @@
 					<End EntitySet="PMNotificationSet" Role="FromRole_NotificationToTask"/>
 					<End EntitySet="PMNotificationTaskSet" Role="ToRole_NotificationToTask"/>
 				</AssociationSet>
+				<FunctionImport Name="GetSystemInformation" ReturnType="com.evorait.evocu.evonotify.SystemInformation" EntitySet="SystemInformationSet" m:HttpMethod="GET" sap:action-for="com.evorait.evocu.evonotify.SystemInformation"/>
 			</EntityContainer>
 			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification">
 				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">

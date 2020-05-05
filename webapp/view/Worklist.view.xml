@@ -8,6 +8,7 @@
 				</f:heading>
 				<f:actions>
 					<!--<Button icon="sap-icon://alert" text="{= ${message>/}.length }" type="Emphasized" press="onMessageManagerPress"/>-->
+					<Button id="idButtonAboutDialog" icon="sap-icon://sys-help" tooltip="{i18n>tit.infoDialogTitle}" press="onIconPress"/>			
 				</f:actions>
 			</f:DynamicPageTitle>
 		</f:title>

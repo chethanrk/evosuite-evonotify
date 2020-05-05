@@ -57,6 +57,13 @@ sap.ui.define([
 				logoPath: "/assets/img/logo_color_transp_50pxh.png"
 			}), "viewModel");
 
+			this.setModel(models.createUserModel(this), "user");
+
+			this._getSystemInformation();
+
+			//creates the Information model and sets to the component
+			this.setModel(models.createInformationModel(this), "InformationModel");
+
 			// create the views based on the url/hash
 			this.getRouter().initialize();
 		},
@@ -125,6 +132,18 @@ sap.ui.define([
 				oModel = new sap.ui.model.odata.ODataModel(url, true, null, null, oHeader);
 				this.setModel(oModel);
 			}
+		},
+
+		/**
+		 * Calls the GetSystemInformation 
+		 */
+		_getSystemInformation: function () {
+			this.getModel().callFunction("/GetSystemInformation", {
+				method: "GET",
+				success: function (oData, oResponse) {
+					this.getModel("user").setData(oData);
+				}.bind(this)
+			});
 		}
 	});
 });
