@@ -81,6 +81,20 @@ sap.ui.define([
 			return true;
 		},
 		/**
+		 * checks if an notification or item is visible
+		 * Hide/show edit button
+		 * @param isCompleted
+		 * @param isDeleted
+		 * @param isVisible
+		 * @returns {boolean}
+		 */
+		isVisible: function (isCompleted, isDeleted, visible) {
+			if (!visible || isCompleted || isDeleted) {
+				return false;
+			}
+			return true;
+		},
+		/**
 		 * checks if an menuitem of task is visible
 		 * Hide/show menuitem status
 		 * @param isOutstanding
