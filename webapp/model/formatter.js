@@ -88,11 +88,14 @@ sap.ui.define([
 		 * @param isVisible
 		 * @returns {boolean}
 		 */
-		isVisible: function (isCompleted, isDeleted, visible) {
-			if (!visible || isCompleted || isDeleted) {
+		isVisible: function (isCompleted, isDeleted, visible, isEditMode) {
+			if (visible) {
+				if (isCompleted || isDeleted || isEditMode) {
+					return false;
+				}
+				return true;
+			} else
 				return false;
-			}
-			return true;
 		},
 		/**
 		 * checks if an menuitem of task is visible
@@ -181,7 +184,7 @@ sap.ui.define([
 		showItemField: function (isNew, isItem) {
 			return !isNew && !!isItem;
 		},
-		
+
 		formatSortNumber: function (sortNo, max) {
 			return sortNo.length < max ? this.formatSortNumber("0" + sortNo, max) : sortNo;
 		}

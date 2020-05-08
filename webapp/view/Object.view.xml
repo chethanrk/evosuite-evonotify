@@ -8,7 +8,7 @@
 			<uxap:ObjectPageHeader id="objectPageHeader" objectTitle="{NotificationText}" objectSubtitle="{MaintenanceNotification}">
 				<uxap:actions>
 					<uxap:ObjectPageHeaderActionButton id="editNotificationButton" text="{i18n>btn.edit}" hideText="false" press="onPressEdit" type="Emphasized"
-						visible="{parts: ['IsCompleted','IsDeleted','user>/IsNotificationUpdate'], formatter:'.formatter.isVisible'}"/>
+						visible="{parts: ['IsCompleted','IsDeleted','user>/IsNotificationUpdate','viewModel>/editMode'], formatter:'.formatter.isVisible'}"/>
 					<uxap:ObjectPageHeaderActionButton id="cancelNotificationButton" text="{i18n>btn.cancel}" hideText="false" press="onPressCancel"
 						visible="{viewModel>/editMode}"/>
 					<uxap:ObjectPageHeaderActionButton id="saveNotificationButton" text="{i18n>btn.save}" hideText="false" press="onPressSave" type="Emphasized"
