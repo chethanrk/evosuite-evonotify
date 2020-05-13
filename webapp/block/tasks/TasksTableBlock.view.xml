@@ -7,7 +7,7 @@
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
 				<OverflowToolbarButton icon="sap-icon://add" text="Sort" press="onPressAdd"
-					visible="{ parts: [{path: 'IsCompleted'},{path: 'IsDeleted'},{path: 'viewModel>/editMode'}], formatter:'.formatter.editable'}"/>
+					visible="{ parts: [{path: 'IsCompleted'},{path: 'IsDeleted'},{path: 'user>/IsTasksCreate'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 			</OverflowToolbar>
 		</smartTable:customToolbar>
 		<!-- layout data used to make the table growing but the filter bar fixed -->

@@ -15,7 +15,13 @@
 			"ServerPath": "ed1.evorait.net:50003",
 			"CoreVersion": "2.0.11",
 			"IntegrationVersion": "2.0.11",
-			"POOL_FUNCTION_ENABLED": true
+			"POOL_FUNCTION_ENABLED": true,
+			"IsNotificationCreate": true,
+			"IsNotificationUpdate": true,
+			"IsTasksCreate": true,
+			"IsActivitiesCreate": true,
+			"IsItemUpdate": true,
+			"IsCauseCreate": true
 		}]
 	}
 }
