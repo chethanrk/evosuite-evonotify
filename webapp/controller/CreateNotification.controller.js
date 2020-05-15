@@ -94,9 +94,7 @@ sap.ui.define([
 				var mErrors = this.validateForm(this.oForm);
 				//if form is valid save created entry
 				this.saveChanges(mErrors, this._saveCreateSuccessFn.bind(this));
-			} else {
-				//todo show message
-			}
+			} 
 		},
 
 		/* =========================================================== */
