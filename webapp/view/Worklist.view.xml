@@ -36,7 +36,7 @@
 				<smartTable:customToolbar>
 					<OverflowToolbar design="Transparent">
 						<ToolbarSpacer/>
-						<Button icon="sap-icon://add" text="{i18n>btn.createNotification}" press="onAddPress" visible="{user>/IsNotificationCreate}"/>
+						<Button icon="sap-icon://add" text="{i18n>btn.createNotification}" press="onPressCreateNotification" visible="{user>/IsNotificationCreate}"/>
 					</OverflowToolbar>
 				</smartTable:customToolbar>
 				<Table id="responsiveNotificationTable" sticky="ColumnHeaders,HeaderToolbar,InfoToolbar" growing="true">

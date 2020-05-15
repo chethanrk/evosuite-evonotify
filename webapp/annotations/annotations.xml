@@ -5,10 +5,10 @@
 	<edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/Communication.xml">
 		<edmx:Include Alias="vCard" Namespace="com.sap.vocabularies.Communication.v1"/>
 	</edmx:Reference>
-	<edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/Common.xml">
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
 		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
 	</edmx:Reference>
-	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/vocabularies/Org.OData.Core.V1.xml">
+	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/vocabularies/Core.xml">
 		<edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
 	</edmx:Reference>
 	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Measures.V1.xml">
@@ -20,94 +20,182 @@
 	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/cs02/vocabularies/Org.OData.Aggregation.V1.xml">
 		<edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1"/>
 	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/EVOCU/EN_MAIN_SRV/$metadata">
+		<edmx:Include Alias="Metadata" Namespace="com.evorait.evocu.evonotify"/>
+	</edmx:Reference>
 	<edmx:DataServices>
-		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm">
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationActivity">
-				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="evoorder-ui5.annotations.annotations.com.evorait.evocu.evonotify">
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification">
+				<Annotation Term="UI.Facets" Qualifier="createForm">
 					<Collection>
-						<Record Type="com.sap.vocabularies.UI.v1.DataField">
-							<PropertyValue Property="Value" Path="MaintNotificationActivity"/>
-							<Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.Importance/High"/>
-						</Record>
-						<Record Type="com.sap.vocabularies.UI.v1.DataField">
-							<PropertyValue Property="Value" Path="MaintNotifActyTxt"/>
-							<Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.Importance/High"/>
-						</Record>
-						<Record Type="com.sap.vocabularies.UI.v1.DataField">
-							<PropertyValue Property="Value" Path="MaintNotifActivityCodeGroup"/>
-						</Record>
-						<Record Type="com.sap.vocabularies.UI.v1.DataField">
-							<PropertyValue Property="Value" Path="MaintNotifActivityCode"/>
-						</Record>
-						<Record Type="com.sap.vocabularies.UI.v1.DataField">
-							<PropertyValue Property="Value" Path="PlannedStartDate"/>
-						</Record>
-						<Record Type="com.sap.vocabularies.UI.v1.DataField">
-							<PropertyValue Property="Value" Path="PlannedEndDate"/>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#createFormGroup1"/>
+									</Record>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#createFormGroup2"/>
+									</Record>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#longTextGroup"/>
+									</Record>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#createFormGroup4"/>
+									</Record>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#createFormGroup5"/>
+									</Record>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#createFormGroup6"/>
+									</Record>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#createFormGroup7"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+							<PropertyValue Property="Label" String="{@i18n&gt;tit.general}"/>
+							<Annotation Term="Core.Description" String="Form"/>
 						</Record>
 					</Collection>
 				</Annotation>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationTask">
-				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
-					<Collection>
-						<Record Type="com.sap.vocabularies.UI.v1.DataField">
-							<PropertyValue Property="Value" Path="MaintenanceNotificationTask"/>
-							<Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.Importance/High"/>
-						</Record>
-						<Record Type="com.sap.vocabularies.UI.v1.DataField">
-							<PropertyValue Property="Value" Path="MaintNotifTaskText"/>
-							<Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.Importance/High"/>
-						</Record>
-						<Record Type="com.sap.vocabularies.UI.v1.DataField">
-							<PropertyValue Property="Value" Path="MaintNotifTaskCodeGroup"/>
-						</Record>
-						<Record Type="com.sap.vocabularies.UI.v1.DataField">
-							<PropertyValue Property="Value" Path="MaintNotifTaskCode"/>
-						</Record>
-						<Record Type="com.sap.vocabularies.UI.v1.DataField">
-							<PropertyValue Property="Value" Path="PlannedEndDate"/>
-						</Record>
-						<Record Type="com.sap.vocabularies.UI.v1.DataField">
-							<PropertyValue Property="Value" Path="ResponsiblePerson"/>
-						</Record>
-					</Collection>
+				<Annotation Term="UI.FieldGroup" Qualifier="createFormGroup1">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Label" String="{@i18n&gt;tit.sectionGeneral}"/>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="NotificationText"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="NotificationType"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="MaintPriority"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ReportedByUser"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
 				</Annotation>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationItem">
-				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
-					<Collection>
-						<Record Type="com.sap.vocabularies.UI.v1.DataField">
-							<PropertyValue Property="Value" Path="MaintenanceNotificationItem"/>
-							<Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.Importance/High"/>
-						</Record>
-						<Record Type="com.sap.vocabularies.UI.v1.DataField">
-							<PropertyValue Property="Value" Path="MaintNotifItemText"/>
-							<Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.Importance/High"/>
-						</Record>
-						<Record Type="com.sap.vocabularies.UI.v1.DataField">
-							<PropertyValue Property="Value" Path="MaintNotifObjPrtCodeGroup"/>
-						</Record>
-						<Record Type="com.sap.vocabularies.UI.v1.DataField">
-							<PropertyValue Property="Value" Path="MaintNotifObjPrtCode"/>
-						</Record>
-					</Collection>
+				<Annotation Term="UI.FieldGroup" Qualifier="createFormGroup2">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Label" String="{@i18n&gt;tit.sectionMalfunctional}"/>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="MalfunctionStartDate"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="MalfunctionStartTime"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="MalfunctionEndDate"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="MalfunctionEndTime"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
 				</Annotation>
-			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evolite.evonotify.PMNotificationCause">
-				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
-					<Collection>
-						<Record Type="com.sap.vocabularies.UI.v1.DataField">
-							<PropertyValue Property="Value" Path="MaintenanceNotificationCause"/>
-							<Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.Importance/High"/>
-						</Record>
-						<Record Type="com.sap.vocabularies.UI.v1.DataField">
-							<PropertyValue Property="Value" Path="MaintNotifCauseCodeGroup"/>
-						</Record>
-						<Record Type="com.sap.vocabularies.UI.v1.DataField">
-							<PropertyValue Property="Value" Path="MaintNotificationCauseCode"/>
-						</Record>
-					</Collection>
+				<Annotation Term="UI.FieldGroup" Qualifier="longTextGroup">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Label" String="{@i18n&gt;tit.sectionDescription}"/>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Label" String="{@i18n&gt;tit.sectionDescription}"/>
+									<PropertyValue Property="Value" Path="Notes"/>
+									<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<Annotation Term="Core.Description" String="longText"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="createFormGroup4">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Label" String="{@i18n&gt;tit.sectionReferenceObjects}"/>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="FunctionalLocation"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Equipment"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Assembly"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="createFormGroup5">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Label" String="{@i18n&gt;tit.sectionDates}"/>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="RequiredStartDate"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="RequiredStartTime"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="RequiredEndDate"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="RequiredEndTime"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="MaintenanceRevision"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="createFormGroup6">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Label" String="{@i18n&gt;tit.sectionLocation}"/>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="MaintenanceWorkCenterPlant"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="AssetLocation"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ABCIndicator"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="MaintenancePlant"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="createFormGroup7">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Label" String="{@i18n&gt;tit.sectionResponsibility}"/>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="MaintenancePlanningPlant"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="MaintenancePlannerGroup"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="MaintenanceWorkCenter"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
 				</Annotation>
 			</Annotations>
 		</Schema>

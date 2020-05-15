@@ -35,14 +35,16 @@ sap.ui.define([
 		 * Validate smartForm with custom fields
 		 * @public
 		 */
-		validateForm: function (mParams) {
-			var oView = mParams.view || this.getView(),
-				aCustomFields = oView.getControlsByFieldGroupId("CustomFormField"),
-				validatedSmartFields = mParams.form.check(), //SmartForm validation
+		validateForm: function (oForm) {
+			if (!oForm) {
+				return {
+					state: "error"
+				};
+			}
+			var aCustomFields = this.getView().getControlsByFieldGroupId("CustomFormField"),
+				validatedSmartFields = oForm.check(), //SmartForm validation
 				isValid = (validatedSmartFields.length === 0),
 				invalidFields = validatedSmartFields;
-
-			//console.log(mParams.form.check());
 
 			//validate custom input fields
 			for (var i = 0; i < aCustomFields.length; i++) {
@@ -61,7 +63,58 @@ sap.ui.define([
 					}
 				}
 			}
-			return isValid;
+
+			if (isValid) {
+				return {
+					state: "success"
+				};
+			} else {
+				return {
+					state: "error",
+					fields: invalidFields
+				};
+			}
+		},
+
+		/**
+		 * Form is valid now so send to sap
+		 * @param oEvent
+		 */
+		saveChanges: function (mParams, oSuccessCallback) {
+			var oViewModel = this.getView().getModel("viewModel");
+
+			if (mParams.state === "success") {
+				oViewModel.setProperty("/busy", true);
+				this.getView().getModel().submitChanges({
+					success: function (oResponse) {
+						oSuccessCallback(oResponse);
+						this.oViewModel.setProperty("/busy", false);
+					}.bind(this),
+					error: function (oError) {
+						oViewModel.setProperty("/busy", false);
+						this.showSaveErrorPrompt(oError);
+					}.bind(this)
+				});
+			} else if (mParams.state === "error") {
+				//var aErrorFields = mParams.fields;
+			}
+		},
+
+		/**
+		 * picks out the change response data from a batch call
+		 * Need for create entries 
+		 * Example: CreateNotification _saveCreateSuccessFn
+		 * @param oResponse
+		 */
+		_getBatchChangeRepsonse: function (oResponse) {
+			var batch = oResponse.__batchResponses[0];
+			//success
+			if (batch.__changeResponses) {
+				if (batch && (batch.__changeResponses[0].data)) {
+					return batch.__changeResponses[0].data;
+				}
+			}
+			return null;
 		},
 
 		/**

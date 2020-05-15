@@ -39,8 +39,8 @@ sap.ui.define([
 			});
 		},
 
-		onAddPress: function () {
-			this.getRouter().navTo("objectNew");
+		onPressCreateNotification: function () {
+			this.getRouter().navTo("CreateNotification", {});
 		},
 
 		/**
