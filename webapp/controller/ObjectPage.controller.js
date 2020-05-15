@@ -6,7 +6,7 @@ sap.ui.define([
 ], function (BaseController, formatter, CoreView, ViewType) {
 	"use strict";
 
-	return BaseController.extend("com.evorait.evonotify.controller.ObjectNew", {
+	return BaseController.extend("com.evorait.evonotify.controller.ObjectPage", {
 
 		formatter: formatter,
 
@@ -31,17 +31,6 @@ sap.ui.define([
 				var sViewName = "com.evorait.evonotify.view.templates.CreateNotification";
 				this._onRouteMatched(oEvent, sViewName, "_getCreateEntryPath", "PMNotificationSet");
 			}, this);
-
-			//route for page order details
-			// oRouter.getRoute("OrderDetail").attachMatched(function (oEvent) {
-			// 	this.oViewModel.setProperty("/route", "OrderDetail");
-			// 	var oArgs = oEvent.getParameter("arguments"),
-			// 		sViewName = "com.evorait.evonotify.view.templates.OrderDetail",
-			// 		mParams = {
-			// 			WorkOrder: oArgs.WorkOrder
-			// 		};
-			// 	this._onRouteMatched(oEvent, sViewName, "_getExistEntryPath", "WOHeaderSet", mParams);
-			// }, this);
 		},
 
 		/**
