@@ -6,32 +6,6 @@ sap.ui.define([
 	return BaseController.extend("com.evorait.evonotify.controller.FormController", {
 
 		/**
-		 * reset form and close editable state
-		 * delete new created entry and nav back
-		 */
-		cancelFormHandling: function (doNavBack) {
-			var isNew = this.getModel("viewModel").getProperty("/isNew"),
-				isEditMode = this.getModel("viewModel").getProperty("/editMode");
-
-			if (isEditMode && !isNew) {
-				if (this.getView().getModel().hasPendingChanges()) {
-					var sPath = this.getView().getBindingContext().getPath();
-					this.confirmEditCancelDialog(sPath, doNavBack);
-					return;
-				} else {
-					this.getModel("viewModel").setProperty("/editMode", false);
-				}
-				if (doNavBack) {
-					this.getView().unbindElement();
-					this.navBack();
-				}
-			}
-			if (isNew) {
-				this.confirmEditCancelDialog();
-			}
-		},
-
-		/**
 		 * Validate smartForm with custom fields
 		 * @public
 		 */
@@ -80,23 +54,36 @@ sap.ui.define([
 		 * Form is valid now so send to sap
 		 * @param oEvent
 		 */
-		saveChanges: function (mParams, oSuccessCallback) {
-			var oViewModel = this.getView().getModel("viewModel");
-
+		saveChanges: function (mParams, oSuccessCallback, oErrorCallback, oCtrl) {
 			if (mParams.state === "success") {
-				oViewModel.setProperty("/busy", true);
+				this._setBusyWhileSaving(oCtrl, true);
+
 				this.getView().getModel().submitChanges({
 					success: function (oResponse) {
-						oSuccessCallback(oResponse);
-						this.oViewModel.setProperty("/busy", false);
+						this._setBusyWhileSaving(oCtrl, false);
+						this.getView().getModel("viewModel").setProperty("/busy", false);
+						if (oSuccessCallback) {
+							oSuccessCallback(oResponse);
+						}
 					}.bind(this),
 					error: function (oError) {
-						oViewModel.setProperty("/busy", false);
+						this._setBusyWhileSaving(oCtrl, false);
 						this.showSaveErrorPrompt(oError);
+						if (oErrorCallback) {
+							oErrorCallback(oError);
+						}
 					}.bind(this)
 				});
 			} else if (mParams.state === "error") {
 				//var aErrorFields = mParams.fields;
+			}
+		},
+
+		_setBusyWhileSaving: function (oCtrl, bIsInProgress) {
+			if (oCtrl) {
+				oCtrl.setBusy(bIsInProgress);
+			} else {
+				this.getView().getModel("viewModel").setProperty("/busy", bIsInProgress);
 			}
 		},
 
@@ -106,7 +93,7 @@ sap.ui.define([
 		 * Example: CreateNotification _saveCreateSuccessFn
 		 * @param oResponse
 		 */
-		_getBatchChangeRepsonse: function (oResponse) {
+		_getBatchChangeResponse: function (oResponse) {
 			var batch = oResponse.__batchResponses[0];
 			//success
 			if (batch.__changeResponses) {
@@ -118,57 +105,21 @@ sap.ui.define([
 		},
 
 		/**
-		 * Show dialog when user wants to cancel change/creation of an entry
-		 * @private
+		 * returns a SmartField from a SmartForm by name
+		 * @param sName
+		 * @param oForm
 		 */
-		confirmEditCancelDialog: function (sPath, doNavBack) {
-			var oResoucreBundle = this.getResourceBundle(),
-				oViewModel = this.getModel("viewModel"),
-				isNew = oViewModel.getProperty("/isNew");
-
-			var dialog = new sap.m.Dialog({
-				title: oResoucreBundle.getText("tit.cancelCreate"),
-				type: "Message",
-				content: new sap.m.Text({
-					text: oResoucreBundle.getText("msg.leaveWithoutSave")
-				}),
-				beginButton: new sap.m.Button({
-					text: oResoucreBundle.getText("btn.confirm"),
-					press: function () {
-						dialog.close();
-						var oContext = this.getView().getBindingContext();
-
-						if (isNew) {
-							//delete created entry
-							this.navBack();
-							this.getModel().deleteCreatedEntry(oContext);
-							oViewModel.setProperty("/isNew", false);
-						} else {
-							//reset changes from object path
-							this.getModel().resetChanges([sPath]);
-							if (doNavBack) {
-								//on edit cancel and nav back unbind object
-								this.getView().unbindElement();
-								this.navBack();
-							}
-						}
-						oViewModel.setProperty("/editMode", false);
-					}.bind(this)
-				}),
-				endButton: new sap.m.Button({
-					text: oResoucreBundle.getText("btn.no"),
-					press: function () {
-						dialog.close();
-					}
-				}),
-				afterClose: function () {
-					dialog.destroy();
+		getFormFieldByName: function (sName, oForm) {
+			if (!sName || !oForm) {
+				return null;
+			}
+			var aSmartFields = oForm.getSmartFields();
+			for (var i = 0; aSmartFields.length > i; i++) {
+				if (aSmartFields[i].getName() === sName) {
+					return aSmartFields[i];
 				}
-			});
-
-			dialog.open();
+			}
+			return null;
 		}
-
 	});
-
 });

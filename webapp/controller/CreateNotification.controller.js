@@ -16,11 +16,7 @@ sap.ui.define([
 		 * worklist on init
 		 */
 		onInit: function () {
-			var oRouter = this.getRouter();
-			//route for page create new order
-			oRouter.getRoute("CreateNotification").attachMatched(function (oEvent) {
-				this._initializeView();
-			}, this);
+			this.oViewModel = this.getModel("viewModel");			
 		},
 
 		/**
@@ -34,19 +30,17 @@ sap.ui.define([
 		onAfterRendering: function () {
 			this._initializeView();
 		},
-		
+
 		/**
 		 * 
 		 */
 		_initializeView: function () {
-			this.oViewModel = this.getModel("viewModel");
+			this.oForm = this.getView().byId("smartFormTemplate");
+			this.oForm.setEditable(true);
+
 			this.oViewModel.setProperty("/route", "CreateNotification");
 			this.oViewModel.setProperty("/editMode", true);
 			this.oViewModel.setProperty("/isNew", true);
-
-			setTimeout(function () {
-				this.oForm = this.getView().byId("smartFormTemplate");
-			}.bind(this), 500);
 		},
 
 		/**
@@ -107,7 +101,7 @@ sap.ui.define([
 		 */
 		_saveCreateSuccessFn: function (oResponse) {
 			var notificationId = null,
-				oChangeData = this._getBatchChangeRepsonse(oResponse);
+				oChangeData = this._getBatchChangeResponse(oResponse);
 
 			if (oChangeData) {
 				notificationId = oChangeData.MaintenanceNotification;

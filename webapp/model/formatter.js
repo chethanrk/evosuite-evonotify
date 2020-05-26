@@ -13,6 +13,11 @@ sap.ui.define([
 
 	return {
 
+		getLogoImageLink: function () {
+			var path = $.sap.getModulePath("com.evorait.evonotify", "/assets/img/logo_color_transp_50pxh.png");
+			return path;
+		},
+
 		/**
 		 * Rounds the number unit value to 2 digits
 		 * @public

@@ -3,7 +3,7 @@
 	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1">
 	<smartForm:SmartForm id="smartFormTemplate" app:defaultCheckBoxDisplayBehaviour="OnOff"
-		app:defaultDropDownDisplayBehaviour="idAndDescription" editTogglable="false" editable="{= ${viewModel>/editMode} }">
+		app:defaultDropDownDisplayBehaviour="idAndDescription" editTogglable="false" editable="false">
 		<smartForm:layout>
 			<smartForm:Layout labelSpanXL="3" labelSpanL="5" labelSpanM="5" labelSpanS="12" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
 				columnsXL="4" columnsL="3" columnsM="2"></smartForm:Layout>
@@ -32,8 +32,7 @@
 									</smartForm:GroupElement>
 								</template:then>
 								<template:else>
-									<!--<smartForm:Group label="{path:'data>Label',formatter:'.AH.format'}">-->
-										<smartForm:GroupElement>
+									<smartForm:GroupElement>
 										<smartField:SmartField value="{path:'data>Value',formatter:'.AH.simplePath'}" name="{path:'data>Org.OData.Core.V1.ContentID/String'}"
 											change="onChangeSmartField"
 											mandatory="{= ${data>com.sap.vocabularies.Common.v1.FieldControl/EnumMember} === 'com.sap.vocabularies.Common.v1.FieldControlType/Mandatory'}">
@@ -42,7 +41,6 @@
 											</smartField:configuration>
 										</smartField:SmartField>
 									</smartForm:GroupElement>
-									<!--</smartForm:Group>-->
 								</template:else>
 							</template:if>
 						</template:repeat>
