@@ -17,17 +17,22 @@ sap.ui.define([
 		onInit: function () {
 			this.oViewModel = this.getModel("viewModel");
 
-			var oRouter = this.getRouter(),
-				sHash = this.getCurrentHash();
+			var oRouter = this.getRouter();
 
-			//route for page create new notification
-			if (oRouter.getRoute("CreateNotification").match(sHash)) {
-				oRouter.getRoute("CreateNotification").attachPatternMatched(function (oEvent) {
-					var sViewName = "com.evorait.evonotify.view.templates.CreateNotification#Create";
-					this._onRouteMatched(oEvent, sViewName, "PMNotificationSet");
-				}, this);
+			if (!this.oViewModel.getProperty("/bObjectPageRouteMatchAttached")) {
+				oRouter.attachRouteMatched(function (oEvent) {
+					this.oViewModel.setProperty("/bObjectPageRouteMatchAttached", true);
+
+					var sRouteName = oEvent.getParameter("name"),
+						sViewName = null;
+
+					//route for page create new notification
+					if (sRouteName === "CreateNotification") {
+						sViewName = "com.evorait.evonotify.view.templates.CreateNotification#Create";
+						this._onRouteMatched(oEvent, sViewName, "PMNotificationSet");
+					}
+				}.bind(this));
 			}
-
 		},
 
 		/**

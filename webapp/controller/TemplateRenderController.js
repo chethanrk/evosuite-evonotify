@@ -98,8 +98,8 @@ sap.ui.define([
 				if (this.mTemplates[sViewName]) {
 					//when template was already in use then just integrate in viewContainer and bind new path
 					//will improve performance
-					this.bindView(this.mTemplates[sViewName], sPath, callbackFn);
 					oViewContainer.insertContent(this.mTemplates[sViewName]);
+					this.bindView(this.mTemplates[sViewName], sPath, callbackFn);
 				} else {
 					//load template view ansync and interpret annotations based on metadata model
 					//and bind view path and save interpreted template global for reload
@@ -109,13 +109,13 @@ sap.ui.define([
 						//insert rendered template in content and bind path
 						var setTemplateAndBind = function (oTemplateView) {
 							this.mTemplates[sViewName] = oTemplateView;
-							this.bindView(oTemplateView, sPath, callbackFn);
 							oViewContainer.insertContent(oTemplateView);
+							this.bindView(oTemplateView, sPath, callbackFn);
 						}.bind(this);
 
 						if (sControllerName) {
 							Controller.create({
-								name: "com.evorait.evoorder.controller." + sControllerName
+								name: "com.evorait.evonotify.controller." + sControllerName
 							}).then(function (controller) {
 								this.createView(oModel, oMetaModel, sPath, sViewName, controller).then(setTemplateAndBind);
 							}.bind(this));
@@ -189,6 +189,13 @@ sap.ui.define([
 				path: sPath,
 				events: {
 					change: function () {
+						var sViewName = this._joinTemplateViewNameId(oView.getId(), oView.getViewName()),
+							eventBus = sap.ui.getCore().getEventBus();
+
+						eventBus.publish("TemplateRenderer", "changedBinding", {
+							viewNameId: sViewName
+						});
+
 						if (callbackFn) {
 							callbackFn();
 						}
@@ -201,7 +208,7 @@ sap.ui.define([
 
 		/**
 		 * get view name or view id
-		 * input example: com.evorait.evoorder.view.templates.SmartFormWrapper#addOperation
+		 * input example: com.evorait.evonotify.view.templates.SmartFormWrapper#addOperation
 		 * @param sViewName
 		 * @param getId
 		 */
@@ -215,7 +222,7 @@ sap.ui.define([
 
 		/**
 		 * join fragment name and Id together again
-		 * input example: "addOperation", "com.evorait.evoorder.view.templates.SmartFormWrapper"
+		 * input example: "addOperation", "com.evorait.evonotify.view.templates.SmartFormWrapper"
 		 * @param sViewId
 		 * @param sViewName
 		 */

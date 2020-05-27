@@ -16,7 +16,7 @@ sap.ui.define([
 		 * worklist on init
 		 */
 		onInit: function () {
-			this.oViewModel = this.getModel("viewModel");			
+			this.oViewModel = this.getModel("viewModel");
 		},
 
 		/**
@@ -38,7 +38,6 @@ sap.ui.define([
 			this.oForm = this.getView().byId("smartFormTemplate");
 			this.oForm.setEditable(true);
 
-			this.oViewModel.setProperty("/route", "CreateNotification");
 			this.oViewModel.setProperty("/editMode", true);
 			this.oViewModel.setProperty("/isNew", true);
 		},
@@ -88,7 +87,7 @@ sap.ui.define([
 				var mErrors = this.validateForm(this.oForm);
 				//if form is valid save created entry
 				this.saveChanges(mErrors, this._saveCreateSuccessFn.bind(this));
-			} 
+			}
 		},
 
 		/* =========================================================== */

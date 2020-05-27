@@ -34,8 +34,9 @@
 								<template:else>
 									<smartForm:GroupElement>
 										<smartField:SmartField value="{path:'data>Value',formatter:'.AH.simplePath'}" name="{path:'data>Org.OData.Core.V1.ContentID/String'}"
-											change="onChangeSmartField"
-											mandatory="{= ${data>com.sap.vocabularies.Common.v1.FieldControl/EnumMember} === 'com.sap.vocabularies.Common.v1.FieldControlType/Mandatory'}">
+											change="onChangeSmartField" uomEditable="false"
+											editable="{:= ${data>com.sap.vocabularies.Common.v1.FieldControl/EnumMember} === 'com.sap.vocabularies.Common.v1.FieldControlType/ReadOnly' ? false : true}"
+											mandatory="{:= ${data>com.sap.vocabularies.Common.v1.FieldControl/EnumMember} === 'com.sap.vocabularies.Common.v1.FieldControlType/Mandatory'}">
 											<smartField:configuration>
 												<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId" preventInitialDataFetchInValueHelpDialog="false"/>
 											</smartField:configuration>
