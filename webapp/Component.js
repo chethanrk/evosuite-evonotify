@@ -3,8 +3,11 @@ sap.ui.define([
 	"sap/ui/Device",
 	"com/evorait/evonotify/model/models",
 	"com/evorait/evonotify/controller/ErrorHandler",
-	"com/evorait/evonotify/controller/AddEditEntryDialog"
-], function (UIComponent, Device, models, ErrorHandler, AddEditEntryDialog) {
+	"com/evorait/evonotify/controller/AddEditEntryDialog",
+    "com/evorait/evonotify/model/Constants",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator"
+], function (UIComponent, Device, models, ErrorHandler, AddEditEntryDialog, Constants, Filter, FilterOperator) {
 	"use strict";
 
 	return UIComponent.extend("com.evorait.evonotify.Component", {
@@ -54,7 +57,8 @@ sap.ui.define([
 				taskViewPath: "",
 				actViewPath: "",
 				rootPath: jQuery.sap.getModulePath("com.evorait.evonotify"), // your resource root
-				logoPath: "/assets/img/logo_color_transp_50pxh.png"
+				logoPath: "/assets/img/logo_color_transp_50pxh.png",
+                launchMode:Constants.LAUNCH_MODE.BSP
 			}), "viewModel");
 
 			this.setModel(models.createUserModel(this), "user");
@@ -63,6 +67,18 @@ sap.ui.define([
 
 			//creates the Information model and sets to the component
 			this.setModel(models.createInformationModel(this), "InformationModel");
+
+            //Creating the Global assignment model for assignInfo Dialog
+            this.setModel(models.createNavLinksModel([]), "navLinks");
+
+            if(sap.ushell && sap.ushell.Container){
+                this.getModel("viewModel").setProperty("/launchMode",Constants.LAUNCH_MODE.FIORI);
+            }
+
+            this._getData("/NavigationLinks",[new Filter("LaunchMode",FilterOperator.EQ, this.getModel("viewModel").getProperty("/launchMode"))]).
+            then(function(data){
+                this.getModel("navLinks").setData(data.results);
+            }.bind(this));
 
 			// create the views based on the url/hash
 			this.getRouter().initialize();
@@ -144,6 +160,23 @@ sap.ui.define([
 					this.getModel("user").setData(oData);
 				}.bind(this)
 			});
-		}
+		},
+        /**
+         *  Read call given entityset and filters
+         */
+        _getData: function (sUri, aFilters) {
+            return new Promise(function (resolve, reject) {
+                this.getModel().read(sUri, {
+                    filters:aFilters,
+                    success: function (oData, oResponse) {
+                        resolve(oData);
+                    }.bind(this),
+                    error: function (oError) {
+                        //Handle Error
+                        reject(oError);
+                    }.bind(this)
+                });
+            }.bind(this));
+        }
 	});
 });
