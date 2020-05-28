@@ -21,7 +21,8 @@
 					"odataVersion": "2.0",
 					"localUri": "localService/metadata.xml",
 					"annotations": [
-						"annotations"]
+						"annotations"
+					]
 				}
 			},
 			"annotations": {
@@ -58,11 +59,11 @@
 			"id": "App"
 		},
 		"dependencies": {
-			"minUI5Version": "1.65.6",
+			"minUI5Version": "1.62.0",
 			"libs": {
-				"sap.ui.layout": {},
+				"sap.m": {},
 				"sap.ui.core": {},
-				"sap.m": {}
+				"sap.ui.layout": {}
 			}
 		},
 		"contentDensities": {
@@ -127,7 +128,6 @@
 						"worklist"
 					]
 				},
-				
 				{
 					"pattern": "Notification/new",
 					"name": "CreateNotification",
