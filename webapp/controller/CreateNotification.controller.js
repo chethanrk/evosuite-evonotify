@@ -17,6 +17,11 @@ sap.ui.define([
 		 */
 		onInit: function () {
 			this.oViewModel = this.getModel("viewModel");
+			var oRouter = this.getRouter();
+			//route for page create new order
+			oRouter.getRoute("CreateNotification").attachMatched(function (oEvent) {
+				this._initializeView();
+			}, this);
 		},
 
 		/**
