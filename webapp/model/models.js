@@ -36,6 +36,12 @@ sap.ui.define([
 			var oModel = new JSONModel(User);
 			oModel.setDefaultBindingMode("OneWay");
 			return oModel;
+		},
+
+		createNavLinksModel: function (NavLinks) {
+			var oModel = new JSONModel(NavLinks);
+			oModel.setDefaultBindingMode("TwoWay");
+			return oModel;
 		}
 
 	};

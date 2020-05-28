@@ -15,3 +15,9 @@ preview.json
 cp.project.properties.json
 /.user.project.json
 /dist/
+/mta_archives/
+AppVariant_index.html
+AppVariantPreviewPayload.zip
+mergedManifestDescriptor.json
+APIExternalProducer.js
+.*/APIExternalProducer.js

@@ -4,10 +4,10 @@ sap.ui.define([
 	"com/evorait/evonotify/model/models",
 	"com/evorait/evonotify/controller/ErrorHandler",
 	"com/evorait/evonotify/controller/AddEditEntryDialog",
-    "com/evorait/evonotify/controller/FormDialogController",
-    "com/evorait/evonotify/model/Constants",
-    "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
+	"com/evorait/evonotify/controller/FormDialogController",
+	"com/evorait/evonotify/model/Constants",
+	"sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator"
 ], function (UIComponent, Device, models, ErrorHandler, AddEditEntryDialog, FormDialogController, Constants, Filter, FilterOperator) {
 	"use strict";
 
@@ -53,7 +53,7 @@ sap.ui.define([
 				editMode: false,
 				isNew: false,
 				operationsRowsCount: 0,
-                launchMode:Constants.LAUNCH_MODE.BSP
+				launchMode: Constants.LAUNCH_MODE.BSP
 			};
 
 			this.setModel(models.createHelperModel(viewModelObj), "viewModel");
@@ -66,14 +66,18 @@ sap.ui.define([
 
 			this._getSystemInformation();
 
-            if(sap.ushell && sap.ushell.Container){
-                this.getModel("viewModel").setProperty("/launchMode",Constants.LAUNCH_MODE.FIORI);
-            }
+			//Creating the Global assignment model for assignInfo Dialog
+			this.setModel(models.createNavLinksModel([]), "navLinks");
 
-            // this._getData("/NavigationLinks",[new Filter("LaunchMode",FilterOperator.EQ, this.getModel("viewModel").getProperty("/launchMode"))]).
-            // then(function(data){
-            //     this.getModel("navLinks").setData(data.results);
-            // }.bind(this));
+			if (sap.ushell && sap.ushell.Container) {
+				this.getModel("viewModel").setProperty("/launchMode", Constants.LAUNCH_MODE.FIORI);
+			}
+
+			this._getData("/NavigationLinks", [new Filter("LaunchMode", FilterOperator.EQ, this.getModel("viewModel").getProperty("/launchMode"))])
+				.
+			then(function (data) {
+				this.getModel("navLinks").setData(data.results);
+			}.bind(this));
 
 			// create the views based on the url/hash
 			this.getRouter().initialize();
@@ -122,23 +126,22 @@ sap.ui.define([
 				}.bind(this)
 			});
 		},
-        /**
-         * Calls the GetSystemInformation
-         */
-        _getData: function (sUri, aFilters) {
-            return new Promise(function (resolve, reject) {
-                this.getModel().read(sUri, {
-                    filters:aFilters,
-                    success: function (oData, oResponse) {
-                        resolve(oData);
-                    }.bind(this),
-                    error: function (oError) {
-                        //Handle Error
-                        reject(oError);
-                    }.bind(this)
-                });
-            }.bind(this));
-        }
+		/**
+		 *  Read call given entityset and filters
+		 */
+		_getData: function (sUri, aFilters) {
+			return new Promise(function (resolve, reject) {
+				this.getModel().read(sUri, {
+					filters: aFilters,
+					success: function (oData, oResponse) {
+						resolve(oData);
+					}.bind(this),
+					error: function (oError) {
+						//Handle Error
+						reject(oError);
+					}.bind(this)
+				});
+			}.bind(this));
+		}
 	});
-
 });

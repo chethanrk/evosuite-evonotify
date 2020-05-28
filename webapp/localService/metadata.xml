@@ -477,6 +477,17 @@
 				<Property Name="PriorityType" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="PriorityType"/>
 				<Property Name="NotificationTypeText" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="NotifcatnType"/>
 			</EntityType>
+			<EntityType Name="NavigationLink" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="ApplicationId"/>
+					<PropertyRef Name="LaunchMode"/>
+				</Key>
+				<Property Name="ApplicationName" Type="Edm.String" Nullable="false" MaxLength="60" sap:label="Nav App description"/>
+				<Property Name="ApplicationId" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Application Id"/>
+				<Property Name="LaunchMode" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Launch Mode"/>
+				<Property Name="Value1" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="UI Hyperlink Value1"/>
+				<Property Name="Value2" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="UI Hyperlink Value2"/>
+			</EntityType>
 			<EntityType Name="PMInspectionCodeVH" sap:content-version="1">
 				<Key>
 					<PropertyRef Name="MaintNotifCatalog"/>
@@ -596,6 +607,7 @@
 				<EntitySet Name="PMInspectionCodeVHSet" EntityType="com.evorait.evocu.evonotify.PMInspectionCodeVH" sap:content-version="1"/>
 				<EntitySet Name="PMNotificationTaskProcessorVHSet" EntityType="com.evorait.evocu.evonotify.PMNotificationTaskProcessorVH"
 					sap:content-version="1"/>
+				<EntitySet Name="NavigationLinks" EntityType="com.evorait.evocu.evonotify.NavigationLink" sap:content-version="1"/>
 				<AssociationSet Name="NotificationToItemSet" Association="com.evorait.evocu.evonotify.NotificationToItem" sap:creatable="false"
 					sap:updatable="false" sap:deletable="false" sap:content-version="1">
 					<End EntitySet="PMNotificationSet" Role="FromRole_NotificationToItem"/>
@@ -626,7 +638,8 @@
 					<End EntitySet="PMNotificationSet" Role="FromRole_NotificationToTask"/>
 					<End EntitySet="PMNotificationTaskSet" Role="ToRole_NotificationToTask"/>
 				</AssociationSet>
-				<FunctionImport Name="GetSystemInformation" ReturnType="com.evorait.evocu.evonotify.SystemInformation" EntitySet="SystemInformationSet" m:HttpMethod="GET" sap:action-for="com.evorait.evocu.evonotify.SystemInformation"/>
+				<FunctionImport Name="GetSystemInformation" ReturnType="com.evorait.evocu.evonotify.SystemInformation" EntitySet="SystemInformationSet"
+					m:HttpMethod="GET" sap:action-for="com.evorait.evocu.evonotify.SystemInformation"/>
 			</EntityContainer>
 			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification">
 				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">

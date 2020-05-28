@@ -7,8 +7,9 @@ sap.ui.define([
 	"sap/m/Text",
 	"sap/m/MessageToast",
 	"sap/ui/model/Filter",
-	"sap/ui/model/FilterOperator"
-], function (Controller, JSONModel, History, Dialog, Button, Text, MessageToast, Filter, FilterOperator) {
+	"sap/ui/model/FilterOperator",
+	"com/evorait/evonotify/model/Constants"
+], function (Controller, JSONModel, History, Dialog, Button, Text, MessageToast, Filter, FilterOperator, Constants) {
 	"use strict";
 
 	return Controller.extend("com.evorait.evonotify.controller.BaseController", {
@@ -351,6 +352,63 @@ sap.ui.define([
 					}
 				});
 			}.bind(this));
+		},
+		/**
+		 * get respective navigation details
+		 */
+		_getAppInfo: function (sAppID) {
+			var aNavLinks = this.getModel("navLinks").getProperty("/");
+			for (var i in aNavLinks) {
+				if (aNavLinks[i].ApplicationId === sAppID) {
+					return aNavLinks[i];
+				}
+			}
+			return null;
+		},
+		/**
+		 *	Navigates to evoOrder detail page with static url.
+		 */
+		openEvoAPP: function (sKeyParameter, sAppID) {
+			var sUri, sSemanticObject, sParameter,
+				sAction,
+				sAdditionInfo,
+				sLaunchMode = this.getModel("viewModel").getProperty("/launchMode"),
+				oAppInfo = this._getAppInfo(sAppID);
+
+			// if there is no configuration maintained in the backend
+			if (oAppInfo === null) {
+				return;
+			}
+
+			if (sLaunchMode === Constants.LAUNCH_MODE.FIORI) {
+				sAdditionInfo = oAppInfo.Value1 || "";
+				sSemanticObject = sAdditionInfo.split("\\\\_\\\\")[0];
+				sAction = sAdditionInfo.split("\\\\_\\\\")[1] || "dispatch";
+				sParameter = sAdditionInfo.split("\\\\_\\\\")[2];
+				if (sSemanticObject && sAction) {
+					this.navToApp(sSemanticObject, sAction, sParameter, sKeyParameter);
+				}
+				return;
+			} else {
+				sAdditionInfo = oAppInfo.Value1;
+				sUri = (sAdditionInfo).replace("\\place_h1\\", sKeyParameter);
+				window.open(sUri, "_blank");
+			}
+		},
+		navToApp: function (sSemanticObject, sAction, sParameter, sKeyParameter) {
+			var oCrossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation");
+			var sHash = (oCrossAppNavigator && oCrossAppNavigator.hrefForExternal({
+				target: {
+					semanticObject: sSemanticObject,
+					action: sAction
+				}
+			})) || ""; // generate the Hash to display a Notification details app
+
+			oCrossAppNavigator.toExternal({
+				target: {
+					shellHash: sHash + "&/" + sParameter + "/" + sKeyParameter
+				}
+			});
 		}
 
 	});
