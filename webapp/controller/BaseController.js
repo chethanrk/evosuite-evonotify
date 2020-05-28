@@ -8,13 +8,13 @@ sap.ui.define([
 	"sap/m/MessageToast",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-	"com/evorait/evonotify/model/Constants"
+    "com/evorait/evonotify/model/Constants"
 ], function (Controller, JSONModel, History, Dialog, Button, Text, MessageToast, Filter, FilterOperator, Constants) {
 	"use strict";
 
 	return Controller.extend("com.evorait.evonotify.controller.BaseController", {
 		/**
-		 * Convenience method for accessing the router in every controller of the application.
+		 * Convenience method for accessing the router.
 		 * @public
 		 * @returns {sap.ui.core.routing.Router} the router for this component
 		 */
@@ -23,9 +23,9 @@ sap.ui.define([
 		},
 
 		/**
-		 * Convenience method for getting the view model by name in every controller of the application.
+		 * Convenience method for getting the view model by name.
 		 * @public
-		 * @param {string} sName the model name
+		 * @param {string} [sName] the model name
 		 * @returns {sap.ui.model.Model} the model instance
 		 */
 		getModel: function (sName) {
@@ -36,7 +36,7 @@ sap.ui.define([
 		},
 
 		/**
-		 * Convenience method for setting the view model in every controller of the application.
+		 * Convenience method for setting the view model.
 		 * @public
 		 * @param {sap.ui.model.Model} oModel the model instance
 		 * @param {string} sName the model name
@@ -44,19 +44,7 @@ sap.ui.define([
 		 */
 		setModel: function (oModel, sName) {
 			return this.getView().setModel(oModel, sName);
-		},
-
-		/**
-		 * Convenience method for getting the resource bundle.
-		 * @public
-		 * @returns {sap.ui.model.resource.ResourceModel} the resourceModel of the component
-		 */
-		getResourceBundle: function () {
-			if (this.getOwnerComponent()) {
-				return this.getOwnerComponent().getModel("i18n").getResourceBundle();
-			}
-			return this.getView().getModel("i18n").getResourceBundle();
-		},
+		},,
 
 		/**
 		 * get current hash 
@@ -85,6 +73,18 @@ sap.ui.define([
 
 		onNavToList: function () {
 			this.getRouter().navTo("worklist", {}, true);
+		},
+
+		/**
+		 * Convenience method for getting the resource bundle.
+		 * @public
+		 * @returns {sap.ui.model.resource.ResourceModel} the resourceModel of the component
+		 */
+		getResourceBundle: function () {
+			if (this.getOwnerComponent()) {
+				return this.getOwnerComponent().getModel("i18n").getResourceBundle();
+			}
+			return this.getView().getModel("i18n").getResourceBundle();
 		},
 
 		/**
@@ -353,63 +353,63 @@ sap.ui.define([
 				});
 			}.bind(this));
 		},
-		/**
-		 * get respective navigation details
-		 */
-		_getAppInfo: function (sAppID) {
-			var aNavLinks = this.getModel("navLinks").getProperty("/");
-			for (var i in aNavLinks) {
-				if (aNavLinks[i].ApplicationId === sAppID) {
-					return aNavLinks[i];
-				}
-			}
-			return null;
-		},
-		/**
-		 *	Navigates to evoOrder detail page with static url.
-		 */
-		openEvoAPP: function (sKeyParameter, sAppID) {
-			var sUri, sSemanticObject, sParameter,
-				sAction,
-				sAdditionInfo,
-				sLaunchMode = this.getModel("viewModel").getProperty("/launchMode"),
-				oAppInfo = this._getAppInfo(sAppID);
+        /**
+         * get respective navigation details
+         */
+        _getAppInfo : function(sAppID){
+            var aNavLinks = this.getModel("navLinks").getProperty("/");
+            for(var i in aNavLinks){
+                if(aNavLinks[i].ApplicationId === sAppID){
+                    return aNavLinks[i];
+                }
+            }
+            return null;
+        },
+        /**
+         *	Navigates to evoOrder detail page with static url.
+         */
+        openEvoAPP: function (sKeyParameter, sAppID) {
+            var sUri, sSemanticObject, sParameter,
+                sAction,
+                sAdditionInfo,
+                sLaunchMode = this.getModel("viewModel").getProperty("/launchMode"),
+                oAppInfo = this._getAppInfo(sAppID);
 
-			// if there is no configuration maintained in the backend
-			if (oAppInfo === null) {
-				return;
-			}
+            // if there is no configuration maintained in the backend
+            if(oAppInfo === null){
+                return;
+            }
 
-			if (sLaunchMode === Constants.LAUNCH_MODE.FIORI) {
-				sAdditionInfo = oAppInfo.Value1 || "";
-				sSemanticObject = sAdditionInfo.split("\\\\_\\\\")[0];
-				sAction = sAdditionInfo.split("\\\\_\\\\")[1] || "dispatch";
-				sParameter = sAdditionInfo.split("\\\\_\\\\")[2];
-				if (sSemanticObject && sAction) {
-					this.navToApp(sSemanticObject, sAction, sParameter, sKeyParameter);
-				}
-				return;
-			} else {
-				sAdditionInfo = oAppInfo.Value1;
-				sUri = (sAdditionInfo).replace("\\place_h1\\", sKeyParameter);
-				window.open(sUri, "_blank");
-			}
-		},
-		navToApp: function (sSemanticObject, sAction, sParameter, sKeyParameter) {
-			var oCrossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation");
-			var sHash = (oCrossAppNavigator && oCrossAppNavigator.hrefForExternal({
-				target: {
-					semanticObject: sSemanticObject,
-					action: sAction
-				}
-			})) || ""; // generate the Hash to display a Notification details app
+            if (sLaunchMode === Constants.LAUNCH_MODE.FIORI) {
+                sAdditionInfo = oAppInfo.Value1 || "";
+                sSemanticObject = sAdditionInfo.split("\\\\_\\\\")[0];
+                sAction = sAdditionInfo.split("\\\\_\\\\")[1] || "dispatch";
+                sParameter = sAdditionInfo.split("\\\\_\\\\")[2];
+                if (sSemanticObject && sAction) {
+                    this.navToApp(sSemanticObject, sAction, sParameter, sKeyParameter);
+                }
+                return;
+            } else {
+                sAdditionInfo = oAppInfo.Value1;
+                sUri = (sAdditionInfo).replace("\\place_h1\\", sKeyParameter);
+                window.open(sUri, "_blank");
+            }
+        },
+        navToApp: function (sSemanticObject, sAction, sParameter, sKeyParameter) {
+            var oCrossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation");
+            var sHash = (oCrossAppNavigator && oCrossAppNavigator.hrefForExternal({
+                target: {
+                    semanticObject: sSemanticObject,
+                    action: sAction
+                }
+            })) || ""; // generate the Hash to display a Notification details app
 
-			oCrossAppNavigator.toExternal({
-				target: {
-					shellHash: sHash + "&/" + sParameter + "/" + sKeyParameter
-				}
-			});
-		}
+            oCrossAppNavigator.toExternal({
+                target: {
+                    shellHash: sHash + "&/" + sParameter + "/" + sKeyParameter
+                }
+            });
+        }
 
 	});
 
