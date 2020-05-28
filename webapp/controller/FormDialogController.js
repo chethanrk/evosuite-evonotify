@@ -96,7 +96,7 @@ sap.ui.define([
 		_loadDialog: function () {
 			if (!this._oDialog) {
 				Fragment.load({
-					name: "com.evorait.evoorder.view.fragments.FormDialog",
+					name: "com.evorait.evonotify.view.fragments.FormDialog",
 					controller: this,
 					type: "XML"
 				}).then(function (oFragment) {
