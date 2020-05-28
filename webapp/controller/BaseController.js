@@ -44,7 +44,7 @@ sap.ui.define([
 		 */
 		setModel: function (oModel, sName) {
 			return this.getView().setModel(oModel, sName);
-		},,
+		},
 
 		/**
 		 * get current hash 
