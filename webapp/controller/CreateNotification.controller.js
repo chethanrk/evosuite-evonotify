@@ -63,17 +63,6 @@ sap.ui.define([
 
 		},
 
-		onChangeSmartField: function (oEvent) {
-			var oSource = oEvent.getSource(),
-				sFieldName = oSource.getName();
-
-			if (sFieldName) {
-				if (sFieldName === "idFunctionalLocation" || sFieldName === "idEquipment") {
-					this._validateFuncLocEquip(oSource);
-				}
-			}
-		},
-
 		/**
 		 * On press cancel button
 		 * @param oEvent
