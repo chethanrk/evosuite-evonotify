@@ -1,16 +1,15 @@
 sap.ui.define([
 	"com/evorait/evonotify/controller/BaseController",
-	"sap/m/TablePersoController",
-	"sap/ui/model/json/JSONModel",
 	"com/evorait/evonotify/model/formatter",
-	"sap/ui/model/Filter",
-	"sap/ui/model/FilterOperator"
-], function (BaseController, TablePersoController, JSONModel, formatter, Filter, FilterOperator) {
+	"sap/ui/model/json/JSONModel"
+], function (BaseController, formatter, JSONModel) {
 	"use strict";
 
 	return BaseController.extend("com.evorait.evonotify.controller.Worklist", {
 
 		formatter: formatter,
+
+		oSmartTable: null,
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */
@@ -21,12 +20,22 @@ sap.ui.define([
 		 * @public
 		 */
 		onInit: function () {
-
+			this.oSmartTable = this.getView().byId("NotificationTable");
 		},
 
-		/* =========================================================== */
-		/* event handlers                                              */
-		/* =========================================================== */
+		/**
+		 * worklist after rendering
+		 */
+		onAfterRendering: function () {
+			this.getModel("viewModel").setProperty("/busy", false);
+		},
+
+		/**
+		 * worklist on exit
+		 */
+		onExit: function () {
+
+		},
 
 		/**
 		 * Event handler when a table item gets pressed
@@ -34,13 +43,21 @@ sap.ui.define([
 		 * @public
 		 */
 		onPressTableRow: function (oEvent) {
+			var oContext = oEvent.getSource().getBindingContext();
+			this.oSmartTable.setEditable(false);
 			this.getRouter().navTo("object", {
-				objectId: oEvent.getSource().getBindingContext().getProperty("MaintenanceNotification")
+				objectId: oContext.getProperty("MaintenanceNotification")
 			});
 		},
 
-		onAddPress: function () {
-			this.getRouter().navTo("objectNew");
+		/**
+		 * Event handler to navigate to create notification page
+		 * @param oEvent
+		 */
+
+		onPressCreateNotification: function () {
+			this.oSmartTable.setEditable(false);
+			this.getRouter().navTo("CreateNotification", {});
 		},
 
 		/**

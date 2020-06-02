@@ -10,8 +10,8 @@
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
 		"sourceTemplate": {
-			"id": "ui5template.basicSAPUI5ApplicationProject",
-			"version": "1.40.12"
+			"id": "sap.ui.ui5-template-plugin.1worklist",
+			"version": "1.52.7"
 		},
 		"dataSources": {
 			"mainService": {
@@ -20,7 +20,16 @@
 				"settings": {
 					"odataVersion": "2.0",
 					"localUri": "localService/metadata.xml",
-					"annotations": []
+					"annotations": [
+						"annotations"
+					]
+				}
+			},
+			"annotations": {
+				"uri": "annotations/annotations.xml",
+				"type": "ODataAnnotation",
+				"settings": {
+					"localUri": "annotations/annotations.xml"
 				}
 			}
 		}
@@ -50,11 +59,11 @@
 			"id": "App"
 		},
 		"dependencies": {
-			"minUI5Version": "1.65.6",
+			"minUI5Version": "1.62.0",
 			"libs": {
-				"sap.ui.layout": {},
+				"sap.m": {},
 				"sap.ui.core": {},
-				"sap.m": {}
+				"sap.ui.layout": {}
 			}
 		},
 		"contentDensities": {
@@ -78,6 +87,10 @@
 			"StatusVH": {
 				"type": "sap.ui.model.json.JSONModel",
 				"uri": "model/StatusVH.json"
+			},
+			"@i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
 			}
 		},
 		"resources": {
@@ -117,9 +130,9 @@
 				},
 				{
 					"pattern": "Notification/new",
-					"name": "objectNew",
+					"name": "CreateNotification",
 					"target": [
-						"objectNew"
+						"CreateNotification"
 					]
 				},
 				{
@@ -148,9 +161,9 @@
 					"viewId": "object",
 					"viewLevel": 2
 				},
-				"objectNew": {
-					"viewName": "ObjectNew",
-					"viewId": "objectNew",
+				"CreateNotification": {
+					"viewName": "ObjectPage",
+					"viewId": "CreateNotification",
 					"viewLevel": 2
 				},
 				"item": {

@@ -1,0 +1,53 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:smartForm="sap.ui.comp.smartform"
+	xmlns:smartField="sap.ui.comp.smartfield" xmlns:layout="sap.ui.layout"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1">
+	<smartForm:SmartForm id="smartFormTemplate" app:defaultCheckBoxDisplayBehaviour="OnOff"
+		app:defaultDropDownDisplayBehaviour="idAndDescription" editTogglable="false" editable="false">
+		<smartForm:layout>
+			<smartForm:Layout labelSpanXL="3" labelSpanL="5" labelSpanM="5" labelSpanS="12" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+				columnsXL="4" columnsL="3" columnsM="2"></smartForm:Layout>
+		</smartForm:layout>
+		<template:repeat list="{path:'facets>'}" var="collectionFacet">
+			<template:with path="collectionFacet>Target" helper="sap.ui.model.odata.AnnotationHelper.resolvePath" var="target">
+				<smartForm:Group label="{path:'target>Label',formatter:'.AH.format'}">
+					<smartForm:layoutData>
+						<template:if test="{:= (${target>Org.OData.Core.V1.Description/String} === 'longText')}">
+							<template:then>
+								<layout:GridData span="L12 M12 S12"/>
+							</template:then>
+							<template:else>
+								<layout:GridData span="L6 M6 S12"/>
+							</template:else>
+						</template:if>
+					</smartForm:layoutData>
+					<template:with path="target>Data" var="data">
+						<template:repeat list="{data>}">
+							<template:if test="{:= (${target>Org.OData.Core.V1.Description/String} === 'longText')}">
+								<template:then>
+									<smartForm:GroupElement label="{path:'data>Label',formatter:'.AH.format'}">
+										<TextArea value="{path:'data>Value',formatter:'.AH.format'}" rows="8"
+											required="{:= ${data>com.sap.vocabularies.Common.v1.FieldControl/EnumMember} === 'com.sap.vocabularies.Common.v1.FieldControlType/Mandatory'}"
+											editable="{= ${viewModel>/editMode} }" fieldGroupIds="CustomFormField"/>
+									</smartForm:GroupElement>
+								</template:then>
+								<template:else>
+									<smartForm:GroupElement>
+										<smartField:SmartField value="{path:'data>Value',formatter:'.AH.simplePath'}" name="{path:'data>Org.OData.Core.V1.ContentID/String'}"
+											change="onChangeSmartField" uomEditable="false"
+											editable="{:= ${data>com.sap.vocabularies.Common.v1.FieldControl/EnumMember} === 'com.sap.vocabularies.Common.v1.FieldControlType/ReadOnly' ? false : true}"
+											mandatory="{:= ${data>com.sap.vocabularies.Common.v1.FieldControl/EnumMember} === 'com.sap.vocabularies.Common.v1.FieldControlType/Mandatory'}">
+											<smartField:configuration>
+												<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId" preventInitialDataFetchInValueHelpDialog="false"/>
+											</smartField:configuration>
+										</smartField:SmartField>
+									</smartForm:GroupElement>
+								</template:else>
+							</template:if>
+						</template:repeat>
+					</template:with>
+				</smartForm:Group>
+			</template:with>
+		</template:repeat>
+	</smartForm:SmartForm>
+</core:FragmentDefinition>

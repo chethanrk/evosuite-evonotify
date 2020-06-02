@@ -19,7 +19,7 @@ sap.ui.define([
 		 * @returns {sap.ui.core.routing.Router} the router for this component
 		 */
 		getRouter: function () {
-			return sap.ui.core.UIComponent.getRouterFor(this);
+			return this.getOwnerComponent().getRouter();
 		},
 
 		/**
@@ -29,10 +29,10 @@ sap.ui.define([
 		 * @returns {sap.ui.model.Model} the model instance
 		 */
 		getModel: function (sName) {
-			if (this.getView().getModel) {
-				return this.getView().getModel(sName);
+			if (this.getOwnerComponent()) {
+				return this.getOwnerComponent().getModel(sName);
 			}
-			return this.getOwnerComponent().getModel(sName);
+			return this.getView().getModel(sName);
 		},
 
 		/**
@@ -44,6 +44,19 @@ sap.ui.define([
 		 */
 		setModel: function (oModel, sName) {
 			return this.getView().setModel(oModel, sName);
+		},
+
+		/**
+		 * get current hash 
+		 */
+		getCurrentHash: function () {
+			var oRouter = this.getRouter();
+			if (oRouter.getHashChanger) {
+				return oRouter.getHashChanger().getHash();
+			}
+			var browserUrl = window.location.hash,
+				sHash = browserUrl.replace("#", "");
+			return sHash;
 		},
 
 		/**
@@ -63,12 +76,15 @@ sap.ui.define([
 		},
 
 		/**
-		 * Getter for the resource bundle.
+		 * Convenience method for getting the resource bundle.
 		 * @public
 		 * @returns {sap.ui.model.resource.ResourceModel} the resourceModel of the component
 		 */
 		getResourceBundle: function () {
-			return this.getOwnerComponent().getModel("i18n").getResourceBundle();
+			if (this.getOwnerComponent()) {
+				return this.getOwnerComponent().getModel("i18n").getResourceBundle();
+			}
+			return this.getView().getModel("i18n").getResourceBundle();
 		},
 
 		/**

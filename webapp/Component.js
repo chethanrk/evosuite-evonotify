@@ -4,10 +4,11 @@ sap.ui.define([
 	"com/evorait/evonotify/model/models",
 	"com/evorait/evonotify/controller/ErrorHandler",
 	"com/evorait/evonotify/controller/AddEditEntryDialog",
+	"com/evorait/evonotify/controller/FormDialogController",
     "com/evorait/evonotify/model/Constants",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator"
-], function (UIComponent, Device, models, ErrorHandler, AddEditEntryDialog, Constants, Filter, FilterOperator) {
+], function (UIComponent, Device, models, ErrorHandler, AddEditEntryDialog, FormDialogController, Constants, Filter, FilterOperator) {
 	"use strict";
 
 	return UIComponent.extend("com.evorait.evonotify.Component", {
@@ -20,6 +21,7 @@ sap.ui.define([
 
 		/**
 		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
+		 * In this function, the device models are set and the router is initialized.
 		 * @public
 		 * @override
 		 */
@@ -27,14 +29,10 @@ sap.ui.define([
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
 
-			// handle the main oData model based on the environment
-			// the path for mobile applications depends on the current information from
-			// the logon plugin - if it's not running as hybrid application then the initialization
-			// of the oData service happens by the entries in the manifest.json which is used
-			// as metadata reference
-			if (window.cordova) {
-				this._initCordovaHandling();
-			}
+			var manifestApp = this.getMetadata().getManifestEntry("sap.app"),
+				dataSource = "";
+
+			// oModel.setDefaultBindingMode(sap.ui.model.BindingMode.OneWay);
 
 			// initialize the error handler with the component
 			this._oErrorHandler = new ErrorHandler(this);
@@ -42,31 +40,44 @@ sap.ui.define([
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
 
-			// set global helper view model
-			// Model used to manipulate control states. The chosen values make sure,
-			// detail page is busy indication immediately so there is no break in
-			// between the busy indication for loading the view"s meta data
+			if (manifestApp) {
+				dataSource = manifestApp.dataSources.mainService.uri;
+			}
 
-			this.setModel(models.createHelperModel({
+			this.FormDialog = new FormDialogController(this);
+			var viewModelObj = {
 				busy: true,
-				delay: 0,
-				isNew: false,
-				isEdit: false,
+				delay: 100,
+				canExpand: true,
+				serviceUrl: dataSource,
 				editMode: false,
-				worklistEntitySet: "PMNotificationSet",
-				taskViewPath: "",
-				actViewPath: "",
-				rootPath: jQuery.sap.getModulePath("com.evorait.evonotify"), // your resource root
-				logoPath: "/assets/img/logo_color_transp_50pxh.png",
-                launchMode:Constants.LAUNCH_MODE.BSP
-			}), "viewModel");
+				isNew: false,
+				operationsRowsCount: 0,
+				launchMode: Constants.LAUNCH_MODE.BSP
+			};
+
+			this.setModel(models.createHelperModel(viewModelObj), "viewModel");
+
+			this.setModel(models.createHelperModel({}), "templateProperties");
 
 			this.setModel(models.createUserModel(this), "user");
 
+			this.setModel(models.createInformationModel(this), "InformationModel");
+
 			this._getSystemInformation();
 
-			//creates the Information model and sets to the component
-			this.setModel(models.createInformationModel(this), "InformationModel");
+			//Creating the Global assignment model for assignInfo Dialog
+			this.setModel(models.createNavLinksModel([]), "navLinks");
+
+			if (sap.ushell && sap.ushell.Container) {
+				this.getModel("viewModel").setProperty("/launchMode", Constants.LAUNCH_MODE.FIORI);
+			}
+
+			this._getData("/NavigationLinks", [new Filter("LaunchMode", FilterOperator.EQ, this.getModel("viewModel").getProperty("/launchMode"))])
+				.
+			then(function (data) {
+				this.getModel("navLinks").setData(data.results);
+			}.bind(this));
 
             //Creating the Global assignment model for assignInfo Dialog
             this.setModel(models.createNavLinksModel([]), "navLinks");
@@ -85,18 +96,6 @@ sap.ui.define([
 		},
 
 		/**
-		 * The component is destroyed by UI5 automatically.
-		 * In this method, the ErrorHandler is destroyed.
-		 * @public
-		 * @override
-		 */
-		destroy: function () {
-			this._oErrorHandler.destroy();
-			// call the base component's destroy function
-			UIComponent.prototype.destroy.apply(this, arguments);
-		},
-
-		/**
 		 * This method can be called to determine whether the sapUiSizeCompact or sapUiSizeCozy
 		 * design mode class should be set, which influences the size appearance of some controls.
 		 * @public
@@ -105,9 +104,10 @@ sap.ui.define([
 		getContentDensityClass: function () {
 			if (this._sContentDensityClass === undefined) {
 				// check whether FLP has already set the content density class; do nothing in this case
-				if (jQuery(document.body).hasClass("sapUiSizeCozy") || jQuery(document.body).hasClass("sapUiSizeCompact")) {
+				var element = document.getElementsByTagName("body")[0];
+				if (element.classList.contains("sapUiSizeCozy") || element.classList.contains("sapUiSizeCompact")) {
 					this._sContentDensityClass = "";
-				} else if (!Device.support.touch) { // apply "compact" mode if touch is not supported
+				} else if (!this._isMobile()) { // apply "compact" mode if touch is not supported
 					//sapUiSizeCompact
 					this._sContentDensityClass = "sapUiSizeCompact";
 				} else {
@@ -119,35 +119,12 @@ sap.ui.define([
 		},
 
 		/**
-		 * init cordova
-		 * call Kapsel logon and login to SMP
+		 * check if mobile device
+		 * @returns {boolean}
 		 * @private
 		 */
-		_initCordovaHandling: function () {
-			var oModel;
-			var externalURL = com.evorait.evolite.evonotify.dev.devapp.externalURL;
-			var appContext;
-			if (com.evorait.evolite.evonotify.dev.devapp.devLogon) {
-				appContext = com.evorait.evolite.evonotify.dev.devapp.devLogon.appContext;
-			}
-
-			if (window.cordova && appContext && !window.sap_webide_companion && !externalURL) {
-				var url = appContext.applicationEndpointURL + "/";
-				var oHeader = {
-					"X-SMP-APPCID": appContext.applicationConnectionId
-				};
-
-				// this would allow to pass basic authentication from the user registration to the
-				// backend request - do not do this yet
-				/**
-				 if (appContext.registrationContext.user) {
-					oHeader.Authorization = "Basic " + btoa(appContext.registrationContext.user + ":" + appContext.registrationContext.password);
-				}
-				 **/
-				// set the central model (default model has no name)
-				oModel = new sap.ui.model.odata.ODataModel(url, true, null, null, oHeader);
-				this.setModel(oModel);
-			}
+		_isMobile: function () {
+			return (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i).test(navigator.userAgent.toLowerCase());
 		},
 
 		/**
@@ -167,7 +144,7 @@ sap.ui.define([
         _getData: function (sUri, aFilters) {
             return new Promise(function (resolve, reject) {
                 this.getModel().read(sUri, {
-                    filters:aFilters,
+                    filters: aFilters,
                     success: function (oData, oResponse) {
                         resolve(oData);
                     }.bind(this),

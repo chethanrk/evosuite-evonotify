@@ -1,21 +1,26 @@
-<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
-	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:core="sap.ui.core" controllerName="com.evorait.evonotify.controller.Worklist">
-	<f:DynamicPage  id="NotificationlistPage" preserveHeaderStateOnScroll="true" showFooter="true">
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:f="sap.f"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	controllerName="com.evorait.evonotify.controller.Worklist">
+	<f:DynamicPage id="NotificationlistPage" headerExpanded="true" preserveHeaderStateOnScroll="true" showFooter="true"
+		class="sapUiNoContentPadding">
 		<f:title>
 			<f:DynamicPageTitle>
 				<f:heading>
-					<Image src="{viewModel>/rootPath}{viewModel>/logoPath}" densityAware="false" height="30px" alt="EvoNotify" id="imageLogo"/>
+					<Image src="{path: '', formatter: '.formatter.getLogoImageLink' }" densityAware="false" height="30px" alt="EvoNotify" id="imageLogo"/>
 				</f:heading>
 				<f:actions>
 					<!--<Button icon="sap-icon://alert" text="{= ${message>/}.length }" type="Emphasized" press="onMessageManagerPress"/>-->
-					<Button id="idButtonAboutDialog" icon="sap-icon://sys-help" tooltip="{i18n>tit.infoDialogTitle}" press="onIconPress"/>			
 				</f:actions>
+				<f:navigationActions>
+					<Button id="idButtonAboutDialog" icon="sap-icon://sys-help" tooltip="{i18n>tit.infoDialogTitle}" press="onIconPress"/>
+				</f:navigationActions>
 			</f:DynamicPageTitle>
 		</f:title>
 		<f:header>
-			<f:DynamicPageHeader>
+			<f:DynamicPageHeader pinnable="true">
 				<f:content>
-					<smartFilterBar:SmartFilterBar id="NotificationFilter" entitySet="{viewModel>/worklistEntitySet}" filterBarExpanded="true"
+					<smartFilterBar:SmartFilterBar id="NotificationFilter" entitySet="PMNotificationSet" filterBarExpanded="true"
 						persistencyKey="com.evorait.evonotify.NotificationFilterbar">
 						<smartFilterBar:controlConfiguration>
 							<smartFilterBar:ControlConfiguration id="__configuration0"/>
@@ -25,7 +30,7 @@
 			</f:DynamicPageHeader>
 		</f:header>
 		<f:content>
-			<smartTable:SmartTable id="NotificationTable" class="workorderSmartTable" entitySet="{viewModel>/worklistEntitySet}"
+			<smartTable:SmartTable id="NotificationTable" class="workorderSmartTable" entitySet="PMNotificationSet"
 				smartFilterId="NotificationFilter" tableType="Table" useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="true"
 				useTablePersonalisation="true" header="{i18n>tit.worklistTable}" showRowCount="true"
 				persistencyKey="com.evorait.evonotify.NotificationTable" enableAutoBinding="true">
@@ -36,7 +41,7 @@
 				<smartTable:customToolbar>
 					<OverflowToolbar design="Transparent">
 						<ToolbarSpacer/>
-						<Button icon="sap-icon://add" text="{i18n>btn.createNotification}" press="onAddPress" visible="{user>/IsNotificationCreate}"/>
+						<Button icon="sap-icon://add" text="{i18n>btn.createNotification}" press="onPressCreateNotification" visible="{user>/IsNotificationCreate}"/>
 					</OverflowToolbar>
 				</smartTable:customToolbar>
 				<Table id="responsiveNotificationTable" sticky="ColumnHeaders,HeaderToolbar,InfoToolbar" growing="true">

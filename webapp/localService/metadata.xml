@@ -638,7 +638,8 @@
 					<End EntitySet="PMNotificationSet" Role="FromRole_NotificationToTask"/>
 					<End EntitySet="PMNotificationTaskSet" Role="ToRole_NotificationToTask"/>
 				</AssociationSet>
-				<FunctionImport Name="GetSystemInformation" ReturnType="com.evorait.evocu.evonotify.SystemInformation" EntitySet="SystemInformationSet" m:HttpMethod="GET" sap:action-for="com.evorait.evocu.evonotify.SystemInformation"/>
+				<FunctionImport Name="GetSystemInformation" ReturnType="com.evorait.evocu.evonotify.SystemInformation" EntitySet="SystemInformationSet"
+					m:HttpMethod="GET" sap:action-for="com.evorait.evocu.evonotify.SystemInformation"/>
 			</EntityContainer>
 			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification">
 				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
