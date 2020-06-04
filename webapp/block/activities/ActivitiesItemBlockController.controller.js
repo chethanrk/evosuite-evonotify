@@ -12,7 +12,7 @@ sap.ui.define([
 ) {
 	"use strict";
 
-	return BaseController.extend("com.evorait.evonotify.block.causes.CausesTableBlockController", {
+	return BaseController.extend("com.evorait.evonotify.block.activities.ActivitiesItemBlockController", {
 
 		formatter: formatter,
 
@@ -33,7 +33,7 @@ sap.ui.define([
 		/* =========================================================== */
 
 		/**
-		 * show dialog with cause details
+		 * show dialog with activity details
 		 * in edit mode
 		 * @param oEvent
 		 */
@@ -41,12 +41,12 @@ sap.ui.define([
 			var mParams = {
 				oContext: oEvent.getSource().getBindingContext()
 			};
-			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditCause");
+			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditActivity");
 		},
 
 		/**
-		 * add a new cause
-		 * create a new entry based on if its Notification Item level
+		 * add a new activity
+		 * create a new entry based on if its on Notifcation header level or Notification Item level
 		 * @param oEvent
 		 */
 		onPressAdd: function (oEvent) {
@@ -63,9 +63,9 @@ sap.ui.define([
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				sSetPath: "/PMNotificationItemCauseSet",
-				sSortField: "CauseSortNumber",
-				sNavTo:"/NavToItemCause/",
+				sSetPath: "/PMNotificationItemActivitySet",
+				sSortField: "ActivitySortNumber",
+				sNavTo:"/NavToItemActivity/",
 				mKeys: {
 					MaintenanceNotification: oContextData.MaintenanceNotification,
 					MaintenanceNotificationItem: oContextData.MaintenanceNotificationItem
@@ -73,9 +73,9 @@ sap.ui.define([
 			};
 
 			if (mResults) {
-				mParams.mKeys.MaintNotifCauseCodeCatalog = mResults.CatalogTypeForCauses;
+				mParams.mKeys.MaintNotifAcivityCodeCatalog = mResults.CatalogTypeForActivities;
 			}
-			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditCause");
+			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditActivity");
 		}
 	});
 

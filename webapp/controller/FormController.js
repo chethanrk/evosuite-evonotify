@@ -60,6 +60,8 @@ sap.ui.define([
 						} else {
 							//reset changes from object path
 							this.getModel().resetChanges([sPath]);
+							this.oSmartForm.setEditable(false);
+							oViewModel.setProperty("/editMode", false);
 							if (doNavBack) {
 								//on edit cancel and nav back unbind object
 								this.getView().unbindElement();
@@ -168,10 +170,10 @@ sap.ui.define([
 		/**
 		 * picks out the change response data from a batch call
 		 * Need for create entries 
-		 * Example: CreateNotification _saveCreateSuccessFn
+		 * Example: CreateNotification saveCreateSuccessFn
 		 * @param oResponse
 		 */
-		_getBatchChangeResponse: function (oResponse) {
+		getBatchChangeResponse: function (oResponse) {
 			var batch = oResponse.__batchResponses[0];
 			//success
 			if (batch.__changeResponses) {

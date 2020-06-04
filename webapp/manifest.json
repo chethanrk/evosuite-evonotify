@@ -136,14 +136,14 @@
 					]
 				},
 				{
-					"pattern": "Notification/{objectId}",
-					"name": "object",
+					"pattern": "Notification/{NotificationId}",
+					"name": "NotificationDetail",
 					"target": [
-						"object"
+						"NotificationDetail"
 					]
 				},
 				{
-					"pattern": "Notification/{objectId}/Item/{itemId}",
+					"pattern": "Notification/{NotificationId}/Item/{itemId}",
 					"name": "item",
 					"target": [
 						"item"
@@ -156,14 +156,12 @@
 					"viewId": "worklist",
 					"viewLevel": 1
 				},
-				"object": {
-					"viewName": "Object",
-					"viewId": "object",
+				"NotificationDetail": {
+					"viewName": "ObjectPage",
 					"viewLevel": 2
 				},
 				"CreateNotification": {
 					"viewName": "ObjectPage",
-					"viewId": "CreateNotification",
 					"viewLevel": 2
 				},
 				"item": {

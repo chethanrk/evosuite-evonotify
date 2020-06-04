@@ -80,7 +80,7 @@ sap.ui.define([
 			if (this.oForm) {
 				var mErrors = this.validateForm(this.oForm);
 				//if form is valid save created entry
-				this.saveChanges(mErrors, this._saveCreateSuccessFn.bind(this));
+				this.saveChanges(mErrors, this.saveCreateSuccessFn.bind(this));
 			}
 		},
 
@@ -92,9 +92,9 @@ sap.ui.define([
 		 * success callback after creating order
 		 * @param oResponse
 		 */
-		_saveCreateSuccessFn: function (oResponse) {
+		saveCreateSuccessFn: function (oResponse) {
 			var notificationId = null,
-				oChangeData = this._getBatchChangeResponse(oResponse);
+				oChangeData = this.getBatchChangeResponse(oResponse);
 
 			if (oChangeData) {
 				notificationId = oChangeData.MaintenanceNotification;

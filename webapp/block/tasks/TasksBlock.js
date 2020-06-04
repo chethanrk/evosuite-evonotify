@@ -1,17 +1,17 @@
 sap.ui.define(["sap/uxap/BlockBase"], function (BlockBase) {
 	"use strict";
-	var myBlock = BlockBase.extend("com.evorait.evonotify.block.items.ItemsTableBlock", {
+	var myBlock = BlockBase.extend("com.evorait.evonotify.block.tasks.TasksBlock", {
 		metadata: {
 			events: {
 				"itemPress": {}
 			},
 			views: {
 				Collapsed: {
-					viewName: "com.evorait.evonotify.block.items.ItemsTableBlock",
+					viewName: "com.evorait.evonotify.block.tasks.TasksBlock",
 					type: "XML"
 				},
 				Expanded: {
-					viewName: "com.evorait.evonotify.block.items.ItemsTableBlock",
+					viewName: "com.evorait.evonotify.block.tasks.TasksBlock",
 					type: "XML"
 				}
 			}

@@ -12,7 +12,7 @@ sap.ui.define([
 ) {
 	"use strict";
 
-	return BaseController.extend("com.evorait.evonotify.block.tasks.TasksTableBlockController", {
+	return BaseController.extend("com.evorait.evonotify.block.causes.CausesBlockController", {
 
 		formatter: formatter,
 
@@ -33,7 +33,7 @@ sap.ui.define([
 		/* =========================================================== */
 
 		/**
-		 * show dialog with task details
+		 * show dialog with cause details
 		 * in edit mode
 		 * @param oEvent
 		 */
@@ -41,12 +41,12 @@ sap.ui.define([
 			var mParams = {
 				oContext: oEvent.getSource().getBindingContext()
 			};
-			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditTask");
+			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditCause");
 		},
 
 		/**
-		 * add a new task
-		 * create a new entry based on if its on Notifcation header level or Notification Item level
+		 * add a new cause
+		 * create a new entry based on if its Notification Item level
 		 * @param oEvent
 		 */
 		onPressAdd: function (oEvent) {
@@ -59,13 +59,13 @@ sap.ui.define([
 
 		/**
 		 * open add dialog 
-		 * and set add task dependencies like catalog from NotificationType
+		 * and set add cause dependencies like catalog from NotificationType
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				sSetPath: "/PMNotificationTaskSet",
-				sSortField: "MaintNotifTaskSortNumber",
-				sNavTo:"/NavToTasks/",
+				sSetPath: "/PMNotificationItemCauseSet",
+				sSortField: "CauseSortNumber",
+				sNavTo:"/NavToItemCause/",
 				mKeys: {
 					MaintenanceNotification: oContextData.MaintenanceNotification,
 					MaintenanceNotificationItem: oContextData.MaintenanceNotificationItem
@@ -73,38 +73,10 @@ sap.ui.define([
 			};
 
 			if (mResults) {
-				mParams.mKeys.MaintNotifTaskCodeCatalog = mResults.CatalogTypeForTasks;
-				mParams.mKeys.ResponsiblePersonFunctionCode = mResults.PartnerFunOfPersonRespForTask;
+				mParams.mKeys.MaintNotifCauseCodeCatalog = mResults.CatalogTypeForCauses;
 			}
-			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditTask");
-		},
-		/**
-		 * Save the selected status
-		 * @param oEvent
-		 */
-		onSelectStatus: function (oEvent) {
-			var oParams = oEvent.getParameters(),
-				statusKey = oParams.item.getKey(),
-				oContext = oEvent.getSource().getBindingContext(),
-				obj = oContext.getObject();
-
-			if (obj.IsOutstanding === true || obj.IsReleased === true || obj.IsCompleted === true) {
-				this.getView().setBusy(true);
-				this.getModel().setProperty(oContext.getPath() + "/Status", statusKey);
-				this.saveChangedEntry({
-					context: this,
-					view: this.getView(),
-					success: function () {
-						this.context.oView.setBusy(false);
-						//this.view.getModel().refresh(true);
-					},
-					error: function () {
-						this.context.oView.setBusy(false);
-					}
-				});
-			}
+			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditCause");
 		}
-
 	});
 
 });
