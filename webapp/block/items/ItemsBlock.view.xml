@@ -1,4 +1,4 @@
-<mvc:View controllerName="com.evorait.evonotify.block.items.ItemsTableBlockController" xmlns="sap.m" xmlns:core="sap.ui.core"
+<mvc:View controllerName="com.evorait.evonotify.block.items.ItemsBlockController" xmlns="sap.m" xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc" xmlns:smartTable="sap.ui.comp.smarttable">
 	<smartTable:SmartTable height="100%" width="100%" id="notificationItemsTable" tableType="ResponsiveTable" useExportToExcel="false"
 		useVariantManagement="true" useTablePersonalisation="true" showRowCount="true" persistencyKey="com.evorait.evonotify.itemTable"

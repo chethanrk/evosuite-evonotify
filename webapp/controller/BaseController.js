@@ -8,11 +8,14 @@ sap.ui.define([
 	"sap/m/MessageToast",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-    "com/evorait/evonotify/model/Constants"
-], function (Controller, JSONModel, History, Dialog, Button, Text, MessageToast, Filter, FilterOperator, Constants) {
+    "com/evorait/evonotify/model/Constants",
+	"com/evorait/evonotify/model/formatter"
+], function (Controller, JSONModel, History, Dialog, Button, Text, MessageToast, Filter, FilterOperator, Constants, formatter) {
 	"use strict";
 
 	return Controller.extend("com.evorait.evonotify.controller.BaseController", {
+		
+		formatter: formatter,
 		/**
 		 * Convenience method for accessing the router.
 		 * @public
@@ -366,7 +369,7 @@ sap.ui.define([
             return null;
         },
         /**
-         *	Navigates to evoOrder detail page with static url.
+         *	Navigates to evonotify detail page with static url.
          */
         openEvoAPP: function (sKeyParameter, sAppID) {
             var sUri, sSemanticObject, sParameter,

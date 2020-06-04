@@ -30,6 +30,14 @@ sap.ui.define([
 					if (sRouteName === "CreateNotification") {
 						sViewName = "com.evorait.evonotify.view.templates.CreateNotification#Create";
 						this._onRouteMatched(oEvent, sViewName, "PMNotificationSet");
+					} else if (sRouteName === "NotificationDetail") {
+						//Order detail view
+						sViewName = "com.evorait.evonotify.view.templates.NotificationDetail#Data";
+						var oArgs = oEvent.getParameter("arguments"),
+							mParams = {
+								MaintenanceNotification: oArgs.NotificationId
+							};
+						this._onRouteMatched(oEvent, sViewName, "PMNotificationSet", mParams);
 					}
 				}.bind(this));
 			}
@@ -63,8 +71,8 @@ sap.ui.define([
 			this.oViewModel.setProperty("/busy", true);
 			this.getModel().metadataLoaded().then(function () {
 				var sPath = this.getEntityPath(sEntitySet, mParams);
-				this.getView().unbindElement();
-				this.getView().bindElement(sPath);
+				// this.getView().unbindElement();
+				// this.getView().bindElement(sPath);
 				//get template and create views
 				this.insertTemplateFragment(sPath, sViewName, "ObjectPageWrapper", this._afterBindSuccess.bind(this));
 			}.bind(this));

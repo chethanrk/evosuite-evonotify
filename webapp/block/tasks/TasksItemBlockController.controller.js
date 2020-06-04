@@ -12,7 +12,7 @@ sap.ui.define([
 ) {
 	"use strict";
 
-	return BaseController.extend("com.evorait.evonotify.block.tasks.TasksItemTableBlockController", {
+	return BaseController.extend("com.evorait.evonotify.block.tasks.TasksItemBlockController", {
 
 		formatter: formatter,
 

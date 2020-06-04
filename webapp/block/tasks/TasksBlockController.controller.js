@@ -12,7 +12,7 @@ sap.ui.define([
 ) {
 	"use strict";
 
-	return BaseController.extend("com.evorait.evonotify.block.activities.ActivitiesTableBlockController", {
+	return BaseController.extend("com.evorait.evonotify.block.tasks.TasksBlockController", {
 
 		formatter: formatter,
 
@@ -33,7 +33,7 @@ sap.ui.define([
 		/* =========================================================== */
 
 		/**
-		 * show dialog with activity details
+		 * show dialog with task details
 		 * in edit mode
 		 * @param oEvent
 		 */
@@ -41,11 +41,11 @@ sap.ui.define([
 			var mParams = {
 				oContext: oEvent.getSource().getBindingContext()
 			};
-			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditActivity");
+			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditTask");
 		},
 
 		/**
-		 * add a new activity
+		 * add a new task
 		 * create a new entry based on if its on Notifcation header level or Notification Item level
 		 * @param oEvent
 		 */
@@ -59,13 +59,13 @@ sap.ui.define([
 
 		/**
 		 * open add dialog 
-		 * and set add cause dependencies like catalog from NotificationType
+		 * and set add task dependencies like catalog from NotificationType
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				sSetPath: "/PMNotificationActivitySet",
-				sSortField: "ActivitySortNumber",
-				sNavTo:"/NavToActivity/",
+				sSetPath: "/PMNotificationTaskSet",
+				sSortField: "MaintNotifTaskSortNumber",
+				sNavTo:"/NavToTasks/",
 				mKeys: {
 					MaintenanceNotification: oContextData.MaintenanceNotification,
 					MaintenanceNotificationItem: oContextData.MaintenanceNotificationItem
@@ -73,10 +73,38 @@ sap.ui.define([
 			};
 
 			if (mResults) {
-				mParams.mKeys.MaintNotifAcivityCodeCatalog = mResults.CatalogTypeForActivities;
+				mParams.mKeys.MaintNotifTaskCodeCatalog = mResults.CatalogTypeForTasks;
+				mParams.mKeys.ResponsiblePersonFunctionCode = mResults.PartnerFunOfPersonRespForTask;
 			}
-			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditActivity");
+			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditTask");
+		},
+		/**
+		 * Save the selected status
+		 * @param oEvent
+		 */
+		onSelectStatus: function (oEvent) {
+			var oParams = oEvent.getParameters(),
+				statusKey = oParams.item.getKey(),
+				oContext = oEvent.getSource().getBindingContext(),
+				obj = oContext.getObject();
+
+			if (obj.IsOutstanding === true || obj.IsReleased === true || obj.IsCompleted === true) {
+				this.getView().setBusy(true);
+				this.getModel().setProperty(oContext.getPath() + "/Status", statusKey);
+				this.saveChangedEntry({
+					context: this,
+					view: this.getView(),
+					success: function () {
+						this.context.oView.setBusy(false);
+						//this.view.getModel().refresh(true);
+					},
+					error: function () {
+						this.context.oView.setBusy(false);
+					}
+				});
+			}
 		}
+
 	});
 
 });

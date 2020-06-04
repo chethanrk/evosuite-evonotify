@@ -12,7 +12,7 @@ sap.ui.define([
 ) {
 	"use strict";
 
-	return BaseController.extend("com.evorait.evonotify.block.items.ItemsTableBlockController", {
+	return BaseController.extend("com.evorait.evonotify.block.activities.ActivitiesBlockController", {
 
 		formatter: formatter,
 
@@ -28,25 +28,27 @@ sap.ui.define([
 
 		},
 
-		onAfterRendering: function () {
-
-		},
 		/* =========================================================== */
 		/* event handlers                                              */
 		/* =========================================================== */
 
+		/**
+		 * show dialog with activity details
+		 * in edit mode
+		 * @param oEvent
+		 */
 		onPressItem: function (oEvent) {
-			var oContext = oEvent.getSource().getBindingContext();
-			if (oContext) {
-				var obj = oContext.getObject();
-				this.getRouter().navTo("item", {
-					objectId: obj.MaintenanceNotification,
-					itemId: obj.MaintenanceNotificationItem,
-					mParams: this.mParams
-				});
-			}
+			var mParams = {
+				oContext: oEvent.getSource().getBindingContext()
+			};
+			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditActivity");
 		},
 
+		/**
+		 * add a new activity
+		 * create a new entry based on if its on Notifcation header level or Notification Item level
+		 * @param oEvent
+		 */
 		onPressAdd: function (oEvent) {
 			this.getDependenciesAndCallback(this._openAddDialog.bind(this));
 		},
@@ -60,22 +62,21 @@ sap.ui.define([
 		 * and set add cause dependencies like catalog from NotificationType
 		 */
 		_openAddDialog: function (oContextData, mResults) {
-			this.mParams = {
-				sSetPath: "/PMNotificationItemSet",
-				sSortField: "MaintNotifItemSortNumber",
-				sNavTo:"/NavToItems/",
+			var mParams = {
+				sSetPath: "/PMNotificationActivitySet",
+				sSortField: "ActivitySortNumber",
+				sNavTo:"/NavToActivity/",
 				mKeys: {
-					MaintenanceNotification: oContextData.MaintenanceNotification
+					MaintenanceNotification: oContextData.MaintenanceNotification,
+					MaintenanceNotificationItem: oContextData.MaintenanceNotificationItem
 				}
 			};
 
 			if (mResults) {
-				this.mParams.mKeys.MaintNotifObjPrtCodeCatalog = mResults.CatalogTypeForObjParts;
-				this.mParams.mKeys.MaintNotifDamageCodeCatalog = mResults.CatalogTypeForDamage;
+				mParams.mKeys.MaintNotifAcivityCodeCatalog = mResults.CatalogTypeForActivities;
 			}
-			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), this.mParams, "AddEditItem");
+			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditActivity");
 		}
-
 	});
 
 });

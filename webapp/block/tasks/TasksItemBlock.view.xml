@@ -1,8 +1,8 @@
-<mvc:View controllerName="com.evorait.evonotify.block.tasks.TasksTableBlockController" xmlns="sap.m" xmlns:core="sap.ui.core"
+<mvc:View controllerName="com.evorait.evonotify.block.tasks.TasksItemBlockController" xmlns="sap.m" xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc" xmlns:smartTable="sap.ui.comp.smarttable">
-	<smartTable:SmartTable  id="notificationTasksTable" height="100%" width="100%" tableType="ResponsiveTable" useExportToExcel="false" useVariantManagement="true"
-		useTablePersonalisation="true" showRowCount="true" persistencyKey="com.evorait.evonotify.taskNotifTable" enableAutoBinding="true"
-		demandPopin="true" entitySet="PMNotificationTaskSet" tableBindingPath="NavToTasks">
+	<smartTable:SmartTable height="100%" width="100%" tableType="ResponsiveTable" useExportToExcel="false" useVariantManagement="true"
+		useTablePersonalisation="true" showRowCount="true" persistencyKey="com.evorait.evonotify.taskItemTable" enableAutoBinding="true"
+		demandPopin="true" entitySet="PMNotificationItemTaskSet" tableBindingPath="NavToItemTask">
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
@@ -28,7 +28,7 @@
 					<cells>
 						<MenuButton text="{i18n>tit.changeStatus}">
 							<menu>
-								<Menu id="idMenuTask" itemSelected="onSelectStatus" items="{path: 'StatusVH>/TaskStatus', templateShareable:'false'}">
+								<Menu id="idMenuItemTask" itemSelected="onSelectStatus" items="{path: 'StatusVH>/TaskStatus', templateShareable:'false'}">
 									<MenuItem key="{StatusVH>Status}" text="{path: 'StatusVH>TranslateKey', formatter: '.translateStatusKey'}"
 										visible="{parts: ['IsOutstanding', 'IsReleased', 'IsCompleted', 'IsSuccessfull', 'StatusVH>Status'], formatter:'.formatter.taskStatusVisibility'}"/>
 								</Menu>

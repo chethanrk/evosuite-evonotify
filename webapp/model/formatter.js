@@ -94,6 +94,7 @@ sap.ui.define([
 		 * @returns {boolean}
 		 */
 		isVisible: function (isCompleted, isDeleted, visible, isEditMode) {
+			visible = true;
 			if (visible) {
 				if (isCompleted || isDeleted || isEditMode) {
 					return false;
