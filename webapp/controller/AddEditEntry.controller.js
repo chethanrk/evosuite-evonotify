@@ -7,7 +7,8 @@ sap.ui.define([
 	return DialogFormController.extend("com.evorait.evonotify.controller.AddEditEntry", {
 
 		_type: {
-			add: true
+			add: false,
+			edit: false
 		},
 
 		/* =========================================================== */

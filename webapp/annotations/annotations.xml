@@ -514,6 +514,139 @@
 					</Record>
 				</Annotation>
 			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationTask">
+				<Annotation Term="UI.Facets" Qualifier="addForm">
+					<Collection>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#addEditGroup1"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#addEditGroup2"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#addEditGroup4"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#addEditGroup5"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.Facets" Qualifier="editForm">
+					<Collection>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#addEditGroup"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#addEditGroup2"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#addEditGroup3"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#addEditGroup4"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#addEditGroup5"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="addEditGroup">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Label" String="{@i18n&gt;tit.generalSection}"/>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="MaintenanceNotificationTask"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="MaintNotifTaskText"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="MaintNotifTaskSortNumber"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="addEditGroup1">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Label" String="{@i18n&gt;tit.generalSection}"/>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="MaintNotifTaskText"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="MaintNotifTaskSortNumber"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="addEditGroup2">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Label" String="{@i18n&gt;tit.codeSection}"/>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="MaintNotifTaskCodeGroup"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="MaintNotifTaskCode"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="addEditGroup3">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Label" String="{@i18n&gt;tit.statusSection}"/>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ConcatenatedActSysStsName"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="addEditGroup4">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Label" String="{@i18n&gt;tit.responsibilitySection}"/>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ResponsiblePersonFunctionCode"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ResponsiblePerson"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="addEditGroup5">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Label" String="{@i18n&gt;tit.datesSection}"/>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="PlannedStartDate"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="PlannedStartTime"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="PlannedEndDate"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="PlannedEndTime"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
 		</Schema>
 	</edmx:DataServices>
 </edmx:Edmx>

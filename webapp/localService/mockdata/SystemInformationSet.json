@@ -19,6 +19,7 @@
 			"IsNotificationCreate": true,
 			"IsNotificationUpdate": true,
 			"IsTasksCreate": true,
+			"IsTasksEdit": true,
 			"IsActivitiesCreate": true,
 			"IsItemUpdate": true,
 			"IsCauseCreate": true
