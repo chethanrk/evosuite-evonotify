@@ -143,7 +143,7 @@ sap.ui.define([
 		 * @param oResponse
 		 */
 		_saveSuccessFn: function (oResponse) {
-			var oChangeData = this._getBatchChangeResponse(oResponse);
+			var oChangeData = this.getBatchChangeResponse(oResponse);
 			if (oChangeData) {
 				this._oModel.resetChanges();
 

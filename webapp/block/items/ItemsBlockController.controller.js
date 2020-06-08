@@ -39,9 +39,10 @@ sap.ui.define([
 			var oContext = oEvent.getSource().getBindingContext();
 			if (oContext) {
 				var obj = oContext.getObject();
-				this.getRouter().navTo("item", {
-					objectId: obj.MaintenanceNotification,
-					itemId: obj.MaintenanceNotificationItem,
+				var parentObj = this.oView.getBindingContext().getObject();
+				this.getRouter().navTo("NotificationItemDetail", {
+					NotificationId: parentObj.MaintenanceNotification,
+					NotificationItemId: obj.MaintenanceNotificationItem,
 					mParams: this.mParams
 				});
 			}

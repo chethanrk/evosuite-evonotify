@@ -3,7 +3,7 @@ sap.ui.define([
 ], function (FormController) {
 	"use strict";
 
-	return FormController.extend("com.evorait.evonotify.controller.NotificationDetail", {
+	return FormController.extend("com.evorait.evonotify.controller.NotificationItemDetail", {
 
 		oViewModel: null,
 
@@ -21,7 +21,7 @@ sap.ui.define([
 
 			var oRouter = this.getRouter();
 			//route for page create new order
-			oRouter.getRoute("NotificationDetail").attachMatched(function (oEvent) {
+			oRouter.getRoute("NotificationItemDetail").attachMatched(function (oEvent) {
 				this._initializeView();
 			}, this);
 		},
@@ -132,6 +132,31 @@ sap.ui.define([
 			}
 		},
 
+		/**
+		 * Show select status dialog with maybe pre-selected filter
+		 * @param oEvent
+		 */
+		onSelectStatus: function (oEvent) {
+			var oParams = oEvent.getParameters(),
+				statusKey = oParams.item.getKey();
+			var oContext = oEvent.getSource().getBindingContext(),
+				obj = oContext.getObject();
+
+			if (obj.IsOutStanding === true || obj.IsInProgress === true || obj.IsPostponed === true) {
+				this.getModel().setProperty(oContext.getPath() + "/Status", statusKey);
+				this.saveChangedEntry({
+					context: this,
+					view: this._oView,
+					success: function () {
+						//this.view.setBusy(false);
+					},
+					error: function () {
+						// this.oContext.setBusy(false);
+					}
+				});
+			}
+		},
+
 		/* =========================================================== */
 		/* internal methods                                              */
 		/* =========================================================== */
@@ -141,6 +166,17 @@ sap.ui.define([
 			this.oSmartForm.setEditable(false);
 			this.oViewModel.setProperty("/editMode", false);
 			this.oViewModel.setProperty("/operationsRowsCount", 0);
-		}
+		},
+
+		/**
+		 * navigate on breadcrumb link back to notifcation detail page
+		 * @public
+		 */
+		onNavToNotification: function () {
+			var obj = this.getView().getBindingContext().getObject();
+			this.getRouter().navTo("object", {
+				objectId: obj.MaintenanceNotification
+			}, true);
+		},
 	});
 });

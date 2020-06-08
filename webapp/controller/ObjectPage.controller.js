@@ -38,6 +38,15 @@ sap.ui.define([
 								MaintenanceNotification: oArgs.NotificationId
 							};
 						this._onRouteMatched(oEvent, sViewName, "PMNotificationSet", mParams);
+					} else if (sRouteName === "NotificationItemDetail") {
+						//Order detail view
+						sViewName = "com.evorait.evonotify.view.templates.NotificationItemDetail#ItemData";
+						var oArgs = oEvent.getParameter("arguments"),
+							mParams = {
+								MaintenanceNotification: oArgs.NotificationId,
+								MaintenanceNotificationItem: oArgs.NotificationItemId
+							};
+						this._onRouteMatched(oEvent, sViewName, "PMNotificationItemSet", mParams);
 					}
 				}.bind(this));
 			}
