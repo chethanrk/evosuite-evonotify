@@ -4,7 +4,7 @@ sap.ui.define([
 ], function (TemplateRenderController, Fragment) {
 	"use strict";
 
-	return TemplateRenderController.extend("com.evorait.evonotify.controller.FormDialogController", {
+	return TemplateRenderController.extend("com.evorait.evonotify.controller.DialogTemplateRenderController", {
 
 		_oHelperModel: null,
 
@@ -14,13 +14,9 @@ sap.ui.define([
 
 		_oView: null,
 
-		_bIsEdit: false,
-
 		_oModel: null,
 
 		_mParams: {},
-
-		_oContext: null,
 
 		/**
 		 * overwrite constructor
@@ -53,7 +49,7 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onPressClose: function (oEvent) {
-			if (this._bIsEdit) {
+			if (this._isNew) {
 				this._oModel.deleteCreatedEntry(this._oContext);
 			}
 			this._oModel.resetChanges();
@@ -72,7 +68,7 @@ sap.ui.define([
 			if (oForm && oViewController.validateForm) {
 				var mErrors = oViewController.validateForm(oForm);
 				//if form is valid save created entry
-				oViewController.saveChanges(mErrors, this._saveSuccessFn.bind(this), null, this._oDialog);
+				oViewController.saveChanges(mErrors, this._saveSuccessFn.bind(this), this._saveErrorFn.bind(this), this._oDialog);
 			} else {
 				//todo show message
 			}
@@ -113,15 +109,15 @@ sap.ui.define([
 		 * Bind dialog view to generated path
 		 */
 		_setFragmentViewBinding: function () {
+			var sPath = this.getEntityPath(this._mParams.entitySet, this._mParams.pathParams, this._oView, this._mParams.sPath);
+
 			this._oDialog.setBusy(true);
+			this._oDialog.unbindElement();
+			this._oDialog.bindElement(sPath);
 			this._oDialog.setTitle(this._oResourceBundle.getText(this._mParams.title));
 			this._oView.addDependent(this._oDialog);
 
 			this._oModel.metadataLoaded().then(function () {
-				var sPath = this.getEntityPath(this._mParams.entitySet, this._mParams.pathParams, this._oView, this._mParams.sPath);
-				this._oDialog.unbindElement();
-				this._oDialog.bindElement(sPath);
-
 				//get template and create views
 				this._mParams.oView = this._oView;
 				this.insertTemplateFragment(sPath, this._mParams.viewName, "FormDialogWrapper", this._afterBindSuccess.bind(this), this._mParams);
@@ -143,15 +139,27 @@ sap.ui.define([
 		 * @param oResponse
 		 */
 		_saveSuccessFn: function (oResponse) {
-			var oChangeData = this._getBatchChangeResponse(oResponse);
-			if (oChangeData) {
-				this._oModel.resetChanges();
-
-				setTimeout(function () {
-					this._oModel.refresh();
-				}.bind(this), 1500);
+			this._oDialog.close();
+			var responseCode = oResponse.__batchResponses[0].__changeResponses;
+			if (responseCode) {
+				if (responseCode[0].statusCode === "200" || responseCode[0].statusCode === "201" || responseCode[0].statusCode === "204") {
+					setTimeout(function () {
+						this._oModel.refresh();
+					}.bind(this), 1500);
+				} else {
+					//Todo show error message
+				}
 			}
 		},
+
+		/**
+		 * Saving failed
+		 * do further things after save
+		 * @param oError
+		 */
+		_saveErrorFn: function (oError) {
+
+		}
 
 	});
 });

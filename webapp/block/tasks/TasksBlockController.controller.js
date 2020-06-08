@@ -33,15 +33,43 @@ sap.ui.define([
 		/* =========================================================== */
 
 		/**
+		 *  save selected context
+		 * @param oEvent
+		 */
+		onPressItem: function (oEvent) {
+			var oListItem = oEvent.getParameter("listItem");
+			this._oTaskContext = oListItem.getBindingContext();
+
+			var oSelectMenu = this.getView().byId("idMenuTask"),
+				oMenuItems = oSelectMenu.getItems();
+
+			oMenuItems.forEach(function (oItem) {
+				var sKey = oItem.getKey();
+				oItem.setVisible(this._setStatusSelectItemsVisibility(sKey));
+			}.bind(this));
+		},
+
+		/**
 		 * show dialog with task details
 		 * in edit mode
 		 * @param oEvent
 		 */
-		onPressItem: function (oEvent) {
-			var mParams = {
-				oContext: oEvent.getSource().getBindingContext()
-			};
-			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditTask");
+		onPressEdit: function (oEvent) {
+			if (this._oTaskContext) {
+				var mParams = {
+					viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#EditTask",
+					annotationPath: "com.sap.vocabularies.UI.v1.Facets#editForm",
+					entitySet: "PMNotificationTaskSet",
+					controllerName: "AddEditEntry",
+					title: "tit.changeAddEditTask",
+					type: "edit",
+					sPath: this._oTaskContext.getPath()
+				};
+				this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
+			} else {
+				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
+				this.showMessageToast(msg);
+			}
 		},
 
 		/**
@@ -51,6 +79,37 @@ sap.ui.define([
 		 */
 		onPressAdd: function (oEvent) {
 			this.getDependenciesAndCallback(this._openAddDialog.bind(this));
+		},
+
+		/**
+		 * Save the selected status
+		 * @param oEvent
+		 */
+		onSelectStatus: function (oEvent) {
+			if (this._oTaskContext) {
+				var oParams = oEvent.getParameters(),
+					statusKey = oParams.item.getKey(),
+					oContextData = this._oTaskContext.getObject();
+
+				if (oContextData.IsOutstanding === true || oContextData.IsReleased === true || oContextData.IsCompleted === true) {
+					this.getView().setBusy(true);
+					this.getModel().setProperty(this._oTaskContext.getPath() + "/Status", statusKey);
+					this.saveChangedEntry({
+						context: this,
+						view: this.getView(),
+						success: function () {
+							this.context.oView.setBusy(false);
+							//this.view.getModel().refresh(true);
+						},
+						error: function () {
+							this.context.oView.setBusy(false);
+						}
+					});
+				}
+			} else {
+				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
+				this.showMessageToast(msg);
+			}
 		},
 
 		/* =========================================================== */
@@ -63,9 +122,14 @@ sap.ui.define([
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				sSetPath: "/PMNotificationTaskSet",
+				viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#AddTask",
+				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addForm",
+				entitySet: "PMNotificationTaskSet",
+				controllerName: "AddEditEntry",
+				title: "tit.newAddEditTask",
+				type: "add",
 				sSortField: "MaintNotifTaskSortNumber",
-				sNavTo:"/NavToTasks/",
+				sNavTo: "/NavToTasks/",
 				mKeys: {
 					MaintenanceNotification: oContextData.MaintenanceNotification,
 					MaintenanceNotificationItem: oContextData.MaintenanceNotificationItem
@@ -76,32 +140,19 @@ sap.ui.define([
 				mParams.mKeys.MaintNotifTaskCodeCatalog = mResults.CatalogTypeForTasks;
 				mParams.mKeys.ResponsiblePersonFunctionCode = mResults.PartnerFunOfPersonRespForTask;
 			}
-			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditTask");
+			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
 		},
-		/**
-		 * Save the selected status
-		 * @param oEvent
-		 */
-		onSelectStatus: function (oEvent) {
-			var oParams = oEvent.getParameters(),
-				statusKey = oParams.item.getKey(),
-				oContext = oEvent.getSource().getBindingContext(),
-				obj = oContext.getObject();
 
-			if (obj.IsOutstanding === true || obj.IsReleased === true || obj.IsCompleted === true) {
-				this.getView().setBusy(true);
-				this.getModel().setProperty(oContext.getPath() + "/Status", statusKey);
-				this.saveChangedEntry({
-					context: this,
-					view: this.getView(),
-					success: function () {
-						this.context.oView.setBusy(false);
-						//this.view.getModel().refresh(true);
-					},
-					error: function () {
-						this.context.oView.setBusy(false);
-					}
-				});
+		/**
+		 * @param sStatus
+		 */
+		_setStatusSelectItemsVisibility: function (sStatus) {
+			if (!this._oTaskContext) {
+				return false;
+			} else {
+				var oContextData = this._oTaskContext.getObject();
+				return formatter.taskStatusVisibility(oContextData.IsOutstanding, oContextData.IsReleased, oContextData.IsCompleted, oContextData.IsSuccessfull,
+					sStatus);
 			}
 		}
 
