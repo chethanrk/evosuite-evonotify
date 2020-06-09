@@ -61,20 +61,25 @@ sap.ui.define([
 		 * and set add cause dependencies like catalog from NotificationType
 		 */
 		_openAddDialog: function (oContextData, mResults) {
-			this.mParams = {
-				sSetPath: "/PMNotificationItemSet",
+			var mParams = {
+				viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#AddEditItem",
+				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditForm",
+				entitySet: "PMNotificationItemSet",
+				controllerName: "AddEditEntry",
+				title: "tit.newAddEditItem",
+				type: "add",
 				sSortField: "MaintNotifItemSortNumber",
-				sNavTo:"/NavToItems/",
+				sNavTo: "/NavToItems/",
 				mKeys: {
 					MaintenanceNotification: oContextData.MaintenanceNotification
 				}
 			};
 
 			if (mResults) {
-				this.mParams.mKeys.MaintNotifObjPrtCodeCatalog = mResults.CatalogTypeForObjParts;
-				this.mParams.mKeys.MaintNotifDamageCodeCatalog = mResults.CatalogTypeForDamage;
+				mParams.mKeys.MaintNotifObjPrtCodeCatalog = mResults.CatalogTypeForObjParts;
+				mParams.mKeys.MaintNotifDamageCodeCatalog = mResults.CatalogTypeForDamage;
 			}
-			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), this.mParams, "AddEditItem");
+			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
 		}
 
 	});

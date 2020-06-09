@@ -3,12 +3,12 @@ sap.ui.define([
 	"sap/ui/Device",
 	"com/evorait/evonotify/model/models",
 	"com/evorait/evonotify/controller/ErrorHandler",
-	"com/evorait/evonotify/controller/AddEditEntryDialog",
-	"com/evorait/evonotify/controller/FormDialogController",
-    "com/evorait/evonotify/model/Constants",
-    "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
-], function (UIComponent, Device, models, ErrorHandler, AddEditEntryDialog, FormDialogController, Constants, Filter, FilterOperator) {
+	"com/evorait/evonotify/controller/DialogTemplateRenderController",
+	"com/evorait/evonotify/model/Constants",
+	"sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator"
+], function (UIComponent, Device, models, ErrorHandler, DialogTemplateRenderController, Constants, Filter,
+	FilterOperator) {
 	"use strict";
 
 	return UIComponent.extend("com.evorait.evonotify.Component", {
@@ -16,8 +16,6 @@ sap.ui.define([
 		metadata: {
 			manifest: "json"
 		},
-
-		oAddEntryDialog: new AddEditEntryDialog(),
 
 		/**
 		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
@@ -44,7 +42,8 @@ sap.ui.define([
 				dataSource = manifestApp.dataSources.mainService.uri;
 			}
 
-			this.FormDialog = new FormDialogController(this);
+			this.DialogTemplateRenderer = new DialogTemplateRenderController(this);
+
 			var viewModelObj = {
 				busy: true,
 				delay: 100,
@@ -79,17 +78,18 @@ sap.ui.define([
 				this.getModel("navLinks").setData(data.results);
 			}.bind(this));
 
-            //Creating the Global assignment model for assignInfo Dialog
-            this.setModel(models.createNavLinksModel([]), "navLinks");
+			//Creating the Global assignment model for assignInfo Dialog
+			this.setModel(models.createNavLinksModel([]), "navLinks");
 
-            if(sap.ushell && sap.ushell.Container){
-                this.getModel("viewModel").setProperty("/launchMode",Constants.LAUNCH_MODE.FIORI);
-            }
+			if (sap.ushell && sap.ushell.Container) {
+				this.getModel("viewModel").setProperty("/launchMode", Constants.LAUNCH_MODE.FIORI);
+			}
 
-            this._getData("/NavigationLinks",[new Filter("LaunchMode",FilterOperator.EQ, this.getModel("viewModel").getProperty("/launchMode"))]).
-            then(function(data){
-                this.getModel("navLinks").setData(data.results);
-            }.bind(this));
+			this._getData("/NavigationLinks", [new Filter("LaunchMode", FilterOperator.EQ, this.getModel("viewModel").getProperty("/launchMode"))])
+				.
+			then(function (data) {
+				this.getModel("navLinks").setData(data.results);
+			}.bind(this));
 
 			// create the views based on the url/hash
 			this.getRouter().initialize();
@@ -138,22 +138,22 @@ sap.ui.define([
 				}.bind(this)
 			});
 		},
-        /**
-         *  Read call given entityset and filters
-         */
-        _getData: function (sUri, aFilters) {
-            return new Promise(function (resolve, reject) {
-                this.getModel().read(sUri, {
-                    filters: aFilters,
-                    success: function (oData, oResponse) {
-                        resolve(oData);
-                    }.bind(this),
-                    error: function (oError) {
-                        //Handle Error
-                        reject(oError);
-                    }.bind(this)
-                });
-            }.bind(this));
-        }
+		/**
+		 *  Read call given entityset and filters
+		 */
+		_getData: function (sUri, aFilters) {
+			return new Promise(function (resolve, reject) {
+				this.getModel().read(sUri, {
+					filters: aFilters,
+					success: function (oData, oResponse) {
+						resolve(oData);
+					}.bind(this),
+					error: function (oError) {
+						//Handle Error
+						reject(oError);
+					}.bind(this)
+				});
+			}.bind(this));
+		}
 	});
 });
