@@ -33,18 +33,6 @@ sap.ui.define([
 		/* =========================================================== */
 
 		/**
-		 * show dialog with cause details
-		 * in edit mode
-		 * @param oEvent
-		 */
-		onPressItem: function (oEvent) {
-			var mParams = {
-				oContext: oEvent.getSource().getBindingContext()
-			};
-			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditCause");
-		},
-
-		/**
 		 * add a new cause
 		 * create a new entry based on if its Notification Item level
 		 * @param oEvent
@@ -63,9 +51,14 @@ sap.ui.define([
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				sSetPath: "/PMNotificationItemCauseSet",
+				viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#AddCause",
+				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditForm",
+				entitySet: "PMNotificationItemCauseSet",
+				controllerName: "AddEditEntry",
+				title: "tit.newAddEditCause",
+				type: "add",
 				sSortField: "CauseSortNumber",
-				sNavTo:"/NavToItemCause/",
+				sNavTo: "/NavToItemCause/",
 				mKeys: {
 					MaintenanceNotification: oContextData.MaintenanceNotification,
 					MaintenanceNotificationItem: oContextData.MaintenanceNotificationItem
@@ -75,7 +68,7 @@ sap.ui.define([
 			if (mResults) {
 				mParams.mKeys.MaintNotifCauseCodeCatalog = mResults.CatalogTypeForCauses;
 			}
-			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditCause");
+			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
 		}
 	});
 

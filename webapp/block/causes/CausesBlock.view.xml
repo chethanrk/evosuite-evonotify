@@ -14,8 +14,5 @@
 		<smartTable:layoutData>
 			<FlexItemData growFactor="1" baseSize="0%"/>
 		</smartTable:layoutData>
-		<Table growing="true">
-			<ColumnListItem type="DetailAndActive" press="onPressItem" detailPress="onPressItem"></ColumnListItem>
-		</Table>
 	</smartTable:SmartTable>
 </mvc:View>
