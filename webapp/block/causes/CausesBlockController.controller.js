@@ -48,8 +48,8 @@ sap.ui.define([
 		onPressEdit: function (oEvent) {
 			if (this._oItemCauseContext) {
 				var mParams = {
-					viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#addEditForm",
-					annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditForm",
+					viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#addEditItemCauseForm",
+					annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditItemCauseForm",
 					entitySet: "PMNotificationItemCauseSet",
 					controllerName: "AddEditEntry",
 					title: "tit.newAddEditCause",
@@ -85,7 +85,7 @@ sap.ui.define([
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
 				viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#AddCause",
-				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditForm",
+				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditItemCauseForm",
 				entitySet: "PMNotificationItemCauseSet",
 				controllerName: "AddEditEntry",
 				title: "tit.newAddEditCause",

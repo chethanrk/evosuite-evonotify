@@ -31,17 +31,38 @@ sap.ui.define([
 		/* =========================================================== */
 		/* event handlers                                              */
 		/* =========================================================== */
+		/**
+		 *  save selected context
+		 * @param oEvent
+		 */
+		onPressItem: function (oEvent) {
+			this.oListItem = oEvent.getParameter("listItem");
+			this._oItemTaskContext = this.oListItem.getBindingContext();
+		},
 
 		/**
 		 * show dialog with task details
 		 * in edit mode
 		 * @param oEvent
 		 */
-		onPressItem: function (oEvent) {
-			var mParams = {
-				oContext: oEvent.getSource().getBindingContext()
-			};
-			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditTask");
+		onPressEdit: function (oEvent) {
+			if (this._oItemTaskContext) {
+				var mParams = {
+					viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#addEditItemTaskForm",
+					annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditItemTaskForm",
+					entitySet: "PMNotificationItemTaskSet",
+					controllerName: "AddEditEntry",
+					title: "tit.editTask",
+					type: "edit",
+					sPath: this._oItemTaskContext.getPath()
+				};
+				this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
+				this._oItemTaskContext = null;
+				this.oListItem.getParent().removeSelections(true);
+			} else {
+				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
+				this.showMessageToast(msg);
+			}
 		},
 
 		/**
@@ -63,9 +84,14 @@ sap.ui.define([
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				sSetPath: "/PMNotificationItemTaskSet",
+				viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#AddItemTask",
+				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditItemTaskForm",
+				entitySet: "PMNotificationItemTaskSet",
+				controllerName: "AddEditEntry",
+				title: "tit.newAddEditTask",
+				type: "add",
 				sSortField: "MaintNotifTaskSortNumber",
-				sNavTo:"/NavToItemTask/",
+				sNavTo: "/NavToItemTask/",
 				mKeys: {
 					MaintenanceNotification: oContextData.MaintenanceNotification,
 					MaintenanceNotificationItem: oContextData.MaintenanceNotificationItem
@@ -76,8 +102,9 @@ sap.ui.define([
 				mParams.mKeys.MaintNotifTaskCodeCatalog = mResults.CatalogTypeForTasks;
 				mParams.mKeys.ResponsiblePersonFunctionCode = mResults.PartnerFunOfPersonRespForTask;
 			}
-			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditTask");
+			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
 		},
+
 		/**
 		 * Save the selected status
 		 * @param oEvent
