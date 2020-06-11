@@ -52,7 +52,7 @@ sap.ui.define([
 					annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditItemCauseForm",
 					entitySet: "PMNotificationItemCauseSet",
 					controllerName: "AddEditEntry",
-					title: "tit.newAddEditCause",
+					title: "tit.editCause",
 					type: "edit",
 					sPath: this._oItemCauseContext.getPath()
 				};
@@ -88,7 +88,7 @@ sap.ui.define([
 				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditItemCauseForm",
 				entitySet: "PMNotificationItemCauseSet",
 				controllerName: "AddEditEntry",
-				title: "tit.newAddEditCause",
+				title: "tit.addCause",
 				type: "add",
 				sSortField: "CauseSortNumber",
 				sNavTo: "/NavToItemCause/",

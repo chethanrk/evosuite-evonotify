@@ -66,7 +66,7 @@ sap.ui.define([
 				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditForm",
 				entitySet: "PMNotificationItemSet",
 				controllerName: "AddEditEntry",
-				title: "tit.newAddEditItem",
+				title: "tit.addItem",
 				type: "add",
 				sSortField: "MaintNotifItemSortNumber",
 				sNavTo: "/NavToItems/",
