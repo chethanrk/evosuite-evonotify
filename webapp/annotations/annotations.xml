@@ -805,6 +805,12 @@
 						<Record Type="UI.ReferenceFacet">
 							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#addEditGroup2"/>
 						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#addEditGroup3"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#addEditGroup4"/>
+						</Record>
 					</Collection>
 				</Annotation>
 				<Annotation Term="UI.FieldGroup" Qualifier="addEditGroup1">
@@ -855,6 +861,72 @@
 				<Annotation Term="UI.FieldGroup" Qualifier="addEditGroup4">
 					<Record Type="UI.FieldGroupType">
 						<PropertyValue Property="Label" String="{@i18n&gt;tit.ItemTaskFormDates}"/>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="PlannedStartDate"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="PlannedStartTime"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="PlannedEndDate"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="PlannedEndTime"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItemActivity">
+				<Annotation Term="UI.Facets" Qualifier="addEditItemActivityForm">
+					<Collection>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#addEditGroup1"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#addEditGroup2"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#addEditGroup3"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="addEditGroup1">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Label" String="{@i18n&gt;tit.ItemActivityFormGeneral}"/>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="MaintNotifActyTxt"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ActivitySortNumber"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="addEditGroup2">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Label" String="{@i18n&gt;tit.ItemActivityFormCode}"/>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="MaintNotifActivityCodeGroup"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="MaintNotifActivityCode"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="addEditGroup3">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Label" String="{@i18n&gt;tit.ItemActivityFormDates}"/>
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
