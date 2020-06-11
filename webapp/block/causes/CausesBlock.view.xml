@@ -8,11 +8,14 @@
 				<ToolbarSpacer/>
 				<OverflowToolbarButton icon="sap-icon://add" text="Sort" press="onPressAdd"
 					visible="{ parts: [{path: 'IsCompleted'},{path: 'IsDeleted'},{path: 'user>/IsCauseCreate'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
+				<OverflowToolbarButton icon="sap-icon://edit" text="Sort" press="onPressEdit"
+					visible="{ parts: [{path: 'IsCompleted'},{path: 'IsDeleted'},{path: 'user>/IsCauseCreate'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 			</OverflowToolbar>
 		</smartTable:customToolbar>
 		<!-- layout data used to make the table growing but the filter bar fixed -->
 		<smartTable:layoutData>
 			<FlexItemData growFactor="1" baseSize="0%"/>
 		</smartTable:layoutData>
+		<Table growing="true" mode="SingleSelectMaster" selectionChange="onPressItem"></Table>
 	</smartTable:SmartTable>
 </mvc:View>

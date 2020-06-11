@@ -30,7 +30,39 @@ sap.ui.define([
 
 		/* =========================================================== */
 		/* event handlers                                              */
-		/* =========================================================== */
+		/* =========================================================== *//**
+		 *  save selected context
+		 * @param oEvent
+		 */
+		onPressItem: function (oEvent) {
+			this.oListItem = oEvent.getParameter("listItem");
+			this._oItemCauseContext = this.oListItem.getBindingContext();
+		},
+
+		/**
+		 * show dialog with cause details
+		 * in edit mode
+		 * @param oEvent
+		 */
+		onPressEdit: function (oEvent) {
+			if (this._oItemCauseContext) {
+				var mParams = {
+					viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#addEditForm",
+					annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditForm",
+					entitySet: "PMNotificationItemCauseSet",
+					controllerName: "AddEditEntry",
+					title: "tit.newAddEditCause",
+					type: "edit",
+					sPath: this._oItemCauseContext.getPath()
+				};
+				this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
+				this._oItemCauseContext = null;
+				this.oListItem.getParent().removeSelections(true);
+			} else {
+				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
+				this.showMessageToast(msg);
+			}
+		},
 
 		/**
 		 * add a new cause
