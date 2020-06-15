@@ -48,7 +48,7 @@ sap.ui.define([
 		onPressEdit: function (oEvent) {
 			if (this._oActivityContext) {
 				var mParams = {
-					viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#addEditActivityForm",
+					viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#AddEditActivity",
 					annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditActivityForm",
 					entitySet: "PMNotificationActivitySet",
 					controllerName: "AddEditEntry",
@@ -84,7 +84,7 @@ sap.ui.define([
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#AddActivity",
+				viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#AddEditActivity",
 				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditActivityForm",
 				entitySet: "PMNotificationActivitySet",
 				controllerName: "AddEditEntry",

@@ -663,7 +663,7 @@
 				</Annotation>
 				<Annotation Term="UI.FieldGroup" Qualifier="addEditGroup1">
 					<Record Type="UI.FieldGroupType">
-						<PropertyValue Property="Label" String="{@i18n&gt;tit.activityFormGeneral}"/>
+						<PropertyValue Property="Label" String="{@i18n&gt;tit.ActivityFormGeneral}"/>
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
@@ -678,7 +678,7 @@
 				</Annotation>
 				<Annotation Term="UI.FieldGroup" Qualifier="addEditGroup2">
 					<Record Type="UI.FieldGroupType">
-						<PropertyValue Property="Label" String="{@i18n&gt;tit.activityFormCode}"/>
+						<PropertyValue Property="Label" String="{@i18n&gt;tit.ActivityFormCode}"/>
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
@@ -693,7 +693,7 @@
 				</Annotation>
 				<Annotation Term="UI.FieldGroup" Qualifier="addEditGroup3">
 					<Record Type="UI.FieldGroupType">
-						<PropertyValue Property="Label" String="{@i18n&gt;tit.activityFormDates}"/>
+						<PropertyValue Property="Label" String="{@i18n&gt;tit.ActivityFormDates}"/>
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
