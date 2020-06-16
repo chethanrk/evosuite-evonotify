@@ -61,11 +61,13 @@ sap.ui.define([
 					annotationPath: "com.sap.vocabularies.UI.v1.Facets#editForm",
 					entitySet: "PMNotificationTaskSet",
 					controllerName: "AddEditEntry",
-					title: "tit.changeAddEditTask",
+					title: "tit.editTask",
 					type: "edit",
 					sPath: this._oTaskContext.getPath()
 				};
 				this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
+				this._oTaskContext = null;
+				this.oListItem.getParent().removeSelections(true);
 			} else {
 				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
 				this.showMessageToast(msg);
@@ -126,7 +128,7 @@ sap.ui.define([
 				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addForm",
 				entitySet: "PMNotificationTaskSet",
 				controllerName: "AddEditEntry",
-				title: "tit.newAddEditTask",
+				title: "tit.addTask",
 				type: "add",
 				sSortField: "MaintNotifTaskSortNumber",
 				sNavTo: "/NavToTasks/",
