@@ -31,17 +31,38 @@ sap.ui.define([
 		/* =========================================================== */
 		/* event handlers                                              */
 		/* =========================================================== */
+		/**
+		 *  save selected context
+		 * @param oEvent
+		 */
+		onPressItem: function (oEvent) {
+			this.oListItem = oEvent.getParameter("listItem");
+			this._oItemCauseContext = this.oListItem.getBindingContext();
+		},
 
 		/**
 		 * show dialog with cause details
 		 * in edit mode
 		 * @param oEvent
 		 */
-		onPressItem: function (oEvent) {
-			var mParams = {
-				oContext: oEvent.getSource().getBindingContext()
-			};
-			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditCause");
+		onPressEdit: function (oEvent) {
+			if (this._oItemCauseContext) {
+				var mParams = {
+					viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#addEditItemCauseForm",
+					annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditItemCauseForm",
+					entitySet: "PMNotificationItemCauseSet",
+					controllerName: "AddEditEntry",
+					title: "tit.editCause",
+					type: "edit",
+					sPath: this._oItemCauseContext.getPath()
+				};
+				this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
+				this._oItemCauseContext = null;
+				this.oListItem.getParent().removeSelections(true);
+			} else {
+				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
+				this.showMessageToast(msg);
+			}
 		},
 
 		/**
@@ -63,9 +84,14 @@ sap.ui.define([
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				sSetPath: "/PMNotificationItemCauseSet",
+				viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#AddCause",
+				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditItemCauseForm",
+				entitySet: "PMNotificationItemCauseSet",
+				controllerName: "AddEditEntry",
+				title: "tit.addCause",
+				type: "add",
 				sSortField: "CauseSortNumber",
-				sNavTo:"/NavToItemCause/",
+				sNavTo: "/NavToItemCause/",
 				mKeys: {
 					MaintenanceNotification: oContextData.MaintenanceNotification,
 					MaintenanceNotificationItem: oContextData.MaintenanceNotificationItem
@@ -75,7 +101,7 @@ sap.ui.define([
 			if (mResults) {
 				mParams.mKeys.MaintNotifCauseCodeCatalog = mResults.CatalogTypeForCauses;
 			}
-			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditCause");
+			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
 		}
 	});
 
