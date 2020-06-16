@@ -31,17 +31,38 @@ sap.ui.define([
 		/* =========================================================== */
 		/* event handlers                                              */
 		/* =========================================================== */
+		/**
+		 *  save selected context
+		 * @param oEvent
+		 */
+		onPressItem: function (oEvent) {
+			this.oListItem = oEvent.getParameter("listItem");
+			this._oActivityContext = this.oListItem.getBindingContext();
+		},
 
 		/**
 		 * show dialog with activity details
 		 * in edit mode
 		 * @param oEvent
 		 */
-		onPressItem: function (oEvent) {
-			var mParams = {
-				oContext: oEvent.getSource().getBindingContext()
-			};
-			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditActivity");
+		onPressEdit: function (oEvent) {
+			if (this._oActivityContext) {
+				var mParams = {
+					viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#AddEditActivity",
+					annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditActivityForm",
+					entitySet: "PMNotificationActivitySet",
+					controllerName: "AddEditEntry",
+					title: "tit.editActivity",
+					type: "edit",
+					sPath: this._oActivityContext.getPath()
+				};
+				this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
+				this._oActivityContext = null;
+				this.oListItem.getParent().removeSelections(true);
+			} else {
+				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
+				this.showMessageToast(msg);
+			}
 		},
 
 		/**
@@ -59,13 +80,18 @@ sap.ui.define([
 
 		/**
 		 * open add dialog 
-		 * and set add cause dependencies like catalog from NotificationType
+		 * and set add activity dependencies like catalog from NotificationType
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				sSetPath: "/PMNotificationActivitySet",
+				viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#AddEditActivity",
+				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditActivityForm",
+				entitySet: "PMNotificationActivitySet",
+				controllerName: "AddEditEntry",
+				title: "tit.addActivity",
+				type: "add",
 				sSortField: "ActivitySortNumber",
-				sNavTo:"/NavToActivity/",
+				sNavTo: "/NavToActivity/",
 				mKeys: {
 					MaintenanceNotification: oContextData.MaintenanceNotification,
 					MaintenanceNotificationItem: oContextData.MaintenanceNotificationItem
@@ -75,7 +101,7 @@ sap.ui.define([
 			if (mResults) {
 				mParams.mKeys.MaintNotifAcivityCodeCatalog = mResults.CatalogTypeForActivities;
 			}
-			this.getOwnerComponent().oAddEntryDialog.open(this.getView(), mParams, "AddEditActivity");
+			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
 		}
 	});
 
