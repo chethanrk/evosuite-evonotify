@@ -33,7 +33,7 @@
 			<smartTable:SmartTable id="NotificationTable" class="workorderSmartTable" entitySet="PMNotificationSet"
 				smartFilterId="NotificationFilter" tableType="Table" useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="true"
 				useTablePersonalisation="true" header="{i18n>tit.worklistTable}" showRowCount="true"
-				persistencyKey="com.evorait.evonotify.NotificationTable" enableAutoBinding="true">
+				persistencyKey="com.evorait.evonotify.NotificationTable" enableAutoBinding="true" requestAtLeastFields="ObjectKey">
 				<!-- layout data used to make the table growing but the filter bar fixed -->
 				<smartTable:layoutData>
 					<FlexItemData growFactor="1" baseSize="0%"/>

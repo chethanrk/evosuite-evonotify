@@ -46,7 +46,7 @@ sap.ui.define([
 			var oContext = oEvent.getSource().getBindingContext();
 			this.oSmartTable.setEditable(false);
 			this.getRouter().navTo("NotificationDetail", {
-				NotificationId: oContext.getProperty("MaintenanceNotification")
+				ObjectKey: oContext.getProperty("ObjectKey")
 			});
 		},
 
