@@ -148,7 +148,7 @@ sap.ui.define([
 					}.bind(this),
 					error: function (oError) {
 						this._setBusyWhileSaving(oCtrl, false);
-						this.showSaveErrorPrompt(oError);
+						//this.showSaveErrorPrompt(oError);
 						if (oErrorCallback) {
 							oErrorCallback(oError);
 						}
