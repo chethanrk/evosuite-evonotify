@@ -64,7 +64,7 @@
 									<PropertyValue Property="Value" Path="FunctionalLocation"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="TechObjIsEquipOrFuncnlLocDesc"/>
+									<PropertyValue Property="Value" Path="TechnicalObjectTypeDesc"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -75,10 +75,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotificationType"/>
+									<PropertyValue Property="Value" Path="NotificationtYpe"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintPriority"/>
+									<PropertyValue Property="Value" Path="Priority"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -300,25 +300,25 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintenanceNotification"/>
+									<PropertyValue Property="Value" Path="Notification"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="NotificationText"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotificationType"/>
+									<PropertyValue Property="Value" Path="NotificationtYpe"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintenanceOrder"/>
+									<PropertyValue Property="Value" Path="OrderNumber"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="CreationDate"/>
+									<PropertyValue Property="Value" Path="CreatedAt"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="CreationTime"/>
+									<PropertyValue Property="Value" Path="ChangedAt"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintPriority"/>
+									<PropertyValue Property="Value" Path="Priority"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -342,10 +342,10 @@
 									<PropertyValue Property="Value" Path="MalfunctionEndTime"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintObjectDowntimeDuration"/>
+									<PropertyValue Property="Value" Path="BreakdownDuration"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintenanceObjectIsDown"/>
+									<PropertyValue Property="Value" Path="BreakdownIndicator"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -518,7 +518,7 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintenanceNotification"/>
+									<PropertyValue Property="Value" Path="Notification"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="MaintNotifItemSortNumber"/>

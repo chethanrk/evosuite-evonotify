@@ -136,7 +136,7 @@
 					]
 				},
 				{
-					"pattern": "Notification/{NotificationId}",
+					"pattern": "ObjectKey/{ObjectKey}",
 					"name": "NotificationDetail",
 					"target": [
 						"NotificationDetail"
