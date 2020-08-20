@@ -2,7 +2,7 @@
 	xmlns:mvc="sap.ui.core.mvc" xmlns:smartTable="sap.ui.comp.smarttable">
 	<smartTable:SmartTable height="100%" width="100%" id="notificationItemsTable" tableType="ResponsiveTable" useExportToExcel="false"
 		useVariantManagement="true" useTablePersonalisation="true" showRowCount="true" persistencyKey="com.evorait.evonotify.itemTable"
-		enableAutoBinding="true" demandPopin="true" entitySet="PMNotificationItemSet" tableBindingPath="NavToItems">
+		enableAutoBinding="true" demandPopin="true" entitySet="PMNotificationItemSet" tableBindingPath="NotificationToItem">
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>

@@ -57,8 +57,7 @@ sap.ui.define([
 				this.getRouter().navTo("worklist", {}, true);
 			} else if (this.oViewModel.getProperty("/editMode") && this.getModel().hasPendingChanges()) {
 				//show confirm message
-				var sPath = this.getView().getBindingContext().getPath();
-				this._confirmEditCancelDialog(sPath, true);
+				this._confirmEditCancelDialog(this.sPath, true);
 			} else {
 				this.getView().unbindElement();
 				this.oSmartForm.setEditable(false);
@@ -73,6 +72,7 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onPressEdit: function (oEvent) {
+			this.sPath=this.getView().getBindingContext().getPath();
 			this.oSmartForm.setEditable(true);
 			this.oViewModel.setProperty("/editMode", true);
 		},
@@ -83,10 +83,9 @@ sap.ui.define([
 		 */
 		onPressSave: function (oEvent) {
 			if (this.oSmartForm) {
-				var mErrors = this.validateForm(this.oSmartForm),
-					oContext = this.getView().getBindingContext();
+				var mErrors = this.validateForm(this.oSmartForm);
 				//if form is valid save created entry
-				this.getModel().setProperty(oContext.getPath() + "/Status", "");
+				this.getModel().setProperty(this.sPath + "/Status", "");
 				this.saveChanges(mErrors, this.saveCreateSuccessFn.bind(this));
 			} else {
 				//todo show message
@@ -124,8 +123,7 @@ sap.ui.define([
 		onPressCancel: function (oEvent) {
 			//show confirm message
 			if (this.getModel().hasPendingChanges()) {
-				var sPath = this.getView().getBindingContext().getPath();
-				this.confirmEditCancelDialog(sPath);
+				this.confirmEditCancelDialog(this.sPath);
 			} else {
 				this.oSmartForm.setEditable(false);
 				this.oViewModel.setProperty("/editMode", false);

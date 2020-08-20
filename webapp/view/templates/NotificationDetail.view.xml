@@ -6,7 +6,7 @@
 		<uxap:ObjectPageLayout id="notificationDetailPage" enableLazyLoading="false" isChildPage="true" showFooter="false" busy="{viewModel>/busy}"
 			busyIndicatorDelay="{viewModel>/delay}">
 			<uxap:headerTitle>
-				<uxap:ObjectPageHeader id="objectPageHeader" objectTitle="{NotificationText}" objectSubtitle="{MaintenanceNotification}">
+				<uxap:ObjectPageHeader id="objectPageHeader" objectTitle="{NotificationText}" objectSubtitle="{Notification}">
 					<uxap:actions>
 						<!--<uxap:ObjectPageHeaderActionButton id="editNotificationButton" text="{i18n>btn.edit}" hideText="false" press="onPressEdit" type="Emphasized"-->
 						<!--	visible="{parts: ['IsCompleted','IsDeleted','user>/IsNotificationUpdate','viewModel>/editMode'], formatter:'.formatter.isVisible'}"/>-->
@@ -27,8 +27,8 @@
 						</MenuButton>
 					</uxap:actions>
 					<uxap:breadcrumbs>
-						<Breadcrumbs currentLocationText="{/#PMNotification/MaintenanceNotification/@sap:label} {MaintenanceNotification}">
-							<Link text="{i18n>tit.notifications}" press="onNavToList"/>
+						<Breadcrumbs currentLocationText="{/#PMNotification/Notification/@sap:label} {Notification}">
+							<Link text="{i18n>tit.notifications}" press="onNavBack"/>
 						</Breadcrumbs>
 					</uxap:breadcrumbs>
 					<uxap:navigationBar>

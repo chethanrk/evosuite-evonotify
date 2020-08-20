@@ -35,7 +35,7 @@ sap.ui.define([
 						sViewName = "com.evorait.evonotify.view.templates.NotificationDetail#Data";
 						var oArgs = oEvent.getParameter("arguments"),
 							mParams = {
-								MaintenanceNotification: oArgs.NotificationId
+								ObjectKey: oArgs.ObjectKey
 							};
 						this._onRouteMatched(oEvent, sViewName, "PMNotificationSet", mParams);
 					} else if (sRouteName === "NotificationItemDetail") {
