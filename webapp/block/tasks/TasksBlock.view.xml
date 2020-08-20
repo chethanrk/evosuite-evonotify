@@ -2,8 +2,8 @@
 	xmlns:mvc="sap.ui.core.mvc" xmlns:smartTable="sap.ui.comp.smarttable">
 	<smartTable:SmartTable id="notificationTasksTable" height="100%" width="100%" tableType="ResponsiveTable" useExportToExcel="false"
 		useVariantManagement="true" useTablePersonalisation="true" showRowCount="true" persistencyKey="com.evorait.evonotify.taskNotifTable"
-		enableAutoBinding="true" entitySet="PMNotificationTaskSet" tableBindingPath="NavToTasks"
-		requestAtLeastFields="IsOutstanding,IsReleased,IsCompleted,IsSuccessfull,IsDeleted">
+		enableAutoBinding="true" entitySet="PMNotificationTaskSet" tableBindingPath="NotificationToTask"
+		requestAtLeastFields="IsOutstanding,IsCompleted,IsDeleted">
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
