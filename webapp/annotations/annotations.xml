@@ -20,12 +20,12 @@
 	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/cs02/vocabularies/Org.OData.Aggregation.V1.xml">
 		<edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1"/>
 	</edmx:Reference>
-	<edmx:Reference Uri="/sap/opu/odata/EVOCU/EN_MAIN_SRV/$metadata">
-		<edmx:Include Alias="Metadata" Namespace="com.evorait.evocu.evonotify"/>
+	<edmx:Reference Uri="/sap/opu/odata/EVORA/EN_MAIN_SRV/$metadata">
+		<edmx:Include Alias="Metadata" Namespace="com.evorait.evonotify"/>
 	</edmx:Reference>
 	<edmx:DataServices>
-		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="evonotify.annotations.annotations.com.evorait.evocu.evonotify">
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotification">
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="evonotify.annotations.annotations.com.evorait.evonotify">
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evonotify.PMNotification">
 				<Annotation Term="UI.HeaderFacets" Qualifier="notificationDetail">
 					<Collection>
 						<Record Type="UI.ReferenceFacet">
@@ -126,10 +126,10 @@
 									<PropertyValue Property="Value" Path="NotificationText"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotificationType"/>
+									<PropertyValue Property="Value" Path="NotificationtYpe"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintPriority"/>
+									<PropertyValue Property="Value" Path="Priority"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="ReportedByUser"/>
@@ -222,13 +222,13 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintenanceWorkCenterPlant"/>
+									<PropertyValue Property="Value" Path="MaintenanceWorkcenterPlant"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="AssetLocation"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="ABCIndicator"/>
+									<PropertyValue Property="Value" Path="AbcIndicator"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="MaintenancePlant"/>
@@ -249,7 +249,7 @@
 									<PropertyValue Property="Value" Path="MaintenancePlannerGroup"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintenanceWorkCenter"/>
+									<PropertyValue Property="Value" Path="Workcenter"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -454,7 +454,7 @@
 					</Record>
 				</Annotation>
 			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItem">
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evonotify.PMNotificationItem">
 				<Annotation Term="UI.HeaderFacets" Qualifier="notificationItemDetail">
 					<Collection>
 						<Record Type="UI.ReferenceFacet">
@@ -621,7 +621,7 @@
 					</Record>
 				</Annotation>
 			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationTask">
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evonotify.PMNotificationTask">
 				<Annotation Term="UI.Facets" Qualifier="addForm">
 					<Collection>
 						<Record Type="UI.ReferenceFacet">
@@ -754,7 +754,7 @@
 					</Record>
 				</Annotation>
 			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItemCause">
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evonotify.PMNotificationItemCause">
 				<Annotation Term="UI.Facets" Qualifier="addEditItemCauseForm">
 					<Collection>
 						<Record Type="UI.ReferenceFacet">
@@ -796,7 +796,7 @@
 					</Record>
 				</Annotation>
 			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItemTask">
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evonotify.PMNotificationItemTask">
 				<Annotation Term="UI.Facets" Qualifier="addEditItemTaskForm">
 					<Collection>
 						<Record Type="UI.ReferenceFacet">
@@ -880,7 +880,7 @@
 					</Record>
 				</Annotation>
 			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationItemActivity">
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evonotify.PMNotificationItemActivity">
 				<Annotation Term="UI.Facets" Qualifier="addEditItemActivityForm">
 					<Collection>
 						<Record Type="UI.ReferenceFacet">
@@ -946,7 +946,7 @@
 					</Record>
 				</Annotation>
 			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evocu.evonotify.PMNotificationActivity">
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evonotify.PMNotificationActivity">
 				<Annotation Term="UI.Facets" Qualifier="addEditActivityForm">
 					<Collection>
 						<Record Type="UI.ReferenceFacet">
