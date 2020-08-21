@@ -205,7 +205,6 @@ sap.ui.define([
 
 				error: function (oError) {
 					oViewModel.setProperty("/busy", false);
-					//this.showSaveErrorPrompt(oError);
 				}.bind(this)
 			});
 		},
@@ -262,7 +261,6 @@ sap.ui.define([
 					if (mParams.error) {
 						mParams.error();
 					}
-					//this.showSaveErrorPrompt(oError);
 				}.bind(this)
 			});
 		},
@@ -302,7 +300,6 @@ sap.ui.define([
 					if (mParams.error) {
 						mParams.error();
 					}
-					//this.showSaveErrorPrompt(oError);
 				}.bind(this)
 			});
 		},
