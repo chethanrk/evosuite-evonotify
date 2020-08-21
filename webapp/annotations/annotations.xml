@@ -126,7 +126,7 @@
 									<PropertyValue Property="Value" Path="NotificationText"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotificationType"/>
+									<PropertyValue Property="Value" Path="NotificationtYpe"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="Priority"/>
@@ -222,13 +222,13 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintenanceWorkCenterPlant"/>
+									<PropertyValue Property="Value" Path="MaintenanceWorkcenterPlant"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="AssetLocation"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="ABCIndicator"/>
+									<PropertyValue Property="Value" Path="AbcIndicator"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="MaintenancePlant"/>
@@ -249,7 +249,7 @@
 									<PropertyValue Property="Value" Path="MaintenancePlannerGroup"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintenanceWorkCenter"/>
+									<PropertyValue Property="Value" Path="Workcenter"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
