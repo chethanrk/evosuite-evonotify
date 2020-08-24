@@ -71,13 +71,13 @@ sap.ui.define([
 				sSortField: "MaintNotifitemsortnumber",
 				sNavTo: "/NotificationToItem/",
 				mKeys: {
-					ObjectKey: oContextData.ObjectKey
+					Notification: oContextData.Notification
 				}
 			};
 
 			if (mResults) {
-				mParams.mKeys.MaintNotifObjPrtCodeCatalog = mResults.CatalogTypeForObjParts;
-				mParams.mKeys.MaintNotifDamageCodeCatalog = mResults.CatalogTypeForDamage;
+				mParams.mKeys.MaintNotifObjprtcodeCatalog = mResults.CatalogTypeForObjParts;
+				mParams.mKeys.MaintNotifDamageCodecatalog = mResults.CatalogTypeForDamage;
 			}
 			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
 		}
