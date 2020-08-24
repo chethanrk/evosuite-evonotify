@@ -343,7 +343,7 @@ sap.ui.define([
 		 */
 		getNotifTypeDependencies: function (oData) {
 			return new Promise(function (resolve, reject) {
-				var sPath = this.getModel().createKey("PMNotificationTypeVHSet", {
+				var sPath = this.getModel().createKey("SHNotificationTypeSet", {
 					NotificationType: oData.NotificationType || oData.Notificationtype
 				});
 
