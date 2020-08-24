@@ -143,7 +143,7 @@
 					]
 				},
 				{
-					"pattern": "Notification/{NotificationId}/Item/{NotificationItemId}",
+					"pattern": "Notification/{ObjectKey}",
 					"name": "NotificationItemDetail",
 					"target": [
 						"NotificationItemDetail"
