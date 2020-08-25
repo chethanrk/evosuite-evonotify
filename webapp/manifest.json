@@ -129,21 +129,21 @@
 					]
 				},
 				{
-					"pattern": "Notification/new",
+					"pattern": "NewNotification",
 					"name": "CreateNotification",
 					"target": [
 						"CreateNotification"
 					]
 				},
 				{
-					"pattern": "ObjectKey/{ObjectKey}",
+					"pattern": "Notification/{ObjectKey}",
 					"name": "NotificationDetail",
 					"target": [
 						"NotificationDetail"
 					]
 				},
 				{
-					"pattern": "Notification/{ObjectKey}",
+					"pattern": "Notification/Item/{ObjectKey}",
 					"name": "NotificationItemDetail",
 					"target": [
 						"NotificationItemDetail"
