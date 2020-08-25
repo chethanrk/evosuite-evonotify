@@ -91,10 +91,9 @@ sap.ui.define([
 				title: "tit.addCause",
 				type: "add",
 				sSortField: "CauseSortNumber",
-				sNavTo: "/NavToItemCause/",
+				sNavTo: "/NotificationItemToCause/",
 				mKeys: {
-					MaintenanceNotification: oContextData.MaintenanceNotification,
-					MaintenanceNotificationItem: oContextData.MaintenanceNotificationItem
+					ObjectKey: oContextData.ObjectKey
 				}
 			};
 

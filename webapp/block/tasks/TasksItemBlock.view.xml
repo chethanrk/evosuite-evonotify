@@ -2,7 +2,7 @@
 	xmlns:mvc="sap.ui.core.mvc" xmlns:smartTable="sap.ui.comp.smarttable">
 	<smartTable:SmartTable height="100%" width="100%" tableType="ResponsiveTable" useExportToExcel="false" useVariantManagement="true"
 		useTablePersonalisation="true" showRowCount="true" persistencyKey="com.evorait.evonotify.taskItemTable" enableAutoBinding="true"
-		demandPopin="true" entitySet="PMNotificationItemTaskSet" tableBindingPath="NavToItemTask">
+		demandPopin="true" entitySet="PMNotificationItemTaskSet" tableBindingPath="NotificationItemToTask" requestAtLeastFields="ObjectKey">
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
@@ -30,7 +30,7 @@
 				<Column width="100px" hAlign="End">
 					<customData>
 						<core:CustomData key="p13nData"
-							value='\{"columnKey": "MaintNotifTaskSortNumber","columnIndex":"99", "leadingProperty": "MaintNotifTaskSortNumber"}'/>
+							value='\{"columnKey": "MaintNotifTasksortnumber","columnIndex":"99", "leadingProperty": "MaintNotifTasksortnumber"}'/>
 					</customData>
 				</Column>
 			</columns>
