@@ -175,7 +175,7 @@ sap.ui.define([
 		onNavToNotification: function () {
 			var obj = this.getView().getBindingContext().getObject();
 			this.getRouter().navTo("NotificationDetail", {
-				NotificationId: obj.MaintenanceNotification
+				ObjectKey: obj.ObjectKey
 			}, true);
 		},
 	});

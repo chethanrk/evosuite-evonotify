@@ -2,7 +2,7 @@
 	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:mvc="sap.ui.core.mvc">
 	<smartTable:SmartTable height="100%" width="100%" id="notificationCauseTable" tableType="ResponsiveTable" useExportToExcel="false"
 		useVariantManagement="true" useTablePersonalisation="true" showRowCount="true" persistencyKey="com.evorait.evonotify.causeTable"
-		enableAutoBinding="true" demandPopin="true" entitySet="PMNotificationItemCauseSet" tableBindingPath="NavToItemCause">
+		enableAutoBinding="true" demandPopin="true" entitySet="PMNotificationItemCauseSet" tableBindingPath="NotificationItemToCause" requestAtLeastFields="ObjectKey">
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
@@ -16,6 +16,15 @@
 		<smartTable:layoutData>
 			<FlexItemData growFactor="1" baseSize="0%"/>
 		</smartTable:layoutData>
-		<Table growing="true" mode="SingleSelectMaster" selectionChange="onPressItem"></Table>
+		<Table growing="true" mode="SingleSelectMaster" selectionChange="onPressItem">
+			<columns>
+				<Column width="100px" hAlign="End">
+					<customData>
+						<core:CustomData key="p13nData"
+							value='\{"columnKey": "CauseSortNumber","columnIndex":"99", "leadingProperty": "CauseSortNumber"}'/>
+					</customData>
+				</Column>
+			</columns>
+		</Table>
 	</smartTable:SmartTable>
 </mvc:View>

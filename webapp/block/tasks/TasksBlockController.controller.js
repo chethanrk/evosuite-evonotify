@@ -133,8 +133,7 @@ sap.ui.define([
 				sSortField: "MaintNotifTasksortnumber",
 				sNavTo: "/NotificationToTask/",
 				mKeys: {
-					MaintenanceNotification: oContextData.MaintenanceNotification,
-					MaintenanceNotificationItem: oContextData.MaintenanceNotificationItem
+					ObjectKey: oContextData.ObjectKey
 				}
 			};
 
