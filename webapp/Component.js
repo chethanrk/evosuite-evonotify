@@ -6,9 +6,11 @@ sap.ui.define([
 	"com/evorait/evonotify/controller/DialogTemplateRenderController",
 	"com/evorait/evonotify/model/Constants",
 	"sap/ui/model/Filter",
-	"sap/ui/model/FilterOperator"
+	"sap/ui/model/FilterOperator",
+	"com/evorait/evonotify/assets/js/url-search-params.min",
+	"com/evorait/evonotify/assets/js/promise-polyfills"
 ], function (UIComponent, Device, models, ErrorHandler, DialogTemplateRenderController, Constants, Filter,
-	FilterOperator) {
+	FilterOperator, UrlSearchPolyfill, PromisePolyfill) {
 	"use strict";
 
 	return UIComponent.extend("com.evorait.evonotify.Component", {
@@ -65,31 +67,7 @@ sap.ui.define([
 
 			this._getSystemInformation();
 
-			//Creating the Global assignment model for assignInfo Dialog
-			this.setModel(models.createNavLinksModel([]), "navLinks");
-
-			if (sap.ushell && sap.ushell.Container) {
-				this.getModel("viewModel").setProperty("/launchMode", Constants.LAUNCH_MODE.FIORI);
-			}
-
-			this._getData("/NavigationLinks", [new Filter("LaunchMode", FilterOperator.EQ, this.getModel("viewModel").getProperty("/launchMode"))])
-				.
-			then(function (data) {
-				this.getModel("navLinks").setData(data.results);
-			}.bind(this));
-
-			//Creating the Global assignment model for assignInfo Dialog
-			this.setModel(models.createNavLinksModel([]), "navLinks");
-
-			if (sap.ushell && sap.ushell.Container) {
-				this.getModel("viewModel").setProperty("/launchMode", Constants.LAUNCH_MODE.FIORI);
-			}
-
-			this._getData("/NavigationLinks", [new Filter("LaunchMode", FilterOperator.EQ, this.getModel("viewModel").getProperty("/launchMode"))])
-				.
-			then(function (data) {
-				this.getModel("navLinks").setData(data.results);
-			}.bind(this));
+			this._setApp2AppLinks();
 
 			// create the views based on the url/hash
 			this.getRouter().initialize();
@@ -131,17 +109,37 @@ sap.ui.define([
 		 * Calls the GetSystemInformation 
 		 */
 		_getSystemInformation: function () {
-			this.getModel().callFunction("/GetSystemInformation", {
-				method: "GET",
-				success: function (oData, oResponse) {
-					this.getModel("user").setData(oData);
-				}.bind(this)
-			});
+			this.readData("/SystemInformationSet", []).then(function (oData) {
+				this.getModel("user").setData(oData.results[0]);
+			}.bind(this));
 		},
+
+		/**
+		 * read app2app navigation links from backend
+		 */
+		_setApp2AppLinks: function () {
+			if (sap.ushell && sap.ushell.Container) {
+				this.getModel("viewModel").setProperty("/launchMode", Constants.LAUNCH_MODE.FIORI);
+			}
+			var oFilter = new Filter("LaunchMode", FilterOperator.EQ, this.getModel("viewModel").getProperty("/launchMode")),
+				mProps = {};
+
+			this.readData("/NavigationLinksSet", [oFilter])
+				.then(function (data) {
+					data.results.forEach(function (oItem) {
+						if (oItem.Value1 && Constants.APPLICATION[oItem.ApplicationId]) {
+							oItem.Property = oItem.Value2 || Constants.PROPERTY[oItem.ApplicationId];
+							mProps[oItem.Property] = oItem;
+						}
+					}.bind(this));
+					this.getModel("templateProperties").setProperty("/navLinks/", mProps);
+				}.bind(this));
+		},
+
 		/**
 		 *  Read call given entityset and filters
 		 */
-		_getData: function (sUri, aFilters) {
+		readData: function (sUri, aFilters) {
 			return new Promise(function (resolve, reject) {
 				this.getModel().read(sUri, {
 					filters: aFilters,

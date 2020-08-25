@@ -37,15 +37,30 @@
 								</template:then>
 								<template:else>
 									<smartForm:GroupElement>
-										<smartField:SmartField value="{path:'data>Value',formatter:'.AH.simplePath'}"
-											name="{path:'data>Value',formatter:'com.evorait.evonotify.model.AnnotationHelper.getSmartFieldName'}" change="onChangeSmartField"
-											uomEditable="false"
-											editable="{:= ${data>com.sap.vocabularies.Common.v1.FieldControl/EnumMember} === 'com.sap.vocabularies.Common.v1.FieldControlType/ReadOnly' ? false : true}"
-											mandatory="{:= ${data>com.sap.vocabularies.Common.v1.FieldControl/EnumMember} === 'com.sap.vocabularies.Common.v1.FieldControlType/Mandatory'}">
-											<smartField:configuration>
-												<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId" preventInitialDataFetchInValueHelpDialog="false"/>
-											</smartField:configuration>
-										</smartField:SmartField>
+										<template:if test="{:= ${data>Value/Path} in ${templateProperties>/navLinks} }">
+											<template:then>
+												<smartField:SmartField value="{path:'data>Value',formatter:'.AH.simplePath'}"
+													name="{path:'data>Value',formatter:'com.evorait.evonotify.model.AnnotationHelper.getSmartFieldName'}" change="onChangeSmartField"
+													uomEditable="false" press="onPressSmartField" url="{data>Value/Path}"
+													editable="{:= ${data>com.sap.vocabularies.Common.v1.FieldControl/EnumMember} === 'com.sap.vocabularies.Common.v1.FieldControlType/ReadOnly' ? false : true}"
+													mandatory="{:= ${data>com.sap.vocabularies.Common.v1.FieldControl/EnumMember} === 'com.sap.vocabularies.Common.v1.FieldControlType/Mandatory'}">
+													<smartField:configuration>
+														<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId" preventInitialDataFetchInValueHelpDialog="false"/>
+													</smartField:configuration>
+												</smartField:SmartField>
+											</template:then>
+											<template:else>
+												<smartField:SmartField value="{path:'data>Value',formatter:'.AH.simplePath'}"
+													name="{path:'data>Value',formatter:'com.evorait.evonotify.model.AnnotationHelper.getSmartFieldName'}" change="onChangeSmartField"
+													uomEditable="false"
+													editable="{:= ${data>com.sap.vocabularies.Common.v1.FieldControl/EnumMember} === 'com.sap.vocabularies.Common.v1.FieldControlType/ReadOnly' ? false : true}"
+													mandatory="{:= ${data>com.sap.vocabularies.Common.v1.FieldControl/EnumMember} === 'com.sap.vocabularies.Common.v1.FieldControlType/Mandatory'}">
+													<smartField:configuration>
+														<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId" preventInitialDataFetchInValueHelpDialog="false"/>
+													</smartField:configuration>
+												</smartField:SmartField>
+											</template:else>
+										</template:if>
 									</smartForm:GroupElement>
 								</template:else>
 							</template:if>
