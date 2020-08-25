@@ -900,10 +900,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifActyTxt"/>
+									<PropertyValue Property="Value" Path="NotifActivityText"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="ActivitySortNumber"/>
+									<PropertyValue Property="Value" Path="NotifActivitySortNumber"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -915,10 +915,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifActivityCodeGroup"/>
+									<PropertyValue Property="Value" Path="NotifActivityCodeGroup"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifActivityCode"/>
+									<PropertyValue Property="Value" Path="NotifActivityCode"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -966,10 +966,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifActyTxt"/>
+									<PropertyValue Property="Value" Path="NotifActivityText"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="ActivitySortNumber"/>
+									<PropertyValue Property="Value" Path="NotifActivitySortNumber"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -981,10 +981,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifActivityCodeGroup"/>
+									<PropertyValue Property="Value" Path="NotifActivityCodeGroup"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifActivityCode"/>
+									<PropertyValue Property="Value" Path="NotifActivityCode"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
