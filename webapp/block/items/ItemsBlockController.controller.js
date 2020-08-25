@@ -41,8 +41,7 @@ sap.ui.define([
 				var obj = oContext.getObject();
 				var parentObj = this.oView.getBindingContext().getObject();
 				this.getRouter().navTo("NotificationItemDetail", {
-					NotificationId: parentObj.MaintenanceNotification,
-					NotificationItemId: obj.MaintenanceNotificationItem,
+					ObjectKey: parentObj.ObjectKey,
 					mParams: this.mParams
 				});
 			}
@@ -68,16 +67,16 @@ sap.ui.define([
 				controllerName: "AddEditEntry",
 				title: "tit.addItem",
 				type: "add",
-				sSortField: "MaintNotifItemSortNumber",
-				sNavTo: "/NavToItems/",
+				sSortField: "MaintNotifitemsortnumber",
+				sNavTo: "/NotificationToItem/",
 				mKeys: {
-					MaintenanceNotification: oContextData.MaintenanceNotification
+					Notification: oContextData.Notification
 				}
 			};
 
 			if (mResults) {
-				mParams.mKeys.MaintNotifObjPrtCodeCatalog = mResults.CatalogTypeForObjParts;
-				mParams.mKeys.MaintNotifDamageCodeCatalog = mResults.CatalogTypeForDamage;
+				mParams.mKeys.MaintNotifObjprtcodeCatalog = mResults.CatalogTypeForObjParts;
+				mParams.mKeys.MaintNotifDamageCodecatalog = mResults.CatalogTypeForDamage;
 			}
 			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
 		}
