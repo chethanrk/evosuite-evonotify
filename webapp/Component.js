@@ -69,8 +69,10 @@ sap.ui.define([
 
 			this._setApp2AppLinks();
 
-			// create the views based on the url/hash
-			this.getRouter().initialize();
+			//get start parameter when app2app navigation is in URL
+			//replace hash when startup parameter
+			//and init Router after success or fail
+			this._initRouter();
 		},
 
 		/**
@@ -112,6 +114,54 @@ sap.ui.define([
 			this.readData("/SystemInformationSet", []).then(function (oData) {
 				this.getModel("user").setData(oData.results[0]);
 			}.bind(this));
+		},
+
+		/**
+		 * Check for a Startup parameter and look for Order ID in Backend
+		 * When there is a filtered Order replace route hash
+		 */
+		_initRouter: function () {
+			var oFilter = this._getStartupParamFilter();
+			if (oFilter) {
+				this.readData("/PMNotificationSet", [oFilter]).then(function (mResult) {
+					if (mResult.results.length > 0) {
+						//replace hash and init route
+						// create the views based on the url/hash
+						var hashChanger = sap.ui.core.routing.HashChanger.getInstance();
+						hashChanger.replaceHash("Notification/" + mResult.results[0].ObjectKey);
+					}
+					this.getRouter().initialize();
+				}.bind(this));
+			} else {
+				// create the views based on the url/hash
+				this.getRouter().initialize();
+			}
+		},
+
+		/**
+		 * When in link is startup parameter from FLP or Standalone app
+		 * then App2App navigation happened and this app shoul show a detail page
+		 */
+		_getStartupParamFilter: function () {
+			var oComponentData = this.getComponentData(),
+				sKey = Constants.PROPERTY.EVONOTIFY;
+
+			//Fiori Launchpad startup parameters
+			if (oComponentData) {
+				var oStartupParams = oComponentData.startupParameters;
+				if (oStartupParams[sKey] && (oStartupParams[sKey].length > 0)) {
+					return new Filter(sKey, FilterOperator.EQ, oStartupParams[sKey][0]);
+				}
+			} else {
+				var queryString = window.location.search,
+					urlParams = new URLSearchParams(queryString);
+				if (urlParams.has(sKey)) {
+					var oFilter = new Filter(sKey, FilterOperator.EQ, urlParams.get(sKey));
+					urlParams.delete(sKey);
+					return oFilter;
+				}
+			}
+			return false;
 		},
 
 		/**
