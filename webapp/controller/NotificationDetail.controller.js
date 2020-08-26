@@ -36,7 +36,7 @@ sap.ui.define([
 		 */
 		onAfterRendering: function () {
 			this._initializeView();
-			
+
 		},
 
 		/**
@@ -44,6 +44,11 @@ sap.ui.define([
 		 */
 		onExit: function () {
 			this.getView().unbindElement();
+		},
+
+		onPressSmartField: function (oEvent) {
+			var oSource = oEvent.getSource();
+			this.openApp2AppPopover(oSource, oSource.getUrl());
 		},
 
 		/**
@@ -72,7 +77,7 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onPressEdit: function (oEvent) {
-			this.sPath=this.getView().getBindingContext().getPath();
+			this.sPath = this.getView().getBindingContext().getPath();
 			this.oSmartForm.setEditable(true);
 			this.oViewModel.setProperty("/editMode", true);
 		},
