@@ -93,7 +93,6 @@ sap.ui.define([
 		 * @returns {boolean}
 		 */
 		isVisible: function (bAllowChange, bEnabledFunction, isEditMode) {
-			bEnabledFunction = true;
 			if (bEnabledFunction && bAllowChange && !isEditMode) {
 				return true;
 			}
