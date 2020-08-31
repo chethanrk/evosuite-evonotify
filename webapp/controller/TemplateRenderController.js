@@ -192,7 +192,7 @@ sap.ui.define([
 						var sViewName = this._joinTemplateViewNameId(oView.getId(), oView.getViewName()),
 							eventBus = sap.ui.getCore().getEventBus();
 
-						eventBus.publish("TemplateRenderer", "changedBinding", {
+						eventBus.publish("TemplateRendererEvoNotify", "changedBinding", {
 							viewNameId: sViewName
 						});
 

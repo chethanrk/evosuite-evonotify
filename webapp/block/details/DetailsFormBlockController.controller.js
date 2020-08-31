@@ -19,7 +19,7 @@ sap.ui.define([
 		 */
 		onInit: function () {
 			var eventBus = sap.ui.getCore().getEventBus();
-			eventBus.subscribe("Object", "validateFields", this._validateForm, this);
+			eventBus.subscribe("ObjectEvoNotify", "validateFields", this._validateForm, this);
 		},
 
 		/* =========================================================== */
