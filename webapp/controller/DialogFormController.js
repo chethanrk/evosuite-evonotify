@@ -35,7 +35,7 @@ sap.ui.define([
 
 			var eventBus = sap.ui.getCore().getEventBus();
 			//Binnding has changed in TemplateRenderController.js
-			eventBus.subscribe("TemplateRenderer", "changedBinding", this._changedBinding, this);
+			eventBus.subscribe("TemplateRendererEvoNotify", "changedBinding", this._changedBinding, this);
 		},
 
 		/**
@@ -53,7 +53,7 @@ sap.ui.define([
 		 */
 		onExit: function () {
 			var eventBus = sap.ui.getCore().getEventBus();
-			eventBus.unsubscribe("TemplateRenderer", "changedBinding");
+			eventBus.unsubscribe("TemplateRendererEvoNotify", "changedBinding");
 		},
 
 		/* =========================================================== */
@@ -78,9 +78,11 @@ sap.ui.define([
 		 * @param oData
 		 */
 		_changedBinding: function (sChannel, sEvent, oData) {
-			var sViewId = this.getView().getId(),
-				sViewName = this.getView().getViewName();
-			this._sViewNameId = sViewName + "#" + sViewId;
+			if (sChannel === "TemplateRendererEvoNotify" && sEvent === "changedBinding") {
+				var sViewId = this.getView().getId(),
+					sViewName = this.getView().getViewName();
+				this._sViewNameId = sViewName + "#" + sViewId;
+			}
 		},
 
 		/**

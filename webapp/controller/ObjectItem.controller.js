@@ -84,7 +84,7 @@ sap.ui.define([
 
 		onPressSave: function () {
 			var eventBus = sap.ui.getCore().getEventBus();
-			eventBus.publish("ItemObject", "validateFields", {});
+			eventBus.publish("ItemObjectEvoNotify", "validateFields", {});
 		},
 
 		onPressCancel: function () {
