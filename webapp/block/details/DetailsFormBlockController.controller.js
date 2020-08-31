@@ -35,12 +35,14 @@ sap.ui.define([
 		 * @public
 		 */
 		_validateForm: function (sChannel, sEvent, oData) {
-			var oForm = this.getView().byId("idNotificationForm");
+			if (sChannel === "ObjectEvoNotify" && sEvent === "validateFields") {
+				var oForm = this.getView().byId("idNotificationForm");
 
-			if (this.validateForm({
-					form: oForm
-				})) {
-				this.saveChangedEntry({});
+				if (this.validateForm({
+						form: oForm
+					})) {
+					this.saveChangedEntry({});
+				}
 			}
 		}
 
