@@ -78,9 +78,11 @@ sap.ui.define([
 		 * @param oData
 		 */
 		_changedBinding: function (sChannel, sEvent, oData) {
-			var sViewId = this.getView().getId(),
-				sViewName = this.getView().getViewName();
-			this._sViewNameId = sViewName + "#" + sViewId;
+			if (sChannel === "TemplateRendererEvoNotify" && sEvent === "changedBinding") {
+				var sViewId = this.getView().getId(),
+					sViewName = this.getView().getViewName();
+				this._sViewNameId = sViewName + "#" + sViewId;
+			}
 		},
 
 		/**

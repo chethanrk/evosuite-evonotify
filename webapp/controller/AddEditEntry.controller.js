@@ -37,16 +37,18 @@ sap.ui.define([
 		 * @param oData
 		 */
 		_changedBinding: function (sChannel, sEvent, oData) {
-			DialogFormController.prototype._changedBinding.apply(this, arguments);
+			if (sChannel === "TemplateRendererEvoNotify" && sEvent === "changedBinding") {
+				DialogFormController.prototype._changedBinding.apply(this, arguments);
 
-			if (oData && (oData.viewNameId === this._sViewNameId)) {
-				this._getDefaultGlobalParameters();
-				this._oDialog.setContentWidth("100%");
+				if (oData && (oData.viewNameId === this._sViewNameId)) {
+					this._getDefaultGlobalParameters();
+					this._oDialog.setContentWidth("100%");
 
-				//prefill planning plant for add and split
-				if (this._type.add) {
-					this._setContextKeys();
-					this._getNextSortNumber(this._setNewSortNumber.bind(this));
+					//prefill planning plant for add and split
+					if (this._type.add) {
+						this._setContextKeys();
+						this._getNextSortNumber(this._setNewSortNumber.bind(this));
+					}
 				}
 			}
 		},
