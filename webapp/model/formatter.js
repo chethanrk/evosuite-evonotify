@@ -74,34 +74,29 @@ sap.ui.define([
 		/**
 		 * checks if an notification or item is allwed to editable
 		 * Hide/show edit button
-		 * @param isCompleted
-		 * @param isDeleted
+		 * @param bAllowChange
 		 * @param isEditMode
 		 * @returns {boolean}
 		 */
-		editable: function (isCompleted, isDeleted, isEditMode) {
-			if (isCompleted || isDeleted || isEditMode) {
-				return false;
+		editable: function (bAllowChange, isEditMode) {
+			if (bAllowChange || !isEditMode) {
+				return true;
 			}
-			return true;
+			return false;
 		},
 		/**
 		 * checks if an notification or item is visible
 		 * Hide/show edit button
-		 * @param isCompleted
-		 * @param isDeleted
-		 * @param isVisible
+		 * @param bEnabledFunction
+		 * @param bAllowChange
+		 * @param isEditMode
 		 * @returns {boolean}
 		 */
-		isVisible: function (isCompleted, isDeleted, visible, isEditMode) {
-			visible = true;
-			if (visible) {
-				if (isCompleted || isDeleted || isEditMode) {
-					return false;
-				}
+		isVisible: function (bAllowChange, bEnabledFunction, isEditMode) {
+			if (bEnabledFunction && bAllowChange && !isEditMode) {
 				return true;
-			} else
-				return false;
+			}
+			return false;
 		},
 		/**
 		 * checks if an menuitem of task is visible
@@ -171,11 +166,11 @@ sap.ui.define([
 		 * @param isNew
 		 * @returns {boolean}
 		 */
-		showStatusButton: function (isCompleted, isDeleted, isNew) {
-			if (isCompleted || isDeleted || isNew) {
-				return false;
+		showStatusButton: function (bAllowChange, isEditMode) {
+			if (bAllowChange & !isEditMode) {
+				return true;
 			}
-			return true;
+			return false;
 		},
 
 		/**

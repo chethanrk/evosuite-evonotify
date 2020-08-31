@@ -11,17 +11,18 @@
 						<!--<uxap:ObjectPageHeaderActionButton id="editNotificationButton" text="{i18n>btn.edit}" hideText="false" press="onPressEdit" type="Emphasized"-->
 						<!--	visible="{parts: ['IsCompleted','IsDeleted','user>/IsNotificationUpdate','viewModel>/editMode'], formatter:'.formatter.isVisible'}"/>-->
 						<uxap:ObjectPageHeaderActionButton id="editNotificationButton" text="{i18n>btn.edit}" hideText="false" press="onPressEdit" type="Emphasized"
-							visible="{parts: ['IsCompleted','IsDeleted','user>/IsNotificationUpdate','viewModel>/editMode'], formatter:'.formatter.isVisible'}"/>
+							visible="{parts: ['ENABLE_NOTIFICATION_CHANGE','user>/IsNotificationUpdate','viewModel>/editMode'], formatter:'.formatter.isVisible'}"/>
 						<uxap:ObjectPageHeaderActionButton id="cancelNotificationButton" text="{i18n>btn.cancel}" hideText="false" press="onPressCancel"
 							visible="{viewModel>/editMode}"/>
 						<uxap:ObjectPageHeaderActionButton id="saveNotificationButton" text="{i18n>btn.save}" hideText="false" press="onPressSave" type="Emphasized"
 							visible="{viewModel>/editMode}"/>
 						<MenuButton text="{i18n>btn.changeSystemStatus}"
-							visible="{parts: ['IsCompleted','IsDeleted','viewModel>/editMode'], formatter:'.formatter.showStatusButton'}">
+							visible="{parts: ['ENABLE_NOTIFICATION_CHANGE','viewModel>/editMode'], formatter:'.formatter.showStatusButton'}">
 							<menu>
-								<Menu itemSelected="onSelectStatus" items="{path: 'StatusVH>/HeaderStatus'}">
-									<MenuItem key="{StatusVH>Status}" text="{path: 'StatusVH>TranslateKey', formatter: '.translateStatusKey'}"
-										visible="{parts: ['IsOutStanding', 'IsInProgress', 'IsPostponed', 'IsCompleted','StatusVH>Status'], formatter:'.formatter.notificationStatusVisibility'}"/>
+								<Menu itemSelected="onMenuSelectionChange" items="{ path: '/FunctionsSet' }">
+									<items>
+										<MenuItem key="{Function}" text="{Description}"/>
+									</items>
 								</Menu>
 							</menu>
 						</MenuButton>
