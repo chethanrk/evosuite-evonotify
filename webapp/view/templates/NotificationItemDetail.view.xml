@@ -10,7 +10,7 @@
 					<uxap:actions>
 						<uxap:ObjectPageHeaderActionButton id="editNotificationItemButton" text="{i18n>btn.edit}" hideText="false" press="onPressEdit"
 							type="Emphasized"
-							visible="{parts: ['viewModel>/enableNotificationChange','user>/IsItemUpdate', 'viewModel>/editMode'], formatter:'.formatter.isVisible1'}"/>
+							visible="{parts: ['viewModel>/enableNotificationChange','user>/IsItemUpdate', 'viewModel>/editMode'], formatter:'.formatter.isVisible'}"/>
 						<uxap:ObjectPageHeaderActionButton id="cancelNotificationItemButton" text="{i18n>btn.cancel}" hideText="false" press="onPressCancel"
 							visible="{viewModel>/editMode}"/>
 						<uxap:ObjectPageHeaderActionButton id="saveNotificationItemButton" text="{i18n>btn.save}" hideText="false" press="onPressSave"
