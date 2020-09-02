@@ -40,6 +40,7 @@ sap.ui.define([
 			if (oContext) {
 				var obj = oContext.getObject();
 				var parentObj = this.oView.getBindingContext().getObject();
+				this.getModel("viewModel").setProperty("/enableNotificationChange", parentObj.ENABLE_NOTIFICATION_CHANGE);
 				this.getRouter().navTo("NotificationItemDetail", {
 					ObjectKey: obj.ObjectKey,
 					mParams: this.mParams
