@@ -343,8 +343,12 @@ sap.ui.define([
 		 */
 		getNotifTypeDependencies: function (oData) {
 			return new Promise(function (resolve, reject) {
+				if (!oData.NotificationType) {
+					reject();
+					return;
+				}
 				var sPath = this.getModel().createKey("SHNotificationTypeSet", {
-					NotificationType: oData.NotificationType || oData.Notificationtype
+					Qmart: oData.NotificationType || oData.Notificationtype
 				});
 
 				this.getModel().read("/" + sPath, {

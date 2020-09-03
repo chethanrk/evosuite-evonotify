@@ -75,7 +75,7 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotificationtYpe"/>
+									<PropertyValue Property="Value" Path="NotificationType"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="Priority"/>
@@ -126,7 +126,7 @@
 									<PropertyValue Property="Value" Path="NotificationText"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotificationtYpe"/>
+									<PropertyValue Property="Value" Path="NotificationType"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="Priority"/>
@@ -306,7 +306,7 @@
 									<PropertyValue Property="Value" Path="NotificationText"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotificationtYpe"/>
+									<PropertyValue Property="Value" Path="NotificationType"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="OrderNumber"/>
