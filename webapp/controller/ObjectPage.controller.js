@@ -64,7 +64,9 @@ sap.ui.define([
 		/**
 		 * Object on exit
 		 */
-		onExit: function () {},
+		onExit: function () {
+			TemplateRenderController.prototype.onExit.apply(this, arguments);
+		},
 
 		/* =========================================================== */
 		/* internal methods                                              */
