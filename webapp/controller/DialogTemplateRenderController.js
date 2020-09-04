@@ -75,6 +75,7 @@ sap.ui.define([
 		},
 
 		onExit: function () {
+			TemplateRenderController.prototype.onExit.apply(this, arguments);
 			this._oDialog.destroy(true);
 			this._oDialog = undefined;
 		},

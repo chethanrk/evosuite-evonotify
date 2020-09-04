@@ -16,6 +16,21 @@ sap.ui.define([
 		_oOwnerComponent: null,
 
 		/**
+		 * !Important when navigation in FLP between apps
+		 * cached view needs to be destroyed on exit
+		 * else on back navigation view can't be integrated anymore
+		 */
+		onExit: function () {
+			this._oTemplateModel = null;
+			this._oOwnerComponent = null;
+
+			for (var key in this.mTemplates) {
+				this.mTemplates[key].destroy();
+				this.mTemplates[key] = null;
+			}
+		},
+
+		/**
 		 * for rendering xml view templates with controllers
 		 * where ownerComponent is not known for example dialogs
 		 */
