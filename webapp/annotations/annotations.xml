@@ -132,7 +132,7 @@
 									<PropertyValue Property="Value" Path="PRIORITY"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="ReportedByUser"/>
+									<PropertyValue Property="Value" Path="REPORTED_BY_USER"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -144,16 +144,16 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MalfunctionStartDate"/>
+									<PropertyValue Property="Value" Path="MALFUNCTION_START_DATE"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MalfunctionStartTime"/>
+									<PropertyValue Property="Value" Path="MALFUNCTION_START_TIME"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MalfunctionEndDate"/>
+									<PropertyValue Property="Value" Path="MALFUNCTION_END_DATE"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MalfunctionEndTime"/>
+									<PropertyValue Property="Value" Path="MALFUNCTION_END_TIME"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -166,7 +166,7 @@
 							<Collection>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Label" String="{@i18n&gt;tit.sectionDescription}"/>
-									<PropertyValue Property="Value" Path="Notes"/>
+									<PropertyValue Property="Value" Path="NOTES"/>
 									<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
 								</Record>
 							</Collection>
@@ -186,7 +186,7 @@
 									<PropertyValue Property="Value" Path="EQUIPMENT"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="Assembly"/>
+									<PropertyValue Property="Value" Path="ASSEMBLY"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -198,19 +198,19 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="RequiredStartDate"/>
+									<PropertyValue Property="Value" Path="REQUIRED_START_DATE"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="RequiredStartTime"/>
+									<PropertyValue Property="Value" Path="REQUIRED_START_TIME"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="RequiredEndDate"/>
+									<PropertyValue Property="Value" Path="REQUIRED_END_DATE"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="RequiredEndTime"/>
+									<PropertyValue Property="Value" Path="REQUIRED_END_TIME"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintenanceRevision"/>
+									<PropertyValue Property="Value" Path="MAINTENANCE_REVISION"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -222,16 +222,16 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintenanceWorkcenterPlant"/>
+									<PropertyValue Property="Value" Path="MAINTENANCE_WORKCENTER_PLANT"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="AssetLocation"/>
+									<PropertyValue Property="Value" Path="ASSET_LOCATION"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="AbcIndicator"/>
+									<PropertyValue Property="Value" Path="ABC_INDICATOR"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintenancePlant"/>
+									<PropertyValue Property="Value" Path="MAINTENANCE_PLANT"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -243,13 +243,13 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintenancePlanningPlant"/>
+									<PropertyValue Property="Value" Path="MAINTENANCE_PLANNING_PLANT"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintenancePlannerGroup"/>
+									<PropertyValue Property="Value" Path="MAINTENANCE_PLANNER_GROUP"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="Workcenter"/>
+									<PropertyValue Property="Value" Path="WORKCENTER"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -366,10 +366,10 @@
 									<PropertyValue Property="Value" Path="IsCompleted"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="Assembly"/>
+									<PropertyValue Property="Value" Path="ASSEMBLY"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="CreationDate"/>
+									<PropertyValue Property="Value" Path="CREATED_AT"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -381,16 +381,16 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="RequiredStartDate"/>
+									<PropertyValue Property="Value" Path="REQUIRED_START_DATE"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="RequiredStartTime"/>
+									<PropertyValue Property="Value" Path="REQUIRED_START_TIME"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="RequiredEndDate"/>
+									<PropertyValue Property="Value" Path="REQUIRED_END_DATE"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="RequiredEndTime"/>
+									<PropertyValue Property="Value" Path="REQUIRED_END_TIME"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="MaintenanceRevision"/>
@@ -405,16 +405,16 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintenanceWorkCenterPlant"/>
+									<PropertyValue Property="Value" Path="MAINTENANCE_WORKCENTER_PLANT"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="AssetLocation"/>
+									<PropertyValue Property="Value" Path="ASSET_LOCATION"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="ABCIndicator"/>
+									<PropertyValue Property="Value" Path="ABC_INDICATOR"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintenancePlant"/>
+									<PropertyValue Property="Value" Path="MAINTENANCE_PLANT"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -441,13 +441,13 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintenancePlanningPlant"/>
+									<PropertyValue Property="Value" Path="MAINTENANCE_PLANNING_PLANT"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintenancePlannerGroup"/>
+									<PropertyValue Property="Value" Path="MAINTENANCE_PLANNER_GROUP"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintenanceWorkCenter"/>
+									<PropertyValue Property="Value" Path="MAINTENANCE_WORKCENTER_PLANT"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
