@@ -20,7 +20,7 @@
 				<layout:GridData span="L6 M6 S12"/>
 			</smartForm:layoutData>
 			<smartForm:GroupElement>
-				<smartField:SmartField value="{MaintNotifObjPrtCodeGroup}">
+				<smartField:SmartField value="{CODE_GROUP}">
 					<smartField:configuration>
 						<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId"/>
 					</smartField:configuration>

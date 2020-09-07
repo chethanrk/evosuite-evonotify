@@ -30,7 +30,7 @@
 				<Column width="100px" hAlign="End">
 					<customData>
 						<core:CustomData key="p13nData"
-							value='\{"columnKey": "MaintNotifTasksortnumber","columnIndex":"99", "leadingProperty": "MaintNotifTasksortnumber"}'/>
+							value='\{"columnKey": "SORT_NUMBER","columnIndex":"99", "leadingProperty": "SORT_NUMBER"}'/>
 					</customData>
 				</Column>
 			</columns>

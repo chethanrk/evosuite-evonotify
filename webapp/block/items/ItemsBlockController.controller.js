@@ -68,7 +68,7 @@ sap.ui.define([
 				controllerName: "AddEditEntry",
 				title: "tit.addItem",
 				type: "add",
-				sSortField: "MaintNotifitemsortnumber",
+				sSortField: "SORT_NUMBER",
 				sNavTo: "/NotificationToItem/",
 				mKeys: {
 					Notification: oContextData.Notification

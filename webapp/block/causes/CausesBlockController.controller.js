@@ -90,7 +90,7 @@ sap.ui.define([
 				controllerName: "AddEditEntry",
 				title: "tit.addCause",
 				type: "add",
-				sSortField: "CauseSortNumber",
+				sSortField: "SORT_NUMBER",
 				sNavTo: "/NotificationItemToCause/",
 				mKeys: {
 					ObjectKey: oContextData.ObjectKey
