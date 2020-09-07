@@ -6,7 +6,7 @@
 		<uxap:ObjectPageLayout id="notificationItemDetailPage" enableLazyLoading="false" isChildPage="true" showFooter="false" busy="{viewModel>/busy}"
 			busyIndicatorDelay="{viewModel>/delay}">
 			<uxap:headerTitle>
-				<uxap:ObjectPageHeader id="objectItemPageHeader" objectTitle="{viewModel>/Title}" objectSubtitle="{MaintenanceNotificationItem}">
+				<uxap:ObjectPageHeader id="objectItemPageHeader" objectTitle="{viewModel>/Title}" objectSubtitle="{NotificationItem}">
 					<uxap:actions>
 						<uxap:ObjectPageHeaderActionButton id="editNotificationItemButton" text="{i18n>btn.edit}" hideText="false" press="onPressEdit"
 							type="Emphasized"
@@ -17,9 +17,9 @@
 							type="Emphasized" visible="{viewModel>/editMode}"/>
 					</uxap:actions>
 					<uxap:breadcrumbs>
-						<Breadcrumbs currentLocationText="{/#PMNotificationItem/MaintenanceNotificationItem/@sap:label} {MaintenanceNotificationItem}">
+						<Breadcrumbs currentLocationText="{/#PMNotificationItem/NotificationItem/@sap:label} {NotificationItem}">
 							<Link text="{i18n>tit.notifications}" press="onNavToList"/>
-							<Link text="{/#PMNotificationItem/Notification/@sap:label} {Notification}" press="onNavToNotification"/>
+							<Link text="{/#PMNotificationItem/NotificationNo/@sap:label} {NotificationNo}" press="onNavToNotification"/>
 						</Breadcrumbs>
 					</uxap:breadcrumbs>
 					<uxap:navigationBar>

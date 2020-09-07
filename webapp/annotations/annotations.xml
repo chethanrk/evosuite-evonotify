@@ -44,10 +44,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="SystemStatus"/>
+									<PropertyValue Property="Value" Path="SYSTEM_STATUS"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="UserStatus"/>
+									<PropertyValue Property="Value" Path="USER_STATUS"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -58,13 +58,13 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="Equipment"/>
+									<PropertyValue Property="Value" Path="EQUIPMENT"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="FunctionalLocation"/>
+									<PropertyValue Property="Value" Path="FUNCTIONAL_LOCATION"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="TechnicalObjectTypeDesc"/>
+									<PropertyValue Property="Value" Path="TECHNICAL_OBJECT_TYPE_DESC"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -78,7 +78,7 @@
 									<PropertyValue Property="Value" Path="NotificationType"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="Priority"/>
+									<PropertyValue Property="Value" Path="PRIORITY"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -123,13 +123,13 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotificationText"/>
+									<PropertyValue Property="Value" Path="Description"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="NotificationType"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="Priority"/>
+									<PropertyValue Property="Value" Path="PRIORITY"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="ReportedByUser"/>
@@ -180,10 +180,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="FunctionalLocation"/>
+									<PropertyValue Property="Value" Path="FUNCTIONAL_LOCATION"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="Equipment"/>
+									<PropertyValue Property="Value" Path="EQUIPMENT"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="Assembly"/>
@@ -300,10 +300,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="Notification"/>
+									<PropertyValue Property="Value" Path="NotificationNo"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotificationText"/>
+									<PropertyValue Property="Value" Path="Description"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="NotificationType"/>
@@ -312,13 +312,13 @@
 									<PropertyValue Property="Value" Path="OrderNumber"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="CreatedAt"/>
+									<PropertyValue Property="Value" Path="CREATED_AT"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="ChangedAt"/>
+									<PropertyValue Property="Value" Path="CHANGED_AT"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="Priority"/>
+									<PropertyValue Property="Value" Path="PRIORITY"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -330,19 +330,19 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MalfunctionStartDate"/>
+									<PropertyValue Property="Value" Path="MALFUNCTION_START_DATE"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MalfunctionStartTime"/>
+									<PropertyValue Property="Value" Path="MALFUNCTION_START_TIME"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MalfunctionEndDate"/>
+									<PropertyValue Property="Value" Path="MALFUNCTION_END_DATE"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MalfunctionEndTime"/>
+									<PropertyValue Property="Value" Path="MALFUNCTION_END_TIME"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="BreakdownDuration"/>
+									<PropertyValue Property="Value" Path="BREAKDOWN_DURATION"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="BreakdownIndicator"/>
@@ -357,10 +357,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="FunctionalLocation"/>
+									<PropertyValue Property="Value" Path="FUNCTIONAL_LOCATION"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="Equipment"/>
+									<PropertyValue Property="Value" Path="EQUIPMENT"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="IsCompleted"/>
@@ -426,10 +426,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="SystemStatus"/>
+									<PropertyValue Property="Value" Path="SYSTEM_STATUS"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="UserStatus"/>
+									<PropertyValue Property="Value" Path="USER_STATUS"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -467,7 +467,7 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifitemsortnumber"/>
+									<PropertyValue Property="Value" Path="SORT_NUMBER"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -518,13 +518,13 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="Notification"/>
+									<PropertyValue Property="Value" Path="NotificationNo"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifitemsortnumber"/>
+									<PropertyValue Property="Value" Path="SORT_NUMBER"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifItemText"/>
+									<PropertyValue Property="Value" Path="DESCRIPTION"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -536,10 +536,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifObjprtCodegroup"/>
+									<PropertyValue Property="Value" Path="CODE_GROUP"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifObjprtcode"/>
+									<PropertyValue Property="Value" Path="CODE"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -551,12 +551,12 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifdamagecodegroupname"/>
-									<Annotation Term="Core.LongDescription" Path="MaintNotifDamagecodegroup"/>
+									<PropertyValue Property="Value" Path="DAMAGE_CODE_GROUP"/>
+									<Annotation Term="Core.LongDescription" Path="DAMAGE_CODE_GROUP_DESC"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifdamagecodename"/>
-									<Annotation Term="Core.LongDescription" Path="MaintNotifdamagecode"/>
+									<PropertyValue Property="Value" Path="DAMAGE_CODE"/>
+									<Annotation Term="Core.LongDescription" Path="DAMAGE_CODE_DESC"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -581,10 +581,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifItemText"/>
+									<PropertyValue Property="Value" Path="DESCRIPTION"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifitemsortnumber"/>
+									<PropertyValue Property="Value" Path="SORT_NUMBER"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -596,10 +596,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifObjprtCodegroup"/>
+									<PropertyValue Property="Value" Path="CODE_GROUP"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifObjprtcode"/>
+									<PropertyValue Property="Value" Path="CODE"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -669,7 +669,7 @@
 									<PropertyValue Property="Value" Path="MaintNotifTasktext"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifTasksortnumber"/>
+									<PropertyValue Property="Value" Path="SORT_NUMBER"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -684,7 +684,7 @@
 									<PropertyValue Property="Value" Path="MaintNotifTasktext"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifTasksortnumber"/>
+									<PropertyValue Property="Value" Path="SORT_NUMBER"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -771,10 +771,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifCauseText"/>
+									<PropertyValue Property="Value" Path="DESCRIPTION"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="CauseSortNumber"/>
+									<PropertyValue Property="Value" Path="SORT_NUMBER"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -786,10 +786,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifCauseCodeGroup"/>
+									<PropertyValue Property="Value" Path="CODE_GROUP"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifCauseCode"/>
+									<PropertyValue Property="Value" Path="CODE"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -822,7 +822,7 @@
 									<PropertyValue Property="Value" Path="MaintNotifTasktext"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifTasksortnumber"/>
+									<PropertyValue Property="Value" Path="SORT_NUMBER"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
