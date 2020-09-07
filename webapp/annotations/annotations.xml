@@ -341,9 +341,9 @@
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="MALFUNCTION_END_TIME"/>
 								</Record>
-								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="BREAKDOWN_DURATION"/>
-								</Record>
+								<!--<Record Type="UI.DataField">-->
+								<!--	<PropertyValue Property="Value" Path="BREAKDOWN_DURATION"/>-->
+								<!--</Record>-->
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="BreakdownIndicator"/>
 								</Record>
@@ -611,10 +611,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifDamagecodegroup"/>
+									<PropertyValue Property="Value" Path="DAMAGE_CODE_GROUP"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifdamagecode"/>
+									<PropertyValue Property="Value" Path="DAMAGE_CODE"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -663,10 +663,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifTask"/>
+									<PropertyValue Property="Value" Path="NOTIF_TASK"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifTasktext"/>
+									<PropertyValue Property="Value" Path="DESCRIPTION"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="SORT_NUMBER"/>
@@ -681,7 +681,7 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifTasktext"/>
+									<PropertyValue Property="Value" Path="DESCRIPTION"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="SORT_NUMBER"/>
@@ -696,10 +696,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifTaskcodegroup"/>
+									<PropertyValue Property="Value" Path="CODE_GROUP"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifTaskcode"/>
+									<PropertyValue Property="Value" Path="CODE"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -711,7 +711,7 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="StatusProfile"/>
+									<PropertyValue Property="Value" Path="STATUS_PROFILE"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -723,10 +723,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="ResponsiblePersonfunctioncode"/>
+									<PropertyValue Property="Value" Path="RESPONSIBLE_PERSON_FCODE"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="Responsibleperson"/>
+									<PropertyValue Property="Value" Path="RESPONSIBLE_PERSON"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -738,16 +738,16 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="PlannedStartdate"/>
+									<PropertyValue Property="Value" Path="PLANNED_START_DATE"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="PlannedStarttime"/>
+									<PropertyValue Property="Value" Path="PLANNED_START_TIME"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="PlannedEnddate"/>
+									<PropertyValue Property="Value" Path="PLANNED_END_DATE"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="PlannedEndtime"/>
+									<PropertyValue Property="Value" Path="PLANNED_END_TIME"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -819,7 +819,7 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifTasktext"/>
+									<PropertyValue Property="Value" Path="DESCRIPTION"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="SORT_NUMBER"/>
@@ -834,10 +834,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifTaskcodegroup"/>
+									<PropertyValue Property="Value" Path="CODE_GROUP"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintNotifTaskcode"/>
+									<PropertyValue Property="Value" Path="CODE"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -849,10 +849,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="ResponsiblePersonfunctioncode"/>
+									<PropertyValue Property="Value" Path="RESPONSIBLE_PERSON_FCODE"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="Responsibleperson"/>
+									<PropertyValue Property="Value" Path="RESPONSIBLE_PERSON"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -864,16 +864,16 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="PlannedStartdate"/>
+									<PropertyValue Property="Value" Path="PLANNED_START_DATE"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="PlannedStarttime"/>
+									<PropertyValue Property="Value" Path="PLANNED_START_TIME"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="PlannedEnddate"/>
+									<PropertyValue Property="Value" Path="PLANNED_END_DATE"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="PlannedEndtime"/>
+									<PropertyValue Property="Value" Path="PLANNED_END_TIME"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -900,10 +900,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotifActivityText"/>
+									<PropertyValue Property="Value" Path="DESCRIPTION"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotifActivitySortNumber"/>
+									<PropertyValue Property="Value" Path="SORT_NUMBER"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -915,10 +915,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotifActivityCodeGroup"/>
+									<PropertyValue Property="Value" Path="CODE_GROUP"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotifActivityCode"/>
+									<PropertyValue Property="Value" Path="CODE"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -930,16 +930,16 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="PlannedStartDate"/>
+									<PropertyValue Property="Value" Path="PLANNED_START_DATE"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="PlannedStartTime"/>
+									<PropertyValue Property="Value" Path="PLANNED_START_TIME"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="PlannedEndDate"/>
+									<PropertyValue Property="Value" Path="PLANNED_END_DATE"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="PlannedEndTime"/>
+									<PropertyValue Property="Value" Path="PLANNED_END_TIME"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -966,10 +966,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotifActivityText"/>
+									<PropertyValue Property="Value" Path="DESCRIPTION"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotifActivitySortNumber"/>
+									<PropertyValue Property="Value" Path="SORT_NUMBER"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -981,10 +981,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotifActivityCodeGroup"/>
+									<PropertyValue Property="Value" Path="CODE_GROUP"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotifActivityCode"/>
+									<PropertyValue Property="Value" Path="CODE"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -996,16 +996,16 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="PlannedStartDate"/>
+									<PropertyValue Property="Value" Path="PLANNED_START_DATE"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="PlannedStartTime"/>
+									<PropertyValue Property="Value" Path="PLANNED_START_TIME"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="PlannedEndDate"/>
+									<PropertyValue Property="Value" Path="PLANNED_END_DATE"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="PlannedEndTime"/>
+									<PropertyValue Property="Value" Path="PLANNED_END_TIME"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
