@@ -37,8 +37,8 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onPressItem: function (oEvent) {
-			var oListItem = oEvent.getParameter("listItem");
-			this._oTaskContext = oListItem.getBindingContext();
+			this.oListItem = oEvent.getParameter("listItem");
+			this._oTaskContext = this.oListItem.getBindingContext();
 
 			var oSelectMenu = this.getView().byId("idMenuTask"),
 				oMenuItems = oSelectMenu.getItems();
