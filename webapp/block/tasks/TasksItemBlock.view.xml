@@ -7,7 +7,7 @@
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
 				<OverflowToolbarButton icon="sap-icon://add" text="Sort" press="onPressAdd"
-					visible="{ parts: [{path:'viewModel>/enableNotificationChange'},{path: 'user>/IsTasksCreate'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
+					visible="{ parts: [{path:'viewModel>/enableNotificationChange'},{path: 'user>/ENABLE_TASK_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 				<OverflowToolbarButton icon="sap-icon://edit" text="Sort" press="onPressEdit"
 					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},{path: 'user>/IsTasksEdit'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 				<MenuButton text="{i18n>tit.changeStatus}"
