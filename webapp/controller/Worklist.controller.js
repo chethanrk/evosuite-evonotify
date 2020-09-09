@@ -45,6 +45,7 @@ sap.ui.define([
 		onPressTableRow: function (oEvent) {
 			var oContext = oEvent.getSource().getBindingContext();
 			this.oSmartTable.setEditable(false);
+			this.getModel("viewModel").setProperty("/enableNotificationChange", oContext.getProperty("ENABLE_NOTIFICATION_CHANGE"));
 			this.getRouter().navTo("NotificationDetail", {
 				ObjectKey: oContext.getProperty("ObjectKey")
 			});

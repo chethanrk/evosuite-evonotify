@@ -7,11 +7,11 @@
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
 				<OverflowToolbarButton icon="sap-icon://add" text="Sort" press="onPressAdd"
-					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},{path: 'user>/IsTasksCreate'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
+					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},{path: 'user>/ENABLE_TASK_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 				<OverflowToolbarButton icon="sap-icon://edit" text="Sort" press="onPressEdit"
-					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},{path: 'user>/IsTasksEdit'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
+					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},{path: 'user>/ENABLE_TASK_UPDATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 				<MenuButton text="{i18n>tit.changeStatus}"
-					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},{path: 'user>/IsTasksEdit'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}">
+					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},{path: 'user>/ENABLE_TASK_UPDATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}">
 					<menu>
 						<Menu id="idMenuTask" itemSelected="onSelectStatus" items="{path: 'StatusVH>/TaskStatus', templateShareable:'false'}">
 							<MenuItem key="{StatusVH>Status}" text="{path: 'StatusVH>TranslateKey', formatter: '.translateStatusKey'}"/>
