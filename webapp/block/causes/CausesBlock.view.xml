@@ -16,15 +16,5 @@
 		<smartTable:layoutData>
 			<FlexItemData growFactor="1" baseSize="0%"/>
 		</smartTable:layoutData>
-		<Table growing="true" mode="SingleSelectMaster" selectionChange="onPressItem">
-			<columns>
-				<Column width="100px" hAlign="End">
-					<customData>
-						<core:CustomData key="p13nData"
-							value='\{"columnKey": "SORT_NUMBER","columnIndex":"99", "leadingProperty": "SORT_NUMBER"}'/>
-					</customData>
-				</Column>
-			</columns>
-		</Table>
 	</smartTable:SmartTable>
 </mvc:View>
