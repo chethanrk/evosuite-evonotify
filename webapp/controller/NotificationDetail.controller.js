@@ -144,6 +144,10 @@ sap.ui.define([
 			this.oSmartForm.setEditable(false);
 			this.oViewModel.setProperty("/editMode", false);
 			this.oViewModel.setProperty("/operationsRowsCount", 0);
+
+			if (this.oViewModel.getProperty("/newCreatedEntry")) {
+				this.getView().getElementBinding().refresh(true);
+			}
 		}
 	});
 });
