@@ -145,8 +145,9 @@ sap.ui.define([
 			this.oViewModel.setProperty("/editMode", false);
 			this.oViewModel.setProperty("/operationsRowsCount", 0);
 
-			if (this.oViewModel.getProperty("/newCreatedEntry")) {
+			if (this.oViewModel.getProperty("/newCreatedEntry") === true) {
 				this.getView().getElementBinding().refresh(true);
+				this.oViewModel.setProperty("/newCreatedEntry", false);
 			}
 		}
 	});
