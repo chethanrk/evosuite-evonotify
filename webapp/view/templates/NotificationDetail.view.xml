@@ -6,7 +6,7 @@
 		<uxap:ObjectPageLayout id="notificationDetailPage" enableLazyLoading="false" isChildPage="true" showFooter="false" busy="{viewModel>/busy}"
 			busyIndicatorDelay="{viewModel>/delay}">
 			<uxap:headerTitle>
-				<uxap:ObjectPageHeader id="objectPageHeader" objectTitle="{NotificationText}" objectSubtitle="{NotificationNo}">
+				<uxap:ObjectPageHeader id="objectPageHeader" objectTitle="{Description}" objectSubtitle="{NotificationNo}">
 					<uxap:actions>
 						<uxap:ObjectPageHeaderActionButton id="editNotificationButton" text="{i18n>btn.edit}" hideText="false" press="onPressEdit" type="Emphasized"
 							visible="{parts: ['ENABLE_NOTIFICATION_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE','viewModel>/editMode'], formatter:'.formatter.isVisible'}"/>
