@@ -90,7 +90,6 @@ sap.ui.define([
 			if (this.oSmartForm) {
 				var mErrors = this.validateForm(this.oSmartForm);
 				//if form is valid save created entry
-				this.getModel().setProperty(this.sPath + "/Status", "");
 				this.saveChanges(mErrors, this.saveCreateSuccessFn.bind(this));
 			} else {
 				//todo show message
