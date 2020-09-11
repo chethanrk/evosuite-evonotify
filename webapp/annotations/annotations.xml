@@ -269,6 +269,21 @@
 									<Record Type="UI.ReferenceFacet">
 										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#longTextGroup"/>
 									</Record>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#notificationDetailGroup3"/>
+									</Record>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#notificationDetailGroup4"/>
+									</Record>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#notificationDetailGroup5"/>
+									</Record>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#notificationDetailGroup6"/>
+									</Record>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#notificationDetailGroup7"/>
+									</Record>
 								</Collection>
 							</PropertyValue>
 							<PropertyValue Property="Label" String="{@i18n&gt;tit.general}"/>
@@ -393,7 +408,7 @@
 									<PropertyValue Property="Value" Path="REQUIRED_END_TIME"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MaintenanceRevision"/>
+									<PropertyValue Property="Value" Path="MAINTENANCE_REVISION"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
