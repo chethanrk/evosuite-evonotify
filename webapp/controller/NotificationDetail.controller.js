@@ -101,16 +101,15 @@ sap.ui.define([
 		 * @param oResponse
 		 */
 		saveCreateSuccessFn: function (oResponse) {
-			var notificationId = null,
-				oChangeData = this.getBatchChangeResponse(oResponse);
+			var objectKey = null,
+				oChangeData = oResponse.__batchResponses[1].data;
 
 			if (oChangeData) {
-				notificationId = oChangeData.MaintenanceNotification;
+				objectKey = oChangeData.ObjectKey;
 
-				if (notificationId && notificationId !== "") {
-					this.oViewModel.setProperty("/newCreatedEntry", true);
+				if (objectKey && objectKey !== "") {
 					this.getRouter().navTo("object", {
-						objectId: notificationId
+						ObjectKey: objectKey
 					});
 				} else {
 					var msg = this.getResourceBundle().getText("msg.saveSuccess");
