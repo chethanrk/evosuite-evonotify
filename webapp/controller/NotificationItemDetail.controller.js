@@ -105,7 +105,7 @@ sap.ui.define([
 				notificationId = oChangeData.MaintenanceNotification;
 
 				if (notificationId && notificationId !== "") {
-					this.oViewModel.setProperty("/newCreatedEntry", true);
+					this.oViewModel.setProperty("/newCreatedNotification", true);
 					this.getRouter().navTo("object", {
 						objectId: notificationId
 					});
