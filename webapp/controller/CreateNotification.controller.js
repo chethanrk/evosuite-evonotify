@@ -100,7 +100,7 @@ sap.ui.define([
 				objectKey = oChangeData.ObjectKey;
 
 				if (objectKey && objectKey !== "") {
-					this.oViewModel.setProperty("/newCreatedEntry", true);
+					this.oViewModel.setProperty("/newCreatedNotification", true);
 					this.getRouter().navTo("NotificationDetail", {
 						ObjectKey: objectKey
 					});

@@ -241,7 +241,7 @@ sap.ui.define([
 								sCreatedEntryId = batch.__changeResponses[0].data[sParamId];
 							}
 							if (sCreatedEntryId && sCreatedEntryId !== "" && sNavPath) {
-								oViewModel.setProperty("/newCreatedEntry", true);
+								oViewModel.setProperty("/newCreatedNotification", true);
 								this.getRouter().navTo("object", {
 									objectId: sCreatedEntryId
 								});

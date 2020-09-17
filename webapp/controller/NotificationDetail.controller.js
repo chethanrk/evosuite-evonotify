@@ -24,6 +24,11 @@ sap.ui.define([
 			oRouter.getRoute("NotificationDetail").attachMatched(function (oEvent) {
 				this._initializeView();
 			}, this);
+
+			var eventBus = sap.ui.getCore().getEventBus();
+			//Binding has changed in TemplateRenderController.js
+			eventBus.subscribe("TemplateRendererEvoNotify", "changedBinding", this._changedBinding, this);
+		
 		},
 
 		/**
@@ -143,9 +148,8 @@ sap.ui.define([
 			this.oViewModel.setProperty("/editMode", false);
 			this.oViewModel.setProperty("/operationsRowsCount", 0);
 
-			if (this.oViewModel.getProperty("/newCreatedEntry") === true) {
-				this.getView().getElementBinding().refresh(true);
-				this.oViewModel.setProperty("/newCreatedEntry", false);
+			if (this.oViewModel.getProperty("/newCreatedNotification") === true) {
+				this.getModel().refresh(true);
 			}
 		},
 
@@ -170,6 +174,40 @@ sap.ui.define([
 				this.showInformationDialog(message);
 				//this.addMsgToMessageManager(this.mMessageType.Error, message, "/WorkList");
 			}
+		}, 
+		
+		/**
+		 * TemplateRenderer changedBinding Event
+		 * set new this._oContext
+		 * @param sChannel
+		 * @param sEvent
+		 * @param oData
+		 */
+		_changedBinding: function (sChannel, sEvent, oData) {
+			if (sChannel === "TemplateRendererEvoNotify" && sEvent === "changedBinding") {
+				var sViewName = this.getView().getViewName() + "#" + this.getView().getId();
+
+				if (oData && (oData.viewNameId === sViewName)) {
+					this._oContext = this.getView().getBindingContext();
+					if (!this._oContext) {
+						this.getRouter().navTo("ObjectNotFound");
+					}
+					this._setSelectFunctionVisibility();
+				}
+			}
+		},
+		
+		/**
+		 * set visibility on status change dropdown items based on allowance from order status
+		 */
+		_setSelectFunctionVisibility: function () {
+			var oData = this._oContext.getObject(),
+				oStatusSelectControl = this.getView().byId("idStatusChangeMenu"),
+				oMenu = oStatusSelectControl.getMenu();
+
+			oMenu.getItems().forEach(function (oItem) {
+				oItem.setVisible(oData["ALLOW_" + oItem.getKey()]);
+			}.bind(this));
 		}
 	});
 });
