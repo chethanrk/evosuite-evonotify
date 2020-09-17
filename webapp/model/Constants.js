@@ -16,6 +16,10 @@ sap.ui.define([], function () {
 		LAUNCH_MODE: {
 			FIORI: "LAUNCHPAD",
 			BSP: "BSP"
+		},
+		FUNCTIONSET_FILTER:{
+			NOTIFICATION_FILTER: "QMI",
+			TASK_FILTER: "QA1"
 		}
 	};
 

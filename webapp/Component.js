@@ -63,9 +63,15 @@ sap.ui.define([
 
 			this.setModel(models.createUserModel(this), "user");
 
+			this.setModel(models.createNotificationFunctionModel(this), "notificationFunctionModel");
+
+			this.setModel(models.createTaskFunctionModel(this), "taskFunctionModel");
+
 			this.setModel(models.createInformationModel(this), "InformationModel");
 
 			this._getSystemInformation();
+
+			this._getFunctionSet();
 
 			this._setApp2AppLinks();
 
@@ -114,6 +120,22 @@ sap.ui.define([
 			this.readData("/SystemInformationSet", []).then(function (oData) {
 				this.getModel("user").setData(oData.results[0]);
 			}.bind(this));
+		},
+
+		/**
+		 * Calls the FunctionSetData for Notification and Task
+		 */
+		_getFunctionSet: function () {
+			var oFilter1 = new Filter("ObjectCategory", FilterOperator.EQ, Constants.FUNCTIONSET_FILTER.NOTIFICATION_FILTER);
+			this.readData("/FunctionsSet", [oFilter1])
+				.then(function (data) {
+					this.getModel("notificationFunctionModel").setData(data);
+				}.bind(this));
+			var oFilter2 = new Filter("ObjectCategory", FilterOperator.EQ, Constants.FUNCTIONSET_FILTER.TASK_FILTER);
+			this.readData("/FunctionsSet", [oFilter2])
+				.then(function (data) {
+					this.getModel("taskFunctionModel").setData(data);
+				}.bind(this));
 		},
 
 		/**

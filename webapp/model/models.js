@@ -18,6 +18,18 @@ sap.ui.define([
 			return oModel;
 		},
 
+		createNotificationFunctionModel: function(User) {
+			var oModel = new JSONModel(User);
+			oModel.setDefaultBindingMode("OneWay");
+			return oModel;
+		},
+
+		createTaskFunctionModel: function(User) {
+			var oModel = new JSONModel(User);
+			oModel.setDefaultBindingMode("OneWay");
+			return oModel;
+		},
+
 		createInformationModel: function(oComponent) {
 			var oMetadata = oComponent.getMetadata();
 			var oManifest = oMetadata._oManifest;

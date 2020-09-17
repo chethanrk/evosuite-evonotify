@@ -513,7 +513,37 @@ sap.ui.define([
 				oPopover.insertContent(oButton);
 				oPopover.openBy(oSource);
 			}
-		}
+		},
+		
+		/**
+		 * show showInformationDialog dialog with ok
+		 * Yes execute successFn
+		 * No execute errorFn
+		 * @param successFn
+		 * @param errorFn
+		 */
+		showInformationDialog: function(msg, successFn, errorFn){
+			var oBundle = this.getModel("i18n").getResourceBundle();
+
+			var dialog = new Dialog({
+				title: oBundle.getText("tit.informationTitle"),
+				type: 'Message',
+				content: new Text({ text: msg }),
+				beginButton: new Button({
+					type: sap.m.ButtonType.Emphasized,
+					text: oBundle.getText("btn.ok"),
+					press: function () {
+						if(successFn) successFn();
+						dialog.close();
+					}
+				}),
+				afterClose: function() {
+					dialog.destroy();
+				}
+			});
+
+			dialog.open();
+		},
 	});
 
 });
