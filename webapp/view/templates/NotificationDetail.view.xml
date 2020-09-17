@@ -15,11 +15,11 @@
 						<uxap:ObjectPageHeaderActionButton id="saveNotificationButton" text="{i18n>btn.save}" hideText="false" press="onPressSave" type="Emphasized"
 							visible="{viewModel>/editMode}"/>
 						<MenuButton text="{i18n>btn.changeSystemStatus}"
-							visible="{parts: ['ENABLE_NOTIFICATION_CHANGE','viewModel>/editMode'], formatter:'.formatter.showStatusButton'}">
+							visible="{parts: ['ENABLE_NOTIFICATION_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE', 'viewModel>/editMode'], formatter:'.formatter.showStatusButton'}">
 							<menu>
-								<Menu itemSelected="onMenuSelectionChange" items="{ path: '/FunctionsSet' }">
+								<Menu itemSelected="onSelectStatus" items="{path: 'notificationFunctionModel>/results'}">
 									<items>
-										<MenuItem key="{Function}" text="{Description}"/>
+										<MenuItem key="{notificationFunctionModel>Function}" text="{notificationFunctionModel>Description}"/>
 									</items>
 								</Menu>
 							</menu>

@@ -166,8 +166,8 @@ sap.ui.define([
 		 * @param isNew
 		 * @returns {boolean}
 		 */
-		showStatusButton: function (bAllowChange, isEditMode) {
-			if (bAllowChange & !isEditMode) {
+		showStatusButton: function (bAllowChange, bEnabledFunction, isEditMode) {
+			if (bEnabledFunction && bAllowChange && !isEditMode) {
 				return true;
 			}
 			return false;

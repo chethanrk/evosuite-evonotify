@@ -148,6 +148,29 @@ sap.ui.define([
 				this.getView().getElementBinding().refresh(true);
 				this.oViewModel.setProperty("/newCreatedEntry", false);
 			}
+		},
+
+		/**
+		 * Show select status dialog with maybe pre-selected filter
+		 * @param oEvent
+		 */
+		onSelectStatus: function (oEvent) {
+			this._oContext = this.getView().getBindingContext();
+			var sSelFunctionKey = oEvent.getParameter("item").getKey(),
+				oData = this._oContext.getObject(),
+				sPath = this._oContext.getPath(),
+				message = "";
+
+			if (oData["ALLOW_" + sSelFunctionKey]) {
+				this.getModel().setProperty(sPath + "/FUNCTION", sSelFunctionKey);
+				this.saveChanges({
+					state: "success"
+				}, null, null, this.getView());
+			} else {
+				message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NotificationNo);
+				this.showInformationDialog(message);
+				//this.addMsgToMessageManager(this.mMessageType.Error, message, "/WorkList");
+			}
 		}
 	});
 });
