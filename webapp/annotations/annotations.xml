@@ -463,7 +463,7 @@
 									<PropertyValue Property="Value" Path="MAINTENANCE_PLANNER_GROUP"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MAINTENANCE_WORKCENTER_PLANT"/>
+									<PropertyValue Property="Value" Path="WORKCENTER"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
