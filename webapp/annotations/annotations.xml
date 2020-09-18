@@ -68,6 +68,7 @@
 								</Record>
 							</Collection>
 						</PropertyValue>
+						<PropertyValue Property="Label" String="{@i18n&gt;tit.technicalObject}"/>
 					</Record>
 				</Annotation>
 				<Annotation Term="UI.FieldGroup" Qualifier="header">
