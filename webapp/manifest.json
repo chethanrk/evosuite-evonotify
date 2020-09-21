@@ -120,36 +120,37 @@
 					]
 				}
 			},
-			"routes": [
-				{
-					"pattern": "",
-					"name": "worklist",
-					"target": [
-						"worklist"
-					]
-				},
-				{
-					"pattern": "NewNotification",
-					"name": "CreateNotification",
-					"target": [
-						"CreateNotification"
-					]
-				},
-				{
-					"pattern": "Notification/{ObjectKey}",
-					"name": "NotificationDetail",
-					"target": [
-						"NotificationDetail"
-					]
-				},
-				{
-					"pattern": "Notification/Item/{ObjectKey}",
-					"name": "NotificationItemDetail",
-					"target": [
-						"NotificationItemDetail"
-					]
-				}
-			],
+			"routes": [{
+				"pattern": "",
+				"name": "worklist",
+				"target": [
+					"worklist"
+				]
+			}, {
+				"pattern": "NewNotification",
+				"name": "CreateNotification",
+				"target": [
+					"CreateNotification"
+				]
+			}, {
+				"pattern": "Notification/{ObjectKey}",
+				"name": "NotificationDetail",
+				"target": [
+					"NotificationDetail"
+				]
+			}, {
+				"pattern": "Notification/Item/{ObjectKey}",
+				"name": "NotificationItemDetail",
+				"target": [
+					"NotificationItemDetail"
+				]
+			}, {
+				"pattern": "ObjectNotFound",
+				"name": "ObjectNotFound",
+				"target": [
+					"objectNotFound"
+				]
+			}],
 			"targets": {
 				"worklist": {
 					"viewName": "Worklist",
