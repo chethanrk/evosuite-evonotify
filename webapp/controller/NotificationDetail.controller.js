@@ -189,13 +189,15 @@ sap.ui.define([
 		 * set visibility on status change dropdown items based on allowance from order status
 		 */
 		_setSelectFunctionVisibility: function () {
-			var oData = this._oContext.getObject(),
-				oStatusSelectControl = this.getView().byId("idStatusChangeMenu"),
-				oMenu = oStatusSelectControl.getMenu();
+			if (this._oContext) {
+				var oData = this._oContext.getObject(),
+					oStatusSelectControl = this.getView().byId("idStatusChangeMenu"),
+					oMenu = oStatusSelectControl.getMenu();
 
-			oMenu.getItems().forEach(function (oItem) {
-				oItem.setVisible(oData["ALLOW_" + oItem.getKey()]);
-			}.bind(this));
+				oMenu.getItems().forEach(function (oItem) {
+					oItem.setVisible(oData["ALLOW_" + oItem.getKey()]);
+				}.bind(this));
+			}
 		}
 	});
 });
