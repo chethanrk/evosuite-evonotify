@@ -95,33 +95,21 @@ sap.ui.define([
 			if (this.oSmartForm) {
 				var mErrors = this.validateForm(this.oSmartForm);
 				//if form is valid save created entry
-				this.saveChanges(mErrors, this.saveCreateSuccessFn.bind(this));
+				this.saveChanges(mErrors, this.saveSuccessFn.bind(this));
 			} else {
 				//todo show message
 			}
 		},
 
 		/**
-		 * success callback after creating order
+		 * success callback after saving notification
 		 * @param oResponse
 		 */
-		saveCreateSuccessFn: function (oResponse) {
-			var objectKey = null,
-				oChangeData = oResponse.__batchResponses[1].data;
-
-			if (oChangeData) {
-				objectKey = oChangeData.ObjectKey;
-
-				if (objectKey && objectKey !== "") {
-					this.getRouter().navTo("object", {
-						ObjectKey: objectKey
-					});
-				} else {
-					var msg = this.getResourceBundle().getText("msg.saveSuccess");
-					sap.m.MessageToast.show(msg);
-					this.navBack();
-				}
-			}
+		saveSuccessFn: function (oResponse) {
+			var msg = this.getResourceBundle().getText("msg.saveSuccess");
+			sap.m.MessageToast.show(msg);
+			this.oSmartForm.setEditable(false);
+			this.oViewModel.setProperty("/editMode", false);			
 		},
 
 		/**
