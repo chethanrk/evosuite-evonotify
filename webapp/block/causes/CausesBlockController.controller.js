@@ -93,7 +93,7 @@ sap.ui.define([
 				sSortField: "SORT_NUMBER",
 				sNavTo: "/NotificationItemToCause/",
 				mKeys: {
-					ObjectKey: oContextData.ObjectKey
+					NotificationNo: oContextData.NotificationNo
 				}
 			};
 
