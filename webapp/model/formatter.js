@@ -79,7 +79,7 @@ sap.ui.define([
 		 * @returns {boolean}
 		 */
 		editable: function (bAllowChange, isEditMode) {
-			if (bAllowChange || !isEditMode) {
+			if (bAllowChange && !isEditMode) {
 				return true;
 			}
 			return false;
