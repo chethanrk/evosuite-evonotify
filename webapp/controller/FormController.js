@@ -142,9 +142,16 @@ sap.ui.define([
 					success: function (oResponse) {
 						this._setBusyWhileSaving(oCtrl, false);
 						this.getView().getModel("viewModel").setProperty("/busy", false);
-						if (oSuccessCallback) {
-							oSuccessCallback(oResponse);
+						if (oResponse.__batchResponses && oResponse.__batchResponses[0].response && oResponse.__batchResponses[0].response.statusCode === "400") {
+							if (oErrorCallback) {
+								oErrorCallback(oResponse);
+							}
+						} else {
+							if (oSuccessCallback) {
+								oSuccessCallback(oResponse);
+							}
 						}
+
 					}.bind(this),
 					error: function (oError) {
 						this._setBusyWhileSaving(oCtrl, false);
