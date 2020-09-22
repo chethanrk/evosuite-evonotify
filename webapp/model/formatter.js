@@ -93,7 +93,7 @@ sap.ui.define([
 		 * @returns {boolean}
 		 */
 		isVisible: function (bAllowChange, bEnabledFunction, isEditMode) {
-			if (bEnabledFunction && bAllowChange && !isEditMode) {
+			if (bEnabledFunction === "X" && bAllowChange && !isEditMode) {
 				return true;
 			}
 			return false;
@@ -167,7 +167,7 @@ sap.ui.define([
 		 * @returns {boolean}
 		 */
 		showStatusButton: function (bAllowChange, bEnabledFunction, isEditMode) {
-			if (bEnabledFunction && bAllowChange && !isEditMode) {
+			if (bEnabledFunction === "X" && bAllowChange && !isEditMode) {
 				return true;
 			}
 			return false;
