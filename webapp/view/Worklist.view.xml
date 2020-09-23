@@ -10,7 +10,7 @@
 					<Image src="{path: '', formatter: '.formatter.getLogoImageLink' }" densityAware="false" height="30px" alt="EvoNotify" id="imageLogo"/>
 				</f:heading>
 				<f:actions>
-					<!--<Button icon="sap-icon://alert" text="{= ${message>/}.length }" type="Emphasized" press="onMessageManagerPress"/>-->
+					<Button icon="sap-icon://alert" text="{= ${message>/}.length }" type="Emphasized" press="onMessageManagerPress"/>
 				</f:actions>
 				<f:navigationActions>
 					<Button id="idButtonAboutDialog" icon="sap-icon://sys-help" tooltip="{i18n>tit.infoDialogTitle}" press="onIconPress"/>

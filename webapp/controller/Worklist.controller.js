@@ -79,7 +79,16 @@ sap.ui.define([
 		 */
 		onCloseDialog: function () {
 			this._infoDialog.close();
-		}
+		},
+
+		/**
+		 * Open Message Manager on click
+		 * @param oEvent
+		 */
+		onMessageManagerPress: function (oEvent) {
+			this.openMessageManager(this.getView(), oEvent);
+		},
+
 
 	});
 });

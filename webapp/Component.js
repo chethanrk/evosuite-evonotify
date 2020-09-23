@@ -8,10 +8,13 @@ sap.ui.define([
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
 	"com/evorait/evonotify/assets/js/url-search-params.min",
-	"com/evorait/evonotify/assets/js/promise-polyfills"
+	"com/evorait/evonotify/assets/js/promise-polyfills",
+	"com/evorait/evonotify/controller/MessageManager"
 ], function (UIComponent, Device, models, ErrorHandler, DialogTemplateRenderController, Constants, Filter,
-	FilterOperator, UrlSearchPolyfill, PromisePolyfill) {
+	FilterOperator, UrlSearchPolyfill, PromisePolyfill, MessageManager) {
 	"use strict";
+	
+	var oMessageManager = sap.ui.getCore().getMessageManager();
 
 	return UIComponent.extend("com.evorait.evonotify.Component", {
 
@@ -74,11 +77,24 @@ sap.ui.define([
 			this._getFunctionSet();
 
 			this._setApp2AppLinks();
+			
+			this.setModel(oMessageManager.getMessageModel(), "message");
+			
+			this.MessageManager = new MessageManager();
+			this.setModel(models.createMessageManagerModel(), "messageManager");
 
 			//get start parameter when app2app navigation is in URL
 			//replace hash when startup parameter
 			//and init Router after success or fail
 			this._initRouter();
+		},
+
+		/**
+		 * This method registers the view to the message manager
+		 * @param oView
+		 */
+		registerViewToMessageManager: function (oView) {
+			oMessageManager.registerObject(oView, true);
 		},
 
 		/**
