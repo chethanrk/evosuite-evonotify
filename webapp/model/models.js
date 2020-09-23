@@ -54,7 +54,18 @@ sap.ui.define([
 			var oModel = new JSONModel(NavLinks);
 			oModel.setDefaultBindingMode("TwoWay");
 			return oModel;
-    	}
+    	},
+
+		createMessageManagerModel: function () {
+			var oModel = new JSONModel({
+				MandatoryInputValue: "",
+				DateValue: null,
+				IntegerValue: undefined,
+				Dummy: ""
+			});
+			oModel.setDefaultBindingMode("TwoWay");
+			return oModel;
+		},
 
 	};
 });

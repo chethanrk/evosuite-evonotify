@@ -544,6 +544,44 @@ sap.ui.define([
 
 			dialog.open();
 		},
+
+		/**
+		 * On click, open Message Popover
+		 */
+		openMessageManager: function (oView, oEvent) {
+			this.getOwnerComponent().MessageManager.open(oView, oEvent);
+		},
+
+		/**
+		 * Create Success, Warning, Info, Error message and add to MessageManager
+		 * @param sMessage
+		 * @param sTarget
+		 */
+		addMsgToMessageManager: function (sType, sMessage, sTarget) {
+			var oMessage = new Message({
+				message: sMessage,
+				type: sType,
+				target: sTarget,
+				processor: this.getModel("messageManager"),
+				technical: true
+			});
+			sap.ui.getCore().getMessageManager().addMessages(oMessage);
+		},
+
+		/**
+		 * Clear all message present in the MessageManager
+		 */
+		clearAllMessages: function () {
+			// does not remove the manually set ValueStateText we set in onValueStatePress():
+			sap.ui.getCore().getMessageManager().removeAllMessages();
+		},
+
+		/**
+		 * On click, open Message Popover
+		 */
+		openMessageManager: function (oView, oEvent) {
+			this.getOwnerComponent().MessageManager.open(oView, oEvent);
+		},
 	});
 
 });
