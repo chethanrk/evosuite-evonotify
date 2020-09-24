@@ -156,6 +156,9 @@
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="MALFUNCTION_END_TIME"/>
 								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="BreakdownIndicator"/>
+								</Record>
 							</Collection>
 						</PropertyValue>
 					</Record>
