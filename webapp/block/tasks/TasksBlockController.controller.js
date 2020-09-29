@@ -39,14 +39,7 @@ sap.ui.define([
 		onPressItem: function (oEvent) {
 			this.oListItem = oEvent.getParameter("listItem");
 			this._oTaskContext = this.oListItem.getBindingContext();
-
-			var oSelectMenu = this.getView().byId("idMenuTask"),
-				oMenuItems = oSelectMenu.getItems();
-
-			oMenuItems.forEach(function (oItem) {
-				var sKey = oItem.getKey();
-				oItem.setVisible(this._setStatusSelectItemsVisibility(sKey));
-			}.bind(this));
+			this._setStatusSelectItemsVisibility();
 		},
 
 		/**
@@ -151,9 +144,13 @@ sap.ui.define([
 			if (!this._oTaskContext) {
 				return false;
 			} else {
-				var oContextData = this._oTaskContext.getObject();
-				return formatter.taskStatusVisibility(oContextData.IsOutstanding, oContextData.IsReleased, oContextData.IsCompleted, oContextData.IsSuccessfull,
-					sStatus);
+				var oContextData = this._oTaskContext.getObject(),
+					oStatusSelectControl = this.getView().byId("idTaskStatusChangeMenu"),
+					oMenu = oStatusSelectControl.getMenu();
+
+				oMenu.getItems().forEach(function (oItem) {
+					oItem.setVisible(oContextData["ALLOW_" + oItem.getKey()]);
+				}.bind(this));
 			}
 		}
 
