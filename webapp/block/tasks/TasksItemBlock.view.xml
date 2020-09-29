@@ -10,12 +10,13 @@
 					visible="{ parts: [{path:'viewModel>/enableNotificationChange'},{path: 'user>/ENABLE_TASK_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 				<OverflowToolbarButton icon="sap-icon://edit" text="Sort" press="onPressEdit"
 					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},{path: 'user>/IsTasksEdit'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
-				<MenuButton text="{i18n>tit.changeStatus}"
-					visible="{ parts: [{path: 'IsCompleted'},{path: 'IsDeleted'},{path: 'user>/IsTasksEdit'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}">
+				<MenuButton id="idTaskItemStatusChangeMenu" text="{i18n>btn.changeSystemStatus}"
+					visible="{parts: ['viewModel>/enableNotificationChange','user>/ENABLE_NOTIFICATION_UPDATE', 'viewModel>/editMode'], formatter:'.formatter.isVisible'}">
 					<menu>
-						<Menu id="idMenuItemTask" itemSelected="onSelectStatus" items="{path: 'StatusVH>/TaskStatus', templateShareable:'false'}">
-							<MenuItem key="{StatusVH>Status}" text="{path: 'StatusVH>TranslateKey', formatter: '.translateStatusKey'}"
-								visible="{parts: ['IsOutstanding', 'IsReleased', 'IsCompleted', 'IsSuccessfull', 'StatusVH>Status'], formatter:'.formatter.taskStatusVisibility'}"/>
+						<Menu itemSelected="onSelectStatus" items="{path: 'taskFunctionModel>/results'}">
+							<items>
+								<MenuItem key="{taskFunctionModel>Function}" text="{taskFunctionModel>Description}"/>
+							</items>
 						</Menu>
 					</menu>
 				</MenuButton>

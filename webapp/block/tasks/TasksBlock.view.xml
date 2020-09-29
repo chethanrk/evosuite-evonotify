@@ -1,8 +1,9 @@
 <mvc:View controllerName="com.evorait.evonotify.block.tasks.TasksBlockController" xmlns="sap.m" xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc" xmlns:smartTable="sap.ui.comp.smarttable">
-	<smartTable:SmartTable id="notificationTasksTable" height="100%" width="100%" header="{i18n>tit.tasks}"  tableType="ResponsiveTable" useExportToExcel="false"
-		useVariantManagement="true" useTablePersonalisation="true" showRowCount="true" persistencyKey="com.evorait.evonotify.taskNotifTable"
-		enableAutoBinding="true" entitySet="PMNotificationTaskSet" tableBindingPath="NotificationToTask" requestAtLeastFields="ObjectKey">
+	<smartTable:SmartTable id="notificationTasksTable" height="100%" width="100%" header="{i18n>tit.tasks}" tableType="ResponsiveTable"
+		useExportToExcel="false" useVariantManagement="true" useTablePersonalisation="true" showRowCount="true"
+		persistencyKey="com.evorait.evonotify.taskNotifTable" enableAutoBinding="true" entitySet="PMNotificationTaskSet"
+		tableBindingPath="NotificationToTask" requestAtLeastFields="ObjectKey">
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
@@ -10,11 +11,13 @@
 					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},{path: 'user>/ENABLE_TASK_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 				<OverflowToolbarButton icon="sap-icon://edit" text="Sort" press="onPressEdit"
 					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},{path: 'user>/ENABLE_TASK_UPDATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
-				<MenuButton text="{i18n>tit.changeStatus}"
-					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},{path: 'user>/ENABLE_TASK_UPDATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}">
+				<MenuButton id="idTaskStatusChangeMenu" text="{i18n>btn.changeSystemStatus}"
+					visible="{parts: ['ENABLE_NOTIFICATION_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE', 'viewModel>/editMode'], formatter:'.formatter.isVisible'}">
 					<menu>
-						<Menu id="idMenuTask" itemSelected="onSelectStatus" items="{path: 'StatusVH>/TaskStatus', templateShareable:'false'}">
-							<MenuItem key="{StatusVH>Status}" text="{path: 'StatusVH>TranslateKey', formatter: '.translateStatusKey'}"/>
+						<Menu itemSelected="onSelectStatus" items="{path: 'taskFunctionModel>/results'}">
+							<items>
+								<MenuItem key="{taskFunctionModel>Function}" text="{taskFunctionModel>Description}"/>
+							</items>
 						</Menu>
 					</menu>
 				</MenuButton>
