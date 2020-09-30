@@ -5,7 +5,6 @@
 	<smartForm:SmartForm id="smartFormTemplate" app:defaultCheckBoxDisplayBehaviour="OnOff" editTogglable="false" editable="false">
 		<smartForm:customData>
 			<core:CustomData key="suppressUnit" value="false"/>
-			<core:CustomData key="dateFormatSettings" value='\{"pattern":"yyyy-MM-dd"\}'/>
 			<core:CustomData key="defaultDropDownDisplayBehaviour" value='descriptionAndId'/>
 		</smartForm:customData>
 		<smartForm:layout>
