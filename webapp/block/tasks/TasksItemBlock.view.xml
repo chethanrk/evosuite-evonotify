@@ -9,7 +9,7 @@
 				<OverflowToolbarButton icon="sap-icon://add" text="Sort" press="onPressAdd"
 					visible="{ parts: [{path:'viewModel>/enableNotificationChange'},{path: 'user>/ENABLE_TASK_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 				<OverflowToolbarButton icon="sap-icon://edit" text="Sort" press="onPressEdit"
-					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},{path: 'user>/IsTasksEdit'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
+					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},{path: 'user>/ENABLE_TASK_UPDATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 				<MenuButton id="idTaskItemStatusChangeMenu" text="{i18n>btn.changeSystemStatus}"
 					visible="{parts: ['viewModel>/enableNotificationChange','user>/ENABLE_NOTIFICATION_UPDATE', 'viewModel>/editMode'], formatter:'.formatter.isVisible'}">
 					<menu>
