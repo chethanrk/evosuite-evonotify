@@ -49,13 +49,13 @@
 						<Column width="3rem">
 							<Text text="{/#PMNotification/UI_STATUS_ICON/@sap:label}"/>
 							<customData>
-								<core:CustomData key="p13nData" value='\{"columnKey": "IsCompleted","leadingProperty": "IsCompleted"}'/>
+								<core:CustomData key="p13nData" value='\{"columnKey": "UI_STATUS_ICON","leadingProperty": "UI_STATUS_ICON"}'/>
 							</customData>
 						</Column>
 					</columns>
 					<ColumnListItem type="Navigation" press="onPressTableRow">
 						<cells>
-							<core:Icon src="{path: 'PHASE',formatter: '.formatter.formatIsEditableIcon'}" alt="{path: 'NOTIF_PROCESSING_PHASE_DESC'}"/>
+							<core:Icon src="{UI_STATUS_ICON}" alt="{path: 'NOTIF_PROCESSING_PHASE_DESC'}"/>
 						</cells>
 					</ColumnListItem>
 				</Table>
