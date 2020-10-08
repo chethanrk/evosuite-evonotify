@@ -226,9 +226,6 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MAINTENANCE_WORKCENTER_PLANT"/>
-								</Record>
-								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="ASSET_LOCATION"/>
 								</Record>
 								<Record Type="UI.DataField">
@@ -423,9 +420,6 @@
 						<PropertyValue Property="Label" String="{@i18n&gt;tit.sectionLocation}"/>
 						<PropertyValue Property="Data">
 							<Collection>
-								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="MAINTENANCE_WORKCENTER_PLANT"/>
-								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="ASSET_LOCATION"/>
 								</Record>
