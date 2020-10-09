@@ -159,6 +159,9 @@
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="BreakdownIndicator"/>
 								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="BREAKDOWN_DURATION"/>
+								</Record>
 							</Collection>
 						</PropertyValue>
 					</Record>
@@ -357,11 +360,11 @@
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="MALFUNCTION_END_TIME"/>
 								</Record>
-								<!--<Record Type="UI.DataField">-->
-								<!--	<PropertyValue Property="Value" Path="BREAKDOWN_DURATION"/>-->
-								<!--</Record>-->
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="BreakdownIndicator"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="BREAKDOWN_DURATION"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
