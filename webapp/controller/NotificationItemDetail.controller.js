@@ -58,7 +58,7 @@ sap.ui.define([
 			} else if (this.oViewModel.getProperty("/editMode") && this.getModel().hasPendingChanges()) {
 				//show confirm message
 				var sPath = this.getView().getBindingContext().getPath();
-				this._confirmEditCancelDialog(sPath, true);
+				this.confirmEditCancelDialog(sPath, true);
 			} else {
 				this.getView().unbindElement();
 				this.oSmartForm.setEditable(false);

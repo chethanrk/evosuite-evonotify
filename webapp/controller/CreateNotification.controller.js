@@ -53,7 +53,8 @@ sap.ui.define([
 		 */
 		onNavBack: function () {
 			//show confirm message
-			this.confirmEditCancelDialog();
+			var sPath = this.getView().getBindingContext().getPath();
+			this.confirmEditCancelDialog(sPath);
 		},
 
 		/**
@@ -69,7 +70,8 @@ sap.ui.define([
 		 */
 		onPressCancel: function (oEvent) {
 			//show confirm message
-			this.confirmEditCancelDialog();
+			var sPath = this.getView().getBindingContext().getPath();
+			this.confirmEditCancelDialog(sPath);
 		},
 
 		/**
