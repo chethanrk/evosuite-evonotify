@@ -67,7 +67,7 @@ sap.ui.define([
 				this.getRouter().navTo("worklist", {}, true);
 			} else if (this.oViewModel.getProperty("/editMode") && this.getModel().hasPendingChanges()) {
 				//show confirm message
-				this._confirmEditCancelDialog(this.sPath, true);
+				this.confirmEditCancelDialog(this.sPath, true);
 			} else {
 				this.getView().unbindElement();
 				this.oSmartForm.setEditable(false);
