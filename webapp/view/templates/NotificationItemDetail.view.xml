@@ -37,9 +37,15 @@
 										<template:repeat list="{data>}">
 											<template:if test="{data>Org.OData.Core.V1.LongDescription}">
 												<template:then>
-													<ObjectStatus title="{= '{= ${' + ${path : 'data>Value/Path'} + '/##com.sap.vocabularies.Common.v1.Label/String} }' }"
-														text="{path:'data>Org.OData.Core.V1.LongDescription',formatter:'.AH.format'} ({path:'data>Value',formatter:'.AH.format'})" active="false"
-														state="None"/>
+													<template:if test="{= ${path:'data>Value',formatter:'.AH.format'}}">
+														<template:then>
+															<ObjectStatus title="{= '{= ${' + ${path : 'data>Value/Path'} + '/##com.sap.vocabularies.Common.v1.Label/String} }' }"
+																text="{path:'data>Org.OData.Core.V1.LongDescription',formatter:'.AH.format'}" active="false" state="None"/></template:then>
+														<template:else>
+															<ObjectStatus title="{= '{= ${' + ${path : 'data>Value/Path'} + '/##com.sap.vocabularies.Common.v1.Label/String} }' }"
+																text="{path:'data>Org.OData.Core.V1.LongDescription',formatter:'.AH.format'} ({path:'data>Value',formatter:'.AH.format'})" active="false"
+																state="None"/></template:else>
+													</template:if>
 												</template:then>
 												<template:else>
 													<ObjectStatus title="{= '{= ${' + ${path : 'data>Value/Path'} + '/##com.sap.vocabularies.Common.v1.Label/String} }' }"
