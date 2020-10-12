@@ -1,6 +1,9 @@
 sap.ui.define([
-	"com/evorait/evonotify/controller/FormController"
-], function (FormController) {
+	"com/evorait/evonotify/controller/FormController",
+	"sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator",
+	"com/evorait/evonotify/model/Constants"
+], function (FormController, Filter, FilterOperator, Constants) {
 	"use strict";
 
 	return FormController.extend("com.evorait.evonotify.controller.NotificationItemDetail", {
@@ -24,6 +27,10 @@ sap.ui.define([
 			oRouter.getRoute("NotificationItemDetail").attachMatched(function (oEvent) {
 				this._initializeView();
 			}, this);
+
+			var eventBus = sap.ui.getCore().getEventBus();
+			//Binding has changed in TemplateRenderController.js
+			eventBus.subscribe("TemplateRendererEvoNotify", "changedBinding", this._changedBinding, this);
 		},
 
 		/**
@@ -139,5 +146,38 @@ sap.ui.define([
 				ObjectKey: obj.ObjectKey
 			}, true);
 		},
+
+		/**
+		 * TemplateRenderer changedBinding Event
+		 * set new this._oContext
+		 * @param sChannel
+		 * @param sEvent
+		 * @param oData
+		 */
+		_changedBinding: function (sChannel, sEvent, oData) {
+			if (sChannel === "TemplateRendererEvoNotify" && sEvent === "changedBinding") {
+				var sViewName = this.getView().getViewName() + "#" + this.getView().getId();
+
+				if (oData && (oData.viewNameId === sViewName)) {
+					this._oContext = this.getView().getBindingContext();
+					if (!this._oContext) {
+						this.getRouter().navTo("ObjectNotFound");
+					} else {
+						if (!this.getModel("viewModel").getProperty("/enableNotificationChange")) {
+							this._getNotificationDetails(this._oContext.getObject().HeaderObjectKey);
+						}
+					}
+				}
+			}
+		},
+
+		_getNotificationDetails: function (filterParameter) {
+			var oFilter1 = new Filter("ObjectKey", FilterOperator.EQ, filterParameter);
+			this.getOwnerComponent().readData("/PMNotificationSet", [
+				[oFilter1]
+			]).then(function (oData) {
+				this.getModel("viewModel").setProperty("/enableNotificationChange", oData.results[0].ENABLE_NOTIFICATION_CHANGE);
+			}.bind(this));
+		}
 	});
 });
