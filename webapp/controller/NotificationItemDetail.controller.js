@@ -86,34 +86,21 @@ sap.ui.define([
 				var mErrors = this.validateForm(this.oSmartForm),
 					oContext = this.getView().getBindingContext();
 				//if form is valid save created entry
-				this.saveChanges(mErrors, this.saveCreateSuccessFn.bind(this));
+				this.saveChanges(mErrors, this.saveSuccessFn.bind(this));
 			} else {
 				//todo show message
 			}
 		},
-
+		
 		/**
 		 * success callback after saving notification
 		 * @param oResponse
 		 */
-		saveCreateSuccessFn: function (oResponse) {
-			var notificationId = null,
-				oChangeData = this.getBatchChangeResponse(oResponse);
-
-			if (oChangeData) {
-				notificationId = oChangeData.MaintenanceNotification;
-
-				if (notificationId && notificationId !== "") {
-					this.oViewModel.setProperty("/newCreatedNotification", true);
-					this.getRouter().navTo("object", {
-						objectId: notificationId
-					});
-				} else {
-					var msg = this.getResourceBundle().getText("msg.saveSuccess");
-					sap.m.MessageToast.show(msg);
-					this.navBack();
-				}
-			}
+		saveSuccessFn: function (oResponse) {
+			var msg = this.getResourceBundle().getText("msg.saveSuccess");
+			sap.m.MessageToast.show(msg);
+			this.oSmartForm.setEditable(false);
+			this.oViewModel.setProperty("/editMode", false);			
 		},
 
 		/**
