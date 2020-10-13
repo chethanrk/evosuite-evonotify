@@ -111,7 +111,6 @@ sap.ui.define([
 				oContext = this.getView().getBindingContext();
 
 			if (oParams.state === "success") {
-				this.getModel().setProperty(oContext.getPath() + "/Status", "");
 				return true;
 			} else if (oParams.state === "error") {
 				return false;
