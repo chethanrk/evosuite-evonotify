@@ -111,25 +111,24 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onSelectStatus: function (oEvent) {
-			var oParams = oEvent.getParameters(),
-				statusKey = oParams.item.getKey(),
-				oContext = oEvent.getSource().getBindingContext(),
-				obj = oContext.getObject();
+			if (this._oItemTaskContext) {
+				var sSelFunctionKey = oEvent.getParameter("item").getKey(),
+					oData = this._oItemTaskContext.getObject(),
+					sPath = this._oItemTaskContext.getPath(),
+					message = "";
 
-			if (obj.IsOutstanding === true || obj.IsReleased === true || obj.IsCompleted === true) {
-				this.getView().setBusy(true);
-				this.getModel().setProperty(oContext.getPath() + "/Status", statusKey);
-				this.saveChangedEntry({
-					context: this,
-					view: this.getView(),
-					success: function () {
-						this.context.oView.setBusy(false);
-						//this.view.getModel().refresh(true);
-					},
-					error: function () {
-						this.context.oView.setBusy(false);
-					}
-				});
+				if (oData["ALLOW_" + sSelFunctionKey]) {
+					this.getModel().setProperty(sPath + "/FUNCTION", sSelFunctionKey);
+					this.saveChanges({
+						state: "success"
+					}, null, null, this.getView());
+				} else {
+					message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NotificationNo);
+					this.showInformationDialog(message);
+				}
+			} else {
+				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
+				this.showMessageToast(msg);
 			}
 		},
 

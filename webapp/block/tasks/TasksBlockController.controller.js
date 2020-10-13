@@ -82,24 +82,19 @@ sap.ui.define([
 		 */
 		onSelectStatus: function (oEvent) {
 			if (this._oTaskContext) {
-				var oParams = oEvent.getParameters(),
-					statusKey = oParams.item.getKey(),
-					oContextData = this._oTaskContext.getObject();
+				var sSelFunctionKey = oEvent.getParameter("item").getKey(),
+					oData = this._oTaskContext.getObject(),
+					sPath = this._oTaskContext.getPath(),
+					message = "";
 
-				if (oContextData.IsOutstanding === true || oContextData.IsReleased === true || oContextData.IsCompleted === true) {
-					this.getView().setBusy(true);
-					this.getModel().setProperty(this._oTaskContext.getPath() + "/Status", statusKey);
-					this.saveChangedEntry({
-						context: this,
-						view: this.getView(),
-						success: function () {
-							this.context.oView.setBusy(false);
-							//this.view.getModel().refresh(true);
-						},
-						error: function () {
-							this.context.oView.setBusy(false);
-						}
-					});
+				if (oData["ALLOW_" + sSelFunctionKey]) {
+					this.getModel().setProperty(sPath + "/FUNCTION", sSelFunctionKey);
+					this.saveChanges({
+						state: "success"
+					}, null, null, this.getView());
+				} else {
+					message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NotificationNo);
+					this.showInformationDialog(message);
 				}
 			} else {
 				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
