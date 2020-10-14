@@ -144,6 +144,8 @@ sap.ui.define([
 			var responseCode = oResponse.__batchResponses[0].__changeResponses;
 			if (responseCode) {
 				if (responseCode[0].statusCode === "200" || responseCode[0].statusCode === "201" || responseCode[0].statusCode === "204") {
+					var msg = this._oResourceBundle.getText("msg.saveSuccess");
+					sap.m.MessageToast.show(msg);
 					setTimeout(function () {
 						this._oModel.refresh();
 					}.bind(this), 1500);
