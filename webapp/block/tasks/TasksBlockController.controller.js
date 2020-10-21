@@ -99,7 +99,7 @@ sap.ui.define([
 					this.getModel().setProperty(sPath + "/FUNCTION", sSelFunctionKey);
 					this.saveChanges({
 						state: "success"
-					}, this.saveSuccessFn.bind(this), null, this.getView());
+					}, this.saveSuccessFn.bind(this), this.saveErrorFn.bind(this), this.getView());
 				} else {
 					message = this.getResourceBundle().getText("msg.notificationSubmitFail", this._oNotificationContext.NotificationNo);
 					this.showInformationDialog(message);
@@ -164,6 +164,14 @@ sap.ui.define([
 		saveSuccessFn: function (oResponse) {
 			var msg = this.getResourceBundle().getText("msg.saveSuccess");
 			sap.m.MessageToast.show(msg);
+		},
+		
+		/**
+		 * error callback after saving notification
+		 * @param oResponse
+		 */
+		saveErrorFn: function (oResponse) {
+			this.getModel().resetChanges([this._oTaskContext.getPath()]);
 		},
 
 		_getNotificationTaskDetails: function (filterParameter) {
