@@ -156,7 +156,7 @@ sap.ui.define([
 				this.getModel().setProperty(sPath + "/FUNCTION", sSelFunctionKey);
 				this.saveChanges({
 					state: "success"
-				}, null, null, this.getView());
+				}, this.saveSuccessFn.bind(this), null, this.getView());
 			} else {
 				message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NotificationNo);
 				this.showInformationDialog(message);
