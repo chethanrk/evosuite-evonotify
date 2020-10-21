@@ -1,18 +1,22 @@
 /*global location*/
 sap.ui.define([
-	"com/evorait/evonotify/controller/BaseController",
+	"com/evorait/evonotify/controller/FormController",
 	"sap/ui/core/routing/History",
 	"sap/ui/model/json/JSONModel",
-	"com/evorait/evonotify/model/formatter"
+	"com/evorait/evonotify/model/formatter",
+	"sap/ui/model/FilterOperator",
+	"sap/ui/model/Filter"
 ], function (
-	BaseController,
+	FormController,
 	History,
 	JSONModel,
-	formatter
+	formatter,
+	FilterOperator,
+	Filter
 ) {
 	"use strict";
 
-	return BaseController.extend("com.evorait.evonotify.block.tasks.TasksBlockController", {
+	return FormController.extend("com.evorait.evonotify.block.tasks.TasksBlockController", {
 
 		formatter: formatter,
 
@@ -37,9 +41,13 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onPressItem: function (oEvent) {
+			this._setBusyWhileSaving(this.getView(), true);
 			this.oListItem = oEvent.getParameter("listItem");
+			this.oStatusSelectControl = this.getView().byId("idTaskStatusChangeMenu");
+			this.oStatusSelectControl.setEnabled(false);
 			this._oTaskContext = this.oListItem.getBindingContext();
-			this._setStatusSelectItemsVisibility();
+			this._oNotificationContext = this.oView.getBindingContext().getObject();
+			this._getNotificationTaskDetails(this._oTaskContext.getObject().ObjectKey);
 		},
 
 		/**
@@ -81,9 +89,9 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onSelectStatus: function (oEvent) {
-			if (this._oTaskContext) {
+			if (this._oTaskContext && this._oTaskContextData) {
 				var sSelFunctionKey = oEvent.getParameter("item").getKey(),
-					oData = this._oTaskContext.getObject(),
+					oData = this._oTaskContextData,
 					sPath = this._oTaskContext.getPath(),
 					message = "";
 
@@ -91,9 +99,9 @@ sap.ui.define([
 					this.getModel().setProperty(sPath + "/FUNCTION", sSelFunctionKey);
 					this.saveChanges({
 						state: "success"
-					}, null, null, this.getView());
+					}, this.saveSuccessFn.bind(this), null, this.getView());
 				} else {
-					message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NotificationNo);
+					message = this.getResourceBundle().getText("msg.notificationSubmitFail", this._oNotificationContext.NotificationNo);
 					this.showInformationDialog(message);
 				}
 			} else {
@@ -136,17 +144,36 @@ sap.ui.define([
 		 * @param sStatus
 		 */
 		_setStatusSelectItemsVisibility: function (sStatus) {
-			if (!this._oTaskContext) {
+			if (!this._oTaskContextData) {
 				return false;
 			} else {
-				var oContextData = this._oTaskContext.getObject(),
-					oStatusSelectControl = this.getView().byId("idTaskStatusChangeMenu"),
-					oMenu = oStatusSelectControl.getMenu();
-
+				var oContextData = this._oTaskContextData,
+					oMenu = this.oStatusSelectControl.getMenu();
+				this.oStatusSelectControl.setEnabled(true);
 				oMenu.getItems().forEach(function (oItem) {
 					oItem.setVisible(oContextData["ALLOW_" + oItem.getKey()]);
 				}.bind(this));
+				this._setBusyWhileSaving(this.getView(), false);
 			}
+		},
+
+		/**
+		 * success callback after saving notification
+		 * @param oResponse
+		 */
+		saveSuccessFn: function (oResponse) {
+			var msg = this.getResourceBundle().getText("msg.saveSuccess");
+			sap.m.MessageToast.show(msg);
+		},
+
+		_getNotificationTaskDetails: function (filterParameter) {
+			var oFilter1 = new Filter("ObjectKey", FilterOperator.EQ, filterParameter);
+			this.getOwnerComponent().readData("/PMNotificationTaskSet", [
+				[oFilter1]
+			]).then(function (oData) {
+				this._oTaskContextData = oData.results[0];
+				this._setStatusSelectItemsVisibility();
+			}.bind(this));
 		}
 
 	});
