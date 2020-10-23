@@ -11,7 +11,7 @@
 					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},{path: 'user>/ENABLE_TASK_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 				<OverflowToolbarButton icon="sap-icon://edit" text="Sort" press="onPressEdit"
 					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},{path: 'user>/ENABLE_TASK_UPDATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
-				<MenuButton id="idTaskStatusChangeMenu" text="{i18n>btn.changeSystemStatus}"
+				<MenuButton id="idTaskStatusChangeMenu" text="{i18n>btn.changeSystemStatus}" enabled="false"
 					visible="{parts: ['ENABLE_NOTIFICATION_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE', 'viewModel>/editMode'], formatter:'.formatter.isVisible'}">
 					<menu>
 						<Menu itemSelected="onSelectStatus" items="{path: 'taskFunctionModel>/results'}">

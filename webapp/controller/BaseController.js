@@ -573,14 +573,7 @@ sap.ui.define([
 		clearAllMessages: function () {
 			// does not remove the manually set ValueStateText we set in onValueStatePress():
 			sap.ui.getCore().getMessageManager().removeAllMessages();
-		},
-
-		/**
-		 * On click, open Message Popover
-		 */
-		openMessageManager: function (oView, oEvent) {
-			this.getOwnerComponent().MessageManager.open(oView, oEvent);
-		},
+		}
 	});
 
 });
