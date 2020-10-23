@@ -13,7 +13,7 @@ sap.ui.define([
 ], function (UIComponent, Device, models, ErrorHandler, DialogTemplateRenderController, Constants, Filter,
 	FilterOperator, UrlSearchPolyfill, PromisePolyfill, MessageManager) {
 	"use strict";
-	
+
 	var oMessageManager = sap.ui.getCore().getMessageManager();
 
 	return UIComponent.extend("com.evorait.evonotify.Component", {
@@ -77,16 +77,24 @@ sap.ui.define([
 			this._getFunctionSet();
 
 			this._setApp2AppLinks();
-			
+
 			this.setModel(oMessageManager.getMessageModel(), "message");
-			
+
 			this.MessageManager = new MessageManager();
 			this.setModel(models.createMessageManagerModel(), "messageManager");
 
-			//get start parameter when app2app navigation is in URL
-			//replace hash when startup parameter
-			//and init Router after success or fail
-			this._initRouter();
+			//wait for the models to load and then initialize the router
+			this.getModel().attachRequestCompleted("modelsLoaded", function (oEvent) {
+				if (oEvent.getParameter("url").includes("NavigationLinksSet")) {
+					this._initRouter();
+				}
+			}, this);
+			this.getModel().attachRequestFailed("modelsLoadFailed", function (oEvent) {
+				if (oEvent.getParameter("url").includes("NavigationLinksSet")) {
+					this._initRouter();
+				}
+			}, this);
+
 		},
 
 		/**
@@ -159,6 +167,9 @@ sap.ui.define([
 		 * When there is a filtered Order replace route hash
 		 */
 		_initRouter: function () {
+			//get start parameter when app2app navigation is in URL
+			//replace hash when startup parameter
+			//and init Router after success or fail
 			var oFilter = this._getStartupParamFilter();
 			if (oFilter) {
 				this.readData("/PMNotificationSet", [oFilter]).then(function (mResult) {
