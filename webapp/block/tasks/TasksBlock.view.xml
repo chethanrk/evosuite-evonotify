@@ -27,6 +27,20 @@
 		<smartTable:layoutData>
 			<FlexItemData growFactor="1" baseSize="0%"/>
 		</smartTable:layoutData>
-		<Table growing="true" mode="SingleSelectMaster" selectionChange="onPressItem"></Table>
+		<Table growing="true" mode="SingleSelectMaster" selectionChange="onPressItem">
+			<columns>
+				<Column width="3rem">
+					<Text text="{/#PMNotificationTask/UI_STATUS_ICON/@sap:label}"/>
+					<customData>
+						<core:CustomData key="p13nData" value='\{"columnKey": "UI_STATUS_ICON","leadingProperty": "UI_STATUS_ICON"}'/>
+					</customData>
+				</Column>
+			</columns>
+			<ColumnListItem>
+				<cells>
+					<core:Icon src="{UI_STATUS_ICON}" alt="{path: 'SYSTEM_STATUS_DESC'}" tooltip="{SYSTEM_STATUS_DESC}"/>
+				</cells>
+			</ColumnListItem>
+		</Table>
 	</smartTable:SmartTable>
 </mvc:View>
