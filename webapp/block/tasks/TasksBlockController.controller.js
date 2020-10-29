@@ -100,6 +100,8 @@ sap.ui.define([
 					this.saveChanges({
 						state: "success"
 					}, this.saveSuccessFn.bind(this), this.saveErrorFn.bind(this), this.getView());
+					this.oListItem.getParent().removeSelections(true);
+					this.oStatusSelectControl.setEnabled(false);
 				} else {
 					message = this.getResourceBundle().getText("msg.notificationSubmitFail", this._oNotificationContext.NotificationNo);
 					this.showInformationDialog(message);
