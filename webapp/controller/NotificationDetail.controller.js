@@ -109,7 +109,8 @@ sap.ui.define([
 			var msg = this.getResourceBundle().getText("msg.saveSuccess");
 			sap.m.MessageToast.show(msg);
 			this.oSmartForm.setEditable(false);
-			this.oViewModel.setProperty("/editMode", false);			
+			this.oViewModel.setProperty("/editMode", false);
+			this._setSelectFunctionVisibility();
 		},
 
 		/**
