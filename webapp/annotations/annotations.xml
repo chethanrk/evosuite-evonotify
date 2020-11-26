@@ -44,10 +44,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="SYSTEM_STATUS"/>
+									<PropertyValue Property="Value" Path="SYSTEM_STATUS_CODE"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="USER_STATUS"/>
+									<PropertyValue Property="Value" Path="USER_STATUS_CODE"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
