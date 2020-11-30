@@ -48,6 +48,7 @@ sap.ui.define([
 			this._oTaskContext = this.oListItem.getBindingContext();
 			this._oNotificationContext = this.oView.getBindingContext().getObject();
 			this._getNotificationTaskDetails(this._oTaskContext.getObject().ObjectKey);
+			this._validateTaskEdiButton(this._oTaskContext.getObject().ENABLE_TASK_CHANGE);
 		},
 
 		/**
@@ -184,8 +185,17 @@ sap.ui.define([
 				this._oTaskContextData = oData.results[0];
 				this._setStatusSelectItemsVisibility();
 			}.bind(this));
+		},
+		
+		_validateTaskEdiButton: function(isTaskEditable){
+			var oTaskEditCtrl = this.getView().byId("idTaskEdit");
+			if(isTaskEditable === "X"){
+				oTaskEditCtrl.setEnabled(true);
+			}
+			else{
+				oTaskEditCtrl.setEnabled(false);
+			}
 		}
-
 	});
 
 });

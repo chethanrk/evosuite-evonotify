@@ -3,13 +3,13 @@
 	<smartTable:SmartTable id="notificationTasksTable" height="100%" width="100%" header="{i18n>tit.tasks}" tableType="ResponsiveTable"
 		useExportToExcel="false" useVariantManagement="true" useTablePersonalisation="true" showRowCount="true"
 		persistencyKey="com.evorait.evonotify.taskNotifTable" enableAutoBinding="true" entitySet="PMNotificationTaskSet"
-		tableBindingPath="NotificationToTask" requestAtLeastFields="ObjectKey">
+		tableBindingPath="NotificationToTask" requestAtLeastFields="ObjectKey,ENABLE_TASK_CHANGE">
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
 				<OverflowToolbarButton icon="sap-icon://add" text="Sort" press="onPressAdd"
 					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},{path: 'user>/ENABLE_TASK_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
-				<OverflowToolbarButton icon="sap-icon://edit" text="Sort" press="onPressEdit"
+				<OverflowToolbarButton id="idTaskEdit" icon="sap-icon://edit" text="Sort" press="onPressEdit"
 					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},{path: 'user>/ENABLE_TASK_UPDATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 				<MenuButton id="idTaskStatusChangeMenu" text="{i18n>btn.changeSystemStatus}" enabled="false"
 					visible="{parts: ['ENABLE_NOTIFICATION_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE', 'viewModel>/editMode'], formatter:'.formatter.isVisible'}">

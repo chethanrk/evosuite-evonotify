@@ -47,6 +47,7 @@ sap.ui.define([
 			this._oItemTaskContext = this.oListItem.getBindingContext();
 			this._oNotificationContext = this.oView.getBindingContext().getObject();
 			this._getNotificationItemTaskDetails(this._oItemTaskContext.getObject().ObjectKey);
+			this._validateItemTaskEdiButton(this._oItemTaskContext.getObject().ENABLE_TASK_CHANGE);
 		},
 
 		/**
@@ -167,7 +168,7 @@ sap.ui.define([
 			var msg = this.getResourceBundle().getText("msg.saveSuccess");
 			sap.m.MessageToast.show(msg);
 		},
-		
+
 		/**
 		 * error callback after saving notification
 		 * @param oResponse
@@ -184,6 +185,16 @@ sap.ui.define([
 				this._oItemTaskContextData = oData.results[0];
 				this._setStatusSelectItemsVisibility();
 			}.bind(this));
+		},
+		
+		_validateItemTaskEdiButton: function(isItemTaskEditable){
+			var oItemTaskEditCtrl = this.getView().byId("idItemTaskEdit");
+			if(isItemTaskEditable === "X"){
+				oItemTaskEditCtrl.setEnabled(true);
+			}
+			else{
+				oItemTaskEditCtrl.setEnabled(false);
+			}
 		}
 	});
 
