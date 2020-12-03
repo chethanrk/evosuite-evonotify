@@ -33,7 +33,7 @@
 			<smartTable:SmartTable id="NotificationTable" class="workorderSmartTable" entitySet="PMNotificationSet" smartFilterId="NotificationFilter"
 				tableType="Table" useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="true" useTablePersonalisation="true"
 				header="{i18n>tit.worklistTable}" showRowCount="true" persistencyKey="com.evorait.evonotify.NotificationTable" enableAutoBinding="true"
-				requestAtLeastFields="ObjectKey,PHASE,ENABLE_NOTIFICATION_CHANGE">
+				beforeRebindTable="onBeforeRebindTable" requestAtLeastFields="ObjectKey,PHASE,ENABLE_NOTIFICATION_CHANGE">
 				<!-- layout data used to make the table growing but the filter bar fixed -->
 				<smartTable:layoutData>
 					<FlexItemData growFactor="1" baseSize="0%"/>
@@ -41,7 +41,8 @@
 				<smartTable:customToolbar>
 					<OverflowToolbar design="Transparent">
 						<ToolbarSpacer/>
-						<Button icon="sap-icon://add" text="{i18n>btn.createNotification}" press="onPressCreateNotification" visible="{= ${user>/ENABLE_NOTIFICATION_CREATE} === 'X'}"/>
+						<Button icon="sap-icon://add" text="{i18n>btn.createNotification}" press="onPressCreateNotification"
+							visible="{= ${user>/ENABLE_NOTIFICATION_CREATE} === 'X'}"/>
 					</OverflowToolbar>
 				</smartTable:customToolbar>
 				<Table id="responsiveNotificationTable" sticky="ColumnHeaders,HeaderToolbar,InfoToolbar" growing="true">
