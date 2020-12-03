@@ -1,11 +1,11 @@
 sap.ui.define([
-	"com/evorait/evonotify/controller/BaseController",
+	"com/evorait/evonotify/controller/TableController",
 	"com/evorait/evonotify/model/formatter",
 	"sap/ui/model/json/JSONModel"
-], function (BaseController, formatter, JSONModel) {
+], function (TableController, formatter, JSONModel) {
 	"use strict";
 
-	return BaseController.extend("com.evorait.evonotify.controller.Worklist", {
+	return TableController.extend("com.evorait.evonotify.controller.Worklist", {
 
 		formatter: formatter,
 
@@ -35,6 +35,22 @@ sap.ui.define([
 		 */
 		onExit: function () {
 
+		},
+
+		/**
+		 * SmartTable before loading request
+		 * set default SortOrder from annotations
+		 */
+		onBeforeRebindTable: function (oEvent) {
+			TableController.prototype.onBeforeRebindTable.apply(this, arguments);
+		},
+
+		/**
+		 * event when Variant mMnagment of SmartFilterBar or SmartTable was initialized
+		 * @param oEvent
+		 */
+		onInitializedSmartVariant: function (oEvent) {
+			TableController.prototype.onInitializedSmartVariant.apply(this, arguments);
 		},
 
 		/**
@@ -88,7 +104,6 @@ sap.ui.define([
 		onMessageManagerPress: function (oEvent) {
 			this.openMessageManager(this.getView(), oEvent);
 		},
-
 
 	});
 });
