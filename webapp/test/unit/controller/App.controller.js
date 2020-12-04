@@ -1,5 +1,5 @@
 sap.ui.define([
-	"com/evorait/evonotify/controller/App.controller",
+	"com/evorait/evosuite/evonotify/controller/App.controller",
 	"sap/ui/core/Control",
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/thirdparty/sinon",

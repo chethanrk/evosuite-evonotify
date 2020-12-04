@@ -1,9 +1,9 @@
 sap.ui.define([
-	"com/evorait/evonotify/controller/TemplateRenderController"
+	"com/evorait/evosuite/evonotify/controller/TemplateRenderController"
 ], function (TemplateRenderController) {
 	"use strict";
 
-	return TemplateRenderController.extend("com.evorait.evonotify.controller.ObjectPage", {
+	return TemplateRenderController.extend("com.evorait.evosuite.evonotify.controller.ObjectPage", {
 
 		oViewModel: null,
 
@@ -28,11 +28,11 @@ sap.ui.define([
 
 					//route for page create new notification
 					if (sRouteName === "CreateNotification") {
-						sViewName = "com.evorait.evonotify.view.templates.CreateNotification#Create";
+						sViewName = "com.evorait.evosuite.evonotify.view.templates.CreateNotification#Create";
 						this._onRouteMatched(oEvent, sViewName, "PMNotificationSet");
 					} else if (sRouteName === "NotificationDetail") {
 						//Order detail view
-						sViewName = "com.evorait.evonotify.view.templates.NotificationDetail#Data";
+						sViewName = "com.evorait.evosuite.evonotify.view.templates.NotificationDetail#Data";
 						var oArgs = oEvent.getParameter("arguments"),
 							mParams = {
 								ObjectKey: oArgs.ObjectKey
@@ -40,7 +40,7 @@ sap.ui.define([
 						this._onRouteMatched(oEvent, sViewName, "PMNotificationSet", mParams);
 					} else if (sRouteName === "NotificationItemDetail") {
 						//Order detail view
-						sViewName = "com.evorait.evonotify.view.templates.NotificationItemDetail#ItemData";
+						sViewName = "com.evorait.evosuite.evonotify.view.templates.NotificationItemDetail#ItemData";
 						var oArgs = oEvent.getParameter("arguments"),
 							mParams = {
 								ObjectKey: oArgs.ObjectKey

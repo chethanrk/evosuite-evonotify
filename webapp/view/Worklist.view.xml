@@ -1,7 +1,7 @@
 <mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
 	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:f="sap.f"
 	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
-	controllerName="com.evorait.evonotify.controller.Worklist">
+	controllerName="com.evorait.evosuite.evonotify.controller.Worklist">
 	<f:DynamicPage id="NotificationlistPage" headerExpanded="true" preserveHeaderStateOnScroll="true" showFooter="true"
 		class="sapUiNoContentPadding">
 		<f:title>
@@ -21,7 +21,7 @@
 			<f:DynamicPageHeader pinnable="true">
 				<f:content>
 					<smartFilterBar:SmartFilterBar id="NotificationFilter" entitySet="PMNotificationSet" filterBarExpanded="true"
-						persistencyKey="com.evorait.evonotify.NotificationFilterbar">
+						persistencyKey="com.evorait.evosuite.evonotify.NotificationFilterbar">
 						<smartFilterBar:controlConfiguration>
 							<smartFilterBar:ControlConfiguration id="__configuration0"/>
 						</smartFilterBar:controlConfiguration>
@@ -32,7 +32,7 @@
 		<f:content>
 			<smartTable:SmartTable id="NotificationTable" class="workorderSmartTable" entitySet="PMNotificationSet" smartFilterId="NotificationFilter"
 				tableType="Table" useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="true" useTablePersonalisation="true"
-				header="{i18n>tit.worklistTable}" showRowCount="true" persistencyKey="com.evorait.evonotify.NotificationTable" enableAutoBinding="true"
+				header="{i18n>tit.worklistTable}" showRowCount="true" persistencyKey="com.evorait.evosuite.evonotify.NotificationTable" enableAutoBinding="true"
 				beforeRebindTable="onBeforeRebindTable" requestAtLeastFields="ObjectKey,PHASE,ENABLE_NOTIFICATION_CHANGE">
 				<!-- layout data used to make the table growing but the filter bar fixed -->
 				<smartTable:layoutData>

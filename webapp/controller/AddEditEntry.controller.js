@@ -1,10 +1,10 @@
 sap.ui.define([
-	"com/evorait/evonotify/controller/DialogFormController",
-	"com/evorait/evonotify/model/formatter"
+	"com/evorait/evosuite/evonotify/controller/DialogFormController",
+	"com/evorait/evosuite/evonotify/model/formatter"
 ], function (DialogFormController, formatter) {
 	"use strict";
 
-	return DialogFormController.extend("com.evorait.evonotify.controller.AddEditEntry", {
+	return DialogFormController.extend("com.evorait.evosuite.evonotify.controller.AddEditEntry", {
 
 		_type: {
 			add: false,

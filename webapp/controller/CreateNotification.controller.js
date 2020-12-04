@@ -1,9 +1,9 @@
 sap.ui.define([
-	"com/evorait/evonotify/controller/FormController"
+	"com/evorait/evosuite/evonotify/controller/FormController"
 ], function (FormController) {
 	"use strict";
 
-	return FormController.extend("com.evorait.evonotify.controller.ObjectNew", {
+	return FormController.extend("com.evorait.evosuite.evonotify.controller.ObjectNew", {
 
 		oViewModel: null,
 		oForm: null,

@@ -1,9 +1,9 @@
 /*global location*/
 sap.ui.define([
-	"com/evorait/evonotify/controller/FormController",
+	"com/evorait/evosuite/evonotify/controller/FormController",
 	"sap/ui/core/routing/History",
 	"sap/ui/model/json/JSONModel",
-	"com/evorait/evonotify/model/formatter",
+	"com/evorait/evosuite/evonotify/model/formatter",
 	"sap/ui/model/FilterOperator",
 	"sap/ui/model/Filter"
 ], function (
@@ -16,7 +16,7 @@ sap.ui.define([
 ) {
 	"use strict";
 
-	return FormController.extend("com.evorait.evonotify.block.tasks.TasksBlockController", {
+	return FormController.extend("com.evorait.evosuite.evonotify.block.tasks.TasksBlockController", {
 
 		formatter: formatter,
 
@@ -59,7 +59,7 @@ sap.ui.define([
 		onPressEdit: function (oEvent) {
 			if (this._oTaskContext) {
 				var mParams = {
-					viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#EditTask",
+					viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#EditTask",
 					annotationPath: "com.sap.vocabularies.UI.v1.Facets#editForm",
 					entitySet: "PMNotificationTaskSet",
 					controllerName: "AddEditEntry",
@@ -123,7 +123,7 @@ sap.ui.define([
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#AddTask",
+				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#AddTask",
 				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addForm",
 				entitySet: "PMNotificationTaskSet",
 				controllerName: "AddEditEntry",

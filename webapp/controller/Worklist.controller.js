@@ -1,11 +1,11 @@
 sap.ui.define([
-	"com/evorait/evonotify/controller/TableController",
-	"com/evorait/evonotify/model/formatter",
+	"com/evorait/evosuite/evonotify/controller/TableController",
+	"com/evorait/evosuite/evonotify/model/formatter",
 	"sap/ui/model/json/JSONModel"
 ], function (TableController, formatter, JSONModel) {
 	"use strict";
 
-	return TableController.extend("com.evorait.evonotify.controller.Worklist", {
+	return TableController.extend("com.evorait.evosuite.evonotify.controller.Worklist", {
 
 		formatter: formatter,
 
@@ -84,7 +84,7 @@ sap.ui.define([
 		onIconPress: function (oEvent) {
 			// create popover
 			if (!this._infoDialog) {
-				this._infoDialog = sap.ui.xmlfragment("com.evorait.evonotify.view.fragments.InformationPopover", this);
+				this._infoDialog = sap.ui.xmlfragment("com.evorait.evosuite.evonotify.view.fragments.InformationPopover", this);
 				this.getView().addDependent(this._infoDialog);
 			}
 			this._infoDialog.open();

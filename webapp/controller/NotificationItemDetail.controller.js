@@ -1,12 +1,12 @@
 sap.ui.define([
-	"com/evorait/evonotify/controller/FormController",
+	"com/evorait/evosuite/evonotify/controller/FormController",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-	"com/evorait/evonotify/model/Constants"
+	"com/evorait/evosuite/evonotify/model/Constants"
 ], function (FormController, Filter, FilterOperator, Constants) {
 	"use strict";
 
-	return FormController.extend("com.evorait.evonotify.controller.NotificationItemDetail", {
+	return FormController.extend("com.evorait.evosuite.evonotify.controller.NotificationItemDetail", {
 
 		oViewModel: null,
 

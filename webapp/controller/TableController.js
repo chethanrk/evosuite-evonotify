@@ -1,10 +1,10 @@
 sap.ui.define([
-	"com/evorait/evonotify/controller/BaseController",
-	"com/evorait/evonotify/model/AnnotationHelper"
+	"com/evorait/evosuite/evonotify/controller/BaseController",
+	"com/evorait/evosuite/evonotify/model/AnnotationHelper"
 ], function (BaseController, AnnotationHelper) {
 	"use strict";
 
-	return BaseController.extend("com.evorait.evonotify.controller.TableController", {
+	return BaseController.extend("com.evorait.evosuite.evonotify.controller.TableController", {
 
 		/**
 		 * set default SortOder from annotations for responsive tables

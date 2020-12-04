@@ -39,7 +39,7 @@
 										<template:if test="{:= ${data>Value/Path} in ${templateProperties>/navLinks} }">
 											<template:then>
 												<smartField:SmartField value="{path:'data>Value',formatter:'.AH.simplePath'}"
-													name="{path:'data>Value',formatter:'com.evorait.evonotify.model.AnnotationHelper.getSmartFieldName'}" change="onChangeSmartField"
+													name="{path:'data>Value',formatter:'com.evorait.evosuite.evonotify.model.AnnotationHelper.getSmartFieldName'}" change="onChangeSmartField"
 													press="onPressSmartField" url="{data>Value/Path}"
 													editable="{:= ${data>com.sap.vocabularies.Common.v1.FieldControl/EnumMember} === 'com.sap.vocabularies.Common.v1.FieldControlType/ReadOnly' ? false : true}"
 													mandatory="{:= ${data>com.sap.vocabularies.Common.v1.FieldControl/EnumMember} === 'com.sap.vocabularies.Common.v1.FieldControlType/Mandatory'}">
@@ -50,7 +50,7 @@
 											</template:then>
 											<template:else>
 												<smartField:SmartField value="{path:'data>Value',formatter:'.AH.simplePath'}"
-													name="{path:'data>Value',formatter:'com.evorait.evonotify.model.AnnotationHelper.getSmartFieldName'}" change="onChangeSmartField"
+													name="{path:'data>Value',formatter:'com.evorait.evosuite.evonotify.model.AnnotationHelper.getSmartFieldName'}" change="onChangeSmartField"
 													editable="{:= ${data>com.sap.vocabularies.Common.v1.FieldControl/EnumMember} === 'com.sap.vocabularies.Common.v1.FieldControlType/ReadOnly' ? false : true}"
 													mandatory="{:= ${data>com.sap.vocabularies.Common.v1.FieldControl/EnumMember} === 'com.sap.vocabularies.Common.v1.FieldControlType/Mandatory'}">
 													<smartField:configuration>

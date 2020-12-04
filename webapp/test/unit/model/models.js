@@ -1,5 +1,5 @@
 sap.ui.define([
-		"com/evorait/evonotify/model/models",
+		"com/evorait/evosuite/evonotify/model/models",
 		"sap/ui/thirdparty/sinon",
 		"sap/ui/thirdparty/sinon-qunit"
 	], function (models) {
