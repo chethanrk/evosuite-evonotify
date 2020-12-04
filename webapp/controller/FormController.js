@@ -1,9 +1,9 @@
 sap.ui.define([
-	"com/evorait/evonotify/controller/BaseController"
+	"com/evorait/evosuite/evonotify/controller/BaseController"
 ], function (BaseController) {
 	"use strict";
 
-	return BaseController.extend("com.evorait.evonotify.controller.FormController", {
+	return BaseController.extend("com.evorait.evosuite.evonotify.controller.FormController", {
 
 		/**
 		 * reset form and close editable state

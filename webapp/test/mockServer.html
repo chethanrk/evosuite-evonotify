@@ -14,7 +14,7 @@
             data-sap-ui-theme="sap_belize"
             data-sap-ui-compatVersion="edge"
             data-sap-ui-xx-bindingSyntax="complex"
-            data-sap-ui-resourceroots='{"com.evorait.evonotify": "../"}'
+            data-sap-ui-resourceroots='{"com.evorait.evosuite.evonotify": "../"}'
             data-sap-ui-frameOptions='allow'>    // NON-SECURE setting for testing environment
     </script>
 
@@ -23,7 +23,7 @@
 		function startApp() {
 			sap.ui.getCore().attachInit(function () {
 				sap.ui.require([
-					"com/evorait/evonotify/localService/mockserver",
+					"com/evorait/evosuite/evonotify/localService/mockserver",
 					"sap/m/Shell",
 					"sap/ui/core/ComponentContainer"
 				], function (server, Shell, ComponentContainer) {
@@ -34,7 +34,7 @@
                     new Shell({
 						app: new ComponentContainer({
 							height : "100%",
-							name : "com.evorait.evonotify"
+							name : "com.evorait.evosuite.evonotify"
 						})
 					}).placeAt("content");
 				});

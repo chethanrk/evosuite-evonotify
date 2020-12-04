@@ -1,9 +1,9 @@
 /*global location*/
 sap.ui.define([
-	"com/evorait/evonotify/controller/BaseController",
+	"com/evorait/evosuite/evonotify/controller/BaseController",
 	"sap/ui/core/routing/History",
 	"sap/ui/model/json/JSONModel",
-	"com/evorait/evonotify/model/formatter"
+	"com/evorait/evosuite/evonotify/model/formatter"
 ], function (
 	BaseController,
 	History,
@@ -12,7 +12,7 @@ sap.ui.define([
 ) {
 	"use strict";
 
-	return BaseController.extend("com.evorait.evonotify.block.causes.CausesBlockController", {
+	return BaseController.extend("com.evorait.evosuite.evonotify.block.causes.CausesBlockController", {
 
 		formatter: formatter,
 
@@ -48,7 +48,7 @@ sap.ui.define([
 		onPressEdit: function (oEvent) {
 			if (this._oItemCauseContext) {
 				var mParams = {
-					viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#addEditItemCauseForm",
+					viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#addEditItemCauseForm",
 					annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditItemCauseForm",
 					entitySet: "PMNotificationItemCauseSet",
 					controllerName: "AddEditEntry",
@@ -84,7 +84,7 @@ sap.ui.define([
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#AddCause",
+				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#AddCause",
 				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditItemCauseForm",
 				entitySet: "PMNotificationItemCauseSet",
 				controllerName: "AddEditEntry",

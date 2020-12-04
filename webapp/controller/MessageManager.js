@@ -2,7 +2,7 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller"
 ], function (Controller) {
     "use strict";
-    return Controller.extend("com.evorait.evonotify.controller.MessageManager", {
+    return Controller.extend("com.evorait.evosuite.evonotify.controller.MessageManager", {
 
         _showMessageManager: null,
 
@@ -13,7 +13,7 @@ sap.ui.define([
          */
         open: function (oView, oEvent) {
             if (!this._showMessageManager) {
-                this._showMessageManager = sap.ui.xmlfragment("com.evorait.evonotify.view.fragments.MessageManager", this);
+                this._showMessageManager = sap.ui.xmlfragment("com.evorait.evosuite.evonotify.view.fragments.MessageManager", this);
                 oView.addDependent(this._showMessageManager);
             }
             if(this._showMessageManager.isOpen()) {

@@ -1,10 +1,10 @@
 sap.ui.define([
-	"com/evorait/evonotify/controller/TemplateRenderController",
+	"com/evorait/evosuite/evonotify/controller/TemplateRenderController",
 	"sap/ui/core/Fragment"
 ], function (TemplateRenderController, Fragment) {
 	"use strict";
 
-	return TemplateRenderController.extend("com.evorait.evonotify.controller.DialogTemplateRenderController", {
+	return TemplateRenderController.extend("com.evorait.evosuite.evonotify.controller.DialogTemplateRenderController", {
 
 		_oHelperModel: null,
 
@@ -93,7 +93,7 @@ sap.ui.define([
 		_loadDialog: function () {
 			if (!this._oDialog) {
 				Fragment.load({
-					name: "com.evorait.evonotify.view.fragments.FormDialog",
+					name: "com.evorait.evosuite.evonotify.view.fragments.FormDialog",
 					controller: this,
 					type: "XML"
 				}).then(function (oFragment) {

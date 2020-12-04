@@ -4,7 +4,7 @@ sap.ui.define([
 		"use strict";
 
 		function getFrameUrl (sHash, sUrlParameters) {
-			var sUrl = jQuery.sap.getResourcePath("com/evorait/evonotify/app", ".html");
+			var sUrl = jQuery.sap.getResourcePath("com/evorait/evosuite/evonotify/app", ".html");
 			sHash = sHash || "";
 			sUrlParameters = sUrlParameters ? "?" + sUrlParameters : "";
 
@@ -17,7 +17,7 @@ sap.ui.define([
 			return sUrl + sUrlParameters + sHash;
 		}
 
-		return Opa5.extend("com.evorait.evonotify.test.integration.pages.Common", {
+		return Opa5.extend("com.evorait.evosuite.evonotify.test.integration.pages.Common", {
 
 			iStartTheApp : function (oOptions) {
 				oOptions = oOptions || {};
@@ -80,7 +80,7 @@ sap.ui.define([
 
 			getMockServer : function () {
 				return new Promise(function (success) {
-					Opa5.getWindow().sap.ui.require(["com/evorait/evonotify/localService/mockserver"], function (mockserver) {
+					Opa5.getWindow().sap.ui.require(["com/evorait/evosuite/evonotify/localService/mockserver"], function (mockserver) {
 						success(mockserver.getMockServer());
 					});
 				});

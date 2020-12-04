@@ -5,7 +5,7 @@ sap.ui.define([
 	"sap/ui/test/actions/EnterText",
 	"sap/ui/test/actions/Press",
 	"sap/ui/test/matchers/BindingPath",
-	"com/evorait/evonotify/test/integration/pages/Common"
+	"com/evorait/evosuite/evonotify/test/integration/pages/Common"
 ], function (Opa5, AggregationLengthEquals, PropertyStrictEquals, EnterText, Press, BindingPath, Common) {
 	"use strict";
 

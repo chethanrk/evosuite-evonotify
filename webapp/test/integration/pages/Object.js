@@ -5,7 +5,7 @@ sap.ui.define([
 	"sap/ui/test/actions/EnterText",
 	"sap/ui/test/actions/Press",
 	"sap/ui/test/matchers/BindingPath",
-	"com/evorait/evonotify/test/integration/pages/Common"
+	"com/evorait/evosuite/evonotify/test/integration/pages/Common"
 ], function (Opa5, AggregationLengthEquals, PropertyStrictEquals, EnterText, Press, BindingPath, Common) {
 	"use strict";
 
@@ -48,7 +48,7 @@ sap.ui.define([
 					return this.waitFor({
 						id: "idDetailsBlock",
 						viewName: "DetailsFormBlock",
-						viewNamespace: "com.evorait.evonotify.block.details",
+						viewNamespace: "com.evorait.evosuite.evonotify.block.details",
 						success: function () {
 							Opa5.assert.ok(true, "Can see details block");
 						},
@@ -60,7 +60,7 @@ sap.ui.define([
 					return this.waitFor({
 						id: "notificationItemsTable",
 						viewName: "ItemsTableBlock",
-						viewNamespace: "com.evorait.evonotify.block.items",
+						viewNamespace: "com.evorait.evosuite.evonotify.block.items",
 						success: function () {
 							Opa5.assert.ok(true, "Can see items block");
 						},
@@ -72,7 +72,7 @@ sap.ui.define([
 					return this.waitFor({
 						id: "notificationTasksTable",
 						viewName: "TasksTableBlock",
-						viewNamespace: "com.evorait.evonotify.block.tasks",
+						viewNamespace: "com.evorait.evosuite.evonotify.block.tasks",
 						success: function () {
 							Opa5.assert.ok(true, "Can see tasks table");
 						},
@@ -84,7 +84,7 @@ sap.ui.define([
 					return this.waitFor({
 						id: "notificationActivityTable",
 						viewName: "ActivitiesTableBlock",
-						viewNamespace: "com.evorait.evonotify.block.activities",
+						viewNamespace: "com.evorait.evosuite.evonotify.block.activities",
 						success: function () {
 							Opa5.assert.ok(true, "Can see activities table");
 						},

@@ -1,22 +1,22 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"com/evorait/evonotify/model/models",
-	"com/evorait/evonotify/controller/ErrorHandler",
-	"com/evorait/evonotify/controller/DialogTemplateRenderController",
-	"com/evorait/evonotify/model/Constants",
+	"com/evorait/evosuite/evonotify/model/models",
+	"com/evorait/evosuite/evonotify/controller/ErrorHandler",
+	"com/evorait/evosuite/evonotify/controller/DialogTemplateRenderController",
+	"com/evorait/evosuite/evonotify/model/Constants",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-	"com/evorait/evonotify/assets/js/url-search-params.min",
-	"com/evorait/evonotify/assets/js/promise-polyfills",
-	"com/evorait/evonotify/controller/MessageManager"
+	"com/evorait/evosuite/evonotify/assets/js/url-search-params.min",
+	"com/evorait/evosuite/evonotify/assets/js/promise-polyfills",
+	"com/evorait/evosuite/evonotify/controller/MessageManager"
 ], function (UIComponent, Device, models, ErrorHandler, DialogTemplateRenderController, Constants, Filter,
 	FilterOperator, UrlSearchPolyfill, PromisePolyfill, MessageManager) {
 	"use strict";
 
 	var oMessageManager = sap.ui.getCore().getMessageManager();
 
-	return UIComponent.extend("com.evorait.evonotify.Component", {
+	return UIComponent.extend("com.evorait.evosuite.evonotify.Component", {
 
 		metadata: {
 			manifest: "json"

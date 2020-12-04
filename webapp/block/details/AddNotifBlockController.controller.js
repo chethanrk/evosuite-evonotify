@@ -1,11 +1,11 @@
 /*global location*/
 sap.ui.define([
-		"com/evorait/evonotify/controller/FormController",
-		"com/evorait/evonotify/model/formatter"
+		"com/evorait/evosuite/evonotify/controller/FormController",
+		"com/evorait/evosuite/evonotify/model/formatter"
 	], function (FormController, formatter) {
 		"use strict";
 
-		return FormController.extend("com.evorait.evonotify.block.details.AddNotifBlockController", {
+		return FormController.extend("com.evorait.evosuite.evonotify.block.details.AddNotifBlockController", {
 
 			formatter: formatter,
 

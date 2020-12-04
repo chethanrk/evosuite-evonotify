@@ -14,7 +14,7 @@ sap.ui.define([
 	return {
 
 		getLogoImageLink: function () {
-			var path = $.sap.getModulePath("com.evorait.evonotify", "/assets/img/logo_color_transp_50pxh.png");
+			var path = $.sap.getModulePath("com.evorait.evosuite.evonotify", "/assets/img/logo_color_transp_50pxh.png");
 			return path;
 		},
 

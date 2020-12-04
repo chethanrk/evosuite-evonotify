@@ -1,6 +1,6 @@
-jQuery.sap.declare("com.evorait.evonotify.dev.devlogon");
+jQuery.sap.declare("com.evorait.evosuite.evonotify.dev.devlogon");
 
-sap.ui.base.ManagedObject.extend("com.evorait.evonotify.dev.devlogon", {
+sap.ui.base.ManagedObject.extend("com.evorait.evosuite.evonotify.dev.devlogon", {
 	appContext: null,
 
 	/********************************************************************

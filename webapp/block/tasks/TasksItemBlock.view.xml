@@ -1,7 +1,7 @@
-<mvc:View controllerName="com.evorait.evonotify.block.tasks.TasksItemBlockController" xmlns="sap.m" xmlns:core="sap.ui.core"
+<mvc:View controllerName="com.evorait.evosuite.evonotify.block.tasks.TasksItemBlockController" xmlns="sap.m" xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc" xmlns:smartTable="sap.ui.comp.smarttable">
 	<smartTable:SmartTable height="100%" width="100%" tableType="ResponsiveTable" useExportToExcel="false" header="{i18n>tit.tasks}" useVariantManagement="true"
-		useTablePersonalisation="true" showRowCount="true" persistencyKey="com.evorait.evonotify.taskItemTable" enableAutoBinding="true"
+		useTablePersonalisation="true" showRowCount="true" persistencyKey="com.evorait.evosuite.evonotify.taskItemTable" enableAutoBinding="true"
 		demandPopin="true" entitySet="PMNotificationItemTaskSet" tableBindingPath="NotificationItemToTask" requestAtLeastFields="ObjectKey,ENABLE_TASK_CHANGE">
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">

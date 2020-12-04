@@ -3,7 +3,7 @@ sap.ui.define([
 ], function (MockServer) {
 	"use strict";
 	var oMockServer,
-		_sAppModulePath = "com/evorait/evonotify/",
+		_sAppModulePath = "com/evorait/evosuite/evonotify/",
 		_sJsonFilesModulePath = _sAppModulePath + "localService/mockdata";
 
 	return {

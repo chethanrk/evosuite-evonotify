@@ -1,9 +1,9 @@
 /*global location*/
 sap.ui.define([
-	"com/evorait/evonotify/controller/FormController",
+	"com/evorait/evosuite/evonotify/controller/FormController",
 	"sap/ui/core/routing/History",
 	"sap/ui/model/json/JSONModel",
-	"com/evorait/evonotify/model/formatter"
+	"com/evorait/evosuite/evonotify/model/formatter"
 ], function (
 	FormController,
 	History,
@@ -12,7 +12,7 @@ sap.ui.define([
 ) {
 	"use strict";
 
-	return FormController.extend("com.evorait.evonotify.block.items.ItemsFormBlockController", {
+	return FormController.extend("com.evorait.evosuite.evonotify.block.items.ItemsFormBlockController", {
 
 		formatter: formatter,
 
