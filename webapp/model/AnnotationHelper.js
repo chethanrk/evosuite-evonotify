@@ -159,7 +159,13 @@ sap.ui.define([],
 				var aSortOrder = aPresentVariant.SortOrder;
 				aSortOrder.forEach(function (item) {
 					if (item.RecordType === "com.sap.vocabularies.Common.v1.SortOrderType" || item.RecordType === "Common.SortOrderType") {
-						aSorter.push(new sap.ui.model.Sorter(item.Property.PropertyPath || item.Property.Path, item.Descending.Bool === "true"));
+						var bSortDesc = false;
+						if (item.Descending) {
+							bSortDesc = item.Descending.Bool === "true";
+						}
+						if (item.Property) {
+							aSorter.push(new sap.ui.model.Sorter(item.Property.PropertyPath || item.Property.Path, bSortDesc));
+						}
 					}
 				});
 			}
