@@ -159,7 +159,7 @@ sap.ui.define([
 					state: "success"
 				}, this.saveSuccessFn.bind(this), null, this.getView());
 			} else {
-				message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NotificationNo);
+				message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NOTIFICATION_NO);
 				this.showInformationDialog(message);
 				//this.addMsgToMessageManager(this.mMessageType.Error, message, "/WorkList");
 			}
