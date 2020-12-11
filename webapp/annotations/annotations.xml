@@ -76,7 +76,7 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotificationType"/>
+									<PropertyValue Property="Value" Path="NOTIFICATION_TYPE"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="PRIORITY"/>
@@ -124,10 +124,10 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="Description"/>
+									<PropertyValue Property="Value" Path="DESCRIPTION"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotificationType"/>
+									<PropertyValue Property="Value" Path="NOTIFICATION_TYPE"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="PRIORITY"/>
@@ -157,7 +157,7 @@
 									<PropertyValue Property="Value" Path="MALFUNCTION_END_TIME"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="BreakdownIndicator"/>
+									<PropertyValue Property="Value" Path="BREAKDOWN_INDICATOR"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="BREAKDOWN_DURATION"/>
@@ -319,16 +319,16 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotificationNo"/>
+									<PropertyValue Property="Value" Path="NOTIFICATION_NO"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="Description"/>
+									<PropertyValue Property="Value" Path="DESCRIPTION"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotificationType"/>
+									<PropertyValue Property="Value" Path="NOTIFICATION_TYPE"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="OrderNumber"/>
+									<PropertyValue Property="Value" Path="ORDER_NUMBER"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="CREATED_AT"/>
@@ -361,7 +361,7 @@
 									<PropertyValue Property="Value" Path="MALFUNCTION_END_TIME"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="BreakdownIndicator"/>
+									<PropertyValue Property="Value" Path="BREAKDOWN_INDICATOR"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="BREAKDOWN_DURATION"/>
@@ -382,7 +382,7 @@
 									<PropertyValue Property="Value" Path="EQUIPMENT"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="IsCompleted"/>
+									<PropertyValue Property="Value" Path="IS_COMPLETED"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="ASSEMBLY"/>
@@ -534,7 +534,7 @@
 						<PropertyValue Property="Data">
 							<Collection>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="NotificationNo"/>
+									<PropertyValue Property="Value" Path="NOTIFICATION_NO"/>
 								</Record>
 								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="SORT_NUMBER"/>

@@ -103,8 +103,8 @@ sap.ui.define([
 				sSortField: "SORT_NUMBER",
 				sNavTo: "/NotificationItemToTask/",
 				mKeys: {
-					NotificationNo: oContextData.NotificationNo,
-					NotificationItem: oContextData.NotificationItem
+					NotificationNo: oContextData.NOTIFICATION_NO,
+					NotificationItem: oContextData.NOTIFICATION_ITEM
 				}
 			};
 
@@ -134,7 +134,7 @@ sap.ui.define([
 					this.oListItem.getParent().removeSelections(true);
 					this.oStatusSelectControl.setEnabled(false);
 				} else {
-					message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NotificationNo);
+					message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NOTIFICATION_NO);
 					this.showInformationDialog(message);
 				}
 			} else {

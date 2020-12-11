@@ -103,7 +103,7 @@ sap.ui.define([
 		 */
 		onMessageManagerPress: function (oEvent) {
 			this.openMessageManager(this.getView(), oEvent);
-		},
+		}
 
 	});
 });
