@@ -171,6 +171,7 @@ sap.ui.define([
 			//replace hash when startup parameter
 			//and init Router after success or fail
 			var oFilter = this._getStartupParamFilter();
+			console.log(oFilter);
 			if (oFilter) {
 				this.readData("/PMNotificationSet", [oFilter]).then(function (mResult) {
 					if (mResult.results.length > 0) {
