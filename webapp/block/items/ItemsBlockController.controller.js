@@ -62,8 +62,8 @@ sap.ui.define([
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#AddEditItem",
-				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditForm",
+				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#NotifItmCreateUpdate",
+				annotationPath: "com.sap.vocabularies.UI.v1.Facets#NotifItmCreateUpdate",
 				entitySet: "PMNotificationItemSet",
 				controllerName: "AddEditEntry",
 				title: "tit.addItem",
@@ -71,7 +71,7 @@ sap.ui.define([
 				sSortField: "SORT_NUMBER",
 				sNavTo: "/NotificationToItem/",
 				mKeys: {
-					NotificationNo: oContextData.NOTIFICATION_NO
+					NOTIFICATION_NO: oContextData.NOTIFICATION_NO
 				}
 			};
 
