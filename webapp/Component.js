@@ -22,6 +22,9 @@ sap.ui.define([
 			manifest: "json"
 		},
 
+		oSystemInfoProm: null,
+		oTemplatePropsProm: null,
+
 		/**
 		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
 		 * In this function, the device models are set and the router is initialized.
@@ -56,7 +59,6 @@ sap.ui.define([
 				serviceUrl: dataSource,
 				editMode: false,
 				isNew: false,
-				operationsRowsCount: 0,
 				launchMode: Constants.LAUNCH_MODE.BSP
 			};
 
@@ -141,8 +143,11 @@ sap.ui.define([
 		 * Calls the GetSystemInformation 
 		 */
 		_getSystemInformation: function () {
-			this.readData("/SystemInformationSet", []).then(function (oData) {
-				this.getModel("user").setData(oData.results[0]);
+			this.oSystemInfoProm = new Promise(function (resolve) {
+				this.readData("/SystemInformationSet", []).then(function (oData) {
+					this.getModel("user").setData(oData.results[0]);
+					resolve(oData.results[0]);
+				}.bind(this));
 			}.bind(this));
 		},
 
@@ -171,7 +176,6 @@ sap.ui.define([
 			//replace hash when startup parameter
 			//and init Router after success or fail
 			var oFilter = this._getStartupParamFilter();
-			console.log(oFilter);
 			if (oFilter) {
 				this.readData("/PMNotificationSet", [oFilter]).then(function (mResult) {
 					if (mResult.results.length > 0) {
@@ -224,16 +228,19 @@ sap.ui.define([
 			var oFilter = new Filter("LaunchMode", FilterOperator.EQ, this.getModel("viewModel").getProperty("/launchMode")),
 				mProps = {};
 
-			this.readData("/NavigationLinksSet", [oFilter])
-				.then(function (data) {
-					data.results.forEach(function (oItem) {
-						if (oItem.Value1 && Constants.APPLICATION[oItem.ApplicationId]) {
-							oItem.Property = oItem.Value2 || Constants.PROPERTY[oItem.ApplicationId];
-							mProps[oItem.Property] = oItem;
-						}
+			this.oTemplatePropsProm = new Promise(function (resolve) {
+				this.readData("/NavigationLinksSet", [oFilter])
+					.then(function (data) {
+						data.results.forEach(function (oItem) {
+							if (oItem.Value1 && Constants.APPLICATION[oItem.ApplicationId]) {
+								oItem.Property = oItem.Value2 || Constants.PROPERTY[oItem.ApplicationId];
+								mProps[oItem.Property] = oItem;
+							}
+						}.bind(this));
+						this.getModel("templateProperties").setProperty("/navLinks/", mProps);
+						resolve(mProps);
 					}.bind(this));
-					this.getModel("templateProperties").setProperty("/navLinks/", mProps);
-				}.bind(this));
+			}.bind(this));
 		},
 
 		/**

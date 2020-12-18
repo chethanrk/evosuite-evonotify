@@ -5,6 +5,89 @@ sap.ui.define([
 
 	return BaseController.extend("com.evorait.evosuite.evonotify.controller.FormController", {
 
+		aSmartForms: [],
+		oViewModel: null,
+
+		onInit: function () {
+			this.oViewModel = this.getModel("viewModel");
+
+			//Bind the message model to the view and register it
+			if (this.getOwnerComponent) {
+				this.getOwnerComponent().registerViewToMessageManager(this.getView());
+			}
+		},
+
+		/**
+		 * get all forms of different tabs in one page 
+		 */
+		getAllSmartForms: function (aGroups) {
+			var aForms = [];
+			for (var i = 0; i < aGroups.length; i++) {
+				if (aGroups[i] instanceof sap.ui.comp.smartform.SmartForm) {
+					aForms.push(aGroups[i]);
+				}
+			}
+			return aForms;
+		},
+
+		/**
+		 * get all groups from all template forms in one page
+		 */
+		getAllSmartFormGroups: function (aForms) {
+			var aGroups = [];
+			aForms.forEach(function (oForm) {
+				aGroups = aGroups.concat(oForm.getGroups());
+			});
+			return aGroups;
+		},
+
+		/**
+		 * set editable true/false for all forms in one page
+		 */
+		setFormsEditable: function (aForms, isEditable) {
+			if (aForms) {
+				aForms.forEach(function (oForm) {
+					oForm.setEditable(isEditable);
+				});
+			}
+		},
+
+		/**
+		 * on edit button
+		 */
+		onPressEdit: function () {
+			this.setFormsEditable(this.aSmartForms, true);
+			this.oViewModel.setProperty("/editMode", true);
+		},
+
+		/**
+		 * on save button
+		 */
+		onPressSave: function () {
+			if (this.aSmartForms.length > 0) {
+				var mErrors = this.validateForm(this.aSmartForms);
+				this.saveChanges(mErrors, this._saveCreateSuccessFn.bind(this));
+			}
+		},
+
+		/**
+		 * when SmartField is visible as link 
+		 * show app to app navigation popup
+		 */
+		onPressSmartField: function (oEvent) {
+			var oSource = oEvent.getSource();
+			this.openApp2AppPopover(oSource, oSource.getUrl());
+		},
+
+		/**
+		 * when ObjectStatus in header is visible as active 
+		 * show app to app navigation popup
+		 */
+		onPressObjectStatus: function (oEvent) {
+			var oSource = oEvent.getSource();
+			this.openApp2AppPopover(oSource, oSource.data("url"));
+		},
+
 		/**
 		 * reset form and close editable state
 		 * delete new created entry and nav back
@@ -89,15 +172,21 @@ sap.ui.define([
 		 * Validate smartForm with custom fields
 		 * @public
 		 */
-		validateForm: function (oForm) {
-			if (!oForm) {
+		validateForm: function (aForms) {
+			if (!aForms) {
 				return {
 					state: "error"
 				};
 			}
 			var aCustomFields = this.getView().getControlsByFieldGroupId("CustomFormField"),
-				validatedSmartFields = oForm.check(), //SmartForm validation
-				isValid = (validatedSmartFields.length === 0),
+				validatedSmartFields = [];
+
+			aForms.forEach(function (oForm) {
+				var validated = oForm.check(); //SmartForm validation
+				validatedSmartFields = validatedSmartFields.concat(validated);
+			});
+
+			var isValid = validatedSmartFields.length === 0,
 				invalidFields = validatedSmartFields;
 
 			//validate custom input fields
@@ -142,7 +231,8 @@ sap.ui.define([
 					success: function (oResponse) {
 						this._setBusyWhileSaving(oCtrl, false);
 						this.getView().getModel("viewModel").setProperty("/busy", false);
-						if (oResponse.__batchResponses && oResponse.__batchResponses[0].response && oResponse.__batchResponses[0].response.statusCode === "400") {
+						if (oResponse.__batchResponses && oResponse.__batchResponses[0].response && oResponse.__batchResponses[0].response.statusCode ===
+							"400") {
 							if (oErrorCallback) {
 								oErrorCallback(oResponse);
 							}
@@ -174,6 +264,16 @@ sap.ui.define([
 		},
 
 		/**
+		 * success callback after creating order
+		 */
+		_saveCreateSuccessFn: function () {
+			var msg = this.getResourceBundle().getText("msg.saveSuccess");
+			sap.m.MessageToast.show(msg);
+			this.setFormsEditable(this.aSmartForms, false);
+			this.oViewModel.setProperty("/editMode", false);
+		},
+
+		/**
 		 * picks out the change response data from a batch call
 		 * Need for create entries 
 		 * Example: CreateNotification saveCreateSuccessFn
@@ -193,19 +293,21 @@ sap.ui.define([
 		/**
 		 * returns a SmartField from a SmartForm by name
 		 * @param sName
-		 * @param oForm
+		 * @param aForms
 		 */
-		getFormFieldByName: function (sName, oForm) {
-			if (!sName || !oForm) {
+		getFormFieldByName: function (sName, aForms) {
+			if (!sName || !aForms) {
 				return null;
 			}
-			var aSmartFields = oForm.getSmartFields();
-			for (var i = 0; aSmartFields.length > i; i++) {
-				if (aSmartFields[i].getName() === sName) {
-					return aSmartFields[i];
+			for (var j = 0; aForms.length > j; j++) {
+				var aSmartFields = aForms[j].getSmartFields();
+				for (var i = 0; aSmartFields.length > i; i++) {
+					if (aSmartFields[i].getName() === sName) {
+						return aSmartFields[i];
+					}
 				}
 			}
 			return null;
-		}
+		},
 	});
 });
