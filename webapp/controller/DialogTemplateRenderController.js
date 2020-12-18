@@ -63,10 +63,10 @@ sap.ui.define([
 		onPressSave: function (oEvent) {
 			var oContentView = this._oDialog.getContent()[0],
 				oViewController = oContentView.getController(),
-				oForm = oContentView.byId("smartFormTemplate");
+				aForms = oViewController.getAllSmartForms(oContentView.getControlsByFieldGroupId("smartFormTemplate"));
 
-			if (oForm && oViewController.validateForm) {
-				var mErrors = oViewController.validateForm(oForm);
+			if (aForms.length > 0 && oViewController.validateForm) {
+				var mErrors = oViewController.validateForm(aForms);
 				//if form is valid save created entry
 				oViewController.saveChanges(mErrors, this._saveSuccessFn.bind(this), this._saveErrorFn.bind(this), this._oDialog);
 			} else {

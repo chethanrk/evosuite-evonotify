@@ -6,8 +6,7 @@ sap.ui.define([
 	return FormController.extend("com.evorait.evosuite.evonotify.controller.NotificationDetail", {
 
 		oViewModel: null,
-
-		oSmartForm: null,
+		aSmartForms: [],
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */
@@ -28,7 +27,7 @@ sap.ui.define([
 			var eventBus = sap.ui.getCore().getEventBus();
 			//Binding has changed in TemplateRenderController.js
 			eventBus.subscribe("TemplateRendererEvoNotify", "changedBinding", this._changedBinding, this);
-		
+
 		},
 
 		/**
@@ -51,11 +50,6 @@ sap.ui.define([
 			this.getView().unbindElement();
 		},
 
-		onPressSmartField: function (oEvent) {
-			var oSource = oEvent.getSource();
-			this.openApp2AppPopover(oSource, oSource.getUrl());
-		},
-
 		/**
 		 * on press back button
 		 * @param oEvent
@@ -70,7 +64,7 @@ sap.ui.define([
 				this.confirmEditCancelDialog(this.sPath, true);
 			} else {
 				this.getView().unbindElement();
-				this.oSmartForm.setEditable(false);
+				this.setFormsEditable(this.aSmartForms, false);
 				this.oViewModel.setProperty("/editMode", false);
 				this.getView().unbindElement();
 				this.navBack();
@@ -83,7 +77,7 @@ sap.ui.define([
 		 */
 		onPressEdit: function (oEvent) {
 			this.sPath = this.getView().getBindingContext().getPath();
-			this.oSmartForm.setEditable(true);
+			this.setFormsEditable(this.aSmartForms, true);
 			this.oViewModel.setProperty("/editMode", true);
 		},
 
@@ -92,12 +86,9 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onPressSave: function (oEvent) {
-			if (this.oSmartForm) {
-				var mErrors = this.validateForm(this.oSmartForm);
-				//if form is valid save created entry
+			if (this.aSmartForms.length > 0) {
+				var mErrors = this.validateForm(this.aSmartForms);
 				this.saveChanges(mErrors, this.saveSuccessFn.bind(this));
-			} else {
-				//todo show message
 			}
 		},
 
@@ -108,7 +99,7 @@ sap.ui.define([
 		saveSuccessFn: function (oResponse) {
 			var msg = this.getResourceBundle().getText("msg.saveSuccess");
 			sap.m.MessageToast.show(msg);
-			this.oSmartForm.setEditable(false);
+			this.setFormsEditable(this.aSmartForms, false);
 			this.oViewModel.setProperty("/editMode", false);
 			this._setSelectFunctionVisibility();
 		},
@@ -122,7 +113,7 @@ sap.ui.define([
 			if (this.getModel().hasPendingChanges()) {
 				this.confirmEditCancelDialog(this.sPath);
 			} else {
-				this.oSmartForm.setEditable(false);
+				this.setFormsEditable(this.aSmartForms, false);
 				this.oViewModel.setProperty("/editMode", false);
 			}
 		},
@@ -132,10 +123,9 @@ sap.ui.define([
 		/* =========================================================== */
 
 		_initializeView: function () {
-			this.oSmartForm = this.getView().byId("smartFormTemplate");
-			this.oSmartForm.setEditable(false);
+			this.aSmartForms = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("smartFormTemplate"));
+			this.setFormsEditable(this.aSmartForms, false);
 			this.oViewModel.setProperty("/editMode", false);
-			this.oViewModel.setProperty("/operationsRowsCount", 0);
 
 			if (this.oViewModel.getProperty("/newCreatedNotification") === true) {
 				this.getModel().refresh(true);
@@ -163,8 +153,8 @@ sap.ui.define([
 				this.showInformationDialog(message);
 				//this.addMsgToMessageManager(this.mMessageType.Error, message, "/WorkList");
 			}
-		}, 
-		
+		},
+
 		/**
 		 * TemplateRenderer changedBinding Event
 		 * set new this._oContext
@@ -185,7 +175,7 @@ sap.ui.define([
 				}
 			}
 		},
-		
+
 		/**
 		 * set visibility on status change dropdown items based on allowance from order status
 		 */

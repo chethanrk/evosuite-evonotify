@@ -48,8 +48,8 @@ sap.ui.define([
 		onPressEdit: function (oEvent) {
 			if (this._oItemActivityContext) {
 				var mParams = {
-					viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#addEditItemActivityForm",
-					annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditItemActivityForm",
+					viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#NotifItmCreateUpdate",
+					annotationPath: "com.sap.vocabularies.UI.v1.Facets#NotifItmCreateUpdate",
 					entitySet: "PMNotificationItemActivitySet",
 					controllerName: "AddEditEntry",
 					title: "tit.editActivity",
@@ -84,8 +84,8 @@ sap.ui.define([
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#AddItemActivity",
-				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditItemActivityForm",
+				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#NotifItmCreateUpdate",
+				annotationPath: "com.sap.vocabularies.UI.v1.Facets#NotifItmCreateUpdate",
 				entitySet: "PMNotificationItemActivitySet",
 				controllerName: "AddEditEntry",
 				title: "tit.addActivity",
@@ -93,8 +93,8 @@ sap.ui.define([
 				sSortField: "SORT_NUMBER",
 				sNavTo: "/NotificationItemToActivity/",
 				mKeys: {
-					NotificationNo: oContextData.NOTIFICATION_NO,
-					NotificationItem: oContextData.NOTIFICATION_ITEM
+					NOTIFICATION_NO: oContextData.NOTIFICATION_NO,
+					NOTIFICATION_ITEM: oContextData.NOTIFICATION_ITEM
 				}
 			};
 

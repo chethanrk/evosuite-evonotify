@@ -1,10 +1,9 @@
 <mvc:View controllerName="com.evorait.evosuite.evonotify.controller.NotificationItemDetail" xmlns="sap.m" xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc" xmlns:uxap="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:smartField="sap.ui.comp.smartfield"
-	xmlns:causes="com.evorait.evosuite.evonotify.block.causes" xmlns:tasks="com.evorait.evosuite.evonotify.block.tasks"
-	xmlns:activities="com.evorait.evosuite.evonotify.block.activities" xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1">
+	xmlns:blocks="com.evorait.evosuite.evonotify.block" xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1">
 	<template:alias name=".AH" value="sap.ui.model.odata.AnnotationHelper">
-		<uxap:ObjectPageLayout id="notificationItemDetailPage" enableLazyLoading="false" isChildPage="true" showFooter="false" busy="{viewModel>/busy}"
-			busyIndicatorDelay="{viewModel>/delay}">
+		<uxap:ObjectPageLayout id="notificationItemDetailPage" enableLazyLoading="false" isChildPage="true" showFooter="false"
+			busy="{viewModel>/busy}" busyIndicatorDelay="{viewModel>/delay}">
 			<uxap:headerTitle>
 				<uxap:ObjectPageHeader id="objectItemPageHeader" objectTitle="{DESCRIPTION}" objectSubtitle="{NOTIFICATION_ITEM}">
 					<uxap:actions>
@@ -28,48 +27,20 @@
 				</uxap:ObjectPageHeader>
 			</uxap:headerTitle>
 			<uxap:headerContent>
-				<template:with path="meta>com.sap.vocabularies.UI.v1.HeaderFacets#notificationItemDetail" helper=".AH.resolvePath" var="headerFacet">
-					<HBox width="100%">
-						<template:repeat list="{headerFacet>}">
-							<template:with path="headerFacet>Target" helper=".AH.resolvePath" var="target">
-								<layout:VerticalLayout>
-									<template:with path="target>Data" var="data">
-										<template:repeat list="{data>}">
-											<template:if test="{data>Org.OData.Core.V1.LongDescription}">
-												<template:then>
-													<template:if test="{= ${path:'data>Value',formatter:'.AH.format'}}">
-														<template:then>
-															<ObjectStatus title="{= '{= ${' + ${path : 'data>Value/Path'} + '/##com.sap.vocabularies.Common.v1.Label/String} }' }"
-																text="{path:'data>Org.OData.Core.V1.LongDescription',formatter:'.AH.format'}" active="false" state="None"/></template:then>
-														<template:else>
-															<ObjectStatus title="{= '{= ${' + ${path : 'data>Value/Path'} + '/##com.sap.vocabularies.Common.v1.Label/String} }' }"
-																text="{path:'data>Org.OData.Core.V1.LongDescription',formatter:'.AH.format'} ({path:'data>Value',formatter:'.AH.format'})" active="false"
-																state="None"/></template:else>
-													</template:if>
-												</template:then>
-												<template:else>
-													<ObjectStatus title="{= '{= ${' + ${path : 'data>Value/Path'} + '/##com.sap.vocabularies.Common.v1.Label/String} }' }"
-														text="{path:'data>Value',formatter:'.AH.format'}" active="false" state="None"/>
-												</template:else>
-											</template:if>
-										</template:repeat>
-									</template:with>
-								</layout:VerticalLayout>
-							</template:with>
-						</template:repeat>
-					</HBox>
+				<template:with path="meta>com.sap.vocabularies.UI.v1.HeaderFacets#NotifItemDetailHdr" helper=".AH.resolvePath" var="headerDetails">
+					<core:Fragment fragmentName="com.evorait.evosuite.evonotify.view.templates.ObjectHeadTemplate" type="XML"/>
 				</template:with>
 			</uxap:headerContent>
 			<uxap:sections>
-				<template:with path="meta>com.sap.vocabularies.UI.v1.Facets#notificationItemDetail" helper=".AH.resolvePath" var="sections">
-					<template:repeat list="{sections>}">
-						<template:if test="{:= (${sections>Org.OData.Core.V1.Description/String} === 'Form')}">
+				<template:with path="meta>com.sap.vocabularies.UI.v1.Facets#NotifItemTabs" helper=".AH.resolvePath" var="contentTabs">
+					<template:repeat list="{contentTabs>}">
+						<template:if test="{:= ${contentTabs>Core.Description/String} === 'Form' || ${contentTabs>Org.OData.Core.V1.Description/String} === 'Form'}">
 							<template:then>
-								<uxap:ObjectPageSection title="{path:'sections>Label',formatter:'.AH.format'}">
+								<uxap:ObjectPageSection title="{path:'contentTabs>com.sap.vocabularies.Common.v1.Label',formatter:'.AH.format'}">
 									<uxap:subSections>
 										<uxap:ObjectPageSubSection>
 											<uxap:blocks>
-												<template:with path="sections>Facets" var="facets">
+												<template:with path="contentTabs>Facets" var="facets">
 													<core:Fragment fragmentName="com.evorait.evosuite.evonotify.view.templates.SmartFormTemplate" type="XML"/>
 												</template:with>
 											</uxap:blocks>
@@ -77,20 +48,25 @@
 									</uxap:subSections>
 								</uxap:ObjectPageSection>
 							</template:then>
-							<template:elseif test="{:= (${sections>Org.OData.Core.V1.Description/String} === 'Table')}">
-								<uxap:ObjectPageSection title="{path:'sections>Label',formatter:'.AH.format'}" visible="{= !${viewModel>/editMode}}">
+							<template:elseif
+								test="{:= ${contentTabs>Core.Description/String} === 'Table' || ${contentTabs>Org.OData.Core.V1.Description/String} === 'Table'}">
+								<uxap:ObjectPageSection title="{path:'contentTabs>com.sap.vocabularies.Common.v1.Label',formatter:'.AH.format'}"
+									visible="{= !${viewModel>/editMode}}">
 									<uxap:subSections>
 										<uxap:ObjectPageSubSection>
 											<uxap:blocks>
-												<template:if test="{:= (${sections>Org.OData.Core.V1.LongDescription/String} === 'Causes')}">
+												<template:if
+													test="{:= ${contentTabs>Core.LongDescription/String} === 'CauseTab' || ${contentTabs>Org.OData.Core.V1.LongDescription/String} === 'CauseTab'}">
 													<template:then>
-														<causes:CausesBlock/>
+														<blocks:causes.CausesBlock/>
 													</template:then>
-													<template:elseif test="{:= (${sections>Org.OData.Core.V1.LongDescription/String} === 'Tasks')}">
-														<tasks:TasksItemBlock/>
+													<template:elseif
+														test="{:= ${contentTabs>Core.LongDescription/String} === 'TasksTab' || ${contentTabs>Org.OData.Core.V1.LongDescription/String} === 'TasksTab'}">
+														<blocks:tasks.TasksItemBlock/>
 													</template:elseif>
-													<template:elseif test="{:= (${sections>Org.OData.Core.V1.LongDescription/String} === 'Activities')}">
-														<activities:ActivitiesItemBlock/>
+													<template:elseif
+														test="{:= ${contentTabs>Core.LongDescription/String} === 'ActivitiesTab' || ${contentTabs>Org.OData.Core.V1.LongDescription/String} === 'ActivitiesTab'}">
+														<blocks:activities.ActivitiesItemBlock/>
 													</template:elseif>
 												</template:if>
 											</uxap:blocks>

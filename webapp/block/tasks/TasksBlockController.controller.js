@@ -59,8 +59,8 @@ sap.ui.define([
 		onPressEdit: function (oEvent) {
 			if (this._oTaskContext) {
 				var mParams = {
-					viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#EditTask",
-					annotationPath: "com.sap.vocabularies.UI.v1.Facets#editForm",
+					viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#TaskUpdate",
+					annotationPath: "com.sap.vocabularies.UI.v1.Facets#TaskUpdate",
 					entitySet: "PMNotificationTaskSet",
 					controllerName: "AddEditEntry",
 					title: "tit.editTask",
@@ -123,8 +123,8 @@ sap.ui.define([
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#AddTask",
-				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addForm",
+				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#TaskCreate",
+				annotationPath: "com.sap.vocabularies.UI.v1.Facets#TaskCreate",
 				entitySet: "PMNotificationTaskSet",
 				controllerName: "AddEditEntry",
 				title: "tit.addTask",
@@ -132,7 +132,7 @@ sap.ui.define([
 				sSortField: "SORT_NUMBER",
 				sNavTo: "/NotificationToTask/",
 				mKeys: {
-					NotificationNo: oContextData.NOTIFICATION_NO
+					NOTIFICATION_NO: oContextData.NOTIFICATION_NO
 				}
 			};
 
@@ -168,7 +168,7 @@ sap.ui.define([
 			var msg = this.getResourceBundle().getText("msg.saveSuccess");
 			sap.m.MessageToast.show(msg);
 		},
-		
+
 		/**
 		 * error callback after saving notification
 		 * @param oResponse
@@ -186,13 +186,12 @@ sap.ui.define([
 				this._setStatusSelectItemsVisibility();
 			}.bind(this));
 		},
-		
-		_validateTaskEdiButton: function(isTaskEditable){
+
+		_validateTaskEdiButton: function (isTaskEditable) {
 			var oTaskEditCtrl = this.getView().byId("idTaskEdit");
-			if(isTaskEditable === "X"){
+			if (isTaskEditable === "X") {
 				oTaskEditCtrl.setEnabled(true);
-			}
-			else{
+			} else {
 				oTaskEditCtrl.setEnabled(false);
 			}
 		}

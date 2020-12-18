@@ -58,8 +58,8 @@ sap.ui.define([
 		onPressEdit: function (oEvent) {
 			if (this._oItemTaskContext) {
 				var mParams = {
-					viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#addEditItemTaskForm",
-					annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditItemTaskForm",
+					viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#ItemTaskUpdate",
+					annotationPath: "com.sap.vocabularies.UI.v1.Facets#ItemTaskUpdate",
 					entitySet: "PMNotificationItemTaskSet",
 					controllerName: "AddEditEntry",
 					title: "tit.editTask",
@@ -94,8 +94,8 @@ sap.ui.define([
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#AddItemTask",
-				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditItemTaskForm",
+				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#ItemTaskCreate",
+				annotationPath: "com.sap.vocabularies.UI.v1.Facets#ItemTaskCreate",
 				entitySet: "PMNotificationItemTaskSet",
 				controllerName: "AddEditEntry",
 				title: "tit.addTask",
@@ -103,8 +103,8 @@ sap.ui.define([
 				sSortField: "SORT_NUMBER",
 				sNavTo: "/NotificationItemToTask/",
 				mKeys: {
-					NotificationNo: oContextData.NOTIFICATION_NO,
-					NotificationItem: oContextData.NOTIFICATION_ITEM
+					NOTIFICATION_NO: oContextData.NOTIFICATION_NO,
+					NOTIFICATION_ITEM: oContextData.NOTIFICATION_ITEM
 				}
 			};
 
@@ -186,13 +186,12 @@ sap.ui.define([
 				this._setStatusSelectItemsVisibility();
 			}.bind(this));
 		},
-		
-		_validateItemTaskEdiButton: function(isItemTaskEditable){
+
+		_validateItemTaskEdiButton: function (isItemTaskEditable) {
 			var oItemTaskEditCtrl = this.getView().byId("idItemTaskEdit");
-			if(isItemTaskEditable === "X"){
+			if (isItemTaskEditable === "X") {
 				oItemTaskEditCtrl.setEnabled(true);
-			}
-			else{
+			} else {
 				oItemTaskEditCtrl.setEnabled(false);
 			}
 		}

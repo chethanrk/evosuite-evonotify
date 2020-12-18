@@ -3,10 +3,10 @@ sap.ui.define([
 ], function (FormController) {
 	"use strict";
 
-	return FormController.extend("com.evorait.evosuite.evonotify.controller.ObjectNew", {
+	return FormController.extend("com.evorait.evosuite.evonotify.controller.CreateNotification", {
 
 		oViewModel: null,
-		oForm: null,
+		aSmartForms: [],
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */
@@ -40,8 +40,8 @@ sap.ui.define([
 		 * 
 		 */
 		_initializeView: function () {
-			this.oForm = this.getView().byId("smartFormTemplate");
-			this.oForm.setEditable(true);
+			this.aSmartForms = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("smartFormTemplate"));
+			this.setFormsEditable(this.aSmartForms, true);
 
 			this.oViewModel.setProperty("/editMode", true);
 			this.oViewModel.setProperty("/isNew", true);
@@ -79,8 +79,8 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onPressSave: function (oEvent) {
-			if (this.oForm) {
-				var mErrors = this.validateForm(this.oForm);
+			if (this.aSmartForms.length > 0) {
+				var mErrors = this.validateForm(this.aSmartForms);
 				//if form is valid save created entry
 				this.saveChanges(mErrors, this.saveCreateSuccessFn.bind(this));
 			}
