@@ -3,9 +3,18 @@ sap.ui.define([
 	"sap/ui/Device",
 	"com/evorait/evonotify/model/models",
 	"com/evorait/evonotify/controller/ErrorHandler",
-	"com/evorait/evonotify/controller/AddEditEntryDialog"
-], function (UIComponent, Device, models, ErrorHandler, AddEditEntryDialog) {
+	"com/evorait/evonotify/controller/DialogTemplateRenderController",
+	"com/evorait/evonotify/model/Constants",
+	"sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator",
+	"com/evorait/evonotify/assets/js/url-search-params.min",
+	"com/evorait/evonotify/assets/js/promise-polyfills",
+	"com/evorait/evonotify/controller/MessageManager"
+], function (UIComponent, Device, models, ErrorHandler, DialogTemplateRenderController, Constants, Filter,
+	FilterOperator, UrlSearchPolyfill, PromisePolyfill, MessageManager) {
 	"use strict";
+	
+	var oMessageManager = sap.ui.getCore().getMessageManager();
 
 	return UIComponent.extend("com.evorait.evonotify.Component", {
 
@@ -13,10 +22,9 @@ sap.ui.define([
 			manifest: "json"
 		},
 
-		oAddEntryDialog: new AddEditEntryDialog(),
-
 		/**
 		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
+		 * In this function, the device models are set and the router is initialized.
 		 * @public
 		 * @override
 		 */
@@ -24,14 +32,10 @@ sap.ui.define([
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
 
-			// handle the main oData model based on the environment
-			// the path for mobile applications depends on the current information from
-			// the logon plugin - if it's not running as hybrid application then the initialization
-			// of the oData service happens by the entries in the manifest.json which is used
-			// as metadata reference
-			if (window.cordova) {
-				this._initCordovaHandling();
-			}
+			var manifestApp = this.getMetadata().getManifestEntry("sap.app"),
+				dataSource = "";
+
+			// oModel.setDefaultBindingMode(sap.ui.model.BindingMode.OneWay);
 
 			// initialize the error handler with the component
 			this._oErrorHandler = new ErrorHandler(this);
@@ -39,38 +43,58 @@ sap.ui.define([
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
 
-			// set global helper view model
-			// Model used to manipulate control states. The chosen values make sure,
-			// detail page is busy indication immediately so there is no break in
-			// between the busy indication for loading the view"s meta data
+			if (manifestApp) {
+				dataSource = manifestApp.dataSources.mainService.uri;
+			}
 
-			this.setModel(models.createHelperModel({
+			this.DialogTemplateRenderer = new DialogTemplateRenderController(this);
+
+			var viewModelObj = {
 				busy: true,
-				delay: 0,
-				isNew: false,
-				isEdit: false,
+				delay: 100,
+				canExpand: true,
+				serviceUrl: dataSource,
 				editMode: false,
-				worklistEntitySet: "PMNotificationSet",
-				taskViewPath: "",
-				actViewPath: "",
-				rootPath: jQuery.sap.getModulePath("com.evorait.evonotify"), // your resource root
-				logoPath: "/assets/img/logo_color_transp_50pxh.png"
-			}), "viewModel");
+				isNew: false,
+				operationsRowsCount: 0,
+				launchMode: Constants.LAUNCH_MODE.BSP
+			};
 
-			// create the views based on the url/hash
-			this.getRouter().initialize();
+			this.setModel(models.createHelperModel(viewModelObj), "viewModel");
+
+			this.setModel(models.createHelperModel({}), "templateProperties");
+
+			this.setModel(models.createUserModel(this), "user");
+
+			this.setModel(models.createNotificationFunctionModel(this), "notificationFunctionModel");
+
+			this.setModel(models.createTaskFunctionModel(this), "taskFunctionModel");
+
+			this.setModel(models.createInformationModel(this), "InformationModel");
+
+			this._getSystemInformation();
+
+			this._getFunctionSet();
+
+			this._setApp2AppLinks();
+			
+			this.setModel(oMessageManager.getMessageModel(), "message");
+			
+			this.MessageManager = new MessageManager();
+			this.setModel(models.createMessageManagerModel(), "messageManager");
+
+			//get start parameter when app2app navigation is in URL
+			//replace hash when startup parameter
+			//and init Router after success or fail
+			this._initRouter();
 		},
 
 		/**
-		 * The component is destroyed by UI5 automatically.
-		 * In this method, the ErrorHandler is destroyed.
-		 * @public
-		 * @override
+		 * This method registers the view to the message manager
+		 * @param oView
 		 */
-		destroy: function () {
-			this._oErrorHandler.destroy();
-			// call the base component's destroy function
-			UIComponent.prototype.destroy.apply(this, arguments);
+		registerViewToMessageManager: function (oView) {
+			oMessageManager.registerObject(oView, true);
 		},
 
 		/**
@@ -82,9 +106,10 @@ sap.ui.define([
 		getContentDensityClass: function () {
 			if (this._sContentDensityClass === undefined) {
 				// check whether FLP has already set the content density class; do nothing in this case
-				if (jQuery(document.body).hasClass("sapUiSizeCozy") || jQuery(document.body).hasClass("sapUiSizeCompact")) {
+				var element = document.getElementsByTagName("body")[0];
+				if (element.classList.contains("sapUiSizeCozy") || element.classList.contains("sapUiSizeCompact")) {
 					this._sContentDensityClass = "";
-				} else if (!Device.support.touch) { // apply "compact" mode if touch is not supported
+				} else if (!this._isMobile()) { // apply "compact" mode if touch is not supported
 					//sapUiSizeCompact
 					this._sContentDensityClass = "sapUiSizeCompact";
 				} else {
@@ -96,35 +121,125 @@ sap.ui.define([
 		},
 
 		/**
-		 * init cordova
-		 * call Kapsel logon and login to SMP
+		 * check if mobile device
+		 * @returns {boolean}
 		 * @private
 		 */
-		_initCordovaHandling: function () {
-			var oModel;
-			var externalURL = com.evorait.evolite.evonotify.dev.devapp.externalURL;
-			var appContext;
-			if (com.evorait.evolite.evonotify.dev.devapp.devLogon) {
-				appContext = com.evorait.evolite.evonotify.dev.devapp.devLogon.appContext;
+		_isMobile: function () {
+			return (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i).test(navigator.userAgent.toLowerCase());
+		},
+
+		/**
+		 * Calls the GetSystemInformation 
+		 */
+		_getSystemInformation: function () {
+			this.readData("/SystemInformationSet", []).then(function (oData) {
+				this.getModel("user").setData(oData.results[0]);
+			}.bind(this));
+		},
+
+		/**
+		 * Calls the FunctionSetData for Notification and Task
+		 */
+		_getFunctionSet: function () {
+			var oFilter1 = new Filter("ObjectCategory", FilterOperator.EQ, Constants.FUNCTIONSET_FILTER.NOTIFICATION_FILTER);
+			this.readData("/FunctionsSet", [oFilter1])
+				.then(function (data) {
+					this.getModel("notificationFunctionModel").setData(data);
+				}.bind(this));
+			var oFilter2 = new Filter("ObjectCategory", FilterOperator.EQ, Constants.FUNCTIONSET_FILTER.TASK_FILTER);
+			this.readData("/FunctionsSet", [oFilter2])
+				.then(function (data) {
+					this.getModel("taskFunctionModel").setData(data);
+				}.bind(this));
+		},
+
+		/**
+		 * Check for a Startup parameter and look for Order ID in Backend
+		 * When there is a filtered Order replace route hash
+		 */
+		_initRouter: function () {
+			var oFilter = this._getStartupParamFilter();
+			if (oFilter) {
+				this.readData("/PMNotificationSet", [oFilter]).then(function (mResult) {
+					if (mResult.results.length > 0) {
+						//replace hash and init route
+						// create the views based on the url/hash
+						var hashChanger = sap.ui.core.routing.HashChanger.getInstance();
+						hashChanger.replaceHash("Notification/" + mResult.results[0].ObjectKey);
+					}
+					this.getRouter().initialize();
+				}.bind(this));
+			} else {
+				// create the views based on the url/hash
+				this.getRouter().initialize();
 			}
+		},
 
-			if (window.cordova && appContext && !window.sap_webide_companion && !externalURL) {
-				var url = appContext.applicationEndpointURL + "/";
-				var oHeader = {
-					"X-SMP-APPCID": appContext.applicationConnectionId
-				};
+		/**
+		 * When in link is startup parameter from FLP or Standalone app
+		 * then App2App navigation happened and this app shoul show a detail page
+		 */
+		_getStartupParamFilter: function () {
+			var oComponentData = this.getComponentData(),
+				sKey = Constants.PROPERTY.EVONOTIFY;
 
-				// this would allow to pass basic authentication from the user registration to the
-				// backend request - do not do this yet
-				/**
-				 if (appContext.registrationContext.user) {
-					oHeader.Authorization = "Basic " + btoa(appContext.registrationContext.user + ":" + appContext.registrationContext.password);
+			//Fiori Launchpad startup parameters
+			if (oComponentData) {
+				var oStartupParams = oComponentData.startupParameters;
+				if (oStartupParams[sKey] && (oStartupParams[sKey].length > 0)) {
+					return new Filter(sKey, FilterOperator.EQ, oStartupParams[sKey][0]);
 				}
-				 **/
-				// set the central model (default model has no name)
-				oModel = new sap.ui.model.odata.ODataModel(url, true, null, null, oHeader);
-				this.setModel(oModel);
+			} else {
+				var queryString = window.location.search,
+					urlParams = new URLSearchParams(queryString);
+				if (urlParams.has(sKey)) {
+					var oFilter = new Filter(sKey, FilterOperator.EQ, urlParams.get(sKey));
+					urlParams.delete(sKey);
+					return oFilter;
+				}
 			}
+			return false;
+		},
+
+		/**
+		 * read app2app navigation links from backend
+		 */
+		_setApp2AppLinks: function () {
+			if (sap.ushell && sap.ushell.Container) {
+				this.getModel("viewModel").setProperty("/launchMode", Constants.LAUNCH_MODE.FIORI);
+			}
+			var oFilter = new Filter("LaunchMode", FilterOperator.EQ, this.getModel("viewModel").getProperty("/launchMode")),
+				mProps = {};
+
+			this.readData("/NavigationLinksSet", [oFilter])
+				.then(function (data) {
+					data.results.forEach(function (oItem) {
+						if (oItem.Value1 && Constants.APPLICATION[oItem.ApplicationId]) {
+							oItem.Property = oItem.Value2 || Constants.PROPERTY[oItem.ApplicationId];
+							mProps[oItem.Property] = oItem;
+						}
+					}.bind(this));
+					this.getModel("templateProperties").setProperty("/navLinks/", mProps);
+				}.bind(this));
+		},
+
+		/**
+		 *  Read call given entityset and filters
+		 */
+		readData: function (sUri, aFilters) {
+			return new Promise(function (resolve, reject) {
+				this.getModel().read(sUri, {
+					filters: aFilters,
+					success: function (oData, oResponse) {
+						resolve(oData);
+					}.bind(this),
+					error: function (oError) {
+						//Handle Error
+						reject(oError);
+					}.bind(this)
+				});
+			}.bind(this));
 		}
 	});
 });

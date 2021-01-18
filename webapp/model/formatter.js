@@ -13,6 +13,11 @@ sap.ui.define([
 
 	return {
 
+		getLogoImageLink: function () {
+			var path = $.sap.getModulePath("com.evorait.evonotify", "/assets/img/logo_color_transp_50pxh.png");
+			return path;
+		},
+
 		/**
 		 * Rounds the number unit value to 2 digits
 		 * @public
@@ -69,16 +74,29 @@ sap.ui.define([
 		/**
 		 * checks if an notification or item is allwed to editable
 		 * Hide/show edit button
-		 * @param isCompleted
-		 * @param isDeleted
+		 * @param bAllowChange
 		 * @param isEditMode
 		 * @returns {boolean}
 		 */
-		editable: function (isCompleted, isDeleted, isEditMode) {
-			if (isCompleted || isDeleted || isEditMode) {
-				return false;
+		editable: function (bAllowChange, isEditMode) {
+			if (bAllowChange && !isEditMode) {
+				return true;
 			}
-			return true;
+			return false;
+		},
+		/**
+		 * checks if an notification or item is visible
+		 * Hide/show edit button
+		 * @param bEnabledFunction
+		 * @param bAllowChange
+		 * @param isEditMode
+		 * @returns {boolean}
+		 */
+		isVisible: function (bAllowChange, bEnabledFunction, isEditMode) {
+			if (bEnabledFunction === "X" && bAllowChange && !isEditMode) {
+				return true;
+			}
+			return false;
 		},
 		/**
 		 * checks if an menuitem of task is visible
@@ -148,11 +166,11 @@ sap.ui.define([
 		 * @param isNew
 		 * @returns {boolean}
 		 */
-		showStatusButton: function (isCompleted, isDeleted, isNew) {
-			if (isCompleted || isDeleted || isNew) {
-				return false;
+		showStatusButton: function (bAllowChange, bEnabledFunction, isEditMode) {
+			if (bEnabledFunction === "X" && bAllowChange && !isEditMode) {
+				return true;
 			}
-			return true;
+			return false;
 		},
 
 		/**
@@ -167,10 +185,10 @@ sap.ui.define([
 		showItemField: function (isNew, isItem) {
 			return !isNew && !!isItem;
 		},
-		
+
 		formatSortNumber: function (sortNo, max) {
 			return sortNo.length < max ? this.formatSortNumber("0" + sortNo, max) : sortNo;
-		},
+		}
 	};
 
 });

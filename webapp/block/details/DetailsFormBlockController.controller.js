@@ -19,7 +19,7 @@ sap.ui.define([
 		 */
 		onInit: function () {
 			var eventBus = sap.ui.getCore().getEventBus();
-			eventBus.subscribe("Object", "validateFields", this._validateForm, this);
+			eventBus.subscribe("ObjectEvoNotify", "validateFields", this._validateForm, this);
 		},
 
 		/* =========================================================== */
@@ -35,12 +35,14 @@ sap.ui.define([
 		 * @public
 		 */
 		_validateForm: function (sChannel, sEvent, oData) {
-			var oForm = this.getView().byId("idNotificationForm");
+			if (sChannel === "ObjectEvoNotify" && sEvent === "validateFields") {
+				var oForm = this.getView().byId("idNotificationForm");
 
-			if (this.validateForm({
-					form: oForm
-				})) {
-				this.saveChangedEntry({});
+				if (this.validateForm({
+						form: oForm
+					})) {
+					this.saveChangedEntry({});
+				}
 			}
 		}
 

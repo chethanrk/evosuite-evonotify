@@ -7,18 +7,22 @@ sap.ui.define([
 	"sap/m/Text",
 	"sap/m/MessageToast",
 	"sap/ui/model/Filter",
-	"sap/ui/model/FilterOperator"
-], function (Controller, JSONModel, History, Dialog, Button, Text, MessageToast, Filter, FilterOperator) {
+	"sap/ui/model/FilterOperator",
+	"com/evorait/evonotify/model/Constants",
+	"com/evorait/evonotify/model/formatter"
+], function (Controller, JSONModel, History, Dialog, Button, Text, MessageToast, Filter, FilterOperator, Constants, formatter) {
 	"use strict";
 
 	return Controller.extend("com.evorait.evonotify.controller.BaseController", {
+
+		formatter: formatter,
 		/**
 		 * Convenience method for accessing the router.
 		 * @public
 		 * @returns {sap.ui.core.routing.Router} the router for this component
 		 */
 		getRouter: function () {
-			return sap.ui.core.UIComponent.getRouterFor(this);
+			return this.getOwnerComponent().getRouter();
 		},
 
 		/**
@@ -28,10 +32,10 @@ sap.ui.define([
 		 * @returns {sap.ui.model.Model} the model instance
 		 */
 		getModel: function (sName) {
-			if (this.getView().getModel) {
-				return this.getView().getModel(sName);
+			if (this.getOwnerComponent()) {
+				return this.getOwnerComponent().getModel(sName);
 			}
-			return this.getOwnerComponent().getModel(sName);
+			return this.getView().getModel(sName);
 		},
 
 		/**
@@ -43,6 +47,19 @@ sap.ui.define([
 		 */
 		setModel: function (oModel, sName) {
 			return this.getView().setModel(oModel, sName);
+		},
+
+		/**
+		 * get current hash 
+		 */
+		getCurrentHash: function () {
+			var oRouter = this.getRouter();
+			if (oRouter.getHashChanger) {
+				return oRouter.getHashChanger().getHash();
+			}
+			var browserUrl = window.location.hash,
+				sHash = browserUrl.replace("#", "");
+			return sHash;
 		},
 
 		/**
@@ -62,12 +79,15 @@ sap.ui.define([
 		},
 
 		/**
-		 * Getter for the resource bundle.
+		 * Convenience method for getting the resource bundle.
 		 * @public
 		 * @returns {sap.ui.model.resource.ResourceModel} the resourceModel of the component
 		 */
 		getResourceBundle: function () {
-			return this.getOwnerComponent().getModel("i18n").getResourceBundle();
+			if (this.getOwnerComponent()) {
+				return this.getOwnerComponent().getModel("i18n").getResourceBundle();
+			}
+			return this.getView().getModel("i18n").getResourceBundle();
 		},
 
 		/**
@@ -91,7 +111,6 @@ sap.ui.define([
 				oContext = this.getView().getBindingContext();
 
 			if (oParams.state === "success") {
-				this.getModel().setProperty(oContext.getPath() + "/Status", "");
 				return true;
 			} else if (oParams.state === "error") {
 				return false;
@@ -146,9 +165,13 @@ sap.ui.define([
 				}),
 				beginButton: new Button({
 					text: sBtn,
-					press: this.close
+					press: function () {
+						dialog.close();
+					}
 				}),
-				afterClose: this.destroy
+				afterClose: function () {
+					dialog.destroy();
+				}
 			});
 			dialog.open();
 		},
@@ -181,7 +204,6 @@ sap.ui.define([
 
 				error: function (oError) {
 					oViewModel.setProperty("/busy", false);
-					this.showSaveErrorPrompt(oError);
 				}.bind(this)
 			});
 		},
@@ -218,7 +240,7 @@ sap.ui.define([
 								sCreatedEntryId = batch.__changeResponses[0].data[sParamId];
 							}
 							if (sCreatedEntryId && sCreatedEntryId !== "" && sNavPath) {
-								oViewModel.setProperty("/newCreatedEntry", true);
+								oViewModel.setProperty("/newCreatedNotification", true);
 								this.getRouter().navTo("object", {
 									objectId: sCreatedEntryId
 								});
@@ -238,7 +260,6 @@ sap.ui.define([
 					if (mParams.error) {
 						mParams.error();
 					}
-					this.showSaveErrorPrompt(oError);
 				}.bind(this)
 			});
 		},
@@ -278,7 +299,6 @@ sap.ui.define([
 					if (mParams.error) {
 						mParams.error();
 					}
-					this.showSaveErrorPrompt(oError);
 				}.bind(this)
 			});
 		},
@@ -322,8 +342,12 @@ sap.ui.define([
 		 */
 		getNotifTypeDependencies: function (oData) {
 			return new Promise(function (resolve, reject) {
-				var sPath = this.getModel().createKey("PMNotificationTypeVHSet", {
-					NotificationType: oData.NotificationType || oData.Notificationtype
+				if (!oData.NotificationType) {
+					reject();
+					return;
+				}
+				var sPath = this.getModel().createKey("SHNotificationTypeSet", {
+					Qmart: oData.NotificationType || oData.Notificationtype
 				});
 
 				this.getModel().read("/" + sPath, {
@@ -335,8 +359,228 @@ sap.ui.define([
 					}
 				});
 			}.bind(this));
-		}
+		},
 
+		/**
+		 * Show dialog when user wants to cancel order change/creations
+		 * @private
+		 * @param sPath
+		 * @param doNavBack
+		 */
+		_confirmEditCancelDialog: function (sPath, doNavBack) {
+			var oResoucreBundle = this.getResourceBundle(),
+				oViewModel = this.getModel("viewModel"),
+				isNew = oViewModel.getProperty("/isNew");
+
+			var dialog = new sap.m.Dialog({
+				title: oResoucreBundle.getText("tit.cancelCreate"),
+				type: "Message",
+				content: new sap.m.Text({
+					text: oResoucreBundle.getText("msg.leaveWithoutSave")
+				}),
+				beginButton: new sap.m.Button({
+					text: oResoucreBundle.getText("btn.confirm"),
+					press: function () {
+						dialog.close();
+						var oContext = this.getView().getBindingContext();
+
+						if (isNew) {
+							//delete created entry
+							this.navBack();
+							this.getModel().deleteCreatedEntry(oContext);
+							oViewModel.setProperty("/isNew", false);
+						} else {
+							//reset changes from object path
+							this.getModel().resetChanges(sPath);
+							if (doNavBack) {
+								//on edit cancel and nav back unbind object
+								this.getView().unbindElement();
+								this.navBack();
+							}
+						}
+						oViewModel.setProperty("/editMode", false);
+					}.bind(this)
+				}),
+				endButton: new sap.m.Button({
+					text: oResoucreBundle.getText("btn.no"),
+					press: function () {
+						dialog.close();
+					}
+				}),
+				afterClose: function () {
+					dialog.destroy();
+				}
+			});
+
+			dialog.open();
+		},
+
+		/**
+		 *	Navigates to evoOrder detail page with static url.
+		 * @param sKeyParameter
+		 * @param sAppID
+		 */
+		openEvoAPP: function (sParamValue, sAppID) {
+			var sUri, sSemanticObject, sParameter,
+				sAction,
+				sAdditionInfo,
+				sLaunchMode = this.getModel("viewModel").getProperty("/launchMode"),
+				oAppInfo = this._getAppInfoById(sAppID);
+
+			// if there is no configuration maintained in the backend
+			if (oAppInfo === null) {
+				return;
+			}
+
+			if (sLaunchMode === Constants.LAUNCH_MODE.FIORI) {
+				sAdditionInfo = oAppInfo.Value1 || "";
+				sSemanticObject = sAdditionInfo.split("\\\\_\\\\")[0];
+				sAction = sAdditionInfo.split("\\\\_\\\\")[1] || "Display";
+				sParameter = sAdditionInfo.split("\\\\_\\\\")[2];
+				if (sSemanticObject && sAction) {
+					this._navToApp(sSemanticObject, sAction, sParameter, sParamValue);
+				}
+				return;
+			} else {
+				sAdditionInfo = oAppInfo.Value1;
+				sUri = (sAdditionInfo).replace("\\\\place_h1\\\\", sParamValue);
+				window.open(sUri, "_blank");
+			}
+		},
+		/**
+		 * get respective navigation details
+		 * @param sAppID
+		 */
+		_getAppInfoById: function (sAppID) {
+			var aNavLinks = this.getModel("templateProperties").getProperty("/navLinks");
+			for (var i in aNavLinks) {
+				if (aNavLinks[i].ApplicationId === sAppID) {
+					return aNavLinks[i];
+				}
+			}
+			return null;
+		},
+		/**
+		 * @param sSemanticObject
+		 * @param sAction
+		 * @param sParameter
+		 * @param sKeyParameter
+		 */
+		_navToApp: function (sSemanticObject, sAction, sParameter, sParamValue) {
+			var oCrossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation"),
+				mParams = {};
+
+			mParams[sParameter] = [sParamValue];
+			oCrossAppNavigator.toExternal({
+				target: {
+					semanticObject: sSemanticObject,
+					action: sAction
+				},
+				params: mParams
+			});
+		},
+
+		/**
+		 * render a popover with button inside
+		 * next to Notification ID or Equipment ID
+		 * @param oSource
+		 * @param sProp
+		 */
+		openApp2AppPopover: function (oSource, sProp) {
+			var oNavLinks = this.getModel("templateProperties").getProperty("/navLinks"),
+				oContext = oSource.getBindingContext();
+
+			if (oContext && oNavLinks[sProp]) {
+				var sPath = oContext.getPath() + "/" + oNavLinks[sProp].Property;
+				var oPopover = new sap.m.ResponsivePopover({
+					placement: sap.m.PlacementType.Right,
+					showHeader: false,
+					showCloseButton: true,
+					afterClose: function () {
+						oPopover.destroy(true);
+					}
+				});
+				var oButton = new sap.m.Button({
+					text: this.getResourceBundle().getText("btn.App2App", oNavLinks[sProp].ApplicationName),
+					icon: "sap-icon://action",
+					press: function () {
+						oPopover.close();
+						oPopover.destroy(true);
+						this.openEvoAPP(this.getModel().getProperty(sPath), oNavLinks[sProp].ApplicationId);
+					}.bind(this)
+				});
+				oPopover.insertContent(oButton);
+				oPopover.openBy(oSource);
+			}
+		},
+		
+		/**
+		 * show showInformationDialog dialog with ok
+		 * Yes execute successFn
+		 * No execute errorFn
+		 * @param successFn
+		 * @param errorFn
+		 */
+		showInformationDialog: function(msg, successFn, errorFn){
+			var oBundle = this.getModel("i18n").getResourceBundle();
+
+			var dialog = new Dialog({
+				title: oBundle.getText("tit.informationTitle"),
+				type: 'Message',
+				content: new Text({ text: msg }),
+				beginButton: new Button({
+					type: sap.m.ButtonType.Emphasized,
+					text: oBundle.getText("btn.ok"),
+					press: function () {
+						if(successFn) successFn();
+						dialog.close();
+					}
+				}),
+				afterClose: function() {
+					dialog.destroy();
+				}
+			});
+
+			dialog.open();
+		},
+
+		/**
+		 * On click, open Message Popover
+		 */
+		openMessageManager: function (oView, oEvent) {
+			this.getOwnerComponent().MessageManager.open(oView, oEvent);
+		},
+
+		/**
+		 * Create Success, Warning, Info, Error message and add to MessageManager
+		 * @param sMessage
+		 * @param sTarget
+		 */
+		addMsgToMessageManager: function (sType, sMessage, sTarget) {
+			var oMessage = new Message({
+				message: sMessage,
+				type: sType,
+				target: sTarget,
+				processor: this.getModel("messageManager"),
+				technical: true
+			});
+			sap.ui.getCore().getMessageManager().addMessages(oMessage);
+		},
+
+		/**
+		 * Clear all message present in the MessageManager
+		 */
+		clearAllMessages: function () {
+			// does not remove the manually set ValueStateText we set in onValueStatePress():
+			sap.ui.getCore().getMessageManager().removeAllMessages();
+		},
+
+		/**
+		 * On click, open Message Popover
+		 */
+		openMessageManager: function (oView, oEvent) {
+			this.getOwnerComponent().MessageManager.open(oView, oEvent);
+		},
 	});
 
 });

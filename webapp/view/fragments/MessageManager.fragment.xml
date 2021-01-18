@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core">
+    <MessagePopover
+            id="idMessageManager"
+            items="{ path:'message>/',sorter:{path:'id' ,descending:true}}"
+            initiallyExpanded="true"
+            beforeClose="beforePopoverClose">
+        <headerButton>
+            <Button icon="sap-icon://delete" press="deleteAllMessages" visible="{= ${message>/}.length > 0 }"/>
+        </headerButton>
+        <MessagePopoverItem
+                type="{message>type}"
+                title="{message>message}"
+                description="{message>description}"
+                activeTitle="{message>technical}" >
+        </MessagePopoverItem>
+    </MessagePopover>
+</core:FragmentDefinition>
