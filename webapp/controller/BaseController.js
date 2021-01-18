@@ -8,12 +8,12 @@ sap.ui.define([
 	"sap/m/MessageToast",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-	"com/evorait/evonotify/model/Constants",
-	"com/evorait/evonotify/model/formatter"
+	"com/evorait/evosuite/evonotify/model/Constants",
+	"com/evorait/evosuite/evonotify/model/formatter"
 ], function (Controller, JSONModel, History, Dialog, Button, Text, MessageToast, Filter, FilterOperator, Constants, formatter) {
 	"use strict";
 
-	return Controller.extend("com.evorait.evonotify.controller.BaseController", {
+	return Controller.extend("com.evorait.evosuite.evonotify.controller.BaseController", {
 
 		formatter: formatter,
 		/**
@@ -573,14 +573,7 @@ sap.ui.define([
 		clearAllMessages: function () {
 			// does not remove the manually set ValueStateText we set in onValueStatePress():
 			sap.ui.getCore().getMessageManager().removeAllMessages();
-		},
-
-		/**
-		 * On click, open Message Popover
-		 */
-		openMessageManager: function (oView, oEvent) {
-			this.getOwnerComponent().MessageManager.open(oView, oEvent);
-		},
+		}
 	});
 
 });

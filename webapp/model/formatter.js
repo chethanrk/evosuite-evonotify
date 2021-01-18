@@ -1,20 +1,15 @@
 sap.ui.define([
-	"sap/ui/core/format/DateFormat"
-], function (DateFormat) {
+	"sap/ui/core/format/DateFormat",
+	"com/evorait/evosuite/evonotify/model/Constants"
+], function (DateFormat, Constants) {
 	"use strict";
 
-	var statusIcons = {
-		"1": "sap-icon://circle-task", //open
-		"2": "sap-icon://overlay", //on hold
-		"3": "sap-icon://busy", //in progress
-		"4": "sap-icon://circle-task-2", //completed
-		"5": "sap-icon://status-negative" //default
-	};
+	var mCriticallyStates = Constants.CRITICALLYSTATES;
 
 	return {
 
 		getLogoImageLink: function () {
-			var path = $.sap.getModulePath("com.evorait.evonotify", "/assets/img/logo_color_transp_50pxh.png");
+			var path = $.sap.getModulePath("com.evorait.evosuite.evonotify", "/assets/img/logo_color_transp_50pxh.png");
 			return path;
 		},
 
@@ -148,17 +143,7 @@ sap.ui.define([
 			}
 			return false;
 		},
-		/**
-		 *
-		 * @param sValue
-		 * @returns {string|*}
-		 */
-		formatIsEditableIcon: function (sValue) {
-			if (!sValue || !statusIcons[sValue]) {
-				return statusIcons["5"];
-			}
-			return statusIcons[sValue];
-		},
+
 		/**
 		 * Hide/show status change button
 		 * @param isCompleted
@@ -188,6 +173,23 @@ sap.ui.define([
 
 		formatSortNumber: function (sortNo, max) {
 			return sortNo.length < max ? this.formatSortNumber("0" + sortNo, max) : sortNo;
+		},
+		
+		formatStatusIconColor: function (sValue, sColor) {
+			if (sColor && sColor !== "") {
+				return sColor;
+			}
+			return mCriticallyStates.hasOwnProperty(sValue) ? mCriticallyStates[sValue].color : mCriticallyStates["0"].color;
+		},
+
+		formatStatusState: function (sValue, isInNavLinks) {
+			if (mCriticallyStates.hasOwnProperty(sValue)) {
+				return mCriticallyStates[sValue].state;
+			} else if (isInNavLinks === "true") {
+				return mCriticallyStates["info"].state;
+			} else {
+				return mCriticallyStates["0"].state;
+			}
 		}
 	};
 

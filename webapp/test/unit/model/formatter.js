@@ -1,6 +1,6 @@
 sap.ui.define([
 	"sap/m/Text",
-	"com/evorait/evonotify/model/formatter"
+	"com/evorait/evosuite/evonotify/model/formatter"
 ], function (Text, formatter) {
 	"use strict";
 

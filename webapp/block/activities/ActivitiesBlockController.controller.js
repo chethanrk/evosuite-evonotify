@@ -1,9 +1,9 @@
 /*global location*/
 sap.ui.define([
-	"com/evorait/evonotify/controller/BaseController",
+	"com/evorait/evosuite/evonotify/controller/BaseController",
 	"sap/ui/core/routing/History",
 	"sap/ui/model/json/JSONModel",
-	"com/evorait/evonotify/model/formatter"
+	"com/evorait/evosuite/evonotify/model/formatter"
 ], function (
 	BaseController,
 	History,
@@ -12,7 +12,7 @@ sap.ui.define([
 ) {
 	"use strict";
 
-	return BaseController.extend("com.evorait.evonotify.block.activities.ActivitiesBlockController", {
+	return BaseController.extend("com.evorait.evosuite.evonotify.block.activities.ActivitiesBlockController", {
 
 		formatter: formatter,
 
@@ -48,8 +48,8 @@ sap.ui.define([
 		onPressEdit: function (oEvent) {
 			if (this._oActivityContext) {
 				var mParams = {
-					viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#AddEditActivity",
-					annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditActivityForm",
+					viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#ActivityCreateUpdate",
+					annotationPath: "com.sap.vocabularies.UI.v1.Facets#ActivityCreateUpdate",
 					entitySet: "PMNotificationActivitySet",
 					controllerName: "AddEditEntry",
 					title: "tit.editActivity",
@@ -84,8 +84,8 @@ sap.ui.define([
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#AddEditActivity",
-				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditActivityForm",
+				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#ActivityCreateUpdate",
+				annotationPath: "com.sap.vocabularies.UI.v1.Facets#ActivityCreateUpdate",
 				entitySet: "PMNotificationActivitySet",
 				controllerName: "AddEditEntry",
 				title: "tit.addActivity",
@@ -93,7 +93,7 @@ sap.ui.define([
 				sSortField: "SORT_NUMBER",
 				sNavTo: "/NotificationToActivity/",
 				mKeys: {
-					NotificationNo: oContextData.NotificationNo
+					NOTIFICATION_NO: oContextData.NOTIFICATION_NO
 				}
 			};
 

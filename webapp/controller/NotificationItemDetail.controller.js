@@ -1,16 +1,15 @@
 sap.ui.define([
-	"com/evorait/evonotify/controller/FormController",
+	"com/evorait/evosuite/evonotify/controller/FormController",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-	"com/evorait/evonotify/model/Constants"
+	"com/evorait/evosuite/evonotify/model/Constants"
 ], function (FormController, Filter, FilterOperator, Constants) {
 	"use strict";
 
-	return FormController.extend("com.evorait.evonotify.controller.NotificationItemDetail", {
+	return FormController.extend("com.evorait.evosuite.evonotify.controller.NotificationItemDetail", {
 
 		oViewModel: null,
-
-		oSmartForm: null,
+		aSmartForms: [],
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */
@@ -43,7 +42,7 @@ sap.ui.define([
 		 */
 		onAfterRendering: function () {
 			this._initializeView();
-			
+
 		},
 
 		/**
@@ -68,7 +67,7 @@ sap.ui.define([
 				this.confirmEditCancelDialog(sPath, true);
 			} else {
 				this.getView().unbindElement();
-				this.oSmartForm.setEditable(false);
+				this.setFormsEditable(this.aSmartForms, false);
 				this.oViewModel.setProperty("/editMode", false);
 				this.getView().unbindElement();
 				this.navBack();
@@ -80,7 +79,7 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onPressEdit: function (oEvent) {
-			this.oSmartForm.setEditable(true);
+			this.setFormsEditable(this.aSmartForms, true);
 			this.oViewModel.setProperty("/editMode", true);
 		},
 
@@ -89,16 +88,12 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onPressSave: function (oEvent) {
-			if (this.oSmartForm) {
-				var mErrors = this.validateForm(this.oSmartForm),
-					oContext = this.getView().getBindingContext();
-				//if form is valid save created entry
+			if (this.aSmartForms.length > 0) {
+				var mErrors = this.validateForm(this.aSmartForms);
 				this.saveChanges(mErrors, this.saveSuccessFn.bind(this));
-			} else {
-				//todo show message
 			}
 		},
-		
+
 		/**
 		 * success callback after saving notification
 		 * @param oResponse
@@ -106,8 +101,8 @@ sap.ui.define([
 		saveSuccessFn: function (oResponse) {
 			var msg = this.getResourceBundle().getText("msg.saveSuccess");
 			sap.m.MessageToast.show(msg);
-			this.oSmartForm.setEditable(false);
-			this.oViewModel.setProperty("/editMode", false);			
+			this.setFormsEditable(this.aSmartForms, false);
+			this.oViewModel.setProperty("/editMode", false);
 		},
 
 		/**
@@ -120,7 +115,7 @@ sap.ui.define([
 				var sPath = this.getView().getBindingContext().getPath();
 				this.confirmEditCancelDialog(sPath);
 			} else {
-				this.oSmartForm.setEditable(false);
+				this.setFormsEditable(this.aSmartForms, false);
 				this.oViewModel.setProperty("/editMode", false);
 			}
 		},
@@ -130,10 +125,9 @@ sap.ui.define([
 		/* =========================================================== */
 
 		_initializeView: function () {
-			this.oSmartForm = this.getView().byId("smartFormTemplate");
-			this.oSmartForm.setEditable(false);
+			this.aSmartForms = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("smartFormTemplate"));
+			this.setFormsEditable(this.aSmartForms, false);
 			this.oViewModel.setProperty("/editMode", false);
-			this.oViewModel.setProperty("/operationsRowsCount", 0);
 		},
 
 		/**

@@ -5,14 +5,14 @@ sap.ui.define([
 ], function (UI5Object, MessageBox, Message) {
 	"use strict";
 
-	return UI5Object.extend("com.evorait.evonotify.controller.ErrorHandler", {
+	return UI5Object.extend("com.evorait.evosuite.evonotify.controller.ErrorHandler", {
 
 		/**
 		 * Handles application errors by automatically attaching to the model events and displaying errors when needed.
 		 * @class
 		 * @param {sap.ui.core.UIComponent} oComponent reference to the app's component
 		 * @public
-		 * @alias com.evorait.evonotify.controller.ErrorHandler
+		 * @alias com.evorait.evosuite.evonotify.controller.ErrorHandler
 		 */
 		constructor: function (oComponent) {
 			this._oResourceBundle = oComponent.getModel("i18n").getResourceBundle();

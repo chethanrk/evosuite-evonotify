@@ -1,9 +1,9 @@
 /*global location*/
 sap.ui.define([
-	"com/evorait/evonotify/controller/BaseController",
+	"com/evorait/evosuite/evonotify/controller/BaseController",
 	"sap/ui/core/routing/History",
 	"sap/ui/model/json/JSONModel",
-	"com/evorait/evonotify/model/formatter"
+	"com/evorait/evosuite/evonotify/model/formatter"
 ], function (
 	BaseController,
 	History,
@@ -12,7 +12,7 @@ sap.ui.define([
 ) {
 	"use strict";
 
-	return BaseController.extend("com.evorait.evonotify.block.items.ItemsBlockController", {
+	return BaseController.extend("com.evorait.evosuite.evonotify.block.items.ItemsBlockController", {
 
 		formatter: formatter,
 
@@ -62,8 +62,8 @@ sap.ui.define([
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#AddEditItem",
-				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditForm",
+				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#NotifItmCreateUpdate",
+				annotationPath: "com.sap.vocabularies.UI.v1.Facets#NotifItmCreateUpdate",
 				entitySet: "PMNotificationItemSet",
 				controllerName: "AddEditEntry",
 				title: "tit.addItem",
@@ -71,7 +71,7 @@ sap.ui.define([
 				sSortField: "SORT_NUMBER",
 				sNavTo: "/NotificationToItem/",
 				mKeys: {
-					NotificationNo: oContextData.NotificationNo
+					NOTIFICATION_NO: oContextData.NOTIFICATION_NO
 				}
 			};
 

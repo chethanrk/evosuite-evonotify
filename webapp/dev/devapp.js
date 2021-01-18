@@ -1,5 +1,5 @@
-jQuery.sap.declare("com.evorait.evonotify.dev.devapp");
-jQuery.sap.require("com.evorait.evonotify.dev.devlogon");
+jQuery.sap.declare("com.evorait.evosuite.evonotify.dev.devapp");
+jQuery.sap.require("com.evorait.evosuite.evonotify.dev.devlogon");
 
 com.evorait.evolite.evonotify.dev.devapp = {
 	smpInfo: {},

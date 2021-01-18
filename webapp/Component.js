@@ -1,26 +1,29 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"com/evorait/evonotify/model/models",
-	"com/evorait/evonotify/controller/ErrorHandler",
-	"com/evorait/evonotify/controller/DialogTemplateRenderController",
-	"com/evorait/evonotify/model/Constants",
+	"com/evorait/evosuite/evonotify/model/models",
+	"com/evorait/evosuite/evonotify/controller/ErrorHandler",
+	"com/evorait/evosuite/evonotify/controller/DialogTemplateRenderController",
+	"com/evorait/evosuite/evonotify/model/Constants",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-	"com/evorait/evonotify/assets/js/url-search-params.min",
-	"com/evorait/evonotify/assets/js/promise-polyfills",
-	"com/evorait/evonotify/controller/MessageManager"
+	"com/evorait/evosuite/evonotify/assets/js/url-search-params.min",
+	"com/evorait/evosuite/evonotify/assets/js/promise-polyfills",
+	"com/evorait/evosuite/evonotify/controller/MessageManager"
 ], function (UIComponent, Device, models, ErrorHandler, DialogTemplateRenderController, Constants, Filter,
 	FilterOperator, UrlSearchPolyfill, PromisePolyfill, MessageManager) {
 	"use strict";
-	
+
 	var oMessageManager = sap.ui.getCore().getMessageManager();
 
-	return UIComponent.extend("com.evorait.evonotify.Component", {
+	return UIComponent.extend("com.evorait.evosuite.evonotify.Component", {
 
 		metadata: {
 			manifest: "json"
 		},
+
+		oSystemInfoProm: null,
+		oTemplatePropsProm: null,
 
 		/**
 		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
@@ -56,8 +59,8 @@ sap.ui.define([
 				serviceUrl: dataSource,
 				editMode: false,
 				isNew: false,
-				operationsRowsCount: 0,
-				launchMode: Constants.LAUNCH_MODE.BSP
+				launchMode: Constants.LAUNCH_MODE.BSP,
+				createPageOnly: false
 			};
 
 			this.setModel(models.createHelperModel(viewModelObj), "viewModel");
@@ -77,16 +80,24 @@ sap.ui.define([
 			this._getFunctionSet();
 
 			this._setApp2AppLinks();
-			
+
 			this.setModel(oMessageManager.getMessageModel(), "message");
-			
+
 			this.MessageManager = new MessageManager();
 			this.setModel(models.createMessageManagerModel(), "messageManager");
 
-			//get start parameter when app2app navigation is in URL
-			//replace hash when startup parameter
-			//and init Router after success or fail
-			this._initRouter();
+			//wait for the models to load and then initialize the router
+			this.getModel().attachRequestCompleted("modelsLoaded", function (oEvent) {
+				if (oEvent.getParameter("url").includes("NavigationLinksSet")) {
+					this._initRouter();
+				}
+			}, this);
+			this.getModel().attachRequestFailed("modelsLoadFailed", function (oEvent) {
+				if (oEvent.getParameter("url").includes("NavigationLinksSet")) {
+					this._initRouter();
+				}
+			}, this);
+
 		},
 
 		/**
@@ -121,6 +132,27 @@ sap.ui.define([
 		},
 
 		/**
+		 * get url GET parameter by key name
+		 */
+		getLinkParameterByName: function (sKey) {
+			var oComponentData = this.getComponentData();
+			//Fiori Launchpad startup parameters
+			if (oComponentData) {
+				var oStartupParams = oComponentData.startupParameters;
+				if (oStartupParams[sKey] && (oStartupParams[sKey].length > 0)) {
+					return oStartupParams[sKey][0];
+				}
+			} else {
+				var queryString = window.location.search,
+					urlParams = new URLSearchParams(queryString);
+				if (urlParams.has(sKey)) {
+					return urlParams.get(sKey);
+				}
+			}
+			return false;
+		},
+
+		/**
 		 * check if mobile device
 		 * @returns {boolean}
 		 * @private
@@ -133,8 +165,11 @@ sap.ui.define([
 		 * Calls the GetSystemInformation 
 		 */
 		_getSystemInformation: function () {
-			this.readData("/SystemInformationSet", []).then(function (oData) {
-				this.getModel("user").setData(oData.results[0]);
+			this.oSystemInfoProm = new Promise(function (resolve) {
+				this.readData("/SystemInformationSet", []).then(function (oData) {
+					this.getModel("user").setData(oData.results[0]);
+					resolve(oData.results[0]);
+				}.bind(this));
 			}.bind(this));
 		},
 
@@ -157,10 +192,11 @@ sap.ui.define([
 		/**
 		 * Check for a Startup parameter and look for Order ID in Backend
 		 * When there is a filtered Order replace route hash
+		 * and init Router after success or fail
 		 */
 		_initRouter: function () {
 			var oFilter = this._getStartupParamFilter();
-			if (oFilter) {
+			if (typeof oFilter === "object") {
 				this.readData("/PMNotificationSet", [oFilter]).then(function (mResult) {
 					if (mResult.results.length > 0) {
 						//replace hash and init route
@@ -170,6 +206,12 @@ sap.ui.define([
 					}
 					this.getRouter().initialize();
 				}.bind(this));
+			} else if (oFilter === Constants.PROPERTY.NEW) {
+				//init route for create notification
+				var hashChanger = sap.ui.core.routing.HashChanger.getInstance();
+				hashChanger.replaceHash("NewNotification");
+				this.getModel("viewModel").setProperty("/createPageOnly", true);
+				this.getRouter().initialize();
 			} else {
 				// create the views based on the url/hash
 				this.getRouter().initialize();
@@ -182,22 +224,12 @@ sap.ui.define([
 		 */
 		_getStartupParamFilter: function () {
 			var oComponentData = this.getComponentData(),
-				sKey = Constants.PROPERTY.EVONOTIFY;
+				sKey = this.getLinkParameterByName(Constants.PROPERTY.EVONOTIFY);
 
-			//Fiori Launchpad startup parameters
-			if (oComponentData) {
-				var oStartupParams = oComponentData.startupParameters;
-				if (oStartupParams[sKey] && (oStartupParams[sKey].length > 0)) {
-					return new Filter(sKey, FilterOperator.EQ, oStartupParams[sKey][0]);
-				}
-			} else {
-				var queryString = window.location.search,
-					urlParams = new URLSearchParams(queryString);
-				if (urlParams.has(sKey)) {
-					var oFilter = new Filter(sKey, FilterOperator.EQ, urlParams.get(sKey));
-					urlParams.delete(sKey);
-					return oFilter;
-				}
+			if (sKey === Constants.PROPERTY.NEW) {
+				return sKey;
+			} else if (sKey) {
+				return oFilter = new Filter(Constants.PROPERTY.EVONOTIFY, FilterOperator.EQ, sKey);
 			}
 			return false;
 		},
@@ -212,16 +244,19 @@ sap.ui.define([
 			var oFilter = new Filter("LaunchMode", FilterOperator.EQ, this.getModel("viewModel").getProperty("/launchMode")),
 				mProps = {};
 
-			this.readData("/NavigationLinksSet", [oFilter])
-				.then(function (data) {
-					data.results.forEach(function (oItem) {
-						if (oItem.Value1 && Constants.APPLICATION[oItem.ApplicationId]) {
-							oItem.Property = oItem.Value2 || Constants.PROPERTY[oItem.ApplicationId];
-							mProps[oItem.Property] = oItem;
-						}
+			this.oTemplatePropsProm = new Promise(function (resolve) {
+				this.readData("/NavigationLinksSet", [oFilter])
+					.then(function (data) {
+						data.results.forEach(function (oItem) {
+							if (oItem.Value1 && Constants.APPLICATION[oItem.ApplicationId]) {
+								oItem.Property = oItem.Value2 || Constants.PROPERTY[oItem.ApplicationId];
+								mProps[oItem.Property] = oItem;
+							}
+						}.bind(this));
+						this.getModel("templateProperties").setProperty("/navLinks/", mProps);
+						resolve(mProps);
 					}.bind(this));
-					this.getModel("templateProperties").setProperty("/navLinks/", mProps);
-				}.bind(this));
+			}.bind(this));
 		},
 
 		/**

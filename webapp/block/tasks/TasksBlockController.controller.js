@@ -1,18 +1,22 @@
 /*global location*/
 sap.ui.define([
-	"com/evorait/evonotify/controller/BaseController",
+	"com/evorait/evosuite/evonotify/controller/FormController",
 	"sap/ui/core/routing/History",
 	"sap/ui/model/json/JSONModel",
-	"com/evorait/evonotify/model/formatter"
+	"com/evorait/evosuite/evonotify/model/formatter",
+	"sap/ui/model/FilterOperator",
+	"sap/ui/model/Filter"
 ], function (
-	BaseController,
+	FormController,
 	History,
 	JSONModel,
-	formatter
+	formatter,
+	FilterOperator,
+	Filter
 ) {
 	"use strict";
 
-	return BaseController.extend("com.evorait.evonotify.block.tasks.TasksBlockController", {
+	return FormController.extend("com.evorait.evosuite.evonotify.block.tasks.TasksBlockController", {
 
 		formatter: formatter,
 
@@ -37,9 +41,14 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onPressItem: function (oEvent) {
+			this._setBusyWhileSaving(this.getView(), true);
 			this.oListItem = oEvent.getParameter("listItem");
+			this.oStatusSelectControl = this.getView().byId("idTaskStatusChangeMenu");
+			this.oStatusSelectControl.setEnabled(false);
 			this._oTaskContext = this.oListItem.getBindingContext();
-			this._setStatusSelectItemsVisibility();
+			this._oNotificationContext = this.oView.getBindingContext().getObject();
+			this._getNotificationTaskDetails(this._oTaskContext.getObject().ObjectKey);
+			this._validateTaskEdiButton(this._oTaskContext.getObject().ENABLE_TASK_CHANGE);
 		},
 
 		/**
@@ -50,8 +59,8 @@ sap.ui.define([
 		onPressEdit: function (oEvent) {
 			if (this._oTaskContext) {
 				var mParams = {
-					viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#EditTask",
-					annotationPath: "com.sap.vocabularies.UI.v1.Facets#editForm",
+					viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#TaskUpdate",
+					annotationPath: "com.sap.vocabularies.UI.v1.Facets#TaskUpdate",
 					entitySet: "PMNotificationTaskSet",
 					controllerName: "AddEditEntry",
 					title: "tit.editTask",
@@ -81,9 +90,9 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onSelectStatus: function (oEvent) {
-			if (this._oTaskContext) {
+			if (this._oTaskContext && this._oTaskContextData) {
 				var sSelFunctionKey = oEvent.getParameter("item").getKey(),
-					oData = this._oTaskContext.getObject(),
+					oData = this._oTaskContextData,
 					sPath = this._oTaskContext.getPath(),
 					message = "";
 
@@ -91,9 +100,11 @@ sap.ui.define([
 					this.getModel().setProperty(sPath + "/FUNCTION", sSelFunctionKey);
 					this.saveChanges({
 						state: "success"
-					}, null, null, this.getView());
+					}, this.saveSuccessFn.bind(this), this.saveErrorFn.bind(this), this.getView());
+					this.oListItem.getParent().removeSelections(true);
+					this.oStatusSelectControl.setEnabled(false);
 				} else {
-					message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NotificationNo);
+					message = this.getResourceBundle().getText("msg.notificationSubmitFail", this._oNotificationContext.NOTIFICATION_NO);
 					this.showInformationDialog(message);
 				}
 			} else {
@@ -112,8 +123,8 @@ sap.ui.define([
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#AddTask",
-				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addForm",
+				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#TaskCreate",
+				annotationPath: "com.sap.vocabularies.UI.v1.Facets#TaskCreate",
 				entitySet: "PMNotificationTaskSet",
 				controllerName: "AddEditEntry",
 				title: "tit.addTask",
@@ -121,7 +132,7 @@ sap.ui.define([
 				sSortField: "SORT_NUMBER",
 				sNavTo: "/NotificationToTask/",
 				mKeys: {
-					NotificationNo: oContextData.NotificationNo
+					NOTIFICATION_NO: oContextData.NOTIFICATION_NO
 				}
 			};
 
@@ -136,19 +147,54 @@ sap.ui.define([
 		 * @param sStatus
 		 */
 		_setStatusSelectItemsVisibility: function (sStatus) {
-			if (!this._oTaskContext) {
+			if (!this._oTaskContextData) {
 				return false;
 			} else {
-				var oContextData = this._oTaskContext.getObject(),
-					oStatusSelectControl = this.getView().byId("idTaskStatusChangeMenu"),
-					oMenu = oStatusSelectControl.getMenu();
-
+				var oContextData = this._oTaskContextData,
+					oMenu = this.oStatusSelectControl.getMenu();
+				this.oStatusSelectControl.setEnabled(true);
 				oMenu.getItems().forEach(function (oItem) {
 					oItem.setVisible(oContextData["ALLOW_" + oItem.getKey()]);
 				}.bind(this));
+				this._setBusyWhileSaving(this.getView(), false);
+			}
+		},
+
+		/**
+		 * success callback after saving notification
+		 * @param oResponse
+		 */
+		saveSuccessFn: function (oResponse) {
+			var msg = this.getResourceBundle().getText("msg.saveSuccess");
+			sap.m.MessageToast.show(msg);
+		},
+
+		/**
+		 * error callback after saving notification
+		 * @param oResponse
+		 */
+		saveErrorFn: function (oResponse) {
+			this.getModel().resetChanges([this._oTaskContext.getPath()]);
+		},
+
+		_getNotificationTaskDetails: function (filterParameter) {
+			var oFilter1 = new Filter("ObjectKey", FilterOperator.EQ, filterParameter);
+			this.getOwnerComponent().readData("/PMNotificationTaskSet", [
+				[oFilter1]
+			]).then(function (oData) {
+				this._oTaskContextData = oData.results[0];
+				this._setStatusSelectItemsVisibility();
+			}.bind(this));
+		},
+
+		_validateTaskEdiButton: function (isTaskEditable) {
+			var oTaskEditCtrl = this.getView().byId("idTaskEdit");
+			if (isTaskEditable === "X") {
+				oTaskEditCtrl.setEnabled(true);
+			} else {
+				oTaskEditCtrl.setEnabled(false);
 			}
 		}
-
 	});
 
 });

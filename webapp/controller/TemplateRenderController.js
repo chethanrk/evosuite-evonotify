@@ -1,13 +1,13 @@
 sap.ui.define([
-	"com/evorait/evonotify/controller/BaseController",
+	"com/evorait/evosuite/evonotify/controller/BaseController",
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/core/mvc/View",
 	"sap/ui/core/mvc/ViewType",
-	"com/evorait/evonotify/model/AnnotationHelper"
+	"com/evorait/evosuite/evonotify/model/AnnotationHelper"
 ], function (BaseController, Controller, CoreView, ViewType, AnnotationHelper) {
 	"use strict";
 
-	return BaseController.extend("com.evorait.evonotify.controller.TemplateRenderController", {
+	return BaseController.extend("com.evorait.evosuite.evonotify.controller.TemplateRenderController", {
 
 		mTemplates: {},
 
@@ -130,7 +130,7 @@ sap.ui.define([
 
 						if (sControllerName) {
 							Controller.create({
-								name: "com.evorait.evonotify.controller." + sControllerName
+								name: "com.evorait.evosuite.evonotify.controller." + sControllerName
 							}).then(function (controller) {
 								this.createView(oModel, oMetaModel, sPath, sViewName, controller).then(setTemplateAndBind);
 							}.bind(this));
@@ -223,7 +223,7 @@ sap.ui.define([
 
 		/**
 		 * get view name or view id
-		 * input example: com.evorait.evonotify.view.templates.SmartFormWrapper#addOperation
+		 * input example: com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#addOperation
 		 * @param sViewName
 		 * @param getId
 		 */
@@ -237,7 +237,7 @@ sap.ui.define([
 
 		/**
 		 * join fragment name and Id together again
-		 * input example: "addOperation", "com.evorait.evonotify.view.templates.SmartFormWrapper"
+		 * input example: "addOperation", "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper"
 		 * @param sViewId
 		 * @param sViewName
 		 */

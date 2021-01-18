@@ -1,9 +1,9 @@
 /*global location*/
 sap.ui.define([
-	"com/evorait/evonotify/controller/BaseController",
+	"com/evorait/evosuite/evonotify/controller/BaseController",
 	"sap/ui/core/routing/History",
 	"sap/ui/model/json/JSONModel",
-	"com/evorait/evonotify/model/formatter"
+	"com/evorait/evosuite/evonotify/model/formatter"
 ], function (
 	BaseController,
 	History,
@@ -12,7 +12,7 @@ sap.ui.define([
 ) {
 	"use strict";
 
-	return BaseController.extend("com.evorait.evonotify.block.causes.CausesBlockController", {
+	return BaseController.extend("com.evorait.evosuite.evonotify.block.causes.CausesBlockController", {
 
 		formatter: formatter,
 
@@ -48,8 +48,8 @@ sap.ui.define([
 		onPressEdit: function (oEvent) {
 			if (this._oItemCauseContext) {
 				var mParams = {
-					viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#addEditItemCauseForm",
-					annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditItemCauseForm",
+					viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#ItemCauseUpdate",
+					annotationPath: "com.sap.vocabularies.UI.v1.Facets#ItemCauseUpdate",
 					entitySet: "PMNotificationItemCauseSet",
 					controllerName: "AddEditEntry",
 					title: "tit.editCause",
@@ -84,8 +84,8 @@ sap.ui.define([
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				viewName: "com.evorait.evonotify.view.templates.SmartFormWrapper#AddCause",
-				annotationPath: "com.sap.vocabularies.UI.v1.Facets#addEditItemCauseForm",
+				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#ItemCauseCreate",
+				annotationPath: "com.sap.vocabularies.UI.v1.Facets#ItemCauseCreate",
 				entitySet: "PMNotificationItemCauseSet",
 				controllerName: "AddEditEntry",
 				title: "tit.addCause",
@@ -93,8 +93,8 @@ sap.ui.define([
 				sSortField: "SORT_NUMBER",
 				sNavTo: "/NotificationItemToCause/",
 				mKeys: {
-					NotificationNo: oContextData.NotificationNo,
-					NotificationItem: oContextData.NotificationItem
+					NOTIFICATION_NO: oContextData.NOTIFICATION_NO,
+					NOTIFICATION_ITEM: oContextData.NOTIFICATION_ITEM
 				}
 			};
 

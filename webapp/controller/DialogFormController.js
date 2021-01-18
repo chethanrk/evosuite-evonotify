@@ -1,15 +1,15 @@
 sap.ui.define([
-	"com/evorait/evonotify/controller/FormController"
+	"com/evorait/evosuite/evonotify/controller/FormController"
 ], function (FormController) {
 	"use strict";
 
-	return FormController.extend("com.evorait.evonotify.controller.DialogFormController", {
+	return FormController.extend("com.evorait.evosuite.evonotify.controller.DialogFormController", {
 
 		oTemplateModel: null,
 
 		_oDialog: null,
 
-		_oForm: null,
+		_aSmartForms: [],
 
 		_oContext: null,
 
@@ -30,8 +30,8 @@ sap.ui.define([
 			this.oTemplateModel = this.getModel("templateProperties");
 
 			//SmartForm is editable
-			this._oForm = this.getView().byId("smartFormTemplate");
-			this._oForm.setEditable(true);
+			this._aSmartForms = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("smartFormTemplate"));
+			this.setFormsEditable(this._aSmartForms, true);
 
 			var eventBus = sap.ui.getCore().getEventBus();
 			//Binnding has changed in TemplateRenderController.js
@@ -120,7 +120,7 @@ sap.ui.define([
 		 * CAUSE: Prefiltering operation dropdown is not supported by annotations
 		 */
 		_replaceFieldWithSelect: function (sFieldName, mParams) {
-			var oField = this.getFormFieldByName(sFieldName, this._oForm);
+			var oField = this.getFormFieldByName(sFieldName, this._aSmartForms);
 			if (oField) {
 				this.replaceSmartFieldWithDropdown(oField, this._sViewNameId + sFieldName, mParams, this.onChangeSmartField.bind(this));
 			}

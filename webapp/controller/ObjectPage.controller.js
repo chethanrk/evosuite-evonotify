@@ -1,9 +1,9 @@
 sap.ui.define([
-	"com/evorait/evonotify/controller/TemplateRenderController"
+	"com/evorait/evosuite/evonotify/controller/TemplateRenderController"
 ], function (TemplateRenderController) {
 	"use strict";
 
-	return TemplateRenderController.extend("com.evorait.evonotify.controller.ObjectPage", {
+	return TemplateRenderController.extend("com.evorait.evosuite.evonotify.controller.ObjectPage", {
 
 		oViewModel: null,
 
@@ -24,29 +24,31 @@ sap.ui.define([
 					this.oViewModel.setProperty("/bObjectPageRouteMatchAttached", true);
 
 					var sRouteName = oEvent.getParameter("name"),
-						sViewName = null;
+						sViewName = null,
+						mParams = {},
+						oArgs = oEvent.getParameter("arguments");
 
-					//route for page create new notification
-					if (sRouteName === "CreateNotification") {
-						sViewName = "com.evorait.evonotify.view.templates.CreateNotification#Create";
-						this._onRouteMatched(oEvent, sViewName, "PMNotificationSet");
-					} else if (sRouteName === "NotificationDetail") {
-						//Order detail view
-						sViewName = "com.evorait.evonotify.view.templates.NotificationDetail#Data";
-						var oArgs = oEvent.getParameter("arguments"),
+					this.getOwnerComponent().oTemplatePropsProm.then(function () {
+						//route for page create new notification
+						if (sRouteName === "CreateNotification") {
+							sViewName = "com.evorait.evosuite.evonotify.view.templates.CreateNotification#Create";
+							this._onRouteMatched(oEvent, sViewName, "PMNotificationSet");
+						} else if (sRouteName === "NotificationDetail") {
+							//Order detail view
+							sViewName = "com.evorait.evosuite.evonotify.view.templates.NotificationDetail#Data";
 							mParams = {
 								ObjectKey: oArgs.ObjectKey
 							};
-						this._onRouteMatched(oEvent, sViewName, "PMNotificationSet", mParams);
-					} else if (sRouteName === "NotificationItemDetail") {
-						//Order detail view
-						sViewName = "com.evorait.evonotify.view.templates.NotificationItemDetail#ItemData";
-						var oArgs = oEvent.getParameter("arguments"),
+							this._onRouteMatched(oEvent, sViewName, "PMNotificationSet", mParams);
+						} else if (sRouteName === "NotificationItemDetail") {
+							//Order detail view
+							sViewName = "com.evorait.evosuite.evonotify.view.templates.NotificationItemDetail#ItemData";
 							mParams = {
 								ObjectKey: oArgs.ObjectKey
 							};
-						this._onRouteMatched(oEvent, sViewName, "PMNotificationItemSet", mParams);
-					}
+							this._onRouteMatched(oEvent, sViewName, "PMNotificationItemSet", mParams);
+						}
+					}.bind(this));
 				}.bind(this));
 			}
 		},

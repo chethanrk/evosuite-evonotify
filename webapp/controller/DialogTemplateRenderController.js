@@ -1,10 +1,10 @@
 sap.ui.define([
-	"com/evorait/evonotify/controller/TemplateRenderController",
+	"com/evorait/evosuite/evonotify/controller/TemplateRenderController",
 	"sap/ui/core/Fragment"
 ], function (TemplateRenderController, Fragment) {
 	"use strict";
 
-	return TemplateRenderController.extend("com.evorait.evonotify.controller.DialogTemplateRenderController", {
+	return TemplateRenderController.extend("com.evorait.evosuite.evonotify.controller.DialogTemplateRenderController", {
 
 		_oHelperModel: null,
 
@@ -63,10 +63,10 @@ sap.ui.define([
 		onPressSave: function (oEvent) {
 			var oContentView = this._oDialog.getContent()[0],
 				oViewController = oContentView.getController(),
-				oForm = oContentView.byId("smartFormTemplate");
+				aForms = oViewController.getAllSmartForms(oContentView.getControlsByFieldGroupId("smartFormTemplate"));
 
-			if (oForm && oViewController.validateForm) {
-				var mErrors = oViewController.validateForm(oForm);
+			if (aForms.length > 0 && oViewController.validateForm) {
+				var mErrors = oViewController.validateForm(aForms);
 				//if form is valid save created entry
 				oViewController.saveChanges(mErrors, this._saveSuccessFn.bind(this), this._saveErrorFn.bind(this), this._oDialog);
 			} else {
@@ -93,7 +93,7 @@ sap.ui.define([
 		_loadDialog: function () {
 			if (!this._oDialog) {
 				Fragment.load({
-					name: "com.evorait.evonotify.view.fragments.FormDialog",
+					name: "com.evorait.evosuite.evonotify.view.fragments.FormDialog",
 					controller: this,
 					type: "XML"
 				}).then(function (oFragment) {

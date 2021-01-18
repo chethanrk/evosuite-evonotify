@@ -1,6 +1,6 @@
 /* Enter your custom styles here */
 
-.workorderSmartTable > div:first-child {
+.workorderSmartTable>div:first-child {
     top: 0;
     z-index: 1;
     background-color: #fff;
@@ -13,4 +13,23 @@
 .workorderSmartTable .sapMSticky6>.sapMListInfoTBarContainer,
 .workorderSmartTable .sapMSticky7>.sapMListHdr {
     top: 2.5rem;
+}
+
+.smartFormTemplate .sapMInputBase.sapMTextArea {
+    min-width: 100%;
+
+}
+
+.smartFormTemplate .sapMInputBase.sapMTextArea .sapMInputBaseContentWrapper {
+    min-height: 5rem;
+}
+
+.smartFormTemplate .sapUiRespGridSpanL12.sapUiRespGridSpanM12.sapUiRespGridSpanS12.sapUiRespGridSpanXL12 .sapUiFormElementLbl {
+    float: none;
+    display: none;
+}
+
+.smartFormTemplate .sapUiRespGridSpanL12.sapUiRespGridSpanM12.sapUiRespGridSpanS12.sapUiRespGridSpanXL12 div[class*="sapUiRespGridSpan"] {
+    float: none;
+    width: 100%;
 }
