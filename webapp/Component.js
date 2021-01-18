@@ -59,7 +59,8 @@ sap.ui.define([
 				serviceUrl: dataSource,
 				editMode: false,
 				isNew: false,
-				launchMode: Constants.LAUNCH_MODE.BSP
+				launchMode: Constants.LAUNCH_MODE.BSP,
+				createPageOnly: false
 			};
 
 			this.setModel(models.createHelperModel(viewModelObj), "viewModel");
@@ -131,6 +132,27 @@ sap.ui.define([
 		},
 
 		/**
+		 * get url GET parameter by key name
+		 */
+		getLinkParameterByName: function (sKey) {
+			var oComponentData = this.getComponentData();
+			//Fiori Launchpad startup parameters
+			if (oComponentData) {
+				var oStartupParams = oComponentData.startupParameters;
+				if (oStartupParams[sKey] && (oStartupParams[sKey].length > 0)) {
+					return oStartupParams[sKey][0];
+				}
+			} else {
+				var queryString = window.location.search,
+					urlParams = new URLSearchParams(queryString);
+				if (urlParams.has(sKey)) {
+					return urlParams.get(sKey);
+				}
+			}
+			return false;
+		},
+
+		/**
 		 * check if mobile device
 		 * @returns {boolean}
 		 * @private
@@ -170,13 +192,11 @@ sap.ui.define([
 		/**
 		 * Check for a Startup parameter and look for Order ID in Backend
 		 * When there is a filtered Order replace route hash
+		 * and init Router after success or fail
 		 */
 		_initRouter: function () {
-			//get start parameter when app2app navigation is in URL
-			//replace hash when startup parameter
-			//and init Router after success or fail
 			var oFilter = this._getStartupParamFilter();
-			if (oFilter) {
+			if (typeof oFilter === "object") {
 				this.readData("/PMNotificationSet", [oFilter]).then(function (mResult) {
 					if (mResult.results.length > 0) {
 						//replace hash and init route
@@ -186,6 +206,12 @@ sap.ui.define([
 					}
 					this.getRouter().initialize();
 				}.bind(this));
+			} else if (oFilter === Constants.PROPERTY.NEW) {
+				//init route for create notification
+				var hashChanger = sap.ui.core.routing.HashChanger.getInstance();
+				hashChanger.replaceHash("NewNotification");
+				this.getModel("viewModel").setProperty("/createPageOnly", true);
+				this.getRouter().initialize();
 			} else {
 				// create the views based on the url/hash
 				this.getRouter().initialize();
@@ -198,22 +224,12 @@ sap.ui.define([
 		 */
 		_getStartupParamFilter: function () {
 			var oComponentData = this.getComponentData(),
-				sKey = Constants.PROPERTY.EVONOTIFY;
+				sKey = this.getLinkParameterByName(Constants.PROPERTY.EVONOTIFY);
 
-			//Fiori Launchpad startup parameters
-			if (oComponentData) {
-				var oStartupParams = oComponentData.startupParameters;
-				if (oStartupParams[sKey] && (oStartupParams[sKey].length > 0)) {
-					return new Filter(sKey, FilterOperator.EQ, oStartupParams[sKey][0]);
-				}
-			} else {
-				var queryString = window.location.search,
-					urlParams = new URLSearchParams(queryString);
-				if (urlParams.has(sKey)) {
-					var oFilter = new Filter(sKey, FilterOperator.EQ, urlParams.get(sKey));
-					urlParams.delete(sKey);
-					return oFilter;
-				}
+			if (sKey === Constants.PROPERTY.NEW) {
+				return sKey;
+			} else if (sKey) {
+				return oFilter = new Filter(Constants.PROPERTY.EVONOTIFY, FilterOperator.EQ, sKey);
 			}
 			return false;
 		},

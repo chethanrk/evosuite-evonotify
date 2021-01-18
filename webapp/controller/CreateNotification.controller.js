@@ -1,12 +1,14 @@
 sap.ui.define([
-	"com/evorait/evosuite/evonotify/controller/FormController"
-], function (FormController) {
+	"com/evorait/evosuite/evonotify/controller/FormController",
+	"com/evorait/evosuite/evonotify/model/Constants"
+], function (FormController, Constants) {
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.controller.CreateNotification", {
 
 		oViewModel: null,
 		aSmartForms: [],
+		isStandalonePage: false,
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */
@@ -42,9 +44,12 @@ sap.ui.define([
 		_initializeView: function () {
 			this.aSmartForms = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("smartFormTemplate"));
 			this.setFormsEditable(this.aSmartForms, true);
+			this.isStandalonePage = this.oViewModel.getProperty("/createPageOnly");
 
 			this.oViewModel.setProperty("/editMode", true);
 			this.oViewModel.setProperty("/isNew", true);
+
+			this._checkForLinkParameters();
 		},
 
 		/**
@@ -82,7 +87,7 @@ sap.ui.define([
 			if (this.aSmartForms.length > 0) {
 				var mErrors = this.validateForm(this.aSmartForms);
 				//if form is valid save created entry
-				this.saveChanges(mErrors, this.saveCreateSuccessFn.bind(this));
+				this.saveChanges(mErrors, this._saveCreateSuccessFn.bind(this));
 			}
 		},
 
@@ -91,17 +96,54 @@ sap.ui.define([
 		/* =========================================================== */
 
 		/**
+		 * check for GET paramters in url 
+		 * when there are parameters check if its a property name
+		 * and is this property is creatable true
+		 */
+		_checkForLinkParameters: function () {
+			var oContext = this.getView().getBindingContext();
+			if (oContext) {
+				var oData = oContext.getObject(),
+					sPath = oContext.getPath(),
+					oModel = this.getModel();
+
+				//check if GET parameter is allowed prefill field
+				//only when property is creatable true then prefill property
+				oModel.getMetaModel().loaded().then(function () {
+					var oMetaModel = oModel.getMetaModel() || oModel.getProperty("/metaModel"),
+						oEntitySet = oMetaModel.getODataEntitySet("PMNotificationSet"),
+						oEntityType = oMetaModel.getODataEntityType(oEntitySet.entityType);
+
+					for (var key in oData) {
+						var urlValue = this.getOwnerComponent().getLinkParameterByName(key);
+						if (urlValue && urlValue !== Constants.PROPERTY.NEW) {
+							var oProperty = oMetaModel.getODataProperty(oEntityType, key);
+							//check if key is creatable true and url param value is not bigger then maxLength of property
+							if ((!oProperty.hasOwnProperty("sap:creatable") || oProperty["sap:creatable"] === "true") &&
+								(urlValue.length <= parseInt(oProperty["maxLength"]))) {
+								oModel.setProperty(sPath + "/" + key, urlValue);
+							}
+						}
+					}
+				}.bind(this));
+			}
+		},
+
+		/**
 		 * success callback after creating order
 		 * @param oResponse
 		 */
-		saveCreateSuccessFn: function (oResponse) {
+		_saveCreateSuccessFn: function (oResponse) {
 			var objectKey = null,
 				oChangeData = this.getBatchChangeResponse(oResponse);
 
 			if (oChangeData) {
 				objectKey = oChangeData.ObjectKey;
 
-				if (objectKey && objectKey !== "") {
+				if (this.isStandalonePage) {
+					var msg = this.getResourceBundle().getText("msg.notifcationCreateSuccess", objectKey);
+					sap.m.MessageToast.show(msg);
+				} else if (objectKey && objectKey !== "") {
 					this.oViewModel.setProperty("/newCreatedNotification", true);
 					this.getRouter().navTo("NotificationDetail", {
 						ObjectKey: objectKey
