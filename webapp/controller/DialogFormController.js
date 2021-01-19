@@ -31,7 +31,6 @@ sap.ui.define([
 
 			//SmartForm is editable
 			this._aSmartForms = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("smartFormTemplate"));
-			this.setFormsEditable(this._aSmartForms, true);
 
 			var eventBus = sap.ui.getCore().getEventBus();
 			//Binnding has changed in TemplateRenderController.js
@@ -79,6 +78,8 @@ sap.ui.define([
 		 */
 		_changedBinding: function (sChannel, sEvent, oData) {
 			if (sChannel === "TemplateRendererEvoNotify" && sEvent === "changedBinding") {
+				this.setFormsEditable(this._aSmartForms, true);
+
 				var sViewId = this.getView().getId(),
 					sViewName = this.getView().getViewName();
 				this._sViewNameId = sViewName + "#" + sViewId;
