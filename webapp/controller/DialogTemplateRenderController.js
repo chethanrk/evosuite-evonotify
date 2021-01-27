@@ -147,7 +147,9 @@ sap.ui.define([
 					var msg = this._oResourceBundle.getText("msg.saveSuccess");
 					sap.m.MessageToast.show(msg);
 					setTimeout(function () {
-						this._oModel.refresh();
+						if (this._oSmartTable) {
+							this._oSmartTable.rebindTable();
+						}
 					}.bind(this), 1500);
 				} else {
 					//Todo show error message

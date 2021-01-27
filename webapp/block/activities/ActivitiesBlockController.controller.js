@@ -15,6 +15,7 @@ sap.ui.define([
 	return BaseController.extend("com.evorait.evosuite.evonotify.block.activities.ActivitiesBlockController", {
 
 		formatter: formatter,
+		_oSmartTable: null,
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */
@@ -25,7 +26,7 @@ sap.ui.define([
 		 * @public
 		 */
 		onInit: function () {
-
+			this._oSmartTable = this.getView().byId("notificationActivityTable");
 		},
 
 		/* =========================================================== */
@@ -54,7 +55,8 @@ sap.ui.define([
 					controllerName: "AddEditEntry",
 					title: "tit.editActivity",
 					type: "edit",
-					sPath: this._oActivityContext.getPath()
+					sPath: this._oActivityContext.getPath(),
+					smartTable: this._oSmartTable
 				};
 				this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
 				this._oActivityContext = null;
@@ -90,6 +92,7 @@ sap.ui.define([
 				controllerName: "AddEditEntry",
 				title: "tit.addActivity",
 				type: "add",
+				smartTable: this._oSmartTable,
 				sSortField: "SORT_NUMBER",
 				sNavTo: "/NotificationToActivity/",
 				mKeys: {
