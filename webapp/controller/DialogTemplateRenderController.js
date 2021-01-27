@@ -36,6 +36,7 @@ sap.ui.define([
 			this._oModel = oView.getModel();
 			this._oResourceBundle = oView.getController().getOwnerComponent().getModel("i18n").getResourceBundle();
 			this._mParams = mParams;
+			this._oSmartTable = mParams.smartTable;;
 
 			//set annotation path and other parameters
 			this.setTemplateProperties(mParams);
