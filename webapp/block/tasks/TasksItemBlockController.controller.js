@@ -19,7 +19,7 @@ sap.ui.define([
 	return FormController.extend("com.evorait.evosuite.evonotify.block.tasks.TasksItemBlockController", {
 
 		formatter: formatter,
-
+		_oSmartTable: null,
 		/* =========================================================== */
 		/* lifecycle methods                                           */
 		/* =========================================================== */
@@ -29,7 +29,7 @@ sap.ui.define([
 		 * @public
 		 */
 		onInit: function () {
-
+			this._oSmartTable = this.getView().byId("notificationTasksItemTable");
 		},
 
 		/* =========================================================== */
@@ -64,7 +64,8 @@ sap.ui.define([
 					controllerName: "AddEditEntry",
 					title: "tit.editTask",
 					type: "edit",
-					sPath: this._oItemTaskContext.getPath()
+					sPath: this._oItemTaskContext.getPath(),
+					smartTable: this._oSmartTable
 				};
 				this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
 				this._oItemTaskContext = null;
@@ -100,6 +101,7 @@ sap.ui.define([
 				controllerName: "AddEditEntry",
 				title: "tit.addTask",
 				type: "add",
+				smartTable: this._oSmartTable,
 				sSortField: "SORT_NUMBER",
 				sNavTo: "/NotificationItemToTask/",
 				mKeys: {
