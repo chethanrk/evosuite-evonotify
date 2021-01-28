@@ -196,9 +196,7 @@ sap.ui.define([
 						sMsg = oData.MaintenanceNotification + "/" + (oData.MaintenanceNotificationTask || "") + " " + this.getResourceBundle().getText(
 							"msg.saveStatusSuccess");
 					}
-					MessageToast.show(sMsg, {
-						duration: 5000
-					});
+					this.showMessageToast(sMsg);
 
 				}.bind(this), // callback function for success
 
@@ -246,7 +244,7 @@ sap.ui.define([
 								});
 							} else {
 								var msg = oView.getModel("i18n").getResourceBundle().getText("msg.saveSuccess");
-								sap.m.MessageToast.show(msg);
+								this.showMessageToast(msg);
 
 								if (mParams.success) {
 									mParams.success();
@@ -310,8 +308,8 @@ sap.ui.define([
 		showMessageToast: function (msg) {
 			sap.m.MessageToast.show(msg, {
 				duration: 5000, // default
-				my: "center bottom", // default
-				at: "center bottom", // default
+				my: "center center", // default
+				at: "center center", // default
 				of: window, // default
 				offset: "0 20", // default
 				collision: "fit fit", // default
