@@ -268,7 +268,7 @@ sap.ui.define([
 		 */
 		_saveCreateSuccessFn: function () {
 			var msg = this.getResourceBundle().getText("msg.saveSuccess");
-			sap.m.MessageToast.show(msg);
+			this.showMessageToast(msg);
 			this.setFormsEditable(this.aSmartForms, false);
 			this.oViewModel.setProperty("/editMode", false);
 		},
@@ -309,5 +309,9 @@ sap.ui.define([
 			}
 			return null;
 		},
+
+		showSuccessMessage: function (sMessage) {
+			this.showMessageToast(sMessage);
+		}
 	});
 });

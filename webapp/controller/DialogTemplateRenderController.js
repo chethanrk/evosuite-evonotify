@@ -146,7 +146,7 @@ sap.ui.define([
 			if (responseCode) {
 				if (responseCode[0].statusCode === "200" || responseCode[0].statusCode === "201" || responseCode[0].statusCode === "204") {
 					var msg = this._oResourceBundle.getText("msg.saveSuccess");
-					sap.m.MessageToast.show(msg);
+					this.showMessageToast(msg);
 					setTimeout(function () {
 						if (this._oSmartTable) {
 							this._oSmartTable.rebindTable();

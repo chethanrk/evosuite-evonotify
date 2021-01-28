@@ -100,7 +100,7 @@ sap.ui.define([
 		 */
 		saveSuccessFn: function (oResponse) {
 			var msg = this.getResourceBundle().getText("msg.saveSuccess");
-			sap.m.MessageToast.show(msg);
+			this.showSuccessMessage(msg);
 			this.setFormsEditable(this.aSmartForms, false);
 			this.oViewModel.setProperty("/editMode", false);
 		},

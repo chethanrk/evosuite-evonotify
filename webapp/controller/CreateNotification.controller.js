@@ -142,7 +142,7 @@ sap.ui.define([
 
 				if (this.isStandalonePage) {
 					var msg = this.getResourceBundle().getText("msg.notifcationCreateSuccess", objectKey);
-					sap.m.MessageToast.show(msg);
+					this.showSuccessMessage(msg);
 				} else if (objectKey && objectKey !== "") {
 					this.oViewModel.setProperty("/newCreatedNotification", true);
 					this.getRouter().navTo("NotificationDetail", {
@@ -150,7 +150,7 @@ sap.ui.define([
 					});
 				} else {
 					var msg = this.getResourceBundle().getText("msg.saveSuccess");
-					sap.m.MessageToast.show(msg);
+					this.showSuccessMessage(msg);
 					this.navBack();
 				}
 			}

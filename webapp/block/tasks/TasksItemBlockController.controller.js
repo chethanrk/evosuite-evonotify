@@ -168,7 +168,7 @@ sap.ui.define([
 		 */
 		saveSuccessFn: function (oResponse) {
 			var msg = this.getResourceBundle().getText("msg.saveSuccess");
-			sap.m.MessageToast.show(msg);
+			this.showMessageToast(msg);
 		},
 
 		/**
