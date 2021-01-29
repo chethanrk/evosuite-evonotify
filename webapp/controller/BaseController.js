@@ -207,101 +207,6 @@ sap.ui.define([
 		},
 
 		/**
-		 * submit a new entry to SAP
-		 * @param sParamId
-		 * @param sNavPath
-		 */
-		saveNewEntry: function (mParams) {
-			var sParamId = mParams.entryKey,
-				sNavPath = mParams.navPath;
-
-			var oView = mParams.view || this.getView(),
-				oModel = oView.getModel(),
-				oViewModel = oView.getModel("viewModel");
-
-			oViewModel.setProperty("/busy", true);
-			oModel.submitChanges({
-				success: function (response) {
-					var batch = response.__batchResponses[0],
-						sCreatedEntryId = null;
-
-					oViewModel.setProperty("/busy", false);
-					//success
-					if (response.__batchResponses[0].response && response.__batchResponses[0].response.statusCode === "400") {
-						if (mParams.error) {
-							mParams.error();
-						}
-					} else {
-						oView.getModel().refresh(true);
-						if (batch.__changeResponses) {
-							if (batch && (batch.__changeResponses[0].data)) {
-								sCreatedEntryId = batch.__changeResponses[0].data[sParamId];
-							}
-							if (sCreatedEntryId && sCreatedEntryId !== "" && sNavPath) {
-								oViewModel.setProperty("/newCreatedNotification", true);
-								this.getRouter().navTo("object", {
-									objectId: sCreatedEntryId
-								});
-							} else {
-								var msg = oView.getModel("i18n").getResourceBundle().getText("msg.saveSuccess");
-								this.showMessageToast(msg);
-
-								if (mParams.success) {
-									mParams.success();
-								}
-							}
-						}
-					}
-				}.bind(this),
-				error: function (oError) {
-					oViewModel.setProperty("/busy", false);
-					if (mParams.error) {
-						mParams.error();
-					}
-				}.bind(this)
-			});
-		},
-
-		/**
-		 * save entry who was in edit mode
-		 */
-		saveChangedEntry: function (mParams) {
-			var oView = mParams.view || this.getView(),
-				oViewModel = oView.getModel("viewModel");
-
-			oViewModel.setProperty("/busy", true);
-
-			oView.getModel().submitChanges({
-				success: function (response) {
-					if (response.__batchResponses && response.__batchResponses[0].response && response.__batchResponses[0].response.statusCode ===
-						"400") {
-						oViewModel.setProperty("/busy", false);
-						if (mParams.error) {
-							mParams.error();
-						}
-					} else {
-						var successMsg = oView.getModel("i18n").getResourceBundle().getText("msg.submitSuccess");
-						this.showMessageToast(successMsg);
-						oView.getModel().refresh(true);
-						setTimeout(function () {
-							if (mParams.success) {
-								mParams.success();
-							}
-							oViewModel.setProperty("/busy", false);
-							oViewModel.setProperty("/editMode", false);
-						}.bind(this), 1500);
-					}
-				}.bind(this),
-				error: function (oError) {
-					oViewModel.setProperty("/busy", false);
-					if (mParams.error) {
-						mParams.error();
-					}
-				}.bind(this)
-			});
-		},
-
-		/**
 		 * show a message toast for 5 seconds
 		 * @param msg
 		 */
@@ -511,7 +416,7 @@ sap.ui.define([
 				oPopover.openBy(oSource);
 			}
 		},
-		
+
 		/**
 		 * show showInformationDialog dialog with ok
 		 * Yes execute successFn
@@ -519,22 +424,24 @@ sap.ui.define([
 		 * @param successFn
 		 * @param errorFn
 		 */
-		showInformationDialog: function(msg, successFn, errorFn){
+		showInformationDialog: function (msg, successFn, errorFn) {
 			var oBundle = this.getModel("i18n").getResourceBundle();
 
 			var dialog = new Dialog({
 				title: oBundle.getText("tit.informationTitle"),
 				type: 'Message',
-				content: new Text({ text: msg }),
+				content: new Text({
+					text: msg
+				}),
 				beginButton: new Button({
 					type: sap.m.ButtonType.Emphasized,
 					text: oBundle.getText("btn.ok"),
 					press: function () {
-						if(successFn) successFn();
+						if (successFn) successFn();
 						dialog.close();
 					}
 				}),
-				afterClose: function() {
+				afterClose: function () {
 					dialog.destroy();
 				}
 			});
@@ -547,22 +454,6 @@ sap.ui.define([
 		 */
 		openMessageManager: function (oView, oEvent) {
 			this.getOwnerComponent().MessageManager.open(oView, oEvent);
-		},
-
-		/**
-		 * Create Success, Warning, Info, Error message and add to MessageManager
-		 * @param sMessage
-		 * @param sTarget
-		 */
-		addMsgToMessageManager: function (sType, sMessage, sTarget) {
-			var oMessage = new Message({
-				message: sMessage,
-				type: sType,
-				target: sTarget,
-				processor: this.getModel("messageManager"),
-				technical: true
-			});
-			sap.ui.getCore().getMessageManager().addMessages(oMessage);
 		},
 
 		/**
