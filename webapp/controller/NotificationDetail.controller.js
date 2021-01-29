@@ -151,7 +151,6 @@ sap.ui.define([
 			} else {
 				message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NOTIFICATION_NO);
 				this.showInformationDialog(message);
-				//this.addMsgToMessageManager(this.mMessageType.Error, message, "/WorkList");
 			}
 		},
 
