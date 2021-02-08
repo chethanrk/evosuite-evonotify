@@ -47,8 +47,8 @@
 				</smartTable:customToolbar>
 				<Table id="responsiveNotificationTable" sticky="ColumnHeaders,HeaderToolbar,InfoToolbar" growing="true">
 					<columns>
-						<Column width="3rem">
-							<Text text="{/#PMNotification/UI_STATUS_ICON/@sap:label}"/>
+						<Column width="4rem">
+							<Text text="{/PMNotificationSet/UI_STATUS_ICON/##com.sap.vocabularies.Common.v1.Label/String}"/>
 							<customData>
 								<core:CustomData key="p13nData" value='\{"columnKey": "UI_STATUS_ICON","leadingProperty": "UI_STATUS_ICON"}'/>
 							</customData>
