@@ -1,8 +1,9 @@
 <mvc:View controllerName="com.evorait.evosuite.evonotify.block.items.ItemsBlockController" xmlns="sap.m" xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc" xmlns:smartTable="sap.ui.comp.smarttable">
-	<smartTable:SmartTable height="100%" width="100%" id="notificationItemsTable" header="{i18n>tit.items}" tableType="ResponsiveTable" useExportToExcel="false"
-		useVariantManagement="true" useTablePersonalisation="true" showRowCount="true" persistencyKey="com.evorait.evosuite.evonotify.itemTable"
-		enableAutoBinding="true" demandPopin="true" entitySet="PMNotificationItemSet" tableBindingPath="NotificationToItem" requestAtLeastFields="ObjectKey">
+	<smartTable:SmartTable height="100%" width="100%" id="notificationItemsTable" header="{i18n>tit.items}" tableType="ResponsiveTable"
+		useExportToExcel="false" useVariantManagement="true" useTablePersonalisation="true" showRowCount="true"
+		persistencyKey="com.evorait.evosuite.evonotify.itemTable" enableAutoBinding="true" demandPopin="true" entitySet="PMNotificationItemSet"
+		tableBindingPath="NotificationToItem" requestAtLeastFields="ObjectKey,NOTES">
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
@@ -15,7 +16,19 @@
 			<FlexItemData growFactor="1" baseSize="0%"/>
 		</smartTable:layoutData>
 		<Table growing="true">
-			<ColumnListItem type="Navigation" press="onPressItem"></ColumnListItem>
+			<columns>
+				<Column width="4rem">
+					<customData>
+						<core:CustomData key="p13nData" value='\{"columnKey": "NOTES", "columnIndex":"2"}'/>
+					</customData>
+					<Text text="{i18n>tit.showLongText}"></Text>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem type="Navigation" press="onPressItem">
+					<Button icon="sap-icon://show-edit" type="Default" press="showLongText" visible="{= ${NOTES} !== '' }"/>
+				</ColumnListItem>
+			</items>
 		</Table>
 	</smartTable:SmartTable>
 </mvc:View>

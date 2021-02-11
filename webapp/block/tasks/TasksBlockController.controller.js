@@ -197,6 +197,16 @@ sap.ui.define([
 			} else {
 				oTaskEditCtrl.setEnabled(false);
 			}
+		},
+
+		/**
+		 * Called on click of Long text indicator
+		 * @param oEvent
+		 */
+		showLongText: function (oEvent) {
+			var oContext = oEvent.getSource().getBindingContext();
+			var longText = oContext.getProperty("NOTES");
+			this.displayLongText(longText);
 		}
 	});
 

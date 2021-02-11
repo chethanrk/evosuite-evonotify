@@ -105,6 +105,16 @@ sap.ui.define([
 				mParams.mKeys.MaintNotifAcivityCodeCatalog = mResults.CatalogTypeForActivities;
 			}
 			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
+		},
+		
+		/**
+		 * Called on click of Long text indicator
+		 * @param oEvent
+		 */
+		showLongText: function (oEvent) {
+			var oContext = oEvent.getSource().getBindingContext();
+			var longText = oContext.getProperty("NOTES");
+			this.displayLongText(longText);
 		}
 	});
 
