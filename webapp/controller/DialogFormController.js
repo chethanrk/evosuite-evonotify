@@ -99,7 +99,7 @@ sap.ui.define([
 			this._sPath = this._oContext.getPath();
 
 			//global parameters
-			this._mParams = this.oTemplateModel.getData();
+			this._mParams = this.oTemplateModel.getProperty("/tempData");
 			//is it add, edit, copy or split
 			for (var key in this._type) {
 				this._type[key] = key === this._mParams.type;

@@ -32,17 +32,27 @@ sap.ui.define([],
 		 */
 		var _resolveObjectPagePath = function (oAnnotationPathContext, sPathPropertyName) {
 			var oModel = oAnnotationPathContext.getModel(),
-				oData = _getAnnotationPath(oAnnotationPathContext),
-				oAnnotationByPath = getAnnotationByPath(oData[sPathPropertyName], oData.entitySet, oModel),
+				oData = _getAnnotationPath(oAnnotationPathContext);
+
+			if (!oData.entitySet) {
+				oData.entitySet = oModel.getProperty("/tempData/entitySet");
+			}
+
+			var oAnnotationByPath = getAnnotationByPath(oData[sPathPropertyName], oData.entitySet, oModel),
 				oBindingPath = _createBindingContext(oAnnotationPathContext, sPathPropertyName);
 
 			if (!oAnnotationByPath) {
 				var splittedAnno = oData[sPathPropertyName].split("#"),
 					sQualifier = splittedAnno[1],
-					sNewAnnoPath = splittedAnno[0];
+					sNewAnnoPath = splittedAnno[0],
+					oContextObject = oAnnotationPathContext.getObject();
 
 				sQualifier = sQualifier.slice(0, sQualifier.lastIndexOf("_"));
-				oAnnotationPathContext.getObject()[sPathPropertyName] = sNewAnnoPath + "#" + sQualifier;
+				if (typeof oContextObject === "string") {
+					oModel.setProperty("/annotationPath", sNewAnnoPath + "#" + sQualifier);
+				} else {
+					oModel.setProperty("/annotationPath/" + sPathPropertyName, sNewAnnoPath + "#" + sQualifier);
+				}
 				oBindingPath = _createBindingContext(oAnnotationPathContext, sPathPropertyName);
 			}
 			return oBindingPath;
@@ -59,7 +69,7 @@ sap.ui.define([],
 
 			var oModel = oAnnotationPathContext.getModel();
 			var oMetaModel = oModel.getProperty("/metaModel");
-			var oEntitySet = oMetaModel.getODataEntitySet(oData.entitySet ? oData.entitySet : oModel.getProperty("/entitySet"));
+			var oEntitySet = oMetaModel.getODataEntitySet(oData.entitySet ? oData.entitySet : oModel.getProperty("/tempData/entitySet"));
 			var oEntityType = oMetaModel.getODataEntityType(oEntitySet.entityType);
 			return oMetaModel.createBindingContext(oEntityType.$path + "/" + oData[sPathPropertyName]);
 		};
@@ -172,11 +182,36 @@ sap.ui.define([],
 			return aSorter;
 		};
 
+		/**
+		 * checks if an value is in templateProp Json Model navigation links
+		 */
 		var isInNavLinks = function (sValue, mNavLinks) {
 			if (mNavLinks.hasOwnProperty(sValue)) {
 				return true;
 			}
 			return null;
+		};
+
+		/**
+		 * checks if an annotationpath has a qualifier of "longtext"
+		 */
+		var isLongTextTab = function (oFacet) {
+			var sSplittedPath = oFacet.AnnotationPath.split("#"),
+				sQualifier = sSplittedPath[1] ? sSplittedPath[1].toLowerCase() : null;
+			if (sQualifier && sQualifier === "longtext") {
+				return true;
+			}
+			return false;
+		};
+
+		/**
+		 * checks if annotation description has tab name inside
+		 */
+		var hasTabNameInDescription = function (sValue, sAnnotation, sLongAnnotation) {
+			if (sAnnotation.indexOf(sValue) >= 0 || sLongAnnotation.indexOf(sValue) >= 0) {
+				return true;
+			}
+			return false;
 		};
 
 		return {
@@ -188,7 +223,9 @@ sap.ui.define([],
 			getSectionsTableParam: getSectionsTableParam,
 			getAnnotationByPath: getAnnotationByPath,
 			getDefaultTableSorter: getDefaultTableSorter,
-			isInNavLinks: isInNavLinks
+			isInNavLinks: isInNavLinks,
+			isLongTextTab: isLongTextTab,
+			hasTabNameInDescription: hasTabNameInDescription
 		};
 
 	},
