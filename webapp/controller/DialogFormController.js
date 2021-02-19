@@ -52,7 +52,7 @@ sap.ui.define([
 		 */
 		onExit: function () {
 			var eventBus = sap.ui.getCore().getEventBus();
-			eventBus.unsubscribe("TemplateRendererEvoNotify", "changedBinding");
+			eventBus.unsubscribe("TemplateRendererEvoNotify", "changedBinding", this._changedBinding, this);
 		},
 
 		/* =========================================================== */
