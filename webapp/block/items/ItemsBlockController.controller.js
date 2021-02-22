@@ -78,8 +78,8 @@ sap.ui.define([
 			};
 
 			if (mResults) {
-				mParams.mKeys.MaintNotifObjprtcodeCatalog = mResults.CatalogTypeForObjParts;
-				mParams.mKeys.MaintNotifDamageCodecatalog = mResults.CatalogTypeForDamage;
+				mParams.mKeys.CODE_CATALOG = mResults.Otkat;
+				mParams.mKeys.DAMAGE_CODE_CATALOG = mResults.Fekat;
 			}
 			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
 		},
