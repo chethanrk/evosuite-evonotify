@@ -50,6 +50,10 @@ sap.ui.define([
 			this.getView().unbindElement();
 			var eventBus = sap.ui.getCore().getEventBus();
 			eventBus.unsubscribe("TemplateRendererEvoNotify", "changedBinding", this._changedBinding, this);
+			if (this._actionSheetSystemStatus) {
+				this._actionSheetSystemStatus.destroy(true);
+				this._actionSheetSystemStatus = null;
+			}
 		},
 
 		/**
@@ -103,7 +107,7 @@ sap.ui.define([
 			this.showSuccessMessage(msg);
 			this.setFormsEditable(this.aSmartForms, false);
 			this.oViewModel.setProperty("/editMode", false);
-			this._setSelectFunctionVisibility();
+			this._setNotificationStatusButtonVisibility(this._oContext.getObject());
 		},
 
 		/**
@@ -172,7 +176,7 @@ sap.ui.define([
 					if (!this._oContext) {
 						this.getRouter().navTo("ObjectNotFound");
 					}
-					this._setSelectFunctionVisibility();
+					this._setNotificationStatusButtonVisibility(this._oContext.getObject());
 				}
 			}
 		},
@@ -190,6 +194,38 @@ sap.ui.define([
 					oItem.setVisible(oData["ALLOW_" + oItem.getKey()]);
 				}.bind(this));
 			}
+		},
+
+		/**
+		 * set visibility on status change dropdown items based on allowance from order status
+		 */
+		_setNotificationStatusButtonVisibility: function (oData) {
+		
+			var mNotificationAllows = {};
+			for (var key in oData) {
+				if (key.startsWith("ALLOW_")) {
+					mNotificationAllows[key] = oData[key];
+				}
+			}
+			this.oViewModel.setProperty("/NotificationAllows", mNotificationAllows);
+		},
+
+		/**
+		 * show ActionSheet of system status buttons
+		 * @param oEvent
+		 */
+		onPressChangeSystemStatus: function (oEvent) {
+			var oButton = oEvent.getSource();
+			// create action sheet only once
+			if (!this._actionSheetSystemStatus) {
+				this._actionSheetSystemStatus = sap.ui.xmlfragment(
+					"com.evorait.evosuite.evonotify.view.fragments.ActionSheetSystemStatus",
+					this
+				);
+				this.getView().addDependent(this._actionSheetSystemStatus);
+			}
+			this._actionSheetSystemStatus.openBy(oButton);
 		}
+
 	});
 });
