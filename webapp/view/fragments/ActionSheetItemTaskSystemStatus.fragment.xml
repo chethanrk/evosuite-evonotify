@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ActionSheet title="{i18n>btn.changeSystemStatus}" showCancelButton="true" placement="Bottom"
+		buttons="{ path:'taskFunctionModel>/results/', templateShareable:true }">
+		<buttons>
+			<Button text="{taskFunctionModel>Description}" press="onSelectStatus"
+				visible="{parts: [{path:'taskFunctionModel>Function'},{path:'viewModel>/enableNotificationChange'},{path:'viewModel>/ItemTaskAllows'} ], formatter:'.formatter.showStatusSelectOption'}">
+				<customData>
+					<core:CustomData key="key" value="{taskFunctionModel>Function}"/>
+					<core:CustomData key="type" value="{taskFunctionModel>FunctionType}"/>
+				</customData>
+			</Button>
+		</buttons>
+	</ActionSheet>
+</core:FragmentDefinition>

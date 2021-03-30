@@ -7,20 +7,13 @@
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
+				<OverflowToolbarButton id="idTaskItemStatusChangeMenu" icon="sap-icon://order-status" type="Default"
+					text="{i18n>btn.changeSystemStatus}" tooltip="{i18n>btn.changeSystemStatus}" press="onPressChangeTaskSystemStatus"
+					visible="{parts: ['user>/ENABLE_NOTIFICATION_UPDATE','viewModel>/enableNotificationChange','viewModel>/editMode'], formatter: '.formatter.showStatusButton'}"/>
 				<OverflowToolbarButton icon="sap-icon://add" text="Sort" press="onPressAdd"
 					visible="{ parts: [{path:'viewModel>/enableNotificationChange'},{path: 'user>/ENABLE_TASK_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 				<OverflowToolbarButton id="idItemTaskEdit" icon="sap-icon://edit" text="Sort" press="onPressEdit"
 					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},{path: 'user>/ENABLE_TASK_UPDATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
-				<MenuButton id="idTaskItemStatusChangeMenu" text="{i18n>btn.changeSystemStatus}" enabled="false"
-					visible="{parts: ['viewModel>/enableNotificationChange','user>/ENABLE_NOTIFICATION_UPDATE', 'viewModel>/editMode'], formatter:'.formatter.isVisible'}">
-					<menu>
-						<Menu itemSelected="onSelectStatus" items="{path: 'taskFunctionModel>/results'}">
-							<items>
-								<MenuItem key="{taskFunctionModel>Function}" text="{taskFunctionModel>Description}"/>
-							</items>
-						</Menu>
-					</menu>
-				</MenuButton>
 			</OverflowToolbar>
 		</smartTable:customToolbar>
 		<!-- layout data used to make the table growing but the filter bar fixed -->
