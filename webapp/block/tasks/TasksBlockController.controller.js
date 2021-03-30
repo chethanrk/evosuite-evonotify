@@ -33,6 +33,16 @@ sap.ui.define([
 			this._oSmartTable = this.getView().byId("notificationTasksTable");
 		},
 
+		/**
+		 * Object on exit
+		 */
+		onExit: function () {
+			this.getView().unbindElement();
+			if (this._actionSheetTaskSystemStatus) {
+				this._actionSheetTaskSystemStatus.destroy(true);
+				this._actionSheetTaskSystemStatus = null;
+			}
+		},
 		/* =========================================================== */
 		/* event handlers                                              */
 		/* =========================================================== */
@@ -147,20 +157,18 @@ sap.ui.define([
 		},
 
 		/**
-		 * @param sStatus
+		 * set visibility on status change dropdown items based on allowance from order status
 		 */
-		_setStatusSelectItemsVisibility: function (sStatus) {
-			if (!this._oTaskContextData) {
-				return false;
-			} else {
-				var oContextData = this._oTaskContextData,
-					oMenu = this.oStatusSelectControl.getMenu();
-				this.oStatusSelectControl.setEnabled(true);
-				oMenu.getItems().forEach(function (oItem) {
-					oItem.setVisible(oContextData["ALLOW_" + oItem.getKey()]);
-				}.bind(this));
-				this._setBusyWhileSaving(this.getView(), false);
+		_setTaskStatusButtonVisibility: function (oData) {
+			var mTaskAllows = {};
+			for (var key in oData) {
+				if (key.startsWith("ALLOW_")) {
+					mTaskAllows[key] = oData[key];
+				}
 			}
+			this.getModel("viewModel").setProperty("/TaskAllows", mTaskAllows);
+			this._setBusyWhileSaving(this.getView(), false);
+			this.oStatusSelectControl.setEnabled(true);
 		},
 
 		/**
@@ -186,7 +194,7 @@ sap.ui.define([
 				[oFilter1]
 			]).then(function (oData) {
 				this._oTaskContextData = oData.results[0];
-				this._setStatusSelectItemsVisibility();
+				this._setTaskStatusButtonVisibility(this._oTaskContextData);
 			}.bind(this));
 		},
 
@@ -207,7 +215,29 @@ sap.ui.define([
 			var oContext = oEvent.getSource().getBindingContext();
 			var longText = oContext.getProperty("NOTES");
 			this.displayLongText(longText);
-		}
+		},
+
+		/**
+		 * show ActionSheet of Task system status buttons
+		 * @param oEvent
+		 */
+		onPressChangeTaskSystemStatus: function (oEvent) {
+			if (this._oTaskContext && this._oTaskContextData) {
+				var oButton = oEvent.getSource();
+				// create action sheet only once
+				if (!this._actionSheetTaskSystemStatus) {
+					this._actionSheetTaskSystemStatus = sap.ui.xmlfragment(
+						"com.evorait.evosuite.evonotify.view.fragments.ActionSheetTaskSystemStatus",
+						this
+					);
+					this.getView().addDependent(this._actionSheetTaskSystemStatus);
+				}
+				this._actionSheetTaskSystemStatus.openBy(oButton);
+			} else {
+				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
+				this.showMessageToast(msg);
+			}
+		},
 	});
 
 });
