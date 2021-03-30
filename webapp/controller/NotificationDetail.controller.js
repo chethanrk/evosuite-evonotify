@@ -143,14 +143,16 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onSelectStatus: function (oEvent) {
-			this._oContext = this.getView().getBindingContext();
-			var sSelFunctionKey = oEvent.getParameter("item").getKey(),
+			var oSource = oEvent.getSource(),
+				oItem = oEvent.getParameter("item"),
 				oData = this._oContext.getObject(),
 				sPath = this._oContext.getPath(),
+				sFunctionKey = oItem ? oItem.data("key") : oSource.data("key"),
 				message = "";
+			this._oContext = this.getView().getBindingContext();
 
-			if (oData["ALLOW_" + sSelFunctionKey]) {
-				this.getModel().setProperty(sPath + "/FUNCTION", sSelFunctionKey);
+			if (oData["ALLOW_" + sFunctionKey]) {
+				this.getModel().setProperty(sPath + "/FUNCTION", sFunctionKey);
 				this.saveChanges({
 					state: "success"
 				}, this.saveSuccessFn.bind(this), null, this.getView());
