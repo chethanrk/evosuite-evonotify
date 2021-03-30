@@ -152,7 +152,7 @@ sap.ui.define([
 		 * @returns {boolean}
 		 */
 		showStatusButton: function (bAllowChange, bEnabledFunction, isEditMode) {
-			if (bEnabledFunction === "X" && bAllowChange && !isEditMode) {
+			if (bAllowChange === "X" && bEnabledFunction && !isEditMode) {
 				return true;
 			}
 			return false;
@@ -190,7 +190,22 @@ sap.ui.define([
 			} else {
 				return mCriticallyStates["0"].state;
 			}
-		}
+		},
+
+			/**
+		 * show/hide options for System status buttons
+		 */
+		showStatusSelectOption: function (sFunction, isNotificationEnabled, mAllowParams) {
+			if (isNotificationEnabled) {
+				for (var key in mAllowParams) {
+					var sAllowFunc = "ALLOW_" + sFunction;
+					if (key === sAllowFunc && (mAllowParams[key] === true || mAllowParams[key] === "X")) {
+						return true;
+					}
+				}
+			}
+			return false;
+		},
 	};
 
 });
