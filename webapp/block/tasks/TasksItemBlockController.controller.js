@@ -133,29 +133,25 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onSelectStatus: function (oEvent) {
-			if (this._oItemTaskContext && this._oItemTaskContextData) {
-				var sSelFunctionKey = oEvent.getParameter("item").getKey(),
-					oData = this._oItemTaskContextData,
-					sPath = this._oItemTaskContext.getPath(),
-					message = "";
-
-				if (oData["ALLOW_" + sSelFunctionKey]) {
-					this.getModel().setProperty(sPath + "/FUNCTION", sSelFunctionKey);
-					this.saveChanges({
-						state: "success"
-					}, this.saveSuccessFn.bind(this), this.saveErrorFn.bind(this), this.getView());
-					this.oListItem.getParent().removeSelections(true);
-					this.oStatusSelectControl.setEnabled(false);
-				} else {
-					message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NOTIFICATION_NO);
-					this.showInformationDialog(message);
-				}
+			var oSource = oEvent.getSource(),
+				oItem = oEvent.getParameter("item"),
+				oData = this._oItemTaskContext.getObject(),
+				sPath = this._oItemTaskContext.getPath(),
+				sFunctionKey = oItem ? oItem.data("key") : oSource.data("key"),
+				message = "";
+			if (oData["ALLOW_" + sFunctionKey]) {
+				this.getModel().setProperty(sPath + "/FUNCTION", sFunctionKey);
+				this.saveChanges({
+					state: "success"
+				}, this.saveSuccessFn.bind(this), this.saveErrorFn.bind(this), this.getView());
+				this.oListItem.getParent().removeSelections(true);
+				this.oStatusSelectControl.setEnabled(false);
 			} else {
-				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
-				this.showMessageToast(msg);
+				message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NOTIFICATION_NO);
+				this.showInformationDialog(message);
 			}
 		},
-		
+
 		/**
 		 * set visibility on status change dropdown items based on allowance from order status
 		 */

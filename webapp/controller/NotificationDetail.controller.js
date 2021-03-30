@@ -143,6 +143,13 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onSelectStatus: function (oEvent) {
+			var oSource = oEvent.getSource(),
+				oItem = oEvent.getParameter("item"),
+				oData = this._oContext.getObject(),
+				sPath = this._oContext.getPath(),
+				sFunctionKey = oItem ? oItem.data("key") : oSource.data("key"),
+				sFunctionType = oItem ? oItem.data("type") : oSource.data("type"),
+				message = "";
 			this._oContext = this.getView().getBindingContext();
 			var sSelFunctionKey = oEvent.getParameter("item").getKey(),
 				oData = this._oContext.getObject(),
