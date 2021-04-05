@@ -229,7 +229,7 @@ sap.ui.define([
 			if (sKey === Constants.PROPERTY.NEW) {
 				return sKey;
 			} else if (sKey) {
-				return oFilter = new Filter(Constants.PROPERTY.EVONOTIFY, FilterOperator.EQ, sKey);
+				return (new Filter(Constants.PROPERTY.EVONOTIFY, FilterOperator.EQ, sKey));
 			}
 			return false;
 		},
