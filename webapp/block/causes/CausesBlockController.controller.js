@@ -102,7 +102,7 @@ sap.ui.define([
 			};
 
 			if (mResults) {
-				mParams.mKeys.MaintNotifCauseCodeCatalog = mResults.CatalogTypeForCauses;
+				mParams.mKeys.CODE_CATALOG = mResults.Urkat;
 			}
 			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
 		},

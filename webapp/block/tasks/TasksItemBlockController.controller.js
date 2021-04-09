@@ -122,7 +122,7 @@ sap.ui.define([
 			};
 
 			if (mResults) {
-				mParams.mKeys.MaintNotifTaskCodeCatalog = mResults.CatalogTypeForTasks;
+				mParams.mKeys.CODE_CATALOG = mResults.Makat;
 				mParams.mKeys.ResponsiblePersonFunctionCode = mResults.PartnerFunOfPersonRespForTask;
 			}
 			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
