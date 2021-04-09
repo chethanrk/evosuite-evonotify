@@ -102,7 +102,7 @@ sap.ui.define([
 			};
 
 			if (mResults) {
-				mParams.mKeys.MaintNotifAcivityCodeCatalog = mResults.CatalogTypeForActivities;
+				mParams.mKeys.CODE_CATALOG = mResults.Mfkat;
 			}
 			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
 		},
