@@ -49,8 +49,8 @@ sap.ui.define([
 		onPressEdit: function (oEvent) {
 			if (this._oItemActivityContext) {
 				var mParams = {
-					viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#NotifItmCreateUpdate",
-					annotationPath: "com.sap.vocabularies.UI.v1.Facets#NotifItmCreateUpdate",
+					viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#NotifItemActivityUpdate",
+					annotationPath: "com.sap.vocabularies.UI.v1.Facets#ItemActivityCreateUpdate",
 					entitySet: "PMNotificationItemActivitySet",
 					controllerName: "AddEditEntry",
 					title: "tit.editActivity",
@@ -86,8 +86,8 @@ sap.ui.define([
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#NotifItmCreateUpdate",
-				annotationPath: "com.sap.vocabularies.UI.v1.Facets#NotifItmCreateUpdate",
+				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#NotifItemActivityCreate",
+				annotationPath: "com.sap.vocabularies.UI.v1.Facets#ItemActivityCreateUpdate",
 				entitySet: "PMNotificationItemActivitySet",
 				controllerName: "AddEditEntry",
 				title: "tit.addActivity",
