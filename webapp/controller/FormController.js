@@ -240,7 +240,6 @@ sap.ui.define([
 
 				this.getView().getModel().submitChanges({
 					success: function (oResponse) {
-						this.getModel().setRefreshAfterChange(true);
 						this._deleteCreatedLocalEntry();
 						this._setBusyWhileSaving(oCtrl, false);
 						this.getView().getModel("viewModel").setProperty("/busy", false);
