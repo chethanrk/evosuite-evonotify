@@ -219,6 +219,17 @@ sap.ui.define([
 			}
 		},
 
+		/*
+		 * function to deleted recent created context if exist
+		 * 
+		 */
+		_deleteCreatedLocalEntry: function () {
+			var oContext = this.getView().getBindingContext();
+			if (oContext) {
+				this.getModel().deleteCreatedEntry(oContext);
+			}
+		},
+
 		/**
 		 * Form is valid now so send to sap
 		 * @param oEvent
@@ -229,6 +240,8 @@ sap.ui.define([
 
 				this.getView().getModel().submitChanges({
 					success: function (oResponse) {
+						this.getModel().setRefreshAfterChange(true);
+						this._deleteCreatedLocalEntry();
 						this._setBusyWhileSaving(oCtrl, false);
 						this.getView().getModel("viewModel").setProperty("/busy", false);
 						if (oResponse.__batchResponses && oResponse.__batchResponses[0].response && oResponse.__batchResponses[0].response.statusCode ===
