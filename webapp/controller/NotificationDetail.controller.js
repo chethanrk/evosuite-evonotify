@@ -132,10 +132,6 @@ sap.ui.define([
 			this.aSmartForms = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("smartFormTemplate"));
 			this.setFormsEditable(this.aSmartForms, false);
 			this.oViewModel.setProperty("/editMode", false);
-
-			if (this.oViewModel.getProperty("/newCreatedNotification") === true) {
-				this.getModel().refresh(true);
-			}
 		},
 
 		/**
@@ -175,6 +171,13 @@ sap.ui.define([
 
 				if (oData && (oData.viewNameId === sViewName)) {
 					this._oContext = this.getView().getBindingContext();
+
+					if (this.oViewModel.getProperty("/newCreatedNotification") === true) {
+						this.oViewModel.setProperty("/newCreatedNotification", false);
+						//refresh only this binding and not whole oDataModel
+						this.getView().getElementBinding().refresh();
+					}
+
 					if (!this._oContext) {
 						this.getRouter().navTo("ObjectNotFound");
 					}
@@ -202,7 +205,7 @@ sap.ui.define([
 		 * set visibility on status change dropdown items based on allowance from order status
 		 */
 		_setNotificationStatusButtonVisibility: function (oData) {
-		
+
 			var mNotificationAllows = {};
 			for (var key in oData) {
 				if (key.startsWith("ALLOW_")) {
