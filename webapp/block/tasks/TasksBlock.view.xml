@@ -3,24 +3,17 @@
 	<smartTable:SmartTable id="notificationTasksTable" height="100%" width="100%" header="{i18n>tit.tasks}" tableType="ResponsiveTable"
 		useExportToExcel="false" useVariantManagement="true" useTablePersonalisation="true" showRowCount="true"
 		persistencyKey="com.evorait.evosuite.evonotify.taskNotifTable" enableAutoBinding="true" entitySet="PMNotificationTaskSet"
-		tableBindingPath="NotificationToTask" requestAtLeastFields="ObjectKey,ENABLE_TASK_CHANGE">
+		tableBindingPath="NotificationToTask" requestAtLeastFields="ObjectKey,ENABLE_TASK_CHANGE,NOTES" demandPopin="true">
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
+				<OverflowToolbarButton id="idTaskStatusChangeMenu" icon="sap-icon://order-status" type="Default"
+					text="{i18n>btn.changeSystemStatus}" tooltip="{i18n>btn.changeSystemStatus}" press="onPressChangeTaskSystemStatus"
+					visible="{parts: ['user>/ENABLE_NOTIFICATION_UPDATE','ENABLE_NOTIFICATION_CHANGE','viewModel>/editMode'], formatter: '.formatter.showStatusButton'}"/>
 				<OverflowToolbarButton icon="sap-icon://add" text="Sort" press="onPressAdd"
 					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},{path: 'user>/ENABLE_TASK_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 				<OverflowToolbarButton id="idTaskEdit" icon="sap-icon://edit" text="Sort" press="onPressEdit"
 					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},{path: 'user>/ENABLE_TASK_UPDATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
-				<MenuButton id="idTaskStatusChangeMenu" text="{i18n>btn.changeSystemStatus}" enabled="false"
-					visible="{parts: ['ENABLE_NOTIFICATION_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE', 'viewModel>/editMode'], formatter:'.formatter.isVisible'}">
-					<menu>
-						<Menu itemSelected="onSelectStatus" items="{path: 'taskFunctionModel>/results'}">
-							<items>
-								<MenuItem key="{taskFunctionModel>Function}" text="{taskFunctionModel>Description}"/>
-							</items>
-						</Menu>
-					</menu>
-				</MenuButton>
 			</OverflowToolbar>
 		</smartTable:customToolbar>
 		<!-- layout data used to make the table growing but the filter bar fixed -->
@@ -35,11 +28,18 @@
 						<core:CustomData key="p13nData" value='\{"columnKey": "UI_STATUS_ICON","leadingProperty": "UI_STATUS_ICON"}'/>
 					</customData>
 				</Column>
+				<Column width="4rem">
+					<customData>
+						<core:CustomData key="p13nData" value='\{"columnKey": "NOTES", "columnIndex":"2"}'/>
+					</customData>
+					<Text text="{i18n>tit.showLongText}"></Text>
+				</Column>
 			</columns>
 			<ColumnListItem>
 				<cells>
 					<core:Icon src="{UI_STATUS_ICON}" alt="{path: 'SYSTEM_STATUS_DESC'}" tooltip="{SYSTEM_STATUS_DESC}"/>
 				</cells>
+				<Button icon="sap-icon://show-edit" type="Default" press="showLongText" visible="{= ${NOTES} !== '' }"/>
 			</ColumnListItem>
 		</Table>
 	</smartTable:SmartTable>

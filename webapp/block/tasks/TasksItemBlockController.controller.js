@@ -19,7 +19,7 @@ sap.ui.define([
 	return FormController.extend("com.evorait.evosuite.evonotify.block.tasks.TasksItemBlockController", {
 
 		formatter: formatter,
-
+		_oSmartTable: null,
 		/* =========================================================== */
 		/* lifecycle methods                                           */
 		/* =========================================================== */
@@ -29,7 +29,18 @@ sap.ui.define([
 		 * @public
 		 */
 		onInit: function () {
+			this._oSmartTable = this.getView().byId("notificationTasksItemTable");
+		},
 
+		/**
+		 * Object on exit
+		 */
+		onExit: function () {
+			this.getView().unbindElement();
+			if (this._actionSheetItemTaskSystemStatus) {
+				this._actionSheetItemTaskSystemStatus.destroy(true);
+				this._actionSheetItemTaskSystemStatus = null;
+			}
 		},
 
 		/* =========================================================== */
@@ -64,7 +75,8 @@ sap.ui.define([
 					controllerName: "AddEditEntry",
 					title: "tit.editTask",
 					type: "edit",
-					sPath: this._oItemTaskContext.getPath()
+					sPath: this._oItemTaskContext.getPath(),
+					smartTable: this._oSmartTable
 				};
 				this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
 				this._oItemTaskContext = null;
@@ -100,6 +112,7 @@ sap.ui.define([
 				controllerName: "AddEditEntry",
 				title: "tit.addTask",
 				type: "add",
+				smartTable: this._oSmartTable,
 				sSortField: "SORT_NUMBER",
 				sNavTo: "/NotificationItemToTask/",
 				mKeys: {
@@ -109,7 +122,7 @@ sap.ui.define([
 			};
 
 			if (mResults) {
-				mParams.mKeys.MaintNotifTaskCodeCatalog = mResults.CatalogTypeForTasks;
+				mParams.mKeys.CODE_CATALOG = mResults.Makat;
 				mParams.mKeys.ResponsiblePersonFunctionCode = mResults.PartnerFunOfPersonRespForTask;
 			}
 			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
@@ -120,44 +133,38 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onSelectStatus: function (oEvent) {
-			if (this._oItemTaskContext && this._oItemTaskContextData) {
-				var sSelFunctionKey = oEvent.getParameter("item").getKey(),
-					oData = this._oItemTaskContextData,
-					sPath = this._oItemTaskContext.getPath(),
-					message = "";
-
-				if (oData["ALLOW_" + sSelFunctionKey]) {
-					this.getModel().setProperty(sPath + "/FUNCTION", sSelFunctionKey);
-					this.saveChanges({
-						state: "success"
-					}, this.saveSuccessFn.bind(this), this.saveErrorFn.bind(this), this.getView());
-					this.oListItem.getParent().removeSelections(true);
-					this.oStatusSelectControl.setEnabled(false);
-				} else {
-					message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NOTIFICATION_NO);
-					this.showInformationDialog(message);
-				}
+			var oSource = oEvent.getSource(),
+				oItem = oEvent.getParameter("item"),
+				oData = this._oItemTaskContext.getObject(),
+				sPath = this._oItemTaskContext.getPath(),
+				sFunctionKey = oItem ? oItem.data("key") : oSource.data("key"),
+				message = "";
+			if (oData["ALLOW_" + sFunctionKey]) {
+				this.getModel().setProperty(sPath + "/FUNCTION", sFunctionKey);
+				this.saveChanges({
+					state: "success"
+				}, this.saveSuccessFn.bind(this), this.saveErrorFn.bind(this), this.getView());
+				this.oListItem.getParent().removeSelections(true);
+				this.oStatusSelectControl.setEnabled(false);
 			} else {
-				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
-				this.showMessageToast(msg);
+				message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NOTIFICATION_NO);
+				this.showInformationDialog(message);
 			}
 		},
 
 		/**
-		 * @param sStatus
+		 * set visibility on status change dropdown items based on allowance from order status
 		 */
-		_setStatusSelectItemsVisibility: function (sStatus) {
-			if (!this._oItemTaskContextData) {
-				return false;
-			} else {
-				var oContextData = this._oItemTaskContextData,
-					oMenu = this.oStatusSelectControl.getMenu();
-				this.oStatusSelectControl.setEnabled(true);
-				oMenu.getItems().forEach(function (oItem) {
-					oItem.setVisible(oContextData["ALLOW_" + oItem.getKey()]);
-				}.bind(this));
-				this._setBusyWhileSaving(this.getView(), false);
+		_setTaskStatusButtonVisibility: function (oData) {
+			var mItemTaskAllows = {};
+			for (var key in oData) {
+				if (key.startsWith("ALLOW_")) {
+					mItemTaskAllows[key] = oData[key];
+				}
 			}
+			this.getView().getModel("viewModel").setProperty("/ItemTaskAllows", mItemTaskAllows);
+			this._setBusyWhileSaving(this.getView(), false);
+			this.oStatusSelectControl.setEnabled(true);
 		},
 
 		/**
@@ -166,7 +173,7 @@ sap.ui.define([
 		 */
 		saveSuccessFn: function (oResponse) {
 			var msg = this.getResourceBundle().getText("msg.saveSuccess");
-			sap.m.MessageToast.show(msg);
+			this.showMessageToast(msg);
 		},
 
 		/**
@@ -183,7 +190,7 @@ sap.ui.define([
 				[oFilter1]
 			]).then(function (oData) {
 				this._oItemTaskContextData = oData.results[0];
-				this._setStatusSelectItemsVisibility();
+				this._setTaskStatusButtonVisibility(this._oItemTaskContextData);
 			}.bind(this));
 		},
 
@@ -194,7 +201,39 @@ sap.ui.define([
 			} else {
 				oItemTaskEditCtrl.setEnabled(false);
 			}
-		}
+		},
+
+		/**
+		 * Called on click of Long text indicator
+		 * @param oEvent
+		 */
+		showLongText: function (oEvent) {
+			var oContext = oEvent.getSource().getBindingContext();
+			var longText = oContext.getProperty("NOTES");
+			this.displayLongText(longText);
+		},
+
+		/**
+		 * show ActionSheet of Task system status buttons
+		 * @param oEvent
+		 */
+		onPressChangeTaskSystemStatus: function (oEvent) {
+			if (this._oItemTaskContextData && this._oItemTaskContextData) {
+				var oButton = oEvent.getSource();
+				// create action sheet only once
+				if (!this._actionSheetItemTaskSystemStatus) {
+					this._actionSheetItemTaskSystemStatus = sap.ui.xmlfragment(
+						"com.evorait.evosuite.evonotify.view.fragments.ActionSheetItemTaskSystemStatus",
+						this
+					);
+					this.getView().addDependent(this._actionSheetItemTaskSystemStatus);
+				}
+				this._actionSheetItemTaskSystemStatus.openBy(oButton);
+			} else {
+				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
+				this.showMessageToast(msg);
+			}
+		},
 	});
 
 });

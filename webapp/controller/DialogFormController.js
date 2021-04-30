@@ -31,7 +31,6 @@ sap.ui.define([
 
 			//SmartForm is editable
 			this._aSmartForms = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("smartFormTemplate"));
-			this.setFormsEditable(this._aSmartForms, true);
 
 			var eventBus = sap.ui.getCore().getEventBus();
 			//Binnding has changed in TemplateRenderController.js
@@ -53,7 +52,7 @@ sap.ui.define([
 		 */
 		onExit: function () {
 			var eventBus = sap.ui.getCore().getEventBus();
-			eventBus.unsubscribe("TemplateRendererEvoNotify", "changedBinding");
+			eventBus.unsubscribe("TemplateRendererEvoNotify", "changedBinding", this._changedBinding, this);
 		},
 
 		/* =========================================================== */
@@ -79,6 +78,8 @@ sap.ui.define([
 		 */
 		_changedBinding: function (sChannel, sEvent, oData) {
 			if (sChannel === "TemplateRendererEvoNotify" && sEvent === "changedBinding") {
+				this.setFormsEditable(this._aSmartForms, true);
+
 				var sViewId = this.getView().getId(),
 					sViewName = this.getView().getViewName();
 				this._sViewNameId = sViewName + "#" + sViewId;
@@ -98,7 +99,7 @@ sap.ui.define([
 			this._sPath = this._oContext.getPath();
 
 			//global parameters
-			this._mParams = this.oTemplateModel.getData();
+			this._mParams = this.oTemplateModel.getProperty("/tempData");
 			//is it add, edit, copy or split
 			for (var key in this._type) {
 				this._type[key] = key === this._mParams.type;

@@ -50,6 +50,8 @@ sap.ui.define([
 		 */
 		onExit: function () {
 			this.getView().unbindElement();
+			var eventBus = sap.ui.getCore().getEventBus();
+			eventBus.unsubscribe("TemplateRendererEvoNotify", "changedBinding", this._changedBinding, this);
 		},
 
 		/**
@@ -100,7 +102,7 @@ sap.ui.define([
 		 */
 		saveSuccessFn: function (oResponse) {
 			var msg = this.getResourceBundle().getText("msg.saveSuccess");
-			sap.m.MessageToast.show(msg);
+			this.showSuccessMessage(msg);
 			this.setFormsEditable(this.aSmartForms, false);
 			this.oViewModel.setProperty("/editMode", false);
 		},

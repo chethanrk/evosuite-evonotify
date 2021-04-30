@@ -15,6 +15,7 @@ sap.ui.define([
 	return BaseController.extend("com.evorait.evosuite.evonotify.block.causes.CausesBlockController", {
 
 		formatter: formatter,
+		_oSmartTable: null,
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */
@@ -25,7 +26,7 @@ sap.ui.define([
 		 * @public
 		 */
 		onInit: function () {
-
+			this._oSmartTable = this.getView().byId("notificationCauseTable");
 		},
 
 		/* =========================================================== */
@@ -54,7 +55,8 @@ sap.ui.define([
 					controllerName: "AddEditEntry",
 					title: "tit.editCause",
 					type: "edit",
-					sPath: this._oItemCauseContext.getPath()
+					sPath: this._oItemCauseContext.getPath(),
+					smartTable: this._oSmartTable
 				};
 				this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
 				this._oItemCauseContext = null;
@@ -90,6 +92,7 @@ sap.ui.define([
 				controllerName: "AddEditEntry",
 				title: "tit.addCause",
 				type: "add",
+				smartTable: this._oSmartTable,
 				sSortField: "SORT_NUMBER",
 				sNavTo: "/NotificationItemToCause/",
 				mKeys: {
@@ -99,9 +102,19 @@ sap.ui.define([
 			};
 
 			if (mResults) {
-				mParams.mKeys.MaintNotifCauseCodeCatalog = mResults.CatalogTypeForCauses;
+				mParams.mKeys.CODE_CATALOG = mResults.Urkat;
 			}
 			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
+		},
+
+		/**
+		 * Called on click of Long text indicator
+		 * @param oEvent
+		 */
+		showLongText: function (oEvent) {
+			var oContext = oEvent.getSource().getBindingContext();
+			var longText = oContext.getProperty("NOTES");
+			this.displayLongText(longText);
 		}
 	});
 

@@ -15,6 +15,7 @@ sap.ui.define([
 	return BaseController.extend("com.evorait.evosuite.evonotify.block.items.ItemsBlockController", {
 
 		formatter: formatter,
+		_oSmartTable: null,
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */
@@ -25,7 +26,7 @@ sap.ui.define([
 		 * @public
 		 */
 		onInit: function () {
-
+			this._oSmartTable = this.getView().byId("notificationItemsTable");
 		},
 
 		onAfterRendering: function () {
@@ -68,6 +69,7 @@ sap.ui.define([
 				controllerName: "AddEditEntry",
 				title: "tit.addItem",
 				type: "add",
+				smartTable: this._oSmartTable,
 				sSortField: "SORT_NUMBER",
 				sNavTo: "/NotificationToItem/",
 				mKeys: {
@@ -76,10 +78,20 @@ sap.ui.define([
 			};
 
 			if (mResults) {
-				mParams.mKeys.MaintNotifObjprtcodeCatalog = mResults.CatalogTypeForObjParts;
-				mParams.mKeys.MaintNotifDamageCodecatalog = mResults.CatalogTypeForDamage;
+				mParams.mKeys.CODE_CATALOG = mResults.Otkat;
+				mParams.mKeys.DAMAGE_CODE_CATALOG = mResults.Fekat;
 			}
 			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
+		},
+		
+		/**
+		 * Called on click of Long text indicator
+		 * @param oEvent
+		 */
+		showLongText: function (oEvent) {
+			var oContext = oEvent.getSource().getBindingContext();
+			var longText = oContext.getProperty("NOTES");
+			this.displayLongText(longText);
 		}
 
 	});

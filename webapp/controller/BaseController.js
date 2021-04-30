@@ -6,11 +6,12 @@ sap.ui.define([
 	"sap/m/Button",
 	"sap/m/Text",
 	"sap/m/MessageToast",
+	"sap/m/MessageBox",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
 	"com/evorait/evosuite/evonotify/model/Constants",
 	"com/evorait/evosuite/evonotify/model/formatter"
-], function (Controller, JSONModel, History, Dialog, Button, Text, MessageToast, Filter, FilterOperator, Constants, formatter) {
+], function (Controller, JSONModel, History, Dialog, Button, Text, MessageToast, MessageBox, Filter, FilterOperator, Constants, formatter) {
 	"use strict";
 
 	return Controller.extend("com.evorait.evosuite.evonotify.controller.BaseController", {
@@ -196,109 +197,12 @@ sap.ui.define([
 						sMsg = oData.MaintenanceNotification + "/" + (oData.MaintenanceNotificationTask || "") + " " + this.getResourceBundle().getText(
 							"msg.saveStatusSuccess");
 					}
-					MessageToast.show(sMsg, {
-						duration: 5000
-					});
+					this.showMessageToast(sMsg);
 
 				}.bind(this), // callback function for success
 
 				error: function (oError) {
 					oViewModel.setProperty("/busy", false);
-				}.bind(this)
-			});
-		},
-
-		/**
-		 * submit a new entry to SAP
-		 * @param sParamId
-		 * @param sNavPath
-		 */
-		saveNewEntry: function (mParams) {
-			var sParamId = mParams.entryKey,
-				sNavPath = mParams.navPath;
-
-			var oView = mParams.view || this.getView(),
-				oModel = oView.getModel(),
-				oViewModel = oView.getModel("viewModel");
-
-			oViewModel.setProperty("/busy", true);
-			oModel.submitChanges({
-				success: function (response) {
-					var batch = response.__batchResponses[0],
-						sCreatedEntryId = null;
-
-					oViewModel.setProperty("/busy", false);
-					//success
-					if (response.__batchResponses[0].response && response.__batchResponses[0].response.statusCode === "400") {
-						if (mParams.error) {
-							mParams.error();
-						}
-					} else {
-						oView.getModel().refresh(true);
-						if (batch.__changeResponses) {
-							if (batch && (batch.__changeResponses[0].data)) {
-								sCreatedEntryId = batch.__changeResponses[0].data[sParamId];
-							}
-							if (sCreatedEntryId && sCreatedEntryId !== "" && sNavPath) {
-								oViewModel.setProperty("/newCreatedNotification", true);
-								this.getRouter().navTo("object", {
-									objectId: sCreatedEntryId
-								});
-							} else {
-								var msg = oView.getModel("i18n").getResourceBundle().getText("msg.saveSuccess");
-								sap.m.MessageToast.show(msg);
-
-								if (mParams.success) {
-									mParams.success();
-								}
-							}
-						}
-					}
-				}.bind(this),
-				error: function (oError) {
-					oViewModel.setProperty("/busy", false);
-					if (mParams.error) {
-						mParams.error();
-					}
-				}.bind(this)
-			});
-		},
-
-		/**
-		 * save entry who was in edit mode
-		 */
-		saveChangedEntry: function (mParams) {
-			var oView = mParams.view || this.getView(),
-				oViewModel = oView.getModel("viewModel");
-
-			oViewModel.setProperty("/busy", true);
-
-			oView.getModel().submitChanges({
-				success: function (response) {
-					if (response.__batchResponses && response.__batchResponses[0].response && response.__batchResponses[0].response.statusCode ===
-						"400") {
-						oViewModel.setProperty("/busy", false);
-						if (mParams.error) {
-							mParams.error();
-						}
-					} else {
-						var successMsg = oView.getModel("i18n").getResourceBundle().getText("msg.submitSuccess");
-						this.showMessageToast(successMsg);
-						oView.getModel().refresh(true);
-						setTimeout(function () {
-							if (mParams.success) {
-								mParams.success();
-							}
-							oViewModel.setProperty("/busy", false);
-							oViewModel.setProperty("/editMode", false);
-						}.bind(this), 1500);
-					}
-				}.bind(this),
-				error: function (oError) {
-					oViewModel.setProperty("/busy", false);
-					if (mParams.error) {
-						mParams.error();
-					}
 				}.bind(this)
 			});
 		},
@@ -310,8 +214,8 @@ sap.ui.define([
 		showMessageToast: function (msg) {
 			sap.m.MessageToast.show(msg, {
 				duration: 5000, // default
-				my: "center bottom", // default
-				at: "center bottom", // default
+				my: "center center", // default
+				at: "center center", // default
 				of: window, // default
 				offset: "0 20", // default
 				collision: "fit fit", // default
@@ -342,12 +246,12 @@ sap.ui.define([
 		 */
 		getNotifTypeDependencies: function (oData) {
 			return new Promise(function (resolve, reject) {
-				if (!oData.NotificationType) {
+				if (!oData.NOTIFICATION_TYPE) {
 					reject();
 					return;
 				}
 				var sPath = this.getModel().createKey("SHNotificationTypeSet", {
-					Qmart: oData.NotificationType || oData.Notificationtype
+					Qmart: oData.NOTIFICATION_TYPE || oData.NOTIFICATION_TYPE
 				});
 
 				this.getModel().read("/" + sPath, {
@@ -513,7 +417,7 @@ sap.ui.define([
 				oPopover.openBy(oSource);
 			}
 		},
-		
+
 		/**
 		 * show showInformationDialog dialog with ok
 		 * Yes execute successFn
@@ -521,22 +425,24 @@ sap.ui.define([
 		 * @param successFn
 		 * @param errorFn
 		 */
-		showInformationDialog: function(msg, successFn, errorFn){
+		showInformationDialog: function (msg, successFn, errorFn) {
 			var oBundle = this.getModel("i18n").getResourceBundle();
 
 			var dialog = new Dialog({
 				title: oBundle.getText("tit.informationTitle"),
 				type: 'Message',
-				content: new Text({ text: msg }),
+				content: new Text({
+					text: msg
+				}),
 				beginButton: new Button({
 					type: sap.m.ButtonType.Emphasized,
 					text: oBundle.getText("btn.ok"),
 					press: function () {
-						if(successFn) successFn();
+						if (successFn) successFn();
 						dialog.close();
 					}
 				}),
-				afterClose: function() {
+				afterClose: function () {
 					dialog.destroy();
 				}
 			});
@@ -552,27 +458,23 @@ sap.ui.define([
 		},
 
 		/**
-		 * Create Success, Warning, Info, Error message and add to MessageManager
-		 * @param sMessage
-		 * @param sTarget
-		 */
-		addMsgToMessageManager: function (sType, sMessage, sTarget) {
-			var oMessage = new Message({
-				message: sMessage,
-				type: sType,
-				target: sTarget,
-				processor: this.getModel("messageManager"),
-				technical: true
-			});
-			sap.ui.getCore().getMessageManager().addMessages(oMessage);
-		},
-
-		/**
 		 * Clear all message present in the MessageManager
 		 */
 		clearAllMessages: function () {
 			// does not remove the manually set ValueStateText we set in onValueStatePress():
 			sap.ui.getCore().getMessageManager().removeAllMessages();
+		},
+
+		/**
+		 * Display Long text on MessageBox
+		 * @param longText
+		 */
+		displayLongText: function (longText) {
+			var title = this.getView().getModel("i18n").getResourceBundle().getText("tit.longText");
+			MessageBox.show(longText, {
+				title: title,
+				actions: [MessageBox.Action.OK]
+			});
 		}
 	});
 

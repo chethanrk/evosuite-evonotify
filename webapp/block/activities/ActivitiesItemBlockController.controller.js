@@ -15,6 +15,7 @@ sap.ui.define([
 	return BaseController.extend("com.evorait.evosuite.evonotify.block.activities.ActivitiesItemBlockController", {
 
 		formatter: formatter,
+		_oSmartTable: null,
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */
@@ -25,7 +26,7 @@ sap.ui.define([
 		 * @public
 		 */
 		onInit: function () {
-
+			this._oSmartTable = this.getView().byId("notificationActivityItemTable");
 		},
 
 		/* =========================================================== */
@@ -48,13 +49,14 @@ sap.ui.define([
 		onPressEdit: function (oEvent) {
 			if (this._oItemActivityContext) {
 				var mParams = {
-					viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#NotifItmCreateUpdate",
-					annotationPath: "com.sap.vocabularies.UI.v1.Facets#NotifItmCreateUpdate",
+					viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#NotifItemActivityUpdate",
+					annotationPath: "com.sap.vocabularies.UI.v1.Facets#ItemActivityCreateUpdate",
 					entitySet: "PMNotificationItemActivitySet",
 					controllerName: "AddEditEntry",
 					title: "tit.editActivity",
 					type: "edit",
-					sPath: this._oItemActivityContext.getPath()
+					sPath: this._oItemActivityContext.getPath(),
+					smartTable: this._oSmartTable
 				};
 				this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
 				this._oItemActivityContext = null;
@@ -84,12 +86,13 @@ sap.ui.define([
 		 */
 		_openAddDialog: function (oContextData, mResults) {
 			var mParams = {
-				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#NotifItmCreateUpdate",
-				annotationPath: "com.sap.vocabularies.UI.v1.Facets#NotifItmCreateUpdate",
+				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#NotifItemActivityCreate",
+				annotationPath: "com.sap.vocabularies.UI.v1.Facets#ItemActivityCreateUpdate",
 				entitySet: "PMNotificationItemActivitySet",
 				controllerName: "AddEditEntry",
 				title: "tit.addActivity",
 				type: "add",
+				smartTable: this._oSmartTable,
 				sSortField: "SORT_NUMBER",
 				sNavTo: "/NotificationItemToActivity/",
 				mKeys: {
@@ -99,9 +102,19 @@ sap.ui.define([
 			};
 
 			if (mResults) {
-				mParams.mKeys.MaintNotifAcivityCodeCatalog = mResults.CatalogTypeForActivities;
+				mParams.mKeys.CODE_CATALOG = mResults.Mfkat;
 			}
 			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
+		},
+		
+		/**
+		 * Called on click of Long text indicator
+		 * @param oEvent
+		 */
+		showLongText: function (oEvent) {
+			var oContext = oEvent.getSource().getBindingContext();
+			var longText = oContext.getProperty("NOTES");
+			this.displayLongText(longText);
 		}
 	});
 

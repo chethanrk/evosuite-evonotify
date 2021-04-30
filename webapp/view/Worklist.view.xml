@@ -31,9 +31,9 @@
 		</f:header>
 		<f:content>
 			<smartTable:SmartTable id="NotificationTable" class="workorderSmartTable" entitySet="PMNotificationSet" smartFilterId="NotificationFilter"
-				tableType="Table" useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="true" useTablePersonalisation="true"
+				tableType="ResponsiveTable" useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="true" useTablePersonalisation="true"
 				header="{i18n>tit.worklistTable}" showRowCount="true" persistencyKey="com.evorait.evosuite.evonotify.NotificationTable" enableAutoBinding="true"
-				beforeRebindTable="onBeforeRebindTable" requestAtLeastFields="ObjectKey,PHASE,ENABLE_NOTIFICATION_CHANGE">
+				beforeRebindTable="onBeforeRebindTable" requestAtLeastFields="ObjectKey,PHASE,ENABLE_NOTIFICATION_CHANGE" demandPopin="true">
 				<!-- layout data used to make the table growing but the filter bar fixed -->
 				<smartTable:layoutData>
 					<FlexItemData growFactor="1" baseSize="0%"/>
@@ -47,8 +47,8 @@
 				</smartTable:customToolbar>
 				<Table id="responsiveNotificationTable" sticky="ColumnHeaders,HeaderToolbar,InfoToolbar" growing="true">
 					<columns>
-						<Column width="3rem">
-							<Text text="{/#PMNotification/UI_STATUS_ICON/@sap:label}"/>
+						<Column width="4rem">
+							<Text text="{/PMNotificationSet/UI_STATUS_ICON/##com.sap.vocabularies.Common.v1.Label/String}"/>
 							<customData>
 								<core:CustomData key="p13nData" value='\{"columnKey": "UI_STATUS_ICON","leadingProperty": "UI_STATUS_ICON"}'/>
 							</customData>

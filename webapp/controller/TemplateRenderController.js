@@ -25,8 +25,10 @@ sap.ui.define([
 			this._oOwnerComponent = null;
 
 			for (var key in this.mTemplates) {
-				this.mTemplates[key].destroy();
-				this.mTemplates[key] = null;
+				if (this.mTemplates.hasOwnProperty(key)) {
+					this.mTemplates[key].destroy();
+					this.mTemplates[key] = null;
+				}
 			}
 		},
 
@@ -57,7 +59,8 @@ sap.ui.define([
 		 */
 		setTemplateProperties: function (mParams) {
 			var oTempModel = this.getTemplateModel();
-			oTempModel.setData(mParams);
+			oTempModel.setProperty("/annotationPath", mParams.annotationPath);
+			oTempModel.setProperty("/tempData", mParams);
 		},
 
 		/**
@@ -65,6 +68,8 @@ sap.ui.define([
 		 * @param sEntitySet
 		 * @param mParams
 		 * @param oView
+		 * @param sPath
+		 * @returns {string|*}
 		 */
 		getEntityPath: function (sEntitySet, mParams, oView, sPath) {
 			var oModel = oView ? oView.getModel() : this.getModel();
@@ -109,7 +114,7 @@ sap.ui.define([
 				}
 			}
 
-			if (aContent.length === 0 && sPath) {
+			if (aContent.length === 0) {
 				if (this.mTemplates[sViewName]) {
 					//when template was already in use then just integrate in viewContainer and bind new path
 					//will improve performance
@@ -148,9 +153,12 @@ sap.ui.define([
 		/**
 		 * create view and set owner component for routing
 		 * and calls for getOwnerComponent() in nested views and blocks
+		 * @param oModel
 		 * @param oMetaModel
 		 * @param sPath
-		 * @param sViewName
+		 * @param sViewNameId
+		 * @param oController
+		 * @returns {*}
 		 */
 		createView: function (oModel, oMetaModel, sPath, sViewNameId, oController) {
 			var sViewId = this._getTemplateViewId(sViewNameId, true),
@@ -182,7 +190,7 @@ sap.ui.define([
 					viewName: sViewName,
 					controller: oController
 				});
-			}.bind(this);
+			};
 
 			//run as owner so views knows ownerComponent
 			var oOwnerComponent = this._oOwnerComponent || this.getOwnerComponent();
@@ -197,26 +205,36 @@ sap.ui.define([
 		 * bind special view control with new path
 		 * @param oView
 		 * @param sPath
+		 * @param callbackFn
 		 */
 		bindView: function (oView, sPath, callbackFn) {
+			var sViewName = this._joinTemplateViewNameId(oView.getId(), oView.getViewName()),
+				eventBus = sap.ui.getCore().getEventBus();
+
+			if (!sPath) {
+				eventBus.publish("TemplateRendererEvoNotify", "changedBinding", {
+					viewNameId: sViewName
+				});
+				if (callbackFn) {
+					callbackFn();
+				}
+				return;
+			}
+
 			oView.unbindElement();
 			oView.bindElement({
 				path: sPath,
 				events: {
 					change: function () {
-						var sViewName = this._joinTemplateViewNameId(oView.getId(), oView.getViewName()),
-							eventBus = sap.ui.getCore().getEventBus();
-
 						eventBus.publish("TemplateRendererEvoNotify", "changedBinding", {
 							viewNameId: sViewName
 						});
-
 						if (callbackFn) {
 							callbackFn();
 						}
-					}.bind(this),
-					dataRequested: function () {}.bind(this),
-					dataReceived: function () {}.bind(this)
+					},
+					dataRequested: function () {},
+					dataReceived: function () {}
 				}
 			});
 		},

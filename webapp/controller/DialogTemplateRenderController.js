@@ -36,6 +36,7 @@ sap.ui.define([
 			this._oModel = oView.getModel();
 			this._oResourceBundle = oView.getController().getOwnerComponent().getModel("i18n").getResourceBundle();
 			this._mParams = mParams;
+			this._oSmartTable = mParams.smartTable;
 
 			//set annotation path and other parameters
 			this.setTemplateProperties(mParams);
@@ -145,9 +146,11 @@ sap.ui.define([
 			if (responseCode) {
 				if (responseCode[0].statusCode === "200" || responseCode[0].statusCode === "201" || responseCode[0].statusCode === "204") {
 					var msg = this._oResourceBundle.getText("msg.saveSuccess");
-					sap.m.MessageToast.show(msg);
+					this.showMessageToast(msg);
 					setTimeout(function () {
-						this._oModel.refresh();
+						if (this._oSmartTable) {
+							this._oSmartTable.rebindTable();
+						}
 					}.bind(this), 1500);
 				} else {
 					//Todo show error message

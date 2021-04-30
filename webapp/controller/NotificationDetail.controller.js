@@ -48,6 +48,12 @@ sap.ui.define([
 		 */
 		onExit: function () {
 			this.getView().unbindElement();
+			var eventBus = sap.ui.getCore().getEventBus();
+			eventBus.unsubscribe("TemplateRendererEvoNotify", "changedBinding", this._changedBinding, this);
+			if (this._actionSheetSystemStatus) {
+				this._actionSheetSystemStatus.destroy(true);
+				this._actionSheetSystemStatus = null;
+			}
 		},
 
 		/**
@@ -98,10 +104,10 @@ sap.ui.define([
 		 */
 		saveSuccessFn: function (oResponse) {
 			var msg = this.getResourceBundle().getText("msg.saveSuccess");
-			sap.m.MessageToast.show(msg);
+			this.showSuccessMessage(msg);
 			this.setFormsEditable(this.aSmartForms, false);
 			this.oViewModel.setProperty("/editMode", false);
-			this._setSelectFunctionVisibility();
+			this._setNotificationStatusButtonVisibility(this._oContext.getObject());
 		},
 
 		/**
@@ -126,10 +132,6 @@ sap.ui.define([
 			this.aSmartForms = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("smartFormTemplate"));
 			this.setFormsEditable(this.aSmartForms, false);
 			this.oViewModel.setProperty("/editMode", false);
-
-			if (this.oViewModel.getProperty("/newCreatedNotification") === true) {
-				this.getModel().refresh(true);
-			}
 		},
 
 		/**
@@ -137,21 +139,22 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onSelectStatus: function (oEvent) {
-			this._oContext = this.getView().getBindingContext();
-			var sSelFunctionKey = oEvent.getParameter("item").getKey(),
+			var oSource = oEvent.getSource(),
+				oItem = oEvent.getParameter("item"),
 				oData = this._oContext.getObject(),
 				sPath = this._oContext.getPath(),
+				sFunctionKey = oItem ? oItem.data("key") : oSource.data("key"),
 				message = "";
+			this._oContext = this.getView().getBindingContext();
 
-			if (oData["ALLOW_" + sSelFunctionKey]) {
-				this.getModel().setProperty(sPath + "/FUNCTION", sSelFunctionKey);
+			if (oData["ALLOW_" + sFunctionKey]) {
+				this.getModel().setProperty(sPath + "/FUNCTION", sFunctionKey);
 				this.saveChanges({
 					state: "success"
 				}, this.saveSuccessFn.bind(this), null, this.getView());
 			} else {
 				message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NOTIFICATION_NO);
 				this.showInformationDialog(message);
-				//this.addMsgToMessageManager(this.mMessageType.Error, message, "/WorkList");
 			}
 		},
 
@@ -168,10 +171,17 @@ sap.ui.define([
 
 				if (oData && (oData.viewNameId === sViewName)) {
 					this._oContext = this.getView().getBindingContext();
+
+					if (this.oViewModel.getProperty("/newCreatedNotification") === true) {
+						this.oViewModel.setProperty("/newCreatedNotification", false);
+						//refresh only this binding and not whole oDataModel
+						this.getView().getElementBinding().refresh();
+					}
+
 					if (!this._oContext) {
 						this.getRouter().navTo("ObjectNotFound");
 					}
-					this._setSelectFunctionVisibility();
+					this._setNotificationStatusButtonVisibility(this._oContext.getObject());
 				}
 			}
 		},
@@ -189,6 +199,38 @@ sap.ui.define([
 					oItem.setVisible(oData["ALLOW_" + oItem.getKey()]);
 				}.bind(this));
 			}
+		},
+
+		/**
+		 * set visibility on status change dropdown items based on allowance from order status
+		 */
+		_setNotificationStatusButtonVisibility: function (oData) {
+
+			var mNotificationAllows = {};
+			for (var key in oData) {
+				if (key.startsWith("ALLOW_")) {
+					mNotificationAllows[key] = oData[key];
+				}
+			}
+			this.oViewModel.setProperty("/NotificationAllows", mNotificationAllows);
+		},
+
+		/**
+		 * show ActionSheet of system status buttons
+		 * @param oEvent
+		 */
+		onPressChangeSystemStatus: function (oEvent) {
+			var oButton = oEvent.getSource();
+			// create action sheet only once
+			if (!this._actionSheetSystemStatus) {
+				this._actionSheetSystemStatus = sap.ui.xmlfragment(
+					"com.evorait.evosuite.evonotify.view.fragments.ActionSheetSystemStatus",
+					this
+				);
+				this.getView().addDependent(this._actionSheetSystemStatus);
+			}
+			this._actionSheetSystemStatus.openBy(oButton);
 		}
+
 	});
 });
