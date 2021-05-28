@@ -38,6 +38,15 @@ sap.ui.define([
 			this._initializeView();
 		},
 
+		onChangeSmartField: function (oEvent) {
+			var oSource = oEvent.getSource();
+			var oContext = this.getView().getBindingContext();
+
+			if (oSource.getValueState() === "None") {
+				this._checkForDefaultProperties(oContext, "PMNotificationSet");
+			}
+		},
+
 		/**
 		 * 
 		 */
@@ -106,7 +115,7 @@ sap.ui.define([
 				var oData = oContext.getObject(),
 					sPath = oContext.getPath(),
 					oModel = this.getModel();
-
+				delete oData.__metadata;
 				//check if GET parameter is allowed prefill field
 				//only when property is creatable true then prefill property
 				oModel.getMetaModel().loaded().then(function () {
@@ -116,13 +125,16 @@ sap.ui.define([
 
 					for (var key in oData) {
 						var urlValue = this.getOwnerComponent().getLinkParameterByName(key);
+						var oProperty = oMetaModel.getODataProperty(oEntityType, key);
 						if (urlValue && urlValue !== Constants.PROPERTY.NEW) {
-							var oProperty = oMetaModel.getODataProperty(oEntityType, key);
 							//check if key is creatable true and url param value is not bigger then maxLength of property
 							if ((!oProperty.hasOwnProperty("sap:creatable") || oProperty["sap:creatable"] === "true") &&
 								(urlValue.length <= parseInt(oProperty["maxLength"]))) {
 								oModel.setProperty(sPath + "/" + key, urlValue);
 							}
+						}
+						if (!oProperty.hasOwnProperty("sap:creatable") || oProperty["sap:creatable"] === "true") {
+							this.checkDefaultValues(oEntitySet.name.split("Set")[0], key, sPath);
 						}
 					}
 				}.bind(this));

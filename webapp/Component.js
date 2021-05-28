@@ -75,7 +75,11 @@ sap.ui.define([
 
 			this.setModel(models.createInformationModel(this), "InformationModel");
 
+			this.setModel(models.createDefaultInformationModel(this), "DefaultInformationModel");
+
 			this._getSystemInformation();
+
+			this._getDefaultInformation();
 
 			this._getFunctionSet();
 
@@ -256,6 +260,18 @@ sap.ui.define([
 						this.getModel("templateProperties").setProperty("/navLinks/", mProps);
 						resolve(mProps);
 					}.bind(this));
+			}.bind(this));
+		},
+
+		/**
+		 * Calls the PropertyValueDetermination 
+		 */
+		_getDefaultInformation: function () {
+			this.oDefaultInfoProm = new Promise(function (resolve) {
+				this.readData("/PropertyValueDeterminationSet", []).then(function (oData) {
+					this.getModel("DefaultInformationModel").setProperty("/dafaultProperties", oData.results);
+					resolve(oData.results[0]);
+				}.bind(this));
 			}.bind(this));
 		},
 
