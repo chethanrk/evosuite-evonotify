@@ -349,7 +349,6 @@ sap.ui.define([
 
 					for (var key in oData) {
 						var oProperty = oMetaModel.getODataProperty(oEntityType, key);
-
 						if (!oProperty.hasOwnProperty("sap:creatable") || oProperty["sap:creatable"] === "true") {
 							this.checkDefaultValues(oEntitySet.name.split("Set")[0], key, sPath);
 						}
@@ -363,7 +362,7 @@ sap.ui.define([
 		 * if default properties exist, it will call backend for default value of the specific properties
 		 */
 		checkDefaultValues: function (oEntitySet, sProperty, sPath) {
-			var aDefaultValues = this.getModel("DefaultInformationModel").getProperty("/dafaultProperties");
+			var aDefaultValues = this.getModel("DefaultInformationModel").getProperty("/defaultProperties");
 			for (var i in aDefaultValues) {
 				if (aDefaultValues[i].EntityName === oEntitySet && aDefaultValues[i].PropertyName === sProperty) {
 					//get ValueIn for properties

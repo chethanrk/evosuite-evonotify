@@ -42,7 +42,7 @@ sap.ui.define([
 			var oSource = oEvent.getSource();
 			var oContext = this.getView().getBindingContext();
 
-			if (oSource.getValueState() === "None") {
+			if (oSource.getValueState() === "None" && oContext) {
 				this._checkForDefaultProperties(oContext, "PMNotificationSet");
 			}
 		},

@@ -24,6 +24,7 @@ sap.ui.define([
 
 		oSystemInfoProm: null,
 		oTemplatePropsProm: null,
+		oDefaultInfoProm: null,
 
 		/**
 		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
@@ -269,7 +270,7 @@ sap.ui.define([
 		_getDefaultInformation: function () {
 			this.oDefaultInfoProm = new Promise(function (resolve) {
 				this.readData("/PropertyValueDeterminationSet", []).then(function (oData) {
-					this.getModel("DefaultInformationModel").setProperty("/dafaultProperties", oData.results);
+					this.getModel("DefaultInformationModel").setProperty("/defaultProperties", oData.results);
 					resolve(oData.results[0]);
 				}.bind(this));
 			}.bind(this));
