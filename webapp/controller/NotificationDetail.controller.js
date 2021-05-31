@@ -140,15 +140,34 @@ sap.ui.define([
 		 */
 		onSelectStatus: function (oEvent) {
 			var oSource = oEvent.getSource(),
-				oItem = oEvent.getParameter("item"),
-				oData = this._oContext.getObject(),
+				oItem = oEvent.getParameter("item");
+
+			this.sFunctionKey = oItem ? oItem.data("key") : oSource.data("key");
+			if (this._showESign()) {
+				if (!this._eSignDialog) {
+					this.oEsignContext = this.getModel().createEntry("/PMNotificationESignSet");
+					this._eSignDialog = sap.ui.xmlfragment("com.evorait.evosuite.evonotify.view.fragments.ESignFormDialog", this);
+					this._eSignDialog.setBindingContext(this.oEsignContext);
+					this._initializeESignModel();
+					this.getView().addDependent(this._eSignDialog);
+				}
+				this._eSignDialog.open();
+			} else {
+				this._updateStatus();
+			}
+		},
+        
+        /**
+         * function to update the satus
+         */
+		_updateStatus: function () {
+			var oData = this._oContext.getObject(),
 				sPath = this._oContext.getPath(),
-				sFunctionKey = oItem ? oItem.data("key") : oSource.data("key"),
 				message = "";
 			this._oContext = this.getView().getBindingContext();
 
-			if (oData["ALLOW_" + sFunctionKey]) {
-				this.getModel().setProperty(sPath + "/FUNCTION", sFunctionKey);
+			if (oData["ALLOW_" + this.sFunctionKey]) {
+				this.getModel().setProperty(sPath + "/FUNCTION", this.sFunctionKey);
 				this.saveChanges({
 					state: "success"
 				}, this.saveSuccessFn.bind(this), null, this.getView());
@@ -230,7 +249,60 @@ sap.ui.define([
 				this.getView().addDependent(this._actionSheetSystemStatus);
 			}
 			this._actionSheetSystemStatus.openBy(oButton);
-		}
+		},
 
+		/*
+		* initialize esign model with the default parameters
+		*/
+		_initializeESignModel: function () {
+			var sPathESign = this.oEsignContext.getPath(),
+				oData = this._oContext.getObject();
+			this.getModel().setProperty(sPathESign + "/NOTIFICATION_NO", oData.NOTIFICATION_NO);
+			this.getModel().setProperty(sPathESign + "/NOTIFICATION_TYPE", oData.NOTIFICATION_TYPE);
+			this.getModel().setProperty(sPathESign + "/NOTIFICATION_ITEM", oData.NOTIFICATION_ITEM);
+			this.getModel().setProperty(sPathESign + "/USERNAME", this.getModel("user").getProperty("/Username"));
+		},
+
+		/*
+		 * Function to decide whether esign should be shown on status update
+		*/
+		_showESign: function () {
+			var isEsignEnabled = this.getModel("user").getProperty("/ENABLE_ESIGN");
+			var oData = this._oContext.getObject();
+			if (isEsignEnabled === "X" && oData.ALLOW_ESIGN) {
+				return true;
+			}
+			return false;
+		},
+
+
+		/**
+		 * Closes the ESign dialog
+		 */
+		onCloseESignDialog: function () {
+			this._eSignDialog.close();
+		},
+
+		/**
+		 * on save esign button
+		 * @param oEvent
+		 */
+		onPressESignSave: function (oEvent) {
+			var sPathESign = this.oEsignContext.getPath();
+			var encodedPassword = btoa(this.getModel().getProperty(sPathESign + "/PASSWORD"));
+			this.getModel().setProperty(sPathESign + "/PASSWORD", encodedPassword);
+			this.saveChanges({
+				state: "success"
+			}, this._onESignSuccessFn.bind(this), null, this._eSignDialog);
+		},
+
+		/**
+		 * success callback after esign validation
+		 * @param oResponse
+		 */
+		_onESignSuccessFn: function (oResponse) {
+			this._updateStatus();
+			this.onCloseESignDialog();
+		}
 	});
 });
