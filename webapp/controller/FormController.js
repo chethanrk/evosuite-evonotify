@@ -240,7 +240,17 @@ sap.ui.define([
 
 				this.getView().getModel().submitChanges({
 					success: function (oResponse) {
-						this._deleteCreatedLocalEntry();
+						var isNew = this.getView().getModel("viewModel").getProperty("/isNew"),
+							isStatusUpdate = this.getView().getModel("viewModel").getProperty("/isStatusUpdate");
+
+						if (isNew) {
+							this._deleteCreatedLocalEntry();
+						}
+						if (this.getView().getModel().hasPendingChanges() && isStatusUpdate) {
+							this.getView().getModel().resetChanges();
+							this.getModel("viewModel").setProperty("/isStatusUpdate", false);
+
+						}
 						this._setBusyWhileSaving(oCtrl, false);
 						this.getView().getModel("viewModel").setProperty("/busy", false);
 						if (oResponse.__batchResponses && oResponse.__batchResponses[0].response && oResponse.__batchResponses[0].response.statusCode ===

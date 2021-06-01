@@ -109,6 +109,7 @@ sap.ui.define([
 				sFunctionKey = oItem ? oItem.data("key") : oSource.data("key"),
 				message = "";
 			if (oData["ALLOW_" + sFunctionKey]) {
+				this.getModel("viewModel").setProperty("/isStatusUpdate", true);
 				this.getModel().setProperty(sPath + "/FUNCTION", sFunctionKey);
 				this.saveChanges({
 					state: "success"
