@@ -145,12 +145,12 @@ sap.ui.define([
 			this.sFunctionKey = oItem ? oItem.data("key") : oSource.data("key");
 			if (this._showESign()) {
 				if (!this._eSignDialog) {
-					this.oEsignContext = this.getModel().createEntry("/PMNotificationESignSet");
 					this._eSignDialog = sap.ui.xmlfragment("com.evorait.evosuite.evonotify.view.fragments.ESignFormDialog", this);
-					this._eSignDialog.setBindingContext(this.oEsignContext);
-					this._initializeESignModel();
-					this.getView().addDependent(this._eSignDialog);
 				}
+				this.oEsignContext = this.getModel().createEntry("/PMNotificationESignSet");
+				this._eSignDialog.setBindingContext(this.oEsignContext);
+				this._initializeESignModel();
+				this.getView().addDependent(this._eSignDialog);
 				this._eSignDialog.open();
 			} else {
 				this._updateStatus();
@@ -167,6 +167,7 @@ sap.ui.define([
 			this._oContext = this.getView().getBindingContext();
 
 			if (oData["ALLOW_" + this.sFunctionKey]) {
+				this.getModel("viewModel").setProperty("/isStatusUpdate", true);
 				this.getModel().setProperty(sPath + "/FUNCTION", this.sFunctionKey);
 				this.saveChanges({
 					state: "success"
@@ -199,8 +200,9 @@ sap.ui.define([
 
 					if (!this._oContext) {
 						this.getRouter().navTo("ObjectNotFound");
+					} else {
+						this._setNotificationStatusButtonVisibility(this._oContext.getObject());
 					}
-					this._setNotificationStatusButtonVisibility(this._oContext.getObject());
 				}
 			}
 		},
