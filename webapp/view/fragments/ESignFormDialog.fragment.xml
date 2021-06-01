@@ -17,7 +17,7 @@
 			<Button text="{i18n>btn.cancel}" press="onCloseESignDialog"/>
 		</beginButton>
 		<endButton>
-			<Button id="formDialogSaveBtn" text="{i18n>btn.save}" type="Emphasized" press="onPressESignSave"/>
+			<Button id="eSignDialogSaveBtn" text="{i18n>btn.save}" type="Emphasized" press="onPressESignSave"/>
 		</endButton>
 	</Dialog>
 </core:FragmentDefinition>
