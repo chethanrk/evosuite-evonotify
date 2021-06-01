@@ -143,7 +143,7 @@ sap.ui.define([
 						} else {
 							//reset changes from object path
 							this.getModel().resetChanges([sPath]);
-							this.oSmartForm.setEditable(false);
+							this.setFormsEditable(this.aSmartForms, false);
 							oViewModel.setProperty("/editMode", false);
 							if (doNavBack) {
 								//on edit cancel and nav back unbind object
