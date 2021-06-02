@@ -1,6 +1,7 @@
 sap.ui.define([
-	"com/evorait/evosuite/evonotify/controller/FormController"
-], function (FormController) {
+	"com/evorait/evosuite/evonotify/controller/FormController",
+	"sap/ui/core/Fragment"
+], function (FormController, Fragment) {
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.controller.NotificationDetail", {
@@ -145,16 +146,34 @@ sap.ui.define([
 			this.sFunctionKey = oItem ? oItem.data("key") : oSource.data("key");
 			if (this._showESign()) {
 				if (!this._eSignDialog) {
-					this._eSignDialog = sap.ui.xmlfragment("com.evorait.evosuite.evonotify.view.fragments.ESignFormDialog", this);
+					Fragment.load({
+						name: "com.evorait.evosuite.evonotify.view.fragments.ESignFormDialog",
+						controller: this,
+						type: "XML"
+					}).then(function (oFragment) {
+						this._eSignDialog = oFragment;
+						this._setESignFragmentBinding();
+					}.bind(this));
+				} else {
+					this._setESignFragmentBinding();
 				}
-				this.oEsignContext = this.getModel().createEntry("/PMNotificationESignSet");
-				this._eSignDialog.setBindingContext(this.oEsignContext);
-				this._initializeESignModel();
-				this.getView().addDependent(this._eSignDialog);
-				this._eSignDialog.open();
+
 			} else {
 				this._updateStatus();
 			}
+		},
+
+		/**
+		 * load new template and set inside dialog
+		 * Bind dialog view to generated path
+		 */
+		_setESignFragmentBinding: function () {
+			this.oEsignContext = this.getModel().createEntry("/PMNotificationESignSet");
+			this._eSignDialog.setBindingContext(this.oEsignContext);
+			this._eSignDialog.addStyleClass(this.getOwnerComponent().getContentDensityClass());
+			this._initializeESignModel();
+			this.getView().addDependent(this._eSignDialog);
+			this._eSignDialog.open();
 		},
 
 		/**
