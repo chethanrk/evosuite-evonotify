@@ -156,10 +156,10 @@ sap.ui.define([
 				this._updateStatus();
 			}
 		},
-        
-        /**
-         * function to update the satus
-         */
+
+		/**
+		 * function to update the satus
+		 */
 		_updateStatus: function () {
 			var oData = this._oContext.getObject(),
 				sPath = this._oContext.getPath(),
@@ -254,8 +254,8 @@ sap.ui.define([
 		},
 
 		/*
-		* initialize esign model with the default parameters
-		*/
+		 * initialize esign model with the default parameters
+		 */
 		_initializeESignModel: function () {
 			var sPathESign = this.oEsignContext.getPath(),
 				oData = this._oContext.getObject();
@@ -267,21 +267,23 @@ sap.ui.define([
 
 		/*
 		 * Function to decide whether esign should be shown on status update
-		*/
+		 */
 		_showESign: function () {
 			var isEsignEnabled = this.getModel("user").getProperty("/ENABLE_ESIGN");
 			var oData = this._oContext.getObject();
-			if (isEsignEnabled === "X" && oData.ALLOW_ESIGN) {
+			if (isEsignEnabled === "X" && oData.ALLOW_ESIGN && this.sFunctionKey === "COMPLETE") {
 				return true;
 			}
 			return false;
 		},
 
-
 		/**
 		 * Closes the ESign dialog
 		 */
 		onCloseESignDialog: function () {
+			if (this.getView().getModel().hasPendingChanges()) {
+				this.getView().getModel().resetChanges();
+			}
 			this._eSignDialog.close();
 		},
 
@@ -303,8 +305,8 @@ sap.ui.define([
 		 * @param oResponse
 		 */
 		_onESignSuccessFn: function (oResponse) {
-			this._updateStatus();
 			this.onCloseESignDialog();
+			this._updateStatus();
 		}
 	});
 });
