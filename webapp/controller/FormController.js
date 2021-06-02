@@ -145,7 +145,7 @@ sap.ui.define([
 						} else {
 							//reset changes from object path
 							this.getModel().resetChanges([sPath]);
-							this.oSmartForm.setEditable(false);
+							this.setFormsEditable(this.aSmartForms, false);
 							oViewModel.setProperty("/editMode", false);
 							if (doNavBack) {
 								//on edit cancel and nav back unbind object
@@ -242,7 +242,17 @@ sap.ui.define([
 
 				this.getView().getModel().submitChanges({
 					success: function (oResponse) {
-						this._deleteCreatedLocalEntry();
+						var isNew = this.getView().getModel("viewModel").getProperty("/isNew"),
+							isStatusUpdate = this.getView().getModel("viewModel").getProperty("/isStatusUpdate");
+
+						if (isNew) {
+							this._deleteCreatedLocalEntry();
+						}
+						if (this.getView().getModel().hasPendingChanges() && isStatusUpdate) {
+							this.getView().getModel().resetChanges();
+							this.getModel("viewModel").setProperty("/isStatusUpdate", false);
+
+						}
 						this._setBusyWhileSaving(oCtrl, false);
 						this.getView().getModel("viewModel").setProperty("/busy", false);
 						if (oResponse.__batchResponses && oResponse.__batchResponses[0].response && oResponse.__batchResponses[0].response.statusCode ===

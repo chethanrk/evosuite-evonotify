@@ -135,7 +135,7 @@ sap.ui.define([
 			}
 			this._bMessageOpen = true;
 			var extractedError = this._extractError(sDetails);
-			if (extractedError != "") {
+			if (extractedError !== "") {
 				MessageBox.error(
 					this._sErrorText, {
 						id: "serviceErrorMessageBox",
@@ -193,10 +193,10 @@ sap.ui.define([
 			if (this._bMessageOpen) {
 				return;
 			}
-			this._bMessageOpen = true;
 
 			//if no error message presents, then show information
 			if (this.sErrorMessage !== "") {
+			this._bMessageOpen = true;
 				var msg = this._oResourceBundle.getText("msg.notificationSubmitFail") + "\n\n";
 				MessageBox.error(
 					this.sSuccessMessage + "\n" + this._sErrorText + ", " + msg, {
@@ -209,18 +209,7 @@ sap.ui.define([
 						}.bind(this)
 					}
 				);
-			} else {
-				MessageBox.information(
-					this.sSuccessMessage, {
-						id: "serviceErrorMessageBox",
-						styleClass: this._oComponent.getContentDensityClass(),
-						actions: [MessageBox.Action.CLOSE],
-						onClose: function () {
-							this._bMessageOpen = false;
-						}.bind(this)
-					}
-				);
-			}
+			} 
 		},
 
 		/***
