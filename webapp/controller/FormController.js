@@ -245,9 +245,13 @@ sap.ui.define([
 						var isNew = this.getView().getModel("viewModel").getProperty("/isNew"),
 							isStatusUpdate = this.getView().getModel("viewModel").getProperty("/isStatusUpdate");
 
+						//Below condition checks if save action was for new created entity
+						//where in such case the locally created entry needs to be deleted
 						if (isNew) {
 							this._deleteCreatedLocalEntry();
 						}
+						//Below condition checks if there is any pending changes to reset
+						//Only status update changes needs to be reset in case of failure 
 						if (this.getView().getModel().hasPendingChanges() && isStatusUpdate) {
 							this.getView().getModel().resetChanges();
 							this.getModel("viewModel").setProperty("/isStatusUpdate", false);
