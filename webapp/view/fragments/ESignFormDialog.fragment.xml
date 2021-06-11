@@ -7,8 +7,8 @@
 					<Label text="{i18n>xfld.username}"></Label>
 					<Text text="{user>/Fullname} ({user>/Username})"></Text>
 					<Label text="{/#PMNotificationESign/PASSWORD/@sap:label}"></Label>
-					<Input type="Password" value="{PASSWORD}"></Input>
-					<Label text="{/#PMNotificationESign/NOTES/@sap:label}"></Label>
+					<Input type="Password" value="{PASSWORD}" required="true"></Input>
+					<Label text="{/#PMNotificationESign/NOTES/@sap:label}" required="true"></Label>
 					<TextArea value="{NOTES}"/>
 				</form:content>
 			</form:SimpleForm>
