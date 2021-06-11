@@ -22,13 +22,13 @@
 		</smartTable:layoutData>
 		<Table growing="true" mode="SingleSelectMaster" selectionChange="onPressItem">
 			<columns>
-				<Column width="3rem">
+				<Column width="5rem">
 					<Text text="{/#PMNotificationTask/UI_STATUS_ICON/@sap:label}"/>
 					<customData>
 						<core:CustomData key="p13nData" value='\{"columnKey": "UI_STATUS_ICON","leadingProperty": "UI_STATUS_ICON"}'/>
 					</customData>
 				</Column>
-				<Column width="4rem">
+				<Column width="5rem">
 					<customData>
 						<core:CustomData key="p13nData" value='\{"columnKey": "NOTES", "columnIndex":"2"}'/>
 					</customData>
