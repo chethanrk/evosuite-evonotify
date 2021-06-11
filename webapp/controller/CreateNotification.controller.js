@@ -39,11 +39,12 @@ sap.ui.define([
 		},
 
 		onChangeSmartField: function (oEvent) {
-			var oSource = oEvent.getSource();
+			var oSource = oEvent.getSource(),
+				sFieldName = oSource.getName();
 			var oContext = this.getView().getBindingContext();
 
 			if (oSource.getValueState() === "None" && oContext) {
-				this._checkForDefaultProperties(oContext, "PMNotificationSet");
+				this._checkForDefaultProperties(oContext, "PMNotificationSet", sFieldName);
 			}
 		},
 
@@ -115,7 +116,9 @@ sap.ui.define([
 				var oData = oContext.getObject(),
 					sPath = oContext.getPath(),
 					oModel = this.getModel();
-				delete oData.__metadata;
+				if (oData) {
+					delete oData.__metadata;
+				}
 				//check if GET parameter is allowed prefill field
 				//only when property is creatable true then prefill property
 				oModel.getMetaModel().loaded().then(function () {
@@ -126,14 +129,14 @@ sap.ui.define([
 					for (var key in oData) {
 						var urlValue = this.getOwnerComponent().getLinkParameterByName(key);
 						var oProperty = oMetaModel.getODataProperty(oEntityType, key);
-						if (urlValue && urlValue !== Constants.PROPERTY.NEW) {
-							//check if key is creatable true and url param value is not bigger then maxLength of property
-							if ((!oProperty.hasOwnProperty("sap:creatable") || oProperty["sap:creatable"] === "true") &&
-								(urlValue.length <= parseInt(oProperty["maxLength"]))) {
-								oModel.setProperty(sPath + "/" + key, urlValue);
+						if (oProperty !== null) {
+							if (urlValue && urlValue !== Constants.PROPERTY.NEW) {
+								//check if key is creatable true and url param value is not bigger then maxLength of property
+								if ((!oProperty.hasOwnProperty("sap:creatable") || oProperty["sap:creatable"] === "true") &&
+									(urlValue.length <= parseInt(oProperty["maxLength"]))) {
+									oModel.setProperty(sPath + "/" + key, urlValue);
+								}
 							}
-						}
-						if (!oProperty.hasOwnProperty("sap:creatable") || oProperty["sap:creatable"] === "true") {
 							this.checkDefaultValues(oEntitySet.name.split("Set")[0], key, sPath);
 						}
 					}

@@ -348,12 +348,14 @@ sap.ui.define([
 		 * and is this property is creatable true
 		 * if true then find for default value if exist
 		 */
-		_checkForDefaultProperties: function (oContext, sEntitySet) {
+		_checkForDefaultProperties: function (oContext, sEntitySet, sChangedProperty) {
 			if (oContext) {
 				var oData = oContext.getObject(),
 					sPath = oContext.getPath(),
 					oModel = this.getModel();
-				delete oData.__metadata;
+				if (oData) {
+					delete oData.__metadata;
+				}
 				//check if GET parameter is allowed prefill field
 				//only when property is creatable true then prefill property
 				oModel.getMetaModel().loaded().then(function () {
@@ -363,8 +365,8 @@ sap.ui.define([
 
 					for (var key in oData) {
 						var oProperty = oMetaModel.getODataProperty(oEntityType, key);
-						if (!oProperty.hasOwnProperty("sap:creatable") || oProperty["sap:creatable"] === "true") {
-							this.checkDefaultValues(oEntitySet.name.split("Set")[0], key, sPath);
+						if (oProperty !== null) {
+							this.checkDefaultValues(oEntitySet.name.split("Set")[0], key, sPath, sChangedProperty);
 						}
 					}
 				}.bind(this));
@@ -372,34 +374,76 @@ sap.ui.define([
 		},
 
 		/*
+		 * method to validate the chnaged property
+		 */
+		checkDefaultValues: function (oEntitySet, sProperty, sPath, sChangedProperty) {
+			var aDefaultValues = this.getModel("DefaultInformationModel").getProperty("/defaultProperties");
+			var bvalidate = false;
+			if (sChangedProperty) {
+				bvalidate = this._validateLiveChangeProperty(aDefaultValues, sChangedProperty, oEntitySet);
+			}
+			for (var i in aDefaultValues) {
+				if (sChangedProperty && aDefaultValues[i].EntityName === oEntitySet) {
+					if (bvalidate && aDefaultValues[i].PropertyName !== sChangedProperty.split("id")[1]) {
+						this._getfilterDataAndSetProperty(aDefaultValues[i], oEntitySet, sPath, sProperty);
+					}
+				} else {
+					this._getfilterDataAndSetProperty(aDefaultValues[i], oEntitySet, sPath, sProperty);
+				}
+
+			}
+		},
+
+		/*
+		 * validate the property which is came from livechange
+		 */
+		_validateLiveChangeProperty: function (aDefaultValues, sChangedProperty, oEntitySet) {
+			var bValidate = false;
+			aDefaultValues.forEach(function (aDefValue) {
+				var sSeparator = aDefValue.Separator,
+					aPropertityIn = aDefValue.PropertyIn.split(sSeparator);
+				if (aPropertityIn && aPropertityIn !== "" && aDefValue.EntityName === oEntitySet) {
+					aPropertityIn.forEach(function (aProperty) {
+						var sPropertySel = aProperty.split("~")[1];
+						if (sPropertySel !== "" && sPropertySel === sChangedProperty.split("id")[1]) {
+							bValidate = true;
+							return bValidate;
+						}
+					}.bind(this));
+				}
+				if (bValidate) {
+					return bValidate;
+				}
+			}.bind(this));
+			return bValidate;
+		},
+
+		/*
 		 * method to validate the properties with default properties
 		 * if default properties exist, it will call backend for default value of the specific properties
 		 */
-		checkDefaultValues: function (oEntitySet, sProperty, sPath) {
-			var aDefaultValues = this.getModel("DefaultInformationModel").getProperty("/defaultProperties");
-			for (var i in aDefaultValues) {
-				if (aDefaultValues[i].EntityName === oEntitySet && aDefaultValues[i].PropertyName === sProperty) {
-					//get ValueIn for properties
-					var sPropInValues = this._getValueForParameterProperties(aDefaultValues[i], sPath);
-					if (sPropInValues) {
-						var oFilter = new Filter({
-							filters: [
-								new Filter("EntityName", FilterOperator.EQ, aDefaultValues[i].EntityName),
-								new Filter("PropertyName", FilterOperator.EQ, aDefaultValues[i].PropertyName),
-								new Filter("ValueIn", FilterOperator.EQ, sPropInValues)
-							],
-							and: true
-						});
-						this._getPropertyValue(oFilter, sPath);
-					}
+		_getfilterDataAndSetProperty: function (aDefaultValues, oEntitySet, sPath, sProperty) {
+			if (aDefaultValues.EntityName === oEntitySet && aDefaultValues.PropertyName === sProperty) {
+				//get ValueIn for properties
+				var sPropInValues = this._getValueForParameterProperties(aDefaultValues, sPath);
+				if (sPropInValues) {
+					var oFilter = new Filter({
+						filters: [
+							new Filter("EntityName", FilterOperator.EQ, aDefaultValues.EntityName),
+							new Filter("PropertyName", FilterOperator.EQ, aDefaultValues.PropertyName),
+							new Filter("ValueIn", FilterOperator.EQ, sPropInValues)
+						],
+						and: true
+					});
+					this._getPropertyValue(oFilter, sPath);
+				} else if (aDefaultValues.ReturnValue && aDefaultValues.ReturnValue !== "") {
+					this.getModel().setProperty(sPath + "/" + aDefaultValues.PropertyName, aDefaultValues.ReturnValue);
 				}
 			}
 		},
 
 		/*
-		 * get the values for the specified properties
-		 * returns ValueIn with given separator
-		 * handle data if it's own context or parent context
+		 *handle data if it's own context or parent context
 		 */
 		_getValueForParameterProperties: function (aDefaultValues, sPath) {
 			var sSeparator = aDefaultValues.Separator,
@@ -411,7 +455,7 @@ sap.ui.define([
 					sPropValue;
 				if (sPath.split("Set")[0].toUpperCase().split("/")[1] === sPropertyEntity) {
 					sPropValue = this.getModel().getProperty(sPath + "/" + sPropertySel);
-				} else if (this.getView().getParent()) {
+				} else if (this.getView().getParent().getParent().getBindingContext()) {
 					//check parent context
 					var pContext = this.getView().getParent().getParent().getBindingContext(),
 						pPath = pContext.getPath();

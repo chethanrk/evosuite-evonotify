@@ -23,9 +23,11 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onChangeSmartField: function (oEvent) {
+			var oSource = oEvent.getSource(),
+				sFieldName = oSource.getName();
 			var oContext = this.getView().getBindingContext();
 			if (oEvent.getSource().getValueState() === "None" && this._type.add) {
-				this._checkForDefaultProperties(oContext, this._selectedEntitySet);
+				this._checkForDefaultProperties(oContext, this._selectedEntitySet, sFieldName);
 			}
 		},
 
