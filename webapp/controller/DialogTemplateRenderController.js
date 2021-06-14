@@ -99,6 +99,7 @@ sap.ui.define([
 					type: "XML"
 				}).then(function (oFragment) {
 					this._oDialog = oFragment;
+					this._oDialog.addStyleClass(this._oView.getModel("viewModel").getProperty("/densityClass"));
 					this._setFragmentViewBinding();
 				}.bind(this));
 			} else {
