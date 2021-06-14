@@ -263,13 +263,19 @@ sap.ui.define([
 			var oButton = oEvent.getSource();
 			// create action sheet only once
 			if (!this._actionSheetSystemStatus) {
-				this._actionSheetSystemStatus = sap.ui.xmlfragment(
-					"com.evorait.evosuite.evonotify.view.fragments.ActionSheetSystemStatus",
-					this
-				);
-				this.getView().addDependent(this._actionSheetSystemStatus);
+				Fragment.load({
+					name: "com.evorait.evosuite.evonotify.view.fragments.ActionSheetSystemStatus",
+					controller: this,
+					type: "XML"
+				}).then(function (oFragment) {
+					this._actionSheetSystemStatus = oFragment;
+					this.getView().addDependent(oFragment);
+					this._actionSheetSystemStatus.addStyleClass(this.getModel("viewModel").getProperty("/densityClass"));
+					this._actionSheetSystemStatus.openBy(oButton);
+				}.bind(this));
+			} else {
+				this._actionSheetSystemStatus.openBy(oButton);
 			}
-			this._actionSheetSystemStatus.openBy(oButton);
 		},
 
 		/*
