@@ -312,8 +312,9 @@ sap.ui.define([
 		 */
 		onPressESignSave: function (oEvent) {
 			var sPathESign = this.oEsignContext.getPath();
-			if (this.getModel().getProperty(sPathESign + "/PASSWORD") !== "") {
-				var encodedPassword = btoa(this.getModel().getProperty(sPathESign + "/PASSWORD"));
+			var sPassword = this.getModel().getProperty(sPathESign + "/PASSWORD").trim();
+			if (sPassword !== "") {
+				var encodedPassword = btoa(sPassword);
 				this.getModel().setProperty(sPathESign + "/PASSWORD", encodedPassword);
 				this.saveChanges({
 					state: "success"
