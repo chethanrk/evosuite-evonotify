@@ -312,11 +312,14 @@ sap.ui.define([
 		 */
 		onPressESignSave: function (oEvent) {
 			var sPathESign = this.oEsignContext.getPath();
-			var encodedPassword = btoa(this.getModel().getProperty(sPathESign + "/PASSWORD"));
-			this.getModel().setProperty(sPathESign + "/PASSWORD", encodedPassword);
-			this.saveChanges({
-				state: "success"
-			}, this._onESignSuccessFn.bind(this), null, this._eSignDialog);
+			var sPassword = this.getModel().getProperty(sPathESign + "/PASSWORD").trim();
+			if (sPassword !== "") {
+				var encodedPassword = btoa(sPassword);
+				this.getModel().setProperty(sPathESign + "/PASSWORD", encodedPassword);
+				this.saveChanges({
+					state: "success"
+				}, this._onESignSuccessFn.bind(this), null, this._eSignDialog);
+			}
 		},
 
 		/**
@@ -326,6 +329,16 @@ sap.ui.define([
 		_onESignSuccessFn: function (oResponse) {
 			this.onCloseESignDialog();
 			this._updateStatus();
+		},
+
+		handleESignInput: function (oEvent) {
+			var sUserInput = oEvent.getParameter("value");
+			var oInputControl = oEvent.getSource();
+			if (sUserInput) {
+				oInputControl.setValueState(sap.ui.core.ValueState.None);
+			} else {
+				oInputControl.setValueState(sap.ui.core.ValueState.Error);
+			}
 		}
 	});
 });
