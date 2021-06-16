@@ -158,14 +158,22 @@ sap.ui.define([
 				if (this.isStandalonePage) {
 					var msg = this.getResourceBundle().getText("msg.notifcationCreateSuccess", objectKey);
 					this.showSuccessMessage(msg);
+					
+					//Bind new context
+					this.getView().unbindElement();
+					var oContext = this.getView().getModel().createEntry("/PMNotificationSet");
+					this.getView().setBindingContext(oContext);
+					
+					// defaulting values
+					this._initializeView();
 				} else if (objectKey && objectKey !== "") {
 					this.oViewModel.setProperty("/newCreatedNotification", true);
 					this.getRouter().navTo("NotificationDetail", {
 						ObjectKey: objectKey
 					});
 				} else {
-					var msg = this.getResourceBundle().getText("msg.saveSuccess");
-					this.showSuccessMessage(msg);
+					var sMsg = this.getResourceBundle().getText("msg.saveSuccess");
+					this.showSuccessMessage(sMsg);
 					this.navBack();
 				}
 			}
