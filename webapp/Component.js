@@ -61,7 +61,8 @@ sap.ui.define([
 				editMode: false,
 				isNew: false,
 				launchMode: Constants.LAUNCH_MODE.BSP,
-				createPageOnly: false
+				createPageOnly: false,
+				densityClass: this.getContentDensityClass()
 			};
 
 			this.setModel(models.createHelperModel(viewModelObj), "viewModel");
