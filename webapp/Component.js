@@ -61,7 +61,8 @@ sap.ui.define([
 				editMode: false,
 				isNew: false,
 				launchMode: Constants.LAUNCH_MODE.BSP,
-				createPageOnly: false
+				createPageOnly: false,
+				densityClass: this.getContentDensityClass()
 			};
 
 			this.setModel(models.createHelperModel(viewModelObj), "viewModel");
@@ -125,12 +126,12 @@ sap.ui.define([
 				var element = document.getElementsByTagName("body")[0];
 				if (element.classList.contains("sapUiSizeCozy") || element.classList.contains("sapUiSizeCompact")) {
 					this._sContentDensityClass = "";
-				} else if (this._isMobile()) {
+				} else if (!this._isMobile()) { // apply "compact" mode if touch is not supported
+					//sapUiSizeCompact
+					this._sContentDensityClass = "sapUiSizeCompact";
+				} else {
 					// "cozy" in case of touch support; default for most sap.m controls, but needed for desktop-first controls like sap.ui.table.Table
 					this._sContentDensityClass = "sapUiSizeCozy";
-				} else {
-					// apply "compact" mode if touch is not supported
-					this._sContentDensityClass = "sapUiSizeCompact";
 				}
 			}
 			return this._sContentDensityClass;
@@ -163,7 +164,7 @@ sap.ui.define([
 		 * @private
 		 */
 		_isMobile: function () {
-			return sap.ui.Device.system.tablet || sap.ui.Device.system.desktop;
+			return sap.ui.Device.system.tablet || sap.ui.Device.system.phone;
 		},
 
 		/**
