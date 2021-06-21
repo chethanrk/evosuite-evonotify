@@ -282,6 +282,7 @@ sap.ui.define([
 		 * initialize esign model with the default parameters
 		 */
 		_initializeESignModel: function () {
+			this.aESignSmartForm = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("eSignSmartForm"));
 			var sPathESign = this.oEsignContext.getPath(),
 				oData = this._oContext.getObject();
 			this.getModel().setProperty(sPathESign + "/NOTIFICATION_NO", oData.NOTIFICATION_NO);
@@ -317,14 +318,19 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onPressESignSave: function (oEvent) {
-			var sPathESign = this.oEsignContext.getPath();
-			var sPassword = this.getModel().getProperty(sPathESign + "/PASSWORD").trim();
-			if (sPassword !== "") {
-				var encodedPassword = btoa(sPassword);
-				this.getModel().setProperty(sPathESign + "/PASSWORD", encodedPassword);
-				this.saveChanges({
-					state: "success"
-				}, this._onESignSuccessFn.bind(this), null, this._eSignDialog);
+			if (this.aESignSmartForm.length > 0) {
+				var mErrors = this.validateForm(this.aESignSmartForm);
+				if (mErrors.state === "success") {
+					var sPathESign = this.oEsignContext.getPath();
+					var sPassword = this.getModel().getProperty(sPathESign + "/PASSWORD").trim();
+					if (sPassword !== "") {
+						var encodedPassword = btoa(sPassword);
+						this.getModel().setProperty(sPathESign + "/PASSWORD", encodedPassword);
+						this.saveChanges({
+							state: "success"
+						}, this._onESignSuccessFn.bind(this), null, this._eSignDialog);
+					}
+				}
 			}
 		},
 
