@@ -24,6 +24,29 @@ sap.ui.define([
 			oRouter.getRoute("CreateNotification").attachMatched(function (oEvent) {
 				this._initializeView();
 			}, this);
+
+			var eventBus = sap.ui.getCore().getEventBus();
+			//Binnding has changed in TemplateRenderController.js
+			eventBus.subscribe("TemplateRendererEvoNotify", "changedBinding", this._changedBinding, this);
+		},
+
+		/**
+		 * Binding has changed in TemplateRenderController
+		 * Set new controller context and path
+		 * @param sChannel
+		 * @param sEvent
+		 * @param oData
+		 */
+		_changedBinding: function (sChannel, sEvent, oData) {
+			if (sChannel === "TemplateRendererEvoNotify" && sEvent === "changedBinding") {
+				var sViewId = this.getView().getId(),
+					sViewName = this.getView().getViewName(),
+					_sViewNameId = sViewName + "#" + sViewId;
+
+				if (oData.viewNameId === _sViewNameId) {
+					this._checkForLinkParameters();
+				}
+			}
 		},
 
 		/**
@@ -58,8 +81,6 @@ sap.ui.define([
 
 			this.oViewModel.setProperty("/editMode", true);
 			this.oViewModel.setProperty("/isNew", true);
-
-			this._checkForLinkParameters();
 		},
 
 		/**
@@ -76,7 +97,8 @@ sap.ui.define([
 		 * Object on exit
 		 */
 		onExit: function () {
-
+			var eventBus = sap.ui.getCore().getEventBus();
+			eventBus.unsubscribe("TemplateRendererEvoNotify", "changedBinding", this._changedBinding, this);
 		},
 
 		/**
@@ -158,12 +180,12 @@ sap.ui.define([
 				if (this.isStandalonePage) {
 					var msg = this.getResourceBundle().getText("msg.notifcationCreateSuccess", objectKey);
 					this.showSuccessMessage(msg);
-					
+
 					//Bind new context
 					this.getView().unbindElement();
 					var oContext = this.getView().getModel().createEntry("/PMNotificationSet");
 					this.getView().setBindingContext(oContext);
-					
+
 					// defaulting values
 					this._initializeView();
 				} else if (objectKey && objectKey !== "") {
