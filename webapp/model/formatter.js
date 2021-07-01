@@ -146,13 +146,14 @@ sap.ui.define([
 
 		/**
 		 * Hide/show status change button
-		 * @param isCompleted
-		 * @param isDeleted
-		 * @param isNew
+		 * @param bShowStatusButton
+		 * @param bAllowChange
+		 * @param bEnabledFunction
+		 * @param isEditMode
 		 * @returns {boolean}
 		 */
-		showStatusButton: function (bAllowChange, bEnabledFunction, isEditMode) {
-			if (bAllowChange === "X" && bEnabledFunction && !isEditMode) {
+		showStatusButton: function (bShowStatusButton, bAllowChange, bEnabledFunction, isEditMode) {
+			if (bShowStatusButton === "X" && bAllowChange === "X" && bEnabledFunction && !isEditMode) {
 				return true;
 			}
 			return false;
@@ -174,7 +175,7 @@ sap.ui.define([
 		formatSortNumber: function (sortNo, max) {
 			return sortNo.length < max ? this.formatSortNumber("0" + sortNo, max) : sortNo;
 		},
-		
+
 		formatStatusIconColor: function (sValue, sColor) {
 			if (sColor && sColor !== "") {
 				return sColor;
@@ -192,7 +193,7 @@ sap.ui.define([
 			}
 		},
 
-			/**
+		/**
 		 * show/hide options for System status buttons
 		 */
 		showStatusSelectOption: function (sFunction, isNotificationEnabled, mAllowParams) {
