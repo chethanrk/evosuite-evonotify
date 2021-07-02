@@ -1,49 +1,109 @@
 sap.ui.define([
-		"com/evorait/evonotify/controller/BaseController",
-		"sap/m/TablePersoController",
-		"sap/ui/model/json/JSONModel",
-		"com/evorait/evonotify/model/formatter",
-		"sap/ui/model/Filter",
-		"sap/ui/model/FilterOperator"
-	], function (BaseController, TablePersoController, JSONModel, formatter, Filter, FilterOperator) {
-		"use strict";
+	"com/evorait/evosuite/evonotify/controller/TableController",
+	"com/evorait/evosuite/evonotify/model/formatter",
+	"sap/ui/model/json/JSONModel"
+], function (TableController, formatter, JSONModel) {
+	"use strict";
 
-		return BaseController.extend("com.evorait.evonotify.controller.Worklist", {
+	return TableController.extend("com.evorait.evosuite.evonotify.controller.Worklist", {
 
-			formatter: formatter,
+		formatter: formatter,
 
-			/* =========================================================== */
-			/* lifecycle methods                                           */
-			/* =========================================================== */
+		oSmartTable: null,
 
-			/**
-			 * Called when the worklist controller is instantiated.
-			 * @public
-			 */
-			onInit : function () {
+		/* =========================================================== */
+		/* lifecycle methods                                           */
+		/* =========================================================== */
 
-			},
+		/**
+		 * Called when the worklist controller is instantiated.
+		 * @public
+		 */
+		onInit: function () {
+			this.oSmartTable = this.getView().byId("NotificationTable");
+		},
 
-			/* =========================================================== */
-			/* event handlers                                              */
-			/* =========================================================== */
+		/**
+		 * worklist after rendering
+		 */
+		onAfterRendering: function () {
+			this.getModel("viewModel").setProperty("/busy", false);
+		},
 
-			/**
-			 * Event handler when a table item gets pressed
-			 * @param {sap.ui.base.Event} oEvent the table selectionChange event
-			 * @public
-			 */
-			onPressTableRow : function (oEvent) {
-				this.getRouter().navTo("object", {
-					objectId: oEvent.getSource().getBindingContext().getProperty("MaintenanceNotification")
-				});
-			},
+		/**
+		 * worklist on exit
+		 */
+		onExit: function () {
 
-			
-			onAddPress : function (){
-				this.getRouter().navTo("objectNew");
+		},
+
+		/**
+		 * SmartTable before loading request
+		 * set default SortOrder from annotations
+		 */
+		onBeforeRebindTable: function (oEvent) {
+			TableController.prototype.onBeforeRebindTable.apply(this, arguments);
+		},
+
+		/**
+		 * event when Variant mMnagment of SmartFilterBar or SmartTable was initialized
+		 * @param oEvent
+		 */
+		onInitializedSmartVariant: function (oEvent) {
+			TableController.prototype.onInitializedSmartVariant.apply(this, arguments);
+		},
+
+		/**
+		 * Event handler when a table item gets pressed
+		 * @param {sap.ui.base.Event} oEvent the table selectionChange event
+		 * @public
+		 */
+		onPressTableRow: function (oEvent) {
+			var oContext = oEvent.getSource().getBindingContext();
+			this.oSmartTable.setEditable(false);
+			this.getModel("viewModel").setProperty("/enableNotificationChange", oContext.getProperty("ENABLE_NOTIFICATION_CHANGE"));
+			this.getRouter().navTo("NotificationDetail", {
+				ObjectKey: oContext.getProperty("ObjectKey")
+			});
+		},
+
+		/**
+		 * Event handler to navigate to create notification page
+		 * @param oEvent
+		 */
+
+		onPressCreateNotification: function () {
+			this.oSmartTable.setEditable(false);
+			this.getRouter().navTo("CreateNotification", {});
+		},
+
+		/**
+		 * Initialize and open the Information dialog with necessary details
+		 * @param oEvent Button press event
+		 */
+		onIconPress: function (oEvent) {
+			// create popover
+			if (!this._infoDialog) {
+				this._infoDialog = sap.ui.xmlfragment("com.evorait.evosuite.evonotify.view.fragments.InformationPopover", this);
+				this.getView().addDependent(this._infoDialog);
 			}
+			this._infoDialog.open();
+		},
 
-		});
-	}
-);
+		/**
+		 * Closes the information dialog
+		 */
+		onCloseDialog: function () {
+			this._infoDialog.close();
+		},
+
+		/**
+		 * Open Message Manager on click
+		 * @param oEvent
+		 */
+		onMessageManagerPress: function (oEvent) {
+			this.openMessageManager(this.getView(), oEvent);
+		}
+
+	});
+});

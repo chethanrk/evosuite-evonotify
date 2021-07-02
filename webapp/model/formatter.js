@@ -1,17 +1,17 @@
 sap.ui.define([
-	"sap/ui/core/format/DateFormat"
-], function (DateFormat) {
+	"sap/ui/core/format/DateFormat",
+	"com/evorait/evosuite/evonotify/model/Constants"
+], function (DateFormat, Constants) {
 	"use strict";
 
-	var statusIcons = {
-		"1": "sap-icon://circle-task", //open
-		"2": "sap-icon://overlay", //on hold
-		"3": "sap-icon://busy", //in progress
-		"4": "sap-icon://circle-task-2", //completed
-		"5": "sap-icon://status-negative" //default
-	};
+	var mCriticallyStates = Constants.CRITICALLYSTATES;
 
 	return {
+
+		getLogoImageLink: function () {
+			var path = $.sap.getModulePath("com.evorait.evosuite.evonotify", "/assets/img/logo_color_transp_50pxh.png");
+			return path;
+		},
 
 		/**
 		 * Rounds the number unit value to 2 digits
@@ -69,16 +69,29 @@ sap.ui.define([
 		/**
 		 * checks if an notification or item is allwed to editable
 		 * Hide/show edit button
-		 * @param isCompleted
-		 * @param isDeleted
+		 * @param bAllowChange
 		 * @param isEditMode
 		 * @returns {boolean}
 		 */
-		editable: function (isCompleted, isDeleted, isEditMode) {
-			if (isCompleted || isDeleted || isEditMode) {
-				return false;
+		editable: function (bAllowChange, isEditMode) {
+			if (bAllowChange && !isEditMode) {
+				return true;
 			}
-			return true;
+			return false;
+		},
+		/**
+		 * checks if an notification or item is visible
+		 * Hide/show edit button
+		 * @param bEnabledFunction
+		 * @param bAllowChange
+		 * @param isEditMode
+		 * @returns {boolean}
+		 */
+		isVisible: function (bAllowChange, bEnabledFunction, isEditMode) {
+			if (bEnabledFunction === "X" && bAllowChange && !isEditMode) {
+				return true;
+			}
+			return false;
 		},
 		/**
 		 * checks if an menuitem of task is visible
@@ -130,17 +143,7 @@ sap.ui.define([
 			}
 			return false;
 		},
-		/**
-		 *
-		 * @param sValue
-		 * @returns {string|*}
-		 */
-		formatIsEditableIcon: function (sValue) {
-			if (!sValue || !statusIcons[sValue]) {
-				return statusIcons["5"];
-			}
-			return statusIcons[sValue];
-		},
+
 		/**
 		 * Hide/show status change button
 		 * @param isCompleted
@@ -148,11 +151,11 @@ sap.ui.define([
 		 * @param isNew
 		 * @returns {boolean}
 		 */
-		showStatusButton: function (isCompleted, isDeleted, isNew) {
-			if (isCompleted || isDeleted || isNew) {
-				return false;
+		showStatusButton: function (bAllowChange, bEnabledFunction, isEditMode) {
+			if (bAllowChange === "X" && bEnabledFunction && !isEditMode) {
+				return true;
 			}
-			return true;
+			return false;
 		},
 
 		/**
@@ -167,9 +170,41 @@ sap.ui.define([
 		showItemField: function (isNew, isItem) {
 			return !isNew && !!isItem;
 		},
-		
+
 		formatSortNumber: function (sortNo, max) {
 			return sortNo.length < max ? this.formatSortNumber("0" + sortNo, max) : sortNo;
+		},
+		
+		formatStatusIconColor: function (sValue, sColor) {
+			if (sColor && sColor !== "") {
+				return sColor;
+			}
+			return mCriticallyStates.hasOwnProperty(sValue) ? mCriticallyStates[sValue].color : mCriticallyStates["0"].color;
+		},
+
+		formatStatusState: function (sValue, isInNavLinks) {
+			if (mCriticallyStates.hasOwnProperty(sValue)) {
+				return mCriticallyStates[sValue].state;
+			} else if (isInNavLinks === "true") {
+				return mCriticallyStates["info"].state;
+			} else {
+				return mCriticallyStates["0"].state;
+			}
+		},
+
+			/**
+		 * show/hide options for System status buttons
+		 */
+		showStatusSelectOption: function (sFunction, isNotificationEnabled, mAllowParams) {
+			if (isNotificationEnabled) {
+				for (var key in mAllowParams) {
+					var sAllowFunc = "ALLOW_" + sFunction;
+					if (key === sAllowFunc && (mAllowParams[key] === true || mAllowParams[key] === "X")) {
+						return true;
+					}
+				}
+			}
+			return false;
 		},
 	};
 

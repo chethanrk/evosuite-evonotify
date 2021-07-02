@@ -1,26 +1,35 @@
 {
 	"_version": "1.12.0",
 	"sap.app": {
-		"id": "com.evorait.evonotify",
+		"id": "com.evorait.evosuite.evonotify",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
-			"version": "1.0.0"
+			"version": "2103.0.3"
 		},
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
 		"sourceTemplate": {
-			"id": "ui5template.basicSAPUI5ApplicationProject",
-			"version": "1.40.12"
+			"id": "sap.ui.ui5-template-plugin.1worklist",
+			"version": "1.52.7"
 		},
 		"dataSources": {
 			"mainService": {
-				"uri": "/sap/opu/odata/EVOCU/EN_MAIN_SRV/",
+				"uri": "/sap/opu/odata/EVORA/EN_MAIN_SRV/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
 					"localUri": "localService/metadata.xml",
-					"annotations": []
+					"annotations": [
+						"annotations"
+					]
+				}
+			},
+			"annotations": {
+				"uri": "annotations/annotations.xml",
+				"type": "ODataAnnotation",
+				"settings": {
+					"localUri": "annotations/annotations.xml"
 				}
 			}
 		}
@@ -44,17 +53,17 @@
 	"sap.ui5": {
 		"flexEnabled": false,
 		"rootView": {
-			"viewName": "com.evorait.evonotify.view.App",
+			"viewName": "com.evorait.evosuite.evonotify.view.App",
 			"type": "XML",
 			"async": true,
 			"id": "App"
 		},
 		"dependencies": {
-			"minUI5Version": "1.65.6",
+			"minUI5Version": "1.62.0",
 			"libs": {
-				"sap.ui.layout": {},
+				"sap.m": {},
 				"sap.ui.core": {},
-				"sap.m": {}
+				"sap.ui.layout": {}
 			}
 		},
 		"contentDensities": {
@@ -65,7 +74,7 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "com.evorait.evonotify.i18n.i18n"
+					"bundleName": "com.evorait.evosuite.evonotify.i18n.i18n"
 				}
 			},
 			"": {
@@ -78,6 +87,10 @@
 			"StatusVH": {
 				"type": "sap.ui.model.json.JSONModel",
 				"uri": "model/StatusVH.json"
+			},
+			"@i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
 			}
 		},
 		"resources": {
@@ -97,7 +110,7 @@
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
 				"async": true,
-				"viewPath": "com.evorait.evonotify.view",
+				"viewPath": "com.evorait.evosuite.evonotify.view",
 				"controlAggregation": "pages",
 				"controlId": "app",
 				"clearControlAggregation": false,
@@ -116,24 +129,31 @@
 					]
 				},
 				{
-					"pattern": "Notification/new",
-					"name": "objectNew",
+					"pattern": "NewNotification",
+					"name": "CreateNotification",
 					"target": [
-						"objectNew"
+						"CreateNotification"
 					]
 				},
 				{
-					"pattern": "Notification/{objectId}",
-					"name": "object",
+					"pattern": "Notification/{ObjectKey}",
+					"name": "NotificationDetail",
 					"target": [
-						"object"
+						"NotificationDetail"
 					]
 				},
 				{
-					"pattern": "Notification/{objectId}/Item/{itemId}",
-					"name": "item",
+					"pattern": "Notification/Item/{ObjectKey}",
+					"name": "NotificationItemDetail",
 					"target": [
-						"item"
+						"NotificationItemDetail"
+					]
+				},
+				{
+					"pattern": "ObjectNotFound",
+					"name": "ObjectNotFound",
+					"target": [
+						"objectNotFound"
 					]
 				}
 			],
@@ -143,20 +163,17 @@
 					"viewId": "worklist",
 					"viewLevel": 1
 				},
-				"object": {
-					"viewName": "Object",
-					"viewId": "object",
+				"NotificationDetail": {
+					"viewName": "ObjectPage",
 					"viewLevel": 2
 				},
-				"objectNew": {
-					"viewName": "ObjectNew",
-					"viewId": "objectNew",
+				"CreateNotification": {
+					"viewName": "ObjectPage",
 					"viewLevel": 2
 				},
-				"item": {
-					"viewName": "ObjectItem",
-					"viewId": "item",
-					"viewLevel": 3
+				"NotificationItemDetail": {
+					"viewName": "ObjectPage",
+					"viewLevel": 2
 				},
 				"objectNotFound": {
 					"viewName": "ObjectNotFound",
@@ -171,6 +188,10 @@
 	},
 	"sap.platform.hcp": {
 		"uri": "webapp",
+		"_version": "1.1.0"
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/evora/en_ui5/webapp",
 		"_version": "1.1.0"
 	}
 }

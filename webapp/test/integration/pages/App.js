@@ -1,27 +1,50 @@
 sap.ui.define([
-	"sap/ui/test/Opa5"
-], function (Opa5) {
-	"use strict";
-	var sViewName = "App";
-	Opa5.createPageObjects({
-		onTheAppPage: {
+		"sap/ui/test/Opa5",
+		"com/evorait/evosuite/evonotify/test/integration/pages/Common"
+	], function(Opa5, Common) {
+		"use strict";
 
-			actions: {},
+		var sViewName = "App",
+			sAppControl = "app";
 
-			assertions: {
+		Opa5.createPageObjects({
+			onTheAppPage : {
+				baseClass : Common,
 
-				iShouldSeeTheApp: function () {
-					return this.waitFor({
-						id: "app",
-						viewName: sViewName,
-						success: function () {
-							Opa5.assert.ok(true, "The App view is displayed");
-						},
-						errorMessage: "Did not find the App view"
-					});
+				actions : {
+
+					iWaitUntilTheBusyIndicatorIsGone : function () {
+						return this.waitFor({
+							id : sAppControl,
+							viewName : sViewName,
+							matchers : function(oRootView) {
+								// we set the view busy, so we need to query the parent of the app
+								return oRootView.getBusy() === false;
+							},
+							errorMessage : "The app is still busy."
+						});
+					}
+
+				},
+
+				assertions : {
+
+					iShouldSeeTheBusyIndicator : function () {
+						return this.waitFor({
+							id : sAppControl,
+							viewName : sViewName,
+							success : function (oView) {
+                                // we set the view busy, so we need to query the parent of the app
+								strictEqual(oView.getBusy(), true, "The app is busy");
+							},
+							errorMessage : "The app is not busy."
+						});
+					}
 				}
-			}
-		}
-	});
 
-});
+			}
+
+		});
+
+	}
+);

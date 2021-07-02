@@ -1,0 +1,54 @@
+<mvc:View controllerName="com.evorait.evosuite.evonotify.controller.CreateNotification" xmlns="sap.m" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:uxap="sap.uxap" xmlns:layout="sap.ui.layout"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1">
+	<template:alias name=".AH" value="sap.ui.model.odata.AnnotationHelper">
+		<uxap:ObjectPageLayout id="createNotificationPage" enableLazyLoading="false" isChildPage="true" showFooter="false" busy="{viewModel>/busy}"
+			busyIndicatorDelay="{viewModel>/delay}">
+			<uxap:headerTitle>
+				<uxap:ObjectPageHeader objectTitle="{i18n>tit.newNotification}">
+					<uxap:actions>
+						<uxap:ObjectPageHeaderActionButton icon="sap-icon://save" type="Emphasized" text="{i18n>btn.save}" hideText="false"
+							tooltip="{i18n>btn.save}" press="onPressSave"/>
+						<uxap:ObjectPageHeaderActionButton icon="sap-icon://cancel" type="Default" press="onPressCancel" text="{i18n>btn.cancel}" hideText="false"
+							tooltip="{i18n>btn.cancel}"/>
+					</uxap:actions>
+					<uxap:breadcrumbs>
+						<Breadcrumbs>
+							<Link text="{i18n>tit.worklistTable}" press="onNavBack"/>
+						</Breadcrumbs>
+					</uxap:breadcrumbs>
+					<uxap:navigationBar>
+						<Bar>
+							<contentLeft>
+								<Button icon="sap-icon://nav-back" tooltip="nav-back" press="onNavBack"/>
+							</contentLeft>
+							<contentMiddle>
+								<Title text="{i18n>tit.newNotification}"/>
+							</contentMiddle>
+						</Bar>
+					</uxap:navigationBar>
+				</uxap:ObjectPageHeader>
+			</uxap:headerTitle>
+			<uxap:headerContent></uxap:headerContent>
+			<uxap:sections>
+				<template:with path="meta>com.sap.vocabularies.UI.v1.Facets#NotifCreateUpdate" helper=".AH.resolvePath" var="contentTabs">
+					<template:repeat list="{contentTabs>}">
+						<template:if test="{:= ${contentTabs>Core.Description/String} === 'Form' || ${contentTabs>Org.OData.Core.V1.Description/String} === 'Form'}">
+							<uxap:ObjectPageSection title="{path:'contentTabs>com.sap.vocabularies.Common.v1.Label',formatter:'.AH.format'}">
+								<uxap:subSections>
+									<uxap:ObjectPageSubSection>
+										<uxap:blocks>
+											<template:with path="contentTabs>Facets" var="facets">
+												<core:Fragment fragmentName="com.evorait.evosuite.evonotify.view.templates.SmartFormTemplate" type="XML"/>
+											</template:with>
+										</uxap:blocks>
+									</uxap:ObjectPageSubSection>
+								</uxap:subSections>
+							</uxap:ObjectPageSection>
+						</template:if>
+					</template:repeat>
+				</template:with>
+			</uxap:sections>
+		</uxap:ObjectPageLayout>
+	</template:alias>
+</mvc:View>

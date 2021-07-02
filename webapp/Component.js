@@ -1,22 +1,33 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"com/evorait/evonotify/model/models",
-	"com/evorait/evonotify/controller/ErrorHandler",
-	"com/evorait/evonotify/controller/AddEditEntryDialog"
-], function (UIComponent, Device, models, ErrorHandler, AddEditEntryDialog) {
+	"com/evorait/evosuite/evonotify/model/models",
+	"com/evorait/evosuite/evonotify/controller/ErrorHandler",
+	"com/evorait/evosuite/evonotify/controller/DialogTemplateRenderController",
+	"com/evorait/evosuite/evonotify/model/Constants",
+	"sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator",
+	"com/evorait/evosuite/evonotify/assets/js/url-search-params.min",
+	"com/evorait/evosuite/evonotify/assets/js/promise-polyfills",
+	"com/evorait/evosuite/evonotify/controller/MessageManager"
+], function (UIComponent, Device, models, ErrorHandler, DialogTemplateRenderController, Constants, Filter,
+	FilterOperator, UrlSearchPolyfill, PromisePolyfill, MessageManager) {
 	"use strict";
 
-	return UIComponent.extend("com.evorait.evonotify.Component", {
+	var oMessageManager = sap.ui.getCore().getMessageManager();
+
+	return UIComponent.extend("com.evorait.evosuite.evonotify.Component", {
 
 		metadata: {
 			manifest: "json"
 		},
 
-		oAddEntryDialog: new AddEditEntryDialog(),
+		oSystemInfoProm: null,
+		oTemplatePropsProm: null,
 
 		/**
 		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
+		 * In this function, the device models are set and the router is initialized.
 		 * @public
 		 * @override
 		 */
@@ -24,44 +35,77 @@ sap.ui.define([
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
 
+			var manifestApp = this.getMetadata().getManifestEntry("sap.app"),
+				dataSource = "";
+
+			// oModel.setDefaultBindingMode(sap.ui.model.BindingMode.OneWay);
+
 			// initialize the error handler with the component
 			this._oErrorHandler = new ErrorHandler(this);
 
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
 
-			// set global helper view model
-			// Model used to manipulate control states. The chosen values make sure,
-			// detail page is busy indication immediately so there is no break in
-			// between the busy indication for loading the view"s meta data
+			if (manifestApp) {
+				dataSource = manifestApp.dataSources.mainService.uri;
+			}
 
-			this.setModel(models.createHelperModel({
+			this.DialogTemplateRenderer = new DialogTemplateRenderController(this);
+
+			var viewModelObj = {
 				busy: true,
-				delay: 0,
-				isNew: false,
-				isEdit: false,
+				delay: 100,
+				canExpand: true,
+				serviceUrl: dataSource,
 				editMode: false,
-				worklistEntitySet: "PMNotificationSet",
-				taskViewPath: "",
-				actViewPath: "",
-				rootPath: jQuery.sap.getModulePath("com.evorait.evonotify"), // your resource root
-				logoPath: "/assets/img/logo_color_transp_50pxh.png"
-			}), "viewModel");
+				isNew: false,
+				launchMode: Constants.LAUNCH_MODE.BSP,
+				createPageOnly: false
+			};
 
-			// create the views based on the url/hash
-			this.getRouter().initialize();
+			this.setModel(models.createHelperModel(viewModelObj), "viewModel");
+
+			this.setModel(models.createHelperModel({}), "templateProperties");
+
+			this.setModel(models.createUserModel(this), "user");
+
+			this.setModel(models.createNotificationFunctionModel(this), "notificationFunctionModel");
+
+			this.setModel(models.createTaskFunctionModel(this), "taskFunctionModel");
+
+			this.setModel(models.createInformationModel(this), "InformationModel");
+
+			this._getSystemInformation();
+
+			this._getFunctionSet();
+
+			this._setApp2AppLinks();
+
+			this.setModel(oMessageManager.getMessageModel(), "message");
+
+			this.MessageManager = new MessageManager();
+			this.setModel(models.createMessageManagerModel(), "messageManager");
+
+			//wait for the models to load and then initialize the router
+			this.getModel().attachRequestCompleted("modelsLoaded", function (oEvent) {
+				if (oEvent.getParameter("url").includes("NavigationLinksSet")) {
+					this._initRouter();
+				}
+			}, this);
+			this.getModel().attachRequestFailed("modelsLoadFailed", function (oEvent) {
+				if (oEvent.getParameter("url").includes("NavigationLinksSet")) {
+					this._initRouter();
+				}
+			}, this);
+
 		},
 
 		/**
-		 * The component is destroyed by UI5 automatically.
-		 * In this method, the ErrorHandler is destroyed.
-		 * @public
-		 * @override
+		 * This method registers the view to the message manager
+		 * @param oView
 		 */
-		destroy: function () {
-			this._oErrorHandler.destroy();
-			// call the base component's destroy function
-			UIComponent.prototype.destroy.apply(this, arguments);
+		registerViewToMessageManager: function (oView) {
+			oMessageManager.registerObject(oView, true);
 		},
 
 		/**
@@ -73,9 +117,10 @@ sap.ui.define([
 		getContentDensityClass: function () {
 			if (this._sContentDensityClass === undefined) {
 				// check whether FLP has already set the content density class; do nothing in this case
-				if (jQuery(document.body).hasClass("sapUiSizeCozy") || jQuery(document.body).hasClass("sapUiSizeCompact")) {
+				var element = document.getElementsByTagName("body")[0];
+				if (element.classList.contains("sapUiSizeCozy") || element.classList.contains("sapUiSizeCompact")) {
 					this._sContentDensityClass = "";
-				} else if (!Device.support.touch) { // apply "compact" mode if touch is not supported
+				} else if (!this._isMobile()) { // apply "compact" mode if touch is not supported
 					//sapUiSizeCompact
 					this._sContentDensityClass = "sapUiSizeCompact";
 				} else {
@@ -84,6 +129,152 @@ sap.ui.define([
 				}
 			}
 			return this._sContentDensityClass;
+		},
+
+		/**
+		 * get url GET parameter by key name
+		 */
+		getLinkParameterByName: function (sKey) {
+			var oComponentData = this.getComponentData();
+			//Fiori Launchpad startup parameters
+			if (oComponentData) {
+				var oStartupParams = oComponentData.startupParameters;
+				if (oStartupParams[sKey] && (oStartupParams[sKey].length > 0)) {
+					return oStartupParams[sKey][0];
+				}
+			} else {
+				var queryString = window.location.search,
+					urlParams = new URLSearchParams(queryString);
+				if (urlParams.has(sKey)) {
+					return urlParams.get(sKey);
+				}
+			}
+			return false;
+		},
+
+		/**
+		 * check if mobile device
+		 * @returns {boolean}
+		 * @private
+		 */
+		_isMobile: function () {
+			return (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i).test(navigator.userAgent.toLowerCase());
+		},
+
+		/**
+		 * Calls the GetSystemInformation
+		 */
+		_getSystemInformation: function () {
+			this.oSystemInfoProm = new Promise(function (resolve) {
+				this.readData("/SystemInformationSet", []).then(function (oData) {
+					this.getModel("user").setData(oData.results[0]);
+					resolve(oData.results[0]);
+				}.bind(this));
+			}.bind(this));
+		},
+
+		/**
+		 * Calls the FunctionSetData for Notification and Task
+		 */
+		_getFunctionSet: function () {
+			var oFilter1 = new Filter("ObjectCategory", FilterOperator.EQ, Constants.FUNCTIONSET_FILTER.NOTIFICATION_FILTER);
+			this.readData("/FunctionsSet", [oFilter1])
+				.then(function (data) {
+					this.getModel("notificationFunctionModel").setData(data);
+				}.bind(this));
+			var oFilter2 = new Filter("ObjectCategory", FilterOperator.EQ, Constants.FUNCTIONSET_FILTER.TASK_FILTER);
+			this.readData("/FunctionsSet", [oFilter2])
+				.then(function (data) {
+					this.getModel("taskFunctionModel").setData(data);
+				}.bind(this));
+		},
+
+		/**
+		 * Check for a Startup parameter and look for Order ID in Backend
+		 * When there is a filtered Order replace route hash
+		 * and init Router after success or fail
+		 */
+		_initRouter: function () {
+			var oFilter = this._getStartupParamFilter();
+			if (typeof oFilter === "object") {
+				this.readData("/PMNotificationSet", [oFilter]).then(function (mResult) {
+					if (mResult.results.length > 0) {
+						//replace hash and init route
+						// create the views based on the url/hash
+						var hashChanger = sap.ui.core.routing.HashChanger.getInstance();
+						hashChanger.replaceHash("Notification/" + mResult.results[0].ObjectKey);
+					}
+					this.getRouter().initialize();
+				}.bind(this));
+			} else if (oFilter === Constants.PROPERTY.NEW) {
+				//init route for create notification
+				var hashChanger = sap.ui.core.routing.HashChanger.getInstance();
+				hashChanger.replaceHash("NewNotification");
+				this.getModel("viewModel").setProperty("/createPageOnly", true);
+				this.getRouter().initialize();
+			} else {
+				// create the views based on the url/hash
+				this.getRouter().initialize();
+			}
+		},
+
+		/**
+		 * When in link is startup parameter from FLP or Standalone app
+		 * then App2App navigation happened and this app shoul show a detail page
+		 */
+		_getStartupParamFilter: function () {
+			var oComponentData = this.getComponentData(),
+				sKey = this.getLinkParameterByName(Constants.PROPERTY.EVONOTIFY);
+
+			if (sKey === Constants.PROPERTY.NEW) {
+				return sKey;
+			} else if (sKey) {
+				return (new Filter(Constants.PROPERTY.EVONOTIFY, FilterOperator.EQ, sKey));
+			}
+			return false;
+		},
+
+		/**
+		 * read app2app navigation links from backend
+		 */
+		_setApp2AppLinks: function () {
+			if (sap.ushell && sap.ushell.Container) {
+				this.getModel("viewModel").setProperty("/launchMode", Constants.LAUNCH_MODE.FIORI);
+			}
+			var oFilter = new Filter("LaunchMode", FilterOperator.EQ, this.getModel("viewModel").getProperty("/launchMode")),
+				mProps = {};
+
+			this.oTemplatePropsProm = new Promise(function (resolve) {
+				this.readData("/NavigationLinksSet", [oFilter])
+					.then(function (data) {
+						data.results.forEach(function (oItem) {
+							if (oItem.Value1 && Constants.APPLICATION[oItem.ApplicationId]) {
+								oItem.Property = oItem.Value2 || Constants.PROPERTY[oItem.ApplicationId];
+								mProps[oItem.Property] = oItem;
+							}
+						}.bind(this));
+						this.getModel("templateProperties").setProperty("/navLinks/", mProps);
+						resolve(mProps);
+					}.bind(this));
+			}.bind(this));
+		},
+
+		/**
+		 *  Read call given entityset and filters
+		 */
+		readData: function (sUri, aFilters) {
+			return new Promise(function (resolve, reject) {
+				this.getModel().read(sUri, {
+					filters: aFilters,
+					success: function (oData, oResponse) {
+						resolve(oData);
+					}.bind(this),
+					error: function (oError) {
+						//Handle Error
+						reject(oError);
+					}.bind(this)
+				});
+			}.bind(this));
 		}
 	});
 });

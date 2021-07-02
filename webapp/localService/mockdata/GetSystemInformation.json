@@ -1,0 +1,26 @@
+{
+	"d": {
+		"__metadata": {
+			"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SystemInformationSet('INAMR')",
+			"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SystemInformationSet('INAMR')",
+			"type": "com.evorait.evosuite.evonotify.SystemInformation"
+		},
+		"Username": "VASUDHAK",
+		"Firstname": "VASUDHA",
+		"Client": "100",
+		"Systemid": "ED1",
+		"Lastname": "KALAPUR",
+		"Fullname": "VASUDHA KALAPUR",
+		"ServerPath": "ed1.evorait.net:50003",
+		"CoreVersion": "2.0.11",
+		"IntegrationVersion": "2.0.11",
+		"POOL_FUNCTION_ENABLED": true,
+		"IsNotificationCreate": true,
+		"IsNotificationUpdate": true,
+		"IsTasksCreate": true,
+		"IsTasksEdit": true,
+		"IsActivitiesCreate": true,
+		"IsItemUpdate": true,
+		"IsCauseCreate": true
+	}
+}
