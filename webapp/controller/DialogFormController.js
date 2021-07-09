@@ -19,6 +19,8 @@ sap.ui.define([
 
 		_type: {},
 
+		_selectedEntitySet: null,
+
 		/* =========================================================== */
 		/* lifecycle methods                                           */
 		/* =========================================================== */
@@ -104,6 +106,9 @@ sap.ui.define([
 			for (var key in this._type) {
 				this._type[key] = key === this._mParams.type;
 			}
+
+			// Selected entity set
+			this._selectedEntitySet = this._mParams.entitySet;
 			//get dialog control
 			this._oDialog = this.getView().getParent();
 			this._oDialog.setContentWidth("auto");

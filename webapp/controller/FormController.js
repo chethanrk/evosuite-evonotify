@@ -1,6 +1,8 @@
 sap.ui.define([
-	"com/evorait/evosuite/evonotify/controller/BaseController"
-], function (BaseController) {
+	"com/evorait/evosuite/evonotify/controller/BaseController",
+	"sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator"
+], function (BaseController, Filter, FilterOperator) {
 	"use strict";
 
 	return BaseController.extend("com.evorait.evosuite.evonotify.controller.FormController", {
@@ -143,7 +145,7 @@ sap.ui.define([
 						} else {
 							//reset changes from object path
 							this.getModel().resetChanges([sPath]);
-							this.oSmartForm.setEditable(false);
+							this.setFormsEditable(this.aSmartForms, false);
 							oViewModel.setProperty("/editMode", false);
 							if (doNavBack) {
 								//on edit cancel and nav back unbind object
@@ -240,7 +242,21 @@ sap.ui.define([
 
 				this.getView().getModel().submitChanges({
 					success: function (oResponse) {
-						this._deleteCreatedLocalEntry();
+						var isNew = this.getView().getModel("viewModel").getProperty("/isNew"),
+							isStatusUpdate = this.getView().getModel("viewModel").getProperty("/isStatusUpdate");
+
+						//Below condition checks if save action was for new created entity
+						//where in such case the locally created entry needs to be deleted
+						if (isNew) {
+							this._deleteCreatedLocalEntry();
+						}
+						//Below condition checks if there is any pending changes to reset
+						//Only status update changes needs to be reset in case of failure 
+						if (this.getView().getModel().hasPendingChanges() && isStatusUpdate) {
+							this.getView().getModel().resetChanges();
+							this.getModel("viewModel").setProperty("/isStatusUpdate", false);
+
+						}
 						this._setBusyWhileSaving(oCtrl, false);
 						this.getView().getModel("viewModel").setProperty("/busy", false);
 						if (oResponse.__batchResponses && oResponse.__batchResponses[0].response && oResponse.__batchResponses[0].response.statusCode ===
@@ -324,6 +340,154 @@ sap.ui.define([
 
 		showSuccessMessage: function (sMessage) {
 			this.showMessageToast(sMessage);
+		},
+
+		/**
+		 * check for defalt values when depenbt on enterd value 
+		 * when there are values check if its a property name
+		 * and is this property is creatable true
+		 * if true then find for default value if exist
+		 */
+		_checkForDefaultProperties: function (oContext, sEntitySet, sChangedProperty) {
+			if (oContext) {
+				var oData = oContext.getObject(),
+					sPath = oContext.getPath(),
+					oModel = this.getModel();
+				if (oData) {
+					delete oData.__metadata;
+				}
+				//check if GET parameter is allowed prefill field
+				//only when property is creatable true then prefill property
+				oModel.getMetaModel().loaded().then(function () {
+					var oMetaModel = oModel.getMetaModel() || oModel.getProperty("/metaModel"),
+						oEntitySet = oMetaModel.getODataEntitySet(sEntitySet),
+						oEntityType = oMetaModel.getODataEntityType(oEntitySet.entityType);
+
+					for (var key in oData) {
+						var oProperty = oMetaModel.getODataProperty(oEntityType, key);
+						if (oProperty !== null) {
+							this.checkDefaultValues(oEntitySet.name.split("Set")[0], key, sPath, sChangedProperty);
+						}
+					}
+				}.bind(this));
+			}
+		},
+
+		/*
+		 * method to validate the chnaged property
+		 */
+		checkDefaultValues: function (oEntitySet, sProperty, sPath, sChangedProperty) {
+			var aDefaultValues = this.getModel("DefaultInformationModel").getProperty("/defaultProperties");
+			var bvalidate = false;
+			if (sChangedProperty) {
+				bvalidate = this._validateLiveChangeProperty(aDefaultValues, sChangedProperty, oEntitySet);
+			}
+			for (var i in aDefaultValues) {
+				if (sChangedProperty && aDefaultValues[i].EntityName === oEntitySet) {
+					if (bvalidate && aDefaultValues[i].PropertyName !== sChangedProperty.split("id")[1]) {
+						this._getfilterDataAndSetProperty(aDefaultValues[i], oEntitySet, sPath, sProperty);
+					}
+				} else {
+					this._getfilterDataAndSetProperty(aDefaultValues[i], oEntitySet, sPath, sProperty);
+				}
+
+			}
+		},
+
+		/*
+		 * validate the property which is came from livechange
+		 */
+		_validateLiveChangeProperty: function (aDefaultValues, sChangedProperty, oEntitySet) {
+			var bValidate = false;
+			aDefaultValues.forEach(function (aDefValue) {
+				var sSeparator = aDefValue.Separator,
+					aPropertityIn = aDefValue.PropertyIn.split(sSeparator);
+				if (aPropertityIn && aPropertityIn !== "" && aDefValue.EntityName === oEntitySet) {
+					aPropertityIn.forEach(function (aProperty) {
+						var sPropertySel = aProperty.split("~")[1];
+						if (sPropertySel !== "" && sPropertySel === sChangedProperty.split("id")[1]) {
+							bValidate = true;
+							return bValidate;
+						}
+					}.bind(this));
+				}
+				if (bValidate) {
+					return bValidate;
+				}
+			}.bind(this));
+			return bValidate;
+		},
+
+		/*
+		 * method to validate the properties with default properties
+		 * if default properties exist, it will call backend for default value of the specific properties
+		 */
+		_getfilterDataAndSetProperty: function (aDefaultValues, oEntitySet, sPath, sProperty) {
+			if (aDefaultValues.EntityName === oEntitySet && aDefaultValues.PropertyName === sProperty) {
+				//get ValueIn for properties
+				var sPropInValues = this._getValueForParameterProperties(aDefaultValues, sPath);
+				if (sPropInValues) {
+					var oFilter = new Filter({
+						filters: [
+							new Filter("EntityName", FilterOperator.EQ, aDefaultValues.EntityName),
+							new Filter("PropertyName", FilterOperator.EQ, aDefaultValues.PropertyName),
+							new Filter("ValueIn", FilterOperator.EQ, sPropInValues)
+						],
+						and: true
+					});
+					this._getPropertyValue(oFilter, sPath);
+				} else if (aDefaultValues.ReturnValue && aDefaultValues.ReturnValue !== "") {
+					this.getModel().setProperty(sPath + "/" + aDefaultValues.PropertyName, aDefaultValues.ReturnValue);
+				}
+			}
+		},
+
+		/*
+		 *handle data if it's own context or parent context
+		 */
+		_getValueForParameterProperties: function (aDefaultValues, sPath) {
+			var sSeparator = aDefaultValues.Separator,
+				aPropertityIn = aDefaultValues.PropertyIn.split(sSeparator),
+				sProp;
+			aPropertityIn.forEach(function (aProperty) {
+				var sPropertyEntity = aProperty.split("~")[0],
+					sPropertySel = aProperty.split("~")[1],
+					sPropValue;
+				if (sPath.split("Set")[0].toUpperCase().split("/")[1] === sPropertyEntity) {
+					sPropValue = this.getModel().getProperty(sPath + "/" + sPropertySel);
+				} else if (this.getView().getParent().getParent().getBindingContext()) {
+					//check parent context
+					var pContext = this.getView().getParent().getParent().getBindingContext(),
+						pPath = pContext.getPath();
+					if (pPath.split("Set")[0].toUpperCase().split("/")[1] === sPropertyEntity) {
+						var parentObject = pContext.getObject();
+						sPropValue = parentObject[sPropertySel];
+					}
+				}
+
+				if (sPropValue && sPropValue !== null) {
+					if (!sProp) {
+						sProp = sPropValue;
+					} else {
+						sProp += sSeparator + sPropValue;
+					}
+				}
+			}.bind(this));
+			return sProp;
+		},
+
+		/*
+		 * get call for each property to get default value respect to the property
+		 */
+		_getPropertyValue: function (oFilter, sPath) {
+			new Promise(function (resolve) {
+				this.getOwnerComponent().readData("/PropertyValueDeterminationSet", [oFilter]).then(function (oData) {
+					resolve(oData.results[0]);
+					if (oData.results) {
+						this.getModel().setProperty(sPath + "/" + oData.results[0].PropertyName, oData.results[0].ReturnValue);
+					}
+				}.bind(this));
+			}.bind(this));
 		}
 	});
 });

@@ -1,6 +1,7 @@
 sap.ui.define([
-	"com/evorait/evosuite/evonotify/controller/FormController"
-], function (FormController) {
+	"com/evorait/evosuite/evonotify/controller/FormController",
+	"sap/ui/core/Fragment"
+], function (FormController, Fragment) {
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.controller.NotificationDetail", {
@@ -140,15 +141,53 @@ sap.ui.define([
 		 */
 		onSelectStatus: function (oEvent) {
 			var oSource = oEvent.getSource(),
-				oItem = oEvent.getParameter("item"),
-				oData = this._oContext.getObject(),
+				oItem = oEvent.getParameter("item");
+
+			this.sFunctionKey = oItem ? oItem.data("key") : oSource.data("key");
+			if (this._showESign()) {
+				if (!this._eSignDialog) {
+					Fragment.load({
+						name: "com.evorait.evosuite.evonotify.view.fragments.ESignFormDialog",
+						controller: this,
+						type: "XML"
+					}).then(function (oFragment) {
+						this._eSignDialog = oFragment;
+						this._setESignFragmentBinding();
+					}.bind(this));
+				} else {
+					this._setESignFragmentBinding();
+				}
+
+			} else {
+				this._updateStatus();
+			}
+		},
+
+		/**
+		 * load new template and set inside dialog
+		 * Bind dialog view to generated path
+		 */
+		_setESignFragmentBinding: function () {
+			this.oEsignContext = this.getModel().createEntry("/PMNotificationESignSet");
+			this._eSignDialog.setBindingContext(this.oEsignContext);
+			this._eSignDialog.addStyleClass(this.getOwnerComponent().getContentDensityClass());
+			this._initializeESignModel();
+			this.getView().addDependent(this._eSignDialog);
+			this._eSignDialog.open();
+		},
+
+		/**
+		 * function to update the satus
+		 */
+		_updateStatus: function () {
+			var oData = this._oContext.getObject(),
 				sPath = this._oContext.getPath(),
-				sFunctionKey = oItem ? oItem.data("key") : oSource.data("key"),
 				message = "";
 			this._oContext = this.getView().getBindingContext();
 
-			if (oData["ALLOW_" + sFunctionKey]) {
-				this.getModel().setProperty(sPath + "/FUNCTION", sFunctionKey);
+			if (oData["ALLOW_" + this.sFunctionKey]) {
+				this.getModel("viewModel").setProperty("/isStatusUpdate", true);
+				this.getModel().setProperty(sPath + "/FUNCTION", this.sFunctionKey);
 				this.saveChanges({
 					state: "success"
 				}, this.saveSuccessFn.bind(this), null, this.getView());
@@ -180,8 +219,9 @@ sap.ui.define([
 
 					if (!this._oContext) {
 						this.getRouter().navTo("ObjectNotFound");
+					} else {
+						this._setNotificationStatusButtonVisibility(this._oContext.getObject());
 					}
-					this._setNotificationStatusButtonVisibility(this._oContext.getObject());
 				}
 			}
 		},
@@ -223,14 +263,94 @@ sap.ui.define([
 			var oButton = oEvent.getSource();
 			// create action sheet only once
 			if (!this._actionSheetSystemStatus) {
-				this._actionSheetSystemStatus = sap.ui.xmlfragment(
-					"com.evorait.evosuite.evonotify.view.fragments.ActionSheetSystemStatus",
-					this
-				);
-				this.getView().addDependent(this._actionSheetSystemStatus);
+				Fragment.load({
+					name: "com.evorait.evosuite.evonotify.view.fragments.ActionSheetSystemStatus",
+					controller: this,
+					type: "XML"
+				}).then(function (oFragment) {
+					this._actionSheetSystemStatus = oFragment;
+					this.getView().addDependent(oFragment);
+					this._actionSheetSystemStatus.addStyleClass(this.getModel("viewModel").getProperty("/densityClass"));
+					this._actionSheetSystemStatus.openBy(oButton);
+				}.bind(this));
+			} else {
+				this._actionSheetSystemStatus.openBy(oButton);
 			}
-			this._actionSheetSystemStatus.openBy(oButton);
-		}
+		},
 
+		/*
+		 * initialize esign model with the default parameters
+		 */
+		_initializeESignModel: function () {
+			this.aESignSmartForm = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("eSignSmartForm"));
+			var sPathESign = this.oEsignContext.getPath(),
+				oData = this._oContext.getObject();
+			this.getModel().setProperty(sPathESign + "/NOTIFICATION_NO", oData.NOTIFICATION_NO);
+			this.getModel().setProperty(sPathESign + "/NOTIFICATION_TYPE", oData.NOTIFICATION_TYPE);
+			this.getModel().setProperty(sPathESign + "/NOTIFICATION_ITEM", oData.NOTIFICATION_ITEM);
+			this.getModel().setProperty(sPathESign + "/USERNAME", this.getModel("user").getProperty("/Username"));
+		},
+
+		/*
+		 * Function to decide whether esign should be shown on status update
+		 */
+		_showESign: function () {
+			var isEsignEnabled = this.getModel("user").getProperty("/ENABLE_ESIGN");
+			var oData = this._oContext.getObject();
+			if (isEsignEnabled === "X" && oData.ALLOW_ESIGN && this.sFunctionKey === "COMPLETE") {
+				return true;
+			}
+			return false;
+		},
+
+		/**
+		 * Closes the ESign dialog
+		 */
+		onCloseESignDialog: function () {
+			if (this.getView().getModel().hasPendingChanges()) {
+				this.getView().getModel().resetChanges();
+			}
+			this._eSignDialog.close();
+		},
+
+		/**
+		 * on save esign button
+		 * @param oEvent
+		 */
+		onPressESignSave: function (oEvent) {
+			if (this.aESignSmartForm.length > 0) {
+				var mErrors = this.validateForm(this.aESignSmartForm);
+				if (mErrors.state === "success") {
+					var sPathESign = this.oEsignContext.getPath();
+					var sPassword = this.getModel().getProperty(sPathESign + "/PASSWORD").trim();
+					if (sPassword !== "") {
+						var encodedPassword = btoa(sPassword);
+						this.getModel().setProperty(sPathESign + "/PASSWORD", encodedPassword);
+						this.saveChanges({
+							state: "success"
+						}, this._onESignSuccessFn.bind(this), null, this._eSignDialog);
+					}
+				}
+			}
+		},
+
+		/**
+		 * success callback after esign validation
+		 * @param oResponse
+		 */
+		_onESignSuccessFn: function (oResponse) {
+			this.onCloseESignDialog();
+			this._updateStatus();
+		},
+
+		handleESignInput: function (oEvent) {
+			var sUserInput = oEvent.getParameter("value");
+			var oInputControl = oEvent.getSource();
+			if (sUserInput) {
+				oInputControl.setValueState(sap.ui.core.ValueState.None);
+			} else {
+				oInputControl.setValueState(sap.ui.core.ValueState.Error);
+			}
+		}
 	});
 });

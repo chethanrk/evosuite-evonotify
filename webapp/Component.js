@@ -24,6 +24,7 @@ sap.ui.define([
 
 		oSystemInfoProm: null,
 		oTemplatePropsProm: null,
+		oDefaultInfoProm: null,
 
 		/**
 		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
@@ -60,7 +61,8 @@ sap.ui.define([
 				editMode: false,
 				isNew: false,
 				launchMode: Constants.LAUNCH_MODE.BSP,
-				createPageOnly: false
+				createPageOnly: false,
+				densityClass: this.getContentDensityClass()
 			};
 
 			this.setModel(models.createHelperModel(viewModelObj), "viewModel");
@@ -75,7 +77,11 @@ sap.ui.define([
 
 			this.setModel(models.createInformationModel(this), "InformationModel");
 
+			this.setModel(models.createDefaultInformationModel(this), "DefaultInformationModel");
+
 			this._getSystemInformation();
+
+			this._getDefaultInformation();
 
 			this._getFunctionSet();
 
@@ -158,7 +164,7 @@ sap.ui.define([
 		 * @private
 		 */
 		_isMobile: function () {
-			return (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i).test(navigator.userAgent.toLowerCase());
+			return sap.ui.Device.system.tablet || sap.ui.Device.system.phone;
 		},
 
 		/**
@@ -256,6 +262,18 @@ sap.ui.define([
 						this.getModel("templateProperties").setProperty("/navLinks/", mProps);
 						resolve(mProps);
 					}.bind(this));
+			}.bind(this));
+		},
+
+		/**
+		 * Calls the PropertyValueDetermination 
+		 */
+		_getDefaultInformation: function () {
+			this.oDefaultInfoProm = new Promise(function (resolve) {
+				this.readData("/PropertyValueDeterminationSet", []).then(function (oData) {
+					this.getModel("DefaultInformationModel").setProperty("/defaultProperties", oData.results);
+					resolve(oData.results);
+				}.bind(this));
 			}.bind(this));
 		},
 

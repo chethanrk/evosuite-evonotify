@@ -22,7 +22,14 @@ sap.ui.define([
 		/**
 		 * @param oEvent
 		 */
-		onChangeSmartField: function (oEvent) {},
+		onChangeSmartField: function (oEvent) {
+			var oSource = oEvent.getSource(),
+				sFieldName = oSource.getName();
+			var oContext = this.getView().getBindingContext();
+			if (oEvent.getSource().getValueState() === "None" && this._type.add) {
+				this._checkForDefaultProperties(oContext, this._selectedEntitySet, sFieldName);
+			}
+		},
 
 		/* =========================================================== */
 		/* internal methods                                            */
@@ -48,6 +55,7 @@ sap.ui.define([
 					if (this._type.add) {
 						this._setContextKeys();
 						this._getNextSortNumber(this._setNewSortNumber.bind(this));
+						this._checkForDefaultProperties(this._oContext, this._selectedEntitySet);
 					}
 				}
 			}

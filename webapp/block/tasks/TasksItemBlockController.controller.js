@@ -5,14 +5,16 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"com/evorait/evosuite/evonotify/model/formatter",
 	"sap/ui/model/FilterOperator",
-	"sap/ui/model/Filter"
+	"sap/ui/model/Filter",
+	"sap/ui/core/Fragment"
 ], function (
 	FormController,
 	History,
 	JSONModel,
 	formatter,
 	FilterOperator,
-	Filter
+	Filter,
+	Fragment
 ) {
 	"use strict";
 
@@ -140,6 +142,7 @@ sap.ui.define([
 				sFunctionKey = oItem ? oItem.data("key") : oSource.data("key"),
 				message = "";
 			if (oData["ALLOW_" + sFunctionKey]) {
+				this.getModel("viewModel").setProperty("/isStatusUpdate", true);
 				this.getModel().setProperty(sPath + "/FUNCTION", sFunctionKey);
 				this.saveChanges({
 					state: "success"
@@ -222,18 +225,24 @@ sap.ui.define([
 				var oButton = oEvent.getSource();
 				// create action sheet only once
 				if (!this._actionSheetItemTaskSystemStatus) {
-					this._actionSheetItemTaskSystemStatus = sap.ui.xmlfragment(
-						"com.evorait.evosuite.evonotify.view.fragments.ActionSheetItemTaskSystemStatus",
-						this
-					);
-					this.getView().addDependent(this._actionSheetItemTaskSystemStatus);
+					Fragment.load({
+						name: "com.evorait.evosuite.evonotify.view.fragments.ActionSheetItemTaskSystemStatus",
+						controller: this,
+						type: "XML"
+					}).then(function (oFragment) {
+						this._actionSheetItemTaskSystemStatus = oFragment;
+						this.getView().addDependent(oFragment);
+						this._actionSheetItemTaskSystemStatus.addStyleClass(this.getModel("viewModel").getProperty("/densityClass"));
+						this._actionSheetItemTaskSystemStatus.openBy(oButton);
+					}.bind(this));
+				} else {
+					this._actionSheetItemTaskSystemStatus.openBy(oButton);
 				}
-				this._actionSheetItemTaskSystemStatus.openBy(oButton);
 			} else {
 				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
 				this.showMessageToast(msg);
 			}
-		},
+		}
 	});
 
 });

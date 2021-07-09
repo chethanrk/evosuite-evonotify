@@ -24,6 +24,29 @@ sap.ui.define([
 			oRouter.getRoute("CreateNotification").attachMatched(function (oEvent) {
 				this._initializeView();
 			}, this);
+
+			var eventBus = sap.ui.getCore().getEventBus();
+			//Binnding has changed in TemplateRenderController.js
+			eventBus.subscribe("TemplateRendererEvoNotify", "changedBinding", this._changedBinding, this);
+		},
+
+		/**
+		 * Binding has changed in TemplateRenderController
+		 * Set new controller context and path
+		 * @param sChannel
+		 * @param sEvent
+		 * @param oData
+		 */
+		_changedBinding: function (sChannel, sEvent, oData) {
+			if (sChannel === "TemplateRendererEvoNotify" && sEvent === "changedBinding") {
+				var sViewId = this.getView().getId(),
+					sViewName = this.getView().getViewName(),
+					_sViewNameId = sViewName + "#" + sViewId;
+
+				if (oData.viewNameId === _sViewNameId) {
+					this._checkForLinkParameters();
+				}
+			}
 		},
 
 		/**
@@ -38,6 +61,16 @@ sap.ui.define([
 			this._initializeView();
 		},
 
+		onChangeSmartField: function (oEvent) {
+			var oSource = oEvent.getSource(),
+				sFieldName = oSource.getName();
+			var oContext = this.getView().getBindingContext();
+
+			if (oSource.getValueState() === "None" && oContext) {
+				this._checkForDefaultProperties(oContext, "PMNotificationSet", sFieldName);
+			}
+		},
+
 		/**
 		 * 
 		 */
@@ -48,8 +81,6 @@ sap.ui.define([
 
 			this.oViewModel.setProperty("/editMode", true);
 			this.oViewModel.setProperty("/isNew", true);
-
-			this._checkForLinkParameters();
 		},
 
 		/**
@@ -66,7 +97,8 @@ sap.ui.define([
 		 * Object on exit
 		 */
 		onExit: function () {
-
+			var eventBus = sap.ui.getCore().getEventBus();
+			eventBus.unsubscribe("TemplateRendererEvoNotify", "changedBinding", this._changedBinding, this);
 		},
 
 		/**
@@ -106,7 +138,9 @@ sap.ui.define([
 				var oData = oContext.getObject(),
 					sPath = oContext.getPath(),
 					oModel = this.getModel();
-
+				if (oData) {
+					delete oData.__metadata;
+				}
 				//check if GET parameter is allowed prefill field
 				//only when property is creatable true then prefill property
 				oModel.getMetaModel().loaded().then(function () {
@@ -116,13 +150,16 @@ sap.ui.define([
 
 					for (var key in oData) {
 						var urlValue = this.getOwnerComponent().getLinkParameterByName(key);
-						if (urlValue && urlValue !== Constants.PROPERTY.NEW) {
-							var oProperty = oMetaModel.getODataProperty(oEntityType, key);
-							//check if key is creatable true and url param value is not bigger then maxLength of property
-							if ((!oProperty.hasOwnProperty("sap:creatable") || oProperty["sap:creatable"] === "true") &&
-								(urlValue.length <= parseInt(oProperty["maxLength"]))) {
-								oModel.setProperty(sPath + "/" + key, urlValue);
+						var oProperty = oMetaModel.getODataProperty(oEntityType, key);
+						if (oProperty !== null) {
+							if (urlValue && urlValue !== Constants.PROPERTY.NEW) {
+								//check if key is creatable true and url param value is not bigger then maxLength of property
+								if ((!oProperty.hasOwnProperty("sap:creatable") || oProperty["sap:creatable"] === "true") &&
+									(urlValue.length <= parseInt(oProperty["maxLength"]))) {
+									oModel.setProperty(sPath + "/" + key, urlValue);
+								}
 							}
+							this.checkDefaultValues(oEntitySet.name.split("Set")[0], key, sPath);
 						}
 					}
 				}.bind(this));
@@ -143,14 +180,22 @@ sap.ui.define([
 				if (this.isStandalonePage) {
 					var msg = this.getResourceBundle().getText("msg.notifcationCreateSuccess", objectKey);
 					this.showSuccessMessage(msg);
+
+					//Bind new context
+					this.getView().unbindElement();
+					var oContext = this.getView().getModel().createEntry("/PMNotificationSet");
+					this.getView().setBindingContext(oContext);
+
+					// defaulting values
+					this._initializeView();
 				} else if (objectKey && objectKey !== "") {
 					this.oViewModel.setProperty("/newCreatedNotification", true);
 					this.getRouter().navTo("NotificationDetail", {
 						ObjectKey: objectKey
 					});
 				} else {
-					var msg = this.getResourceBundle().getText("msg.saveSuccess");
-					this.showSuccessMessage(msg);
+					var sMsg = this.getResourceBundle().getText("msg.saveSuccess");
+					this.showSuccessMessage(sMsg);
 					this.navBack();
 				}
 			}

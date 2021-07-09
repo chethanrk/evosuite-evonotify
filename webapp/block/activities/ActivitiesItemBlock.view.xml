@@ -19,7 +19,7 @@
 		</smartTable:layoutData>
 		<Table growing="true" mode="SingleSelectMaster" selectionChange="onPressItem">
 			<columns>
-				<Column width="4rem">
+				<Column width="5rem">
 					<customData>
 						<core:CustomData key="p13nData" value='\{"columnKey": "NOTES", "columnIndex":"2"}'/>
 					</customData>
