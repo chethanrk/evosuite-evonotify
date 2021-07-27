@@ -358,7 +358,6 @@ sap.ui.define([
 			var notificationObject = this._oContext.getObject();
 			this._oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
 			this._oStorage.put("NotificationObject", notificationObject);
-			this._oStorage.put("GetLocalStorageData", true);
 			this.openEvoAPP("new", "EVOORDER");
 		}
 	});
