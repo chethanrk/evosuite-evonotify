@@ -7,6 +7,9 @@
 			<uxap:headerTitle>
 				<uxap:ObjectPageHeader id="objectPageHeader" objectTitle="{DESCRIPTION}" objectSubtitle="{NOTIFICATION_NO}">
 					<uxap:actions>
+						<uxap:ObjectPageHeaderActionButton id="idCreateOrder" hideText="false" icon="sap-icon://add" type="Default"
+							text="{i18n>btn.createOrder}" tooltip="{i18n>btn.createOrder}" press="onPressCreateOrder"
+							visible="{parts: ['IS_ORDER_ASSIGNED','user>/ENABLE_NOTIFICATION_UPDATE','ENABLE_NOTIFICATION_CHANGE','viewModel>/editMode'], formatter: '.formatter.showCreateOrderButton'}"/>
 						<uxap:ObjectPageHeaderActionButton id="idStatusChangeMenu" hideText="false" icon="sap-icon://order-status" type="Default"
 							text="{i18n>btn.changeSystemStatus}" tooltip="{i18n>btn.changeSystemStatus}" press="onPressChangeSystemStatus"
 							visible="{parts: ['user>/ENABLE_SYSTEM_STATUS_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE','ENABLE_NOTIFICATION_CHANGE','viewModel>/editMode'], formatter: '.formatter.showStatusButton'}"/>
@@ -14,7 +17,7 @@
 							tooltip="{i18n>btn.edit}" icon="sap-icon://edit"
 							visible="{parts: ['ENABLE_NOTIFICATION_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE','viewModel>/editMode'], formatter:'.formatter.isVisible'}"/>
 						<uxap:ObjectPageHeaderActionButton id="saveNotificationButton" text="{i18n>btn.save}" press="onPressSave" type="Emphasized"
-							tooltip="{i18n>btn.save}" visible="{viewModel>/editMode}" icon="sap-icon://save"/>
+							tooltip="{i18n>btn.save}" visible="{viewMoel>/editMode}" icon="sap-icon://save"/>
 						<uxap:ObjectPageHeaderActionButton id="cancelNotificationButton" text="{i18n>btn.cancel}" press="onPressCancel"
 							visible="{viewModel>/editMode}" type="Default" tooltip="{i18n>btn.cancel}" icon="sap-icon://cancel"/>
 					</uxap:actions>

@@ -351,6 +351,15 @@ sap.ui.define([
 			} else {
 				oInputControl.setValueState(sap.ui.core.ValueState.Error);
 			}
+		},
+
+		onPressCreateOrder: function () {
+			// get current timestamp
+			var notificationObject = this._oContext.getObject();
+			this._oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
+			this._oStorage.put("NotificationObject", notificationObject);
+			this._oStorage.put("GetLocalStorageData", true);
+			this.openEvoAPP("new", "EVOORDER");
 		}
 	});
 });

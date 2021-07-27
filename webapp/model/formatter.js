@@ -160,6 +160,21 @@ sap.ui.define([
 		},
 
 		/**
+		 * Hide/show status change button
+		 * @param bShowStatusButton
+		 * @param bAllowChange
+		 * @param bEnabledFunction
+		 * @param isEditMode
+		 * @returns {boolean}
+		 */
+		showCreateOrderButton: function (bShowCreateButton, bAllowChange, bEnabledFunction, isEditMode) {
+			if (bShowCreateButton !== "X" && bAllowChange === "X" && bEnabledFunction && !isEditMode) {
+				return true;
+			}
+			return false;
+		},
+
+		/**
 		 *
 		 * @param sValue
 		 * @returns {*|boolean}
