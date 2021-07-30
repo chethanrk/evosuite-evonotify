@@ -1,7 +1,8 @@
 sap.ui.define([
 	"com/evorait/evosuite/evonotify/controller/FormController",
-	"sap/ui/core/Fragment"
-], function (FormController, Fragment) {
+	"sap/ui/core/Fragment",
+	"sap/ui/util/Storage"
+], function (FormController, Fragment, Storage) {
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.controller.NotificationDetail", {
@@ -356,8 +357,8 @@ sap.ui.define([
 		onPressCreateOrder: function () {
 			// get current timestamp
 			var notificationObject = this._oContext.getObject();
-			this._oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
-			this._oStorage.put("NotificationObject", notificationObject);
+			var oMyStorage = new Storage(Storage.Type.local);
+			oMyStorage.put("NotificationObject", notificationObject);
 			this.openEvoAPP("new", "EVOORDER");
 		}
 	});
