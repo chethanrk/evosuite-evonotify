@@ -160,6 +160,21 @@ sap.ui.define([
 		},
 
 		/**
+		 * Hide/show create Order button
+		 * @param orderNumber
+		 * @param bEnableOrderCreate
+		 * @param bEnabledFunction
+		 * @param isEditMode
+		 * @returns {boolean}
+		 */
+		showCreateOrderButton: function (orderNumber, bEnableOrderCreate, bEnabledFunction, isEditMode) {
+			if (orderNumber === "" && bEnableOrderCreate === "X" && bEnabledFunction && !isEditMode) {
+				return true;
+			}
+			return false;
+		},
+
+		/**
 		 *
 		 * @param sValue
 		 * @returns {*|boolean}

@@ -1,7 +1,8 @@
 sap.ui.define([
 	"com/evorait/evosuite/evonotify/controller/FormController",
-	"sap/ui/core/Fragment"
-], function (FormController, Fragment) {
+	"sap/ui/core/Fragment",
+	"sap/ui/util/Storage"
+], function (FormController, Fragment, Storage) {
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.controller.NotificationDetail", {
@@ -351,6 +352,18 @@ sap.ui.define([
 			} else {
 				oInputControl.setValueState(sap.ui.core.ValueState.Error);
 			}
+		},
+
+		/**
+		 * on click of Create Order button
+		 * Button visible only when order is not linked with Notification
+		 */
+		onPressCreateOrder: function () {
+			// get current timestamp
+			var notificationObject = this._oContext.getObject();
+			var oMyStorage = new Storage(Storage.Type.local);
+			oMyStorage.put("NotificationObject", notificationObject);
+			this.openEvoAPP("new", "EVOORDER");
 		}
 	});
 });
