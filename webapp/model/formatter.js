@@ -160,9 +160,9 @@ sap.ui.define([
 		},
 
 		/**
-		 * Hide/show status change button
-		 * @param bShowCreateButton
-		 * @param bAllowChange
+		 * Hide/show create Order button
+		 * @param orderNumber
+		 * @param bEnableOrderCreate
 		 * @param bEnabledFunction
 		 * @param isEditMode
 		 * @returns {boolean}

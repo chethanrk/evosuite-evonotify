@@ -354,6 +354,10 @@ sap.ui.define([
 			}
 		},
 
+		/**
+		 * on click of Create Order button
+		 * Button visible only when order is not linked with Notification
+		 */
 		onPressCreateOrder: function () {
 			// get current timestamp
 			var notificationObject = this._oContext.getObject();
