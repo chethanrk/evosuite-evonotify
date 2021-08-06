@@ -70,6 +70,10 @@
 														test="{:= ${contentTabs>Core.LongDescription/String} === 'ActivitiesTab' || ${contentTabs>Org.OData.Core.V1.LongDescription/String} === 'ActivitiesTab'}">
 														<blocks:activities.ActivitiesBlock id="block--{:= ${path:'contentTabs>Core.LongDescription/String'} }"/>
 													</template:elseif>
+													<template:elseif
+														test="{:= ${contentTabs>Core.LongDescription/String} === 'PartnerTab' || ${contentTabs>Org.OData.Core.V1.LongDescription/String} === 'PartnerTab'}">
+														<blocks:partnerdata.PartnerDataBlock id="block--{:= ${path:'contentTabs>Core.LongDescription/String'} }"/>
+													</template:elseif>
 												</template:if>
 											</uxap:blocks>
 										</uxap:ObjectPageSubSection>
