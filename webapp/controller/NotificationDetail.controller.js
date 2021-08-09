@@ -361,8 +361,9 @@ sap.ui.define([
 		onPressCreateOrder: function () {
 			// get current timestamp
 			var notificationObject = this._oContext.getObject();
-			var oMyStorage = new Storage(Storage.Type.local);
-			oMyStorage.put("NotificationObject", notificationObject);
+			delete notificationObject.__metadata;
+			var olocalStorage = new Storage(Storage.Type.local);
+			olocalStorage.put("NotificationObject", notificationObject);
 			this.openEvoAPP("new", "EVOORDER");
 		}
 	});
