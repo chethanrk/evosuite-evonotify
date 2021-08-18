@@ -21,7 +21,7 @@
 			<f:DynamicPageHeader pinnable="true">
 				<f:content>
 					<smartFilterBar:SmartFilterBar id="NotificationFilter" entitySet="PMNotificationSet" filterBarExpanded="true"
-						persistencyKey="com.evorait.evosuite.evonotify.NotificationFilterbar">
+						persistencyKey="com.evorait.evosuite.evonotify.NotificationFilterbar" useDateRangeType="true">
 						<smartFilterBar:controlConfiguration>
 							<smartFilterBar:ControlConfiguration id="__configuration0"/>
 						</smartFilterBar:controlConfiguration>
