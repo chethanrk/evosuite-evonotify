@@ -1,6 +1,7 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
+	"sap/ui/model/json/JSONModel",
 	"com/evorait/evosuite/evonotify/model/models",
 	"com/evorait/evosuite/evonotify/controller/ErrorHandler",
 	"com/evorait/evosuite/evonotify/controller/DialogTemplateRenderController",
@@ -10,7 +11,7 @@ sap.ui.define([
 	"com/evorait/evosuite/evonotify/assets/js/url-search-params.min",
 	"com/evorait/evosuite/evonotify/assets/js/promise-polyfills",
 	"com/evorait/evosuite/evonotify/controller/MessageManager"
-], function (UIComponent, Device, models, ErrorHandler, DialogTemplateRenderController, Constants, Filter,
+], function (UIComponent, Device, JSONModel, models, ErrorHandler, DialogTemplateRenderController, Constants, Filter,
 	FilterOperator, UrlSearchPolyfill, PromisePolyfill, MessageManager) {
 	"use strict";
 
@@ -83,9 +84,11 @@ sap.ui.define([
 
 			this._getDefaultInformation();
 
+			this._getTemplateProps();
+
 			this._getFunctionSet();
 
-			this._setApp2AppLinks();
+			this.oTemplatePropsProm.then(this._setApp2AppLinks.bind(this));
 
 			this.setModel(oMessageManager.getMessageModel(), "message");
 
@@ -180,6 +183,21 @@ sap.ui.define([
 		},
 
 		/**
+		 * get Template properties as model inside a global Promise
+		 */
+		_getTemplateProps: function () {
+			this.oTemplatePropsProm = new Promise(function (resolve) {
+				var realPath = sap.ui.require.toUrl("com/evorait/evosuite/evonotify/model/TemplateProperties.json");
+				var oTempJsonModel = new JSONModel();
+				oTempJsonModel.loadData(realPath);
+				oTempJsonModel.attachRequestCompleted(function () {
+					this.setModel(oTempJsonModel, "templateProperties");
+					resolve(oTempJsonModel.getData());
+				}.bind(this));
+			}.bind(this));
+		},
+
+		/**
 		 * Calls the FunctionSetData for Notification and Task
 		 */
 		_getFunctionSet: function () {
@@ -250,18 +268,14 @@ sap.ui.define([
 			var oFilter = new Filter("LaunchMode", FilterOperator.EQ, this.getModel("viewModel").getProperty("/launchMode")),
 				mProps = {};
 
-			this.oTemplatePropsProm = new Promise(function (resolve) {
-				this.readData("/NavigationLinksSet", [oFilter])
-					.then(function (data) {
-						data.results.forEach(function (oItem) {
-							if (oItem.Value1 && Constants.APPLICATION[oItem.ApplicationId]) {
-								oItem.Property = oItem.Value2 || Constants.PROPERTY[oItem.ApplicationId];
-								mProps[oItem.Property] = oItem;
-							}
-						}.bind(this));
-						this.getModel("templateProperties").setProperty("/navLinks/", mProps);
-						resolve(mProps);
-					}.bind(this));
+			this.readData("/NavigationLinksSet", [oFilter]).then(function (data) {
+				data.results.forEach(function (oItem) {
+					if (oItem.Value1 && Constants.APPLICATION[oItem.ApplicationId]) {
+						oItem.Property = oItem.Value2 || Constants.PROPERTY[oItem.ApplicationId];
+						mProps[oItem.Property] = oItem;
+					}
+				}.bind(this));
+				this.getModel("templateProperties").setProperty("/navLinks/", mProps);
 			}.bind(this));
 		},
 

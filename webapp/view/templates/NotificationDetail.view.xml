@@ -2,93 +2,114 @@
 	xmlns:mvc="sap.ui.core.mvc" xmlns:uxap="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:smartField="sap.ui.comp.smartfield"
 	xmlns:blocks="com.evorait.evosuite.evonotify.block" xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1">
 	<template:alias name=".AH" value="sap.ui.model.odata.AnnotationHelper">
-		<uxap:ObjectPageLayout id="notificationDetailPage" enableLazyLoading="false" isChildPage="true" showFooter="false" busy="{viewModel>/busy}"
-			busyIndicatorDelay="{viewModel>/delay}">
-			<uxap:headerTitle>
-				<uxap:ObjectPageHeader id="objectPageHeader" objectTitle="{DESCRIPTION}" objectSubtitle="{NOTIFICATION_NO}">
-					<uxap:actions>
-						<uxap:ObjectPageHeaderActionButton id="idStatusChangeMenu" hideText="false" icon="sap-icon://order-status" type="Default"
-							text="{i18n>btn.changeSystemStatus}" tooltip="{i18n>btn.changeSystemStatus}" press="onPressChangeSystemStatus"
-							visible="{parts: ['user>/ENABLE_SYSTEM_STATUS_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE','ENABLE_NOTIFICATION_CHANGE','viewModel>/editMode'], formatter: '.formatter.showStatusButton'}"/>
-						<uxap:ObjectPageHeaderActionButton id="editNotificationButton" text="{i18n>btn.edit}" press="onPressEdit" type="Emphasized"
-							tooltip="{i18n>btn.edit}" icon="sap-icon://edit"
-							visible="{parts: ['ENABLE_NOTIFICATION_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE','viewModel>/editMode'], formatter:'.formatter.isVisible'}"/>
-						<uxap:ObjectPageHeaderActionButton id="saveNotificationButton" text="{i18n>btn.save}" press="onPressSave" type="Emphasized"
-							tooltip="{i18n>btn.save}" visible="{viewModel>/editMode}" icon="sap-icon://save"/>
-						<uxap:ObjectPageHeaderActionButton id="cancelNotificationButton" text="{i18n>btn.cancel}" press="onPressCancel"
-							visible="{viewModel>/editMode}" type="Default" tooltip="{i18n>btn.cancel}" icon="sap-icon://cancel"/>
-					</uxap:actions>
-					<uxap:sideContentButton>
-						<Button type="Transparent" id="idCreateOrder" icon="sap-icon://create" text="{i18n>btn.createOrder}" tooltip="{i18n>btn.createOrder}"
-							press="onPressCreateOrder"
-							visible="{parts: ['ORDER_NUMBER','user>/ENABLE_ORDER_CREATE','ENABLE_NOTIFICATION_CHANGE','viewModel>/editMode'], formatter: '.formatter.showCreateOrderButton'}"/>
-					</uxap:sideContentButton>
-					<uxap:breadcrumbs>
-						<Breadcrumbs currentLocationText="{/#PMNotification/NOTIFICATION_NO/@sap:label} {NOTIFICATION_NO}">
-							<Link text="{i18n>tit.notifications}" press="onNavBack"/>
-						</Breadcrumbs>
-					</uxap:breadcrumbs>
-					<uxap:navigationBar>
-						<core:Fragment fragmentName="com.evorait.evosuite.evonotify.view.fragments.SubPageHeader" type="XML"/>
-					</uxap:navigationBar>
-				</uxap:ObjectPageHeader>
-			</uxap:headerTitle>
-			<uxap:headerContent>
-				<template:with path="meta>com.sap.vocabularies.UI.v1.HeaderFacets#NotifDetailHeader" helper=".AH.resolvePath" var="headerDetails">
-					<core:Fragment fragmentName="com.evorait.evosuite.evonotify.view.templates.ObjectHeadTemplate" type="XML"/>
-				</template:with>
-			</uxap:headerContent>
-			<uxap:sections>
-				<template:with path="meta>com.sap.vocabularies.UI.v1.Facets#NotifDetailTabs" helper=".AH.resolvePath" var="contentTabs">
-					<template:repeat list="{contentTabs>}">
-						<template:if test="{:= ${contentTabs>Core.Description/String} === 'Form' || ${contentTabs>Org.OData.Core.V1.Description/String} === 'Form'}">
-							<template:then>
-								<uxap:ObjectPageSection title="{path:'contentTabs>com.sap.vocabularies.Common.v1.Label',formatter:'.AH.format'}">
-									<uxap:subSections>
-										<uxap:ObjectPageSubSection>
-											<uxap:blocks>
-												<template:with path="contentTabs>Facets" var="facets">
-													<core:Fragment fragmentName="com.evorait.evosuite.evonotify.view.templates.SmartFormTemplate" type="XML"/>
-												</template:with>
-											</uxap:blocks>
-										</uxap:ObjectPageSubSection>
-									</uxap:subSections>
-								</uxap:ObjectPageSection>
-							</template:then>
-							<template:elseif
-								test="{:= ${contentTabs>Core.Description/String} === 'Table' || ${contentTabs>Org.OData.Core.V1.Description/String} === 'Table'}">
-								<uxap:ObjectPageSection title="{path:'contentTabs>com.sap.vocabularies.Common.v1.Label',formatter:'.AH.format'}"
-									visible="{= !${viewModel>/editMode}}">
-									<uxap:subSections>
-										<uxap:ObjectPageSubSection>
-											<uxap:blocks>
-												<template:if
-													test="{:= ${contentTabs>Core.LongDescription/String} === 'ItemsTab' || ${contentTabs>Org.OData.Core.V1.LongDescription/String} === 'ItemsTab'}">
-													<template:then>
-														<blocks:items.ItemsBlock id="block--{:= ${path:'contentTabs>Core.LongDescription/String'} }"/>
-													</template:then>
-													<template:elseif
-														test="{:= ${contentTabs>Core.LongDescription/String} === 'TasksTab' || ${contentTabs>Org.OData.Core.V1.LongDescription/String} === 'TasksTab'}">
-														<blocks:tasks.TasksBlock id="block--{:= ${path:'contentTabs>Core.LongDescription/String'} }"/>
-													</template:elseif>
-													<template:elseif
-														test="{:= ${contentTabs>Core.LongDescription/String} === 'ActivitiesTab' || ${contentTabs>Org.OData.Core.V1.LongDescription/String} === 'ActivitiesTab'}">
-														<blocks:activities.ActivitiesBlock id="block--{:= ${path:'contentTabs>Core.LongDescription/String'} }"/>
-													</template:elseif>
-													<template:elseif
-														test="{:= ${contentTabs>Core.LongDescription/String} === 'PartnerTab' || ${contentTabs>Org.OData.Core.V1.LongDescription/String} === 'PartnerTab'}">
-														<blocks:partnerdata.PartnerDataBlock id="block--{:= ${path:'contentTabs>Core.LongDescription/String'} }"/>
-													</template:elseif>
-												</template:if>
-											</uxap:blocks>
-										</uxap:ObjectPageSubSection>
-									</uxap:subSections>
-								</uxap:ObjectPageSection>
-							</template:elseif>
-						</template:if>
-					</template:repeat>
-				</template:with>
-			</uxap:sections>
-		</uxap:ObjectPageLayout>
+		<template:with path="templateProperties>/" var="tempProps">
+			<uxap:ObjectPageLayout id="notificationDetailPage" enableLazyLoading="false" isChildPage="true" showFooter="false" busy="{viewModel>/busy}"
+				busyIndicatorDelay="{viewModel>/delay}">
+				<uxap:headerTitle>
+					<uxap:ObjectPageHeader id="objectPageHeader" objectTitle="{DESCRIPTION}" objectSubtitle="{NOTIFICATION_NO}">
+						<uxap:actions>
+							<uxap:ObjectPageHeaderActionButton id="idStatusChangeMenu" hideText="false" icon="sap-icon://order-status" type="Default"
+								text="{i18n>btn.changeSystemStatus}" tooltip="{i18n>btn.changeSystemStatus}" press="onPressChangeSystemStatus"
+								visible="{parts: ['user>/ENABLE_SYSTEM_STATUS_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE','ENABLE_NOTIFICATION_CHANGE','viewModel>/editMode'], formatter: '.formatter.showStatusButton'}"/>
+							<uxap:ObjectPageHeaderActionButton id="editNotificationButton" text="{i18n>btn.edit}" press="onPressEdit" type="Emphasized"
+								tooltip="{i18n>btn.edit}" icon="sap-icon://edit"
+								visible="{parts: ['ENABLE_NOTIFICATION_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE','viewModel>/editMode'], formatter:'.formatter.isVisible'}"/>
+							<uxap:ObjectPageHeaderActionButton id="saveNotificationButton" text="{i18n>btn.save}" press="onPressSave" type="Emphasized"
+								tooltip="{i18n>btn.save}" visible="{viewModel>/editMode}" icon="sap-icon://save"/>
+							<uxap:ObjectPageHeaderActionButton id="cancelNotificationButton" text="{i18n>btn.cancel}" press="onPressCancel"
+								visible="{viewModel>/editMode}" type="Default" tooltip="{i18n>btn.cancel}" icon="sap-icon://cancel"/>
+						</uxap:actions>
+						<uxap:sideContentButton>
+							<Button type="Transparent" id="idCreateOrder" icon="sap-icon://create" text="{i18n>btn.createOrder}" tooltip="{i18n>btn.createOrder}"
+								press="onPressCreateOrder"
+								visible="{parts: ['ORDER_NUMBER','user>/ENABLE_ORDER_CREATE','ENABLE_NOTIFICATION_CHANGE','viewModel>/editMode'], formatter: '.formatter.showCreateOrderButton'}"/>
+						</uxap:sideContentButton>
+						<uxap:breadcrumbs>
+							<Breadcrumbs currentLocationText="{/#PMNotification/NOTIFICATION_NO/@sap:label} {NOTIFICATION_NO}">
+								<Link text="{i18n>tit.notifications}" press="onNavBack"/>
+							</Breadcrumbs>
+						</uxap:breadcrumbs>
+						<uxap:navigationBar>
+							<core:Fragment fragmentName="com.evorait.evosuite.evonotify.view.fragments.SubPageHeader" type="XML"/>
+						</uxap:navigationBar>
+					</uxap:ObjectPageHeader>
+				</uxap:headerTitle>
+				<uxap:headerContent>
+					<template:with path="meta>com.sap.vocabularies.UI.v1.HeaderFacets#NotifDetailHeader" helper=".AH.resolvePath" var="headerDetails">
+						<core:Fragment fragmentName="com.evorait.evosuite.evonotify.view.templates.ObjectHeadTemplate" type="XML"/>
+					</template:with>
+				</uxap:headerContent>
+				<uxap:sections>
+					<template:with path="meta>com.sap.vocabularies.UI.v1.Facets#NotifDetailTabs" helper=".AH.resolvePath" var="detailTabs">
+						<template:repeat list="{detailTabs>}">
+							<template:if test="{:= ${detailTabs>Core.Description/String} === 'Form' || ${detailTabs>Org.OData.Core.V1.Description/String} === 'Form'}">
+								<template:then>
+									<uxap:ObjectPageSection title="{path:'detailTabs>com.sap.vocabularies.Common.v1.Label',formatter:'.AH.format'}">
+										<uxap:subSections>
+											<uxap:ObjectPageSubSection>
+												<uxap:blocks>
+													<template:with path="detailTabs>Facets" var="facets">
+														<core:Fragment fragmentName="com.evorait.evosuite.evonotify.view.templates.SmartFormTemplate" type="XML"/>
+													</template:with>
+												</uxap:blocks>
+											</uxap:ObjectPageSubSection>
+										</uxap:subSections>
+									</uxap:ObjectPageSection>
+								</template:then>
+								<template:elseif
+									test="{:= ${detailTabs>Core.Description/String} === 'Table' || ${detailTabs>Org.OData.Core.V1.Description/String} === 'Table'}">
+									<uxap:ObjectPageSection title="{path:'detailTabs>com.sap.vocabularies.Common.v1.Label',formatter:'.AH.format'}"
+										visible="{= !${viewModel>/editMode}}">
+										<uxap:subSections>
+											<template:if test="{:= ${detailTabs>Core.LongDescription/String} === 'AttachmentsTab'}">
+												<template:then>
+													<template:with path="detailTabs>Facet" var="contentTabs">
+														<template:repeat list="{contentTabs>}">
+															<uxap:ObjectPageSubSection title="{path:'contentTabs>com.sap.vocabularies.Common.v1.Label',formatter:'.AH.format'}">
+																<uxap:blocks>
+																	<template:repeat list="{tempProps>/Configs/AttachmentTables}" var="tableDetails">
+																		<template:if test="{:= ${tableDetails>tabName} === ${contentTabs>Core.LongDescription/String} }">
+																			<core:Fragment fragmentName="com.evorait.evosuite.evonotify.view.templates.SmartTableTemplate" type="XML"/>
+																		</template:if>
+																	</template:repeat>
+																</uxap:blocks>
+															</uxap:ObjectPageSubSection>
+														</template:repeat>
+													</template:with>
+												</template:then>
+												<template:else>
+													<uxap:ObjectPageSubSection>
+														<uxap:blocks>
+															<template:if
+																test="{:= ${detailTabs>Core.LongDescription/String} === 'ItemsTab' || ${detailTabs>Org.OData.Core.V1.LongDescription/String} === 'ItemsTab'}">
+																<template:then>
+																	<blocks:items.ItemsBlock id="block--{:= ${path:'detailTabs>Core.LongDescription/String'} }"/>
+																</template:then>
+																<template:elseif
+																	test="{:= ${detailTabs>Core.LongDescription/String} === 'TasksTab' || ${detailTabs>Org.OData.Core.V1.LongDescription/String} === 'TasksTab'}">
+																	<blocks:tasks.TasksBlock id="block--{:= ${path:'detailTabs>Core.LongDescription/String'} }"/>
+																</template:elseif>
+																<template:elseif
+																	test="{:= ${detailTabs>Core.LongDescription/String} === 'ActivitiesTab' || ${detailTabs>Org.OData.Core.V1.LongDescription/String} === 'ActivitiesTab'}">
+																	<blocks:activities.ActivitiesBlock id="block--{:= ${path:'detailTabs>Core.LongDescription/String'} }"/>
+																</template:elseif>
+																<template:elseif
+																	test="{:= ${detailTabs>Core.LongDescription/String} === 'PartnerTab' || ${detailTabs>Org.OData.Core.V1.LongDescription/String} === 'PartnerTab'}">
+																	<blocks:partnerdata.PartnerDataBlock id="block--{:= ${path:'detailTabs>Core.LongDescription/String'} }"/>
+																</template:elseif>
+															</template:if>
+														</uxap:blocks>
+													</uxap:ObjectPageSubSection>
+												</template:else>
+											</template:if>
+										</uxap:subSections>
+									</uxap:ObjectPageSection>
+								</template:elseif>
+							</template:if>
+						</template:repeat>
+					</template:with>
+				</uxap:sections>
+			</uxap:ObjectPageLayout>
+		</template:with>
 	</template:alias>
 </mvc:View>

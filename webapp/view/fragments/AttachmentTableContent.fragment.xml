@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Table>
+		<columns>
+			<Column hAlign="Begin">
+				<Text text="{/PMNotificationAttachmentSet/FILENAME/##com.sap.vocabularies.Common.v1.Label/String}"/>
+				<customData>
+					<core:CustomData key="p13nData" value='\{"columnKey": "FILENAME", "maxLength": "15","columnIndex":"0", "leadingProperty":"FILENAME"}'/>
+				</customData>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<Link text="{FILENAME}" emphasized="true" href="{parts:[{path:'ObjectKey'}, {path:'FILEID'}], formatter:'.getAttachmentUrl'}"
+						fieldGroupIds="DownloadLink"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>
