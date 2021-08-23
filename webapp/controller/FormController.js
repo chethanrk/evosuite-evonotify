@@ -140,6 +140,7 @@ sap.ui.define([
 						if (isNew) {
 							//delete created entry
 							this.navBack();
+							this.getModel().resetChanges();
 							this.getModel().deleteCreatedEntry(oContext);
 							oViewModel.setProperty("/isNew", false);
 						} else {

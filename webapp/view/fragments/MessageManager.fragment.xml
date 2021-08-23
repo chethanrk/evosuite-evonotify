@@ -9,11 +9,12 @@
         <headerButton>
             <Button icon="sap-icon://delete" press="deleteAllMessages" visible="{= ${message>/}.length > 0 }"/>
         </headerButton>
-        <MessagePopoverItem
+        <MessageItem
                 type="{message>type}"
                 title="{message>message}"
                 description="{message>description}"
                 activeTitle="{message>technical}" >
-        </MessagePopoverItem>
+        </MessageItem>
     </MessagePopover>
 </core:FragmentDefinition>
+

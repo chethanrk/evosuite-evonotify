@@ -6,6 +6,7 @@ sap.ui.define([
 	return Controller.extend("com.evorait.evosuite.evonotify.controller.MessageManager", {
 
 		_showMessageManager: null,
+		_oCurrentView: null,
 
 		/**
 		 * Open the Message Manager Popover
@@ -14,6 +15,7 @@ sap.ui.define([
 		 */
 		open: function (oView, oEvent) {
 			var oControlmsg = oEvent.getSource();
+			this._oCurrentView = oView;
 			if (!this._showMessageManager) {
 				Fragment.load({
 					name: "com.evorait.evosuite.evonotify.view.fragments.MessageManager",
@@ -29,9 +31,21 @@ sap.ui.define([
 				if (this._showMessageManager.isOpen()) {
 					this._showMessageManager.close();
 				} else {
-					this._showMessageManager.getModel("message").refresh();
+					this._refreshMessageModel();
 					this._showMessageManager.openBy(oControlmsg);
 				}
+			}
+		},
+
+		/**
+		 * Called when message model needs to refresh
+		 */
+		_refreshMessageModel: function () {
+			if (this._showMessageManager.getModel("message")) {
+				this._showMessageManager.getModel("message").refresh();
+			} else if (this._oCurrentView.getModel("message")) {
+				this._showMessageManager.setModel(this._oCurrentView.getModel("message"), "message");
+				this._showMessageManager.getModel("message").refresh();
 			}
 		},
 
@@ -39,23 +53,26 @@ sap.ui.define([
 		 * Delete all messages from message manager model
 		 */
 		deleteAllMessages: function () {
-			this._showMessageManager.getModel('message').oMessageManager.removeAllMessages();
-			this._showMessageManager.close();
+			if (this._showMessageManager.getModel("message")) {
+				this._showMessageManager.getModel("message").oMessageManager.removeAllMessages();
+				this._showMessageManager.close();
+			}
 		},
 
 		/**
 		 * Set all the unread messages to read before closing the popover
 		 */
 		beforePopoverClose: function () {
-			//Filter the odata first where the technical field is true
-			var oFilteredList = this._showMessageManager.getModel("message").oData.filter(function (element) {
-				return element.technical === true;
-			});
-			//update all the filtered list technical value to false
-			oFilteredList.forEach(function (element, index) {
-				element.technical = false;
-			});
+			if (this._showMessageManager.getModel("message")) {
+				//Filter the odata first where the technical field is true
+				var oFilteredList = this._showMessageManager.getModel("message").oData.filter(function (element) {
+					return element.technical === true;
+				});
+				//update all the filtered list technical value to false
+				oFilteredList.forEach(function (element) {
+					element.technical = false;
+				});
+			}
 		}
 	});
-
 });

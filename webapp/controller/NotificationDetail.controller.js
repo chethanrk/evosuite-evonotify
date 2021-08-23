@@ -18,6 +18,7 @@ sap.ui.define([
 		 * worklist on init
 		 */
 		onInit: function () {
+			FormController.prototype.onInit.apply(this, arguments);
 			this.oViewModel = this.getModel("viewModel");
 
 			var oRouter = this.getRouter();
