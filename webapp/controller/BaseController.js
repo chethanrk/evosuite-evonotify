@@ -10,8 +10,10 @@ sap.ui.define([
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
 	"com/evorait/evosuite/evonotify/model/Constants",
-	"com/evorait/evosuite/evonotify/model/formatter"
-], function (Controller, JSONModel, History, Dialog, Button, Text, MessageToast, MessageBox, Filter, FilterOperator, Constants, formatter) {
+	"com/evorait/evosuite/evonotify/model/formatter",
+	"sap/ui/core/Fragment"
+], function (Controller, JSONModel, History, Dialog, Button, Text, MessageToast, MessageBox, Filter, FilterOperator, Constants, formatter,
+	Fragment) {
 	"use strict";
 
 	return Controller.extend("com.evorait.evosuite.evonotify.controller.BaseController", {
@@ -451,6 +453,43 @@ sap.ui.define([
 			});
 
 			dialog.open();
+		},
+
+		/**
+		 * Initialize and open the Information dialog with necessary details
+		 * @param oEvent Button press event
+		 */
+		onIconPress: function (oEvent) {
+			// create popover
+			if (!this._infoDialog) {
+				Fragment.load({
+					name: "com.evorait.evosuite.evonotify.view.fragments.InformationPopover",
+					controller: this,
+					type: "XML"
+				}).then(function (oFragment) {
+					this._infoDialog = oFragment;
+					this.getView().addDependent(oFragment);
+					this._infoDialog.addStyleClass(this.getModel("viewModel").getProperty("/densityClass"));
+					this._infoDialog.open();
+				}.bind(this));
+			} else {
+				this._infoDialog.open();
+			}
+		},
+
+		/**
+		 * Closes the information dialog
+		 */
+		onCloseDialog: function () {
+			this._infoDialog.close();
+		},
+
+		/**
+		 * Open Message Manager on click
+		 * @param oEvent
+		 */
+		onMessageManagerPress: function (oEvent) {
+			this.openMessageManager(this.getView(), oEvent);
 		},
 
 		/**

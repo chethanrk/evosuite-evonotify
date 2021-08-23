@@ -18,13 +18,16 @@
 						</Breadcrumbs>
 					</uxap:breadcrumbs>
 					<uxap:navigationBar>
-						<Bar>
+						<Bar class="sapUiTinyMarginTop">
 							<contentLeft>
 								<Button icon="sap-icon://nav-back" tooltip="nav-back" press="onNavBack"/>
 							</contentLeft>
 							<contentMiddle>
 								<Title text="{i18n>tit.newNotification}"/>
 							</contentMiddle>
+							<contentRight>
+								<core:Fragment fragmentName="com.evorait.evosuite.evonotify.view.fragments.HeaderRightActions" type="XML"/>
+							</contentRight>
 						</Bar>
 					</uxap:navigationBar>
 				</uxap:ObjectPageHeader>
