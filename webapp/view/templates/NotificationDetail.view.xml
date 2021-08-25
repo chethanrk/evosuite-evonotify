@@ -3,7 +3,7 @@
 	xmlns:blocks="com.evorait.evosuite.evonotify.block" xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1">
 	<template:alias name=".AH" value="sap.ui.model.odata.AnnotationHelper">
 		<template:with path="templateProperties>/" var="tempProps">
-			<uxap:ObjectPageLayout id="notificationDetailPage" enableLazyLoading="false" isChildPage="true" showFooter="false" busy="{viewModel>/busy}"
+			<uxap:ObjectPageLayout id="notificationDetailPage" enableLazyLoading="true" isChildPage="true" showFooter="false" busy="{viewModel>/busy}"
 				busyIndicatorDelay="{viewModel>/delay}">
 				<uxap:headerTitle>
 					<uxap:ObjectPageHeader id="objectPageHeader" objectTitle="{DESCRIPTION}" objectSubtitle="{NOTIFICATION_NO}">
