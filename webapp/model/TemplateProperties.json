@@ -34,7 +34,7 @@
 			"showRowCount": true,
 			"enableAutoBinding": true,
 			"entitySet": "OrderAttachmentSet",
-			"tableBindingPath": "OrderAttachmentSet",
+			"tableBindingPath": "NotificationToOrderAttachment",
 			"requestAtLeastFields": "ObjectKey,FILEID",
 			"class": "",
 			"CustomToolbar": false,

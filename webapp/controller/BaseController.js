@@ -160,7 +160,6 @@ sap.ui.define([
 			var dialog = new Dialog({
 				title: sTitle,
 				type: "Message",
-				styleClass: this.getOwnerComponent().getContentDensityClass(),
 				state: "Error",
 				content: new Text({
 					text: sMsg
@@ -175,6 +174,7 @@ sap.ui.define([
 					dialog.destroy();
 				}
 			});
+			dialog.addStyleClass(this.getOwnerComponent().getContentDensityClass());
 			dialog.open();
 		},
 
@@ -280,7 +280,6 @@ sap.ui.define([
 			var dialog = new sap.m.Dialog({
 				title: oResoucreBundle.getText("tit.cancelCreate"),
 				type: "Message",
-				styleClass: this.getOwnerComponent().getContentDensityClass(),
 				content: new sap.m.Text({
 					text: oResoucreBundle.getText("msg.leaveWithoutSave")
 				}),
@@ -317,7 +316,7 @@ sap.ui.define([
 					dialog.destroy();
 				}
 			});
-
+			dialog.addStyleClass(this.getOwnerComponent().getContentDensityClass());
 			dialog.open();
 		},
 
@@ -433,7 +432,6 @@ sap.ui.define([
 			var dialog = new Dialog({
 				title: oBundle.getText("tit.informationTitle"),
 				type: 'Message',
-				styleClass: this.getOwnerComponent().getContentDensityClass(),
 				content: new Text({
 					text: msg
 				}),
@@ -449,7 +447,7 @@ sap.ui.define([
 					dialog.destroy();
 				}
 			});
-
+			dialog.addStyleClass(this.getOwnerComponent().getContentDensityClass());
 			dialog.open();
 		},
 
