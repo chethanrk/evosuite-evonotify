@@ -1,8 +1,9 @@
 sap.ui.define([
 	"com/evorait/evosuite/evonotify/controller/FormController",
 	"sap/ui/core/Fragment",
-	"sap/ui/util/Storage"
-], function (FormController, Fragment, Storage) {
+	"sap/ui/util/Storage",
+	"com/evorait/evosuite/evonotify/controller/UploadFilesController"
+], function (FormController, Fragment, Storage, UploadFilesController) {
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.controller.NotificationDetail", {
@@ -31,12 +32,18 @@ sap.ui.define([
 			//Binding has changed in TemplateRenderController.js
 			eventBus.subscribe("TemplateRendererEvoNotify", "changedBinding", this._changedBinding, this);
 
+			//init controller for attachment upload
+			this.oUploadController = new UploadFilesController();
+			this.oUploadController.init(this);
+			eventBus.subscribe("TemplateRendererEvoOrder", "uploadFinished", this._finishedUpload, this);
 		},
 
 		/**
 		 * life cycle event before view rendering
 		 */
-		onBeforeRendering: function () {},
+		onBeforeRendering: function () {
+			this.serviceUrl = this.getModel("viewModel").getProperty("/serviceUrl");
+		},
 
 		/**
 		 * Object after rendering
@@ -60,6 +67,23 @@ sap.ui.define([
 		},
 
 		/**
+		 * set right download url
+		 * @param ObjectKey
+		 * @param Fileid
+		 * @returns {string}
+		 */
+		getAttachmentUrl: function (ObjectKey, Fileid) {
+			if (ObjectKey && Fileid) {
+				var sAttachmentPath = this.getModel().createKey("/PMNotificationAttachmentSet", {
+					ObjectKey: ObjectKey,
+					Fileid: Fileid
+				});
+				return this.serviceUrl + sAttachmentPath + "/$value";
+			}
+			return "";
+		},
+
+		/**
 		 * on press back button
 		 * @param oEvent
 		 */
@@ -77,6 +101,28 @@ sap.ui.define([
 				this.oViewModel.setProperty("/editMode", false);
 				this.getView().unbindElement();
 				this.navBack();
+			}
+		},
+
+		/**
+		 * reads selected file to an array
+		 * @param oEvent
+		 */
+		onChangeSelectedFile: function (oEvent) {
+			var files = oEvent.getParameter("files"),
+				sTitleDescription = this.getResourceBundle().getText("tit.sectionDescription");
+			var fileUploadCancelCallBack = function (oSource) {
+				oSource.clear();
+			};
+			var fileUploadCallBack = function (sDescription, oSource) {
+				this.oUploadController.init(this);
+				this.oUploadController.setContext(this.getView().getBindingContext());
+				this.oUploadController.startUploadFiles(files[0], sDescription);
+				oSource.clear();
+			};
+			if (files && files[0]) {
+				this.oUploadController.showDescriptionDialog(sTitleDescription, oEvent.getSource(), fileUploadCallBack.bind(this),
+					fileUploadCancelCallBack.bind(this));
 			}
 		},
 
@@ -127,16 +173,6 @@ sap.ui.define([
 			}
 		},
 
-		/* =========================================================== */
-		/* internal methods                                              */
-		/* =========================================================== */
-
-		_initializeView: function () {
-			this.aSmartForms = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("smartFormTemplate"));
-			this.setFormsEditable(this.aSmartForms, false);
-			this.oViewModel.setProperty("/editMode", false);
-		},
-
 		/**
 		 * Show select status dialog with maybe pre-selected filter
 		 * @param oEvent
@@ -159,9 +195,29 @@ sap.ui.define([
 				} else {
 					this._setESignFragmentBinding();
 				}
-
 			} else {
 				this._updateStatus();
+			}
+		},
+
+		/* =========================================================== */
+		/* internal methods                                              */
+		/* =========================================================== */
+
+		_initializeView: function () {
+			this.aSmartForms = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("smartFormTemplate"));
+			this.setFormsEditable(this.aSmartForms, false);
+			this.oViewModel.setProperty("/editMode", false);
+		},
+
+		/**
+		 * success after file upload was finished
+		 */
+		_finishedUpload: function (sChannel, sEvent, oData) {
+			if (sChannel === "TemplateRendererEvoOrder" && sEvent === "uploadFinished") {
+				this.getView().byId("SmartTable--OrderAttachments").rebindTable();
+				var msg = this.getResourceBundle().getText("msg.uploadSuccess");
+				this.showMessageToast(msg);
 			}
 		},
 

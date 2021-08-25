@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified">
+	<ToolbarSpacer/>
+	<u:FileUploader name="fileUploader" style="Emphasized" iconOnly="true" buttonText="{i18n>btn.upload}" buttonOnly="true" multiple="false"
+		sendXHR="true" tooltip="{i18n>btn.upload}" sameFilenameAllowed="false" icon="sap-icon://upload" uploadOnChange="false"
+		change="onChangeSelectedFile"
+		visible="{parts: ['ENABLE_NOTIFICATION_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE','viewModel>/editMode'], formatter:'.formatter.isVisible'}"
+		class="fileUploaderButton sapUiSmallMarginEnd"/>
+</core:FragmentDefinition>

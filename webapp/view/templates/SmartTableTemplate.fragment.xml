@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" xmlns:table="sap.ui.table"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1" xmlns:smartTable="sap.ui.comp.smarttable">
+	<template:alias name=".AH" value="sap.ui.model.odata.AnnotationHelper">
+		<template:alias name=".evoAH" value="com.evorait.evosuite.evonotify.model.AnnotationHelper">
+			<template:with path="templateProperties>/" var="tableObject">
+				<smartTable:SmartTable fieldGroupIds="smartTableTemplate"
+					id="SmartTable--{:= ${path:'contentTabs>Core.LongDescription/String'} || ${path:'tableDetails>tabName'} }"
+					fitContainer="{:= ${tableDetails>fitContainer}}" customData:p13nDialogSettings="{filter:{visible:false}}"
+					customData:lineItemQualifier="{:= ${tableDetails>lineItemQualifier}}"
+					customData:presentationVariantQualifier="{:= ${tableDetails>presentationVariantQualifier}}"
+					smartFilterId="SmartFilterBar--{:= ${path:'contentTabs>Core.LongDescription/String'} || ${path:'tableDetails>tabName'} }"
+					persistencyKey="com.evorait.evosuite.evonotify.table.{:= ${path:'contentTabs>Core.LongDescription/String'} || ${path:'tableDetails>tabName'} }"
+					entitySet="{:= ${parts:[{path:'tableDetails>entitySet'},{path:'contentTabs>Core.LongDescription/String'},{path:'contentTabs>Org.OData.Core.V1.LongDescription/String'}], formatter:'.evoAH.getEntitySet'}}"
+					tableBindingPath="{:= ${tableDetails>tableBindingPath}}" tableType="{:= ${tableDetails>tableType}}"
+					demandPopin="{:= ${tableDetails>demandPopin}}" showRowCount="{:= ${tableDetails>showRowCount}}"
+					enableAutoBinding="{:= ${tableDetails>enableAutoBinding}}" useExportToExcel="{:= ${tableDetails>useExportToExcel}}"
+					useVariantManagement="{:= ${tableDetails>useVariantManagement}}" useTablePersonalisation="{:= ${tableDetails>useTablePersonalisation}}"
+					requestAtLeastFields="{:= ${tableDetails>requestAtLeastFields}}" class="{:= ${tableDetails>class}}" header="{:= ${tableDetails>header}}"
+					beforeRebindTable="onBeforeRebindTable" afterVariantInitialise="onInitializedSmartVariant" fieldChange="onFieldChange"
+					customData:useSmartToggle="true">
+					<smartTable:customToolbar>
+						<template:if test="{:= ${tableDetails>CustomToolbar}}">
+							<OverflowToolbar class="orderListToolbar">
+								<ToolbarSpacer/>
+								<core:Fragment fragmentName="{:= ${tableDetails>CustomToolbar}}" type="XML"/>
+							</OverflowToolbar>
+						</template:if>
+					</smartTable:customToolbar>
+					<template:if test="{:= ${tableDetails>CustomContent}}">
+						<core:Fragment fragmentName="{:= ${tableDetails>CustomContent}}" type="XML"/>
+					</template:if>
+					<smartTable:customData>
+						<template:if test="{:= ${tableDetails>CustomData}}">
+							<template:repeat list="{path:'tableDetails>CustomData/'}" var="customData">
+								<core:CustomData key="filter-{:= ${customData>key}}" value="{:= ${customData>value}}"/>
+							</template:repeat>
+						</template:if>
+					</smartTable:customData>
+				</smartTable:SmartTable>
+			</template:with>
+		</template:alias>
+	</template:alias>
+</core:FragmentDefinition>
