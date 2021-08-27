@@ -15,10 +15,10 @@
 			"enableAutoBinding": true,
 			"entitySet": "NotifAttachmentSet",
 			"tableBindingPath": "NotificationToNotifAttachment",
-			"requestAtLeastFields": "ObjectKey,FILEID",
+			"requestAtLeastFields": "HeaderObjectKey,ObjectKey,FILEID",
 			"class": "",
 			"CustomToolbar": "com.evorait.evosuite.evonotify.view.fragments.AttachmentTableToolbar",
-			"CustomContent": "com.evorait.evosuite.evonotify.view.fragments.AttachmentTableContent",
+			"CustomContent": "com.evorait.evosuite.evonotify.view.templates.AttachmentTableContent",
 			"CustomData": []
 		}, {
 			"tabName": "OrderAttachments",
@@ -35,10 +35,10 @@
 			"enableAutoBinding": true,
 			"entitySet": "OrderAttachmentSet",
 			"tableBindingPath": "NotificationToOrderAttachment",
-			"requestAtLeastFields": "ObjectKey,FILEID",
+			"requestAtLeastFields": "HeaderObjectKey,ObjectKey,FILEID",
 			"class": "",
 			"CustomToolbar": false,
-			"CustomContent": "com.evorait.evosuite.evonotify.view.fragments.AttachmentTableContent",
+			"CustomContent": "com.evorait.evosuite.evonotify.view.templates.AttachmentTableContent",
 			"CustomData": []
 		}, {
 			"tabName": "EquiAttachments",
@@ -55,10 +55,10 @@
 			"enableAutoBinding": true,
 			"entitySet": "EquiAttachmentSet",
 			"tableBindingPath": "NotificationToEquiAttachment",
-			"requestAtLeastFields": "ObjectKey,FILEID",
+			"requestAtLeastFields": "HeaderObjectKey,ObjectKey,FILEID",
 			"class": "",
 			"CustomToolbar": false,
-			"CustomContent": "com.evorait.evosuite.evonotify.view.fragments.AttachmentTableContent",
+			"CustomContent": "com.evorait.evosuite.evonotify.view.templates.AttachmentTableContent",
 			"CustomData": []
 		}, {
 			"tabName": "FlocAttachments",
@@ -75,10 +75,10 @@
 			"enableAutoBinding": true,
 			"entitySet": "FlocAttachmentSet",
 			"tableBindingPath": "NotificationToFlocAttachment",
-			"requestAtLeastFields": "ObjectKey,FILEID",
+			"requestAtLeastFields": "HeaderObjectKey,ObjectKey,FILEID",
 			"class": "",
 			"CustomToolbar": false,
-			"CustomContent": "com.evorait.evosuite.evonotify.view.fragments.AttachmentTableContent",
+			"CustomContent": "com.evorait.evosuite.evonotify.view.templates.AttachmentTableContent",
 			"CustomData": []
 		}]
 	}

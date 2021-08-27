@@ -71,12 +71,13 @@ sap.ui.define([
 		 * @param Fileid
 		 * @returns {string}
 		 */
-		getAttachmentUrl: function (ObjectKey, Fileid) {
-			if (ObjectKey && Fileid) {
-				var sAttachmentPath = this.getModel().createKey("/PMNotificationAttachmentSet", {
-					ObjectKey: ObjectKey,
-					Fileid: Fileid
+		getAttachmentUrl: function (HeaderObjectKey, ObjectKey, Fileid, sEntitySet) {
+			if (HeaderObjectKey && ObjectKey && sEntitySet) {
+				var sAttachmentPath = this.getModel().createKey(sEntitySet, {
+					HeaderObjectKey: HeaderObjectKey,
+					ObjectKey: ObjectKey
 				});
+				console.log(this.serviceUrl + sAttachmentPath + "/$value");
 				return this.serviceUrl + sAttachmentPath + "/$value";
 			}
 			return "";
