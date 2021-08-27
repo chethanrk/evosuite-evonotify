@@ -78,7 +78,6 @@ sap.ui.define([
 					HeaderObjectKey: HeaderObjectKey,
 					ObjectKey: ObjectKey
 				});
-				console.log(this.serviceUrl + sAttachmentPath + "/$value");
 				return this.serviceUrl + sAttachmentPath + "/$value";
 			}
 			return "";
