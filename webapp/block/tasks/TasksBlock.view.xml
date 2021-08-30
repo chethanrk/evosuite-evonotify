@@ -7,9 +7,9 @@
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
-				<OverflowToolbarButton id="idTaskStatusChangeMenu" icon="sap-icon://order-status" type="Default"
-					text="{i18n>btn.changeSystemStatus}" tooltip="{i18n>btn.changeSystemStatus}" press="onPressChangeTaskSystemStatus"
-					visible="{parts: ['user>/ENABLE_NOTIFICATION_UPDATE','ENABLE_NOTIFICATION_CHANGE','viewModel>/editMode'], formatter: '.formatter.showStatusButton'}"/>
+				<OverflowToolbarButton id="idTaskStatusChangeMenu" icon="sap-icon://order-status" type="Default" text="{i18n>btn.changeSystemStatus}"
+					tooltip="{i18n>btn.changeSystemStatus}" press="onPressChangeTaskSystemStatus"
+					visible="{parts: ['user>/ENABLE_TASK_UPDATE','user>/ENABLE_NOTIFICATION_UPDATE','ENABLE_NOTIFICATION_CHANGE','viewModel>/editMode'], formatter: '.formatter.showStatusButton'}"/>
 				<OverflowToolbarButton icon="sap-icon://add" text="Sort" press="onPressAdd"
 					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},{path: 'user>/ENABLE_TASK_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 				<OverflowToolbarButton id="idTaskEdit" icon="sap-icon://edit" text="Sort" press="onPressEdit"
