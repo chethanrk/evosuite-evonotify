@@ -35,7 +35,7 @@ sap.ui.define([
 			//init controller for attachment upload
 			this.oUploadController = new UploadFilesController();
 			this.oUploadController.init(this);
-			eventBus.subscribe("TemplateRendererEvoOrder", "uploadFinished", this._finishedUpload, this);
+			eventBus.subscribe("TemplateRendererEvoNotify", "uploadFinished", this._finishedUpload, this);
 		},
 
 		/**
@@ -109,20 +109,12 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onChangeSelectedFile: function (oEvent) {
-			var files = oEvent.getParameter("files"),
-				sTitleDescription = this.getResourceBundle().getText("tit.sectionDescription");
-			var fileUploadCancelCallBack = function (oSource) {
-				oSource.clear();
-			};
-			var fileUploadCallBack = function (sDescription, oSource) {
+			var files = oEvent.getParameter("files");
+			if (files && files[0]) {
 				this.oUploadController.init(this);
 				this.oUploadController.setContext(this.getView().getBindingContext());
-				this.oUploadController.startUploadFiles(files[0], sDescription);
-				oSource.clear();
-			};
-			if (files && files[0]) {
-				this.oUploadController.showDescriptionDialog(sTitleDescription, oEvent.getSource(), fileUploadCallBack.bind(this),
-					fileUploadCancelCallBack.bind(this));
+				this.oUploadController.startUploadFiles(files[0]);
+				oEvent.getSource().clear();
 			}
 		},
 
@@ -214,8 +206,8 @@ sap.ui.define([
 		 * success after file upload was finished
 		 */
 		_finishedUpload: function (sChannel, sEvent, oData) {
-			if (sChannel === "TemplateRendererEvoOrder" && sEvent === "uploadFinished") {
-				this.getView().byId("SmartTable--OrderAttachments").rebindTable();
+			if (sChannel === "TemplateRendererEvoNotify" && sEvent === "uploadFinished") {
+				this.getView().byId("SmartTable--NotifAttachments").rebindTable();
 				var msg = this.getResourceBundle().getText("msg.uploadSuccess");
 				this.showMessageToast(msg);
 			}
