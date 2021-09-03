@@ -19,24 +19,27 @@ sap.ui.define([
 		/* =========================================================== */
 
 		/**
+		 * When password field changed check for whitespaces
 		 * @param oEvent
 		 */
 		onChangeSmartField: function (oEvent) {
 			var oSource = oEvent.getSource(),
 				oParams = oEvent.getParameters();
-			
-			if(oSource.getName() === "idPASSWORD"){
+
+			console.log(this.getModel().getProperty(this._sPath));
+
+			if (oSource.getName() === "idPASSWORD") {
 				var sPassword = oParams.newValue.trim();
 				this.getModel().setProperty(this._sPath + "/PASSWORD", sPassword);
-				
-				if(sPassword){
+
+				if (sPassword) {
 					oSource.setValueState(sap.ui.core.ValueState.None);
-				}else{
+				} else {
 					oSource.setValueState(sap.ui.core.ValueState.Error);
 				}
 			}
 		},
-		
+
 		/**
 		 * on save esign button
 		 * Validate smartform
@@ -51,12 +54,12 @@ sap.ui.define([
 					var encodedPassword = btoa(sPassword);
 					this.getModel().setProperty(this._sPath + "/PASSWORD", encodedPassword);
 					this.getModel("viewModel").setProperty("/isNew", true);
-					
-					var successFn = function(){
+
+					var successFn = function () {
 						var eventBus = sap.ui.getCore().getEventBus();
 						eventBus.publish("TemplateRendererEvoNotify", "esignSuccess", {});
 					};
-					
+
 					DialogFormController.prototype.saveChanges.apply(this, [mParams, successFn.bind(this), errorCallback, oDialog]);
 				}
 			}
@@ -80,11 +83,11 @@ sap.ui.define([
 
 				if (oData && (oData.viewNameId === this._sViewNameId)) {
 					this._getDefaultGlobalParameters();
-					
 
 					//prefill planning plant for add and split
 					if (this._type.esign) {
 						this._setContextKeys();
+						this._setDateTimeFields();
 					}
 				}
 			}
@@ -101,6 +104,46 @@ sap.ui.define([
 					}.bind(this));
 				}
 			}
+		},
+
+		/**
+		 * prefill date and time fields of visible fields in field group
+		 * also only fill date and time when this field is allowed for create
+		 */
+		_setDateTimeFields: function () {
+			var oMetaModel = this.getModel().getMetaModel() || this.getModel().getProperty("/metaModel");
+
+			oMetaModel.loaded().then(function () {
+				var oEntitySet = oMetaModel.getODataEntitySet("PMNotificationESignSet"),
+					oEntityType = oMetaModel.getODataEntityType(oEntitySet.entityType);
+
+				var aFacet = oEntityType[this._mParams.annotationPath], //annotation path of form qualifier
+					sGroupTarget = aFacet ? aFacet[0].Facets[0].Target.AnnotationPath : null, //annotation path to linked field group
+					oGroupFields = sGroupTarget ? oEntityType[sGroupTarget.replace("@", "")] : null; //field group data
+
+				var now = new Date(),
+					offset = -(now.getTimezoneOffset() * 60 * 1000), // now in milliseconds
+					userUnixStamp = +now + offset;
+
+				if (oGroupFields && oGroupFields.Data) {
+					//loop trough all fieldgroup properties
+					oGroupFields.Data.forEach(function (oField) {
+						var oProperty = oMetaModel.getODataProperty(oEntityType, oField.Value.Path);
+						if (!oProperty.hasOwnProperty("sap:creatable") || oProperty["sap:creatable"] === "true") {
+							if (oField.EdmType === "Edm.Date") {
+								this.getModel().setProperty(this._sPath + "/" + oField.Value.Path, now);
+							}
+							if (oField.EdmType === "Edm.Time") {
+								var timeObj = {
+									ms: userUnixStamp,
+									__edmType: "Edm.Time"
+								};
+								this.getModel().setProperty(this._sPath + "/" + oField.Value.Path, timeObj);
+							}
+						}
+					}.bind(this));
+				}
+			}.bind(this));
 		}
 	});
 });
