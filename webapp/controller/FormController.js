@@ -259,9 +259,11 @@ sap.ui.define([
 						}
 						this._setBusyWhileSaving(oCtrl, false);
 						this.getView().getModel("viewModel").setProperty("/busy", false);
-
-						if (oResponse.__batchResponses && (oResponse.__batchResponses[0].response)) {
-							var sStatusCode = parseInt(oResponse.__batchResponses[0].response.statusCode, 10);
+						
+						if (oResponse.__batchResponses) {
+							var responses = oResponse.__batchResponses[0].response || oResponse.__batchResponses[0].__changeResponses[0];
+							var sStatusCode = parseInt(responses.statusCode, 10);
+							
 							if (!isNaN(sStatusCode) && sStatusCode < 300) {
 								if(oSuccessCallback){
 									oSuccessCallback(oResponse);

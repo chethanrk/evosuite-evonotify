@@ -53,7 +53,10 @@ sap.ui.define([
 					this.getModel().setProperty(this._sPath + "/PASSWORD", encodedPassword);
 					this.getModel("viewModel").setProperty("/isNew", true);
 
-					var successFn = function () {
+					var successFn = function (oResponse) {
+						if(successCallback){
+							successCallback(oResponse);
+						}
 						var eventBus = sap.ui.getCore().getEventBus();
 						eventBus.publish("TemplateRendererEvoNotify", "esignSuccess", {});
 					};
