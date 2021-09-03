@@ -26,8 +26,6 @@ sap.ui.define([
 			var oSource = oEvent.getSource(),
 				oParams = oEvent.getParameters();
 
-			console.log(this.getModel().getProperty(this._sPath));
-
 			if (oSource.getName() === "idPASSWORD") {
 				var sPassword = oParams.newValue.trim();
 				this.getModel().setProperty(this._sPath + "/PASSWORD", sPassword);
@@ -87,6 +85,7 @@ sap.ui.define([
 					//prefill planning plant for add and split
 					if (this._type.esign) {
 						this._setContextKeys();
+						this._setFullNameToField();
 						this._setDateTimeFields();
 					}
 				}
@@ -102,6 +101,22 @@ sap.ui.define([
 					Object.keys(this._mParams.mKeys).forEach(function (key) {
 						this.getModel().setProperty(this._sPath + "/" + key, this._mParams.mKeys[key]);
 					}.bind(this));
+				}
+			}
+		},
+		
+		/**
+		 * extend user field with full name of user
+		 */
+		_setFullNameToField: function(){
+			var oField = this.getFormFieldByName("idUSERNAME", this._aSmartForms);
+			if (oField) {
+				var oInnerCtrl = oField.getInnerControls(),
+					oUserData = this.getModel("user").getData();
+				try{
+					oInnerCtrl[0].setText(oUserData.Fullname + " (" + oUserData.Username + ")");
+				}catch(error){
+					//do nothing
 				}
 			}
 		},
