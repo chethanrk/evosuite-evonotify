@@ -259,17 +259,19 @@ sap.ui.define([
 						}
 						this._setBusyWhileSaving(oCtrl, false);
 						this.getView().getModel("viewModel").setProperty("/busy", false);
-						if (oResponse.__batchResponses && oResponse.__batchResponses[0].response && oResponse.__batchResponses[0].response.statusCode ===
-							"400") {
-							if (oErrorCallback) {
+
+						if (oResponse.__batchResponses && (oResponse.__batchResponses[0].response)) {
+							var sStatusCode = parseInt(oResponse.__batchResponses[0].response.statusCode, 10);
+							if (!isNaN(sStatusCode) && sStatusCode < 300) {
+								if(oSuccessCallback){
+									oSuccessCallback(oResponse);
+								}
+							} else if (oErrorCallback) {
 								oErrorCallback(oResponse);
 							}
-						} else {
-							if (oSuccessCallback) {
-								oSuccessCallback(oResponse);
-							}
+						} else if (oErrorCallback) {
+							oErrorCallback(oResponse);
 						}
-
 					}.bind(this),
 					error: function (oError) {
 						this._setBusyWhileSaving(oCtrl, false);

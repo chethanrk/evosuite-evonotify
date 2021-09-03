@@ -28,6 +28,7 @@ sap.ui.define([
 			var eventBus = sap.ui.getCore().getEventBus();
 			//Binding has changed in TemplateRenderController.js
 			eventBus.subscribe("TemplateRendererEvoNotify", "changedBinding", this._changedBinding, this);
+			eventBus.subscribe("TemplateRendererEvoNotify", "esignSuccess", this._signedSuccessful, this);
 
 		},
 
@@ -51,6 +52,7 @@ sap.ui.define([
 			this.getView().unbindElement();
 			var eventBus = sap.ui.getCore().getEventBus();
 			eventBus.unsubscribe("TemplateRendererEvoNotify", "changedBinding", this._changedBinding, this);
+			eventBus.unsubscribe("TemplateRendererEvoNotify", "esignSuccess", this._signedSuccessful, this);
 			if (this._actionSheetSystemStatus) {
 				this._actionSheetSystemStatus.destroy(true);
 				this._actionSheetSystemStatus = null;
@@ -95,20 +97,8 @@ sap.ui.define([
 		onPressSave: function (oEvent) {
 			if (this.aSmartForms.length > 0) {
 				var mErrors = this.validateForm(this.aSmartForms);
-				this.saveChanges(mErrors, this.saveSuccessFn.bind(this));
+				this.saveChanges(mErrors, this._saveSuccessFn.bind(this));
 			}
-		},
-
-		/**
-		 * success callback after saving notification
-		 * @param oResponse
-		 */
-		saveSuccessFn: function (oResponse) {
-			var msg = this.getResourceBundle().getText("msg.saveSuccess");
-			this.showSuccessMessage(msg);
-			this.setFormsEditable(this.aSmartForms, false);
-			this.oViewModel.setProperty("/editMode", false);
-			this._setNotificationStatusButtonVisibility(this._oContext.getObject());
 		},
 
 		/**
@@ -124,17 +114,30 @@ sap.ui.define([
 				this.oViewModel.setProperty("/editMode", false);
 			}
 		},
-
-		/* =========================================================== */
-		/* internal methods                                              */
-		/* =========================================================== */
-
-		_initializeView: function () {
-			this.aSmartForms = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("smartFormTemplate"));
-			this.setFormsEditable(this.aSmartForms, false);
-			this.oViewModel.setProperty("/editMode", false);
+		
+		/**
+		 * show ActionSheet of system status buttons
+		 * @param oEvent
+		 */
+		onPressChangeSystemStatus: function (oEvent) {
+			var oButton = oEvent.getSource();
+			// create action sheet only once
+			if (!this._actionSheetSystemStatus) {
+				Fragment.load({
+					name: "com.evorait.evosuite.evonotify.view.fragments.ActionSheetSystemStatus",
+					controller: this,
+					type: "XML"
+				}).then(function (oFragment) {
+					this._actionSheetSystemStatus = oFragment;
+					this.getView().addDependent(oFragment);
+					this._actionSheetSystemStatus.addStyleClass(this.getModel("viewModel").getProperty("/densityClass"));
+					this._actionSheetSystemStatus.openBy(oButton);
+				}.bind(this));
+			} else {
+				this._actionSheetSystemStatus.openBy(oButton);
+			}
 		},
-
+		
 		/**
 		 * Show select status dialog with maybe pre-selected filter
 		 * @param oEvent
@@ -145,58 +148,22 @@ sap.ui.define([
 
 			this.sFunctionKey = oItem ? oItem.data("key") : oSource.data("key");
 			if (this._showESign()) {
-				if (!this._eSignDialog) {
-					Fragment.load({
-						name: "com.evorait.evosuite.evonotify.view.fragments.ESignFormDialog",
-						controller: this,
-						type: "XML"
-					}).then(function (oFragment) {
-						this._eSignDialog = oFragment;
-						this._setESignFragmentBinding();
-					}.bind(this));
-				} else {
-					this._setESignFragmentBinding();
-				}
-
+				this._showESignDialog();
 			} else {
 				this._updateStatus();
 			}
 		},
 
-		/**
-		 * load new template and set inside dialog
-		 * Bind dialog view to generated path
-		 */
-		_setESignFragmentBinding: function () {
-			this.oEsignContext = this.getModel().createEntry("/PMNotificationESignSet");
-			this._eSignDialog.setBindingContext(this.oEsignContext);
-			this._eSignDialog.addStyleClass(this.getOwnerComponent().getContentDensityClass());
-			this._initializeESignModel();
-			this.getView().addDependent(this._eSignDialog);
-			this._eSignDialog.open();
+		/* =========================================================== */
+		/* internal methods                                              */
+		/* =========================================================== */
+
+		_initializeView: function () {
+			this.aSmartForms = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("smartFormTemplate"));
+			this.setFormsEditable(this.aSmartForms, false);
+			this.oViewModel.setProperty("/editMode", false);
 		},
-
-		/**
-		 * function to update the satus
-		 */
-		_updateStatus: function () {
-			var oData = this._oContext.getObject(),
-				sPath = this._oContext.getPath(),
-				message = "";
-			this._oContext = this.getView().getBindingContext();
-
-			if (oData["ALLOW_" + this.sFunctionKey]) {
-				this.getModel("viewModel").setProperty("/isStatusUpdate", true);
-				this.getModel().setProperty(sPath + "/FUNCTION", this.sFunctionKey);
-				this.saveChanges({
-					state: "success"
-				}, this.saveSuccessFn.bind(this), null, this.getView());
-			} else {
-				message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NOTIFICATION_NO);
-				this.showInformationDialog(message);
-			}
-		},
-
+		
 		/**
 		 * TemplateRenderer changedBinding Event
 		 * set new this._oContext
@@ -225,6 +192,88 @@ sap.ui.define([
 				}
 			}
 		},
+		
+		/**
+		 * Notification was successful signed
+		 * So update system status of notification
+		 * @param sChannel
+		 * @param sEvent
+		 * @param oData
+		 */
+		_signedSuccessful: function(sChannel, sEvent, oData){
+			if (sChannel === "TemplateRendererEvoNotify" && sEvent === "esignSuccess") {
+				this._updateStatus();
+			}
+		},
+		
+		/**
+		 * show E-Sign Dialog with SmartForm inside
+		 * SmartFields are rendered by annotation qualifier NotifEsignForm
+		 */
+		_showESignDialog: function(){
+			var oData = this._oContext.getObject();
+			var mParams = {
+				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#NotifEsignForm",
+				annotationPath: "com.sap.vocabularies.UI.v1.Facets#NotifEsignForm",
+				entitySet: "PMNotificationESignSet",
+				controllerName: "ESignNotification",
+				title: "tit.eSignDialogTitle",
+				type: "esign",
+				mKeys: {
+					NOTIFICATION_NO: oData.NOTIFICATION_NO,
+					NOTIFICATION_TYPE: oData.NOTIFICATION_TYPE,
+					NOTIFICATION_ITEM: oData.NOTIFICATION_ITEM,
+					USERNAME: this.getModel("user").getProperty("/Username")
+				}
+			};
+			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
+		},
+		
+		/*
+		 * Function to decide whether esign should be shown on status update
+		 */
+		_showESign: function () {
+			var isEsignEnabled = this.getModel("user").getProperty("/ENABLE_ESIGN");
+			var oData = this._oContext.getObject();
+			if (isEsignEnabled === "X" && oData.ALLOW_ESIGN && this.sFunctionKey === "COMPLETE") {
+				return true;
+			}
+			return false;
+		},
+		
+		/**
+		 * success callback after saving notification
+		 * @param oResponse
+		 */
+		_saveSuccessFn: function (oResponse) {
+			var msg = this.getResourceBundle().getText("msg.saveSuccess");
+			this.showSuccessMessage(msg);
+			this.setFormsEditable(this.aSmartForms, false);
+			this.oViewModel.setProperty("/editMode", false);
+			this._setNotificationStatusButtonVisibility(this._oContext.getObject());
+		},
+
+
+		/**
+		 * function to update the satus
+		 */
+		_updateStatus: function () {
+			var oData = this._oContext.getObject(),
+				sPath = this._oContext.getPath(),
+				message = "";
+			this._oContext = this.getView().getBindingContext();
+
+			if (oData["ALLOW_" + this.sFunctionKey]) {
+				this.getModel("viewModel").setProperty("/isStatusUpdate", true);
+				this.getModel().setProperty(sPath + "/FUNCTION", this.sFunctionKey);
+				this.saveChanges({
+					state: "success"
+				}, this._saveSuccessFn.bind(this), null, this.getView());
+			} else {
+				message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NOTIFICATION_NO);
+				this.showInformationDialog(message);
+			}
+		},
 
 		/**
 		 * set visibility on status change dropdown items based on allowance from order status
@@ -245,7 +294,6 @@ sap.ui.define([
 		 * set visibility on status change dropdown items based on allowance from order status
 		 */
 		_setNotificationStatusButtonVisibility: function (oData) {
-
 			var mNotificationAllows = {};
 			for (var key in oData) {
 				if (key.startsWith("ALLOW_")) {
@@ -253,104 +301,6 @@ sap.ui.define([
 				}
 			}
 			this.oViewModel.setProperty("/NotificationAllows", mNotificationAllows);
-		},
-
-		/**
-		 * show ActionSheet of system status buttons
-		 * @param oEvent
-		 */
-		onPressChangeSystemStatus: function (oEvent) {
-			var oButton = oEvent.getSource();
-			// create action sheet only once
-			if (!this._actionSheetSystemStatus) {
-				Fragment.load({
-					name: "com.evorait.evosuite.evonotify.view.fragments.ActionSheetSystemStatus",
-					controller: this,
-					type: "XML"
-				}).then(function (oFragment) {
-					this._actionSheetSystemStatus = oFragment;
-					this.getView().addDependent(oFragment);
-					this._actionSheetSystemStatus.addStyleClass(this.getModel("viewModel").getProperty("/densityClass"));
-					this._actionSheetSystemStatus.openBy(oButton);
-				}.bind(this));
-			} else {
-				this._actionSheetSystemStatus.openBy(oButton);
-			}
-		},
-
-		/*
-		 * initialize esign model with the default parameters
-		 */
-		_initializeESignModel: function () {
-			this.aESignSmartForm = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("eSignSmartForm"));
-			var sPathESign = this.oEsignContext.getPath(),
-				oData = this._oContext.getObject();
-			this.getModel().setProperty(sPathESign + "/NOTIFICATION_NO", oData.NOTIFICATION_NO);
-			this.getModel().setProperty(sPathESign + "/NOTIFICATION_TYPE", oData.NOTIFICATION_TYPE);
-			this.getModel().setProperty(sPathESign + "/NOTIFICATION_ITEM", oData.NOTIFICATION_ITEM);
-			this.getModel().setProperty(sPathESign + "/USERNAME", this.getModel("user").getProperty("/Username"));
-		},
-
-		/*
-		 * Function to decide whether esign should be shown on status update
-		 */
-		_showESign: function () {
-			var isEsignEnabled = this.getModel("user").getProperty("/ENABLE_ESIGN");
-			var oData = this._oContext.getObject();
-			if (isEsignEnabled === "X" && oData.ALLOW_ESIGN && this.sFunctionKey === "COMPLETE") {
-				return true;
-			}
-			return false;
-		},
-
-		/**
-		 * Closes the ESign dialog
-		 */
-		onCloseESignDialog: function () {
-			if (this.getView().getModel().hasPendingChanges()) {
-				this.getView().getModel().resetChanges();
-			}
-			this._eSignDialog.close();
-		},
-
-		/**
-		 * on save esign button
-		 * @param oEvent
-		 */
-		onPressESignSave: function (oEvent) {
-			if (this.aESignSmartForm.length > 0) {
-				var mErrors = this.validateForm(this.aESignSmartForm);
-				if (mErrors.state === "success") {
-					var sPathESign = this.oEsignContext.getPath();
-					var sPassword = this.getModel().getProperty(sPathESign + "/PASSWORD").trim();
-					if (sPassword !== "") {
-						var encodedPassword = btoa(sPassword);
-						this.getModel().setProperty(sPathESign + "/PASSWORD", encodedPassword);
-						this.saveChanges({
-							state: "success"
-						}, this._onESignSuccessFn.bind(this), null, this._eSignDialog);
-					}
-				}
-			}
-		},
-
-		/**
-		 * success callback after esign validation
-		 * @param oResponse
-		 */
-		_onESignSuccessFn: function (oResponse) {
-			this.onCloseESignDialog();
-			this._updateStatus();
-		},
-
-		handleESignInput: function (oEvent) {
-			var sUserInput = oEvent.getParameter("value");
-			var oInputControl = oEvent.getSource();
-			if (sUserInput) {
-				oInputControl.setValueState(sap.ui.core.ValueState.None);
-			} else {
-				oInputControl.setValueState(sap.ui.core.ValueState.Error);
-			}
 		}
 	});
 });
