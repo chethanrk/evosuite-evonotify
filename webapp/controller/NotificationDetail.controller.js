@@ -271,6 +271,7 @@ sap.ui.define([
 				}
 
 				var oMetaModel = this.getModel().getMetaModel() || this.getModel().getProperty("/metaModel");
+				
 				oMetaModel.loaded().then(function () {
 					this.saveChanges({
 						state: "success"
@@ -299,18 +300,11 @@ sap.ui.define([
 					oRefTime = oMetaModel.getODataProperty(oEntityType, "REFERENCE_TIME");
 
 				if (oRefDate && oRefTime) {
-					var now = new Date(),
-						offset = -(now.getTimezoneOffset() * 60 * 1000), // now in milliseconds
-						userUnixStamp = +now + offset;
-
-					if (!oRefDate.hasOwnProperty("sap:updatable") || oRefDate["sap:updatable"] === "true") {
-						this.getModel().setProperty(sPath + "/REFERENCE_DATE", mEsignParams.ReferenceDate || now);
+					if ((!oRefDate.hasOwnProperty("sap:updatable") || oRefDate["sap:updatable"] === "true") && mEsignParams.ReferenceDate) {
+						this.getModel().setProperty(sPath + "/REFERENCE_DATE", mEsignParams.ReferenceDate);
 					}
-					if (!oRefTime.hasOwnProperty("sap:updatable") || oRefTime["sap:updatable"] === "true") {
-						this.getModel().setProperty(sPath + "/REFERENCE_TIME", mEsignParams.ReferenceTime || {
-							ms: userUnixStamp,
-							__edmType: "Edm.Time"
-						});
+					if ((!oRefTime.hasOwnProperty("sap:updatable") || oRefTime["sap:updatable"] === "true") && mEsignParams.ReferenceTime) {
+						this.getModel().setProperty(sPath + "/REFERENCE_TIME", mEsignParams.ReferenceTime);
 					}
 				}
 			}.bind(this));

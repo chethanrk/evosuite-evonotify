@@ -52,7 +52,10 @@ sap.ui.define([
 					var encodedPassword = btoa(sPassword);
 					this.getModel().setProperty(this._sPath + "/PASSWORD", encodedPassword);
 					this.getModel("viewModel").setProperty("/isNew", true);
-
+					
+					this._mParams.ReferenceDate = this.getModel().getProperty(this._sPath + "/REFERENCE_DATE");
+					this._mParams.ReferenceTime = this.getModel().getProperty(this._sPath + "/REFERENCE_TIME");
+					
 					var successFn = function (oResponse) {
 						if(successCallback){
 							successCallback(oResponse);
@@ -60,7 +63,7 @@ sap.ui.define([
 						var eventBus = sap.ui.getCore().getEventBus();
 						eventBus.publish("TemplateRendererEvoNotify", "esignSuccess", this._mParams);
 					};
-
+					
 					DialogFormController.prototype.saveChanges.apply(this, [mParams, successFn.bind(this), errorCallback, oDialog]);
 				}
 			}
@@ -150,15 +153,13 @@ sap.ui.define([
 						var oProperty = oMetaModel.getODataProperty(oEntityType, oField.Value.Path);
 						if (!oProperty.hasOwnProperty("sap:creatable") || oProperty["sap:creatable"] === "true") {
 							if (oField.EdmType === "Edm.Date") {
-								this._mParams.ReferenceDate = now;
 								this.getModel().setProperty(this._sPath + "/" + oField.Value.Path, now);
 							}
 							if (oField.EdmType === "Edm.Time") {
-								this._mParams.ReferenceTime = {
+								this.getModel().setProperty(this._sPath + "/" + oField.Value.Path, {
 									ms: userUnixStamp,
 									__edmType: "Edm.Time"
-								};
-								this.getModel().setProperty(this._sPath + "/" + oField.Value.Path, this._mParams.ReferenceTime);
+								});
 							}
 						}
 					}.bind(this));
