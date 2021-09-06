@@ -114,7 +114,7 @@ sap.ui.define([
 				this.oViewModel.setProperty("/editMode", false);
 			}
 		},
-		
+
 		/**
 		 * show ActionSheet of system status buttons
 		 * @param oEvent
@@ -137,7 +137,7 @@ sap.ui.define([
 				this._actionSheetSystemStatus.openBy(oButton);
 			}
 		},
-		
+
 		/**
 		 * Show select status dialog with maybe pre-selected filter
 		 * @param oEvent
@@ -163,7 +163,7 @@ sap.ui.define([
 			this.setFormsEditable(this.aSmartForms, false);
 			this.oViewModel.setProperty("/editMode", false);
 		},
-		
+
 		/**
 		 * TemplateRenderer changedBinding Event
 		 * set new this._oContext
@@ -192,7 +192,7 @@ sap.ui.define([
 				}
 			}
 		},
-		
+
 		/**
 		 * Notification was successful signed
 		 * So update system status of notification
@@ -200,17 +200,17 @@ sap.ui.define([
 		 * @param sEvent
 		 * @param oData
 		 */
-		_signedSuccessful: function(sChannel, sEvent, oData){
+		_signedSuccessful: function (sChannel, sEvent, oData) {
 			if (sChannel === "TemplateRendererEvoNotify" && sEvent === "esignSuccess") {
-				this._updateStatus();
+				this._updateStatus(oData);
 			}
 		},
-		
+
 		/**
 		 * show E-Sign Dialog with SmartForm inside
 		 * SmartFields are rendered by annotation qualifier NotifEsignForm
 		 */
-		_showESignDialog: function(){
+		_showESignDialog: function () {
 			var oData = this._oContext.getObject();
 			var mParams = {
 				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#NotifEsignForm",
@@ -228,7 +228,7 @@ sap.ui.define([
 			};
 			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
 		},
-		
+
 		/*
 		 * Function to decide whether esign should be shown on status update
 		 */
@@ -240,7 +240,7 @@ sap.ui.define([
 			}
 			return false;
 		},
-		
+
 		/**
 		 * success callback after saving notification
 		 * @param oResponse
@@ -253,11 +253,10 @@ sap.ui.define([
 			this._setNotificationStatusButtonVisibility(this._oContext.getObject());
 		},
 
-
 		/**
 		 * function to update the satus
 		 */
-		_updateStatus: function () {
+		_updateStatus: function (mEsignParams) {
 			var oData = this._oContext.getObject(),
 				sPath = this._oContext.getPath(),
 				message = "";
@@ -266,13 +265,55 @@ sap.ui.define([
 			if (oData["ALLOW_" + this.sFunctionKey]) {
 				this.getModel("viewModel").setProperty("/isStatusUpdate", true);
 				this.getModel().setProperty(sPath + "/FUNCTION", this.sFunctionKey);
-				this.saveChanges({
-					state: "success"
-				}, this._saveSuccessFn.bind(this), null, this.getView());
+
+				if (this.sFunctionKey === "COMPLETE" && mEsignParams) {
+					this._setRefrenceDate(sPath, mEsignParams);
+				}
+
+				var oMetaModel = this.getModel().getMetaModel() || this.getModel().getProperty("/metaModel");
+				oMetaModel.loaded().then(function () {
+					this.saveChanges({
+						state: "success"
+					}, this._saveSuccessFn.bind(this), null, this.getView());
+				}.bind(this));
+				
 			} else {
 				message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NOTIFICATION_NO);
 				this.showInformationDialog(message);
 			}
+		},
+
+		/**
+		 * When E-Signing is activated for notification then maybe reference date and time was send
+		 * same date fields needs send for status complete change in notification header data
+		 * @param sPath
+		 * @param mEsignParams
+		 */
+		_setRefrenceDate: function (sPath, mEsignParams) {
+			var oMetaModel = this.getModel().getMetaModel() || this.getModel().getProperty("/metaModel");
+
+			oMetaModel.loaded().then(function () {
+				var oEntitySet = oMetaModel.getODataEntitySet("PMNotificationSet"),
+					oEntityType = oMetaModel.getODataEntityType(oEntitySet.entityType),
+					oRefDate = oMetaModel.getODataProperty(oEntityType, "REFERENCE_DATE"),
+					oRefTime = oMetaModel.getODataProperty(oEntityType, "REFERENCE_TIME");
+
+				if (oRefDate && oRefTime) {
+					var now = new Date(),
+						offset = -(now.getTimezoneOffset() * 60 * 1000), // now in milliseconds
+						userUnixStamp = +now + offset;
+
+					if (!oRefDate.hasOwnProperty("sap:updatable") || oRefDate["sap:updatable"] === "true") {
+						this.getModel().setProperty(sPath + "/REFERENCE_DATE", mEsignParams.ReferenceDate || now);
+					}
+					if (!oRefTime.hasOwnProperty("sap:updatable") || oRefTime["sap:updatable"] === "true") {
+						this.getModel().setProperty(sPath + "/REFERENCE_TIME", mEsignParams.ReferenceTime || {
+							ms: userUnixStamp,
+							__edmType: "Edm.Time"
+						});
+					}
+				}
+			}.bind(this));
 		},
 
 		/**

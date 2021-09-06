@@ -58,7 +58,7 @@ sap.ui.define([
 							successCallback(oResponse);
 						}
 						var eventBus = sap.ui.getCore().getEventBus();
-						eventBus.publish("TemplateRendererEvoNotify", "esignSuccess", {});
+						eventBus.publish("TemplateRendererEvoNotify", "esignSuccess", this._mParams);
 					};
 
 					DialogFormController.prototype.saveChanges.apply(this, [mParams, successFn.bind(this), errorCallback, oDialog]);
@@ -105,6 +105,7 @@ sap.ui.define([
 						this.getModel().setProperty(this._sPath + "/" + key, this._mParams.mKeys[key]);
 					}.bind(this));
 				}
+				this.getModel().setProperty(this._sPath + "/NOTES", this._oParentObject.NOTIFICATION_NO);
 			}
 		},
 		
@@ -149,14 +150,15 @@ sap.ui.define([
 						var oProperty = oMetaModel.getODataProperty(oEntityType, oField.Value.Path);
 						if (!oProperty.hasOwnProperty("sap:creatable") || oProperty["sap:creatable"] === "true") {
 							if (oField.EdmType === "Edm.Date") {
+								this._mParams.ReferenceDate = now;
 								this.getModel().setProperty(this._sPath + "/" + oField.Value.Path, now);
 							}
 							if (oField.EdmType === "Edm.Time") {
-								var timeObj = {
+								this._mParams.ReferenceTime = {
 									ms: userUnixStamp,
 									__edmType: "Edm.Time"
 								};
-								this.getModel().setProperty(this._sPath + "/" + oField.Value.Path, timeObj);
+								this.getModel().setProperty(this._sPath + "/" + oField.Value.Path, this._mParams.ReferenceTime);
 							}
 						}
 					}.bind(this));
