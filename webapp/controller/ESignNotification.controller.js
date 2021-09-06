@@ -89,6 +89,7 @@ sap.ui.define([
 					if (this._type.esign) {
 						this._setContextKeys();
 						this._setFullNameToField();
+						this._checkForDefaultProperties(this._oContext, this._mParams.entitySet);
 						this._setDateTimeFields();
 					}
 				}
@@ -105,7 +106,6 @@ sap.ui.define([
 						this.getModel().setProperty(this._sPath + "/" + key, this._mParams.mKeys[key]);
 					}.bind(this));
 				}
-				this.getModel().setProperty(this._sPath + "/NOTES", this._oParentObject.NOTIFICATION_NO);
 			}
 		},
 		
