@@ -25,7 +25,9 @@
 	</edmx:Reference>
 	<edmx:DataServices>
 		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="evonotify.annotations.annotations.com.evorait.evonotify">
-			
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evonotify.PMNotificationESign/PASSWORD">
+				<Annotation Term="com.sap.vocabularies.Common.v1.Masked" />
+			</Annotations>
 		</Schema>
 	</edmx:DataServices>
 </edmx:Edmx>
