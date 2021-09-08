@@ -99,7 +99,9 @@ sap.ui.define([
 				};
 
 			if (!uploadInfos.id || !uploadInfos.path || !uploadInfos.token) {
-				this.showSaveErrorPrompt(this.getResourceBundle().getText("msg.savingError"));
+				var sErrorMsg = this.getResourceBundle().getText("msg.savingError");
+				this.showSaveErrorPrompt(sErrorMsg);
+				this.addMsgToMessageManager(this.mMessageType.Error, sErrorMsg, "/Detail");
 				this.getView().getModel("viewModel").setProperty("/busy", false);
 				return;
 			}
@@ -114,10 +116,36 @@ sap.ui.define([
 			//error handler
 			var erroFn = function (e, xhr, sName) {
 				this.getView().getModel("viewModel").setProperty("/busy", false);
-				this.showSaveErrorPrompt(this.getResourceBundle().getText("msg.uploadError", [xhr.status, xhr.statusText]));
+				var sErrorText = this._extractMessages(xhr),
+					sErrorFormatedMsg = this.getResourceBundle().getText("msg.uploadError", [xhr.status, sErrorText]);
+
+				this.showSaveErrorPrompt(sErrorFormatedMsg);
+				this.addMsgToMessageManager(this.mMessageType.Error, sErrorFormatedMsg, "/Detail");
 			}.bind(this);
 
 			this.uploadFileToServer(uploadItem, uploadInfos, successFn, erroFn);
+		},
+
+		/**
+		 * Extract error messages from xml error response
+		 * @param xhr
+		 */
+		_extractMessages: function (xhr) {
+			var sErrorMsgg = "";
+			var sResponseText = xhr.responseText;
+			try {
+				var node = (new DOMParser()).parseFromString(sResponseText, "text/xml").documentElement;
+				var nodes = node.querySelectorAll("*");
+
+				for (var i = 0; i < nodes.length; i++) {
+					if (nodes[i].tagName === "message") {
+						sErrorMsgg = sErrorMsgg + nodes[i].textContent + "\n\n";
+					}
+				}
+			} catch (err) {
+				sErrorMsgg = "";
+			}
+			return sErrorMsgg;
 		}
 	});
 });

@@ -210,6 +210,7 @@ sap.ui.define([
 				this.getView().byId("SmartTable--NotifAttachments").rebindTable();
 				var msg = this.getResourceBundle().getText("msg.uploadSuccess");
 				this.showMessageToast(msg);
+				this.addMsgToMessageManager(this.mMessageType.Success, msg, "/Detail");
 			}
 		},
 

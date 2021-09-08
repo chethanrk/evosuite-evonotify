@@ -11,14 +11,18 @@ sap.ui.define([
 	"sap/ui/model/FilterOperator",
 	"com/evorait/evosuite/evonotify/model/Constants",
 	"com/evorait/evosuite/evonotify/model/formatter",
-	"sap/ui/core/Fragment"
+	"sap/ui/core/Fragment",
+	"sap/ui/core/message/Message",
+	"sap/ui/core/library"
 ], function (Controller, JSONModel, History, Dialog, Button, Text, MessageToast, MessageBox, Filter, FilterOperator, Constants, formatter,
-	Fragment) {
+	Fragment, Message, library) {
 	"use strict";
 
 	return Controller.extend("com.evorait.evosuite.evonotify.controller.BaseController", {
 
 		formatter: formatter,
+
+		mMessageType: library.MessageType,
 		/**
 		 * Convenience method for accessing the router.
 		 * @public
@@ -164,7 +168,7 @@ sap.ui.define([
 				type: "Message",
 				state: "Error",
 				content: new Text({
-					text: sMsg
+					text: sMsg + "\n\n" + error
 				}),
 				beginButton: new Button({
 					text: sBtn,
@@ -228,6 +232,23 @@ sap.ui.define([
 				animationDuration: 1000, // default
 				closeOnBrowserNavigation: true // default
 			});
+		},
+
+		/**
+		 * Create Success, Warning, Info, Error message and add to MessageManager
+		 * @param sType
+		 * @param sMessage
+		 * @param sTarget
+		 */
+		addMsgToMessageManager: function (sType, sMessage, sTarget) {
+			var oMessage = new Message({
+				message: sMessage,
+				type: sType,
+				target: sTarget,
+				processor: this.getModel("messageManager"),
+				technical: true
+			});
+			sap.ui.getCore().getMessageManager().addMessages(oMessage);
 		},
 
 		/**
