@@ -51,6 +51,7 @@ sap.ui.define([
 				if (sPassword !== "") {
 					this._mParams.ReferenceDate = this.getModel().getProperty(this._sPath + "/REFERENCE_DATE");
 					this._mParams.ReferenceTime = this.getModel().getProperty(this._sPath + "/REFERENCE_TIME");
+					this.getView().getModel("viewModel").setProperty("/isNew", true);
 					
 					var successFn = function (oResponse) {
 						if(successCallback){
@@ -59,8 +60,8 @@ sap.ui.define([
 						var eventBus = sap.ui.getCore().getEventBus();
 						eventBus.publish("TemplateRendererEvoNotify", "esignSuccess", this._mParams);
 					};
-					
 					var errorFn = function(oError){
+						this._oDialog.close();
 						if(errorCallback){
 							errorCallback();
 						}
