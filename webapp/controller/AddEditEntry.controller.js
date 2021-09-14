@@ -57,27 +57,37 @@ sap.ui.define([
 				oFieldDamageCode = oSource;
 				oFieldDamageCodeGroup = this.getFormFieldByName("idDAMAGE_CODE_GROUP", this._aSmartForms);
 			}
+
 			if (oFieldDamageCodeGroup && oFieldDamageCode) {
-				if (oFieldDamageCode.getValue() !== "" && oFieldDamageCodeGroup.getValue() === "") {
-					this._custiomMandatorySmartFieldHandle(oFieldDamageCodeGroup, true);
-				} else if (oFieldDamageCodeGroup.getValue() !== "" && oFieldDamageCode.getValue() === "") {
-					this._custiomMandatorySmartFieldHandle(oFieldDamageCode, true);
-				} else {
-					this._custiomMandatorySmartFieldHandle(oFieldDamageCodeGroup, false);
-					this._custiomMandatorySmartFieldHandle(oFieldDamageCode, false);
-				}
+				this._fieldValueValidation(oFieldDamageCodeGroup, oFieldDamageCode);
+			}
+		},
+
+		/**
+		 * Checks field value for Damage Code and Damage Code Group
+		 * @param oDamageCodeGroup
+		 * @param oDamageCode
+		 */
+		_fieldValueValidation: function (oDamageCodeGroup, oDamageCode) {
+			if (oDamageCode.getValue() !== "" && oDamageCodeGroup.getValue() === "") {
+				this._customMandatorySmartFieldHandle(oDamageCodeGroup, true);
+			} else if (oDamageCodeGroup.getValue() !== "" && oDamageCode.getValue() === "") {
+				this._customMandatorySmartFieldHandle(oDamageCode, true);
+			} else {
+				this._customMandatorySmartFieldHandle(oDamageCodeGroup, false);
+				this._customMandatorySmartFieldHandle(oDamageCode, false);
 			}
 		},
 
 		/**
 		 * Handle Manadatory, nullable property and value state
-		 * @param oFeild
+		 * @param oField
 		 * @param bValue
 		 */
-		_custiomMandatorySmartFieldHandle: function (oFeild, bValue) {
-			oFeild.setMandatory(bValue);
-			oFeild.getDataProperty().property.nullable = bValue ? "false" : "true";
-			oFeild.setValueState("None");
+		_customMandatorySmartFieldHandle: function (oField, bValue) {
+			oField.setMandatory(bValue);
+			oField.getDataProperty().property.nullable = bValue ? "false" : "true";
+			oField.setValueState("None");
 		},
 
 		/**
