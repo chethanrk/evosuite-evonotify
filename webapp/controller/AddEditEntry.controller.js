@@ -26,14 +26,69 @@ sap.ui.define([
 			var oSource = oEvent.getSource(),
 				sFieldName = oSource.getName();
 			var oContext = this.getView().getBindingContext();
-			if (oEvent.getSource().getValueState() === "None" && this._type.add) {
-				this._checkForDefaultProperties(oContext, this._selectedEntitySet, sFieldName);
+			if (sFieldName) {
+				if ((sFieldName === "idDAMAGE_CODE_GROUP" || sFieldName === "idDAMAGE_CODE") && this._selectedEntitySet ===
+					"PMNotificationItemSet") {
+					this._validateDamageCodeAndCodeGroup(oSource);
+				}
+				if (oEvent.getSource().getValueState() === "None" && this._type.add) {
+					this._checkForDefaultProperties(oContext, this._selectedEntitySet, sFieldName);
+				}
 			}
 		},
 
 		/* =========================================================== */
 		/* internal methods                                            */
 		/* =========================================================== */
+
+		/**
+		 * When Damage Code or Damage Code Group is filled
+		 * then the other field is mandatory
+		 * @param oSource
+		 */
+		_validateDamageCodeAndCodeGroup: function (oSource) {
+			var oFieldDamageCode = null,
+				oFieldDamageCodeGroup = null;
+
+			if (oSource.getName() === "idDAMAGE_CODE_GROUP") {
+				oFieldDamageCodeGroup = oSource;
+				oFieldDamageCode = this.getFormFieldByName("idDAMAGE_CODE", this._aSmartForms);
+			} else {
+				oFieldDamageCode = oSource;
+				oFieldDamageCodeGroup = this.getFormFieldByName("idDAMAGE_CODE_GROUP", this._aSmartForms);
+			}
+
+			if (oFieldDamageCodeGroup && oFieldDamageCode) {
+				this._fieldValueValidation(oFieldDamageCodeGroup, oFieldDamageCode);
+			}
+		},
+
+		/**
+		 * Checks field value for Damage Code and Damage Code Group
+		 * @param oDamageCodeGroup
+		 * @param oDamageCode
+		 */
+		_fieldValueValidation: function (oDamageCodeGroup, oDamageCode) {
+			if (oDamageCode.getValue() !== "" && oDamageCodeGroup.getValue() === "") {
+				this._customMandatorySmartFieldHandle(oDamageCodeGroup, true);
+			} else if (oDamageCodeGroup.getValue() !== "" && oDamageCode.getValue() === "") {
+				this._customMandatorySmartFieldHandle(oDamageCode, true);
+			} else {
+				this._customMandatorySmartFieldHandle(oDamageCodeGroup, false);
+				this._customMandatorySmartFieldHandle(oDamageCode, false);
+			}
+		},
+
+		/**
+		 * Handle Manadatory, nullable property and value state
+		 * @param oField
+		 * @param bValue
+		 */
+		_customMandatorySmartFieldHandle: function (oField, bValue) {
+			oField.setMandatory(bValue);
+			oField.getDataProperty().property.nullable = bValue ? "false" : "true";
+			oField.setValueState("None");
+		},
 
 		/**
 		 * Binding has changed in TemplateRenderController

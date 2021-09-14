@@ -486,6 +486,12 @@ sap.ui.define([
 					resolve(oData.results[0]);
 					if (oData.results) {
 						this.getModel().setProperty(sPath + "/" + oData.results[0].PropertyName, oData.results[0].ReturnValue);
+						var oField = this.getFormFieldByName("id" + oData.results[0].PropertyName, this._aSmartForms);
+						if (oField) {
+							oField.fireChange({
+								newValue: oData.results[0].ReturnValue
+							});
+						}
 					}
 				}.bind(this));
 			}.bind(this));
