@@ -260,15 +260,19 @@ sap.ui.define([
 						}
 						this._setBusyWhileSaving(oCtrl, false);
 						this.getView().getModel("viewModel").setProperty("/busy", false);
-						if (oResponse.__batchResponses && oResponse.__batchResponses[0].response && oResponse.__batchResponses[0].response.statusCode ===
-							"400") {
-							if (oErrorCallback) {
+						if (oResponse.__batchResponses) {
+							var responses = oResponse.__batchResponses[0].response || oResponse.__batchResponses[0].__changeResponses[0];
+							var sStatusCode = parseInt(responses.statusCode, 10);
+
+							if (!isNaN(sStatusCode) && sStatusCode < 300) {
+								if (oSuccessCallback) {
+									oSuccessCallback(oResponse);
+								}
+							} else if (oErrorCallback) {
 								oErrorCallback(oResponse);
 							}
-						} else {
-							if (oSuccessCallback) {
-								oSuccessCallback(oResponse);
-							}
+						} else if (oErrorCallback) {
+							oErrorCallback(oResponse);
 						}
 
 					}.bind(this),
