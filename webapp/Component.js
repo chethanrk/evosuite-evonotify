@@ -26,6 +26,7 @@ sap.ui.define([
 		oSystemInfoProm: null,
 		oTemplatePropsProm: null,
 		oDefaultInfoProm: null,
+		oNavigationLinksPropsProm: null,
 
 		/**
 		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
@@ -68,8 +69,6 @@ sap.ui.define([
 
 			this.setModel(models.createHelperModel(viewModelObj), "viewModel");
 
-			this.setModel(models.createHelperModel({}), "templateProperties");
-
 			this.setModel(models.createUserModel(this), "user");
 
 			this.setModel(models.createNotificationFunctionModel(this), "notificationFunctionModel");
@@ -88,24 +87,17 @@ sap.ui.define([
 
 			this._getFunctionSet();
 
-			this.oTemplatePropsProm.then(this._setApp2AppLinks.bind(this));
+			this.oTemplatePropsProm.then(this._setApp2AppLinks());
 
 			this.setModel(oMessageManager.getMessageModel(), "message");
 
 			this.MessageManager = new MessageManager();
 			this.setModel(models.createMessageManagerModel(), "messageManager");
 
-			//wait for the models to load and then initialize the router
-			this.getModel().attachRequestCompleted("modelsLoaded", function (oEvent) {
-				if (oEvent.getParameter("url").includes("NavigationLinksSet")) {
-					this._initRouter();
-				}
-			}, this);
-			this.getModel().attachRequestFailed("modelsLoadFailed", function (oEvent) {
-				if (oEvent.getParameter("url").includes("NavigationLinksSet")) {
-					this._initRouter();
-				}
-			}, this);
+			//get start parameter when app2app navigation is in URL
+			//replace hash when startup parameter
+			//Wait for navigation link properties to load 
+			this.oNavigationLinksPropsProm.then(this._initRouter.bind(this));
 
 		},
 
@@ -267,15 +259,17 @@ sap.ui.define([
 			}
 			var oFilter = new Filter("LaunchMode", FilterOperator.EQ, this.getModel("viewModel").getProperty("/launchMode")),
 				mProps = {};
-
-			this.readData("/NavigationLinksSet", [oFilter]).then(function (data) {
-				data.results.forEach(function (oItem) {
-					if (oItem.Value1 && Constants.APPLICATION[oItem.ApplicationId]) {
-						oItem.Property = oItem.Value2 || Constants.PROPERTY[oItem.ApplicationId];
-						mProps[oItem.Property] = oItem;
-					}
+			this.oNavigationLinksPropsProm = new Promise(function (resolve) {
+				this.readData("/NavigationLinksSet", [oFilter]).then(function (data) {
+					data.results.forEach(function (oItem) {
+						if (oItem.Value1 && Constants.APPLICATION[oItem.ApplicationId]) {
+							oItem.Property = oItem.Value2 || Constants.PROPERTY[oItem.ApplicationId];
+							mProps[oItem.Property] = oItem;
+						}
+					}.bind(this));
+					this.getModel("templateProperties").setProperty("/navLinks/", mProps);
+					resolve(mProps);
 				}.bind(this));
-				this.getModel("templateProperties").setProperty("/navLinks/", mProps);
 			}.bind(this));
 		},
 
