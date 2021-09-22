@@ -142,10 +142,10 @@ sap.ui.define([
 		 * @param oResponse
 		 */
 		_saveSuccessFn: function (oResponse) {
+			this._oDialog.close();
 			var responseCode = oResponse.__batchResponses[0].__changeResponses;
 			if (responseCode) {
 				if (responseCode[0].statusCode === "200" || responseCode[0].statusCode === "201" || responseCode[0].statusCode === "204") {
-					this._oDialog.close();
 					this.showMessageToast(this._oResourceBundle.getText("msg.saveSuccess"));
 					setTimeout(function () {
 						if (this._oSmartTable) {

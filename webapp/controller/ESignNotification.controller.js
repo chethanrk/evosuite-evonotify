@@ -28,7 +28,7 @@ sap.ui.define([
 
 			if (oSource.getName() === "idPASSWORD") {
 				var sPassword = oParams.newValue.trim();
-				this.getModel().setProperty(this._sPath + "/PASSWORD", sPassword);
+				this.getModel().setProperty(this._sPath + "/PASSWORD", sPassword ? btoa(sPassword) : "");
 
 				if (sPassword) {
 					oSource.setValueState(sap.ui.core.ValueState.None);
@@ -49,12 +49,9 @@ sap.ui.define([
 			if (mParams.state === "success") {
 				var sPassword = this.getModel().getProperty(this._sPath + "/PASSWORD").trim();
 				if (sPassword !== "") {
-					var encodedPassword = btoa(sPassword);
-					this.getModel().setProperty(this._sPath + "/PASSWORD", encodedPassword);
-					this.getModel("viewModel").setProperty("/isNew", true);
-					
 					this._mParams.ReferenceDate = this.getModel().getProperty(this._sPath + "/REFERENCE_DATE");
 					this._mParams.ReferenceTime = this.getModel().getProperty(this._sPath + "/REFERENCE_TIME");
+					this.getView().getModel("viewModel").setProperty("/isNew", true);
 					
 					var successFn = function (oResponse) {
 						if(successCallback){
@@ -63,8 +60,13 @@ sap.ui.define([
 						var eventBus = sap.ui.getCore().getEventBus();
 						eventBus.publish("TemplateRendererEvoNotify", "esignSuccess", this._mParams);
 					};
-					
-					DialogFormController.prototype.saveChanges.apply(this, [mParams, successFn.bind(this), errorCallback, oDialog]);
+					var errorFn = function(oError){
+						this._oDialog.close();
+						if(errorCallback){
+							errorCallback();
+						}
+					};
+					DialogFormController.prototype.saveChanges.apply(this, [mParams, successFn.bind(this), errorFn.bind(this), oDialog]);
 				}
 			}
 		},
