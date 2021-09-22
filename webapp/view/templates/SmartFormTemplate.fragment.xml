@@ -9,8 +9,8 @@
 			<core:CustomData key="defaultDropDownDisplayBehaviour" value='descriptionAndId'/>
 		</smartForm:customData>
 		<smartForm:layout>
-			<smartForm:Layout labelSpanXL="3" labelSpanL="5" labelSpanM="5" labelSpanS="12" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
-				columnsXL="4" columnsL="3" columnsM="2"></smartForm:Layout>
+			<smartForm:Layout singleGroupFullSize="false" labelSpanXL="3" labelSpanL="5" labelSpanM="5" labelSpanS="12" emptySpanXL="0" emptySpanL="0"
+				emptySpanM="0" emptySpanS="0" columnsXL="4" columnsL="3" columnsM="2"></smartForm:Layout>
 		</smartForm:layout>
 		<template:repeat list="{path:'facets>'}" var="facets">
 			<template:with path="facets>Target" helper="sap.ui.model.odata.AnnotationHelper.resolvePath" var="target">
