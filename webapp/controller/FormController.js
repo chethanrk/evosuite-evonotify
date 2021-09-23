@@ -347,112 +347,115 @@ sap.ui.define([
 			this.showMessageToast(sMessage);
 		},
 
-		/**
-		 * check for defalt values when depenbt on enterd value 
-		 * when there are values check if its a property name
-		 * and is this property is creatable true
-		 * if true then find for default value if exist
-		 */
-		_checkForDefaultProperties: function (oContext, sEntitySet, sChangedProperty) {
-			if (oContext) {
-				var oData = oContext.getObject(),
-					sPath = oContext.getPath(),
-					oModel = this.getModel();
-				if (oData) {
-					delete oData.__metadata;
-				}
-				//check if GET parameter is allowed prefill field
-				//only when property is creatable true then prefill property
-				oModel.getMetaModel().loaded().then(function () {
-					var oMetaModel = oModel.getMetaModel() || oModel.getProperty("/metaModel"),
-						oEntitySet = oMetaModel.getODataEntitySet(sEntitySet),
-						oEntityType = oMetaModel.getODataEntityType(oEntitySet.entityType);
-
-					for (var key in oData) {
-						var oProperty = oMetaModel.getODataProperty(oEntityType, key);
-						if (oProperty !== null) {
-							this.checkDefaultValues(oEntitySet.name.split("Set")[0], key, sPath, sChangedProperty);
-						}
-					}
-				}.bind(this));
-			}
-		},
-
 		/*
-		 * method to validate the chnaged property
+		 * Get Properties from the default information model
+		 * Validates for the change or initial binding
+		 * @parm sEntitySet
+		 * @param sPath
+		 * @parm sChangedProperty
 		 */
-		checkDefaultValues: function (oEntitySet, sProperty, sPath, sChangedProperty) {
+		checkDefaultValues: function (sEntitySet, sPath, sChangedProperty) {
 			var aDefaultValues = this.getModel("DefaultInformationModel").getProperty("/defaultProperties");
-			var bvalidate = false;
-			if (sChangedProperty) {
-				bvalidate = this._validateLiveChangeProperty(aDefaultValues, sChangedProperty, oEntitySet);
-			}
-			for (var i in aDefaultValues) {
-				if (sChangedProperty && aDefaultValues[i].EntityName === oEntitySet) {
-					if (bvalidate && aDefaultValues[i].PropertyName !== sChangedProperty.split("id")[1]) {
-						this._getfilterDataAndSetProperty(aDefaultValues[i], oEntitySet, sPath, sProperty);
-					}
-				} else {
-					this._getfilterDataAndSetProperty(aDefaultValues[i], oEntitySet, sPath, sProperty);
-				}
 
+			var sEntity = sEntitySet.split("Set")[0];
+
+			if (!aDefaultValues) {
+				aDefaultValues = [];
 			}
+
+			//check changed property and get dependent properties to add default values
+			if (sChangedProperty) {
+				aDefaultValues = this._checkForDefaultProperties(aDefaultValues, sEntity, sChangedProperty);
+			}
+
+			aDefaultValues.forEach(function (oItem) {
+				if (sEntity === oItem.EntityName) {
+					this._findDefaultPropertyValues(oItem, sPath, sChangedProperty);
+				}
+			}.bind(this));
 		},
 
-		/*
-		 * validate the property which is came from livechange
+		/**
+		 * to check other defalt properties when dependent on value is changed and which are dependent on changed value
+		 * Create a new array of properties which can be depends on changed property
+		 * @param aDefaultValues - array of default value properties
+		 * @param sEntitySet - Which entity we are going to change
+		 * @param sChangedProperty - Which property is changed.
+		 * @rerurn [aDeafultChangedValues] -Array of default properties to be change
 		 */
-		_validateLiveChangeProperty: function (aDefaultValues, sChangedProperty, oEntitySet) {
-			var bValidate = false;
+		_checkForDefaultProperties: function (aDefaultValues, sEntitySet, sChangedProperty) {
+			var aDeafultChangedValues = [];
 			aDefaultValues.forEach(function (aDefValue) {
+				var bValidate = false;
 				var sSeparator = aDefValue.Separator,
 					aPropertityIn = aDefValue.PropertyIn.split(sSeparator);
-				if (aPropertityIn && aPropertityIn !== "" && aDefValue.EntityName === oEntitySet) {
+				if (aPropertityIn && aPropertityIn !== "" && aDefValue.EntityName === sEntitySet) {
 					aPropertityIn.forEach(function (aProperty) {
 						var sPropertySel = aProperty.split("~")[1];
 						if (sPropertySel !== "" && sPropertySel === sChangedProperty.split("id")[1]) {
 							bValidate = true;
-							return bValidate;
 						}
 					}.bind(this));
 				}
 				if (bValidate) {
-					return bValidate;
+					aDeafultChangedValues.push(aDefValue);
 				}
 			}.bind(this));
-			return bValidate;
+
+			return aDeafultChangedValues;
+		},
+
+		/**
+		 * identify the valid property To set default value. Check condition based on changed property
+		 * @param {oDefaultItem}
+		 * @param sPath
+		 * @param sChangedProperty
+		 */
+		_findDefaultPropertyValues: function (oDefaultItem, sPath, sChangedProperty) {
+			if (sChangedProperty && sChangedProperty !== "") {
+				if (sChangedProperty && oDefaultItem.PropertyName !== sChangedProperty.split("id")[1]) {
+					this._getfilterDataAndSetProperty(oDefaultItem, sPath);
+				}
+			} else {
+				this._getfilterDataAndSetProperty(oDefaultItem, sPath);
+			}
 		},
 
 		/*
 		 * method to validate the properties with default properties
 		 * if default properties exist, it will call backend for default value of the specific properties
+		 * @param aDefaultValues
+		 * @param sPath
 		 */
-		_getfilterDataAndSetProperty: function (aDefaultValues, oEntitySet, sPath, sProperty) {
-			if (aDefaultValues.EntityName === oEntitySet && aDefaultValues.PropertyName === sProperty) {
-				//get ValueIn for properties
-				var sPropInValues = this._getValueForParameterProperties(aDefaultValues, sPath);
-				if (sPropInValues) {
-					var oFilter = new Filter({
-						filters: [
-							new Filter("EntityName", FilterOperator.EQ, aDefaultValues.EntityName),
-							new Filter("PropertyName", FilterOperator.EQ, aDefaultValues.PropertyName),
-							new Filter("ValueIn", FilterOperator.EQ, sPropInValues)
-						],
-						and: true
-					});
-					this._getPropertyValue(oFilter, sPath);
-				} else if (aDefaultValues.ReturnValue && aDefaultValues.ReturnValue !== "") {
-					this.getModel().setProperty(sPath + "/" + aDefaultValues.PropertyName, aDefaultValues.ReturnValue);
-				}
+		_getfilterDataAndSetProperty: function (aDefaultValues, sPath) {
+			//get ValueIn for properties
+			var sPropInValues = this._getValueForParameterProperties(aDefaultValues, sPath);
+			if (sPropInValues) {
+				var oFilter = new Filter({
+					filters: [
+						new Filter("EntityName", FilterOperator.EQ, aDefaultValues.EntityName),
+						new Filter("PropertyName", FilterOperator.EQ, aDefaultValues.PropertyName),
+						new Filter("ValueIn", FilterOperator.EQ, sPropInValues)
+					],
+					and: true
+				});
+				this._getPropertyDefaultValue(oFilter, sPath);
+			} else if (aDefaultValues.ReturnValue && aDefaultValues.ReturnValue !== "") {
+				// If direct default values
+				this._setDefaultValuesToField(aDefaultValues, sPath);
 			}
+
 		},
 
 		/*
-		 *handle data if it's own context or parent context
+		 *Fetch dependent property values from resepective context or parent context
+		 * @param {oaDefaultValue}
+		 * @param sPath
+		 * @returnParam sProp
 		 */
-		_getValueForParameterProperties: function (aDefaultValues, sPath) {
-			var sSeparator = aDefaultValues.Separator,
-				aPropertityIn = aDefaultValues.PropertyIn.split(sSeparator),
+		_getValueForParameterProperties: function (oaDefaultValue, sPath) {
+			var sSeparator = oaDefaultValue.Separator,
+				aPropertityIn = oaDefaultValue.PropertyIn.split(sSeparator),
 				sProp;
 			aPropertityIn.forEach(function (aProperty) {
 				var sPropertyEntity = aProperty.split("~")[0],
@@ -483,22 +486,93 @@ sap.ui.define([
 
 		/*
 		 * get call for each property to get default value respect to the property
+		 * @param {oFilter}
+		 * @param sPath
 		 */
-		_getPropertyValue: function (oFilter, sPath) {
+		_getPropertyDefaultValue: function (oFilter, sPath) {
 			new Promise(function (resolve) {
 				this.getOwnerComponent().readData("/PropertyValueDeterminationSet", [oFilter]).then(function (oData) {
 					resolve(oData.results[0]);
 					if (oData.results) {
-						this.getModel().setProperty(sPath + "/" + oData.results[0].PropertyName, oData.results[0].ReturnValue);
-						var oField = this.getFormFieldByName("id" + oData.results[0].PropertyName, this._aSmartForms);
-						if (oField) {
-							oField.fireChange({
-								newValue: oData.results[0].ReturnValue
-							});
-						}
+						this._setDefaultValuesToField(oData.results[0], sPath);
 					}
 				}.bind(this));
 			}.bind(this));
+		},
+
+		/**
+		 * Set default values to propertie based on field type
+		 * @param {oResult}
+		 * @param sPath
+		 */
+		_setDefaultValuesToField: function (oResult, sPath) {
+			var oSmartForm = this.aSmartForms.length ? this.aSmartForms : this._aSmartForms;
+			var oField = this.getFormFieldByName("id" + oResult.PropertyName, oSmartForm);
+			if (oField) {
+				this._fieldBasedConvertion(oField, oResult, sPath);
+			} else {
+				//for valuelist parameter properties
+				this.getModel().setProperty(sPath + "/" + oResult.PropertyName, oResult.ReturnValue);
+			}
+		},
+
+		/**
+		 * Method to differentiate based on feild type and format data
+		 * Specially for date and time field 
+		 * Convert string to date object and milliseconds
+		 * @param oField
+		 * @param oDefaultData
+		 * @param sPath
+		 */
+		_fieldBasedConvertion: function (oField, oDefaultData, sPath) {
+			if (oField.getDataProperty().property.type === "Edm.DateTime") {
+				if (!isNaN(oDefaultData.ReturnValue) && oDefaultData.ReturnValue.length === 8) {
+					this.getModel().setProperty(sPath + "/" + oDefaultData.PropertyName, this._convertionStringToDateObject(oDefaultData.ReturnValue));
+				}
+			} else
+			if (oField.getDataProperty().property.type === "Edm.Time") {
+				if (!isNaN(oDefaultData.ReturnValue) && oDefaultData.ReturnValue.length === 6) {
+					this.getModel().setProperty(sPath + "/" + oDefaultData.PropertyName, {
+						ms: this._convertionStringToMilliseconds(oDefaultData.ReturnValue),
+						__edmType: "Edm.Time"
+					});
+				}
+			} else {
+				this.getModel().setProperty(sPath + "/" + oDefaultData.PropertyName, oDefaultData.ReturnValue);
+				oField.fireChange({
+					newValue: oDefaultData.ReturnValue
+				});
+			}
+		},
+
+		/**
+		 * Convert string values to year, month and day 
+		 * Convert value into the date object
+		 * @param sTime
+		 */
+		_convertionStringToDateObject: function (sDate) {
+			var iYear = parseInt(sDate.slice(0, 4), 10),
+				iMnt = parseInt(sDate.slice(4, 6), 10) - 1,
+				iDay = parseInt(sDate.slice(6, 8), 10);
+
+			var now = new Date(iYear, iMnt, iDay),
+				offset = -(now.getTimezoneOffset() * 60 * 1000), // now in milliseconds
+				userUnixStamp = +now + offset;
+
+			return new Date(userUnixStamp);
+		},
+
+		/**
+		 * Convert string values to hrs, min and sec 
+		 * Convert value into the Milliseconds
+		 * @param sTime
+		 */
+		_convertionStringToMilliseconds: function (sTime) {
+			var iHrs = parseInt(sTime.slice(0, 2), 10),
+				iMnt = parseInt(sTime.slice(2, 4), 10),
+				iSec = parseInt(sTime.slice(4, 6), 10);
+
+			return (((iHrs * 60 * 60) + (iMnt * 60) + iSec)) * 1000;
 		}
 	});
 });
