@@ -9,6 +9,8 @@ sap.ui.define([
 
 		aSmartForms: [],
 		oViewModel: null,
+		oMetaModelDefalting: null,
+		oEntityTypeDefalting: null,
 
 		onInit: function () {
 			this.oViewModel = this.getModel("viewModel");
@@ -348,17 +350,32 @@ sap.ui.define([
 		},
 
 		/*
+		 * Get valid entity type name 
+		 * @parm sEntitySet
+		 * @param sPath
+		 * @parm sChangedProperty
+		 */
+		checkDefaultValues: function (sEntitySet, sPath, sChangedProperty) {
+			var oModel = this.getModel();
+			oModel.getMetaModel().loaded().then(function () {
+				this.oMetaModelDefalting = oModel.getMetaModel() || oModel.getProperty("/metaModel");
+				var oEntitySet = this.oMetaModelDefalting.getODataEntitySet(sEntitySet);
+				this.oEntityTypeDefalting = this.oMetaModelDefalting.getODataEntityType(oEntitySet.entityType);
+
+				this.checkDefaultPropertiesWithValues(this.oEntityTypeDefalting.name, sPath, sChangedProperty);
+
+			}.bind(this));
+		},
+
+		/*
 		 * Get Properties from the default information model
 		 * Validates for the change or initial binding
 		 * @parm sEntitySet
 		 * @param sPath
 		 * @parm sChangedProperty
 		 */
-		checkDefaultValues: function (sEntitySet, sPath, sChangedProperty) {
+		checkDefaultPropertiesWithValues: function (sEntity, sPath, sChangedProperty) {
 			var aDefaultValues = this.getModel("DefaultInformationModel").getProperty("/defaultProperties");
-
-			var sEntity = sEntitySet.split("Set")[0];
-
 			if (!aDefaultValues) {
 				aDefaultValues = [];
 			}
@@ -424,38 +441,38 @@ sap.ui.define([
 		/*
 		 * method to validate the properties with default properties
 		 * if default properties exist, it will call backend for default value of the specific properties
-		 * @param aDefaultValues
+		 * @param {oDefaultValues}
 		 * @param sPath
 		 */
-		_getfilterDataAndSetProperty: function (aDefaultValues, sPath) {
+		_getfilterDataAndSetProperty: function (oDefaultValue, sPath) {
 			//get ValueIn for properties
-			var sPropInValues = this._getValueForParameterProperties(aDefaultValues, sPath);
+			var sPropInValues = this._getValueForParameterProperties(oDefaultValue, sPath);
 			if (sPropInValues) {
 				var oFilter = new Filter({
 					filters: [
-						new Filter("EntityName", FilterOperator.EQ, aDefaultValues.EntityName),
-						new Filter("PropertyName", FilterOperator.EQ, aDefaultValues.PropertyName),
+						new Filter("EntityName", FilterOperator.EQ, oDefaultValue.EntityName),
+						new Filter("PropertyName", FilterOperator.EQ, oDefaultValue.PropertyName),
 						new Filter("ValueIn", FilterOperator.EQ, sPropInValues)
 					],
 					and: true
 				});
 				this._getPropertyDefaultValue(oFilter, sPath);
-			} else if (aDefaultValues.ReturnValue && aDefaultValues.ReturnValue !== "") {
+			} else if (oDefaultValue.ReturnValue && oDefaultValue.ReturnValue !== "") {
 				// If direct default values
-				this._setDefaultValuesToField(aDefaultValues, sPath);
+				this._setDefaultValuesToField(oDefaultValue, sPath);
 			}
 
 		},
 
 		/*
 		 *Fetch dependent property values from resepective context or parent context
-		 * @param {oaDefaultValue}
+		 * @param {oDefaultValue}
 		 * @param sPath
 		 * @returnParam sProp
 		 */
-		_getValueForParameterProperties: function (oaDefaultValue, sPath) {
-			var sSeparator = oaDefaultValue.Separator,
-				aPropertityIn = oaDefaultValue.PropertyIn.split(sSeparator),
+		_getValueForParameterProperties: function (oDefaultValue, sPath) {
+			var sSeparator = oDefaultValue.Separator,
+				aPropertityIn = oDefaultValue.PropertyIn.split(sSeparator),
 				sProp;
 			aPropertityIn.forEach(function (aProperty) {
 				var sPropertyEntity = aProperty.split("~")[0],
@@ -506,13 +523,9 @@ sap.ui.define([
 		 * @param sPath
 		 */
 		_setDefaultValuesToField: function (oResult, sPath) {
-			var oSmartForm = this.aSmartForms.length ? this.aSmartForms : this._aSmartForms;
-			var oField = this.getFormFieldByName("id" + oResult.PropertyName, oSmartForm);
+			var oField = this.oMetaModelDefalting.getODataProperty(this.oEntityTypeDefalting, oResult.PropertyName);
 			if (oField) {
 				this._fieldBasedConvertion(oField, oResult, sPath);
-			} else {
-				//for valuelist parameter properties
-				this.getModel().setProperty(sPath + "/" + oResult.PropertyName, oResult.ReturnValue);
 			}
 		},
 
@@ -520,17 +533,17 @@ sap.ui.define([
 		 * Method to differentiate based on feild type and format data
 		 * Specially for date and time field 
 		 * Convert string to date object and milliseconds
-		 * @param oField
-		 * @param oDefaultData
+		 * @param {oField}
+		 * @param {oDefaultData}
 		 * @param sPath
 		 */
 		_fieldBasedConvertion: function (oField, oDefaultData, sPath) {
-			if (oField.getDataProperty().property.type === "Edm.DateTime") {
+			if (oField.type === "Edm.DateTime") {
 				if (!isNaN(oDefaultData.ReturnValue) && oDefaultData.ReturnValue.length === 8) {
 					this.getModel().setProperty(sPath + "/" + oDefaultData.PropertyName, this._convertionStringToDateObject(oDefaultData.ReturnValue));
 				}
 			} else
-			if (oField.getDataProperty().property.type === "Edm.Time") {
+			if (oField.type === "Edm.Time") {
 				if (!isNaN(oDefaultData.ReturnValue) && oDefaultData.ReturnValue.length === 6) {
 					this.getModel().setProperty(sPath + "/" + oDefaultData.PropertyName, {
 						ms: this._convertionStringToMilliseconds(oDefaultData.ReturnValue),
@@ -539,9 +552,13 @@ sap.ui.define([
 				}
 			} else {
 				this.getModel().setProperty(sPath + "/" + oDefaultData.PropertyName, oDefaultData.ReturnValue);
-				oField.fireChange({
-					newValue: oDefaultData.ReturnValue
-				});
+				//For custom validations in onchange event 
+				var oFieldChange = this.getFormFieldByName("id" + oDefaultData.PropertyName, this._aSmartForms);
+				if (oFieldChange) {
+					oFieldChange.fireChange({
+						newValue: oDefaultData.ReturnValue
+					});
+				}
 			}
 		},
 
