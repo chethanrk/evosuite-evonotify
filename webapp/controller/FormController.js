@@ -469,7 +469,12 @@ sap.ui.define([
 					],
 					and: true
 				});
-				this._getPropertyDefaultValue(oFilter, sPath, oMetaModel, oEntityType);
+				this.getOwnerComponent().readData("/PropertyValueDeterminationSet", [oFilter]).then(function (oData) {
+					if (oData.results) {
+						this._setDefaultValuesToField(oData.results[0], sPath, oMetaModel, oEntityType);
+					}
+				}.bind(this));
+
 			} else if (oDefaultValue.ReturnValue && oDefaultValue.ReturnValue !== "") {
 				// If direct default values
 				this._setDefaultValuesToField(oDefaultValue, sPath, oMetaModel, oEntityType);
@@ -532,67 +537,37 @@ sap.ui.define([
 			return sPropVal;
 		},
 
-		/*
-		 * get call for each property to get default value respect to the property
-		 * @param {oFilter}
-		 * @param sPath
-		 * @param {oMetaModel}
-		 * @param {oEntityType}
-		 */
-		_getPropertyDefaultValue: function (oFilter, sPath, oMetaModel, oEntityType) {
-			new Promise(function (resolve) {
-				this.getOwnerComponent().readData("/PropertyValueDeterminationSet", [oFilter]).then(function (oData) {
-					resolve(oData.results[0]);
-					if (oData.results) {
-						this._setDefaultValuesToField(oData.results[0], sPath, oMetaModel, oEntityType);
-					}
-				}.bind(this));
-			}.bind(this));
-		},
-
 		/**
 		 * Set default values to propertie based on field type
-		 * @param {oResult}
+		 * @param {oDefaultData}
 		 * @param sPath
 		 * @param {oMetaModel}
 		 * @param {oEntityType}
 		 */
-		_setDefaultValuesToField: function (oResult, sPath, oMetaModel, oEntityType) {
-			var oField = oMetaModel.getODataProperty(oEntityType, oResult.PropertyName);
+		_setDefaultValuesToField: function (oDefaultData, sPath, oMetaModel, oEntityType) {
+			var oField = oMetaModel.getODataProperty(oEntityType, oDefaultData.PropertyName);
 			if (oField) {
-				this._fieldBasedConvertion(oField, oResult, sPath);
-			}
-		},
-
-		/**
-		 * Method to differentiate based on feild type and format data
-		 * Specially for date and time field 
-		 * Convert string to date object and milliseconds
-		 * @param {oField}
-		 * @param {oDefaultData}
-		 * @param sPath
-		 */
-		_fieldBasedConvertion: function (oField, oDefaultData, sPath) {
-			if (oField.type === "Edm.DateTime") {
-				if (!isNaN(oDefaultData.ReturnValue) && oDefaultData.ReturnValue.length === 8) {
-					this.getModel().setProperty(sPath + "/" + oDefaultData.PropertyName, this._convertionStringToDateObject(oDefaultData.ReturnValue));
-				}
-			} else
-			if (oField.type === "Edm.Time") {
-				if (!isNaN(oDefaultData.ReturnValue) && oDefaultData.ReturnValue.length === 6) {
-					this.getModel().setProperty(sPath + "/" + oDefaultData.PropertyName, {
-						ms: this._convertionStringToMilliseconds(oDefaultData.ReturnValue),
-						__edmType: "Edm.Time"
-					});
-				}
-			} else {
-				this.getModel().setProperty(sPath + "/" + oDefaultData.PropertyName, oDefaultData.ReturnValue);
-				//For custom validations in onchange event 
-				var oFieldChange = this.getFormFieldByName("id" + oDefaultData.PropertyName, this._aSmartForms);
-				if (oFieldChange) {
-					oFieldChange.fireChange({
-						newValue: oDefaultData.ReturnValue
-					});
+				if (oField.type === "Edm.DateTime") {
+					if (!isNaN(oDefaultData.ReturnValue) && oDefaultData.ReturnValue.length === 8) {
+						this.getModel().setProperty(sPath + "/" + oDefaultData.PropertyName, this._convertionStringToDateObject(oDefaultData.ReturnValue));
+					}
+				} else
+				if (oField.type === "Edm.Time") {
+					if (!isNaN(oDefaultData.ReturnValue) && oDefaultData.ReturnValue.length === 6) {
+						this.getModel().setProperty(sPath + "/" + oDefaultData.PropertyName, {
+							ms: this._convertionStringToMilliseconds(oDefaultData.ReturnValue),
+							__edmType: "Edm.Time"
+						});
+					}
+				} else {
+					this.getModel().setProperty(sPath + "/" + oDefaultData.PropertyName, oDefaultData.ReturnValue);
+					//For custom validations in onchange event 
+					var oFieldChange = this.getFormFieldByName("id" + oDefaultData.PropertyName, this._aSmartForms);
+					if (oFieldChange) {
+						oFieldChange.fireChange({
+							newValue: oDefaultData.ReturnValue
+						});
+					}
 				}
 			}
 		},
