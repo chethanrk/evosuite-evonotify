@@ -9,8 +9,6 @@ sap.ui.define([
 
 		aSmartForms: [],
 		oViewModel: null,
-		oMetaModelDefalting: null,
-		oEntityTypeDefalting: null,
 
 		onInit: function () {
 			this.oViewModel = this.getModel("viewModel");
@@ -358,11 +356,16 @@ sap.ui.define([
 		checkDefaultValues: function (sEntitySet, sPath, sChangedProperty) {
 			var oModel = this.getModel();
 			oModel.getMetaModel().loaded().then(function () {
-				this.oMetaModelDefalting = oModel.getMetaModel() || oModel.getProperty("/metaModel");
-				var oEntitySet = this.oMetaModelDefalting.getODataEntitySet(sEntitySet);
-				this.oEntityTypeDefalting = this.oMetaModelDefalting.getODataEntityType(oEntitySet.entityType);
+				var oMetaModel = oModel.getMetaModel() || oModel.getProperty("/metaModel"),
+					oEntitySet = oMetaModel.getODataEntitySet(sEntitySet),
+					oEntityType = oMetaModel.getODataEntityType(oEntitySet.entityType);
 
-				this.checkDefaultPropertiesWithValues(this.oEntityTypeDefalting.name, sPath, sChangedProperty);
+				if (sChangedProperty) {
+					//sChangedProperty is came from field name it's concated with id
+					sChangedProperty = sChangedProperty.split("id")[1];
+				}
+
+				this.checkDefaultPropertiesWithValues(oEntityType, sPath, sChangedProperty, oMetaModel);
 
 			}.bind(this));
 		},
@@ -370,11 +373,12 @@ sap.ui.define([
 		/*
 		 * Get Properties from the default information model
 		 * Validates for the change or initial binding
-		 * @parm sEntitySet
+		 * @param {oEntityType}
 		 * @param sPath
-		 * @parm sChangedProperty
+		 * @param sChangedProperty
+		 * @param {oMetaModel}
 		 */
-		checkDefaultPropertiesWithValues: function (sEntity, sPath, sChangedProperty) {
+		checkDefaultPropertiesWithValues: function (oEntityType, sPath, sChangedProperty, oMetaModel) {
 			var aDefaultValues = this.getModel("DefaultInformationModel").getProperty("/defaultProperties");
 			if (!aDefaultValues) {
 				aDefaultValues = [];
@@ -382,59 +386,63 @@ sap.ui.define([
 
 			//check changed property and get dependent properties to add default values
 			if (sChangedProperty) {
-				aDefaultValues = this._checkForDefaultProperties(aDefaultValues, sEntity, sChangedProperty);
+				aDefaultValues = this._checkForDefaultProperties(aDefaultValues, oEntityType.name, sChangedProperty);
 			}
 
 			aDefaultValues.forEach(function (oItem) {
-				if (sEntity === oItem.EntityName) {
-					this._findDefaultPropertyValues(oItem, sPath, sChangedProperty);
+				// It process only selected entityset properties
+				if (oEntityType.name === oItem.EntityName) {
+					this._findDefaultPropertyValues(oItem, sPath, sChangedProperty, oMetaModel, oEntityType);
 				}
 			}.bind(this));
 		},
 
 		/**
-		 * to check other defalt properties when dependent on value is changed and which are dependent on changed value
+		 * to check other default properties when dependent on value is changed and which are dependent on changed value
 		 * Create a new array of properties which can be depends on changed property
 		 * @param aDefaultValues - array of default value properties
-		 * @param sEntitySet - Which entity we are going to change
+		 * @param sEntityType - Which entity we are going to change
 		 * @param sChangedProperty - Which property is changed.
-		 * @rerurn [aDeafultChangedValues] -Array of default properties to be change
+		 * @rerurn [aDefaultChangedValues] -Array of default properties to be change
 		 */
-		_checkForDefaultProperties: function (aDefaultValues, sEntitySet, sChangedProperty) {
-			var aDeafultChangedValues = [];
+		_checkForDefaultProperties: function (aDefaultValues, sEntityType, sChangedProperty) {
+			var aDefaultChangedValues = [];
 			aDefaultValues.forEach(function (aDefValue) {
 				var bValidate = false;
 				var sSeparator = aDefValue.Separator,
 					aPropertityIn = aDefValue.PropertyIn.split(sSeparator);
-				if (aPropertityIn && aPropertityIn !== "" && aDefValue.EntityName === sEntitySet) {
+				if (aPropertityIn && aPropertityIn !== "" && aDefValue.EntityName === sEntityType) {
 					aPropertityIn.forEach(function (aProperty) {
 						var sPropertySel = aProperty.split("~")[1];
-						if (sPropertySel !== "" && sPropertySel === sChangedProperty.split("id")[1]) {
+						if (sPropertySel !== "" && sPropertySel === sChangedProperty) {
 							bValidate = true;
+							// if bValidate true means some other properties are depends on changed property value
 						}
 					}.bind(this));
 				}
 				if (bValidate) {
-					aDeafultChangedValues.push(aDefValue);
+					aDefaultChangedValues.push(aDefValue);
 				}
 			}.bind(this));
 
-			return aDeafultChangedValues;
+			return aDefaultChangedValues;
 		},
 
 		/**
-		 * identify the valid property To set default value. Check condition based on changed property
+		 * identify the valid property to set default value. Check condition based on changed property
 		 * @param {oDefaultItem}
 		 * @param sPath
 		 * @param sChangedProperty
+		 * @param {oMetaModel}
+		 * @param {oEntityType}
 		 */
-		_findDefaultPropertyValues: function (oDefaultItem, sPath, sChangedProperty) {
+		_findDefaultPropertyValues: function (oDefaultItem, sPath, sChangedProperty, oMetaModel, oEntityType) {
 			if (sChangedProperty && sChangedProperty !== "") {
-				if (sChangedProperty && oDefaultItem.PropertyName !== sChangedProperty.split("id")[1]) {
-					this._getfilterDataAndSetProperty(oDefaultItem, sPath);
+				if (sChangedProperty && oDefaultItem.PropertyName !== sChangedProperty) {
+					this._getFilterDataAndSetProperty(oDefaultItem, sPath, oMetaModel, oEntityType);
 				}
 			} else {
-				this._getfilterDataAndSetProperty(oDefaultItem, sPath);
+				this._getFilterDataAndSetProperty(oDefaultItem, sPath, oMetaModel, oEntityType);
 			}
 		},
 
@@ -443,10 +451,15 @@ sap.ui.define([
 		 * if default properties exist, it will call backend for default value of the specific properties
 		 * @param {oDefaultValues}
 		 * @param sPath
+		 * @param {oMetaModel}
+		 * @param {oEntityType}
 		 */
-		_getfilterDataAndSetProperty: function (oDefaultValue, sPath) {
+		_getFilterDataAndSetProperty: function (oDefaultValue, sPath, oMetaModel, oEntityType) {
 			//get ValueIn for properties
-			var sPropInValues = this._getValueForParameterProperties(oDefaultValue, sPath);
+			var sPropInValues;
+			if (oDefaultValue.PropertyIn !== "") {
+				sPropInValues = this._getValueForParameterProperties(oDefaultValue, sPath, oEntityType, oMetaModel);
+			}
 			if (sPropInValues) {
 				var oFilter = new Filter({
 					filters: [
@@ -456,10 +469,10 @@ sap.ui.define([
 					],
 					and: true
 				});
-				this._getPropertyDefaultValue(oFilter, sPath);
+				this._getPropertyDefaultValue(oFilter, sPath, oMetaModel, oEntityType);
 			} else if (oDefaultValue.ReturnValue && oDefaultValue.ReturnValue !== "") {
 				// If direct default values
-				this._setDefaultValuesToField(oDefaultValue, sPath);
+				this._setDefaultValuesToField(oDefaultValue, sPath, oMetaModel, oEntityType);
 			}
 
 		},
@@ -468,26 +481,23 @@ sap.ui.define([
 		 *Fetch dependent property values from resepective context or parent context
 		 * @param {oDefaultValue}
 		 * @param sPath
+		 * @param {oEntityType}
+		 * @param {oMetaModel}
 		 * @returnParam sProp
 		 */
-		_getValueForParameterProperties: function (oDefaultValue, sPath) {
+		_getValueForParameterProperties: function (oDefaultValue, sPath, oEntityType, oMetaModel) {
 			var sSeparator = oDefaultValue.Separator,
 				aPropertityIn = oDefaultValue.PropertyIn.split(sSeparator),
 				sProp;
+
 			aPropertityIn.forEach(function (aProperty) {
 				var sPropertyEntity = aProperty.split("~")[0],
 					sPropertySel = aProperty.split("~")[1],
 					sPropValue;
-				if (sPath.split("Set")[0].toUpperCase().split("/")[1] === sPropertyEntity) {
+				if (oEntityType.name.toUpperCase() === sPropertyEntity) { // same entitySet
 					sPropValue = this.getModel().getProperty(sPath + "/" + sPropertySel);
-				} else if (this.getView().getParent().getParent().getBindingContext()) {
-					//check parent context
-					var pContext = this.getView().getParent().getParent().getBindingContext(),
-						pPath = pContext.getPath();
-					if (pPath.split("Set")[0].toUpperCase().split("/")[1] === sPropertyEntity) {
-						var parentObject = pContext.getObject();
-						sPropValue = parentObject[sPropertySel];
-					}
+				} else if (this.getView().getParent().getParent().getBindingContext()) { //parent entity set
+					sPropValue = this._getParentContextData(sPropertySel, sPropertyEntity, oMetaModel);
 				}
 
 				if (sPropValue && sPropValue !== null) {
@@ -502,16 +512,39 @@ sap.ui.define([
 		},
 
 		/*
+		 * To check parent context and get values for the parent properties
+		 * @param sPropertySel
+		 * @param sPropertyEntity
+		 * @param {oMetaModel}
+		 * @returnParam sPropVal
+		 */
+		_getParentContextData: function (sPropertySel, sPropertyEntity, oMetaModel) {
+			var sPropVal;
+			var oParentContext = this.getView().getParent().getParent().getBindingContext(),
+				sParentPath = oParentContext.getPath();
+			var oParentEntitySet = oMetaModel.getODataEntitySet(sParentPath.split("(")[0].split("/")[1]),
+				oParentEntityType = oMetaModel.getODataEntityType(oParentEntitySet.entityType);
+
+			if (oParentEntityType && oParentEntityType.name.toUpperCase() === sPropertyEntity) {
+				var oParentData = oParentContext.getObject();
+				sPropVal = oParentData[sPropertySel];
+			}
+			return sPropVal;
+		},
+
+		/*
 		 * get call for each property to get default value respect to the property
 		 * @param {oFilter}
 		 * @param sPath
+		 * @param {oMetaModel}
+		 * @param {oEntityType}
 		 */
-		_getPropertyDefaultValue: function (oFilter, sPath) {
+		_getPropertyDefaultValue: function (oFilter, sPath, oMetaModel, oEntityType) {
 			new Promise(function (resolve) {
 				this.getOwnerComponent().readData("/PropertyValueDeterminationSet", [oFilter]).then(function (oData) {
 					resolve(oData.results[0]);
 					if (oData.results) {
-						this._setDefaultValuesToField(oData.results[0], sPath);
+						this._setDefaultValuesToField(oData.results[0], sPath, oMetaModel, oEntityType);
 					}
 				}.bind(this));
 			}.bind(this));
@@ -521,9 +554,11 @@ sap.ui.define([
 		 * Set default values to propertie based on field type
 		 * @param {oResult}
 		 * @param sPath
+		 * @param {oMetaModel}
+		 * @param {oEntityType}
 		 */
-		_setDefaultValuesToField: function (oResult, sPath) {
-			var oField = this.oMetaModelDefalting.getODataProperty(this.oEntityTypeDefalting, oResult.PropertyName);
+		_setDefaultValuesToField: function (oResult, sPath, oMetaModel, oEntityType) {
+			var oField = oMetaModel.getODataProperty(oEntityType, oResult.PropertyName);
 			if (oField) {
 				this._fieldBasedConvertion(oField, oResult, sPath);
 			}
