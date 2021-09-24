@@ -32,7 +32,7 @@ sap.ui.define([
 					this._validateDamageCodeAndCodeGroup(oSource);
 				}
 				if (oEvent.getSource().getValueState() === "None" && this._type.add) {
-					this._checkForDefaultProperties(oContext, this._selectedEntitySet, sFieldName);
+					this.checkDefaultValues(this._selectedEntitySet, oContext.getPath(), sFieldName);
 				}
 			}
 		},
@@ -110,7 +110,10 @@ sap.ui.define([
 					if (this._type.add) {
 						this._setContextKeys();
 						this._getNextSortNumber(this._setNewSortNumber.bind(this));
-						this._checkForDefaultProperties(this._oContext, this._selectedEntitySet);
+						if (this._oContext) {
+							//Apply defaulting values
+							this.checkDefaultValues(this._selectedEntitySet, this._oContext.getPath());
+						}
 					}
 				}
 			}

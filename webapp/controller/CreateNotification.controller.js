@@ -68,7 +68,7 @@ sap.ui.define([
 			var oContext = this.getView().getBindingContext();
 
 			if (oSource.getValueState() === "None" && oContext) {
-				this._checkForDefaultProperties(oContext, "PMNotificationSet", sFieldName);
+				this.checkDefaultValues("PMNotificationSet", oContext.getPath(), sFieldName);
 			}
 		},
 
@@ -148,7 +148,10 @@ sap.ui.define([
 					var oMetaModel = oModel.getMetaModel() || oModel.getProperty("/metaModel"),
 						oEntitySet = oMetaModel.getODataEntitySet("PMNotificationSet"),
 						oEntityType = oMetaModel.getODataEntityType(oEntitySet.entityType);
-
+						
+					//Apply defaulting values
+					this.checkDefaultValues(oEntitySet.name, sPath);
+					
 					for (var key in oData) {
 						var urlValue = this.getOwnerComponent().getLinkParameterByName(key);
 						var oProperty = oMetaModel.getODataProperty(oEntityType, key);
@@ -160,7 +163,6 @@ sap.ui.define([
 									oModel.setProperty(sPath + "/" + key, urlValue);
 								}
 							}
-							this.checkDefaultValues(oEntitySet.name.split("Set")[0], key, sPath);
 						}
 					}
 				}.bind(this));

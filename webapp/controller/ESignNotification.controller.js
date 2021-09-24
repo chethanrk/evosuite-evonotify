@@ -52,17 +52,17 @@ sap.ui.define([
 					this._mParams.ReferenceDate = this.getModel().getProperty(this._sPath + "/REFERENCE_DATE");
 					this._mParams.ReferenceTime = this.getModel().getProperty(this._sPath + "/REFERENCE_TIME");
 					this.getView().getModel("viewModel").setProperty("/isNew", true);
-					
+
 					var successFn = function (oResponse) {
-						if(successCallback){
+						if (successCallback) {
 							successCallback(oResponse);
 						}
 						var eventBus = sap.ui.getCore().getEventBus();
 						eventBus.publish("TemplateRendererEvoNotify", "esignSuccess", this._mParams);
 					};
-					var errorFn = function(oError){
+					var errorFn = function (oError) {
 						this._oDialog.close();
-						if(errorCallback){
+						if (errorCallback) {
 							errorCallback();
 						}
 					};
@@ -94,7 +94,10 @@ sap.ui.define([
 					if (this._type.esign) {
 						this._setContextKeys();
 						this._setFullNameToField();
-						this._checkForDefaultProperties(this._oContext, this._mParams.entitySet);
+						if (this._oContext) {
+							//Apply defaulting values
+							this.checkDefaultValues(this._mParams.entitySet, this._oContext.getPath());
+						}
 						this._setDateTimeFields();
 					}
 				}
@@ -113,18 +116,18 @@ sap.ui.define([
 				}
 			}
 		},
-		
+
 		/**
 		 * extend user field with full name of user
 		 */
-		_setFullNameToField: function(){
+		_setFullNameToField: function () {
 			var oField = this.getFormFieldByName("idUSERNAME", this._aSmartForms);
 			if (oField) {
 				var oInnerCtrl = oField.getInnerControls(),
 					oUserData = this.getModel("user").getData();
-				try{
+				try {
 					oInnerCtrl[0].setText(oUserData.Fullname + " (" + oUserData.Username + ")");
-				}catch(error){
+				} catch (error) {
 					//do nothing
 				}
 			}
