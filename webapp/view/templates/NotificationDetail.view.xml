@@ -95,7 +95,7 @@
 																</template:elseif>
 																<template:elseif
 																	test="{:= ${detailTabs>Core.LongDescription/String} === 'PartnerTab' || ${detailTabs>Org.OData.Core.V1.LongDescription/String} === 'PartnerTab'}">
-																	<blocks:partnerdata.PartnerDataBlock id="block--{:= ${path:'detailTabs>Core.LongDescription/String'} }"/>
+																	<blocks:partner.PartnerBlock id="block--{:= ${path:'detailTabs>Core.LongDescription/String'} }"/>
 																</template:elseif>
 															</template:if>
 														</uxap:blocks>

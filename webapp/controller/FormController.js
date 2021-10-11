@@ -1,11 +1,11 @@
 sap.ui.define([
-	"com/evorait/evosuite/evonotify/controller/BaseController",
+	"com/evorait/evosuite/evonotify/controller/TableController",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator"
-], function (BaseController, Filter, FilterOperator) {
+], function (TableController, Filter, FilterOperator) {
 	"use strict";
 
-	return BaseController.extend("com.evorait.evosuite.evonotify.controller.FormController", {
+	return TableController.extend("com.evorait.evosuite.evonotify.controller.FormController", {
 
 		aSmartForms: [],
 		oViewModel: null,
