@@ -7,31 +7,6 @@ sap.ui.define([
 	return BaseController.extend("com.evorait.evosuite.evonotify.controller.TableController", {
 
 		/**
-		 * set default SortOder from annotations for responsive tables
-		 * For responsive table this annotation is not supported yet
-		 */
-		setDefaultTableSorter: function (oEvent) {
-			var oSource = oEvent.getSource(),
-				mParams = oEvent.getParameters();
-
-			if (oSource.getTableType() === sap.ui.comp.smarttable.TableType.ResponsiveTable) {
-				var aSortItems = AnnotationHelper.getDefaultTableSorter(oSource, this.getModel());
-				if (aSortItems.length > 0) {
-					var aTableSorters = mParams.bindingParams.sorter;
-					aSortItems.forEach(function (oSorter, index) {
-						const hasProperty = aTableSorters.some(function (value) {
-							return value.sPath === oSorter.sPath;
-						});
-						if (hasProperty) {
-							aSortItems.splice(index, 1);
-						}
-					});
-					mParams.bindingParams.sorter = aTableSorters.concat(aSortItems);
-				}
-			}
-		},
-
-		/**
 		 * sets default variant for user when it was set in backend customizing
 		 * and only when not another default variant was selected from user
 		 */
@@ -72,7 +47,47 @@ sap.ui.define([
 		 * set default SortOrder from annotations
 		 */
 		onBeforeRebindTable: function (oEvent) {
-			this.setDefaultTableSorter(oEvent);
+			this._setDefaultTableSorter(oEvent);
+			this._setRequestAtLeastFields(oEvent);
+		},
+
+		/**
+		 * set default SortOder from annotations for responsive tables
+		 * For responsive table this annotation is not supported yet
+		 */
+		_setDefaultTableSorter: function (oEvent) {
+			var oSource = oEvent.getSource(),
+				mParams = oEvent.getParameters();
+
+			if (oSource.getTableType() === sap.ui.comp.smarttable.TableType.ResponsiveTable) {
+				var aSortItems = AnnotationHelper.getDefaultTableSorter(oSource, this.getModel());
+				if (aSortItems.length > 0) {
+					var aTableSorters = mParams.bindingParams.sorter;
+					aSortItems.forEach(function (oSorter, index) {
+						var hasProperty = aTableSorters.some(function (value) {
+							return value.sPath === oSorter.sPath;
+						});
+						if (hasProperty) {
+							aSortItems.splice(index, 1);
+						}
+					});
+					mParams.bindingParams.sorter = aTableSorters.concat(aSortItems);
+				}
+			}
+		},
+
+		/**
+		 * In some cases RequestAtLeast parameters from annotations are not set
+		 * So this is workaround to set RequestAtLeast from annotations for SmartTable 
+		 * @param oEvent
+		 */
+		_setRequestAtLeastFields: function (oEvent) {
+			var oSource = oEvent.getSource(),
+				mParams = oEvent.getParameters();
+			var sRequestAtLeast = AnnotationHelper.getDefaultTableSelects(oSource, this.getModel(), mParams.bindingParams);
+			if (sRequestAtLeast && sRequestAtLeast !== "") {
+				mParams.bindingParams.parameters.select = sRequestAtLeast;
+			}
 		},
 
 		/**

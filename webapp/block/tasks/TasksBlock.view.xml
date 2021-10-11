@@ -3,7 +3,8 @@
 	<smartTable:SmartTable id="notificationTasksTable" height="100%" width="100%" header="{i18n>tit.tasks}" tableType="ResponsiveTable"
 		useExportToExcel="false" useVariantManagement="true" useTablePersonalisation="true" showRowCount="true"
 		persistencyKey="com.evorait.evosuite.evonotify.taskNotifTable" enableAutoBinding="true" entitySet="PMNotificationTaskSet"
-		tableBindingPath="NotificationToTask" requestAtLeastFields="ObjectKey,ENABLE_TASK_CHANGE,NOTES" demandPopin="true">
+		tableBindingPath="NotificationToTask" beforeRebindTable="onBeforeRebindTable" requestAtLeastFields="ObjectKey,ENABLE_TASK_CHANGE,NOTES"
+		demandPopin="true">
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
