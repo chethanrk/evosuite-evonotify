@@ -121,12 +121,34 @@ sap.ui.define([
 			this._oView.addDependent(this._oDialog);
 
 			this._oModel.metadataLoaded().then(function () {
+				//set dialog title from the annotations
+				this._setDialogTitleByAnnotation();
+
 				//get template and create views
 				this._mParams.oView = this._oView;
 				this.insertTemplateFragment(sPath, this._mParams.viewName, "FormDialogWrapper", this._afterBindSuccess.bind(this), this._mParams);
 			}.bind(this));
 
 			this._oDialog.open();
+		},
+
+		/**
+		 * To set title of the dialog from the annotation path
+		 */
+		_setDialogTitleByAnnotation: function () {
+			var oMetaModel = this._oModel.getMetaModel() || this._oModel.getProperty("/metaModel"),
+				oEntitySet = oMetaModel.getODataEntitySet(this._mParams.entitySet),
+				oEntityType = oMetaModel.getODataEntityType(oEntitySet.entityType),
+				oAnnotations = oEntityType[this._mParams.annotationPath];
+
+			if (oAnnotations.length) {
+				if (oAnnotations[0].RecordType === "com.sap.vocabularies.UI.v1.CollectionFacet") {
+					var oLabelAnnotation = oAnnotations[0]["com.sap.vocabularies.Common.v1.Label"];
+					if (oLabelAnnotation) {
+						this._oDialog.setTitle(oLabelAnnotation.String);
+					}
+				}
+			}
 		},
 
 		/**
