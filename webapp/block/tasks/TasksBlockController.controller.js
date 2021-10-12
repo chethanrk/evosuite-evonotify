@@ -1,21 +1,12 @@
 /*global location*/
 sap.ui.define([
 	"com/evorait/evosuite/evonotify/controller/FormController",
-	"sap/ui/core/routing/History",
-	"sap/ui/model/json/JSONModel",
+	"com/evorait/evosuite/evonotify/controller/TableController",
 	"com/evorait/evosuite/evonotify/model/formatter",
 	"sap/ui/model/FilterOperator",
 	"sap/ui/model/Filter",
 	"sap/ui/core/Fragment"
-], function (
-	FormController,
-	History,
-	JSONModel,
-	formatter,
-	FilterOperator,
-	Filter,
-	Fragment
-) {
+], function (FormController, TableController, formatter, FilterOperator, Filter, Fragment) {
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.block.tasks.TasksBlockController", {
@@ -48,6 +39,14 @@ sap.ui.define([
 		/* =========================================================== */
 		/* event handlers                                              */
 		/* =========================================================== */
+
+		/**
+		 * SmartTable before loading request
+		 * set default SortOrder from annotations
+		 */
+		onBeforeRebindTable: function (oEvent) {
+			TableController.prototype.onBeforeRebindTable.apply(this, arguments);
+		},
 
 		/**
 		 *  save selected context

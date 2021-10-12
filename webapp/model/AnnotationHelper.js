@@ -223,18 +223,18 @@ sap.ui.define([],
 		 * and in JsonModel templateProperties are lineItems are saved
 		 * 
 		 */
-		var isSplittedView = function (aContentTabs, oTempModelData) {
+		var isSplittedViewCheck = function (aContentTabs, oTempModelData) {
 			var oMetaModel = oTempModelData.metaModel,
 				isSplittedView = false;
 
-			for (let i = 0; i < aContentTabs.length; i++) {
-				let oTabInfos = aContentTabs[i];
+			for (var i = 0; i < aContentTabs.length; i++) {
+				var oTabInfos = aContentTabs[i];
 				if (oTabInfos.RecordType === "com.sap.vocabularies.UI.v1.CollectionFacet") {
 					isSplittedView = false;
 				} else {
 					isSplittedView = true;
 					oTempModelData.tempData.isSplittedView = isSplittedView;
-					let longDescAnno = oTabInfos["Org.OData.Core.V1.LongDescription"] || oTabInfos["Core.LongDescription"],
+					var longDescAnno = oTabInfos["Org.OData.Core.V1.LongDescription"] || oTabInfos["Core.LongDescription"],
 						descAnno = oTabInfos["Org.OData.Core.V1.Description"] || oTabInfos["Core.Description"];
 
 					//get entitySet lineItems
@@ -293,6 +293,43 @@ sap.ui.define([],
 			return false;
 		};
 
+		/**
+		 * RequestAtleast from annotations are not joined automatic in some cases
+		 * So will add manually them before table fetch new data
+		 * @param oSource {Object} SmartTable
+		 * @param oModel {Object} oData Model
+		 * @param oBindingParams {Object} table binding parameters
+		 */
+		var getDefaultTableSelects = function (oSource, oModel, oBindingParams) {
+			var sEntitiySet = oSource.getEntitySet(),
+				oMetaModel = oModel.getMetaModel(),
+				oEntitySet = oMetaModel.getODataEntitySet(sEntitiySet),
+				oEntityType = oMetaModel.getODataEntityType(oEntitySet.entityType),
+				aPresentVariant = oEntityType["com.sap.vocabularies.UI.v1.PresentationVariant"],
+				sCurrSelects = oBindingParams.parameters.select,
+				aSelects = [];
+
+			if (sCurrSelects && sCurrSelects !== "") {
+				aSelects = sCurrSelects.split(",");
+			}
+			if (!aPresentVariant) {
+				aPresentVariant = oEntityType["UI.PresentationVariant"];
+			}
+			if (!aPresentVariant) {
+				return aSelects.join(",");
+			}
+
+			if (aPresentVariant.RequestAtleast) {
+				var aRequestAtleast = aPresentVariant.RequestAtleast;
+				aRequestAtleast.forEach(function (item) {
+					if (aSelects.indexOf(item.PropertyPath) < 0) {
+						aSelects.push(item.PropertyPath);
+					}
+				});
+			}
+			return aSelects.join(",");
+		};
+
 		return {
 			resolveModelPath: resolveModelPath,
 			resolveObjectHeaderPath: resolveObjectHeaderPath,
@@ -305,9 +342,10 @@ sap.ui.define([],
 			isInNavLinks: isInNavLinks,
 			isLongTextTab: isLongTextTab,
 			hasTabNameInDescription: hasTabNameInDescription,
-			isSplittedView: isSplittedView,
+			isSplittedView: isSplittedViewCheck,
 			getEntitySet: getEntitySet,
-			isFieldCreatableAndSetMetaData: isFieldCreatableAndSetMetaData
+			isFieldCreatableAndSetMetaData: isFieldCreatableAndSetMetaData,
+			getDefaultTableSelects: getDefaultTableSelects
 		};
 
 	},
