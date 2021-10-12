@@ -1,6 +1,6 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:smartTable="sap.ui.comp.smarttable"
 	controllerName="com.evorait.evosuite.evonotify.block.partner.PartnerBlockController">
-	<smartTable:SmartTable height="100%" width="100%" header="{i18n>tit.partners}" tableType="ResponsiveTable" useExportToExcel="false"
+	<smartTable:SmartTable height="100%" width="100%" header="{i18n>tit.items}" tableType="ResponsiveTable" useExportToExcel="false"
 		useVariantManagement="false" useTablePersonalisation="false" showRowCount="true"
 		persistencyKey="com.evorait.evosuite.evonotify.PartnersTable" enableAutoBinding="true" demandPopin="true"
 		entitySet="PMNotificationPartnerSet" beforeRebindTable="onBeforeRebindTable" requestAtLeastFields=""
