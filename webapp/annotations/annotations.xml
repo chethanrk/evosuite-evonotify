@@ -25,7 +25,7 @@
 	</edmx:Reference>
 	<edmx:DataServices>
 		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="evonotify.annotations.annotations.com.evorait.evonotify">
-			
+
 		</Schema>
 	</edmx:DataServices>
 </edmx:Edmx>
