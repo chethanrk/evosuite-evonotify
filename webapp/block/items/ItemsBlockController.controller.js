@@ -1,18 +1,11 @@
 /*global location*/
 sap.ui.define([
-	"com/evorait/evosuite/evonotify/controller/BaseController",
-	"sap/ui/core/routing/History",
-	"sap/ui/model/json/JSONModel",
+	"com/evorait/evosuite/evonotify/controller/TableController",
 	"com/evorait/evosuite/evonotify/model/formatter"
-], function (
-	BaseController,
-	History,
-	JSONModel,
-	formatter
-) {
+], function (TableController, formatter) {
 	"use strict";
 
-	return BaseController.extend("com.evorait.evosuite.evonotify.block.items.ItemsBlockController", {
+	return TableController.extend("com.evorait.evosuite.evonotify.block.items.ItemsBlockController", {
 
 		formatter: formatter,
 		_oSmartTable: null,
@@ -29,12 +22,19 @@ sap.ui.define([
 			this._oSmartTable = this.getView().byId("notificationItemsTable");
 		},
 
-		onAfterRendering: function () {
+		onAfterRendering: function () {},
 
-		},
 		/* =========================================================== */
 		/* event handlers                                              */
 		/* =========================================================== */
+
+		/**
+		 * SmartTable before loading request
+		 * set default SortOrder from annotations
+		 */
+		onBeforeRebindTable: function (oEvent) {
+			TableController.prototype.onBeforeRebindTable.apply(this, arguments);
+		},
 
 		onPressItem: function (oEvent) {
 			var oContext = oEvent.getSource().getBindingContext();
@@ -83,7 +83,7 @@ sap.ui.define([
 			}
 			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
 		},
-		
+
 		/**
 		 * Called on click of Long text indicator
 		 * @param oEvent

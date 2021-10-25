@@ -1,9 +1,10 @@
 <mvc:View controllerName="com.evorait.evosuite.evonotify.block.causes.CausesBlockController" xmlns="sap.m" xmlns:core="sap.ui.core"
 	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:mvc="sap.ui.core.mvc">
-	<smartTable:SmartTable height="100%" width="100%" id="notificationCauseTable" tableType="ResponsiveTable" header="{i18n>tit.causes}"
+	<smartTable:SmartTable height="100%" width="100%" id="notificationCauseTable" tableType="ResponsiveTable" header="{i18n>tit.items}"
 		useExportToExcel="false" useVariantManagement="true" useTablePersonalisation="true" showRowCount="true"
 		persistencyKey="com.evorait.evosuite.evonotify.causeTable" enableAutoBinding="true" demandPopin="true"
-		entitySet="PMNotificationItemCauseSet" tableBindingPath="NotificationItemToCause" requestAtLeastFields="ObjectKey,NOTES">
+		entitySet="PMNotificationItemCauseSet" tableBindingPath="NotificationItemToCause" beforeRebindTable="onBeforeRebindTable"
+		requestAtLeastFields="ObjectKey,NOTES">
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>

@@ -10,13 +10,19 @@ sap.ui.define([
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
 	"com/evorait/evosuite/evonotify/model/Constants",
-	"com/evorait/evosuite/evonotify/model/formatter"
-], function (Controller, JSONModel, History, Dialog, Button, Text, MessageToast, MessageBox, Filter, FilterOperator, Constants, formatter) {
+	"com/evorait/evosuite/evonotify/model/formatter",
+	"sap/ui/core/Fragment",
+	"sap/ui/core/message/Message",
+	"sap/ui/core/library"
+], function (Controller, JSONModel, History, Dialog, Button, Text, MessageToast, MessageBox, Filter, FilterOperator, Constants, formatter,
+	Fragment, Message, library) {
 	"use strict";
 
 	return Controller.extend("com.evorait.evosuite.evonotify.controller.BaseController", {
 
 		formatter: formatter,
+
+		mMessageType: library.MessageType,
 		/**
 		 * Convenience method for accessing the router.
 		 * @public
@@ -160,10 +166,9 @@ sap.ui.define([
 			var dialog = new Dialog({
 				title: sTitle,
 				type: "Message",
-				styleClass: this.getOwnerComponent().getContentDensityClass(),
 				state: "Error",
 				content: new Text({
-					text: sMsg
+					text: sMsg + "\n\n" + error
 				}),
 				beginButton: new Button({
 					text: sBtn,
@@ -175,6 +180,7 @@ sap.ui.define([
 					dialog.destroy();
 				}
 			});
+			dialog.addStyleClass(this.getOwnerComponent().getContentDensityClass());
 			dialog.open();
 		},
 
@@ -229,6 +235,23 @@ sap.ui.define([
 		},
 
 		/**
+		 * Create Success, Warning, Info, Error message and add to MessageManager
+		 * @param sType
+		 * @param sMessage
+		 * @param sTarget
+		 */
+		addMsgToMessageManager: function (sType, sMessage, sTarget) {
+			var oMessage = new Message({
+				message: sMessage,
+				type: sType,
+				target: sTarget,
+				processor: this.getModel("messageManager"),
+				technical: true
+			});
+			sap.ui.getCore().getMessageManager().addMessages(oMessage);
+		},
+
+		/**
 		 * fetch based on context NotifcationType parameters 
 		 * and open the Add Dialog
 		 */
@@ -280,7 +303,6 @@ sap.ui.define([
 			var dialog = new sap.m.Dialog({
 				title: oResoucreBundle.getText("tit.cancelCreate"),
 				type: "Message",
-				styleClass: this.getOwnerComponent().getContentDensityClass(),
 				content: new sap.m.Text({
 					text: oResoucreBundle.getText("msg.leaveWithoutSave")
 				}),
@@ -317,7 +339,7 @@ sap.ui.define([
 					dialog.destroy();
 				}
 			});
-
+			dialog.addStyleClass(this.getOwnerComponent().getContentDensityClass());
 			dialog.open();
 		},
 
@@ -433,7 +455,6 @@ sap.ui.define([
 			var dialog = new Dialog({
 				title: oBundle.getText("tit.informationTitle"),
 				type: 'Message',
-				styleClass: this.getOwnerComponent().getContentDensityClass(),
 				content: new Text({
 					text: msg
 				}),
@@ -449,8 +470,45 @@ sap.ui.define([
 					dialog.destroy();
 				}
 			});
-
+			dialog.addStyleClass(this.getOwnerComponent().getContentDensityClass());
 			dialog.open();
+		},
+
+		/**
+		 * Initialize and open the Information dialog with necessary details
+		 * @param oEvent Button press event
+		 */
+		onIconPress: function (oEvent) {
+			// create popover
+			if (!this._infoDialog) {
+				Fragment.load({
+					name: "com.evorait.evosuite.evonotify.view.fragments.InformationPopover",
+					controller: this,
+					type: "XML"
+				}).then(function (oFragment) {
+					this._infoDialog = oFragment;
+					this.getView().addDependent(oFragment);
+					this._infoDialog.addStyleClass(this.getModel("viewModel").getProperty("/densityClass"));
+					this._infoDialog.open();
+				}.bind(this));
+			} else {
+				this._infoDialog.open();
+			}
+		},
+
+		/**
+		 * Closes the information dialog
+		 */
+		onCloseDialog: function () {
+			this._infoDialog.close();
+		},
+
+		/**
+		 * Open Message Manager on click
+		 * @param oEvent
+		 */
+		onMessageManagerPress: function (oEvent) {
+			this.openMessageManager(this.getView(), oEvent);
 		},
 
 		/**

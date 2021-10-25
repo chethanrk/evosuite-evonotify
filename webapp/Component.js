@@ -1,6 +1,7 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
+	"sap/ui/model/json/JSONModel",
 	"com/evorait/evosuite/evonotify/model/models",
 	"com/evorait/evosuite/evonotify/controller/ErrorHandler",
 	"com/evorait/evosuite/evonotify/controller/DialogTemplateRenderController",
@@ -10,7 +11,7 @@ sap.ui.define([
 	"com/evorait/evosuite/evonotify/assets/js/url-search-params.min",
 	"com/evorait/evosuite/evonotify/assets/js/promise-polyfills",
 	"com/evorait/evosuite/evonotify/controller/MessageManager"
-], function (UIComponent, Device, models, ErrorHandler, DialogTemplateRenderController, Constants, Filter,
+], function (UIComponent, Device, JSONModel, models, ErrorHandler, DialogTemplateRenderController, Constants, Filter,
 	FilterOperator, UrlSearchPolyfill, PromisePolyfill, MessageManager) {
 	"use strict";
 
@@ -25,6 +26,7 @@ sap.ui.define([
 		oSystemInfoProm: null,
 		oTemplatePropsProm: null,
 		oDefaultInfoProm: null,
+		oNavigationLinksPropsProm: null,
 
 		/**
 		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
@@ -67,8 +69,6 @@ sap.ui.define([
 
 			this.setModel(models.createHelperModel(viewModelObj), "viewModel");
 
-			this.setModel(models.createHelperModel({}), "templateProperties");
-
 			this.setModel(models.createUserModel(this), "user");
 
 			this.setModel(models.createNotificationFunctionModel(this), "notificationFunctionModel");
@@ -83,26 +83,21 @@ sap.ui.define([
 
 			this._getDefaultInformation();
 
+			this._getTemplateProps();
+
 			this._getFunctionSet();
 
-			this._setApp2AppLinks();
+			this.oTemplatePropsProm.then(this._setApp2AppLinks());
 
 			this.setModel(oMessageManager.getMessageModel(), "message");
 
 			this.MessageManager = new MessageManager();
 			this.setModel(models.createMessageManagerModel(), "messageManager");
 
-			//wait for the models to load and then initialize the router
-			this.getModel().attachRequestCompleted("modelsLoaded", function (oEvent) {
-				if (oEvent.getParameter("url").includes("NavigationLinksSet")) {
-					this._initRouter();
-				}
-			}, this);
-			this.getModel().attachRequestFailed("modelsLoadFailed", function (oEvent) {
-				if (oEvent.getParameter("url").includes("NavigationLinksSet")) {
-					this._initRouter();
-				}
-			}, this);
+			//get start parameter when app2app navigation is in URL
+			//replace hash when startup parameter
+			//Wait for navigation link properties to load 
+			this.oNavigationLinksPropsProm.then(this._initRouter.bind(this));
 
 		},
 
@@ -168,13 +163,28 @@ sap.ui.define([
 		},
 
 		/**
-		 * Calls the GetSystemInformation
+		 * Calls the GetSystemInformation 
 		 */
 		_getSystemInformation: function () {
 			this.oSystemInfoProm = new Promise(function (resolve) {
 				this.readData("/SystemInformationSet", []).then(function (oData) {
 					this.getModel("user").setData(oData.results[0]);
 					resolve(oData.results[0]);
+				}.bind(this));
+			}.bind(this));
+		},
+
+		/**
+		 * get Template properties as model inside a global Promise
+		 */
+		_getTemplateProps: function () {
+			this.oTemplatePropsProm = new Promise(function (resolve) {
+				var realPath = sap.ui.require.toUrl("com/evorait/evosuite/evonotify/model/TemplateProperties.json");
+				var oTempJsonModel = new JSONModel();
+				oTempJsonModel.loadData(realPath);
+				oTempJsonModel.attachRequestCompleted(function () {
+					this.setModel(oTempJsonModel, "templateProperties");
+					resolve(oTempJsonModel.getData());
 				}.bind(this));
 			}.bind(this));
 		},
@@ -249,19 +259,17 @@ sap.ui.define([
 			}
 			var oFilter = new Filter("LaunchMode", FilterOperator.EQ, this.getModel("viewModel").getProperty("/launchMode")),
 				mProps = {};
-
-			this.oTemplatePropsProm = new Promise(function (resolve) {
-				this.readData("/NavigationLinksSet", [oFilter])
-					.then(function (data) {
-						data.results.forEach(function (oItem) {
-							if (oItem.Value1 && Constants.APPLICATION[oItem.ApplicationId]) {
-								oItem.Property = oItem.Value2 || Constants.PROPERTY[oItem.ApplicationId];
-								mProps[oItem.Property] = oItem;
-							}
-						}.bind(this));
-						this.getModel("templateProperties").setProperty("/navLinks/", mProps);
-						resolve(mProps);
+			this.oNavigationLinksPropsProm = new Promise(function (resolve) {
+				this.readData("/NavigationLinksSet", [oFilter]).then(function (data) {
+					data.results.forEach(function (oItem) {
+						if (oItem.Value1 && Constants.APPLICATION[oItem.ApplicationId]) {
+							oItem.Property = oItem.Value2 || Constants.PROPERTY[oItem.ApplicationId];
+							mProps[oItem.Property] = oItem;
+						}
 					}.bind(this));
+					this.getModel("templateProperties").setProperty("/navLinks/", mProps);
+					resolve(mProps);
+				}.bind(this));
 			}.bind(this));
 		},
 

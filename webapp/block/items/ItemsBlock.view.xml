@@ -3,7 +3,7 @@
 	<smartTable:SmartTable height="100%" width="100%" id="notificationItemsTable" header="{i18n>tit.items}" tableType="ResponsiveTable"
 		useExportToExcel="false" useVariantManagement="true" useTablePersonalisation="true" showRowCount="true"
 		persistencyKey="com.evorait.evosuite.evonotify.itemTable" enableAutoBinding="true" demandPopin="true" entitySet="PMNotificationItemSet"
-		tableBindingPath="NotificationToItem" requestAtLeastFields="ObjectKey,NOTES">
+		tableBindingPath="NotificationToItem" beforeRebindTable="onBeforeRebindTable" requestAtLeastFields="ObjectKey,NOTES">
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>

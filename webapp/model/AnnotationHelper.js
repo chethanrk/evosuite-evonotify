@@ -214,6 +214,122 @@ sap.ui.define([],
 			return false;
 		};
 
+		/**
+		 * for create form can be also a splitted view with left side tree and right side selection list
+		 * when it has CollectionFacet inside then it is single view with form
+		 * 
+		 * check in annotation tab infos an entitySet is defined
+		 * When entitySet is defined and lineItems are found in MetaModel then test is true
+		 * and in JsonModel templateProperties are lineItems are saved
+		 * 
+		 */
+		var isSplittedViewCheck = function (aContentTabs, oTempModelData) {
+			var oMetaModel = oTempModelData.metaModel,
+				isSplittedView = false;
+
+			for (var i = 0; i < aContentTabs.length; i++) {
+				var oTabInfos = aContentTabs[i];
+				if (oTabInfos.RecordType === "com.sap.vocabularies.UI.v1.CollectionFacet") {
+					isSplittedView = false;
+				} else {
+					isSplittedView = true;
+					oTempModelData.tempData.isSplittedView = isSplittedView;
+					var longDescAnno = oTabInfos["Org.OData.Core.V1.LongDescription"] || oTabInfos["Core.LongDescription"],
+						descAnno = oTabInfos["Org.OData.Core.V1.Description"] || oTabInfos["Core.Description"];
+
+					//get entitySet lineItems
+					if (longDescAnno) {
+						var sEntitySet = longDescAnno.String,
+							sTabName = descAnno.String,
+							aLineItems = _getLineItems(oMetaModel, sEntitySet),
+							tempTableData = oTempModelData.tempData.splittedViewTableConfigs;
+
+						if (tempTableData) {
+							tempTableData.forEach(function (mTableConfig) {
+								if (mTableConfig.tabName === sTabName) {
+									mTableConfig.entitySet = sEntitySet;
+									mTableConfig.lineItems = aLineItems;
+								}
+							});
+						}
+					}
+				}
+			}
+			return isSplittedView;
+		};
+
+		var _getLineItems = function (oMetaModel, sEntitySet) {
+			var oEntitySet = oMetaModel.getODataEntitySet(sEntitySet);
+			if (!oEntitySet) {
+				return [];
+			}
+			var oEntityType = oMetaModel.getODataEntityType(oEntitySet.entityType);
+			if (oEntityType["com.sap.vocabularies.UI.v1.LineItem"]) {
+				return oEntityType["com.sap.vocabularies.UI.v1.LineItem"];
+			}
+			return [];
+		};
+
+		var getEntitySet = function (sEntitySet, sDesc, sLongText) {
+			return sEntitySet || sDesc || sLongText;
+		};
+
+		/**
+		 * checks if a special property is allowed for create
+		 * and set field details also to JsonModel
+		 */
+		var isFieldCreatableAndSetMetaData = function (mLineItem, mTableDetails, oTempModelData) {
+			var oMetaModel = oTempModelData.metaModel,
+				oEntitySet = oMetaModel.getODataEntitySet(mTableDetails.entitySet),
+				oEntityType = oMetaModel.getODataEntityType(oEntitySet.entityType),
+				sFieldName = mLineItem.Value.Path;
+
+			var oProperty = oMetaModel.getODataProperty(oEntityType, sFieldName);
+			//check if key is creatable true
+			if (oProperty && (!oProperty.hasOwnProperty("sap:creatable") || oProperty["sap:creatable"] === "true")) {
+				mLineItem.Property = oProperty;
+				return true;
+			}
+			return false;
+		};
+
+		/**
+		 * RequestAtleast from annotations are not joined automatic in some cases
+		 * So will add manually them before table fetch new data
+		 * @param oSource {Object} SmartTable
+		 * @param oModel {Object} oData Model
+		 * @param oBindingParams {Object} table binding parameters
+		 */
+		var getDefaultTableSelects = function (oSource, oModel, oBindingParams) {
+			var sEntitiySet = oSource.getEntitySet(),
+				oMetaModel = oModel.getMetaModel(),
+				oEntitySet = oMetaModel.getODataEntitySet(sEntitiySet),
+				oEntityType = oMetaModel.getODataEntityType(oEntitySet.entityType),
+				aPresentVariant = oEntityType["com.sap.vocabularies.UI.v1.PresentationVariant"],
+				sCurrSelects = oBindingParams.parameters.select,
+				aSelects = [];
+
+			if (sCurrSelects && sCurrSelects !== "") {
+				aSelects = sCurrSelects.split(",");
+			}
+			if (!aPresentVariant) {
+				aPresentVariant = oEntityType["UI.PresentationVariant"];
+			}
+			if (!aPresentVariant) {
+				return aSelects.join(",");
+			}
+
+			if (aPresentVariant.RequestAtleast) {
+				var aRequestAtleast = aPresentVariant.RequestAtleast;
+				aRequestAtleast.forEach(function (item) {
+					if (aSelects.indexOf(item.PropertyPath) < 0) {
+						aSelects.push(item.PropertyPath);
+					}
+				});
+			}
+			return aSelects.join(",");
+		};
+
 		return {
 			resolveModelPath: resolveModelPath,
 			resolveObjectHeaderPath: resolveObjectHeaderPath,
@@ -225,7 +341,11 @@ sap.ui.define([],
 			getDefaultTableSorter: getDefaultTableSorter,
 			isInNavLinks: isInNavLinks,
 			isLongTextTab: isLongTextTab,
-			hasTabNameInDescription: hasTabNameInDescription
+			hasTabNameInDescription: hasTabNameInDescription,
+			isSplittedView: isSplittedViewCheck,
+			getEntitySet: getEntitySet,
+			isFieldCreatableAndSetMetaData: isFieldCreatableAndSetMetaData,
+			getDefaultTableSelects: getDefaultTableSelects
 		};
 
 	},

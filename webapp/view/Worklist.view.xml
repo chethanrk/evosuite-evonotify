@@ -10,18 +10,15 @@
 					<Image src="{path: '', formatter: '.formatter.getLogoImageLink' }" densityAware="false" height="30px" alt="EvoNotify" id="imageLogo"/>
 				</f:heading>
 				<f:actions>
-					<Button icon="sap-icon://alert" text="{= ${message>/}.length }" type="Emphasized" press="onMessageManagerPress"/>
+					<core:Fragment fragmentName="com.evorait.evosuite.evonotify.view.fragments.HeaderRightActions" type="XML"/>
 				</f:actions>
-				<f:navigationActions>
-					<Button id="idButtonAboutDialog" icon="sap-icon://sys-help" tooltip="{i18n>tit.infoDialogTitle}" press="onIconPress"/>
-				</f:navigationActions>
 			</f:DynamicPageTitle>
 		</f:title>
 		<f:header>
 			<f:DynamicPageHeader pinnable="true">
 				<f:content>
 					<smartFilterBar:SmartFilterBar id="NotificationFilter" entitySet="PMNotificationSet" filterBarExpanded="true"
-						persistencyKey="com.evorait.evosuite.evonotify.NotificationFilterbar">
+						persistencyKey="com.evorait.evosuite.evonotify.NotificationFilterbar" useDateRangeType="true">
 						<smartFilterBar:controlConfiguration>
 							<smartFilterBar:ControlConfiguration id="__configuration0"/>
 						</smartFilterBar:controlConfiguration>

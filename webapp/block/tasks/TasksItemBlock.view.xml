@@ -1,15 +1,16 @@
 <mvc:View controllerName="com.evorait.evosuite.evonotify.block.tasks.TasksItemBlockController" xmlns="sap.m" xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc" xmlns:smartTable="sap.ui.comp.smarttable">
 	<smartTable:SmartTable id="notificationTasksItemTable" height="100%" width="100%" tableType="ResponsiveTable" useExportToExcel="false"
-		header="{i18n>tit.tasks}" useVariantManagement="true" useTablePersonalisation="true" showRowCount="true"
+		header="{i18n>tit.items}" useVariantManagement="true" useTablePersonalisation="true" showRowCount="true"
 		persistencyKey="com.evorait.evosuite.evonotify.taskItemTable" enableAutoBinding="true" demandPopin="true"
-		entitySet="PMNotificationItemTaskSet" tableBindingPath="NotificationItemToTask" requestAtLeastFields="ObjectKey,ENABLE_TASK_CHANGE,NOTES">
+		entitySet="PMNotificationItemTaskSet" tableBindingPath="NotificationItemToTask" beforeRebindTable="onBeforeRebindTable"
+		requestAtLeastFields="ObjectKey,ENABLE_TASK_CHANGE,NOTES">
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
-				<OverflowToolbarButton id="idTaskItemStatusChangeMenu" icon="sap-icon://order-status" type="Default"
-					text="{i18n>btn.changeSystemStatus}" tooltip="{i18n>btn.changeSystemStatus}" press="onPressChangeTaskSystemStatus"
-					visible="{parts: ['user>/ENABLE_NOTIFICATION_UPDATE','viewModel>/enableNotificationChange','viewModel>/editMode'], formatter: '.formatter.showStatusButton'}"/>
+				<OverflowToolbarButton id="idTaskItemStatusChangeMenu" icon="sap-icon://order-status" type="Default" text="{i18n>btn.changeSystemStatus}"
+					tooltip="{i18n>btn.changeSystemStatus}" press="onPressChangeTaskSystemStatus"
+					visible="{parts: ['user>/ENABLE_TASK_UPDATE','user>/ENABLE_NOTIFICATION_UPDATE','viewModel>/enableNotificationChange','viewModel>/editMode'], formatter: '.formatter.showStatusButton'}"/>
 				<OverflowToolbarButton icon="sap-icon://add" text="Sort" press="onPressAdd"
 					visible="{ parts: [{path:'viewModel>/enableNotificationChange'},{path: 'user>/ENABLE_TASK_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 				<OverflowToolbarButton id="idItemTaskEdit" icon="sap-icon://edit" text="Sort" press="onPressEdit"
