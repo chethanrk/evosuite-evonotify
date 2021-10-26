@@ -494,7 +494,7 @@ sap.ui.define([
 		_getValueForParameterProperties: function (oDefaultValue, sPath, oEntityType, oMetaModel) {
 			var sSeparator = oDefaultValue.Separator,
 				aPropertityIn = oDefaultValue.PropertyIn.split(sSeparator),
-				sProp;
+				sProp = undefined;
 
 			aPropertityIn.forEach(function (aProperty) {
 				var sPropertyEntity = aProperty.split("~")[0],
@@ -506,12 +506,11 @@ sap.ui.define([
 					sPropValue = this._getParentContextData(sPropertySel, sPropertyEntity, oMetaModel);
 				}
 
-				if (sPropValue && sPropValue !== null) {
-					if (!sProp) {
-						sProp = sPropValue;
-					} else {
-						sProp += sSeparator + sPropValue;
-					}
+				sPropValue = sPropValue ? sPropValue : "";
+				if (typeof (sProp) === "undefined") {
+					sProp = sPropValue;
+				} else {
+					sProp += sSeparator + sPropValue;
 				}
 			}.bind(this));
 			return sProp;
