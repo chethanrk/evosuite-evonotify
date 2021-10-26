@@ -507,7 +507,7 @@ sap.ui.define([
 				}
 
 				sPropValue = sPropValue ? sPropValue : "";
-				if (typeof (sProp) === "undefined") {
+				if (typeof sProp === "undefined") {
 					sProp = sPropValue;
 				} else {
 					sProp += sSeparator + sPropValue;
