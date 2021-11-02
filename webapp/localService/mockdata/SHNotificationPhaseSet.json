@@ -1,0 +1,45 @@
+{
+	"d": {
+		"results": [{
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHNotificationPhaseSet('1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHNotificationPhaseSet('1')",
+				"type": "com.evorait.evonotify.SHNotificationPhase"
+			},
+			"PHASECODE": "1",
+			"PHASECODETEXT": "Outstanding"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHNotificationPhaseSet('2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHNotificationPhaseSet('2')",
+				"type": "com.evorait.evonotify.SHNotificationPhase"
+			},
+			"PHASECODE": "2",
+			"PHASECODETEXT": "Postponed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHNotificationPhaseSet('3')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHNotificationPhaseSet('3')",
+				"type": "com.evorait.evonotify.SHNotificationPhase"
+			},
+			"PHASECODE": "3",
+			"PHASECODETEXT": "In Process"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHNotificationPhaseSet('4')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHNotificationPhaseSet('4')",
+				"type": "com.evorait.evonotify.SHNotificationPhase"
+			},
+			"PHASECODE": "4",
+			"PHASECODETEXT": "Completed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHNotificationPhaseSet('5')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHNotificationPhaseSet('5')",
+				"type": "com.evorait.evonotify.SHNotificationPhase"
+			},
+			"PHASECODE": "5",
+			"PHASECODETEXT": "Deletion Flag"
+		}]
+	}
+}

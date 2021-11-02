@@ -1,0 +1,1255 @@
+{
+	"d": {
+		"results": [{
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('%20FUNCTION_LOCATION105427')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('%20FUNCTION_LOCATION105427')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": " FUNCTION_LOCATION105427",
+			"PLTXT": "FUNCTION LOCATION",
+			"IWERK": "1200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('0001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('0001')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "0001",
+			"PLTXT": "",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('0001-FLOC-0001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('0001-FLOC-0001')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "0001-FLOC-0001",
+			"PLTXT": "",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('0002')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('0002')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "0002",
+			"PLTXT": "",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "007",
+			"PLTXT": "BahnstraÃen",
+			"IWERK": "3200",
+			"ARBPL": "MECHANIK"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "007-P01",
+			"PLTXT": "PRODUKTIONSEINHEIT 1",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-B101')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-B101')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "007-P01-B101",
+			"PLTXT": "POLYMERISATIONSBEHÃ¤LTER B-101",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-B102')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-B102')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "007-P01-B102",
+			"PLTXT": "VORLAGEBEHÃ¤LTER B-102",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-B103')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-B103')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "007-P01-B103",
+			"PLTXT": "EXPANSIONSBEHÃ¤LTER B-103_02",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-B104')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-B104')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "007-P01-B104",
+			"PLTXT": "ABSCHEIDEBEHÃ¤LTER B-104",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-B105')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-B105')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "007-P01-B105",
+			"PLTXT": "ABSCHEIDEBEHÃ¤LTER B-105",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-B106')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-B106')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "007-P01-B106",
+			"PLTXT": "BehÃ¤lter Sperrmedium P-104",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-BR101')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-BR101')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "007-P01-BR101",
+			"PLTXT": "RÃ¼HRWERK POLYMERISATIONSBEHÃ¤LTER B-101",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-F101')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-F101')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "007-P01-F101",
+			"PLTXT": "PRODUKTFILTER F-101",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-F104')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-F104')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "007-P01-F104",
+			"PLTXT": "Polizeifilter F-104",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-P101')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-P101')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "007-P01-P101",
+			"PLTXT": "WARMWASSERUMLAUFPUMPE P-101",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-P102')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-P102')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "007-P01-P102",
+			"PLTXT": "DOSIERPUMPE P-102",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-P103')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-P103')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "007-P01-P103",
+			"PLTXT": "FÃ¼LLPUMPE P-103",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-P104')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-P104')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "007-P01-P104",
+			"PLTXT": "FILTRATIONSPUMPE P-104",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-P105')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-P105')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "007-P01-P105",
+			"PLTXT": "FÃ¼LLPUMPE P-105 (GEBINDE)",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-V101')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-V101')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "007-P01-V101",
+			"PLTXT": "DAMPFMISCHDÃ¼SEN V-101",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-V102')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-V102')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "007-P01-V102",
+			"PLTXT": "DMS-LECKAGENÃ¼BERWACHUNGSSCHRANK",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-W101')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-W101')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "007-P01-W101",
+			"PLTXT": "WÃ¤RMETAUSCHER W-101",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-W102')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('007-P01-W102')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "007-P01-W102",
+			"PLTXT": "WÃ¤RMETAUSCHER W-102 (HEIZUNG)-SR",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('008')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('008')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "008",
+			"PLTXT": "Power Station",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('008-E01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('008-E01')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "008-E01",
+			"PLTXT": "Power Station E01",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('011145')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('011145')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "011145",
+			"PLTXT": "Test data for integration into Evoplan-1",
+			"IWERK": "3000",
+			"ARBPL": "MACHTECH"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('0111456781')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('0111456781')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "0111456781",
+			"PLTXT": "Test data for integration into Evoplan",
+			"IWERK": "3000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('087')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('087')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "087",
+			"PLTXT": "Myhal Ctr. (CEIE)",
+			"IWERK": "3000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('087-003')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('087-003')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "087-003",
+			"PLTXT": "Floor 03",
+			"IWERK": "3000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('087-004')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('087-004')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "087-004",
+			"PLTXT": "Floor 04",
+			"IWERK": "3000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('087-005')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('087-005')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "087-005",
+			"PLTXT": "Floor 05",
+			"IWERK": "3000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('087-006')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('087-006')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "087-006",
+			"PLTXT": "Floor 06",
+			"IWERK": "3000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('087-011')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('087-011')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "087-011",
+			"PLTXT": "Floor 11",
+			"IWERK": "3000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('087-B01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('087-B01')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "087-B01",
+			"PLTXT": "Floor 01",
+			"IWERK": "3000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('087-B01-54')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('087-B01-54')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "087-B01-54",
+			"PLTXT": "Room 54",
+			"IWERK": "3000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1000-000-AA-01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1000-000-AA-01')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1000-000-AA-01",
+			"PLTXT": "Test Location 01",
+			"IWERK": "3000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1000-000-AA-11')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1000-000-AA-11')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1000-000-AA-11",
+			"PLTXT": "Clarification plant",
+			"IWERK": "1000",
+			"ARBPL": "MECHANIK"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('10006896_FUN_LOC')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('10006896_FUN_LOC')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "10006896_FUN_LOC",
+			"PLTXT": "SMOKE TEST FUNCTIONAL LOCATION",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1032')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1032')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1032",
+			"PLTXT": "Environmental Institute - Munich",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERVS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1032-ADMI')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1032-ADMI')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1032-ADMI",
+			"PLTXT": "Environmental Institute - Administration",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERVS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1032-ADMI-001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1032-ADMI-001')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1032-ADMI-001",
+			"PLTXT": "Environmental Institute - Purchasing",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERVS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1032-ADMI-002')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1032-ADMI-002')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1032-ADMI-002",
+			"PLTXT": "Environmental Institute - Accounting",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERVS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1032-LABS')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1032-LABS')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1032-LABS",
+			"PLTXT": "Environmental Institute - Research",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1032-LABS-001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1032-LABS-001')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1032-LABS-001",
+			"PLTXT": "Environmental Institute - Laboratory 001",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1032-LABS-002')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1032-LABS-002')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1032-LABS-002",
+			"PLTXT": "Environmental Institute - Laboratory 002",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1032-LABS-003')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1032-LABS-003')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1032-LABS-003",
+			"PLTXT": "Environmental Institute - Laboratory 003",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1034')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1034')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1034",
+			"PLTXT": "ERL - Freiburg",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERVS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1034-ADMI')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1034-ADMI')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1034-ADMI",
+			"PLTXT": "ERL - Administration",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERVS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1034-ADMI-001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1034-ADMI-001')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1034-ADMI-001",
+			"PLTXT": "ERL - Purchasing",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERVS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1034-ADMI-002')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1034-ADMI-002')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1034-ADMI-002",
+			"PLTXT": "ERL - Accounting",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERVS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1034-LABS')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1034-LABS')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1034-LABS",
+			"PLTXT": "ERL - Research",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERVS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1034-LABS-001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1034-LABS-001')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1034-LABS-001",
+			"PLTXT": "ERL - Laboratory 001",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERVS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1034-LABS-002')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1034-LABS-002')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1034-LABS-002",
+			"PLTXT": "ERL - Laboratory 002",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERVS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1034-LABS-003')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1034-LABS-003')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1034-LABS-003",
+			"PLTXT": "ERL - Laboratory 003",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERVS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1111-22A-BB')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1111-22A-BB')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1111-22A-BB",
+			"PLTXT": "Agrana PM Plant Func Loc 1",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1171')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1171')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1171",
+			"PLTXT": "Hitech",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1171-ADMI')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1171-ADMI')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1171-ADMI",
+			"PLTXT": "Hitech Administration",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1171-ADMI-0001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1171-ADMI-0001')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1171-ADMI-0001",
+			"PLTXT": "Hitech Administration Management",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1171-ADMI-0002')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1171-ADMI-0002')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1171-ADMI-0002",
+			"PLTXT": "Hitech Administration Purchasing",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1171-ADMI-0003')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1171-ADMI-0003')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1171-ADMI-0003",
+			"PLTXT": "Hitech Administration Sales",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1171-PROD')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1171-PROD')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1171-PROD",
+			"PLTXT": "Hitech Production",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1171-PROD-0001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1171-PROD-0001')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1171-PROD-0001",
+			"PLTXT": "Hitech Production Line 1",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1171-PROD-0002')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1171-PROD-0002')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1171-PROD-0002",
+			"PLTXT": "Hitech Production Line 2",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1171-PROD-0003')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1171-PROD-0003')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1171-PROD-0003",
+			"PLTXT": "Hitech Production Maintenance",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1171-RZHT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1171-RZHT')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1171-RZHT",
+			"PLTXT": "Int. HiTech Computer Center",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1172')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1172')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1172",
+			"PLTXT": "CBD Computer Based Design",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1177')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1177')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1177",
+			"PLTXT": "CCC AG",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1177-ADMI')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1177-ADMI')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1177-ADMI",
+			"PLTXT": "CCC Administration",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1177-ADMI-0001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1177-ADMI-0001')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1177-ADMI-0001",
+			"PLTXT": "CCC Administration Management",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1177-ADMI-0002')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1177-ADMI-0002')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1177-ADMI-0002",
+			"PLTXT": "CCC Administration Purchasing",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1177-ADMI-0003')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1177-ADMI-0003')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1177-ADMI-0003",
+			"PLTXT": "CCC Administration Sales",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1177-PROD')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1177-PROD')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1177-PROD",
+			"PLTXT": "CCC Production",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1177-PROD-0001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1177-PROD-0001')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1177-PROD-0001",
+			"PLTXT": "CCC Production Line 1",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1177-PROD-0002')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1177-PROD-0002')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1177-PROD-0002",
+			"PLTXT": "CCC Production Line 2 -test",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1177-PROD-0003')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1177-PROD-0003')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1177-PROD-0003",
+			"PLTXT": "CCC Production Maintenance",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1177-RZHT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1177-RZHT')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1177-RZHT",
+			"PLTXT": "CCC Int. Computer Center",
+			"IWERK": "1200",
+			"ARBPL": "PC-SERV"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('12-34-56-78%2F90')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('12-34-56-78%2F90')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "12-34-56-78/90",
+			"PLTXT": "Elevator Goods Entrance 2, Building 1",
+			"IWERK": "1000",
+			"ARBPL": "MECHANIK"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1234-123-FL-01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1234-123-FL-01')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1234-123-FL-01",
+			"PLTXT": "Function Location with Linear data",
+			"IWERK": "1000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1234-567')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1234-567')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1234-567",
+			"PLTXT": "Toronto Hydro Transformer Functional Loc",
+			"IWERK": "1000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1234-EVOR-1234')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('1234-EVOR-1234')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "1234-EVOR-1234",
+			"PLTXT": "Test Func Loc Priya",
+			"IWERK": "1200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('19023')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('19023')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "19023",
+			"PLTXT": "",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('2141')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('2141')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "2141",
+			"PLTXT": "Jaspers Computers",
+			"IWERK": "1200",
+			"ARBPL": "MECHANIK"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('2ND_FLOOR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('2ND_FLOOR')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "2ND_FLOOR",
+			"PLTXT": "2nd floor of phoenix primus building",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('31')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('31')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "31",
+			"PLTXT": "",
+			"IWERK": "1200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3301')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3301')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "3301",
+			"PLTXT": "Leading Edge Technologies, USA",
+			"IWERK": "3000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3301-CORP')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3301-CORP')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "3301-CORP",
+			"PLTXT": "Leading Edge Tech - Corporate",
+			"IWERK": "3000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3301-CORP-0001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3301-CORP-0001')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "3301-CORP-0001",
+			"PLTXT": "Leading Edge Tech - Corporate - Sales",
+			"IWERK": "3000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3301-CORP-0002')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3301-CORP-0002')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "3301-CORP-0002",
+			"PLTXT": "Leading Edge Tech - Corporate - Admin",
+			"IWERK": "3000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3301-CORP-0003')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3301-CORP-0003')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "3301-CORP-0003",
+			"PLTXT": "Leading Edge Tech - Corporate - Purchsng",
+			"IWERK": "3000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3301-OPER')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3301-OPER')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "3301-OPER",
+			"PLTXT": "Leading Edge Tech - Operations",
+			"IWERK": "3000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3301-OPER-1000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3301-OPER-1000')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "3301-OPER-1000",
+			"PLTXT": "Leading Edge Tech - Operations - Mfg",
+			"IWERK": "3000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3301-OPER-2000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3301-OPER-2000')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "3301-OPER-2000",
+			"PLTXT": "Leading Edge Tech - Operations - Warehse",
+			"IWERK": "3000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3301-OPER-3000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3301-OPER-3000')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "3301-OPER-3000",
+			"PLTXT": "Leading Edge Tech - Operations - Shippng",
+			"IWERK": "3000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3800')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3800')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "3800",
+			"PLTXT": "Candid International Technology",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3800-ADMI')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3800-ADMI')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "3800-ADMI",
+			"PLTXT": "Candid Int'l Technology - Administration",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3800-ADMI-0001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3800-ADMI-0001')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "3800-ADMI-0001",
+			"PLTXT": "Candid Int'l Technology - Management",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3800-ADMI-0002')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3800-ADMI-0002')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "3800-ADMI-0002",
+			"PLTXT": "Candid Int'l Technology - Purchasing",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3800-ADMI-0003')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3800-ADMI-0003')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "3800-ADMI-0003",
+			"PLTXT": "Candid Int'l Technology - Sales",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3800-PROD')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3800-PROD')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "3800-PROD",
+			"PLTXT": "Candid Int'l Technology - Production",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3800-PROD-0001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3800-PROD-0001')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "3800-PROD-0001",
+			"PLTXT": "Candid Int'l Technology - Line 1",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3800-PROD-0002')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3800-PROD-0002')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "3800-PROD-0002",
+			"PLTXT": "Candid Int'l Technology - Line 2",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3800-PROD-0003')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3800-PROD-0003')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "3800-PROD-0003",
+			"PLTXT": "Candid Int'l Technology - Maintenance",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3N1-001-FT1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3N1-001-FT1')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "3N1-001-FT1",
+			"PLTXT": "",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3RD_FLOOR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('3RD_FLOOR')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "3RD_FLOOR",
+			"PLTXT": "Evora IT",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('400-977')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('400-977')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "400-977",
+			"PLTXT": "sri sai pg",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000007')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000007')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "4000007",
+			"PLTXT": "Residence - Apartment",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000008')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000008')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "4000008",
+			"PLTXT": "Residence",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000009')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000009')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "4000009",
+			"PLTXT": "Residence - Apartment",
+			"IWERK": "1000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000010')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000010')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "4000010",
+			"PLTXT": "Gas Meter Location",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000011')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000011')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "4000011",
+			"PLTXT": "Meter Location",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000012')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000012')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "4000012",
+			"PLTXT": "Meter Location",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000013')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000013')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "4000013",
+			"PLTXT": "Residence - Apartment",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000014')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000014')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "4000014",
+			"PLTXT": "",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000015')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000015')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "4000015",
+			"PLTXT": "Sam Test Connection Object",
+			"IWERK": "1000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000016')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000016')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "4000016",
+			"PLTXT": "SAM TEST 02082016",
+			"IWERK": "1000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000017')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000017')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "4000017",
+			"PLTXT": "Test Connection Object fÃ¼r evoMeterReadi",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000018')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000018')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "4000018",
+			"PLTXT": "evoMeterReading Device Loc. Description",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000019')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000019')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "4000019",
+			"PLTXT": "evoMeterReading Device Location Descr.",
+			"IWERK": "ZCBM",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000020')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000020')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "4000020",
+			"PLTXT": "TEST",
+			"IWERK": "1000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000021')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000021')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "4000021",
+			"PLTXT": "Evora Building",
+			"IWERK": "1000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000022')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000022')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "4000022",
+			"PLTXT": "Test New device location",
+			"IWERK": "1000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000023')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000023')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "4000023",
+			"PLTXT": "Community - Central Floor",
+			"IWERK": "",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000024')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000024')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "4000024",
+			"PLTXT": "New Device Location Dummy",
+			"IWERK": "1000",
+			"ARBPL": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000025')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHFunctionalLocSet('4000025')",
+				"type": "com.evorait.evonotify.SHFunctionalLoc"
+			},
+			"TPLNR": "4000025",
+			"PLTXT": "New Device Location Dummy",
+			"IWERK": "3200",
+			"ARBPL": ""
+		}]
+	}
+}

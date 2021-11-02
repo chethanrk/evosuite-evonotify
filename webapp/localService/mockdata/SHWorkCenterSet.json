@@ -1,0 +1,1255 @@
+{
+	"d": {
+		"results": [{
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "",
+			"KTEXT": "Standard Machine",
+			"OBJID": "10000000"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "",
+			"KTEXT": "",
+			"OBJID": "10000004"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1000')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "1000",
+			"KTEXT": "Plant 1000",
+			"OBJID": "10000019"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1100')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1100')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "1100",
+			"KTEXT": "Mechanical production",
+			"OBJID": "10000020"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1200')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1200')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "1200",
+			"KTEXT": "Electronic production",
+			"OBJID": "10000021"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1300')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1300')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "1300",
+			"KTEXT": "Assembly areas I+II",
+			"OBJID": "10000022"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1400')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1400')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "1400",
+			"KTEXT": "Assembly areas III+IV",
+			"OBJID": "10000023"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1110')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1110')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "1110",
+			"KTEXT": "Processing center 1110",
+			"OBJID": "10000025"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1120')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1120')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "1120",
+			"KTEXT": "Processing center 1120",
+			"OBJID": "10000026"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1310')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1310')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "1310",
+			"KTEXT": "Pre-Assembly I",
+			"OBJID": "10000034"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1320')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1320')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "1320",
+			"KTEXT": "Pre-Assembly II",
+			"OBJID": "10000035"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1410')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1410')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "1410",
+			"KTEXT": "Assembly III",
+			"OBJID": "10000036"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1420')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1420')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "1420",
+			"KTEXT": "Assembly IV",
+			"OBJID": "10000037"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1500')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1500')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "1500",
+			"KTEXT": "Production",
+			"OBJID": "10000038"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1111')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1111')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "1111",
+			"KTEXT": "Universal Lathe",
+			"OBJID": "10000039"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1112')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1112')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "1112",
+			"KTEXT": "Universal lathe maho 2323",
+			"OBJID": "10000040"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1113')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1113')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "1113",
+			"KTEXT": "Drill press I CAP",
+			"OBJID": "10000041"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1114')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1114')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "1114",
+			"KTEXT": "Drill press",
+			"OBJID": "10000042"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1115')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1115')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "1115",
+			"KTEXT": "Balancing machine",
+			"OBJID": "10000044"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "",
+			"KTEXT": "",
+			"OBJID": "10000049"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='L-1000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='L-1000')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1200",
+			"ARBPL": "L-1000",
+			"KTEXT": "Line 1000",
+			"OBJID": "10000050"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='L-2000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='L-2000')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1200",
+			"ARBPL": "L-2000",
+			"KTEXT": "Line 2000",
+			"OBJID": "10000051"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='L-3000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='L-3000')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1200",
+			"ARBPL": "L-3000",
+			"KTEXT": "Line 3000",
+			"OBJID": "10000052"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "",
+			"KTEXT": "",
+			"OBJID": "10000056"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "",
+			"KTEXT": "",
+			"OBJID": "10000057"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "",
+			"KTEXT": "",
+			"OBJID": "10000058"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1111')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1111')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "1111",
+			"KTEXT": "Paint Mixer 01",
+			"OBJID": "10000059"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1112')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1112')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "1112",
+			"KTEXT": "Paint mixer 02",
+			"OBJID": "10000060"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1114')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1114')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "1114",
+			"KTEXT": "Dissolver 01",
+			"OBJID": "10000061"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1113')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1113')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "1113",
+			"KTEXT": "Paint mixer 03",
+			"OBJID": "10000062"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1115')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1115')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "1115",
+			"KTEXT": "Dissolver 02",
+			"OBJID": "10000063"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1116')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1116')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "1116",
+			"KTEXT": "Dissolver 03",
+			"OBJID": "10000064"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1121')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1121')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "1121",
+			"KTEXT": "Paint stand 01",
+			"OBJID": "10000065"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1122')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1122')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "1122",
+			"KTEXT": "Paint Stand 02",
+			"OBJID": "10000066"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1211')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1211')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "1211",
+			"KTEXT": "Filling unit 01",
+			"OBJID": "10000067"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='1200')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='1200')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1200",
+			"ARBPL": "1200",
+			"KTEXT": "Line 1000 - 3000 bulbs",
+			"OBJID": "10000073"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1110')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1110')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "1110",
+			"KTEXT": "Reaction container",
+			"OBJID": "10000074"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1120')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1120')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "1120",
+			"KTEXT": "Paint stand",
+			"OBJID": "10000076"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1210')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1210')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "1210",
+			"KTEXT": "Filling equipment",
+			"OBJID": "10000077"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1100')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1100')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "1100",
+			"KTEXT": "Shop floor area",
+			"OBJID": "10000078"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1200')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1200')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "1200",
+			"KTEXT": "Filling area",
+			"OBJID": "10000079"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1000')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "1000",
+			"KTEXT": "Coloring",
+			"OBJID": "10000080"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1710')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1710')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "1710",
+			"KTEXT": "Goods receipt inspection I",
+			"OBJID": "10000081"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1711')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1711')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "1711",
+			"KTEXT": "Goods receipt inspection II",
+			"OBJID": "10000082"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1720')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1720')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "1720",
+			"KTEXT": "Production inspection I",
+			"OBJID": "10000083"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1721')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='1721')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "1721",
+			"KTEXT": "Production inspection II",
+			"OBJID": "10000084"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1310')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1310')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "1310",
+			"KTEXT": "Assembly I",
+			"OBJID": "10000088"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1320')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1320')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "1320",
+			"KTEXT": "Assembly II",
+			"OBJID": "10000089"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1111')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1111')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "1111",
+			"KTEXT": "Universal lathe Maho 2313",
+			"OBJID": "10000091"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1115')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1115')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "1115",
+			"KTEXT": "Balancing machine",
+			"OBJID": "10000092"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1110')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1110')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "1110",
+			"KTEXT": "Processing center 1110",
+			"OBJID": "10000094"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1000')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "1000",
+			"KTEXT": "Plant 1000",
+			"OBJID": "10000095"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1100')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1100')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "1100",
+			"KTEXT": "Mechanical production",
+			"OBJID": "10000097"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1112')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1112')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "1112",
+			"KTEXT": "Universal lathe maho 2323",
+			"OBJID": "10000098"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1113')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1113')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "1113",
+			"KTEXT": "Drill press",
+			"OBJID": "10000099"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1114')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1114')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "1114",
+			"KTEXT": "Drill press",
+			"OBJID": "10000100"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1120')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1120')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "1120",
+			"KTEXT": "Processing center 1120",
+			"OBJID": "10000101"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1200')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1200')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "1200",
+			"KTEXT": "Electronic production",
+			"OBJID": "10000102"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1300')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1300')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "1300",
+			"KTEXT": "Assembly areas I+II",
+			"OBJID": "10000103"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1400')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1400')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "1400",
+			"KTEXT": "Assembly areas III+IV",
+			"OBJID": "10000104"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1410')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1410')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "1410",
+			"KTEXT": "Assembly III",
+			"OBJID": "10000105"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1420')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1420')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "1420",
+			"KTEXT": "Assembly IV",
+			"OBJID": "10000106"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1500')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1500')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "1500",
+			"KTEXT": "Production",
+			"OBJID": "10000107"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1710')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1710')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "1710",
+			"KTEXT": "Goods receipt inspection I",
+			"OBJID": "10000108"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1711')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1711')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "1711",
+			"KTEXT": "Goods receipt inspection II",
+			"OBJID": "10000109"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1720')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1720')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "1720",
+			"KTEXT": "Production inspection I",
+			"OBJID": "10000110"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1721')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='1721')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "1721",
+			"KTEXT": "Production inspection II",
+			"OBJID": "10000111"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3200',ARBPL='1200')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3200',ARBPL='1200')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3200",
+			"ARBPL": "1200",
+			"KTEXT": "Line 1000",
+			"OBJID": "10000112"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3200',ARBPL='L-1000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3200',ARBPL='L-1000')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3200",
+			"ARBPL": "L-1000",
+			"KTEXT": "Line 1000",
+			"OBJID": "10000113"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3200',ARBPL='L-2000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3200',ARBPL='L-2000')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3200",
+			"ARBPL": "L-2000",
+			"KTEXT": "Line 2000",
+			"OBJID": "10000115"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3200',ARBPL='L-3000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3200',ARBPL='L-3000')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3200",
+			"ARBPL": "L-3000",
+			"KTEXT": "Line 3000",
+			"OBJID": "10000116"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='MECHANIK')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='MECHANIK')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "MECHANIK",
+			"KTEXT": "Mechanical maintenance",
+			"OBJID": "10000118"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='ELEKTRIK')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='ELEKTRIK')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "ELEKTRIK",
+			"KTEXT": "Electrical maintenance",
+			"OBJID": "10000120"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='MECHMNT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='MECHMNT')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "MECHMNT",
+			"KTEXT": "Mechanical maintenance",
+			"OBJID": "10000125"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1200",
+			"ARBPL": "",
+			"KTEXT": "",
+			"OBJID": "10000129"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1200",
+			"ARBPL": "",
+			"KTEXT": "",
+			"OBJID": "10000130"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='EXT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1000',ARBPL='EXT')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1000",
+			"ARBPL": "EXT",
+			"KTEXT": "Exernal drill press",
+			"OBJID": "10000131"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='EXT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='EXT')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "EXT",
+			"KTEXT": "Exernal capacity",
+			"OBJID": "10000136"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1000')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3100",
+			"ARBPL": "1000",
+			"KTEXT": "Hierarchy",
+			"OBJID": "10000138"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1100')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1100')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3100",
+			"ARBPL": "1100",
+			"KTEXT": "Shop floor area",
+			"OBJID": "10000139"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1200')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1200')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3100",
+			"ARBPL": "1200",
+			"KTEXT": "Filling area",
+			"OBJID": "10000140"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1110')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1110')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3100",
+			"ARBPL": "1110",
+			"KTEXT": "Reaction vessel",
+			"OBJID": "10000142"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1120')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1120')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3100",
+			"ARBPL": "1120",
+			"KTEXT": "Paint stand",
+			"OBJID": "10000143"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1111')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1111')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3100",
+			"ARBPL": "1111",
+			"KTEXT": "Paint Mixer 01",
+			"OBJID": "10000145"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1112')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1112')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3100",
+			"ARBPL": "1112",
+			"KTEXT": "Paint mixer 02",
+			"OBJID": "10000146"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1113')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1113')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3100",
+			"ARBPL": "1113",
+			"KTEXT": "Paint mixer 03",
+			"OBJID": "10000147"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1114')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1114')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3100",
+			"ARBPL": "1114",
+			"KTEXT": "",
+			"OBJID": "10000148"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1115')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1115')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3100",
+			"ARBPL": "1115",
+			"KTEXT": "",
+			"OBJID": "10000149"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1116')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1116')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3100",
+			"ARBPL": "1116",
+			"KTEXT": "",
+			"OBJID": "10000150"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1121')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1121')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3100",
+			"ARBPL": "1121",
+			"KTEXT": "",
+			"OBJID": "10000152"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1122')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1122')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3100",
+			"ARBPL": "1122",
+			"KTEXT": "",
+			"OBJID": "10000153"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1210')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1210')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3100",
+			"ARBPL": "1210",
+			"KTEXT": "",
+			"OBJID": "10000155"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1211')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3100',ARBPL='1211')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3100",
+			"ARBPL": "1211",
+			"KTEXT": "",
+			"OBJID": "10000156"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='9000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='9000')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1300",
+			"ARBPL": "9000",
+			"KTEXT": "Plant 1300",
+			"OBJID": "10000162"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='1100')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='1100')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1300",
+			"ARBPL": "1100",
+			"KTEXT": "Mechanical production",
+			"OBJID": "10000163"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='1200')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='1200')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1300",
+			"ARBPL": "1200",
+			"KTEXT": "Electronic production",
+			"OBJID": "10000164"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='1300')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='1300')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1300",
+			"ARBPL": "1300",
+			"KTEXT": "Assembly areas I+II",
+			"OBJID": "10000165"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='1110')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='1110')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1300",
+			"ARBPL": "1110",
+			"KTEXT": "Work center mechanic 1",
+			"OBJID": "10000168"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='2000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='2000')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1300",
+			"ARBPL": "2000",
+			"KTEXT": "Electrical specs.",
+			"OBJID": "10000169"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='2100')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='2100')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1300",
+			"ARBPL": "2100",
+			"KTEXT": "Design mechanics",
+			"OBJID": "10000170"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='2200')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='2200')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1300",
+			"ARBPL": "2200",
+			"KTEXT": "Specification statics",
+			"OBJID": "10000171"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='1120')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='1120')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1300",
+			"ARBPL": "1120",
+			"KTEXT": "Work center mechanics 2",
+			"OBJID": "10000172"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='2300')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='2300')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1300",
+			"ARBPL": "2300",
+			"KTEXT": "Procurement",
+			"OBJID": "10000173"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='2400')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='2400')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1300",
+			"ARBPL": "2400",
+			"KTEXT": "Quality inspection",
+			"OBJID": "10000174"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='1210')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='1210')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1300",
+			"ARBPL": "1210",
+			"KTEXT": "Work center electric 1",
+			"OBJID": "10000175"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='1220')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='1220')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1300",
+			"ARBPL": "1220",
+			"KTEXT": "Work center electrics 2",
+			"OBJID": "10000176"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='1310')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='1310')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1300",
+			"ARBPL": "1310",
+			"KTEXT": "Work center assembly 1",
+			"OBJID": "10000177"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='1320')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='1320')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1300",
+			"ARBPL": "1320",
+			"KTEXT": "Work center assembly 2",
+			"OBJID": "10000178"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='2500')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='2500')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1300",
+			"ARBPL": "2500",
+			"KTEXT": "Pre-assembly turbine",
+			"OBJID": "10000180"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='2600')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='2600')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1300",
+			"ARBPL": "2600",
+			"KTEXT": "Assembly elevator",
+			"OBJID": "10000181"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='2700')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='2700')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1300",
+			"ARBPL": "2700",
+			"KTEXT": "Final assembly turbine",
+			"OBJID": "10000182"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='1000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1300',ARBPL='1000')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1300",
+			"ARBPL": "1000",
+			"KTEXT": "Plant 1300",
+			"OBJID": "10000183"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='WC01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='3000',ARBPL='WC01')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "3000",
+			"ARBPL": "WC01",
+			"KTEXT": "",
+			"OBJID": "10000184"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='LINE1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='LINE1')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1200",
+			"ARBPL": "LINE1",
+			"KTEXT": "PC Final assembly - production line 1",
+			"OBJID": "10000185"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='R_1100')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='R_1100')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "R_1100",
+			"KTEXT": "",
+			"OBJID": "10000187"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='R_1110')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='R_1110')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "R_1110",
+			"KTEXT": "Charging vessel",
+			"OBJID": "10000188"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='R_1111')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='R_1111')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "R_1111",
+			"KTEXT": "Mixing vessel 01",
+			"OBJID": "10000190"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='LINE2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='LINE2')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1200",
+			"ARBPL": "LINE2",
+			"KTEXT": "PC Final assembly - production line 2",
+			"OBJID": "10000191"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='R_1112')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='R_1112')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "R_1112",
+			"KTEXT": "Mixing vessel 02",
+			"OBJID": "10000192"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='R_1120')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='R_1120')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "R_1120",
+			"KTEXT": "Reaction vessel",
+			"OBJID": "10000193"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='LINE3')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='LINE3')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1200",
+			"ARBPL": "LINE3",
+			"KTEXT": "Motherboard assembly - production line 3",
+			"OBJID": "10000194"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='R_1121')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='R_1121')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "R_1121",
+			"KTEXT": "Reaction Vessel 01",
+			"OBJID": "10000195"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='LINE4')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='LINE4')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1200",
+			"ARBPL": "LINE4",
+			"KTEXT": "Motherboard assembly - Production Line 4",
+			"OBJID": "10000196"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1500')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1100',ARBPL='1500')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1100",
+			"ARBPL": "1500",
+			"KTEXT": "",
+			"OBJID": "10000197"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='LINE5')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHWorkCenterSet(WERKS='1200',ARBPL='LINE5')",
+				"type": "com.evorait.evonotify.SHWorkCenter"
+			},
+			"WERKS": "1200",
+			"ARBPL": "LINE5",
+			"KTEXT": "Cool. unit assembly - production line 5",
+			"OBJID": "10000198"
+		}]
+	}
+}

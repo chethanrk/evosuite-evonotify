@@ -1,0 +1,805 @@
+{
+	"d": {
+		"results": [{
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('B1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('B1')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "B1",
+			"QMARTX": "Maintenance request",
+			"QMTYP": "01",
+			"FEKAT": "C",
+			"OTKAT": "B",
+			"ARTPR": "PM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "8",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('EC')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('EC')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "EC",
+			"QMARTX": "Engineer Change Note",
+			"QMTYP": "01",
+			"FEKAT": "C",
+			"OTKAT": "B",
+			"ARTPR": "",
+			"URKAT": "",
+			"MAKAT": "",
+			"MFKAT": "A",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('ES')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('ES')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "ES",
+			"QMARTX": "SOA Notification",
+			"QMTYP": "02",
+			"FEKAT": "",
+			"OTKAT": "",
+			"ARTPR": "QM",
+			"URKAT": "",
+			"MAKAT": "",
+			"MFKAT": "",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('F1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('F1')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "F1",
+			"QMARTX": "Customer error",
+			"QMTYP": "02",
+			"FEKAT": "9",
+			"OTKAT": "E",
+			"ARTPR": "QM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "8",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('F2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('F2')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "F2",
+			"QMARTX": "Vendor error",
+			"QMTYP": "02",
+			"FEKAT": "9",
+			"OTKAT": "E",
+			"ARTPR": "QM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "8",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('F3')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('F3')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "F3",
+			"QMARTX": "Material error",
+			"QMTYP": "02",
+			"FEKAT": "9",
+			"OTKAT": "E",
+			"ARTPR": "QM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "8",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('GC')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('GC')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "GC",
+			"QMARTX": "Geom. Car Inspection",
+			"QMTYP": "01",
+			"FEKAT": "V",
+			"OTKAT": "U",
+			"ARTPR": "PM",
+			"URKAT": "",
+			"MAKAT": "",
+			"MFKAT": "X",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('HI')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('HI')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "HI",
+			"QMARTX": "Hi-Rail Inspection",
+			"QMTYP": "01",
+			"FEKAT": "V",
+			"OTKAT": "U",
+			"ARTPR": "PM",
+			"URKAT": "",
+			"MAKAT": "",
+			"MFKAT": "X",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('I1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('I1')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "I1",
+			"QMARTX": "Malfunct.report RE",
+			"QMTYP": "01",
+			"FEKAT": "",
+			"OTKAT": "",
+			"ARTPR": "PM",
+			"URKAT": "",
+			"MAKAT": "",
+			"MFKAT": "",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('M1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('M1')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "M1",
+			"QMARTX": "Maintenance request",
+			"QMTYP": "01",
+			"FEKAT": "C",
+			"OTKAT": "B",
+			"ARTPR": "PM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "A",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('M2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('M2')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "M2",
+			"QMARTX": "Malfunction report",
+			"QMTYP": "01",
+			"FEKAT": "C",
+			"OTKAT": "B",
+			"ARTPR": "PM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "A",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('M3')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('M3')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "M3",
+			"QMARTX": "Activity report",
+			"QMTYP": "01",
+			"FEKAT": "C",
+			"OTKAT": "B",
+			"ARTPR": "PM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "A",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('M4')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('M4')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "M4",
+			"QMARTX": "RF & RFID Maint Req",
+			"QMTYP": "01",
+			"FEKAT": "R",
+			"OTKAT": "B",
+			"ARTPR": "RF",
+			"URKAT": "C",
+			"MAKAT": "2",
+			"MFKAT": "A",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('M5')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('M5')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "M5",
+			"QMARTX": "Malfunction report E",
+			"QMTYP": "01",
+			"FEKAT": "R",
+			"OTKAT": "R",
+			"ARTPR": "",
+			"URKAT": "R",
+			"MAKAT": "R",
+			"MFKAT": "R",
+			"SAKAT": "R"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('MF')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('MF')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "MF",
+			"QMARTX": "Pool Request",
+			"QMTYP": "01",
+			"FEKAT": "",
+			"OTKAT": "",
+			"ARTPR": "PM",
+			"URKAT": "",
+			"MAKAT": "",
+			"MFKAT": "",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('ML')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('ML')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "ML",
+			"QMARTX": "Malfunction Report",
+			"QMTYP": "01",
+			"FEKAT": "C",
+			"OTKAT": "B",
+			"ARTPR": "PM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "A",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('MQ')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('MQ')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "MQ",
+			"QMARTX": "Error msg. from QM",
+			"QMTYP": "01",
+			"FEKAT": "9",
+			"OTKAT": "B",
+			"ARTPR": "PM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "A",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('MT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('MT')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "MT",
+			"QMARTX": "Maintenance Request",
+			"QMTYP": "01",
+			"FEKAT": "C",
+			"OTKAT": "B",
+			"ARTPR": "RF",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "A",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('MX')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('MX')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "MX",
+			"QMARTX": "",
+			"QMTYP": "01",
+			"FEKAT": "C",
+			"OTKAT": "B",
+			"ARTPR": "PM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "A",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('N1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('N1')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "N1",
+			"QMARTX": "IT Support",
+			"QMTYP": "01",
+			"FEKAT": "C",
+			"OTKAT": "B",
+			"ARTPR": "PM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "A",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('OS')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('OS')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "OS",
+			"QMARTX": "IHS notification",
+			"QMTYP": "01",
+			"FEKAT": "",
+			"OTKAT": "",
+			"ARTPR": "PM",
+			"URKAT": "",
+			"MAKAT": "",
+			"MFKAT": "",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('P2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('P2')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "P2",
+			"QMARTX": "Post Maint. Request",
+			"QMTYP": "01",
+			"FEKAT": "C",
+			"OTKAT": "B",
+			"ARTPR": "PM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "A",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('P3')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('P3')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "P3",
+			"QMARTX": "Maintenance request",
+			"QMTYP": "01",
+			"FEKAT": "C",
+			"OTKAT": "B",
+			"ARTPR": "PM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "A",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('Q1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('Q1')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "Q1",
+			"QMARTX": "Customer Complaint",
+			"QMTYP": "02",
+			"FEKAT": "9",
+			"OTKAT": "E",
+			"ARTPR": "QM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "8",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('Q2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('Q2')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "Q2",
+			"QMARTX": "Complaint ag. vendor",
+			"QMTYP": "02",
+			"FEKAT": "9",
+			"OTKAT": "E",
+			"ARTPR": "QM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "8",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('Q3')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('Q3')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "Q3",
+			"QMARTX": "InternalProbNotif.",
+			"QMTYP": "02",
+			"FEKAT": "9",
+			"OTKAT": "E",
+			"ARTPR": "QM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "8",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('Q8')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('Q8')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "Q8",
+			"QMARTX": "Complnt f.Cust.(Ext)",
+			"QMTYP": "02",
+			"FEKAT": "9",
+			"OTKAT": "E",
+			"ARTPR": "QM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "8",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('Q9')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('Q9')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "Q9",
+			"QMARTX": "Complnt f.Vend.(Ext)",
+			"QMTYP": "02",
+			"FEKAT": "9",
+			"OTKAT": "E",
+			"ARTPR": "QM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "8",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('QM')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('QM')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "QM",
+			"QMARTX": "Mobile Quality Issue",
+			"QMTYP": "02",
+			"FEKAT": "9",
+			"OTKAT": "E",
+			"ARTPR": "QM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "8",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('QR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('QR')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "QR",
+			"QMARTX": "StabilStudy w/o Mat",
+			"QMTYP": "02",
+			"FEKAT": "",
+			"OTKAT": "",
+			"ARTPR": "QM",
+			"URKAT": "",
+			"MAKAT": "2",
+			"MFKAT": "8",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('QS')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('QS')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "QS",
+			"QMARTX": "StabilStudy with Mat",
+			"QMTYP": "02",
+			"FEKAT": "",
+			"OTKAT": "",
+			"ARTPR": "QM",
+			"URKAT": "",
+			"MAKAT": "2",
+			"MFKAT": "8",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('QT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('QT')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "QT",
+			"QMARTX": "StabilityStudy Trial",
+			"QMTYP": "02",
+			"FEKAT": "",
+			"OTKAT": "",
+			"ARTPR": "QM",
+			"URKAT": "",
+			"MAKAT": "2",
+			"MFKAT": "8",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('RX')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('RX')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "RX",
+			"QMARTX": "Roadcross Inspection",
+			"QMTYP": "01",
+			"FEKAT": "V",
+			"OTKAT": "U",
+			"ARTPR": "PM",
+			"URKAT": "",
+			"MAKAT": "",
+			"MFKAT": "X",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('T1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('T1')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "T1",
+			"QMARTX": "Maintenance request",
+			"QMTYP": "01",
+			"FEKAT": "",
+			"OTKAT": "",
+			"ARTPR": "PM",
+			"URKAT": "",
+			"MAKAT": "",
+			"MFKAT": "",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('T2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('T2')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "T2",
+			"QMARTX": "Maintenance request",
+			"QMTYP": "01",
+			"FEKAT": "",
+			"OTKAT": "",
+			"ARTPR": "PM",
+			"URKAT": "",
+			"MAKAT": "",
+			"MFKAT": "",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('TI')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('TI')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "TI",
+			"QMARTX": "Track Inspection",
+			"QMTYP": "01",
+			"FEKAT": "V",
+			"OTKAT": "U",
+			"ARTPR": "PM",
+			"URKAT": "",
+			"MAKAT": "",
+			"MFKAT": "X",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('TO')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('TO')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "TO",
+			"QMARTX": "Turnout Inspection",
+			"QMTYP": "01",
+			"FEKAT": "V",
+			"OTKAT": "U",
+			"ARTPR": "PM",
+			"URKAT": "",
+			"MAKAT": "",
+			"MFKAT": "X",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('WI')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('WI')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "WI",
+			"QMARTX": "Walking Inspection",
+			"QMTYP": "01",
+			"FEKAT": "V",
+			"OTKAT": "U",
+			"ARTPR": "PM",
+			"URKAT": "",
+			"MAKAT": "",
+			"MFKAT": "X",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('YS')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('YS')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "YS",
+			"QMARTX": "SOA Notification",
+			"QMTYP": "02",
+			"FEKAT": "",
+			"OTKAT": "",
+			"ARTPR": "QM",
+			"URKAT": "",
+			"MAKAT": "",
+			"MFKAT": "",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('Z1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('Z1')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "Z1",
+			"QMARTX": "Maintenance request",
+			"QMTYP": "01",
+			"FEKAT": "",
+			"OTKAT": "",
+			"ARTPR": "PM",
+			"URKAT": "",
+			"MAKAT": "",
+			"MFKAT": "",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('Z3')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('Z3')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "Z3",
+			"QMARTX": "gen. i. problem mesg",
+			"QMTYP": "02",
+			"FEKAT": "9",
+			"OTKAT": "E",
+			"ARTPR": "QM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "8",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('Z8')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('Z8')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "Z8",
+			"QMARTX": "MRS Maint Notfn (M1)",
+			"QMTYP": "01",
+			"FEKAT": "C",
+			"OTKAT": "B",
+			"ARTPR": "PM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "A",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('ZC')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('ZC')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "ZC",
+			"QMARTX": "Container request",
+			"QMTYP": "01",
+			"FEKAT": "",
+			"OTKAT": "",
+			"ARTPR": "PM",
+			"URKAT": "",
+			"MAKAT": "",
+			"MFKAT": "",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('ZE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('ZE')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "ZE",
+			"QMARTX": "Maintenance request",
+			"QMTYP": "01",
+			"FEKAT": "C",
+			"OTKAT": "B",
+			"ARTPR": "PM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "A",
+			"SAKAT": "D"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('ZI')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('ZI')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "ZI",
+			"QMARTX": "IT Support Notifica.",
+			"QMTYP": "01",
+			"FEKAT": "9",
+			"OTKAT": "A",
+			"ARTPR": "PM",
+			"URKAT": "9",
+			"MAKAT": "A",
+			"MFKAT": "A",
+			"SAKAT": "9"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('ZJ')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('ZJ')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "ZJ",
+			"QMARTX": "Inter-Office Memo",
+			"QMTYP": "01",
+			"FEKAT": "",
+			"OTKAT": "",
+			"ARTPR": "RJ",
+			"URKAT": "",
+			"MAKAT": "",
+			"MFKAT": "",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('ZP')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('ZP')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "ZP",
+			"QMARTX": "PIR Maint. Request",
+			"QMTYP": "01",
+			"FEKAT": "4",
+			"OTKAT": "",
+			"ARTPR": "PM",
+			"URKAT": "5",
+			"MAKAT": "W",
+			"MFKAT": "9",
+			"SAKAT": "2"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('ZQ')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('ZQ')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "ZQ",
+			"QMARTX": "PHIncidenceReporting",
+			"QMTYP": "02",
+			"FEKAT": "4",
+			"OTKAT": "E",
+			"ARTPR": "QM",
+			"URKAT": "5",
+			"MAKAT": "W",
+			"MFKAT": "9",
+			"SAKAT": "2"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('ZS')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('ZS')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "ZS",
+			"QMARTX": "Plant maintenance",
+			"QMTYP": "01",
+			"FEKAT": "",
+			"OTKAT": "",
+			"ARTPR": "PM",
+			"URKAT": "",
+			"MAKAT": "",
+			"MFKAT": "",
+			"SAKAT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('ZU')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHNotificationTypeSet('ZU')",
+				"type": "com.evorait.evonotify.SHNotificationType"
+			},
+			"QMART": "ZU",
+			"QMARTX": "Utility Work Request",
+			"QMTYP": "01",
+			"FEKAT": "C",
+			"OTKAT": "B",
+			"ARTPR": "PM",
+			"URKAT": "5",
+			"MAKAT": "2",
+			"MFKAT": "A",
+			"SAKAT": "D"
+		}]
+	}
+}

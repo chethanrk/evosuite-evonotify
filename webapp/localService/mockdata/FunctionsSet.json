@@ -1,0 +1,35 @@
+{
+	"d": {
+		"results": [{
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/FunctionsSet('COMPLETE')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/FunctionsSet('COMPLETE')",
+				"type": "com.evorait.evonotify.Functions"
+			},
+			"ObjectCategory": "QMI",
+			"Function": "COMPLETE",
+			"Description": "Complete Only",
+			"FUNCTION_TYPE": "S"
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/FunctionsSet('INPROGRESS')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/FunctionsSet('INPROGRESS')",
+				"type": "com.evorait.evonotify.Functions"
+			},
+			"ObjectCategory": "QMI",
+			"Function": "INPROGRESS",
+			"Description": "In Progress",
+			"FUNCTION_TYPE": "S"
+		}, {
+			"__metadata": {
+				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/FunctionsSet('POSTPONE')",
+				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/FunctionsSet('POSTPONE')",
+				"type": "com.evorait.evonotify.Functions"
+			},
+			"ObjectCategory": "QMI",
+			"Function": "POSTPONE",
+			"Description": "Postpone",
+			"FUNCTION_TYPE": "S"
+		}]
+	}
+}

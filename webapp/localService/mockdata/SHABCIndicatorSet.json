@@ -1,0 +1,77 @@
+{
+	"d": {
+		"results": [{
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHABCIndicatorSet('1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHABCIndicatorSet('1')",
+				"type": "com.evorait.evonotify.SHABCIndicator"
+			},
+			"ABCKZ": "1",
+			"ABCTX": "Dept. Shutdown"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHABCIndicatorSet('2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHABCIndicatorSet('2')",
+				"type": "com.evorait.evonotify.SHABCIndicator"
+			},
+			"ABCKZ": "2",
+			"ABCTX": "Potential Prod Loss"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHABCIndicatorSet('3')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHABCIndicatorSet('3')",
+				"type": "com.evorait.evonotify.SHABCIndicator"
+			},
+			"ABCKZ": "3",
+			"ABCTX": "Has Installed Spare"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHABCIndicatorSet('4')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHABCIndicatorSet('4')",
+				"type": "com.evorait.evonotify.SHABCIndicator"
+			},
+			"ABCKZ": "4",
+			"ABCTX": "No Effect"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHABCIndicatorSet('5')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHABCIndicatorSet('5')",
+				"type": "com.evorait.evonotify.SHABCIndicator"
+			},
+			"ABCKZ": "5",
+			"ABCTX": "Envir risk"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHABCIndicatorSet('A')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHABCIndicatorSet('A')",
+				"type": "com.evorait.evonotify.SHABCIndicator"
+			},
+			"ABCKZ": "A",
+			"ABCTX": "Prod. loss involved"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHABCIndicatorSet('B')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHABCIndicatorSet('B')",
+				"type": "com.evorait.evonotify.SHABCIndicator"
+			},
+			"ABCKZ": "B",
+			"ABCTX": "Reduced prod. loss"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHABCIndicatorSet('C')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHABCIndicatorSet('C')",
+				"type": "com.evorait.evonotify.SHABCIndicator"
+			},
+			"ABCKZ": "C",
+			"ABCTX": "No effect on prod."
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHABCIndicatorSet('T')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHABCIndicatorSet('T')",
+				"type": "com.evorait.evonotify.SHABCIndicator"
+			},
+			"ABCKZ": "T",
+			"ABCTX": ""
+		}]
+	}
+}

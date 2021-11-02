@@ -1,0 +1,1130 @@
+{
+	"d": {
+		"results": [{
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('CTRR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('CTRR')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "CTRR",
+			"TXT04": "CTRR",
+			"TXT30": "Ready to Use"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0001')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0001",
+			"TXT04": "CRTD",
+			"TXT30": "Created"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0002')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0002')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0002",
+			"TXT04": "REL",
+			"TXT30": "Released"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0003')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0003')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0003",
+			"TXT04": "MSCP",
+			"TXT30": "Capacity shortage"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0004')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0004')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0004",
+			"TXT04": "MSPT",
+			"TXT30": "Material shortage"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0005')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0005')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0005",
+			"TXT04": "AVAC",
+			"TXT30": "Availability control active"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0006')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0006')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0006",
+			"TXT04": "ESTC",
+			"TXT30": "Estimated costs"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0007')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0007')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0007",
+			"TXT04": "PRT",
+			"TXT30": "Printed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0008')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0008')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0008",
+			"TXT04": "PPRT",
+			"TXT30": "Part printed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0009')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0009')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0009",
+			"TXT04": "CNF",
+			"TXT30": "Confirmed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0010')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0010')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0010",
+			"TXT04": "PCNF",
+			"TXT30": "Partially confirmed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0011')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0011')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0011",
+			"TXT04": "CPCK",
+			"TXT30": "Capacity checked"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0012')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0012')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0012",
+			"TXT04": "DLV",
+			"TXT30": "Delivered"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0013')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0013')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0013",
+			"TXT04": "DLT",
+			"TXT30": "Deletion indicator"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0014')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0014')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0014",
+			"TXT04": "PCST",
+			"TXT30": "Product costed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0015')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0015')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0015",
+			"TXT04": "NCMP",
+			"TXT30": "Not completed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0016')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0016')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0016",
+			"TXT04": "PRC",
+			"TXT30": "Pre-costed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0017')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0017')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0017",
+			"TXT04": "ISSD",
+			"TXT30": "Goods issued"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0018')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0018')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0018",
+			"TXT04": "NHFD",
+			"TXT30": "Ntwk header: final delivery"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0019')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0019')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0019",
+			"TXT04": "GEN1",
+			"TXT30": "General list 1 printed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0020')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0020')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0020",
+			"TXT04": "GEN2",
+			"TXT30": "General list 2 printed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0021')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0021')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0021",
+			"TXT04": "GEN3",
+			"TXT30": "General list 3 printed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0022')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0022')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0022",
+			"TXT04": "GEN4",
+			"TXT30": "General list 4 printed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0023')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0023')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0023",
+			"TXT04": "OPL1",
+			"TXT30": "Activity list 1 printed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0024')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0024')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0024",
+			"TXT04": "OPL2",
+			"TXT30": "Activity list 2 printed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0025')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0025')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0025",
+			"TXT04": "OPL3",
+			"TXT30": "Activity list 3 printed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0026')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0026')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0026",
+			"TXT04": "OPL4",
+			"TXT30": "Activity list 4 printed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0027')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0027')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0027",
+			"TXT04": "SFMT",
+			"TXT30": "Settlement fields maintained"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0028')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0028')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0028",
+			"TXT04": "SETC",
+			"TXT30": "Settlement rule created"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0029')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0029')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0029",
+			"TXT04": "DSEX",
+			"TXT30": "Date set by external system"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0030')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0030')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0030",
+			"TXT04": "MLTL",
+			"TXT30": "Multi-level: Top level"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0031')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0031')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0031",
+			"TXT04": "MLBL",
+			"TXT30": "Multi-level: Bottom level"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0032')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0032')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0032",
+			"TXT04": "MLDI",
+			"TXT30": "Multi-level: Dummy info record"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0033')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0033')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0033",
+			"TXT04": "CNC",
+			"TXT30": "Costs not current"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0034')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0034')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0034",
+			"TXT04": "SORL",
+			"TXT30": "Subordinate order released"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0035')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0035')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0035",
+			"TXT04": "SOPR",
+			"TXT30": "Subordinate order printed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0036')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0036')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0036",
+			"TXT04": "SOCF",
+			"TXT30": "Subordinate order confirmed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0037')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0037')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0037",
+			"TXT04": "UMGP",
+			"TXT30": "Rescheduled"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0038')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0038')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0038",
+			"TXT04": "CONI",
+			"TXT30": "Configuration incomplete"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0042')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0042')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0042",
+			"TXT04": "PREL",
+			"TXT30": "Partially released"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0043')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0043')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0043",
+			"TXT04": "LKD",
+			"TXT30": "Locked"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0045')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0045')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0045",
+			"TXT04": "TECO",
+			"TXT30": "Technically completed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0046')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0046')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0046",
+			"TXT04": "CLSD",
+			"TXT30": "Closed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0047')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0047')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0047",
+			"TXT04": "RDIS",
+			"TXT30": "Relevant for Distrib. to MES"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0048')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0048')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0048",
+			"TXT04": "DISB",
+			"TXT30": "Distributed to MES"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0049')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0049')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0049",
+			"TXT04": "ORSP",
+			"TXT30": "Open reservations posted"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0050')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0050')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0050",
+			"TXT04": "STND",
+			"TXT30": "Standard confirmation"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0051')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0051')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0051",
+			"TXT04": "MILE",
+			"TXT30": "Milestone confirmation"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0052')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0052')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0052",
+			"TXT04": "MCNF",
+			"TXT30": "Manually confirmed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0053')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0053')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0053",
+			"TXT04": "ACAS",
+			"TXT30": "Activity account assignment"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0054')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0054')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0054",
+			"TXT04": "MSCP",
+			"TXT30": "Capacity shortage"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0055')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0055')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0055",
+			"TXT04": "RELR",
+			"TXT30": "Release rejected"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0056')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0056')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0056",
+			"TXT04": "VCAL",
+			"TXT30": "Variances calculated"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0057')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0057')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0057",
+			"TXT04": "NDAT",
+			"TXT30": "Rescheduling (Actl.) required"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0058')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0058')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0058",
+			"TXT04": "CSPS",
+			"TXT30": "Costs posted"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0059')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0059')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0059",
+			"TXT04": "SKKP",
+			"TXT30": "Copied Estimated Costs"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0060')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0060')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0060",
+			"TXT04": "PLCS",
+			"TXT30": "Planned costs"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0061')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0061')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0061",
+			"TXT04": "PLLK",
+			"TXT30": "Planning locked"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0062')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0062')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0062",
+			"TXT04": "DDLK",
+			"TXT30": "Date definition locked"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0063')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0063')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0063",
+			"TXT04": "BMLK",
+			"TXT30": "Budget management locked"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0064')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0064')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0064",
+			"TXT04": "AALK",
+			"TXT30": "Account assignment locked"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0065')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0065')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0065",
+			"TXT04": "MDLK",
+			"TXT30": "Master data locked"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0066')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0066')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0066",
+			"TXT04": "APPR",
+			"TXT30": "Approved"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0067')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0067')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0067",
+			"TXT04": "BUDG",
+			"TXT30": "Budgeted"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0068')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0068')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0068",
+			"TXT04": "OSNO",
+			"TXT30": "Outstanding notification"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0069')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0069')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0069",
+			"TXT04": "NOPO",
+			"TXT30": "Notification postponed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0070')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0070')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0070",
+			"TXT04": "NOPR",
+			"TXT30": "Notification in process"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0071')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0071')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0071",
+			"TXT04": "ORAS",
+			"TXT30": "Order assigned"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0072')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0072')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0072",
+			"TXT04": "NOCO",
+			"TXT30": "Notification completed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0073')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0073')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0073",
+			"TXT04": "NOPT",
+			"TXT30": "Notification printed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0074')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0074')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0074",
+			"TXT04": "PDLV",
+			"TXT30": "Partially delivered"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0075')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0075')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0075",
+			"TXT04": "WDFL",
+			"TXT30": "Withdrawal failed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0076')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0076')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0076",
+			"TXT04": "DLFL",
+			"TXT30": "Deletion Flag"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0077')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0077')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0077",
+			"TXT04": "NOLV",
+			"TXT30": "Transaction LVMS not permitted"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0078')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0078')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0078",
+			"TXT04": "COL1",
+			"TXT30": "Component list 1 printed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0079')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0079')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0079",
+			"TXT04": "COL2",
+			"TXT30": "Component list 2 printed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0080')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0080')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0080",
+			"TXT04": "COL3",
+			"TXT30": "Component list 3 printed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0081')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0081')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0081",
+			"TXT04": "COL4",
+			"TXT30": "Component list 4 printed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0082')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0082')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0082",
+			"TXT04": "RESA",
+			"TXT30": "Results analysis carried out"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0083')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0083')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0083",
+			"TXT04": "PRL1",
+			"TXT30": "PRT list 1 printed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0084')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0084')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0084",
+			"TXT04": "PRL2",
+			"TXT30": "PRT list 2 printed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0085')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0085')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0085",
+			"TXT04": "PRL3",
+			"TXT30": "PRT list 3 printed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0086')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0086')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0086",
+			"TXT04": "PRL4",
+			"TXT30": "PRT list 4 printed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0087')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0087')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0087",
+			"TXT04": "NBDT",
+			"TXT30": "Rescheduling required (Basic)"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0088')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0088')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0088",
+			"TXT04": "NFDT",
+			"TXT30": "Rescheduling required (Frcst)"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0089')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0089')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0089",
+			"TXT04": "GMCO",
+			"TXT30": "Goods movement in coll. order"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I008B')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I008B')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I008B",
+			"TXT04": "PRTB",
+			"TXT30": "Preprinted (Before Release)"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I008T')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I008T')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I008T",
+			"TXT04": "PRTT",
+			"TXT30": "Reprinted (After Completion)"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0090')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0090')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0090",
+			"TXT04": "CFCO",
+			"TXT30": "Confirmation in coll. order"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0091')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0091')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0091",
+			"TXT04": "SPCF",
+			"TXT30": "Sub-operation partially conf."
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0092')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0092')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0092",
+			"TXT04": "SCNF",
+			"TXT30": "Sub-operation finally conf."
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0093')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0093')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0093",
+			"TXT04": "ISBD",
+			"TXT30": "Insufficient budgeting"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0094')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0094')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0094",
+			"TXT04": "RVPS",
+			"TXT30": "Revenue posted"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0095')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0095')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0095",
+			"TXT04": "MSPR",
+			"TXT30": "PRT shortage"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0096')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0096')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0096",
+			"TXT04": "RVPL",
+			"TXT30": "Revenue planned"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0097')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0097')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0097",
+			"TXT04": "FNBL",
+			"TXT30": "Final billing"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0098')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0098')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0098",
+			"TXT04": "CRTE",
+			"TXT30": "Created"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0099')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0099')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0099",
+			"TXT04": "AVLB",
+			"TXT30": "Available"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0100')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0100')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0100",
+			"TXT04": "INST",
+			"TXT30": "Installed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0101')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0101')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0101",
+			"TXT04": "EHIS",
+			"TXT30": "Entered historically"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0102')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0102')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0102",
+			"TXT04": "SETM",
+			"TXT30": "Settlemt rule created manually"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0103')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0103')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0103",
+			"TXT04": "SCNF",
+			"TXT30": "Summary confirm. carried out"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0104')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0104')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0104",
+			"TXT04": "SUST",
+			"TXT30": "Setup started"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0105')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0105')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0105",
+			"TXT04": "SUIR",
+			"TXT30": "Setup interrupted"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0106')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0106')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0106",
+			"TXT04": "SUFN",
+			"TXT30": "Setup finished"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0107')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0107')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0107",
+			"TXT04": "PRST",
+			"TXT30": "Processing started"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0108')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0108')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0108",
+			"TXT04": "PRIR",
+			"TXT30": "Processing interrupted"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0109')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0109')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0109",
+			"TXT04": "PRFN",
+			"TXT30": "Processing finished"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0110')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0110')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0110",
+			"TXT04": "TDST",
+			"TXT30": "Teardown started"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0111')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0111')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0111",
+			"TXT04": "TDIR",
+			"TXT30": "Teardown interrupted"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0112')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0112')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0112",
+			"TXT04": "TDFN",
+			"TXT30": "Teardown finished"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0113')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0113')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0113",
+			"TXT04": "COMO",
+			"TXT30": "Components for object"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0114')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0114')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0114",
+			"TXT04": "PRTO",
+			"TXT30": "PRTs for object"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0115')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0115')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0115",
+			"TXT04": "CSER",
+			"TXT30": "Error in cost calculation"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0116')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0116')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0116",
+			"TXT04": "ASEQ",
+			"TXT30": "Allocated to superior equipt"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0117')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0117')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0117",
+			"TXT04": "DSPT",
+			"TXT30": "Scheduled"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0118')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0118')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0118",
+			"TXT04": "NTUP",
+			"TXT30": "Dates are not updated"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0119')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0119')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0119",
+			"TXT04": "ACTV",
+			"TXT30": "Active"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0120')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0120')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0120",
+			"TXT04": "RACR",
+			"TXT30": "Rental agreements created"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0121')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0121')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0121",
+			"TXT04": "ACLO",
+			"TXT30": "Active lease-outs"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0122')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0122')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0122",
+			"TXT04": "NOLO",
+			"TXT30": "No lease-outs"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0123')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0123')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0123",
+			"TXT04": "RESI",
+			"TXT30": "Residential Rental Agrmt"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0124')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0124')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0124",
+			"TXT04": "COMM",
+			"TXT30": "Commercial Contract"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0125')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0125')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0125",
+			"TXT04": "COPA",
+			"TXT30": "Comm. provisional agrmnt"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0126')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHSystemStatusSet('I0126')",
+				"type": "com.evorait.evonotify.SHSystemStatus"
+			},
+			"ISTAT": "I0126",
+			"TXT04": "CANC",
+			"TXT30": "Canceled"
+		}]
+	}
+}

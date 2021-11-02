@@ -1,0 +1,45 @@
+{
+	"d": {
+		"results": [{
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHPhaseSet('1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHPhaseSet('1')",
+				"type": "com.evorait.evonotify.SHPhase"
+			},
+			"PHASE": "1",
+			"DDTEXT": "Outstanding"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHPhaseSet('2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHPhaseSet('2')",
+				"type": "com.evorait.evonotify.SHPhase"
+			},
+			"PHASE": "2",
+			"DDTEXT": "Postponed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHPhaseSet('3')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHPhaseSet('3')",
+				"type": "com.evorait.evonotify.SHPhase"
+			},
+			"PHASE": "3",
+			"DDTEXT": "In Process"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHPhaseSet('4')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHPhaseSet('4')",
+				"type": "com.evorait.evonotify.SHPhase"
+			},
+			"PHASE": "4",
+			"DDTEXT": "Completed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHPhaseSet('5')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHPhaseSet('5')",
+				"type": "com.evorait.evonotify.SHPhase"
+			},
+			"PHASE": "5",
+			"DDTEXT": "Deletion Flag"
+		}]
+	}
+}

@@ -1,0 +1,4372 @@
+{
+	"d": {
+		"results": [{
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='%24',CODEGRUPPE='CLVAL')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='%24',CODEGRUPPE='CLVAL')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "$",
+			"CODEGRUPPE": "CLVAL",
+			"KURZTEXT": "Did you clean the valve?"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='%24',CODEGRUPPE='MECRM')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='%24',CODEGRUPPE='MECRM')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "$",
+			"CODEGRUPPE": "MECRM",
+			"KURZTEXT": "Checklist - Mechanical - Room"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='%24',CODEGRUPPE='MECSNS')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='%24',CODEGRUPPE='MECSNS')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "$",
+			"CODEGRUPPE": "MECSNS",
+			"KURZTEXT": "Checklist - Mechanical - Sensor"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='%24',CODEGRUPPE='MPOINT1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='%24',CODEGRUPPE='MPOINT1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "$",
+			"CODEGRUPPE": "MPOINT1",
+			"KURZTEXT": "Results"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='%24',CODEGRUPPE='OPVAL')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='%24',CODEGRUPPE='OPVAL')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "$",
+			"CODEGRUPPE": "OPVAL",
+			"KURZTEXT": "Did you open the valve?"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='%24',CODEGRUPPE='STVAL')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='%24',CODEGRUPPE='STVAL')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "$",
+			"CODEGRUPPE": "STVAL",
+			"KURZTEXT": "Status of Motor?"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='00000001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='00000001')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "00000001",
+			"KURZTEXT": "Color"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='A-100')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='A-100')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "A-100",
+			"KURZTEXT": "Colors"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='AU-10000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='AU-10000')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "AU-10000",
+			"KURZTEXT": "Audit: individ. evaluation of questions"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='BAYERCHL')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='BAYERCHL')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "BAYERCHL",
+			"KURZTEXT": "Inspection checks"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='CG02-00')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='CG02-00')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "CG02-00",
+			"KURZTEXT": "lamp-socket"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='CH01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='CH01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "CH01",
+			"KURZTEXT": "Paint colors"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='CH02')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='CH02')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "CH02",
+			"KURZTEXT": "Color solvent"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='CH03')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='CH03')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "CH03",
+			"KURZTEXT": "Gloss"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='CHECK1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='CHECK1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "CHECK1",
+			"KURZTEXT": "Check 3 statuses"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='CHL005')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='CHL005')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "CHL005",
+			"KURZTEXT": "Yes,No,NA"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='CHL006')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='CHL006')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "CHL006",
+			"KURZTEXT": "Yes,No"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='CHLTEST1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='CHLTEST1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "CHLTEST1",
+			"KURZTEXT": "Inspection result"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='CLOCKSPD')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='CLOCKSPD')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "CLOCKSPD",
+			"KURZTEXT": "Clock Speed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='COLOR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='COLOR')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "COLOR",
+			"KURZTEXT": "Colors"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='COND1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='COND1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "COND1",
+			"KURZTEXT": "General condition"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='CP-FOOD1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='CP-FOOD1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "CP-FOOD1",
+			"KURZTEXT": "Consistency"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='DJANEIN')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='DJANEIN')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "DJANEIN",
+			"KURZTEXT": "SAPQMCHL Executed Yes/No"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='DJANEIN2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='DJANEIN2')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "DJANEIN2",
+			"KURZTEXT": "SAPQMCHL Checked/Not Checked"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='DJANEIN3')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='DJANEIN3')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "DJANEIN3",
+			"KURZTEXT": "Pass/Fail"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='EU178VI')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='EU178VI')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "EU178VI",
+			"KURZTEXT": "Visual Inspection EU178"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='FARBE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='FARBE')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "FARBE",
+			"KURZTEXT": "Colors"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='FILLING1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='FILLING1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "FILLING1",
+			"KURZTEXT": "Filling materials for packaging"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='H1000000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='H1000000')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "H1000000",
+			"KURZTEXT": "Degree of hardness"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='IAD-0001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='IAD-0001')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "IAD-0001",
+			"KURZTEXT": "Visible damages"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='IL-1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='IL-1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "IL-1",
+			"KURZTEXT": "IL 1"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='IOREL')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='IOREL')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "IOREL",
+			"KURZTEXT": "i.O./nio/nvor"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='IORELNPR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='IORELNPR')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "IORELNPR",
+			"KURZTEXT": "i.O./nio/nvor/nicht prüffähig"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='KVG1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='KVG1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "KVG1",
+			"KURZTEXT": "In Ordnung / Nicht Ordnung"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='LENGTH')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='LENGTH')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "LENGTH",
+			"KURZTEXT": "to measure length"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='MES1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='MES1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "MES1",
+			"KURZTEXT": "blister location"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='MES2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='MES2')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "MES2",
+			"KURZTEXT": "blister location"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='MES3')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='MES3')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "MES3",
+			"KURZTEXT": "Presence"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='N-500')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='N-500')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "N-500",
+			"KURZTEXT": "IR-Spectrum"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='N-510')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='N-510')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "N-510",
+			"KURZTEXT": "Friability"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='OBERFL')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='OBERFL')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "OBERFL",
+			"KURZTEXT": "Surface"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='OK')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='OK')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "OK",
+			"KURZTEXT": "ok / not ok"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='OKNOTOK')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='OKNOTOK')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "OKNOTOK",
+			"KURZTEXT": "OK/NotOK"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='OUTPUT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='OUTPUT')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "OUTPUT",
+			"KURZTEXT": "Output Signal on the Wafer"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='PACKTYPE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='PACKTYPE')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "PACKTYPE",
+			"KURZTEXT": "Package Type"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='QCGR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='QCGR')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "QCGR",
+			"KURZTEXT": "Quality Code Group"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='QM')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='QM')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "QM",
+			"KURZTEXT": "Defect locations"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='QM1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='QM1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "QM1",
+			"KURZTEXT": "locations"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='QMCODE01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='QMCODE01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "QMCODE01",
+			"KURZTEXT": "Fixed/Replaced/Needs Replacement"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='QMCODE02')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='QMCODE02')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "QMCODE02",
+			"KURZTEXT": "Can be fixed/Needs replacement/Other"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='QMCODE03')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='QMCODE03')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "QMCODE03",
+			"KURZTEXT": "Complete/Grease fitting fail/Incomplete"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='QMCODE10')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='QMCODE10')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "QMCODE10",
+			"KURZTEXT": "10 options - codes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='QMCODE11')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='QMCODE11')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "QMCODE11",
+			"KURZTEXT": "11 options - codes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='QS-00001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='QS-00001')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "QS-00001",
+			"KURZTEXT": "Property class identification for screws"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='QS000002')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='QS000002')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "QS000002",
+			"KURZTEXT": "Electro-plating of screws"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='RANJANP')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='RANJANP')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "RANJANP",
+			"KURZTEXT": "Check the system condition"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='REDCOLOR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='REDCOLOR')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "REDCOLOR",
+			"KURZTEXT": "red color"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='SURFACE1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='SURFACE1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "SURFACE1",
+			"KURZTEXT": "Surface of glass bodies"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='X1000000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='X1000000')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "X1000000",
+			"KURZTEXT": "Other valuation codes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='YESNO1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='YESNO1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "YESNO1",
+			"KURZTEXT": "YesNo"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='YQ05')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='YQ05')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "YQ05",
+			"KURZTEXT": "Optical characteristics"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCAT0001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCAT0001')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "ZCAT0001",
+			"KURZTEXT": "Check Performed ?"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCAT0002')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCAT0002')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "ZCAT0002",
+			"KURZTEXT": "Is A/C working?"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCAT0003')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCAT0003')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "ZCAT0003",
+			"KURZTEXT": "Is door openeing working?"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCAT0004')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCAT0004')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "ZCAT0004",
+			"KURZTEXT": "Is door openeing working?"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCAT001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCAT001')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "ZCAT001",
+			"KURZTEXT": "Check the machine status"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCAT002')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCAT002')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "ZCAT002",
+			"KURZTEXT": "Is A/C working?"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCAT003')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCAT003')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "ZCAT003",
+			"KURZTEXT": "Is door openeing working?"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCATALOG')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCATALOG')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "ZCATALOG",
+			"KURZTEXT": "Accepted,Rejected"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCODE001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCODE001')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "ZCODE001",
+			"KURZTEXT": "With 2 codes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCODE002')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCODE002')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "ZCODE002",
+			"KURZTEXT": "With 3 codes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCODE01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCODE01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "ZCODE01",
+			"KURZTEXT": "Yes,No"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCODE02')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCODE02')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "ZCODE02",
+			"KURZTEXT": "Yes,No"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCODEPAN')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='1',CODEGRUPPE='ZCODEPAN')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "1",
+			"CODEGRUPPE": "ZCODEPAN",
+			"KURZTEXT": "Test Code Group Step 1"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='%24%24OSS001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='%24%24OSS001')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "$$OSS001",
+			"KURZTEXT": "To be sent: &"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='%24%24OSS002')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='%24%24OSS002')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "$$OSS002",
+			"KURZTEXT": "Sent: &"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='%24%24OSS003')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='%24%24OSS003')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "$$OSS003",
+			"KURZTEXT": "Not to be sent: &"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='%24%24OSS004')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='%24%24OSS004')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "$$OSS004",
+			"KURZTEXT": "From SAP: &"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='ACT-CORR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='ACT-CORR')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "ACT-CORR",
+			"KURZTEXT": "Corrective actions"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='CHL002')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='CHL002')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "CHL002",
+			"KURZTEXT": "TASK"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='CLM-01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='CLM-01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "CLM-01",
+			"KURZTEXT": "Tasks for claim"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='GN-00001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='GN-00001')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "GN-00001",
+			"KURZTEXT": "Tasks for general notification"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='IPD')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='IPD')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "IPD",
+			"KURZTEXT": "Tasks"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='ME-00010')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='ME-00010')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "ME-00010",
+			"KURZTEXT": "ME: Massnahmen allgemein  "
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='MES-CORR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='MES-CORR')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "MES-CORR",
+			"KURZTEXT": "Corrective tasks"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='MONITOR1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='MONITOR1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "MONITOR1",
+			"KURZTEXT": "Immediate tasks"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='MONITOR2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='MONITOR2')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "MONITOR2",
+			"KURZTEXT": "Corrective tasks"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='PC')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='PC')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "PC",
+			"KURZTEXT": "Personal computers"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='PH-001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='PH-001')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "PH-001",
+			"KURZTEXT": "Deviations Tasks"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='PH-002')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='PH-002')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "PH-002",
+			"KURZTEXT": "Standard Incidences"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='PH-003')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='PH-003')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "PH-003",
+			"KURZTEXT": "Vendor Incidences"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='PH-004')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='PH-004')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "PH-004",
+			"KURZTEXT": "Internal Notification"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='PH-005')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='PH-005')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "PH-005",
+			"KURZTEXT": "Request Information"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='PH-006')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='PH-006')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "PH-006",
+			"KURZTEXT": "Corrective Tasks"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='PM01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='PM01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "PM01",
+			"KURZTEXT": "Maintenance tasks"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='PM1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='PM1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "PM1",
+			"KURZTEXT": "Maintenance tasks"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='QIM')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='QIM')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "QIM",
+			"KURZTEXT": "QIM"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='QM-G1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='QM-G1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "QM-G1",
+			"KURZTEXT": "General tasks for customer complaints"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='QM-G2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='QM-G2')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "QM-G2",
+			"KURZTEXT": "General tasks for complaints to vendors"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='QM-G3')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='QM-G3')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "QM-G3",
+			"KURZTEXT": "General tasks for internal notifications"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='QM-G4')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='QM-G4')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "QM-G4",
+			"KURZTEXT": "General Tasks for Stability Study"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='QM-GEN')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='QM-GEN')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "QM-GEN",
+			"KURZTEXT": "General Tasks"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='QM-INT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='QM-INT')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "QM-INT",
+			"KURZTEXT": "Internal Tasks"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='QM-S1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='QM-S1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "QM-S1",
+			"KURZTEXT": "Corrective tasks for customer problems"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='QM-S2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='QM-S2')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "QM-S2",
+			"KURZTEXT": "Corr. tasks for probl. with vendor goods"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='QM-S3')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='QM-S3')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "QM-S3",
+			"KURZTEXT": "Corrective tasks for internal problems"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='RADIO-01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='RADIO-01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "RADIO-01",
+			"KURZTEXT": "Immediate tasks"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='RADIO-02')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='RADIO-02')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "RADIO-02",
+			"KURZTEXT": "Corrective tasks"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='REVIEW')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='REVIEW')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "REVIEW",
+			"KURZTEXT": "Utility Review and Assessment Tasks"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='SAPISR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='SAPISR')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "SAPISR",
+			"KURZTEXT": "Tasks for ISR"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='SM01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='SM01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "SM01",
+			"KURZTEXT": "Service tasks"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='T-100')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='T-100')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "T-100",
+			"KURZTEXT": "Tasks for inspections of cans"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='TPPS-01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='TPPS-01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "TPPS-01",
+			"KURZTEXT": "Tasks for Project Change orders"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='UT-PUMP')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='UT-PUMP')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "UT-PUMP",
+			"KURZTEXT": "Pump Tasks"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='UT-TASK')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='UT-TASK')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "UT-TASK",
+			"KURZTEXT": "Operability Assessment"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='WMILL1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='WMILL1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "WMILL1",
+			"KURZTEXT": "Corrective tasks on Windmill"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='YB-PMEL1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='YB-PMEL1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "YB-PMEL1",
+			"KURZTEXT": "Tasks Electrical"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='YB-PMME1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='YB-PMME1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "YB-PMME1",
+			"KURZTEXT": "Tasks Mechanical"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='ZDAMAGE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='2',CODEGRUPPE='ZDAMAGE')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "2",
+			"CODEGRUPPE": "ZDAMAGE",
+			"KURZTEXT": "PM KT"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "01",
+			"KURZTEXT": "UD for goods rec. from external delivery"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='02')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='02')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "02",
+			"KURZTEXT": "UD for goods issue"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='03')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='03')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "03",
+			"KURZTEXT": "UD for inspection lots in production"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='03-PROD')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='03-PROD')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "03-PROD",
+			"KURZTEXT": "In-process inspection selection set"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='04')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='04')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "04",
+			"KURZTEXT": "UD for goods receipt from production"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='09')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='09')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "09",
+			"KURZTEXT": "UD for insp.lots fr. deadline monitoring"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='14')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='14')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "14",
+			"KURZTEXT": "UD for PM inspection lots"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='15')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='15')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "15",
+			"KURZTEXT": "Sample Processing"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='A1000000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='A1000000')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "A1000000",
+			"KURZTEXT": "Codes for acceptance"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='AUTO')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='AUTO')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "AUTO",
+			"KURZTEXT": "Automatic usage decision"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='CHECK1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='CHECK1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "CHECK1",
+			"KURZTEXT": "Check 3 statuses"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='QMUD')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='QMUD')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "QMUD",
+			"KURZTEXT": "UD Code"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='R1000000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='R1000000')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "R1000000",
+			"KURZTEXT": "Codes for rejection"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='SMP00001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='SMP00001')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "SMP00001",
+			"KURZTEXT": "Usage decision for physical samples"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='STABI')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='STABI')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "STABI",
+			"KURZTEXT": "UD Stability Study"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='WE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='WE')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "WE",
+			"KURZTEXT": "Usage decision for CATT"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='X1000000')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='X1000000')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "X1000000",
+			"KURZTEXT": "Other Codes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='Z1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='Z1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "Z1",
+			"KURZTEXT": "Codes for unplanned inspections"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='ZCODE001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='ZCODE001')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "ZCODE001",
+			"KURZTEXT": "With 2 codes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='ZCODE002')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='ZCODE002')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "ZCODE002",
+			"KURZTEXT": "With 3 codes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='ZPA001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='ZPA001')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "ZPA001",
+			"KURZTEXT": "SAPQMCHL Usage Decision Inspection Point"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='ZVE001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='3',CODEGRUPPE='ZVE001')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "3",
+			"CODEGRUPPE": "ZVE001",
+			"KURZTEXT": "SAPQMCHL Usage Decision"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='4',CODEGRUPPE='PH-100')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='4',CODEGRUPPE='PH-100')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "4",
+			"CODEGRUPPE": "PH-100",
+			"KURZTEXT": "Event Log"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='4',CODEGRUPPE='PH-101')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='4',CODEGRUPPE='PH-101')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "4",
+			"CODEGRUPPE": "PH-101",
+			"KURZTEXT": "Transportation"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='BRIDGE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='BRIDGE')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "BRIDGE",
+			"KURZTEXT": "LSBG Bridge Causes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='CAUSES')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='CAUSES')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "CAUSES",
+			"KURZTEXT": "Causes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='CHL001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='CHL001')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "CHL001",
+			"KURZTEXT": "Causes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='IPD')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='IPD')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "IPD",
+			"KURZTEXT": "Causes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='ME-00020')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='ME-00020')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "ME-00020",
+			"KURZTEXT": "ME: Ursachen mechanisch  "
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='MONITOR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='MONITOR')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "MONITOR",
+			"KURZTEXT": "Monitor"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='PC')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='PC')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "PC",
+			"KURZTEXT": "Personal Computer"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='PH-200')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='PH-200')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "PH-200",
+			"KURZTEXT": "Design"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='PH-201')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='PH-201')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "PH-201",
+			"KURZTEXT": "Manufacturing Defects"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='PH-202')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='PH-202')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "PH-202",
+			"KURZTEXT": "Vendor Related Causes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='PH-203')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='PH-203')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "PH-203",
+			"KURZTEXT": "Problem Causes, Defect Causes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='PH-204')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='PH-204')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "PH-204",
+			"KURZTEXT": "Packaging Causes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='PM01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='PM01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "PM01",
+			"KURZTEXT": "Operating"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='PM02')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='PM02')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "PM02",
+			"KURZTEXT": "Material"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='PM03')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='PM03')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "PM03",
+			"KURZTEXT": "Miscellaneous"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='PM1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='PM1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "PM1",
+			"KURZTEXT": "Maintenance causes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='QM')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='QM')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "QM",
+			"KURZTEXT": "Problem causes, defect causes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='QM-MECH')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='QM-MECH')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "QM-MECH",
+			"KURZTEXT": "Mechanical Causes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='RADIO')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='RADIO')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "RADIO",
+			"KURZTEXT": "Radios"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='SPCOND')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='SPCOND')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "SPCOND",
+			"KURZTEXT": "Special Conditions for IE4N"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='UT-AOV')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='UT-AOV')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "UT-AOV",
+			"KURZTEXT": "AOV Causes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='UT-BKR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='UT-BKR')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "UT-BKR",
+			"KURZTEXT": "Circuit Breaker Causes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='UT-POLE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='UT-POLE')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "UT-POLE",
+			"KURZTEXT": "Cause"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='UT-PUMP')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='UT-PUMP')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "UT-PUMP",
+			"KURZTEXT": "Pump Causes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='UT-REG')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='UT-REG')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "UT-REG",
+			"KURZTEXT": "Regulator Causes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='UT-SOV')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='UT-SOV')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "UT-SOV",
+			"KURZTEXT": "SOV Causes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='UT-VAL')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='UT-VAL')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "UT-VAL",
+			"KURZTEXT": "Valve Causes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='UTELE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='UTELE')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "UTELE",
+			"KURZTEXT": "UT-Electrical"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='WMILL')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='WMILL')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "WMILL",
+			"KURZTEXT": "Windmill Causes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='YB-PMEL1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='YB-PMEL1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "YB-PMEL1",
+			"KURZTEXT": "Causes Electrical"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='YB-PMME1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='YB-PMME1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "YB-PMME1",
+			"KURZTEXT": "Causes Mechanical"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='ZEHSCC')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='5',CODEGRUPPE='ZEHSCC')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "5",
+			"CODEGRUPPE": "ZEHSCC",
+			"KURZTEXT": "Cause codes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='A-100')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='A-100')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "8",
+			"CODEGRUPPE": "A-100",
+			"KURZTEXT": "Activities for inspection of cans"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='CHL003')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='CHL003')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "8",
+			"CODEGRUPPE": "CHL003",
+			"KURZTEXT": "Activity"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='CLM-01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='CLM-01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "8",
+			"CODEGRUPPE": "CLM-01",
+			"KURZTEXT": "Actions for claim"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='GN-00001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='GN-00001')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "8",
+			"CODEGRUPPE": "GN-00001",
+			"KURZTEXT": "Actions for general notification"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='IPD')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='IPD')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "8",
+			"CODEGRUPPE": "IPD",
+			"KURZTEXT": "Perform Activities"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='ISU650SO')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='ISU650SO')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "8",
+			"CODEGRUPPE": "ISU650SO",
+			"KURZTEXT": "IS-U IDE: EDI650 - Service Type"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='ISU650SU')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='ISU650SU')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "8",
+			"CODEGRUPPE": "ISU650SU",
+			"KURZTEXT": "IS-U IDE: EDI650 - Supply Guarantee"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='P100')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='P100')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "8",
+			"CODEGRUPPE": "P100",
+			"KURZTEXT": "Immediate activities"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='PC')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='PC')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "8",
+			"CODEGRUPPE": "PC",
+			"KURZTEXT": "Personal Computer"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='QM-G1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='QM-G1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "8",
+			"CODEGRUPPE": "QM-G1",
+			"KURZTEXT": "General actions for customer complaints"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='QM-G2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='QM-G2')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "8",
+			"CODEGRUPPE": "QM-G2",
+			"KURZTEXT": "General actions for complaints to vendor"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='QM-G3')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='QM-G3')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "8",
+			"CODEGRUPPE": "QM-G3",
+			"KURZTEXT": "General actions for internal notificat."
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='QM-S1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='QM-S1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "8",
+			"CODEGRUPPE": "QM-S1",
+			"KURZTEXT": "Corrective actions for customer problems"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='QM-S2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='QM-S2')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "8",
+			"CODEGRUPPE": "QM-S2",
+			"KURZTEXT": "Corr.actions for prob. with vendor goods"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='QM-S3')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='QM-S3')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "8",
+			"CODEGRUPPE": "QM-S3",
+			"KURZTEXT": "Corrective actions for internal problems"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='RADIO-01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='RADIO-01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "8",
+			"CODEGRUPPE": "RADIO-01",
+			"KURZTEXT": "Immediate activities"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='RADIO-02')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='RADIO-02')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "8",
+			"CODEGRUPPE": "RADIO-02",
+			"KURZTEXT": "Corrective actions"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='SAPISR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='SAPISR')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "8",
+			"CODEGRUPPE": "SAPISR",
+			"KURZTEXT": "Activities for ISR"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='TPPS-01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='TPPS-01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "8",
+			"CODEGRUPPE": "TPPS-01",
+			"KURZTEXT": "Activities for Change Orders"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='Z-IT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='Z-IT')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "8",
+			"CODEGRUPPE": "Z-IT",
+			"KURZTEXT": "Actions IT"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='ZCHECK')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='8',CODEGRUPPE='ZCHECK')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "8",
+			"CODEGRUPPE": "ZCHECK",
+			"KURZTEXT": "Checklist"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='AAA')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='AAA')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "9",
+			"CODEGRUPPE": "AAA",
+			"KURZTEXT": "TEST MII"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='F-100')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='F-100')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "9",
+			"CODEGRUPPE": "F-100",
+			"KURZTEXT": "Failure codes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='F-200')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='F-200')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "9",
+			"CODEGRUPPE": "F-200",
+			"KURZTEXT": "Can defects"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='F-300')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='F-300')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "9",
+			"CODEGRUPPE": "F-300",
+			"KURZTEXT": "Lamp defects"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='IM-900')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='IM-900')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "9",
+			"CODEGRUPPE": "IM-900",
+			"KURZTEXT": "Ingredients missing"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='IPD')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='IPD')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "9",
+			"CODEGRUPPE": "IPD",
+			"KURZTEXT": "Defect Criticality"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='IT-PRIN')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='IT-PRIN')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "9",
+			"CODEGRUPPE": "IT-PRIN",
+			"KURZTEXT": "IT Printers all Types"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='LEHUQ-01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='LEHUQ-01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "9",
+			"CODEGRUPPE": "LEHUQ-01",
+			"KURZTEXT": "General Defects"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='MEAS-DEV')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='MEAS-DEV')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "9",
+			"CODEGRUPPE": "MEAS-DEV",
+			"KURZTEXT": "Defects of measuring instruments"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='MONITOR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='MONITOR')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "9",
+			"CODEGRUPPE": "MONITOR",
+			"KURZTEXT": "Monitor"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='PC')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='PC')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "9",
+			"CODEGRUPPE": "PC",
+			"KURZTEXT": "Personal Computer"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='PH-300')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='PH-300')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "9",
+			"CODEGRUPPE": "PH-300",
+			"KURZTEXT": "Approval Process"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='PH-301')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='PH-301')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "9",
+			"CODEGRUPPE": "PH-301",
+			"KURZTEXT": "Corrective Action"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='PH-302')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='PH-302')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "9",
+			"CODEGRUPPE": "PH-302",
+			"KURZTEXT": "Preventive Action"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='QM-E')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='QM-E')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "9",
+			"CODEGRUPPE": "QM-E",
+			"KURZTEXT": "Defect types / electronic devices prod."
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='QM-M')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='QM-M')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "9",
+			"CODEGRUPPE": "QM-M",
+			"KURZTEXT": "Defect types / mechanical parts productn"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='QM-MECH')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='QM-MECH')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "9",
+			"CODEGRUPPE": "QM-MECH",
+			"KURZTEXT": "Mechanical Defects"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='QMOBILE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='QMOBILE')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "9",
+			"CODEGRUPPE": "QMOBILE",
+			"KURZTEXT": "Issue Codes Mobile Quality Issue"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='QS-00001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='QS-00001')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "9",
+			"CODEGRUPPE": "QS-00001",
+			"KURZTEXT": "Nonconformity types / screws"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='RADIO')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='RADIO')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "9",
+			"CODEGRUPPE": "RADIO",
+			"KURZTEXT": "Radios"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='WSDEFECT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='9',CODEGRUPPE='WSDEFECT')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "9",
+			"CODEGRUPPE": "WSDEFECT",
+			"KURZTEXT": "Work station defect codes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='CHL004')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='CHL004')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "CHL004",
+			"KURZTEXT": "Activity"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='IPD')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='IPD')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "IPD",
+			"KURZTEXT": "Perform Activities"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='ME-00010')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='ME-00010')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "ME-00010",
+			"KURZTEXT": "ME: Tätigkeiten allgemein"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='MONITOR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='MONITOR')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "MONITOR",
+			"KURZTEXT": "Monitor"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='MOT%2F100')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='MOT%2F100')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "MOT/100",
+			"KURZTEXT": "Engine repairs"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='MOT%2F200')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='MOT%2F200')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "MOT/200",
+			"KURZTEXT": "Engine inspection/prevent. maintenance"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='PC')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='PC')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "PC",
+			"KURZTEXT": "Personal Computer"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='PM01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='PM01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "PM01",
+			"KURZTEXT": "General maintenance activities"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='PM1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='PM1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "PM1",
+			"KURZTEXT": "Maintenance Activitiess"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='PUMP%2F100')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='PUMP%2F100')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "PUMP/100",
+			"KURZTEXT": "Task list repairs"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='PUMP%2F101')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='PUMP%2F101')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "PUMP/101",
+			"KURZTEXT": "Pump maintenance"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='PUMP%2F102')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='PUMP%2F102')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "PUMP/102",
+			"KURZTEXT": "Further maintenance activities"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='PUMP%2F200')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='PUMP%2F200')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "PUMP/200",
+			"KURZTEXT": "Pump inspection/prevent. maintenance"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='UT-AOV')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='UT-AOV')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "UT-AOV",
+			"KURZTEXT": "AOV Activities"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='UT-BKR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='UT-BKR')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "UT-BKR",
+			"KURZTEXT": "Circuit Breaker Activities"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='UT-PUMP')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='UT-PUMP')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "UT-PUMP",
+			"KURZTEXT": "Pump Activities"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='UT-REG')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='UT-REG')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "UT-REG",
+			"KURZTEXT": "Regulator Activities"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='UT-SOV')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='UT-SOV')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "UT-SOV",
+			"KURZTEXT": "SOV Activities"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='UT-VAL')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='UT-VAL')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "UT-VAL",
+			"KURZTEXT": "Valve Activities"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='WMILL')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='WMILL')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "WMILL",
+			"KURZTEXT": "Windmill Activities"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='YB-PMEL1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='YB-PMEL1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "YB-PMEL1",
+			"KURZTEXT": "Activities Electrical"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='YB-PMME1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='YB-PMME1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "YB-PMME1",
+			"KURZTEXT": "Activities Mechanical"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='Z-IT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='Z-IT')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "Z-IT",
+			"KURZTEXT": "Activities IT"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='ZCHECK')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='ZCHECK')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "ZCHECK",
+			"KURZTEXT": "Checklist"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='ZCHECK1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='ZCHECK1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "ZCHECK1",
+			"KURZTEXT": "Checklist Liberty"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='ZCHECKA')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='ZCHECKA')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "ZCHECKA",
+			"KURZTEXT": "Checklist Liberty - Answers"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='ZSTATUS')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='A',CODEGRUPPE='ZSTATUS')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "A",
+			"CODEGRUPPE": "ZSTATUS",
+			"KURZTEXT": "Emergency Status Flow"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='CHECKM01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='CHECKM01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "CHECKM01",
+			"KURZTEXT": "Monthly Checklist for SAM"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='CHECKQ01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='CHECKQ01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "CHECKQ01",
+			"KURZTEXT": "Quaterly Checklist for SAM"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='CHECKY01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='CHECKY01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "CHECKY01",
+			"KURZTEXT": "Yearly Checklist for SAM"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='CHL005')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='CHL005')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "CHL005",
+			"KURZTEXT": "Object"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='GAS')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='GAS')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "GAS",
+			"KURZTEXT": "Gas facilities"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='GENERIC')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='GENERIC')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "GENERIC",
+			"KURZTEXT": "Vehicle components for repair"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='IPD')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='IPD')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "IPD",
+			"KURZTEXT": "Object Parts"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='MONITOR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='MONITOR')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "MONITOR",
+			"KURZTEXT": "Monitor"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='MOT%2F100')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='MOT%2F100')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "MOT/100",
+			"KURZTEXT": "Engine assemblies"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='PC')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='PC')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "PC",
+			"KURZTEXT": "Personal Computer"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='PM01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='PM01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "PM01",
+			"KURZTEXT": "General assemblies"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='PUMP%2F100')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='PUMP%2F100')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "PUMP/100",
+			"KURZTEXT": "Pump assemblies"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='RWE01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='RWE01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "RWE01",
+			"KURZTEXT": "Object Parts for Turbine Maintenance"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='UT-AOV')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='UT-AOV')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "UT-AOV",
+			"KURZTEXT": "AOV Objects"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='UT-BKR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='UT-BKR')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "UT-BKR",
+			"KURZTEXT": "Circuit Breaker Objects"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='UT-POLE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='UT-POLE')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "UT-POLE",
+			"KURZTEXT": "Parts"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='UT-PUMP')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='UT-PUMP')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "UT-PUMP",
+			"KURZTEXT": "Pump Objects"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='UT-REG')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='UT-REG')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "UT-REG",
+			"KURZTEXT": "Regulator Objects"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='UT-SOV')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='UT-SOV')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "UT-SOV",
+			"KURZTEXT": "SOV Objects"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='UT-VAL')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='UT-VAL')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "UT-VAL",
+			"KURZTEXT": "Valve Objects"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='UTCLASS')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='UTCLASS')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "UTCLASS",
+			"KURZTEXT": "UT-Classroom"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='UTGRD')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='UTGRD')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "UTGRD",
+			"KURZTEXT": "UT-Ground"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='WMILL')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='WMILL')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "WMILL",
+			"KURZTEXT": "Windmill"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='YB-PMEL1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='YB-PMEL1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "YB-PMEL1",
+			"KURZTEXT": "Object parts electrical"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='YB-PMME1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='YB-PMME1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "YB-PMME1",
+			"KURZTEXT": "Object parts mechanical"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='YCHECK1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='YCHECK1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "YCHECK1",
+			"KURZTEXT": "CODE GROUP FOR CHECKLIST ITEMS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZCHECK')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZCHECK')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "ZCHECK",
+			"KURZTEXT": "Checklist"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZCHECKM1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZCHECKM1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "ZCHECKM1",
+			"KURZTEXT": "Monthly Checklist"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZCHECKM2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZCHECKM2')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "ZCHECKM2",
+			"KURZTEXT": "Monthly Checklist"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZCHECKQ1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZCHECKQ1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "ZCHECKQ1",
+			"KURZTEXT": "Quarterly Checklist"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZCHECKQ2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZCHECKQ2')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "ZCHECKQ2",
+			"KURZTEXT": "Quarterly Checklist"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZCHECKY1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZCHECKY1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "ZCHECKY1",
+			"KURZTEXT": "Yearly Checklist"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZCHECKY2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZCHECKY2')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "ZCHECKY2",
+			"KURZTEXT": "Yearly Checklist"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZCHECKY3')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZCHECKY3')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "ZCHECKY3",
+			"KURZTEXT": "Yearly Checklist with Key in Code"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZEHSOP')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZEHSOP')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "ZEHSOP",
+			"KURZTEXT": "Object parts"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZLEAKCHK')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZLEAKCHK')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "ZLEAKCHK",
+			"KURZTEXT": "Leak Check Checklist"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZOBJECT1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='B',CODEGRUPPE='ZOBJECT1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "B",
+			"CODEGRUPPE": "ZOBJECT1",
+			"KURZTEXT": "PM KT batch 2 object part"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='A')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='A')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "A",
+			"KURZTEXT": "Emergency Status Flow"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='BRIDGE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='BRIDGE')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "BRIDGE",
+			"KURZTEXT": "Bridge Damages"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='CHL006')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='CHL006')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "CHL006",
+			"KURZTEXT": "Damage"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='CLM-01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='CLM-01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "CLM-01",
+			"KURZTEXT": "Long texts for claim"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='DAMAGE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='DAMAGE')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "DAMAGE",
+			"KURZTEXT": "Damage"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='DFSSAMPL')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='DFSSAMPL')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "DFSSAMPL",
+			"KURZTEXT": "DFS Sampling Method"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ISU6501P')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ISU6501P')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "ISU6501P",
+			"KURZTEXT": "IS-U IDE: EDI650 - Non-Execution Reason"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ISU6507G')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ISU6507G')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "ISU6507G",
+			"KURZTEXT": "IS-U IDE: EDI650 - Rejection Reason"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ISU6508S')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ISU6508S')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "ISU6508S",
+			"KURZTEXT": "IS-U IDE: EDI650 - Service Provider"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ISU650RR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ISU650RR')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "ISU650RR",
+			"KURZTEXT": "IS-U IDE: EDI650 - Type of Repeated MR"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ISU650SJ')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ISU650SJ')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "ISU650SJ",
+			"KURZTEXT": "IS-U IDE: EDI650 - Supplier"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ISU650YN')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ISU650YN')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "ISU650YN",
+			"KURZTEXT": "IS-U IDE: EDI 650 - Yes No Questions"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='MONITOR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='MONITOR')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "MONITOR",
+			"KURZTEXT": "Monitor"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='MOT%2F100')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='MOT%2F100')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "MOT/100",
+			"KURZTEXT": "Engine damage"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='MPOINT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='MPOINT')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "MPOINT",
+			"KURZTEXT": "Hours Of Running"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='PC')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='PC')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "PC",
+			"KURZTEXT": "Personal Computer"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='PM01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='PM01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "PM01",
+			"KURZTEXT": "General damage"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='PUMP%2F100')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='PUMP%2F100')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "PUMP/100",
+			"KURZTEXT": "Pump damage"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='PUMP%2FWAP')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='PUMP%2FWAP')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "PUMP/WAP",
+			"KURZTEXT": "Pump, inspection with mobile device"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='QM-00001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='QM-00001')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "QM-00001",
+			"KURZTEXT": "Damage of packing"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='RMVLRSON')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='RMVLRSON')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "RMVLRSON",
+			"KURZTEXT": "Removal reasons"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='RWE01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='RWE01')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "RWE01",
+			"KURZTEXT": "Overview of damages for turbine site"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='SCHMUTZ')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='SCHMUTZ')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "SCHMUTZ",
+			"KURZTEXT": "Level of Fouling"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='TRANS')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='TRANS')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "TRANS",
+			"KURZTEXT": "Transformer Failure Codes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UT-AOV')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UT-AOV')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "UT-AOV",
+			"KURZTEXT": "AOV Damage"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UT-BKR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UT-BKR')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "UT-BKR",
+			"KURZTEXT": "Circuit Breaker Damages"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UT-POLE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UT-POLE')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "UT-POLE",
+			"KURZTEXT": "Damage"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UT-PUMP')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UT-PUMP')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "UT-PUMP",
+			"KURZTEXT": "Pump Damage"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UT-REG')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UT-REG')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "UT-REG",
+			"KURZTEXT": "Regulator Damage"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UT-SOV')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UT-SOV')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "UT-SOV",
+			"KURZTEXT": "SOV Damage"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UT-VAL')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UT-VAL')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "UT-VAL",
+			"KURZTEXT": "Valve Damage"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UTELE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UTELE')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "UTELE",
+			"KURZTEXT": "UT-Electrical"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UTFAB')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UTFAB')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "UTFAB",
+			"KURZTEXT": "UT-Fabric"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UTGRD')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UTGRD')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "UTGRD",
+			"KURZTEXT": "UT-Ground"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UTMEC')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UTMEC')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "UTMEC",
+			"KURZTEXT": "UT-Mechanical"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UTPARK')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='UTPARK')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "UTPARK",
+			"KURZTEXT": "Parking Damages"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='WMILL')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='WMILL')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "WMILL",
+			"KURZTEXT": "Windmill Damages"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='YB-PMEL1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='YB-PMEL1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "YB-PMEL1",
+			"KURZTEXT": "Damages Electrical"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='YB-PMME1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='YB-PMME1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "YB-PMME1",
+			"KURZTEXT": "Damages Mechanical"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='YDROPDOW')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='YDROPDOW')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "YDROPDOW",
+			"KURZTEXT": "DROPDOWN CHECKLIST"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ZCLDRDWN')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ZCLDRDWN')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "ZCLDRDWN",
+			"KURZTEXT": "Checklist Options for Dropdown"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ZCLEVAL1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ZCLEVAL1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "ZCLEVAL1",
+			"KURZTEXT": "Checklist Evaluation Codes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ZDAMAGE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ZDAMAGE')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "ZDAMAGE",
+			"KURZTEXT": "damage catalog for KT"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ZDAMAGE1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ZDAMAGE1')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "ZDAMAGE1",
+			"KURZTEXT": "PM KT batch 2"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ZEHSDC')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ZEHSDC')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "ZEHSDC",
+			"KURZTEXT": "Damage Codes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ZHALTON')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ZHALTON')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "ZHALTON",
+			"KURZTEXT": "Halton PW Damage Group"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ZMOBI')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ZMOBI')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "ZMOBI",
+			"KURZTEXT": "Checklist Status"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ZZKT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='C',CODEGRUPPE='ZZKT')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "C",
+			"CODEGRUPPE": "ZZKT",
+			"KURZTEXT": "Test Code Group"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='%24%24OSS001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='%24%24OSS001')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "D",
+			"CODEGRUPPE": "$$OSS001",
+			"KURZTEXT": "SAP Notifications"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='%24%24OSS00A')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='%24%24OSS00A')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "D",
+			"CODEGRUPPE": "$$OSS00A",
+			"KURZTEXT": "Corrections in SAP System"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='%24%24OSS00B')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='%24%24OSS00B')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "D",
+			"CODEGRUPPE": "$$OSS00B",
+			"KURZTEXT": "Hardware Correction"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='IPD')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='IPD')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "D",
+			"CODEGRUPPE": "IPD",
+			"KURZTEXT": "GPS Nav System - IPD"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='P100')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='P100')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "D",
+			"CODEGRUPPE": "P100",
+			"KURZTEXT": "Description"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='QM')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='QM')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "D",
+			"CODEGRUPPE": "QM",
+			"KURZTEXT": "Description"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='QM-INT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='QM-INT')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "D",
+			"CODEGRUPPE": "QM-INT",
+			"KURZTEXT": "Internal Codes for Notification"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='QMOBILE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='QMOBILE')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "D",
+			"CODEGRUPPE": "QMOBILE",
+			"KURZTEXT": "Subject Codes Mobile Quality Issue"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='UT-POLE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='UT-POLE')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "D",
+			"CODEGRUPPE": "UT-POLE",
+			"KURZTEXT": "Condition"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='WMILL')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='WMILL')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "D",
+			"CODEGRUPPE": "WMILL",
+			"KURZTEXT": "Windmill Malfunction"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='YESNO')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='D',CODEGRUPPE='YESNO')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "D",
+			"CODEGRUPPE": "YESNO",
+			"KURZTEXT": "YesNo"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='E',CODEGRUPPE='AAA')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='E',CODEGRUPPE='AAA')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "E",
+			"CODEGRUPPE": "AAA",
+			"KURZTEXT": "MII test Def loaction"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='E',CODEGRUPPE='IPD')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='E',CODEGRUPPE='IPD')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "E",
+			"CODEGRUPPE": "IPD",
+			"KURZTEXT": "Defect Location"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='E',CODEGRUPPE='MONITOR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='E',CODEGRUPPE='MONITOR')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "E",
+			"CODEGRUPPE": "MONITOR",
+			"KURZTEXT": "Monitor"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='E',CODEGRUPPE='PC')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='E',CODEGRUPPE='PC')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "E",
+			"CODEGRUPPE": "PC",
+			"KURZTEXT": "Personal Computer"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='E',CODEGRUPPE='PH-400')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='E',CODEGRUPPE='PH-400')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "E",
+			"CODEGRUPPE": "PH-400",
+			"KURZTEXT": "Customer Locations"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='E',CODEGRUPPE='PH-401')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='E',CODEGRUPPE='PH-401')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "E",
+			"CODEGRUPPE": "PH-401",
+			"KURZTEXT": "Distributor Locations"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='E',CODEGRUPPE='PH-402')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='E',CODEGRUPPE='PH-402')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "E",
+			"CODEGRUPPE": "PH-402",
+			"KURZTEXT": "Transportation"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='E',CODEGRUPPE='QM')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='E',CODEGRUPPE='QM')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "E",
+			"CODEGRUPPE": "QM",
+			"KURZTEXT": "Defect locations"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='E',CODEGRUPPE='RADIO')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='E',CODEGRUPPE='RADIO')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "E",
+			"CODEGRUPPE": "RADIO",
+			"KURZTEXT": "Radios"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='F',CODEGRUPPE='SPM')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='F',CODEGRUPPE='SPM')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "F",
+			"CODEGRUPPE": "SPM",
+			"KURZTEXT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='G',CODEGRUPPE='SPM')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='G',CODEGRUPPE='SPM')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "G",
+			"CODEGRUPPE": "SPM",
+			"KURZTEXT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='H',CODEGRUPPE='SPM')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='H',CODEGRUPPE='SPM')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "H",
+			"CODEGRUPPE": "SPM",
+			"KURZTEXT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='I',CODEGRUPPE='SPM')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='I',CODEGRUPPE='SPM')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "I",
+			"CODEGRUPPE": "SPM",
+			"KURZTEXT": ""
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='P',CODEGRUPPE='ARMCINSP')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='P',CODEGRUPPE='ARMCINSP')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "P",
+			"CODEGRUPPE": "ARMCINSP",
+			"KURZTEXT": "Advanced Returns - Customer Insp. Codes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='P',CODEGRUPPE='ARMINSP')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='P',CODEGRUPPE='ARMINSP')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "P",
+			"CODEGRUPPE": "ARMINSP",
+			"KURZTEXT": "Advanced Returns Mgmt - Inspection Codes"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='R',CODEGRUPPE='A00')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='R',CODEGRUPPE='A00')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "R",
+			"CODEGRUPPE": "A00",
+			"KURZTEXT": "RF & RFID Equipment"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='R',CODEGRUPPE='B00')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='R',CODEGRUPPE='B00')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "R",
+			"CODEGRUPPE": "B00",
+			"KURZTEXT": "RF & RFID Peripheral Equipment"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='S',CODEGRUPPE='SE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='S',CODEGRUPPE='SE')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "S",
+			"CODEGRUPPE": "SE",
+			"KURZTEXT": "Safety Equipments"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='T',CODEGRUPPE='SJA')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='T',CODEGRUPPE='SJA')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "T",
+			"CODEGRUPPE": "SJA",
+			"KURZTEXT": "Safety Job Analysis (SJA)"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R0-TRK')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R0-TRK')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "U",
+			"CODEGRUPPE": "R0-TRK",
+			"KURZTEXT": "Track"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R1-TIES')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R1-TIES')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "U",
+			"CODEGRUPPE": "R1-TIES",
+			"KURZTEXT": "Ties"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R1-TIETO')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R1-TIETO')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "U",
+			"CODEGRUPPE": "R1-TIETO",
+			"KURZTEXT": "Ties"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R2-RXING')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R2-RXING')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "U",
+			"CODEGRUPPE": "R2-RXING",
+			"KURZTEXT": "Road Crossing"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R3-LUBRI')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R3-LUBRI')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "U",
+			"CODEGRUPPE": "R3-LUBRI",
+			"KURZTEXT": "Lubricators"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R4-TOSW')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R4-TOSW')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "U",
+			"CODEGRUPPE": "R4-TOSW",
+			"KURZTEXT": "Turnouts Switch"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R5-FR-MP')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R5-FR-MP')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "U",
+			"CODEGRUPPE": "R5-FR-MP",
+			"KURZTEXT": "Turnouts"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R5-FR-RG')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R5-FR-RG')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "U",
+			"CODEGRUPPE": "R5-FR-RG",
+			"KURZTEXT": "Turnouts Rail Guard"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R5-FR-SP')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R5-FR-SP')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "U",
+			"CODEGRUPPE": "R5-FR-SP",
+			"KURZTEXT": "Turnouts Switch Points"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R8-JOINT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R8-JOINT')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "U",
+			"CODEGRUPPE": "R8-JOINT",
+			"KURZTEXT": "Joints"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R9-DERAI')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='R9-DERAI')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "U",
+			"CODEGRUPPE": "R9-DERAI",
+			"KURZTEXT": "Derailer"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='RA-SPJT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='U',CODEGRUPPE='RA-SPJT')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "U",
+			"CODEGRUPPE": "RA-SPJT",
+			"KURZTEXT": "Siding Point"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='V',CODEGRUPPE='R0-GEN')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='V',CODEGRUPPE='R0-GEN')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "V",
+			"CODEGRUPPE": "R0-GEN",
+			"KURZTEXT": "General"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='V',CODEGRUPPE='R1-GEOM')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='V',CODEGRUPPE='R1-GEOM')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "V",
+			"CODEGRUPPE": "R1-GEOM",
+			"KURZTEXT": "Geometry"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='V',CODEGRUPPE='R2-RAIL')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='V',CODEGRUPPE='R2-RAIL')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "V",
+			"CODEGRUPPE": "R2-RAIL",
+			"KURZTEXT": "Rail"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='V',CODEGRUPPE='R3-RWVER')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='V',CODEGRUPPE='R3-RWVER')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "V",
+			"CODEGRUPPE": "R3-RWVER",
+			"KURZTEXT": "V. Wear"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='V',CODEGRUPPE='R4-RWCOM')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='V',CODEGRUPPE='R4-RWCOM')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "V",
+			"CODEGRUPPE": "R4-RWCOM",
+			"KURZTEXT": "C. Wear"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='V',CODEGRUPPE='R6-TIE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='V',CODEGRUPPE='R6-TIE')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "V",
+			"CODEGRUPPE": "R6-TIE",
+			"KURZTEXT": "Ties"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='V',CODEGRUPPE='R7-JOINT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='V',CODEGRUPPE='R7-JOINT')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "V",
+			"CODEGRUPPE": "R7-JOINT",
+			"KURZTEXT": "Joins"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='V',CODEGRUPPE='R9-LUBE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='V',CODEGRUPPE='R9-LUBE')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "V",
+			"CODEGRUPPE": "R9-LUBE",
+			"KURZTEXT": "Lubricators"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='V',CODEGRUPPE='RB-VEG')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='V',CODEGRUPPE='RB-VEG')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "V",
+			"CODEGRUPPE": "RB-VEG",
+			"KURZTEXT": "Vegetation"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='W',CODEGRUPPE='PH-500')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='W',CODEGRUPPE='PH-500')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "W",
+			"CODEGRUPPE": "PH-500",
+			"KURZTEXT": "Customer Follow-up Activities"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='W',CODEGRUPPE='PH-501')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='W',CODEGRUPPE='PH-501')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "W",
+			"CODEGRUPPE": "PH-501",
+			"KURZTEXT": "Vendor Follow-up Activities"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='W',CODEGRUPPE='PH-502')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='W',CODEGRUPPE='PH-502')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "W",
+			"CODEGRUPPE": "PH-502",
+			"KURZTEXT": "Internal  Follow-up Activities"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='W',CODEGRUPPE='PH-503')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='W',CODEGRUPPE='PH-503')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "W",
+			"CODEGRUPPE": "PH-503",
+			"KURZTEXT": "Resolution Tasks for Customer Incidences"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='W',CODEGRUPPE='PH-504')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='W',CODEGRUPPE='PH-504')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "W",
+			"CODEGRUPPE": "PH-504",
+			"KURZTEXT": "Resolution Tasks for Vendor Incidences"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='W',CODEGRUPPE='PH-505')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='W',CODEGRUPPE='PH-505')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "W",
+			"CODEGRUPPE": "PH-505",
+			"KURZTEXT": "Resolution Tasks for Internal Incidences"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='W',CODEGRUPPE='PH-506')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='W',CODEGRUPPE='PH-506')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "W",
+			"CODEGRUPPE": "PH-506",
+			"KURZTEXT": "Send Notification Mail"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='X',CODEGRUPPE='R-LOGICA')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='X',CODEGRUPPE='R-LOGICA')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "X",
+			"CODEGRUPPE": "R-LOGICA",
+			"KURZTEXT": "Logica"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='X',CODEGRUPPE='R0-GEN')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='X',CODEGRUPPE='R0-GEN')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "X",
+			"CODEGRUPPE": "R0-GEN",
+			"KURZTEXT": "General"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='X',CODEGRUPPE='R1-GEOM')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='X',CODEGRUPPE='R1-GEOM')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "X",
+			"CODEGRUPPE": "R1-GEOM",
+			"KURZTEXT": "Geometry"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='X',CODEGRUPPE='R2-ROW')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='X',CODEGRUPPE='R2-ROW')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "X",
+			"CODEGRUPPE": "R2-ROW",
+			"KURZTEXT": "Roadbed"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='X',CODEGRUPPE='R3-RAIL')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='X',CODEGRUPPE='R3-RAIL')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "X",
+			"CODEGRUPPE": "R3-RAIL",
+			"KURZTEXT": "Rail"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='X',CODEGRUPPE='R4-RADES')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='X',CODEGRUPPE='R4-RADES')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "X",
+			"CODEGRUPPE": "R4-RADES",
+			"KURZTEXT": "Rail Destress"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='X',CODEGRUPPE='R5-TIE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='X',CODEGRUPPE='R5-TIE')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "X",
+			"CODEGRUPPE": "R5-TIE",
+			"KURZTEXT": "Tie"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='X',CODEGRUPPE='R6-JOINT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='X',CODEGRUPPE='R6-JOINT')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "X",
+			"CODEGRUPPE": "R6-JOINT",
+			"KURZTEXT": "Joins"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='X',CODEGRUPPE='RF-FASTX')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='X',CODEGRUPPE='RF-FASTX')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "X",
+			"CODEGRUPPE": "RF-FASTX",
+			"KURZTEXT": "Fastening"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='Z',CODEGRUPPE='ZCC')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/En_MAIN_SRV/SHCatalogCodeGroupSet(KATALOGART='Z',CODEGRUPPE='ZCC')",
+				"type": "com.evorait.evonotify.SHCatalogCodeGroup"
+			},
+			"QMART": "",
+			"RBNR": "",
+			"KATALOGART": "Z",
+			"CODEGRUPPE": "ZCC",
+			"KURZTEXT": "SAPCitizenConnect"
+		}]
+	}
+}

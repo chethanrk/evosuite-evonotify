@@ -1,0 +1,1130 @@
+{
+	"d": {
+		"results": [{
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('123456')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('123456')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "123456",
+			"DEPARTMENT": "demo equipment.",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('301075')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('301075')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "301075",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('828')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('828')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "828",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AAMANAGER')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AAMANAGER')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "AAMANAGER",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ABAINES')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ABAINES')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ABAINES",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ACCOUNTANT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ACCOUNTANT')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ACCOUNTANT",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ACCOUNTANT1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ACCOUNTANT1')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ACCOUNTANT1",
+			"DEPARTMENT": "Petra Pitz",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ACCOUNTANT2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ACCOUNTANT2')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ACCOUNTANT2",
+			"DEPARTMENT": "Petra Pitz",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ACCOUNTANT3')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ACCOUNTANT3')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ACCOUNTANT3",
+			"DEPARTMENT": "Petra Pitz",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ACCOUNTANT4')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ACCOUNTANT4')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ACCOUNTANT4",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ACCOUNTING')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ACCOUNTING')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ACCOUNTING",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ACHARJEEI')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ACHARJEEI')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ACHARJEEI",
+			"DEPARTMENT": "",
+			"COMPANY": "EVORA IT SOLUTIONS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ACHTERBERGE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ACHTERBERGE')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ACHTERBERGE",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ADAMSG')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ADAMSG')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ADAMSG",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ADAVOLIO')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ADAVOLIO')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ADAVOLIO",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ADM950REMOTE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ADM950REMOTE')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ADM950REMOTE",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ADRIAANS')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ADRIAANS')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ADRIAANS",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ADSFSA')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ADSFSA')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ADSFSA",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ADSUSER')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ADSUSER')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ADSUSER",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ADS_AGENT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ADS_AGENT')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ADS_AGENT",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AFIGO')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AFIGO')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "AFIGO",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AFS_DESIGN2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AFS_DESIGN2')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "AFS_DESIGN2",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AFS_DESIGNER')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AFS_DESIGNER')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "AFS_DESIGNER",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AFS_PRODMGR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AFS_PRODMGR')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "AFS_PRODMGR",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AFS_PROJMGR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AFS_PROJMGR')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "AFS_PROJMGR",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AFS_SOURCING')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AFS_SOURCING')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "AFS_SOURCING",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AGARWALS')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AGARWALS')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "AGARWALS",
+			"DEPARTMENT": "",
+			"COMPANY": "EVORA IT SOLUTIONS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AHMADIP')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AHMADIP')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "AHMADIP",
+			"DEPARTMENT": "",
+			"COMPANY": "EVORA IT SOLUTIONS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AHUJAP')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AHUJAP')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "AHUJAP",
+			"DEPARTMENT": "",
+			"COMPANY": "EVORA IT SOLUTIONS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AKTIVA')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AKTIVA')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "AKTIVA",
+			"DEPARTMENT": "",
+			"COMPANY": "SAP AG"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ALADMIN')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ALADMIN')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ALADMIN",
+			"DEPARTMENT": "Mierzwa",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ALE-WM-01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ALE-WM-01')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ALE-WM-01",
+			"DEPARTMENT": "Mierzwa",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ALEREMOTE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ALEREMOTE')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ALEREMOTE",
+			"DEPARTMENT": "Mierzwa",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ALE_MASTER')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ALE_MASTER')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ALE_MASTER",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ALLENT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ALLENT')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ALLENT",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ALLETTOT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ALLETTOT')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ALLETTOT",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ALM')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ALM')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ALM",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AMADEUS')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AMADEUS')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "AMADEUS",
+			"DEPARTMENT": "IDES Development",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ANALYST')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ANALYST')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ANALYST",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ANALYTICSQ3')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ANALYTICSQ3')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ANALYTICSQ3",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ANDERSONMA')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ANDERSONMA')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ANDERSONMA",
+			"DEPARTMENT": "RDS Demo User ESS/MSS (manager)",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ANDERSONP')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ANDERSONP')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ANDERSONP",
+			"DEPARTMENT": "Sue Pitten - DSG",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ANDERSONT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ANDERSONT')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ANDERSONT",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ANILK')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ANILK')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ANILK",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('APMANAGER')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('APMANAGER')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "APMANAGER",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('APMANAGEREWT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('APMANAGEREWT')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "APMANAGEREWT",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('APM_DEMO')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('APM_DEMO')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "APM_DEMO",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('APOADMIN')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('APOADMIN')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "APOADMIN",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('APOTEST')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('APOTEST')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "APOTEST",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('APPROVER')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('APPROVER')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "APPROVER",
+			"DEPARTMENT": "Outgoing payments with BRM",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ARCHIVE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ARCHIVE')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ARCHIVE",
+			"DEPARTMENT": "created by Sven Bartel, IDES Development",
+			"COMPANY": "SAP AG"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ARMANAGER')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ARMANAGER')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ARMANAGER",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ARMANAGER2')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ARMANAGER2')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ARMANAGER2",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ARMANAGEREWT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ARMANAGEREWT')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ARMANAGEREWT",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ARMDEMO')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ARMDEMO')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ARMDEMO",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AR_PURCHASER')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AR_PURCHASER')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "AR_PURCHASER",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ASDFDS')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ASDFDS')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ASDFDS",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ASNVEND')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ASNVEND')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ASNVEND",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ASPENP')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ASPENP')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ASPENP",
+			"DEPARTMENT": "IDES CRM",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ASPM_CLOUD')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ASPM_CLOUD')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ASPM_CLOUD",
+			"DEPARTMENT": "",
+			"COMPANY": "EVORA IT SOLUTIONS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ASPM_USER')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ASPM_USER')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ASPM_USER",
+			"DEPARTMENT": "",
+			"COMPANY": "EVORA IT SOLUTIONS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ASPM_USER1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ASPM_USER1')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ASPM_USER1",
+			"DEPARTMENT": "",
+			"COMPANY": "EVORA IT SOLUTIONS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ASSETA')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ASSETA')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ASSETA",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ASTURIANA')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ASTURIANA')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ASTURIANA",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ATHANASOULAS')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ATHANASOULAS')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ATHANASOULAS",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ATTULURIN')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('ATTULURIN')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "ATTULURIN",
+			"DEPARTMENT": "",
+			"COMPANY": "EVORA IT SOLUTIONS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AUTO-BUYER')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AUTO-BUYER')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "AUTO-BUYER",
+			"DEPARTMENT": "cFolders / SRM",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AU_CHNPM')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AU_CHNPM')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "AU_CHNPM",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AU_ICAGENT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AU_ICAGENT')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "AU_ICAGENT",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AU_ICMAN')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AU_ICMAN')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "AU_ICMAN",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AU_SERVPRO')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AU_SERVPRO')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "AU_SERVPRO",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AU_SERVTECH')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('AU_SERVTECH')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "AU_SERVTECH",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BACK_USER')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BACK_USER')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BACK_USER",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BAER')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BAER')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BAER",
+			"DEPARTMENT": "TDC PSS",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BAGADIYAL')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BAGADIYAL')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BAGADIYAL",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BANNADABHAVI')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BANNADABHAVI')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BANNADABHAVI",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BARBAR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BARBAR')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BARBAR",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BARBY')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BARBY')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BARBY",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BARTELSC')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BARTELSC')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BARTELSC",
+			"DEPARTMENT": "",
+			"COMPANY": "EVORA IT SOLUTIONS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BATZJ')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BATZJ')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BATZJ",
+			"DEPARTMENT": "",
+			"COMPANY": "EVORA IT SOLUTIONS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BAXTERG')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BAXTERG')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BAXTERG",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BC600WFMGR01')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BC600WFMGR01')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BC600WFMGR01",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BCM101')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BCM101')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BCM101",
+			"DEPARTMENT": "Red",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BCM102')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BCM102')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BCM102",
+			"DEPARTMENT": "Red",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BCM103')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BCM103')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BCM103",
+			"DEPARTMENT": "Red",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BCM104')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BCM104')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BCM104",
+			"DEPARTMENT": "Red",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BCM111')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BCM111')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BCM111",
+			"DEPARTMENT": "Green",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BCM112')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BCM112')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BCM112",
+			"DEPARTMENT": "Green",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BCM113')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BCM113')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BCM113",
+			"DEPARTMENT": "Green",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BCM114')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BCM114')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BCM114",
+			"DEPARTMENT": "Green",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BCV_PROJMGR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BCV_PROJMGR')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BCV_PROJMGR",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BCV_VPASSET')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BCV_VPASSET')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BCV_VPASSET",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BC_RFC')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BC_RFC')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BC_RFC",
+			"DEPARTMENT": "Mierzwa",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BDCUSTOMER')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BDCUSTOMER')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BDCUSTOMER",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BD_EUROPE')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BD_EUROPE')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BD_EUROPE",
+			"DEPARTMENT": "Petra Pitz",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BD_US')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BD_US')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BD_US",
+			"DEPARTMENT": "Petra Pitz",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BECHMANNA')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BECHMANNA')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BECHMANNA",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BECKERM')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BECKERM')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BECKERM",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BECKERR')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BECKERR')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BECKERR",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BELL1')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BELL1')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BELL1",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BELL3')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BELL3')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BELL3",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BENDERG')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BENDERG')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BENDERG",
+			"DEPARTMENT": "",
+			"COMPANY": "EVORA IT SOLUTIONS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BENDERM')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BENDERM')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BENDERM",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BENDERT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BENDERT')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BENDERT",
+			"DEPARTMENT": "Tessa Hamed",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BENNETT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BENNETT')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BENNETT",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BETITAC')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BETITAC')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BETITAC",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BEV_AGENT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BEV_AGENT')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BEV_AGENT",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BEV_SUPERVIS')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BEV_SUPERVIS')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BEV_SUPERVIS",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BGRFC_SUPER')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BGRFC_SUPER')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BGRFC_SUPER",
+			"DEPARTMENT": "Tessa Hamed / Marcus Brandt / Anja Weiss",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BGRFC_SUPERV')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BGRFC_SUPERV')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BGRFC_SUPERV",
+			"DEPARTMENT": "Toewe (MIB Workflow & Alert- rfc=BGRFC)",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BHARTIV')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BHARTIV')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BHARTIV",
+			"DEPARTMENT": "",
+			"COMPANY": "EVORA IT SOLUTIONS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BHATTAS')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BHATTAS')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BHATTAS",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BILLERDIRECT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BILLERDIRECT')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BILLERDIRECT",
+			"DEPARTMENT": "Petra Pitz",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BILLING')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BILLING')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BILLING",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BISHNANIA')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BISHNANIA')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BISHNANIA",
+			"DEPARTMENT": "",
+			"COMPANY": "EVORA IT SOLUTIONS"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BIW_MANAGER')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BIW_MANAGER')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BIW_MANAGER",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BI_RFC')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BI_RFC')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BI_RFC",
+			"DEPARTMENT": "Hess",
+			"COMPANY": "SAP AG"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BLACKM')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BLACKM')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BLACKM",
+			"DEPARTMENT": "Sue Pitten - IST",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BLACKMA')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BLACKMA')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BLACKMA",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BLACKS')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BLACKS')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BLACKS",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BLAKEA')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BLAKEA')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BLAKEA",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BLAW')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BLAW')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BLAW",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BMUSER')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BMUSER')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BMUSER",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BM_PRODSUPER')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BM_PRODSUPER')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BM_PRODSUPER",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}, {
+			"__metadata": {
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BOBJ-CONNECT')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/SHReportedBySet('BOBJ-CONNECT')",
+				"type": "com.evorait.evonotify.SHReportedBy"
+			},
+			"BNAME": "BOBJ-CONNECT",
+			"DEPARTMENT": "",
+			"COMPANY": "IDES US"
+		}]
+	}
+}
