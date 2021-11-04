@@ -275,7 +275,7 @@ sap.ui.define([
 					return;
 				}
 				var sPath = this.getModel().createKey("SHNotificationTypeSet", {
-					Qmart: oData.NOTIFICATION_TYPE || oData.NOTIFICATION_TYPE
+					QMART: oData.NOTIFICATION_TYPE || oData.NOTIFICATION_TYPE
 				});
 
 				this.getModel().read("/" + sPath, {
