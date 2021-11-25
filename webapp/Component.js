@@ -49,7 +49,7 @@ sap.ui.define([
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
 
-			if (manifestApp) {
+			if (manifestApp && (manifestApp.dataSources)) {
 				dataSource = manifestApp.dataSources.mainService.uri;
 			}
 
