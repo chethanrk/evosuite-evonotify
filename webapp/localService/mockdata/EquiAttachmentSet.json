@@ -1,5 +1,59 @@
-{
-	"d": {
-		"results": []
-	}
-}
+[{
+	"__metadata": {
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/EquiAttachmentSet(ObjectKey='000010007930QMGOSFOL18%20%20%20%20%20%20%20%20%20%204%20EXT46000000000925',HeaderObjectKey='000010007930')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/EquiAttachmentSet(ObjectKey='000010007930QMGOSFOL18%20%20%20%20%20%20%20%20%20%204%20EXT46000000000925',HeaderObjectKey='000010007930')",
+		"type": "com.evorait.evonotify.EquiAttachment",
+		"content_type": "application/msword",
+		"media_src": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/EquiAttachmentSet(ObjectKey='000010007930QMGOSFOL18%20%20%20%20%20%20%20%20%20%204%20EXT46000000000925',HeaderObjectKey='000010007930')/$value",
+		"edit_media": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/EquiAttachmentSet(ObjectKey='000010007930QMGOSFOL18%20%20%20%20%20%20%20%20%20%204%20EXT46000000000925',HeaderObjectKey='000010007930')/$value"
+	},
+	"Mimetype": "application/msword",
+	"ObjectKey": "000010007930QMGOSFOL18          4 EXT46000000000925",
+	"HeaderObjectKey": "000010007930",
+	"FILEID": "FOL18          4 EXT46000000000925",
+	"FILENAME": "Attachment Service.docx",
+	"FILESIZE": "281.177 KB",
+	"ATTACH_TYPE": "GOS",
+	"FILE_COUNTER": "00001",
+	"BUSINESS_OBJECT": "",
+	"OBJECT_CATEGORY": "",
+	"OBJECT_TYPE": "",
+	"FILE_DESCRIPTION": "Attachment Service",
+	"OBJECT_NUMBER": "",
+	"TECHNICAL_OBJECT": "000000000010007448",
+	"SOURCE_TYPE": "QM",
+	"ORDER_NUMBER": "",
+	"NOTIFICATION_NO": "10007930",
+	"EQUIPMENT_NUMBER": "10007448",
+	"FUNCTIONAL_LOCATION_INTERNAL": "",
+	"ATTACHMENT_URL": ""
+}, {
+	"__metadata": {
+		"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/EquiAttachmentSet(ObjectKey='000010007930QMGOSFOL18%20%20%20%20%20%20%20%20%20%204%20EXT46000000000987',HeaderObjectKey='000010007930')",
+		"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/EquiAttachmentSet(ObjectKey='000010007930QMGOSFOL18%20%20%20%20%20%20%20%20%20%204%20EXT46000000000987',HeaderObjectKey='000010007930')",
+		"type": "com.evorait.evonotify.EquiAttachment",
+		"content_type": "application/vnd.ms-excel",
+		"media_src": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/EquiAttachmentSet(ObjectKey='000010007930QMGOSFOL18%20%20%20%20%20%20%20%20%20%204%20EXT46000000000987',HeaderObjectKey='000010007930')/$value",
+		"edit_media": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/EquiAttachmentSet(ObjectKey='000010007930QMGOSFOL18%20%20%20%20%20%20%20%20%20%204%20EXT46000000000987',HeaderObjectKey='000010007930')/$value"
+	},
+	"Mimetype": "application/vnd.ms-excel",
+	"ObjectKey": "000010007930QMGOSFOL18          4 EXT46000000000987",
+	"HeaderObjectKey": "000010007930",
+	"FILEID": "FOL18          4 EXT46000000000987",
+	"FILENAME": "Equipment Test Upload Doc.xlsx",
+	"FILESIZE": "   6.63 KB",
+	"ATTACH_TYPE": "GOS",
+	"FILE_COUNTER": "00002",
+	"BUSINESS_OBJECT": "",
+	"OBJECT_CATEGORY": "",
+	"OBJECT_TYPE": "",
+	"FILE_DESCRIPTION": "Equipment Test Upload Doc",
+	"OBJECT_NUMBER": "",
+	"TECHNICAL_OBJECT": "000000000010007448",
+	"SOURCE_TYPE": "QM",
+	"ORDER_NUMBER": "",
+	"NOTIFICATION_NO": "10007930",
+	"EQUIPMENT_NUMBER": "10007448",
+	"FUNCTIONAL_LOCATION_INTERNAL": "",
+	"ATTACHMENT_URL": ""
+}]

@@ -1,6 +1,7 @@
 sap.ui.require([
 	"sap/ui/test/opaQunit",
-	"com/evorait/evosuite/evonotify/test/integration/pages/App"
+	"com/evorait/evosuite/evonotify/test/integration/pages/App",
+	"com/evorait/evosuite/evonotify/test/integration/pages/WorkList"
 ], function (opaTest) {
 	"use strict";
 
