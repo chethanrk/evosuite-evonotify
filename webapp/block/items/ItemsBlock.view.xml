@@ -9,13 +9,15 @@
 				<ToolbarSpacer/>
 				<OverflowToolbarButton icon="sap-icon://add" text="Sort" press="onPressAdd"
 					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},'user>/ENABLE_ITEM_CREATE',{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
+				<OverflowToolbarButton icon="sap-icon://delete" text="Sort" press="onPressDelete"
+					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},'user>/ENABLE_ITEM_DELETE',{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 			</OverflowToolbar>
 		</smartTable:customToolbar>
 		<!-- layout data used to make the table growing but the filter bar fixed -->
 		<smartTable:layoutData>
 			<FlexItemData growFactor="1" baseSize="0%"/>
 		</smartTable:layoutData>
-		<Table growing="true">
+		<Table growing="true" mode="MultiSelect" enableBusyIndicator="true">
 			<columns>
 				<Column width="5rem">
 					<customData>

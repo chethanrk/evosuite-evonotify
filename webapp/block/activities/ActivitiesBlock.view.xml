@@ -12,6 +12,8 @@
 					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},{path: 'user>/ENABLE_ACTIVITY_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 				<OverflowToolbarButton icon="sap-icon://edit" text="Sort" press="onPressEdit"
 					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},{path: 'user>/ENABLE_ACTIVITY_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
+				<OverflowToolbarButton icon="sap-icon://delete" text="Sort" press="onPressDelete"
+					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},'user>/ENABLE_ACTIVITY_DELETE',{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 			</OverflowToolbar>
 		</smartTable:customToolbar>
 		<!-- layout data used to make the table growing but the filter bar fixed -->

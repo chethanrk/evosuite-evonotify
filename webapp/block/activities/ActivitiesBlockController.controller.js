@@ -1,11 +1,12 @@
 /*global location*/
 sap.ui.define([
+	"com/evorait/evosuite/evonotify/controller/FormController",
 	"com/evorait/evosuite/evonotify/controller/TableController",
 	"com/evorait/evosuite/evonotify/model/formatter"
-], function (TableController, formatter) {
+], function (FormController, TableController, formatter) {
 	"use strict";
 
-	return TableController.extend("com.evorait.evosuite.evonotify.block.activities.ActivitiesBlockController", {
+	return FormController.extend("com.evorait.evosuite.evonotify.block.activities.ActivitiesBlockController", {
 
 		formatter: formatter,
 		_oSmartTable: null,
@@ -76,6 +77,21 @@ sap.ui.define([
 		 */
 		onPressAdd: function (oEvent) {
 			this.getDependenciesAndCallback(this._openAddDialog.bind(this));
+		},
+
+		/**
+		 * delete multiple selected items
+		 * @param oEvent
+		 */
+		onPressDelete: function (oEvent) {
+			var aSelected = this._oSmartTable.getTable().getSelectedItems(),
+				sMsg = this.getResourceBundle().getText("msg.confirmActivityDelete");
+			if (aSelected.length > 0) {
+				var successFn = function () {
+					this.deleteNotificationEntries(aSelected, this._oSmartTable);
+				};
+				this.confirmDialog(sMsg, successFn.bind(this), null, this._oSmartTable);
+			}
 		},
 
 		/* =========================================================== */

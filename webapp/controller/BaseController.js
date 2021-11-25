@@ -219,7 +219,7 @@ sap.ui.define([
 		 * @param msg
 		 */
 		showMessageToast: function (msg) {
-			sap.m.MessageToast.show(msg, {
+			MessageToast.show(msg, {
 				duration: 5000, // default
 				my: "center center", // default
 				at: "center center", // default
@@ -287,6 +287,24 @@ sap.ui.define([
 					}
 				});
 			}.bind(this));
+		},
+
+		/**
+		 * confirm messageBox for all cases of confirmations
+		 * @param msg
+		 */
+		confirmDialog: function (msg, successCallback, cancelCallback) {
+			MessageBox.confirm(msg, {
+				actions: [MessageBox.Action.OK, MessageBox.Action.CANCEL],
+				emphasizedAction: MessageBox.Action.OK,
+				onClose: function (sAction) {
+					if (sAction === MessageBox.Action.OK && successCallback) {
+						successCallback();
+					} else if (cancelCallback) {
+						cancelCallback();
+					}
+				}
+			});
 		},
 
 		/**

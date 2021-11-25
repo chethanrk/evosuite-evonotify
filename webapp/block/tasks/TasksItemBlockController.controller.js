@@ -98,6 +98,21 @@ sap.ui.define([
 			this.getDependenciesAndCallback(this._openAddDialog.bind(this));
 		},
 
+		/**
+		 * delete multiple selected items
+		 * @param oEvent
+		 */
+		onPressDelete: function (oEvent) {
+			var aSelected = this._oSmartTable.getTable().getSelectedItems(),
+				sMsg = this.getResourceBundle().getText("msg.confirmTaskDelete");
+			if (aSelected.length > 0) {
+				var successFn = function () {
+					this.deleteNotificationEntries(aSelected, this._oSmartTable);
+				};
+				this.confirmDialog(sMsg, successFn.bind(this), null, this._oSmartTable);
+			}
+		},
+
 		/* =========================================================== */
 		/* internal methods                                            */
 		/* =========================================================== */

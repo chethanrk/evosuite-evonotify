@@ -234,6 +234,32 @@ sap.ui.define([
 		},
 
 		/**
+		 * loop through collection of selected table items 
+		 * and set delete property
+		 * @param aSelected
+		 * @param successFn
+		 * @param errorFn
+		 */
+		deleteNotificationEntries: function (aSelected, oTable) {
+			var oModel = this.getModel();
+			oModel.setRefreshAfterChange(false);
+			aSelected.forEach(function (oItem) {
+				var oContext = oItem.getBindingContext();
+				if (oContext) {
+					oModel.setProperty(oContext.getPath() + "/DELETE_ENTRY", "X");
+				}
+			});
+			this.saveChanges({
+				state: "success"
+			}, function () {
+				oModel.setRefreshAfterChange(true);
+				if (oCtrl.rebindTable) {
+					oCtrl.rebindTable();
+				}
+			}.bind(this), null, oCtrl);
+		},
+
+		/**
 		 * Form is valid now so send to sap
 		 * @param oEvent
 		 */
