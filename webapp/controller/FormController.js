@@ -471,7 +471,7 @@ sap.ui.define([
 					and: true
 				});
 				this.getOwnerComponent().readData("/PropertyValueDeterminationSet", [oFilter]).then(function (oData) {
-					if (oData.results) {
+					if (oData.results && oData.results.length) {
 						this._setDefaultValuesToField(oData.results[0], sPath, oMetaModel, oEntityType);
 					}
 				}.bind(this));

@@ -5,8 +5,9 @@ sap.ui.define([
 	"sap/ui/test/actions/EnterText",
 	"sap/ui/test/actions/Press",
 	"sap/ui/test/matchers/BindingPath",
+	"sap/ui/test/matchers/Properties",
 	"com/evorait/evosuite/evonotify/test/integration/pages/Common"
-], function (Opa5, AggregationLengthEquals, PropertyStrictEquals, EnterText, Press, BindingPath, Common) {
+], function (Opa5, AggregationLengthEquals, PropertyStrictEquals, EnterText, Press, BindingPath, Properties, Common) {
 	"use strict";
 
 	var sViewName = "Worklist";
@@ -15,16 +16,17 @@ sap.ui.define([
 	var sPageId = "NotificationlistPage";
 	var entitySet = "PMNotificationSet";
 
-	function createIdFor(sFilterBarName, sEntityPropertyName) {
-		return "__component0---worklist--" + sFilterBarName + "-filterItemControl_BASIC-" + sEntityPropertyName;
+	function createIdFor(sFilterName, sEntityPropertyName) {
+		return "__component0---worklist--" + sFilterBarId + "-filterItemControl_BASIC-" + sEntityPropertyName;
 	}
+
+	var oDataModel, oUserModel, oViewModel;
 
 	Opa5.createPageObjects({
 		onTheWorkListPage: {
 			baseClass: Common,
 
 			actions: {
-
 				iPressOnMoreData: function () {
 					return this.waitFor({
 						id: sTableId,
@@ -32,6 +34,20 @@ sap.ui.define([
 						actions: new Press(),
 						errorMessage: "The Table does not have a trigger"
 					});
+				},
+				iGetFirstItemDataInTable: function (sProperty) {
+					return this.waitFor({
+						id: sTableId,
+						viewName: sViewName,
+						success: function (oTable) {
+							var aItems = oTable.getItems();
+							var oContext = aItems[0].getBindingContext(),
+								oItemData = oContext.getObject(),
+								sFilteredItemData = oItemData[sProperty] ? oItemData[sProperty] : oItemData;
+						},
+						errorMessage: "Table not found."
+					});
+
 				},
 				iSetTestForFilterProperty: function (sProperty, sValue) {
 					return this.waitFor({
@@ -49,46 +65,75 @@ sap.ui.define([
 						actions: new Press()
 					});
 				},
+
 				iPressOnTheItemWithTheID: function (sId) {
 					return this.waitFor({
-						controlType: "sap.m.ColumnListItem",
 						viewName: sViewName,
+						controlType: "sap.m.ColumnListItem",
 						matchers: new BindingPath({
-							path: "/" + entitySet + "('94')"
+							path: "/" + entitySet + "('" + sId + "')"
 						}),
 						actions: new Press(),
 						errorMessage: "No list item with the ID " + sId + " was found."
 					});
-				}
+				},
+
+				iPressOnTheButtonWithTheID: function (sId) {
+					return this.waitFor({
+						controlType: "sap.m.Button",
+						id: sId,
+						viewName: sViewName,
+						actions: new Press(),
+						errorMessage: "No list item with the ID " + sId + " was found."
+					});
+				},
+
+				iPressDialogButtonWithID: function (sId) {
+					return this.waitFor({
+						controlType: "sap.m.Button",
+						searchOpenDialogs: true,
+						id: sId,
+						check: function (oButton) {
+							if (oButton) return true;
+							return false;
+						},
+						success: function (oButton) {
+							oButton.firePress();
+						},
+						errorMessage: "Cannot click dialog button"
+					});
+				},
+
+				setModelParameters: function (aParams) {
+					return this.waitFor({
+						id: "idBtnCreateNotification",
+						viewName: sViewName,
+						success: function (oView) {
+							oDataModel = oView.getModel();
+							oUserModel = oView.getModel("user");
+							oViewModel = oView.getModel("viewModel");
+							aParams.forEach(function (mParam) {
+								if (mParam.model === "user") {
+									oUserModel.setProperty("/" + mParam.property, mParam.value);
+								}
+							});
+						},
+						errorMessage: "Property setting was not possible"
+					});
+				},
 			},
 
 			assertions: {
-				iShouldSeePageTitle: function () {
-					return this.waitFor({
-						id: sPageId,
-						viewName: sViewName,
-						matchers: function (oView) {
-							var title = oView.getModel("i18n").getResourceBundle().getText("appTitle");
-							return new PropertyStrictEquals({
-								name: "title",
-								value: title
-							}).isMatching(oView);
-						},
-						success: function () {
-							Opa5.assert.ok(true, "I can see page title");
-						},
-						errorMessage: "Can't find page title"
-					});
-				},
 
 				iShouldSeeTable: function () {
 					return this.waitFor({
 						id: sTableId,
 						viewName: sViewName,
+						autoWait: true,
 						success: function () {
-							Opa5.assert.ok(true, "Can see Notification table");
+							Opa5.assert.ok(true, "Can see worklist equipment table");
 						},
-						errorMessage: "Can't find Notification table"
+						errorMessage: "Can't find Work List table"
 					});
 				},
 
@@ -97,27 +142,36 @@ sap.ui.define([
 						id: sFilterBarId,
 						viewName: sViewName,
 						success: function () {
-							Opa5.assert.ok(true, "Can see Filter bar for Notification table");
+							Opa5.assert.ok(true, "Can see Filter bar for equipment table");
 						},
-						errorMessage: "Can't find Filter bar for Notification table"
+						errorMessage: "Can't find Filter bar for WorkList table"
 					});
 				},
 
-				iShouldSeeAllTheRecords: function (n) {
-					var iExpectedNumberOfItems,
+				iShouldSeeAllTheRecords: function () {
+					var aAllEntities,
+						iExpectedNumberOfItems,
 						iTableBindingLength;
+
+					// retrieve all Products to be able to check for the total amount
+					this.waitFor(this.createAWaitForAnEntitySet({
+						entitySet: "PMNotificationSet",
+						success: function (aEntityData) {
+							aAllEntities = aEntityData;
+						}
+					}));
 
 					return this.waitFor({
 						id: sTableId,
 						viewName: sViewName,
 						matchers: function (oTable) {
 							// If there are less items in the list than the growingThreshold, only check for this number.
-							iExpectedNumberOfItems = n;
+							iExpectedNumberOfItems = aAllEntities.length;
 							iTableBindingLength = oTable.getItems().length;
 							return true;
 						},
 						success: function () {
-							Opa5.assert.strictEqual(iTableBindingLength, iExpectedNumberOfItems, "Notification List table has expected number of records" +
+							Opa5.assert.strictEqual(iTableBindingLength, iExpectedNumberOfItems, "WorkList table has expected number of records" +
 								iTableBindingLength);
 						},
 						errorMessage: "Table does not have all entries."
@@ -138,11 +192,21 @@ sap.ui.define([
 						},
 						errorMessage: "Table does not have filtered record."
 					});
-				}
+				},
+
+				iShouldSeeButton: function (sId, bVisible) {
+					return this.waitFor({
+						check: function () {
+							var ctrl = Opa5.getJQuery()("[id$='" + sId + "']");
+							return !ctrl.attr('aria-hidden') === bVisible;
+						},
+						success: function () {
+							Opa5.assert.ok(true, "The control is visible: " + bVisible + ".");
+						},
+						errorMessage: "Hide/Display Control was not happen."
+					});
+				},
 			}
-
 		}
-
 	});
-
 });

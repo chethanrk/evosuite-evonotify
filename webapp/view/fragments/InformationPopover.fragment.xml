@@ -26,7 +26,7 @@
 			</form:SimpleForm>
 		</content>
 		<buttons>
-			<Button text="{i18n>btn.close}" press="onCloseDialog"/>
+			<Button id="idHeaderBtnInfoDialogClose" text="{i18n>btn.close}" press="onCloseDialog"/>
 		</buttons>
 	</Dialog>
 </core:FragmentDefinition>

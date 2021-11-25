@@ -2,60 +2,18 @@
 	"d": {
 		"results": [{
 			"__metadata": {
-				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationActivitySet(MaintenanceNotification='218',MaintNotificationActivity='0002')",
-				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationActivitySet(MaintenanceNotification='218',MaintNotificationActivity='0002')",
-				"type": "com.evorait.evocu.evonotify.PMNotificationActivity"
+				"id": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/PMNotificationActivitySet('00001000793000000001')",
+				"uri": "https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/PMNotificationActivitySet('00001000793000000001')",
+				"type": "com.evorait.evonotify.PMNotificationActivity"
 			},
-			"ActivitySortNumber": "0001",
-			"MaintNotifActivityCodeGrpName": "General actions for complaints to vendor",
-			"MaintenanceNotification": "218",
-			"MaintNotifActivityCodeName": "Shipping Notification for Returned Goods",
-			"MaintNotifAcivityCodeCatalog": "8",
-			"MaintNotificationActivity": "0002",
-			"MaintenanceNotificationItem": "0000",
-			"MaintNotifActivityCodeGroup": "QM-G2",
-			"MaintNotifActivityCode": "0004",
-			"MaintNotifActyTxt": "Karl hat es erledigt",
-			"CreatedByUser": "WESTERMANN",
-			"MaintNotifActyQtyFactor": "000",
-			"PlannedStartDate": "\/Date(955584000000)\/",
-			"PlannedStartTime": "PT00H00M00S",
-			"PlannedEndDate": "\/Date(955584000000)\/",
-			"PlannedEndTime": "PT18H29M55S",
-			"NotificationType": "F2",
-			"NavToNotification": {
-				"__deferred": {
-					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationActivitySet(MaintenanceNotification='218',MaintNotificationActivity='0002')/NavToNotification"
-				}
-			}
-		}, {
-			"__metadata": {
-				"id": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationActivitySet(MaintenanceNotification='218',MaintNotificationActivity='0003')",
-				"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationActivitySet(MaintenanceNotification='218',MaintNotificationActivity='0003')",
-				"type": "com.evorait.evocu.evonotify.PMNotificationActivity"
-			},
-			"ActivitySortNumber": "0002",
-			"MaintNotifActivityCodeGrpName": "General actions for complaints to vendor",
-			"MaintenanceNotification": "218",
-			"MaintNotifActivityCodeName": "Standard Complaint Against the Vendor",
-			"MaintNotifAcivityCodeCatalog": "8",
-			"MaintNotificationActivity": "0003",
-			"MaintenanceNotificationItem": "0000",
-			"MaintNotifActivityCodeGroup": "QM-G2",
-			"MaintNotifActivityCode": "0001",
-			"MaintNotifActyTxt": "Karl hat es erledigt",
-			"CreatedByUser": "WESTERMANN",
-			"MaintNotifActyQtyFactor": "000",
-			"PlannedStartDate": "\/Date(955584000000)\/",
-			"PlannedStartTime": "PT00H00M00S",
-			"PlannedEndDate": "\/Date(955584000000)\/",
-			"PlannedEndTime": "PT18H29M55S",
-			"NotificationType": "F2",
-			"NavToNotification": {
-				"__deferred": {
-					"uri": "https://ed1cloud.evorait.net:50103/sap/opu/odata/EVOCU/EN_MAIN_SRV/PMNotificationActivitySet(MaintenanceNotification='218',MaintNotificationActivity='0003')/NavToNotification"
-				}
-			}
+			"ObjectKey": "00001000793000000001",
+			"NOTES": "",
+			"NOTIF_ACTIVITY": "0001",
+			"SORT_NUMBER": "0001",
+			"CODE_GROUP": "PM01",
+			"CODE": "1000",
+			"PLANNED_START_DATE": null,
+			"PLANNED_END_DATE": null
 		}]
 	}
 }
