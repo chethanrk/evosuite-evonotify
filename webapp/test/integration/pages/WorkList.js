@@ -71,7 +71,7 @@ sap.ui.define([
 						viewName: sViewName,
 						controlType: "sap.m.ColumnListItem",
 						matchers: new BindingPath({
-							path: "/" + entitySet + "('" + sId + "')"
+							path: "/" + entitySet + "('0000" + sId + "')"
 						}),
 						actions: new Press(),
 						errorMessage: "No list item with the ID " + sId + " was found."
@@ -119,6 +119,44 @@ sap.ui.define([
 							});
 						},
 						errorMessage: "Property setting was not possible"
+					});
+				},
+				iPressDialogCloseButton: function () {
+					return this.waitFor({
+						controlType: "sap.m.Button",
+						viewName: sViewName,
+						i18NText: {
+							propertyName: "text",
+							key: "btn.close"
+						},
+						actions: new Press(),
+						searchOpenDialogs: true,
+						errorMessage: "Did not find the Dialog close button"
+					});
+				},
+
+				iPressOnMessageManager: function () {
+					return this.waitFor({
+						controlType: "sap.m.Button",
+						matchers: new Properties({
+							icon: "sap-icon://alert",
+							type: "Emphasized",
+							text: new RegExp(/\d+/)
+						}),
+						actions: new Press(),
+						errorMessage: "Can't find Message Manager"
+					});
+				},
+
+				iPressPopoverCloseButton: function () {
+					return this.waitFor({
+						searchOpenDialogs: true,
+						controlType: "sap.m.Button",
+						matchers: new Properties({
+							icon: "sap-icon://decline"
+						}),
+						actions: new Press(),
+						errorMessage: "Did not find the Popover close button"
 					});
 				},
 			},

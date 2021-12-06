@@ -59,6 +59,44 @@ sap.ui.define([
 						errorMessage: "Cannot click dialog button"
 					});
 				},
+				iPressDialogCloseButton: function () {
+					return this.waitFor({
+						controlType: "sap.m.Button",
+						viewName: sViewName,
+						i18NText: {
+							propertyName: "text",
+							key: "btn.close"
+						},
+						actions: new Press(),
+						searchOpenDialogs: true,
+						errorMessage: "Did not find the Dialog close button"
+					});
+				},
+
+				iPressOnMessageManager: function () {
+					return this.waitFor({
+						controlType: "sap.m.Button",
+						matchers: new Properties({
+							icon: "sap-icon://alert",
+							type: "Emphasized",
+							text: new RegExp(/\d+/)
+						}),
+						actions: new Press(),
+						errorMessage: "Can't find Message Manager"
+					});
+				},
+
+				iPressPopoverCloseButton: function () {
+					return this.waitFor({
+						searchOpenDialogs: true,
+						controlType: "sap.m.Button",
+						matchers: new Properties({
+							icon: "sap-icon://decline"
+						}),
+						actions: new Press(),
+						errorMessage: "Did not find the Popover close button"
+					});
+				},
 
 				setModelParameters: function (aParams, sId) {
 					return this.waitFor({
@@ -81,6 +119,18 @@ sap.ui.define([
 
 			},
 			assertions: {
+				iShouldSeeNotificationTitle: function () {
+					return this.waitFor({
+						controlType: "sap.m.Title",
+						matchers: new Properties({
+							text: ""
+						}),
+						success: function () {
+							Opa5.assert.ok(true, "I can see page title");
+						},
+						errorMessage: "Can't find Object page title"
+					});
+				},
 				iShouldSeePageTitle: function (sTitle) {
 					return this.waitFor({
 						id: "objectPageHeader",
@@ -117,11 +167,27 @@ sap.ui.define([
 					});
 				},
 
+				iShouldSeeDetailsBlock: function () {
+					return this.waitFor({
+						viewName: sViewName,
+						viewNamespace: namespace,
+						controlType: "sap.ui.comp.smartform.SmartForm",
+						success: function () {
+							Opa5.assert.ok(true, "Can see the details block");
+						},
+						errorMessage: "Can't find details block"
+					});
+				},
+
 				iShouldSeeItemsBlock: function () {
 					return this.waitFor({
-						id: "notificationItemsTable",
+						controlType: "sap.ui.comp.smarttable.SmartTable",
 						viewName: "ItemsBlock",
 						viewNamespace: "com.evorait.evosuite.evonotify.block.items",
+						i18NText: {
+							propertyName: "header",
+							key: "tit.items"
+						},
 						success: function () {
 							Opa5.assert.ok(true, "Can see items table");
 						},
@@ -131,9 +197,13 @@ sap.ui.define([
 
 				iShouldSeeTasksBlock: function () {
 					return this.waitFor({
-						id: "notificationTasksTable",
+						controlType: "sap.ui.comp.smarttable.SmartTable",
 						viewName: "TasksBlock",
 						viewNamespace: "com.evorait.evosuite.evonotify.block.tasks",
+						i18NText: {
+							propertyName: "header",
+							key: "tit.items"
+						},
 						success: function () {
 							Opa5.assert.ok(true, "Can see tasks table");
 						},
@@ -143,9 +213,13 @@ sap.ui.define([
 
 				iShouldSeeActivitiesBlock: function () {
 					return this.waitFor({
-						id: "notificationActivityTable",
+						controlType: "sap.ui.comp.smarttable.SmartTable",
 						viewName: "ActivitiesBlock",
 						viewNamespace: "com.evorait.evosuite.evonotify.block.activities",
+						i18NText: {
+							propertyName: "header",
+							key: "tit.items"
+						},
 						success: function () {
 							Opa5.assert.ok(true, "Can see activities table");
 						},
@@ -155,9 +229,13 @@ sap.ui.define([
 
 				iShouldSeePartnerBlock: function () {
 					return this.waitFor({
-						id: "notificationPartnerTable",
+						controlType: "sap.ui.comp.smarttable.SmartTable",
 						viewName: "PartnerBlock",
 						viewNamespace: "com.evorait.evosuite.evonotify.block.partner",
+						i18NText: {
+							propertyName: "header",
+							key: "tit.items"
+						},
 						success: function () {
 							Opa5.assert.ok(true, "Can see Partner table");
 						},
@@ -165,15 +243,55 @@ sap.ui.define([
 					});
 				},
 
-				iShouldSeeAttachmentsTable: function () {
+				iShouldSeeNotiAttachmentsTable: function () {
 					return this.waitFor({
-						id: "idAttachmentsTable",
-						viewName: "AttachmentsBlock",
-						viewNamespace: "com.evorait.evosuite.evoorder.block.attachments",
-						success: function () {
-							Opa5.assert.ok(true, "Can see attachments table");
+						controlType: "sap.ui.comp.smarttable.SmartTable",
+						properties: {
+							persistencyKey: "com.evorait.evosuite.evonotify.table.NotifAttachments"
 						},
-						errorMessage: "Can't find attachments table"
+						success: function () {
+							Opa5.assert.ok(true, "Can see Notification Attachments table");
+						},
+						errorMessage: "Can't find Notification Attachments table"
+					});
+				},
+
+				iShouldSeeOrderAttachmentsTable: function () {
+					return this.waitFor({
+						controlType: "sap.ui.comp.smarttable.SmartTable",
+						properties: {
+							persistencyKey: "com.evorait.evosuite.evonotify.table.NotifAttachments"
+						},
+						success: function () {
+							Opa5.assert.ok(true, "Can see Order Attachments table");
+						},
+						errorMessage: "Can't find Order Attachments table"
+					});
+				},
+
+				iShouldSeeEquiAttachmentsTable: function () {
+					return this.waitFor({
+						controlType: "sap.ui.comp.smarttable.SmartTable",
+						properties: {
+							persistencyKey: "com.evorait.evosuite.evonotify.table.EquiAttachments"
+						},
+						success: function () {
+							Opa5.assert.ok(true, "Can see Equipments Attachments table");
+						},
+						errorMessage: "Can't find Equipments Attachments table"
+					});
+				},
+
+				iShouldSeeFlocAttachmentsTable: function () {
+					return this.waitFor({
+						controlType: "sap.ui.comp.smarttable.SmartTable",
+						properties: {
+							persistencyKey: "com.evorait.evosuite.evonotify.table.FlocAttachments"
+						},
+						success: function () {
+							Opa5.assert.ok(true, "Can see Functional Location Attachments table");
+						},
+						errorMessage: "Can't find Functional Location Attachments table"
 					});
 				},
 

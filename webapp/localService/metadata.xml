@@ -39,6 +39,9 @@
 					sap:is-extension-field="true"/>
 				<Property Name="CATALOG_PROFILE" Type="Edm.String" MaxLength="9" sap:display-format="UpperCase" sap:label="Catalog profile"
 					sap:updatable="false" sap:is-extension-field="true"/>
+				<Property Name="FUNCTIONAL_LOCATION" Type="Edm.String" MaxLength="40" sap:label="Functional loc." sap:is-extension-field="true"/>
+				<Property Name="EQUIPMENT" Type="Edm.String" MaxLength="18" sap:label="Equipment" sap:is-extension-field="true"/>
+				<Property Name="DELETE_ENTRY" Type="Edm.String" MaxLength="1" sap:label="Delete Entry" sap:is-extension-field="true"/>
 				<NavigationProperty Name="NotificationItemToCause" Relationship="com.evorait.evonotify.NotificationItemToCause"
 					FromRole="FromRole_NotificationItemToCause" ToRole="ToRole_NotificationItemToCause"/>
 				<NavigationProperty Name="NotificationItemToActivity" Relationship="com.evorait.evonotify.NotificationItemToActivity"
@@ -75,9 +78,12 @@
 				<Property Name="ENABLE_NOTIFICATION_UPDATE" Type="Edm.String" MaxLength="1" sap:label="Enable Notif Update" sap:is-extension-field="true"/>
 				<Property Name="ENABLE_TASK_CREATE" Type="Edm.String" MaxLength="1" sap:label="Enable Task Create" sap:is-extension-field="true"/>
 				<Property Name="ENABLE_TASK_UPDATE" Type="Edm.String" MaxLength="1" sap:label="Enable Task Update" sap:is-extension-field="true"/>
+				<Property Name="ENABLE_TASK_DELETE" Type="Edm.String" MaxLength="1" sap:label="Enable Task Delete" sap:is-extension-field="true"/>
 				<Property Name="ENABLE_ACTIVITY_CREATE" Type="Edm.String" MaxLength="1" sap:label="Enable Activity Crt" sap:is-extension-field="true"/>
+				<Property Name="ENABLE_ACTIVITY_DELETE" Type="Edm.String" MaxLength="1" sap:label="Enable Activity Del" sap:is-extension-field="true"/>
 				<Property Name="ENABLE_ITEM_CREATE" Type="Edm.String" MaxLength="1" sap:label="Enable Item Create" sap:is-extension-field="true"/>
 				<Property Name="ENABLE_ITEM_UPDATE" Type="Edm.String" MaxLength="1" sap:label="Enable Item Update" sap:is-extension-field="true"/>
+				<Property Name="ENABLE_ITEM_DELETE" Type="Edm.String" MaxLength="1" sap:label="Enable Item Delete" sap:is-extension-field="true"/>
 				<Property Name="ENABLE_CAUSE_CREATE" Type="Edm.String" MaxLength="1" sap:label="Enable Cause Create" sap:is-extension-field="true"/>
 				<Property Name="ENABLE_CAUSE_UPDATE" Type="Edm.String" MaxLength="1" sap:label="Enable Cause Update" sap:is-extension-field="true"/>
 				<Property Name="ENABLE_ATTACHMENT_CREATE" Type="Edm.String" MaxLength="1" sap:label="Enable Attach Create" sap:is-extension-field="true"/>
@@ -110,23 +116,23 @@
 			</EntityType>
 			<EntityType Name="SHNotificationPhase" sap:content-version="1">
 				<Key>
-					<PropertyRef Name="PHASECODE"/>
+					<PropertyRef Name="PHASE_CODE"/>
 				</Key>
-				<Property Name="PHASECODE" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Lower_value" sap:creatable="false"
+				<Property Name="PHASE_CODE" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Lower_value" sap:creatable="false"
 					sap:updatable="false"/>
-				<Property Name="PHASECODETEXT" Type="Edm.String" Nullable="false" MaxLength="60" sap:label="Short Descript."/>
+				<Property Name="PHASE_CODE_TEXT" Type="Edm.String" Nullable="false" MaxLength="60" sap:label="Short Descript."/>
 			</EntityType>
 			<EntityType Name="SHReportedBy" sap:content-version="1">
 				<Key>
 					<PropertyRef Name="BNAME"/>
 				</Key>
 				<Property Name="BNAME" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="User"/>
-				<Property Name="MCNAMELAS" Type="Edm.String" Nullable="false" MaxLength="25" sap:label="Last name"/>
-				<Property Name="MCNAMEFIR" Type="Edm.String" Nullable="false" MaxLength="25" sap:label="First name"/>
+				<Property Name="MC_NAMELAS" Type="Edm.String" Nullable="false" MaxLength="25" sap:label="Last name"/>
+				<Property Name="MC_NAMEFIR" Type="Edm.String" Nullable="false" MaxLength="25" sap:label="First name"/>
 				<Property Name="DEPARTMENT" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Department"/>
 				<Property Name="COMPANY" Type="Edm.String" Nullable="false" MaxLength="42" sap:label="Company"/>
-				<Property Name="MCNAME1" Type="Edm.String" Nullable="false" MaxLength="25" sap:label="Name"/>
-				<Property Name="MCCITY1" Type="Edm.String" Nullable="false" MaxLength="25" sap:label="City"/>
+				<Property Name="MC_NAME1" Type="Edm.String" Nullable="false" MaxLength="25" sap:label="Name"/>
+				<Property Name="MC_CITY1" Type="Edm.String" Nullable="false" MaxLength="25" sap:label="City"/>
 			</EntityType>
 			<EntityType Name="SHPriority" sap:content-version="1">
 				<Key>
@@ -206,6 +212,7 @@
 				<Property Name="CODE" Type="Edm.String" MaxLength="4" sap:label="Cause code" sap:is-extension-field="true"/>
 				<Property Name="CODE_DESC" Type="Edm.String" MaxLength="40" sap:label="Short text" sap:creatable="false" sap:updatable="false"
 					sap:is-extension-field="true"/>
+				<Property Name="CATALOG_PROFILE" Type="Edm.String" MaxLength="9" sap:label="Catalog profile" sap:is-extension-field="true"/>
 			</EntityType>
 			<EntityType Name="PMNotificationItemActivity" sap:content-version="1">
 				<Key>
@@ -240,6 +247,7 @@
 				<Property Name="PLANNED_END_TIME" Type="Edm.Time" Precision="0" sap:label="Time" sap:is-extension-field="true"/>
 				<Property Name="CREATED_BY" Type="Edm.String" MaxLength="12" sap:label="Created By" sap:is-extension-field="true"/>
 				<Property Name="CATALOG_PROFILE" Type="Edm.String" MaxLength="9" sap:label="Catalog profile" sap:is-extension-field="true"/>
+				<Property Name="DELETE_ENTRY" Type="Edm.String" MaxLength="1" sap:label="Delete Entry" sap:is-extension-field="true"/>
 			</EntityType>
 			<EntityType Name="PMNotificationItemTask" sap:content-version="1">
 				<Key>
@@ -300,6 +308,7 @@
 				<Property Name="ENABLE_TASK_CHANGE" Type="Edm.String" MaxLength="1" sap:label="Enable Task Change" sap:creatable="false"
 					sap:updatable="false" sap:is-extension-field="true"/>
 				<Property Name="CATALOG_PROFILE" Type="Edm.String" MaxLength="9" sap:label="Catalog profile" sap:is-extension-field="true"/>
+				<Property Name="DELETE_ENTRY" Type="Edm.String" MaxLength="1" sap:label="Delete Entry" sap:is-extension-field="true"/>
 			</EntityType>
 			<EntityType Name="SHEquipment" sap:content-version="1">
 				<Key>
@@ -577,8 +586,7 @@
 					sap:updatable="false" sap:is-extension-field="true"/>
 				<Property Name="NOTIFICATION_CATEGORY" Type="Edm.String" MaxLength="2" sap:label="Notif.cat" sap:creatable="false" sap:updatable="false"
 					sap:is-extension-field="true"/>
-				<Property Name="ORDER_NUMBER" Type="Edm.String" MaxLength="12" sap:label="Order" sap:creatable="false" sap:updatable="false"
-					sap:is-extension-field="true"/>
+				<Property Name="ORDER_NUMBER" Type="Edm.String" MaxLength="12" sap:label="Order" sap:updatable="false" sap:is-extension-field="true"/>
 				<Property Name="ORDER_NUMBER_DESCRIPTION" Type="Edm.String" MaxLength="40" sap:label="Description" sap:is-extension-field="true"/>
 				<Property Name="ORDER_TYPE" Type="Edm.String" MaxLength="4" sap:label="Order Type" sap:is-extension-field="true"/>
 				<Property Name="ABC_INDICATOR" Type="Edm.String" MaxLength="1" sap:label="ABC indic." sap:updatable="false" sap:is-extension-field="true"/>
@@ -766,6 +774,7 @@
 				<Property Name="CREATED_BY" Type="Edm.String" MaxLength="12" sap:label="Created By" sap:is-extension-field="true"/>
 				<Property Name="CATALOG_PROFILE" Type="Edm.String" MaxLength="9" sap:label="Catalog profile" sap:updatable="false"
 					sap:is-extension-field="true"/>
+				<Property Name="DELETE_ENTRY" Type="Edm.String" MaxLength="1" sap:label="Delete Entry" sap:is-extension-field="true"/>
 			</EntityType>
 			<EntityType Name="PMNotificationTask" sap:content-version="1">
 				<Key>
@@ -826,6 +835,7 @@
 					sap:updatable="false" sap:is-extension-field="true"/>
 				<Property Name="CATALOG_PROFILE" Type="Edm.String" MaxLength="9" sap:label="Catalog profile" sap:updatable="false"
 					sap:is-extension-field="true"/>
+				<Property Name="DELETE_ENTRY" Type="Edm.String" MaxLength="1" sap:label="Delete Entry" sap:is-extension-field="true"/>
 			</EntityType>
 			<EntityType Name="SHNotificationNumber" sap:content-version="1">
 				<Key>
@@ -1636,10 +1646,6 @@
 									<Annotation Term="Core.LongDescription" Path="ASSET_LOCATION_DESC"/>
 								</Record>
 								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="ABC_INDICATOR"/>
-									<Annotation Term="Core.LongDescription" Path="ABC_INDICATOR_DESC"/>
-								</Record>
-								<Record Type="UI.DataField">
 									<PropertyValue Property="Value" Path="MAINTENANCE_PLANT"/>
 									<Annotation Term="Core.LongDescription" Path="MAINTENANCE_PLANT_DESC"/>
 								</Record>
@@ -1874,15 +1880,18 @@
 									<PropertyValue Property="ValueListProperty" String="EQUNR"/>
 								</Record>
 								<Record Type="COMMON.ValueListParameterDisplayOnly">
-									<PropertyValue Property="ValueListProperty" String="WERK"/>
-								</Record>
-								<Record Type="COMMON.ValueListParameterDisplayOnly">
-									<PropertyValue Property="ValueListProperty" String="TPLNR"/>
-								</Record>
-								<Record Type="COMMON.ValueListParameterDisplayOnly">
 									<PropertyValue Property="ValueListProperty" String="EQKTX"/>
 								</Record>
-								<Record Type="COMMON.ValueListParameterDisplayOnly">
+								<Record Type="COMMON.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MAINTENANCE_PLANT"/>
+									<PropertyValue Property="ValueListProperty" String="WERK"/>
+								</Record>
+								<Record Type="COMMON.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="FUNCTIONAL_LOCATION"/>
+									<PropertyValue Property="ValueListProperty" String="TPLNR"/>
+								</Record>
+								<Record Type="COMMON.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="WORKCENTER"/>
 									<PropertyValue Property="ValueListProperty" String="ARBPL"/>
 								</Record>
 							</Collection>
@@ -3391,11 +3400,13 @@
 						<PropertyValue Property="SearchSupported" Bool="false"/>
 						<PropertyValue Property="Parameters">
 							<Collection>
-								<Record Type="COMMON.ValueListParameterDisplayOnly">
-									<PropertyValue Property="ValueListProperty" String="KATALOGART"/>
-								</Record>
-								<Record Type="COMMON.ValueListParameterDisplayOnly">
+								<Record Type="COMMON.ValueListParameterIn">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="CODE_GROUP"/>
 									<PropertyValue Property="ValueListProperty" String="CODEGRUPPE"/>
+								</Record>
+								<Record Type="COMMON.ValueListParameterIn">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="CODE_CATALOG"/>
+									<PropertyValue Property="ValueListProperty" String="KATALOGART"/>
 								</Record>
 								<Record Type="COMMON.ValueListParameterInOut">
 									<PropertyValue Property="LocalDataProperty" PropertyPath="CODE"/>
@@ -3620,11 +3631,13 @@
 						<PropertyValue Property="SearchSupported" Bool="false"/>
 						<PropertyValue Property="Parameters">
 							<Collection>
-								<Record Type="COMMON.ValueListParameterDisplayOnly">
-									<PropertyValue Property="ValueListProperty" String="KATALOGART"/>
-								</Record>
-								<Record Type="COMMON.ValueListParameterDisplayOnly">
+								<Record Type="COMMON.ValueListParameterIn">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="CODE_GROUP"/>
 									<PropertyValue Property="ValueListProperty" String="CODEGRUPPE"/>
+								</Record>
+								<Record Type="COMMON.ValueListParameterIn">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="CODE_CATALOG"/>
+									<PropertyValue Property="ValueListProperty" String="KATALOGART"/>
 								</Record>
 								<Record Type="COMMON.ValueListParameterInOut">
 									<PropertyValue Property="LocalDataProperty" PropertyPath="CODE"/>
@@ -3952,11 +3965,13 @@
 						<PropertyValue Property="SearchSupported" Bool="false"/>
 						<PropertyValue Property="Parameters">
 							<Collection>
-								<Record Type="COMMON.ValueListParameterDisplayOnly">
-									<PropertyValue Property="ValueListProperty" String="KATALOGART"/>
-								</Record>
-								<Record Type="COMMON.ValueListParameterDisplayOnly">
+								<Record Type="COMMON.ValueListParameterIn">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="CODE_GROUP"/>
 									<PropertyValue Property="ValueListProperty" String="CODEGRUPPE"/>
+								</Record>
+								<Record Type="COMMON.ValueListParameterIn">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="CODE_CATALOG"/>
+									<PropertyValue Property="ValueListProperty" String="KATALOGART"/>
 								</Record>
 								<Record Type="COMMON.ValueListParameterInOut">
 									<PropertyValue Property="LocalDataProperty" PropertyPath="CODE"/>
@@ -4623,7 +4638,7 @@
 					</Record>
 				</Annotation>
 			</Annotations>
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evonotify.SHNotificationPhase/PHASECODE">
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evonotify.SHNotificationPhase/PHASE_CODE">
 				<Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Notification Phase"/>
 			</Annotations>
 			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="com.evorait.evonotify.SHNotificationType">

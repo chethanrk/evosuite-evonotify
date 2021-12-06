@@ -47,6 +47,18 @@ sap.ui.define([
 						errorMessage: "Cannot click dialog button"
 					});
 				},
+				
+				iPressPopoverCloseButton: function () {
+					return this.waitFor({
+						searchOpenDialogs: true,
+						controlType: "sap.m.Button",
+						matchers: new Properties({
+							icon: "sap-icon://decline"
+						}),
+						actions: new Press(),
+						errorMessage: "Did not find the Popover close button"
+					});
+				},
 
 			},
 
