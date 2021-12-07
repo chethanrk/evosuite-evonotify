@@ -240,7 +240,7 @@ sap.ui.define([
 		 * @param successFn
 		 * @param errorFn
 		 */
-		deleteNotificationEntries: function (aSelected, oTable) {
+		deleteEntries: function (aSelected, oTable) {
 			var oModel = this.getModel();
 			oModel.setRefreshAfterChange(false);
 			aSelected.forEach(function (oItem) {
@@ -253,10 +253,10 @@ sap.ui.define([
 				state: "success"
 			}, function () {
 				oModel.setRefreshAfterChange(true);
-				if (oCtrl.rebindTable) {
-					oCtrl.rebindTable();
+				if (oTable.rebindTable) {
+					oTable.rebindTable();
 				}
-			}.bind(this), null, oCtrl);
+			}.bind(this), null, oTable);
 		},
 
 		/**

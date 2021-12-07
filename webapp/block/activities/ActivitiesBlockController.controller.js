@@ -88,7 +88,7 @@ sap.ui.define([
 				sMsg = this.getResourceBundle().getText("msg.confirmActivityDelete");
 			if (aSelected.length > 0) {
 				var successFn = function () {
-					this.deleteNotificationEntries(aSelected, this._oSmartTable);
+					this.deleteEntries(aSelected, this._oSmartTable);
 				};
 				this.confirmDialog(sMsg, successFn.bind(this), null, this._oSmartTable);
 			}

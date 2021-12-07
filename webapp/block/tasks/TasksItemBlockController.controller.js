@@ -107,7 +107,7 @@ sap.ui.define([
 				sMsg = this.getResourceBundle().getText("msg.confirmTaskDelete");
 			if (aSelected.length > 0) {
 				var successFn = function () {
-					this.deleteNotificationEntries(aSelected, this._oSmartTable);
+					this.deleteEntries(aSelected, this._oSmartTable);
 				};
 				this.confirmDialog(sMsg, successFn.bind(this), null, this._oSmartTable);
 			}
@@ -180,7 +180,7 @@ sap.ui.define([
 					mItemTaskAllows[key] = oData[key];
 				}
 			}
-			this.getView().getModel("viewModel").setProperty("/ItemTaskAllows", mItemTaskAllows);
+			this.getView().getModel("viewModel").setProperty("/TaskAllows", mItemTaskAllows);
 			this._setBusyWhileSaving(this.getView(), false);
 			this.oStatusSelectControl.setEnabled(true);
 		},
@@ -241,7 +241,7 @@ sap.ui.define([
 				// create action sheet only once
 				if (!this._actionSheetItemTaskSystemStatus) {
 					Fragment.load({
-						name: "com.evorait.evosuite.evonotify.view.fragments.ActionSheetItemTaskSystemStatus",
+						name: "com.evorait.evosuite.evonotify.view.fragments.ActionSheetTaskSystemStatus",
 						controller: this,
 						type: "XML"
 					}).then(function (oFragment) {

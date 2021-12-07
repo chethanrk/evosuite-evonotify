@@ -53,14 +53,16 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onPressItem: function (oEvent) {
-			this._setBusyWhileSaving(this.getView(), true);
 			this.oListItem = oEvent.getParameter("listItem");
-			this.oStatusSelectControl = this.getView().byId("idTaskStatusChangeMenu");
-			this.oStatusSelectControl.setEnabled(false);
 			this._oTaskContext = this.oListItem.getBindingContext();
 			this._oNotificationContext = this.oView.getBindingContext().getObject();
-			this._getNotificationTaskDetails(this._oTaskContext.getObject().ObjectKey);
-			this._validateTaskEdiButton(this._oTaskContext.getObject().ENABLE_TASK_CHANGE);
+
+			this.oStatusSelectControl = this.getView().byId("idTaskStatusChangeMenu");
+			this.oStatusSelectControl.setEnabled(false);
+
+			var oContextData = this._oTaskContext.getObject();
+			this._setTaskStatusButtonVisibility(oContextData); //enable/disable status change button
+			this._setEditButtonVisibility(oContextData); //enable/disable edit button
 		},
 
 		/**
@@ -103,18 +105,18 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onSelectStatus: function (oEvent) {
-			var oSource = oEvent.getSource(),
-				oItem = oEvent.getParameter("item"),
+			var oItem = oEvent.getParameter("item"),
 				oData = this._oTaskContext.getObject(),
 				sPath = this._oTaskContext.getPath(),
-				sFunctionKey = oItem ? oItem.data("key") : oSource.data("key"),
+				sFunctionKey = oItem.getKey(),
 				message = "";
+
 			if (oData["ALLOW_" + sFunctionKey]) {
 				this.getModel("viewModel").setProperty("/isStatusUpdate", true);
 				this.getModel().setProperty(sPath + "/FUNCTION", sFunctionKey);
 				this.saveChanges({
 					state: "success"
-				}, this.saveSuccessFn.bind(this), this.saveErrorFn.bind(this), this.getView());
+				}, this._saveSuccessFn.bind(this), this._saveErrorFn.bind(this), this.getView());
 				this.oListItem.getParent().removeSelections(true);
 				this.oStatusSelectControl.setEnabled(false);
 			} else {
@@ -132,10 +134,48 @@ sap.ui.define([
 				sMsg = this.getResourceBundle().getText("msg.confirmTaskDelete");
 			if (aSelected.length > 0) {
 				var successFn = function () {
-					this.deleteNotificationEntries(aSelected, this._oSmartTable);
+					this.deleteEntries(aSelected, this._oSmartTable);
 				};
 				this.confirmDialog(sMsg, successFn.bind(this), null, this._oSmartTable);
 			}
+		},
+
+		/**
+		 * show ActionSheet of Task system status buttons
+		 * @param oEvent
+		 */
+		onPressChangeTaskSystemStatus: function (oEvent) {
+			if (this._oTaskContext) {
+				var oButton = oEvent.getSource();
+				// create action sheet only once
+				if (!this._actionSheetTaskSystemStatus) {
+					Fragment.load({
+						name: "com.evorait.evosuite.evonotify.view.fragments.ActionSheetTaskSystemStatus",
+						controller: this,
+						type: "XML"
+					}).then(function (oFragment) {
+						this._actionSheetTaskSystemStatus = oFragment;
+						this.getView().addDependent(oFragment);
+						this._actionSheetTaskSystemStatus.addStyleClass(this.getModel("viewModel").getProperty("/densityClass"));
+						this._actionSheetTaskSystemStatus.openBy(oButton);
+					}.bind(this));
+				} else {
+					this._actionSheetTaskSystemStatus.openBy(oButton);
+				}
+			} else {
+				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
+				this.showMessageToast(msg);
+			}
+		},
+
+		/**
+		 * Called on click of Long text indicator
+		 * @param oEvent
+		 */
+		showLongText: function (oEvent) {
+			var oContext = oEvent.getSource().getBindingContext();
+			var longText = oContext.getProperty("NOTES");
+			this.displayLongText(longText);
 		},
 
 		/* =========================================================== */
@@ -180,7 +220,6 @@ sap.ui.define([
 				}
 			}
 			this.getModel("viewModel").setProperty("/TaskAllows", mTaskAllows);
-			this._setBusyWhileSaving(this.getView(), false);
 			this.oStatusSelectControl.setEnabled(true);
 		},
 
@@ -188,7 +227,7 @@ sap.ui.define([
 		 * success callback after saving notification
 		 * @param oResponse
 		 */
-		saveSuccessFn: function (oResponse) {
+		_saveSuccessFn: function (oResponse) {
 			var msg = this.getResourceBundle().getText("msg.saveSuccess");
 			this.showMessageToast(msg);
 		},
@@ -197,66 +236,24 @@ sap.ui.define([
 		 * error callback after saving notification
 		 * @param oResponse
 		 */
-		saveErrorFn: function (oResponse) {
+		_saveErrorFn: function (oResponse) {
 			this.getModel().resetChanges([this._oTaskContext.getPath()]);
 		},
 
-		_getNotificationTaskDetails: function (filterParameter) {
-			var oFilter1 = new Filter("ObjectKey", FilterOperator.EQ, filterParameter);
-			this.getOwnerComponent().readData("/PMNotificationTaskSet", [
-				[oFilter1]
-			]).then(function (oData) {
-				this._oTaskContextData = oData.results[0];
-				this._setTaskStatusButtonVisibility(this._oTaskContextData);
-			}.bind(this));
-		},
-
-		_validateTaskEdiButton: function (isTaskEditable) {
+		/**
+		 * disable/enable edit button for a selected task
+		 * when ENABLE_TASK_CHANGE in task is false then edit is not allowed
+		 * @param oData
+		 */
+		_setEditButtonVisibility: function (oData) {
 			var oTaskEditCtrl = this.getView().byId("idTaskEdit");
-			if (isTaskEditable === "X") {
+			if (oData.ENABLE_TASK_CHANGE === "X") {
 				oTaskEditCtrl.setEnabled(true);
 			} else {
 				oTaskEditCtrl.setEnabled(false);
 			}
-		},
-
-		/**
-		 * Called on click of Long text indicator
-		 * @param oEvent
-		 */
-		showLongText: function (oEvent) {
-			var oContext = oEvent.getSource().getBindingContext();
-			var longText = oContext.getProperty("NOTES");
-			this.displayLongText(longText);
-		},
-
-		/**
-		 * show ActionSheet of Task system status buttons
-		 * @param oEvent
-		 */
-		onPressChangeTaskSystemStatus: function (oEvent) {
-			if (this._oTaskContext && this._oTaskContextData) {
-				var oButton = oEvent.getSource();
-				// create action sheet only once
-				if (!this._actionSheetTaskSystemStatus) {
-					Fragment.load({
-						name: "com.evorait.evosuite.evonotify.view.fragments.ActionSheetTaskSystemStatus",
-						controller: this,
-						type: "XML"
-					}).then(function (oFragment) {
-						this._actionSheetTaskSystemStatus = oFragment;
-						this.getView().addDependent(oFragment);
-						this._actionSheetTaskSystemStatus.addStyleClass(this.getModel("viewModel").getProperty("/densityClass"));
-						this._actionSheetTaskSystemStatus.openBy(oButton);
-					}.bind(this));
-				} else {
-					this._actionSheetTaskSystemStatus.openBy(oButton);
-				}
-			} else {
-				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
-				this.showMessageToast(msg);
-			}
 		}
+
 	});
 
 });
