@@ -17,7 +17,7 @@ sap.ui.define([
 	var entitySet = "PMNotificationSet";
 
 	function createIdFor(sFilterName, sEntityPropertyName) {
-		return "__component0---worklist--" + sFilterBarId + "-filterItemControl_BASIC-" + sEntityPropertyName;
+		return "__xmlview0--" + sFilterBarId + "-filterItemControl_BASIC-" + sEntityPropertyName;
 	}
 
 	var oDataModel, oUserModel, oViewModel;
