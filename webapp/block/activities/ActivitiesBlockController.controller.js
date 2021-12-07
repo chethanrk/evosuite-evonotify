@@ -21,6 +21,7 @@ sap.ui.define([
 		 */
 		onInit: function () {
 			this._oSmartTable = this.getView().byId("notificationActivityTable");
+			this.getModel("viewModel").setProperty("/singleSelectedActivity", false);
 		},
 
 		/* =========================================================== */
@@ -36,12 +37,17 @@ sap.ui.define([
 		},
 
 		/**
-		 *  save selected context
-		 * @param oEvent
+		 * On item select in responsive table
+		 * @params oEvent
 		 */
 		onPressItem: function (oEvent) {
-			this.oListItem = oEvent.getParameter("listItem");
-			this._oActivityContext = this.oListItem.getBindingContext();
+			var aSelected = this._oSmartTable.getTable().getSelectedItems();
+			//only one item can be edited so enable edit button when only one entry was selected
+			if (aSelected.length === 1) {
+				this.getModel("viewModel").setProperty("/singleSelectedActivity", true);
+			} else {
+				this.getModel("viewModel").setProperty("/singleSelectedActivity", false);
+			}
 		},
 
 		/**
@@ -50,7 +56,16 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onPressEdit: function (oEvent) {
-			if (this._oActivityContext) {
+			var aSelected = this._oSmartTable.getTable().getSelectedItems(),
+				msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
+
+			if (aSelected.length > 1 || aSelected.length === 0) {
+				this.showMessageToast(msg);
+				return;
+			}
+
+			var oSelectedContext = aSelected[0].getBindingContext();
+			if (oSelectedContext) {
 				var mParams = {
 					viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#ActivityCreateUpdate",
 					annotationPath: "com.sap.vocabularies.UI.v1.Facets#ActivityCreateUpdate",
@@ -58,14 +73,13 @@ sap.ui.define([
 					controllerName: "AddEditEntry",
 					title: "tit.editActivity",
 					type: "edit",
-					sPath: this._oActivityContext.getPath(),
+					sPath: oSelectedContext.getPath(),
 					smartTable: this._oSmartTable
 				};
 				this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
-				this._oActivityContext = null;
-				this.oListItem.getParent().removeSelections(true);
+				this._oSmartTable.getTable().removeSelections(true);
+				this.getModel("viewModel").setProperty("/singleSelectedActivity", false);
 			} else {
-				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
 				this.showMessageToast(msg);
 			}
 		},

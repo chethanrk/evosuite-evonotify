@@ -8,11 +8,11 @@
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
-				<OverflowToolbarButton icon="sap-icon://add" text="Sort" press="onPressAdd"
+				<OverflowToolbarButton icon="sap-icon://add" text="{i18n>btn.add}" press="onPressAdd"
 					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},{path: 'user>/ENABLE_ACTIVITY_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
-				<OverflowToolbarButton icon="sap-icon://edit" text="Sort" press="onPressEdit"
-					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},{path: 'user>/ENABLE_ACTIVITY_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
-				<OverflowToolbarButton icon="sap-icon://delete" text="Sort" press="onPressDelete"
+				<OverflowToolbarButton icon="sap-icon://edit" text="{i18n>btn.edit}" press="onPressEdit" enabled="{viewModel>/singleSelectedActivity}"
+					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},{path: 'user>/ENABLE_ACTIVITY_UPDATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
+				<OverflowToolbarButton icon="sap-icon://delete" text="{i18n>btn.delete}" press="onPressDelete"
 					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},'user>/ENABLE_ACTIVITY_DELETE',{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 			</OverflowToolbar>
 		</smartTable:customToolbar>
@@ -20,7 +20,7 @@
 		<smartTable:layoutData>
 			<FlexItemData growFactor="1" baseSize="0%"/>
 		</smartTable:layoutData>
-		<Table growing="true" mode="SingleSelectMaster" selectionChange="onPressItem">
+		<Table growing="true" mode="MultiSelect" selectionChange="onPressItem">
 			<columns>
 				<Column width="5rem">
 					<customData>

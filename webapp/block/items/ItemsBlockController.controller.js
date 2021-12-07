@@ -39,6 +39,7 @@ sap.ui.define([
 
 		onPressItem: function (oEvent) {
 			var oContext = oEvent.getSource().getBindingContext();
+
 			if (oContext) {
 				var obj = oContext.getObject();
 				var parentObj = this.oView.getBindingContext().getObject();

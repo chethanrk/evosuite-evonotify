@@ -23,7 +23,7 @@
 		<smartTable:layoutData>
 			<FlexItemData growFactor="1" baseSize="0%"/>
 		</smartTable:layoutData>
-		<Table growing="true" mode="SingleSelectMaster" selectionChange="onPressItem">
+		<Table growing="true" mode="MultiSelect" selectionChange="onPressItem">
 			<columns>
 				<Column width="5rem">
 					<Text text="{/#PMNotificationTask/UI_STATUS_ICON/@sap:label}"/>
