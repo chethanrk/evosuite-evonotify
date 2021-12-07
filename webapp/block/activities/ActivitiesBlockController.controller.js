@@ -41,13 +41,9 @@ sap.ui.define([
 		 * @params oEvent
 		 */
 		onPressItem: function (oEvent) {
-			var aSelected = this._oSmartTable.getTable().getSelectedItems();
 			//only one item can be edited so enable edit button when only one entry was selected
-			if (aSelected.length === 1) {
-				this.getModel("viewModel").setProperty("/singleSelectedActivity", true);
-			} else {
-				this.getModel("viewModel").setProperty("/singleSelectedActivity", false);
-			}
+			var aSelected = this._oSmartTable.getTable().getSelectedItems();
+			this.getModel("viewModel").setProperty("/singleSelectedActivity", aSelected.length === 1);
 		},
 
 		/**
@@ -56,32 +52,18 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onPressEdit: function (oEvent) {
-			var aSelected = this._oSmartTable.getTable().getSelectedItems(),
-				msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
-
-			if (aSelected.length > 1 || aSelected.length === 0) {
-				this.showMessageToast(msg);
-				return;
-			}
-
-			var oSelectedContext = aSelected[0].getBindingContext();
-			if (oSelectedContext) {
-				var mParams = {
-					viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#ActivityCreateUpdate",
-					annotationPath: "com.sap.vocabularies.UI.v1.Facets#ActivityCreateUpdate",
-					entitySet: "PMNotificationActivitySet",
-					controllerName: "AddEditEntry",
-					title: "tit.editActivity",
-					type: "edit",
-					sPath: oSelectedContext.getPath(),
-					smartTable: this._oSmartTable
-				};
-				this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
-				this._oSmartTable.getTable().removeSelections(true);
+			var mParams = {
+				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#ActivityCreateUpdate",
+				annotationPath: "com.sap.vocabularies.UI.v1.Facets#ActivityCreateUpdate",
+				entitySet: "PMNotificationActivitySet",
+				controllerName: "AddEditEntry",
+				title: "tit.editActivity",
+				type: "edit",
+				smartTable: this._oSmartTable
+			};
+			this.getSingleSelectAndOpenEditDialog(this._oSmartTable, mParams, function () {
 				this.getModel("viewModel").setProperty("/singleSelectedActivity", false);
-			} else {
-				this.showMessageToast(msg);
-			}
+			}.bind(this));
 		},
 
 		/**
