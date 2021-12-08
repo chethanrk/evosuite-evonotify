@@ -40,19 +40,21 @@ sap.ui.require([
 	 * Header check buttons and dialogs
 	 */
 
-	opaTest("Button for Message Box should open Message Manager", function (Given, When, Then) {
-		// Actions
-		When.onTheWorkListPage.iPressOnTheButtonWithTheID("idHeaderBtnMessageManager");
-		Then.onTheWorkListPage.iShouldSeeMessageManager();
-		Then.onTheWorkListPage.iShouldSeeMessageManagerContentLength(0);
+	opaTest("Should open and close message popover", function (Given, When, Then) {
+
+		When.onTheWorkListPage.iPressOnMessageManager();
+		Then.onTheWorkListPage.iShouldSeePopover();
+
+		When.onTheWorkListPage.iPressPopoverCloseButton();
+		Then.onTheWorkListPage.iShouldSeeTable(); 
 	});
 
-	opaTest("Button '?' should open and close System Information Dialog", function (Given, When, Then) {
+	opaTest("Should open and close the 'About' dialog", function (Given, When, Then) {
 		// Actions
 		When.onTheWorkListPage.iPressOnTheButtonWithTheID("idButtonAboutDialog");
 		Then.onTheWorkListPage.iShouldSeeDialog();
 
-		When.onTheWorkListPage.iPressDialogButtonWithID("idHeaderBtnInfoDialogClose");
+		When.onTheWorkListPage.iPressDialogCloseButton();
 		Then.onTheWorkListPage.iShouldSeeTable();
 	});
 
@@ -67,39 +69,15 @@ sap.ui.require([
 		Then.onTheWorkListPage.iShouldSeeButton("idBtnCreateNotification", true);
 	});
 
-	opaTest("Button 'Create notification' should navigate to create notification page and back", function (Given, When, Then) {
+	opaTest("Navigate to Notification detail page", function (Given, When, Then) {
 		// Actions
-		When.onTheWorkListPage.iPressOnTheButtonWithTheID("idBtnCreateNotification");
-		Then.onTheCreateNotificationPage.iShouldSeePageTitle();
+		When.onTheWorkListPage.iPressOnTheItemWithTheID("10007930");
+		
+		Then.onTheNotificationDetailsPage.iShouldSeePageTitle("Notification test")
+			.and.iShouldSeePageSubTitle("10007930");
 
-		When.onTheBrowserPage.iPressOnTheBackButton();
-		Then.onTheWorkListPage.iShouldSeeTable()
-			.and.iShouldSeeFilterBar();
-
-		//Then.iTeardownMyApp();
-	});
-
-	opaTest("Close App", function (Given, When, Then) {
-		// Actions
-		When.onTheAppPage.iLookAtTheScreen();
-		Then.onTheWorkListPage.iShouldSeeTable();
 		// Cleanup
 		Then.iTeardownMyApp();
 	});
-
-	/*------------abouve scenarios working-----------------*/
-
-	/*	opaTest("Press on List item should navigate to create notification page and back", function (Given, When, Then) {
-			// Actions
-			When.onTheAppPage.iLookAtTheScreen();
-			Then.onTheNotificationDetailsPage.iShouldSeePageTitle("Identification of screws not conforming");
-
-			When.onTheBrowserPage.iPressOnTheBackButton();
-			Then.onTheWorkListPage.iShouldSeeTable()
-				.and.iShouldSeeFilterBar();
-
-			// Cleanup
-			Then.iTeardownMyApp();
-		});*/
 
 });

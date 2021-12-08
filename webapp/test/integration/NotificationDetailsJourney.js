@@ -15,8 +15,9 @@ sap.ui.define([
 		Given.iStartMyApp();
 
 		// Actions
-		When.onTheWorkListPage.iPressOnTheItemWithTheID("000010007930");
-		// second page title check
+		When.onTheWorkListPage.iPressOnTheItemWithTheID("10007930");
+
+		// Assertions
 		Then.onTheNotificationDetailsPage.iShouldSeePageTitle("Notification test").
 		and.iShouldSeePageSubTitle("10007930");
 	});
@@ -24,73 +25,41 @@ sap.ui.define([
 	/**
 	 * header
 	 */
-	opaTest("Should see required header details", function (Given, When, Then) {
+
+	opaTest("Should see all the sections", function (Given, When, Then) {
 		// Actions
 		When.onTheAppPage.iLookAtTheScreen();
+
 		// Assertions
-		Then.onTheNotificationDetailsPage.iShouldSeeTheHeaderTitleAs("Notification test").
-		and.iShouldSeeTheHeaderSubTitleAs("10007930");
-		/*and.iShouldSeeNotificationField();
-		and.iShouldSeeUserStatusField().
-		and.iShouldSeeFuncLocField().
-		and.iShouldSeePriorityField().
-		and.iShouldSeeSystemStatusField();*/
+		Then.onTheNotificationDetailsPage.iShouldSeeDetailsBlock()
+			.and.iShouldSeeItemsBlock()
+			.and.iShouldSeeTasksBlock()
+			.and.iShouldSeeActivitiesBlock()
+			.and.iShouldSeePartnerBlock()
+			.and.iShouldSeeNotiAttachmentsTable()
+			.and.iShouldSeeOrderAttachmentsTable()
+			.and.iShouldSeeEquiAttachmentsTable()
+			.and.iShouldSeeFlocAttachmentsTable();
 	});
 
-	opaTest("Button '?' should open and close System Information Dialog", function (Given, When, Then) {
+	opaTest("Should open and close message popover", function (Given, When, Then) {
+		// Actions
+		When.onTheNotificationDetailsPage.iPressOnMessageManager();
+		Then.onTheNotificationDetailsPage.iShouldSeePopover();
+
+		// Assertions
+		When.onTheNotificationDetailsPage.iPressPopoverCloseButton();
+		Then.onTheNotificationDetailsPage.iShouldSeeTheHeaderTitleAs("Notification test");
+	});
+
+	opaTest("Should open and close the 'About' dialog", function (Given, When, Then) {
 		// Actions
 		When.onTheNotificationDetailsPage.iPressOnTheButtonWithTheID("idButtonAboutDialog");
 		Then.onTheNotificationDetailsPage.iShouldSeeDialog();
 
-		When.onTheNotificationDetailsPage.iPressDialogButtonWithID("idHeaderBtnInfoDialogClose");
+		// Assertions
+		When.onTheNotificationDetailsPage.iPressDialogCloseButton();
 		Then.onTheNotificationDetailsPage.iShouldSeeTheHeaderTitleAs("Notification test");
-	});
-
-	opaTest("Button for Message Box should open Message Manager", function (Given, When, Then) {
-		// Actions
-		When.onTheNotificationDetailsPage.iPressOnTheButtonWithTheID("idHeaderBtnMessageManager");
-		Then.onTheNotificationDetailsPage.iShouldSeeMessageManager();
-	});
-
-	/**
-	 * Item block
-	 */
-	opaTest("Should see items block", function (Given, When, Then) {
-		// Actions
-		When.onTheAppPage.iLookAtTheScreen();
-		// Assertions
-		Then.onTheNotificationDetailsPage.iShouldSeeItemsBlock();
-	});
-
-	/**
-	 * tasks block
-	 */
-	opaTest("Should see Tasks block", function (Given, When, Then) {
-		// Actions
-		When.onTheAppPage.iLookAtTheScreen();
-		// Assertions
-		Then.onTheNotificationDetailsPage.iShouldSeeTasksBlock();
-	});
-
-	/**
-	 * activities block
-	 */
-	opaTest("Should see Activities block", function (Given, When, Then) {
-		// Actions
-		When.onTheAppPage.iLookAtTheScreen();
-		// Assertions
-		Then.onTheNotificationDetailsPage.iShouldSeeActivitiesBlock();
-	});
-
-	/**
-	 * Partner block
-	 */
-	opaTest("Should see Partner block", function (Given, When, Then) {
-		// Actions
-		When.onTheAppPage.iLookAtTheScreen();
-		// Assertions
-		Then.onTheNotificationDetailsPage.iShouldSeePartnerBlock();
-		/*Then.iTeardownMyApp();*/
 	});
 
 	/**
@@ -108,13 +77,4 @@ sap.ui.define([
 			}], "idStatusChangeMenu");
 			Then.onTheNotificationDetailsPage.iShouldSeeButton("idStatusChangeMenu", false);
 		});
-
-/*	opaTest("Close App", function (Given, When, Then) {
-		// Actions
-		When.onTheAppPage.iLookAtTheScreen();
-		Then.onTheNotificationDetailsPage.iShouldSeeTheHeaderTitleAs("Notification test");
-		// Cleanup
-		Then.iTeardownMyApp();
-	});*/
-
 });

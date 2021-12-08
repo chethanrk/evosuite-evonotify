@@ -132,7 +132,18 @@ sap.ui.define([
 				},
 				errorMessage: sErrMsg
 			});
-		}
+		},
+		
+		iShouldSeePopover: function () {
+				return this.waitFor({
+					controlType: "sap.m.Popover",
+					searchOpenDialogs: true, // OPA framework cannot find popover without the flag set to true
+					success: function () {
+						Opa5.assert.ok(true, "The Popover is open");
+					},
+					errorMessage: "Did not find the Popover"
+				});
+			},
 
 	});
 
