@@ -1,7 +1,7 @@
 <edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
 	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
 	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
-		Uri="https://webidetesting9469954-ad74c0790.dispatcher.hana.ondemand.com/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+		Uri="https://ed1.evorait.net:50103/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
 		<edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
 		<edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="COMMON"/>
 	</edmx:Reference>
@@ -80,6 +80,7 @@
 				<Property Name="ENABLE_TASK_UPDATE" Type="Edm.String" MaxLength="1" sap:label="Enable Task Update" sap:is-extension-field="true"/>
 				<Property Name="ENABLE_TASK_DELETE" Type="Edm.String" MaxLength="1" sap:label="Enable Task Delete" sap:is-extension-field="true"/>
 				<Property Name="ENABLE_ACTIVITY_CREATE" Type="Edm.String" MaxLength="1" sap:label="Enable Activity Crt" sap:is-extension-field="true"/>
+				<Property Name="ENABLE_ACTIVITY_UPDATE" Type="Edm.String" MaxLength="1" sap:label="Enable Activity Upd" sap:is-extension-field="true"/>
 				<Property Name="ENABLE_ACTIVITY_DELETE" Type="Edm.String" MaxLength="1" sap:label="Enable Activity Del" sap:is-extension-field="true"/>
 				<Property Name="ENABLE_ITEM_CREATE" Type="Edm.String" MaxLength="1" sap:label="Enable Item Create" sap:is-extension-field="true"/>
 				<Property Name="ENABLE_ITEM_UPDATE" Type="Edm.String" MaxLength="1" sap:label="Enable Item Update" sap:is-extension-field="true"/>
@@ -4848,9 +4849,9 @@
 				</Annotation>
 			</Annotations>
 			<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self"
-				href="https://webidetesting9469954-ad74c0790.dispatcher.hana.ondemand.com/sap/opu/odata/EVORA/EN_MAIN_SRV/$metadata"/>
+				href="https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/$metadata"/>
 			<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
-				href="https://webidetesting9469954-ad74c0790.dispatcher.hana.ondemand.com/sap/opu/odata/EVORA/EN_MAIN_SRV/$metadata"/>
+				href="https://ed1.evorait.net:50103/sap/opu/odata/EVORA/EN_MAIN_SRV/$metadata"/>
 		</Schema>
 	</edmx:DataServices>
 </edmx:Edmx>
