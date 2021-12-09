@@ -4,6 +4,12 @@ sap.ui.define([
 	"use strict";
 
 	return BaseController.extend("com.evorait.evosuite.evonotify.controller.App", {
+		
+		metadata: {
+			methods: {
+				// only lifecycle and private methods are defined
+			}	
+		},
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */

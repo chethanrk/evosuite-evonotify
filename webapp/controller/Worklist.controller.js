@@ -1,11 +1,40 @@
 sap.ui.define([
 	"com/evorait/evosuite/evonotify/controller/TableController",
 	"com/evorait/evosuite/evonotify/model/formatter",
-	"sap/ui/model/json/JSONModel"
-], function (TableController, formatter, JSONModel) {
+	"sap/ui/model/json/JSONModel",
+	"sap/ui/core/mvc/OverrideExecution"
+], function (TableController, formatter, JSONModel, OverrideExecution) {
 	"use strict";
 
 	return TableController.extend("com.evorait.evosuite.evonotify.controller.Worklist", {
+		
+		metadata: {
+			methods: {
+				formatter: {
+					public: true,
+					final: true
+				},
+				onBeforeRebindTable: {
+					public: true,
+					final: true
+				},
+				onInitializedSmartVariant: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				},
+				onPressTableRow: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				},
+				onPressCreateNotification: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Before
+				}
+			}	
+		},
 
 		formatter: formatter,
 

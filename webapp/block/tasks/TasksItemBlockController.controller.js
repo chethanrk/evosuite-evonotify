@@ -5,11 +5,64 @@ sap.ui.define([
 	"com/evorait/evosuite/evonotify/model/formatter",
 	"sap/ui/model/FilterOperator",
 	"sap/ui/model/Filter",
-	"sap/ui/core/Fragment"
-], function (FormController, TableController, formatter, FilterOperator, Filter, Fragment) {
+	"sap/ui/core/Fragment",
+	"sap/ui/core/mvc/OverrideExecution"
+], function (FormController, TableController, formatter, FilterOperator, Filter, Fragment, OverrideExecution) {
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.block.tasks.TasksItemBlockController", {
+		
+		metadata: {
+			methods: {
+				formatter: {
+					public: true,
+					final: true
+				},
+				onBeforeRebindTable: {
+					public: true,
+					final: true
+				},
+				onPressItem: {
+					public: true,
+					final: true
+				},
+				onPressEdit: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onPressAdd: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onSelectStatus: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Before
+				},
+				saveSuccessFn: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				},
+				saveErrorFn: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				},
+				showLongText: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				},
+				onPressChangeTaskSystemStatus: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				}
+			}	
+		},
 
 		formatter: formatter,
 		_oSmartTable: null,
@@ -98,38 +151,6 @@ sap.ui.define([
 			this.getDependenciesAndCallback(this._openAddDialog.bind(this));
 		},
 
-		/* =========================================================== */
-		/* internal methods                                            */
-		/* =========================================================== */
-
-		/**
-		 * open add dialog 
-		 * and set add task dependencies like catalog from NotificationType
-		 */
-		_openAddDialog: function (oContextData, mResults) {
-			var mParams = {
-				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#ItemTaskCreate",
-				annotationPath: "com.sap.vocabularies.UI.v1.Facets#ItemTaskCreate",
-				entitySet: "PMNotificationItemTaskSet",
-				controllerName: "AddEditEntry",
-				title: "tit.addTask",
-				type: "add",
-				smartTable: this._oSmartTable,
-				sSortField: "SORT_NUMBER",
-				sNavTo: "/NotificationItemToTask/",
-				mKeys: {
-					NOTIFICATION_NO: oContextData.NOTIFICATION_NO,
-					NOTIFICATION_ITEM: oContextData.NOTIFICATION_ITEM
-				}
-			};
-
-			if (mResults) {
-				mParams.mKeys.CODE_CATALOG = mResults.Makat;
-				mParams.mKeys.ResponsiblePersonFunctionCode = mResults.PartnerFunOfPersonRespForTask;
-			}
-			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
-		},
-
 		/**
 		 * Save the selected status
 		 * @param oEvent
@@ -156,21 +177,6 @@ sap.ui.define([
 		},
 
 		/**
-		 * set visibility on status change dropdown items based on allowance from order status
-		 */
-		_setTaskStatusButtonVisibility: function (oData) {
-			var mItemTaskAllows = {};
-			for (var key in oData) {
-				if (key.startsWith("ALLOW_")) {
-					mItemTaskAllows[key] = oData[key];
-				}
-			}
-			this.getView().getModel("viewModel").setProperty("/ItemTaskAllows", mItemTaskAllows);
-			this._setBusyWhileSaving(this.getView(), false);
-			this.oStatusSelectControl.setEnabled(true);
-		},
-
-		/**
 		 * success callback after saving notification
 		 * @param oResponse
 		 */
@@ -185,25 +191,6 @@ sap.ui.define([
 		 */
 		saveErrorFn: function (oResponse) {
 			this.getModel().resetChanges([this._oItemTaskContext.getPath()]);
-		},
-
-		_getNotificationItemTaskDetails: function (filterParameter) {
-			var oFilter1 = new Filter("ObjectKey", FilterOperator.EQ, filterParameter);
-			this.getOwnerComponent().readData("/PMNotificationItemTaskSet", [
-				[oFilter1]
-			]).then(function (oData) {
-				this._oItemTaskContextData = oData.results[0];
-				this._setTaskStatusButtonVisibility(this._oItemTaskContextData);
-			}.bind(this));
-		},
-
-		_validateItemTaskEdiButton: function (isItemTaskEditable) {
-			var oItemTaskEditCtrl = this.getView().byId("idItemTaskEdit");
-			if (isItemTaskEditable === "X") {
-				oItemTaskEditCtrl.setEnabled(true);
-			} else {
-				oItemTaskEditCtrl.setEnabled(false);
-			}
 		},
 
 		/**
@@ -242,7 +229,73 @@ sap.ui.define([
 				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
 				this.showMessageToast(msg);
 			}
-		}
+		},
+
+		/* =========================================================== */
+		/* internal methods                                            */
+		/* =========================================================== */
+
+		/**
+		 * open add dialog 
+		 * and set add task dependencies like catalog from NotificationType
+		 */
+		_openAddDialog: function (oContextData, mResults) {
+			var mParams = {
+				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#ItemTaskCreate",
+				annotationPath: "com.sap.vocabularies.UI.v1.Facets#ItemTaskCreate",
+				entitySet: "PMNotificationItemTaskSet",
+				controllerName: "AddEditEntry",
+				title: "tit.addTask",
+				type: "add",
+				smartTable: this._oSmartTable,
+				sSortField: "SORT_NUMBER",
+				sNavTo: "/NotificationItemToTask/",
+				mKeys: {
+					NOTIFICATION_NO: oContextData.NOTIFICATION_NO,
+					NOTIFICATION_ITEM: oContextData.NOTIFICATION_ITEM
+				}
+			};
+
+			if (mResults) {
+				mParams.mKeys.CODE_CATALOG = mResults.Makat;
+				mParams.mKeys.ResponsiblePersonFunctionCode = mResults.PartnerFunOfPersonRespForTask;
+			}
+			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
+		},
+
+		/**
+		 * set visibility on status change dropdown items based on allowance from order status
+		 */
+		_setTaskStatusButtonVisibility: function (oData) {
+			var mItemTaskAllows = {};
+			for (var key in oData) {
+				if (key.startsWith("ALLOW_")) {
+					mItemTaskAllows[key] = oData[key];
+				}
+			}
+			this.getView().getModel("viewModel").setProperty("/ItemTaskAllows", mItemTaskAllows);
+			this._setBusyWhileSaving(this.getView(), false);
+			this.oStatusSelectControl.setEnabled(true);
+		},
+
+		_getNotificationItemTaskDetails: function (filterParameter) {
+			var oFilter1 = new Filter("ObjectKey", FilterOperator.EQ, filterParameter);
+			this.getOwnerComponent().readData("/PMNotificationItemTaskSet", [
+				[oFilter1]
+			]).then(function (oData) {
+				this._oItemTaskContextData = oData.results[0];
+				this._setTaskStatusButtonVisibility(this._oItemTaskContextData);
+			}.bind(this));
+		},
+
+		_validateItemTaskEdiButton: function (isItemTaskEditable) {
+			var oItemTaskEditCtrl = this.getView().byId("idItemTaskEdit");
+			if (isItemTaskEditable === "X") {
+				oItemTaskEditCtrl.setEnabled(true);
+			} else {
+				oItemTaskEditCtrl.setEnabled(false);
+			}
+		},
 	});
 
 });

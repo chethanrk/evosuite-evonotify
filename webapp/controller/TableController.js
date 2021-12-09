@@ -1,10 +1,29 @@
 sap.ui.define([
 	"com/evorait/evosuite/evonotify/controller/BaseController",
-	"com/evorait/evosuite/evonotify/model/AnnotationHelper"
-], function (BaseController, AnnotationHelper) {
+	"com/evorait/evosuite/evonotify/model/AnnotationHelper",
+	"sap/ui/core/mvc/OverrideExecution"
+], function (BaseController, AnnotationHelper, OverrideExecution) {
 	"use strict";
 
 	return BaseController.extend("com.evorait.evosuite.evonotify.controller.TableController", {
+		
+		metadata: {
+			methods: {
+				setDefaultUserVariant: {
+					public: true,
+					final: true
+				},
+				onInitializedSmartVariant: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onBeforeRebindTable: {
+					public: true,
+					final: true
+				}
+			}	
+		},
 
 		/**
 		 * sets default variant for user when it was set in backend customizing
@@ -50,6 +69,10 @@ sap.ui.define([
 			this._setDefaultTableSorter(oEvent);
 			this._setRequestAtLeastFields(oEvent);
 		},
+		
+		/* =========================================================== */
+		/* internal methods                                            */
+		/* =========================================================== */
 
 		/**
 		 * set default SortOder from annotations for responsive tables
@@ -129,6 +152,5 @@ sap.ui.define([
 				return false;
 			});
 		}
-
 	});
 });

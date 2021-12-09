@@ -6,6 +6,15 @@ sap.ui.define([
 	"use strict";
 
 	return UI5Object.extend("com.evorait.evosuite.evonotify.controller.ErrorHandler", {
+		
+		metadata: {
+			methods: {
+				constructor: {
+					public: true,
+					final: true
+				}
+			}
+		},
 
 		/**
 		 * Handles application errors by automatically attaching to the model events and displaying errors when needed.

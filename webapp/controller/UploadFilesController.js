@@ -5,6 +5,23 @@ sap.ui.define([
 	"use strict";
 
 	return BaseController.extend("com.evorait.evosuite.evonotify.controller.UploadFilesController", {
+		
+		metadata: {
+			methods: {
+				init: {
+					public: true,
+					final: true,
+				},
+				setContext: {
+					public: true,
+					final: true,
+				},
+				startUploadFiles: {
+					public: true,
+					final: true,
+				}
+			}	
+		},
 
 		oView: null,
 		oViewModel: null,
@@ -24,60 +41,6 @@ sap.ui.define([
 		 */
 		setContext: function (oContext) {
 			this.oContext = oContext;
-		},
-
-		/**
-		 * read file and send to backend
-		 * @param blobOrFile
-		 * @param oInfo
-		 * @param successCallback
-		 * @param errorCallback
-		 * @param progressCallback
-		 */
-		uploadFileToServer: function (blobOrFile, oInfo, successCallback, errorCallback, progressCallback) {
-			var fileReader = new FileReader(),
-				_this = this;
-
-			fileReader.onloadend = function () {
-				var fileIntArray = new Uint8Array(fileReader.result);
-				oInfo.slug = oInfo.id + "|" + oInfo.name;
-				oInfo.type = blobOrFile.type;
-
-				_this.uploadFileXhr(oInfo.path, oInfo, fileIntArray, successCallback, errorCallback, progressCallback, _this);
-			};
-			fileReader.readAsArrayBuffer(blobOrFile);
-		},
-
-		/**
-		 * Create XHR request
-		 * @param sPath
-		 * @param oInfo
-		 * @param fileStream
-		 * @param successCallback
-		 * @param errorCallback
-		 * @param _this
-		 */
-		uploadFileXhr: function (sPath, oInfo, fileStream, successCallback, errorCallback, _this) {
-			var xhr = new XMLHttpRequest();
-
-			xhr.onerror = function (e) {
-				errorCallback(e, xhr, oInfo.name);
-			};
-			xhr.onload = function (e) {
-				if (xhr.readyState === 4) {
-					if (xhr.status >= 200 && xhr.status < 300) {
-						successCallback(oInfo);
-					} else {
-						errorCallback(e, xhr, oInfo.name);
-					}
-				}
-			};
-
-			xhr.open("POST", sPath, true); // XMLRequest an den Server
-			xhr.setRequestHeader("Content-Type", oInfo.type);
-			xhr.setRequestHeader("slug", oInfo.slug);
-			xhr.setRequestHeader("x-csrf-token", oInfo.token);
-			xhr.send(fileStream);
 		},
 
 		/**
@@ -123,7 +86,66 @@ sap.ui.define([
 				this.addMsgToMessageManager(this.mMessageType.Error, sErrorFormatedMsg, "/Detail");
 			}.bind(this);
 
-			this.uploadFileToServer(uploadItem, uploadInfos, successFn, erroFn);
+			this._uploadFileToServer(uploadItem, uploadInfos, successFn, erroFn);
+		},
+		
+		/* =========================================================== */
+		/* internal methods                                            */
+		/* =========================================================== */
+
+		/**
+		 * read file and send to backend
+		 * @param blobOrFile
+		 * @param oInfo
+		 * @param successCallback
+		 * @param errorCallback
+		 * @param progressCallback
+		 */
+		
+		_uploadFileToServer: function (blobOrFile, oInfo, successCallback, errorCallback, progressCallback) {
+			var fileReader = new FileReader(),
+				_this = this;
+
+			fileReader.onloadend = function () {
+				var fileIntArray = new Uint8Array(fileReader.result);
+				oInfo.slug = oInfo.id + "|" + oInfo.name;
+				oInfo.type = blobOrFile.type;
+
+				_this._uploadFileXhr(oInfo.path, oInfo, fileIntArray, successCallback, errorCallback, progressCallback, _this);
+			};
+			fileReader.readAsArrayBuffer(blobOrFile);
+		},
+
+		/**
+		 * Create XHR request
+		 * @param sPath
+		 * @param oInfo
+		 * @param fileStream
+		 * @param successCallback
+		 * @param errorCallback
+		 * @param _this
+		 */
+		_uploadFileXhr: function (sPath, oInfo, fileStream, successCallback, errorCallback, _this) {
+			var xhr = new XMLHttpRequest();
+
+			xhr.onerror = function (e) {
+				errorCallback(e, xhr, oInfo.name);
+			};
+			xhr.onload = function (e) {
+				if (xhr.readyState === 4) {
+					if (xhr.status >= 200 && xhr.status < 300) {
+						successCallback(oInfo);
+					} else {
+						errorCallback(e, xhr, oInfo.name);
+					}
+				}
+			};
+
+			xhr.open("POST", sPath, true); // XMLRequest an den Server
+			xhr.setRequestHeader("Content-Type", oInfo.type);
+			xhr.setRequestHeader("slug", oInfo.slug);
+			xhr.setRequestHeader("x-csrf-token", oInfo.token);
+			xhr.send(fileStream);
 		},
 
 		/**

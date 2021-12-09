@@ -9,6 +9,19 @@ sap.ui.define([
 	"use strict";
 
 	return TableController.extend("com.evorait.evosuite.evonotify.block.partner.PartnerBlockController", {
+		
+		metadata: {
+			methods: {
+				fotmatter: {
+					public: true,
+					final: true
+				},
+				onBeforeRebindTable: {
+					public: true,
+					final: true	
+				}
+			}	
+		},
 
 		formatter: formatter,
 

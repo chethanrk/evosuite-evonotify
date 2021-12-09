@@ -5,6 +5,27 @@ sap.ui.define([
 	"use strict";
 
 	return TemplateRenderController.extend("com.evorait.evosuite.evonotify.controller.DialogTemplateRenderController", {
+		
+		metadata: {
+			methods: {
+				constructor: {
+					public: true,
+					final: true
+				},
+				open: {
+					public: true,
+					final: true
+				},
+				onPressClose: {
+					public: true,
+					final: true
+				},
+				onPressSave: {
+					public: true,
+					final: true
+				}
+			}	
+		},
 
 		_oHelperModel: null,
 

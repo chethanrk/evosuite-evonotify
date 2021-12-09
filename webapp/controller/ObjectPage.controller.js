@@ -4,6 +4,12 @@ sap.ui.define([
 	"use strict";
 
 	return TemplateRenderController.extend("com.evorait.evosuite.evonotify.controller.ObjectPage", {
+		
+		metadata: {
+			methods: {
+				// only lifecycle and private methods are defined
+			}	
+		},
 
 		oViewModel: null,
 

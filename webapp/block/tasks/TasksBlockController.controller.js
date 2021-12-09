@@ -5,11 +5,64 @@ sap.ui.define([
 	"com/evorait/evosuite/evonotify/model/formatter",
 	"sap/ui/model/FilterOperator",
 	"sap/ui/model/Filter",
-	"sap/ui/core/Fragment"
-], function (FormController, TableController, formatter, FilterOperator, Filter, Fragment) {
+	"sap/ui/core/Fragment",
+	"sap/ui/core/mvc/OverrideExecution"
+], function (FormController, TableController, formatter, FilterOperator, Filter, Fragment, OverrideExecution) {
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.block.tasks.TasksBlockController", {
+		
+		metadata: {
+			methods: {
+				formatter: {
+					public: true,
+					final: true
+				},
+				onBeforeRebindTable: {
+					public: true,
+					final: true
+				},
+				onPressItem: {
+					public: true,
+					final: true
+				},
+				onPressEdit: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onPressAdd: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onSelectStatus: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Before
+				},
+				saveSuccessFn: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				},
+				saveErrorFn: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				},
+				showLongText: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				},
+				onPressChangeTaskSystemStatus: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				}
+			}	
+		},
 
 		formatter: formatter,
 		_oSmartTable: null,
@@ -123,6 +176,61 @@ sap.ui.define([
 			}
 		},
 
+		/**
+		 * success callback after saving notification
+		 * @param oResponse
+		 */
+		saveSuccessFn: function (oResponse) {
+			var msg = this.getResourceBundle().getText("msg.saveSuccess");
+			this.showMessageToast(msg);
+		},
+
+		/**
+		 * error callback after saving notification
+		 * @param oResponse
+		 */
+		saveErrorFn: function (oResponse) {
+			this.getModel().resetChanges([this._oTaskContext.getPath()]);
+		},
+
+		/**
+		 * Called on click of Long text indicator
+		 * @param oEvent
+		 */
+		showLongText: function (oEvent) {
+			var oContext = oEvent.getSource().getBindingContext();
+			var longText = oContext.getProperty("NOTES");
+			this.displayLongText(longText);
+		},
+
+		/**
+		 * show ActionSheet of Task system status buttons
+		 * @param oEvent
+		 */
+		onPressChangeTaskSystemStatus: function (oEvent) {
+			if (this._oTaskContext && this._oTaskContextData) {
+				var oButton = oEvent.getSource();
+				// create action sheet only once
+				if (!this._actionSheetTaskSystemStatus) {
+					Fragment.load({
+						name: "com.evorait.evosuite.evonotify.view.fragments.ActionSheetTaskSystemStatus",
+						controller: this,
+						type: "XML"
+					}).then(function (oFragment) {
+						this._actionSheetTaskSystemStatus = oFragment;
+						this.getView().addDependent(oFragment);
+						this._actionSheetTaskSystemStatus.addStyleClass(this.getModel("viewModel").getProperty("/densityClass"));
+						this._actionSheetTaskSystemStatus.openBy(oButton);
+					}.bind(this));
+				} else {
+					this._actionSheetTaskSystemStatus.openBy(oButton);
+				}
+			} else {
+				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
+				this.showMessageToast(msg);
+			}
+		},
+
 		/* =========================================================== */
 		/* internal methods                                            */
 		/* =========================================================== */
@@ -169,23 +277,6 @@ sap.ui.define([
 			this.oStatusSelectControl.setEnabled(true);
 		},
 
-		/**
-		 * success callback after saving notification
-		 * @param oResponse
-		 */
-		saveSuccessFn: function (oResponse) {
-			var msg = this.getResourceBundle().getText("msg.saveSuccess");
-			this.showMessageToast(msg);
-		},
-
-		/**
-		 * error callback after saving notification
-		 * @param oResponse
-		 */
-		saveErrorFn: function (oResponse) {
-			this.getModel().resetChanges([this._oTaskContext.getPath()]);
-		},
-
 		_getNotificationTaskDetails: function (filterParameter) {
 			var oFilter1 = new Filter("ObjectKey", FilterOperator.EQ, filterParameter);
 			this.getOwnerComponent().readData("/PMNotificationTaskSet", [
@@ -204,44 +295,6 @@ sap.ui.define([
 				oTaskEditCtrl.setEnabled(false);
 			}
 		},
-
-		/**
-		 * Called on click of Long text indicator
-		 * @param oEvent
-		 */
-		showLongText: function (oEvent) {
-			var oContext = oEvent.getSource().getBindingContext();
-			var longText = oContext.getProperty("NOTES");
-			this.displayLongText(longText);
-		},
-
-		/**
-		 * show ActionSheet of Task system status buttons
-		 * @param oEvent
-		 */
-		onPressChangeTaskSystemStatus: function (oEvent) {
-			if (this._oTaskContext && this._oTaskContextData) {
-				var oButton = oEvent.getSource();
-				// create action sheet only once
-				if (!this._actionSheetTaskSystemStatus) {
-					Fragment.load({
-						name: "com.evorait.evosuite.evonotify.view.fragments.ActionSheetTaskSystemStatus",
-						controller: this,
-						type: "XML"
-					}).then(function (oFragment) {
-						this._actionSheetTaskSystemStatus = oFragment;
-						this.getView().addDependent(oFragment);
-						this._actionSheetTaskSystemStatus.addStyleClass(this.getModel("viewModel").getProperty("/densityClass"));
-						this._actionSheetTaskSystemStatus.openBy(oButton);
-					}.bind(this));
-				} else {
-					this._actionSheetTaskSystemStatus.openBy(oButton);
-				}
-			} else {
-				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
-				this.showMessageToast(msg);
-			}
-		}
 	});
 
 });
