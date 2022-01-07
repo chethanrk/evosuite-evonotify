@@ -248,13 +248,14 @@ sap.ui.define([
 				aSelected.forEach(function (oItem) {
 					var oContext = oItem.getBindingContext();
 					if (oContext) {
-						oModel.setProperty(oContext.getPath() + "/DELETE_ENTRY", "X");
+						oModel.setProperty(oContext.getPath() + "/DELETION_INDICATOR", "X");
 					}
 				});
 				this.saveChanges({
 					state: "success"
 				}, function () {
 					oModel.setRefreshAfterChange(true);
+					this.showMessageToast(this.getResourceBundle().getText("msg.saveSuccess"));
 					if (oTable) {
 						oTable.rebindTable();
 					}
