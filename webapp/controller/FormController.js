@@ -70,6 +70,10 @@ sap.ui.define([
 				checkDefaultValues: {
 					public: true,
 					final: true
+				},
+				checkDefaultPropertiesWithValues: {
+					public: true,
+					final: true
 				}
 			}	
 		},
@@ -415,14 +419,10 @@ sap.ui.define([
 					sChangedProperty = sChangedProperty.split("id")[1];
 				}
 
-				this._checkDefaultPropertiesWithValues(oEntityType, sPath, sChangedProperty, oMetaModel);
+				this.checkDefaultPropertiesWithValues(oEntityType, sPath, sChangedProperty, oMetaModel);
 
 			}.bind(this));
 		},
-
-		/* =========================================================== */
-		/* internal methods                                            */
-		/* =========================================================== */
 
 		/*
 		 * Get Properties from the default information model
@@ -432,7 +432,7 @@ sap.ui.define([
 		 * @param sChangedProperty
 		 * @param {oMetaModel}
 		 */
-		_checkDefaultPropertiesWithValues: function (oEntityType, sPath, sChangedProperty, oMetaModel) {
+		checkDefaultPropertiesWithValues: function (oEntityType, sPath, sChangedProperty, oMetaModel) {
 			var aDefaultValues = this.getModel("DefaultInformationModel").getProperty("/defaultProperties");
 			if (!aDefaultValues) {
 				aDefaultValues = [];
@@ -450,6 +450,10 @@ sap.ui.define([
 				}
 			}.bind(this));
 		},
+		
+		/* =========================================================== */
+		/* internal methods                                            */
+		/* =========================================================== */
 
 		_setBusyWhileSaving: function (oCtrl, bIsInProgress) {
 			if (oCtrl) {
