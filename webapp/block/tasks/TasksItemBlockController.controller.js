@@ -11,20 +11,18 @@ sap.ui.define([
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.block.tasks.TasksItemBlockController", {
-		
+
 		metadata: {
 			methods: {
-				formatter: {
-					public: true,
-					final: true
-				},
 				onBeforeRebindTable: {
 					public: true,
-					final: true
+					final: false,
+					overrideExecution: OverrideExecution.After
 				},
 				onPressItem: {
 					public: true,
-					final: true
+					final: false,
+					overrideExecution: OverrideExecution.After
 				},
 				onPressEdit: {
 					public: true,
@@ -61,7 +59,7 @@ sap.ui.define([
 					final: false,
 					overrideExecution: OverrideExecution.Instead
 				}
-			}	
+			}
 		},
 
 		formatter: formatter,

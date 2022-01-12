@@ -5,22 +5,22 @@ sap.ui.define([
 	"use strict";
 
 	return BaseController.extend("com.evorait.evosuite.evonotify.controller.UploadFilesController", {
-		
+
 		metadata: {
 			methods: {
 				init: {
 					public: true,
-					final: true,
+					final: true
 				},
 				setContext: {
 					public: true,
-					final: true,
+					final: true
 				},
 				startUploadFiles: {
 					public: true,
-					final: true,
+					final: true
 				}
-			}	
+			}
 		},
 
 		oView: null,
@@ -88,7 +88,7 @@ sap.ui.define([
 
 			this._uploadFileToServer(uploadItem, uploadInfos, successFn, erroFn);
 		},
-		
+
 		/* =========================================================== */
 		/* internal methods                                            */
 		/* =========================================================== */
@@ -101,7 +101,7 @@ sap.ui.define([
 		 * @param errorCallback
 		 * @param progressCallback
 		 */
-		
+
 		_uploadFileToServer: function (blobOrFile, oInfo, successCallback, errorCallback, progressCallback) {
 			var fileReader = new FileReader(),
 				_this = this;

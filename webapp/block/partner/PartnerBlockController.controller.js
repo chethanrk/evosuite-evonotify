@@ -1,26 +1,21 @@
 /*global location*/
 sap.ui.define([
 	"com/evorait/evosuite/evonotify/controller/TableController",
-	"com/evorait/evosuite/evonotify/model/formatter"
-], function (
-	TableController,
-	formatter
-) {
+	"com/evorait/evosuite/evonotify/model/formatter",
+	"sap/ui/core/mvc/OverrideExecution"
+], function (TableController, formatter, OverrideExecution) {
 	"use strict";
 
 	return TableController.extend("com.evorait.evosuite.evonotify.block.partner.PartnerBlockController", {
-		
+
 		metadata: {
 			methods: {
-				fotmatter: {
-					public: true,
-					final: true
-				},
 				onBeforeRebindTable: {
 					public: true,
-					final: true	
+					final: false,
+					overrideExecution: OverrideExecution.After
 				}
-			}	
+			}
 		},
 
 		formatter: formatter,

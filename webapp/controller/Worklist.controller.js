@@ -7,12 +7,13 @@ sap.ui.define([
 	"use strict";
 
 	return TableController.extend("com.evorait.evosuite.evonotify.controller.Worklist", {
-		
+
 		metadata: {
 			methods: {
-				formatter: {
-					public: true,
-					final: true
+				addFilters: {
+					"public": true,
+					"final": false,
+					overrideExecution: OverrideExecution.Instead
 				},
 				onBeforeRebindTable: {
 					public: true,
@@ -33,12 +34,14 @@ sap.ui.define([
 					final: false,
 					overrideExecution: OverrideExecution.Before
 				}
-			}	
+			}
 		},
 
 		formatter: formatter,
 
 		oSmartTable: null,
+
+		aPageDefaultFilters: [],
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */
@@ -70,12 +73,28 @@ sap.ui.define([
 
 		},
 
+		/* =========================================================== */
+		/* Public methods                                           */
+		/* =========================================================== */
+
+		/**
+		 * allows extension to add filters. They will be combined via AND with all other filters
+		 * oControllerExtension must be the ControllerExtension instance which adds the filter
+		 * oFilter must be an instance of sap.ui.model.Filter
+		 */
+		addFilters: function () {
+			return [];
+		},
+
 		/**
 		 * SmartTable before loading request
 		 * set default SortOrder from annotations
 		 */
 		onBeforeRebindTable: function (oEvent) {
 			TableController.prototype.onBeforeRebindTable.apply(this, arguments);
+			var mBindingParams = oEvent.getParameter("bindingParams");
+			this.aPageDefaultFilters = this.aPageDefaultFilters.concat(this.addFilters());
+			mBindingParams.filters = mBindingParams.filters.concat(this.aPageDefaultFilters);
 		},
 
 		/**
@@ -84,6 +103,11 @@ sap.ui.define([
 		 */
 		onInitializedSmartVariant: function (oEvent) {
 			TableController.prototype.onInitializedSmartVariant.apply(this, arguments);
+			//get default filter by GET url parameter and if property is allowed to filter
+			this.getDefaultTableFiltersFromUrlParams("PMNotificationSet").then(function (aFilters) {
+				this.aPageDefaultFilters = aFilters;
+				this.oSmartTable.rebindTable();
+			}.bind(this));
 		},
 
 		/**

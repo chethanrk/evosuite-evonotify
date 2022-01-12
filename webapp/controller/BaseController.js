@@ -19,13 +19,9 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("com.evorait.evosuite.evonotify.controller.BaseController", {
-		
+
 		metadata: {
 			methods: {
-				formatter: {
-					public: true,
-					final: true
-				},
 				getRouter: {
 					public: true,
 					final: true
@@ -122,7 +118,7 @@ sap.ui.define([
 					public: true,
 					final: true
 				}
-			}	
+			}
 		},
 
 		formatter: formatter,
@@ -401,7 +397,7 @@ sap.ui.define([
 				window.open(sUri, "_blank");
 			}
 		},
-		
+
 		/**
 		 * render a popover with button inside
 		 * next to Notification ID or Equipment ID
@@ -525,18 +521,18 @@ sap.ui.define([
 				actions: [MessageBox.Action.OK]
 			});
 		},
-		
+
 		/* =========================================================== */
 		/* internal methods                                            */
 		/* =========================================================== */
-		
+
 		/**
 		 * On click, open Message Popover
 		 */
 		_openMessageManager: function (oView, oEvent) {
 			this.getOwnerComponent().MessageManager.open(oView, oEvent);
 		},
-		
+
 		/**
 		 * based on Notifcation type get default catalogs and groups
 		 * @return Promise
@@ -561,7 +557,7 @@ sap.ui.define([
 				});
 			}.bind(this));
 		},
-		
+
 		/**
 		 * Show dialog when user wants to cancel order change/creations
 		 * @private
@@ -615,7 +611,7 @@ sap.ui.define([
 			dialog.addStyleClass(this.getOwnerComponent().getContentDensityClass());
 			dialog.open();
 		},
-		
+
 		/**
 		 * get respective navigation details
 		 * @param sAppID

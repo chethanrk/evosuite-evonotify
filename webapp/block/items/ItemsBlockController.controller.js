@@ -7,20 +7,18 @@ sap.ui.define([
 	"use strict";
 
 	return TableController.extend("com.evorait.evosuite.evonotify.block.items.ItemsBlockController", {
-		
+
 		metadata: {
 			methods: {
-				formatter: {
-					public: true,
-					final: true
-				},
 				onBeforeRebindTable: {
 					public: true,
-					final: true
+					final: false,
+					overrideExecution: OverrideExecution.After
 				},
 				onPressItem: {
 					public: true,
-					final: true
+					final: false,
+					overrideExecution: OverrideExecution.After
 				},
 				onPressAdd: {
 					public: true,
@@ -32,7 +30,7 @@ sap.ui.define([
 					final: false,
 					overrideExecution: OverrideExecution.Instead
 				}
-			}	
+			}
 		},
 
 		formatter: formatter,
@@ -80,7 +78,7 @@ sap.ui.define([
 		onPressAdd: function (oEvent) {
 			this.getDependenciesAndCallback(this._openAddDialog.bind(this));
 		},
-		
+
 		/**
 		 * Called on click of Long text indicator
 		 * @param oEvent

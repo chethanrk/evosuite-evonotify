@@ -6,9 +6,14 @@ sap.ui.define([
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.controller.CreateNotification", {
-		
+
 		metadata: {
 			methods: {
+				onChangeSmartField: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				},
 				onNavBack: {
 					public: true,
 					final: false,
@@ -64,6 +69,18 @@ sap.ui.define([
 			this._initializeView();
 		},
 
+		/**
+		 * Object on exit
+		 */
+		onExit: function () {
+			var eventBus = sap.ui.getCore().getEventBus();
+			eventBus.unsubscribe("TemplateRendererEvoNotify", "changedBinding", this._changedBinding, this);
+		},
+
+		/**
+		 * when SmartField change event was triggered
+		 * @param oEvent
+		 */
 		onChangeSmartField: function (oEvent) {
 			var oSource = oEvent.getSource(),
 				sFieldName = oSource.getName();
@@ -74,14 +91,6 @@ sap.ui.define([
 			}
 		},
 
-		/**
-		 * Object on exit
-		 */
-		onExit: function () {
-			var eventBus = sap.ui.getCore().getEventBus();
-			eventBus.unsubscribe("TemplateRendererEvoNotify", "changedBinding", this._changedBinding, this);
-		},
-		
 		/**
 		 * on press back button
 		 * @param oEvent
@@ -117,9 +126,9 @@ sap.ui.define([
 		/* =========================================================== */
 		/* internal methods                                              */
 		/* =========================================================== */
-		
+
 		/**
-		 * 
+		 * when view was initialized
 		 */
 		_initializeView: function () {
 			this.aSmartForms = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("smartFormTemplate"));
@@ -129,7 +138,7 @@ sap.ui.define([
 			this.oViewModel.setProperty("/editMode", true);
 			this.oViewModel.setProperty("/isNew", true);
 		},
-		
+
 		/**
 		 * Binding has changed in TemplateRenderController
 		 * Set new controller context and path
@@ -169,10 +178,10 @@ sap.ui.define([
 					var oMetaModel = oModel.getMetaModel() || oModel.getProperty("/metaModel"),
 						oEntitySet = oMetaModel.getODataEntitySet("PMNotificationSet"),
 						oEntityType = oMetaModel.getODataEntityType(oEntitySet.entityType);
-						
+
 					//Apply defaulting values
 					this.checkDefaultValues(oEntitySet.name, sPath);
-					
+
 					for (var key in oData) {
 						var urlValue = this.getOwnerComponent().getLinkParameterByName(key);
 						var oProperty = oMetaModel.getODataProperty(oEntityType, key);
