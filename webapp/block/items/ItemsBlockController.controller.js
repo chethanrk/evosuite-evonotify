@@ -2,14 +2,9 @@
 sap.ui.define([
 	"com/evorait/evosuite/evonotify/controller/FormController",
 	"com/evorait/evosuite/evonotify/controller/TableController",
-<<<<<<< HEAD
 	"com/evorait/evosuite/evonotify/model/formatter",
 	"sap/ui/core/mvc/OverrideExecution"
-], function (TableController, formatter, OverrideExecution) {
-=======
-	"com/evorait/evosuite/evonotify/model/formatter"
-], function (FormController, TableController, formatter) {
->>>>>>> refs/remotes/origin/develop
+], function (FormController, TableController, formatter, OverrideExecution) {
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.block.items.ItemsBlockController", {
@@ -27,6 +22,11 @@ sap.ui.define([
 					overrideExecution: OverrideExecution.After
 				},
 				onPressAdd: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onPressDelete: {
 					public: true,
 					final: false,
 					overrideExecution: OverrideExecution.After
@@ -87,15 +87,6 @@ sap.ui.define([
 		},
 
 		/**
-<<<<<<< HEAD
-		 * Called on click of Long text indicator
-		 * @param oEvent
-		 */
-		showLongText: function (oEvent) {
-			var oContext = oEvent.getSource().getBindingContext();
-			var longText = oContext.getProperty("NOTES");
-			this.displayLongText(longText);
-=======
 		 * delete multiple selected items
 		 * @param oEvent
 		 */
@@ -108,7 +99,16 @@ sap.ui.define([
 				};
 				this.confirmDialog(sMsg, successFn.bind(this), null, this._oSmartTable);
 			}
->>>>>>> refs/remotes/origin/develop
+		},
+
+		/**
+		 * Called on click of Long text indicator
+		 * @param oEvent
+		 */
+		showLongText: function (oEvent) {
+			var oContext = oEvent.getSource().getBindingContext();
+			var longText = oContext.getProperty("NOTES");
+			this.displayLongText(longText);
 		},
 
 		/* =========================================================== */
@@ -141,6 +141,7 @@ sap.ui.define([
 			}
 			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
 		}
+
 	});
 
 });

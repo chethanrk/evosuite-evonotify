@@ -2,17 +2,13 @@ sap.ui.define([
 	"com/evorait/evosuite/evonotify/controller/TableController",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-<<<<<<< HEAD
-	 "sap/ui/core/mvc/OverrideExecution"
-], function (TableController, Filter, FilterOperator, OverrideExecution) {
-=======
-	"sap/ui/core/Fragment"
-], function (TableController, Filter, FilterOperator, Fragment) {
->>>>>>> refs/remotes/origin/develop
+	"sap/ui/core/Fragment",
+	"sap/ui/core/mvc/OverrideExecution"
+], function (TableController, Filter, FilterOperator, Fragment, OverrideExecution) {
 	"use strict";
 
 	return TableController.extend("com.evorait.evosuite.evonotify.controller.FormController", {
-		
+
 		metadata: {
 			methods: {
 				getAllSmartForms: {
@@ -80,7 +76,7 @@ sap.ui.define([
 					public: true,
 					final: true
 				}
-			}	
+			}
 		},
 
 		aSmartForms: [],
@@ -583,7 +579,7 @@ sap.ui.define([
 				}
 			}.bind(this));
 		},
-		
+
 		/* =========================================================== */
 		/* internal methods                                            */
 		/* =========================================================== */

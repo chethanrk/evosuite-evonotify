@@ -29,6 +29,11 @@ sap.ui.define([
 					final: false,
 					overrideExecution: OverrideExecution.After
 				},
+				onPressDelete: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
 				onPressAdd: {
 					public: true,
 					final: false,
@@ -38,16 +43,6 @@ sap.ui.define([
 					public: true,
 					final: false,
 					overrideExecution: OverrideExecution.Before
-				},
-				saveSuccessFn: {
-					public: true,
-					final: false,
-					overrideExecution: OverrideExecution.Instead
-				},
-				saveErrorFn: {
-					public: true,
-					final: false,
-					overrideExecution: OverrideExecution.Instead
 				},
 				showLongText: {
 					public: true,
@@ -61,9 +56,6 @@ sap.ui.define([
 				}
 			}
 		},
-
-		formatter: formatter,
-		_oSmartTable: null,
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */
@@ -169,60 +161,6 @@ sap.ui.define([
 		},
 
 		/**
-<<<<<<< HEAD
-		 * success callback after saving notification
-		 * @param oResponse
-		 */
-		saveSuccessFn: function (oResponse) {
-			var msg = this.getResourceBundle().getText("msg.saveSuccess");
-			this.showMessageToast(msg);
-		},
-
-		/**
-		 * error callback after saving notification
-		 * @param oResponse
-		 */
-		saveErrorFn: function (oResponse) {
-			this.getModel().resetChanges([this._oTaskContext.getPath()]);
-		},
-
-		/**
-		 * Called on click of Long text indicator
-		 * @param oEvent
-		 */
-		showLongText: function (oEvent) {
-			var oContext = oEvent.getSource().getBindingContext();
-			var longText = oContext.getProperty("NOTES");
-			this.displayLongText(longText);
-		},
-
-		/**
-		 * show ActionSheet of Task system status buttons
-		 * @param oEvent
-		 */
-		onPressChangeTaskSystemStatus: function (oEvent) {
-			if (this._oTaskContext && this._oTaskContextData) {
-				var oButton = oEvent.getSource();
-				// create action sheet only once
-				if (!this._actionSheetTaskSystemStatus) {
-					Fragment.load({
-						name: "com.evorait.evosuite.evonotify.view.fragments.ActionSheetTaskSystemStatus",
-						controller: this,
-						type: "XML"
-					}).then(function (oFragment) {
-						this._actionSheetTaskSystemStatus = oFragment;
-						this.getView().addDependent(oFragment);
-						this._actionSheetTaskSystemStatus.addStyleClass(this.getModel("viewModel").getProperty("/densityClass"));
-						this._actionSheetTaskSystemStatus.openBy(oButton);
-					}.bind(this));
-				} else {
-					this._actionSheetTaskSystemStatus.openBy(oButton);
-				}
-			} else {
-				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
-				this.showMessageToast(msg);
-			}
-=======
 		 * show ActionSheet of Task system status buttons
 		 * @param oEvent
 		 */
@@ -238,7 +176,6 @@ sap.ui.define([
 			var oContext = oEvent.getSource().getBindingContext();
 			var longText = oContext.getProperty("NOTES");
 			this.displayLongText(longText);
->>>>>>> refs/remotes/origin/develop
 		},
 
 		/* =========================================================== */
@@ -288,55 +225,20 @@ sap.ui.define([
 			this.oStatusSelectControl.setEnabled(true);
 		},
 
-<<<<<<< HEAD
-		_getNotificationTaskDetails: function (filterParameter) {
-			var oFilter1 = new Filter("ObjectKey", FilterOperator.EQ, filterParameter);
-			this.getOwnerComponent().readData("/PMNotificationTaskSet", [
-				[oFilter1]
-			]).then(function (oData) {
-				this._oTaskContextData = oData.results[0];
-				this._setTaskStatusButtonVisibility(this._oTaskContextData);
-			}.bind(this));
-		},
-
-		_validateTaskEdiButton: function (isTaskEditable) {
-=======
-		/**
-		 * success callback after saving notification
-		 * @param oResponse
-		 */
-		_saveSuccessFn: function (oResponse) {
-			var msg = this.getResourceBundle().getText("msg.saveSuccess");
-			this.showMessageToast(msg);
-		},
-
-		/**
-		 * error callback after saving notification
-		 * @param oResponse
-		 */
-		_saveErrorFn: function (oResponse) {
-			//this.getModel().resetChanges([sPath]);
-		},
-
 		/**
 		 * disable/enable edit button for a selected task
 		 * when ENABLE_TASK_CHANGE in task is false then edit is not allowed
 		 * @param oData
 		 */
 		_setEditButtonVisibility: function (oData) {
->>>>>>> refs/remotes/origin/develop
 			var oTaskEditCtrl = this.getView().byId("idTaskEdit");
 			if (oData.ENABLE_TASK_CHANGE === "X") {
 				oTaskEditCtrl.setEnabled(true);
 			} else {
 				oTaskEditCtrl.setEnabled(false);
 			}
-<<<<<<< HEAD
-		},
-=======
 		}
 
->>>>>>> refs/remotes/origin/develop
 	});
 
 });
