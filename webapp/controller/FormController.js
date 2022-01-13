@@ -2,8 +2,13 @@ sap.ui.define([
 	"com/evorait/evosuite/evonotify/controller/TableController",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
+<<<<<<< HEAD
 	 "sap/ui/core/mvc/OverrideExecution"
 ], function (TableController, Filter, FilterOperator, OverrideExecution) {
+=======
+	"sap/ui/core/Fragment"
+], function (TableController, Filter, FilterOperator, Fragment) {
+>>>>>>> refs/remotes/origin/develop
 	"use strict";
 
 	return TableController.extend("com.evorait.evosuite.evonotify.controller.FormController", {
@@ -305,6 +310,36 @@ sap.ui.define([
 		},
 
 		/**
+		 * loop through collection of selected table items 
+		 * and set delete property
+		 * @param aSelected
+		 * @param successFn
+		 * @param errorFn
+		 */
+		deleteEntries: function (aSelected, oTable) {
+			return new Promise(function (resolve) {
+				var oModel = this.getModel();
+				oModel.setRefreshAfterChange(false);
+				aSelected.forEach(function (oItem) {
+					var oContext = oItem.getBindingContext();
+					if (oContext) {
+						oModel.setProperty(oContext.getPath() + "/DELETION_INDICATOR", "X");
+					}
+				});
+				this.saveChanges({
+					state: "success"
+				}, function () {
+					oModel.setRefreshAfterChange(true);
+					this.showMessageToast(this.getResourceBundle().getText("msg.saveSuccess"));
+					if (oTable) {
+						oTable.rebindTable();
+					}
+					resolve();
+				}.bind(this), null, oTable);
+			}.bind(this));
+		},
+
+		/**
 		 * Form is valid now so send to sap
 		 * @param oEvent
 		 */
@@ -399,6 +434,104 @@ sap.ui.define([
 
 		showSuccessMessage: function (sMessage) {
 			this.showMessageToast(sMessage);
+		},
+
+		/**
+		 * get only one selected item context
+		 * when multiple items in table was selected then show message
+		 * @param oSmartTable
+		 */
+		getSingleSelectAndOpenEditDialog: function (oSmartTable, mParams, callback) {
+			var aSelected = oSmartTable.getTable().getSelectedItems(),
+				msg = this.getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
+
+			if (aSelected.length > 1 || aSelected.length === 0) {
+				this.showMessageToast(msg);
+				return;
+			}
+			var oSelectedContext = aSelected[0].getBindingContext();
+			if (oSelectedContext) {
+				mParams.sPath = oSelectedContext.getPath();
+				this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
+				oSmartTable.getTable().removeSelections(true);
+				if (callback) {
+					callback();
+				}
+			} else {
+				this.showMessageToast(msg);
+			}
+		},
+
+		/**
+		 * show ActionSheet of Task system status buttons
+		 * @param oEvent
+		 * @param oSmartTable
+		 */
+		onPressTaskStatusShowList: function (oEvent, oSmartTable) {
+			var aSelected = oSmartTable.getTable().getSelectedItems(),
+				msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
+
+			if (aSelected.length > 1 || aSelected.length === 0) {
+				this.showMessageToast(msg);
+				return;
+			}
+			var oSelectedContext = aSelected[0].getBindingContext();
+			if (oSelectedContext) {
+				var oButton = oEvent.getSource();
+				// create action sheet only once
+				if (!this._actionSheetTaskSystemStatus) {
+					Fragment.load({
+						name: "com.evorait.evosuite.evonotify.view.fragments.ActionSheetTaskSystemStatus",
+						controller: this,
+						type: "XML"
+					}).then(function (oFragment) {
+						this._actionSheetTaskSystemStatus = oFragment;
+						this.getView().addDependent(oFragment);
+						this._actionSheetTaskSystemStatus.addStyleClass(this.getModel("viewModel").getProperty("/densityClass"));
+						this._actionSheetTaskSystemStatus.openBy(oButton);
+					}.bind(this));
+				} else {
+					this._actionSheetTaskSystemStatus.openBy(oButton);
+				}
+			} else {
+				this.showMessageToast(msg);
+			}
+		},
+
+		/**
+		 * submit task status change
+		 * @param oItem
+		 * @param oSmartTable
+		 */
+		changeTaskStatus: function (oItem, oSmartTable) {
+			var aSelected = oSmartTable.getTable().getSelectedItems(),
+				oSelectedContext = aSelected[0].getBindingContext(),
+				oData = oSelectedContext.getObject(),
+				sPath = oSelectedContext.getPath(),
+				sFunctionKey = oItem.getKey(),
+				message = "";
+
+			var successFn = function () {
+				this.showMessageToast(this.getResourceBundle().getText("msg.saveSuccess"));
+			};
+			var errorFn = function () {
+				this.getModel().resetChanges([sPath]);
+			};
+
+			if (oData["ALLOW_" + sFunctionKey]) {
+				this.getModel("viewModel").setProperty("/isStatusUpdate", true);
+				this.getModel().setProperty(sPath + "/FUNCTION", sFunctionKey);
+				this.saveChanges({
+					state: "success"
+				}, successFn.bind(this), errorFn.bind(this), this.getView());
+
+				oSmartTable.getTable().removeSelections(true);
+				this.getModel("viewModel").setProperty("/singleSelectedTask", false);
+				this.oStatusSelectControl.setEnabled(false);
+			} else {
+				message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NOTIFICATION_NO);
+				this.showInformationDialog(message);
+			}
 		},
 
 		/*
@@ -546,7 +679,7 @@ sap.ui.define([
 					and: true
 				});
 				this.getOwnerComponent().readData("/PropertyValueDeterminationSet", [oFilter]).then(function (oData) {
-					if (oData.results) {
+					if (oData.results && oData.results.length) {
 						this._setDefaultValuesToField(oData.results[0], sPath, oMetaModel, oEntityType);
 					}
 				}.bind(this));

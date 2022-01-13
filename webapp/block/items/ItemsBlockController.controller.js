@@ -1,12 +1,18 @@
 /*global location*/
 sap.ui.define([
+	"com/evorait/evosuite/evonotify/controller/FormController",
 	"com/evorait/evosuite/evonotify/controller/TableController",
+<<<<<<< HEAD
 	"com/evorait/evosuite/evonotify/model/formatter",
 	"sap/ui/core/mvc/OverrideExecution"
 ], function (TableController, formatter, OverrideExecution) {
+=======
+	"com/evorait/evosuite/evonotify/model/formatter"
+], function (FormController, TableController, formatter) {
+>>>>>>> refs/remotes/origin/develop
 	"use strict";
 
-	return TableController.extend("com.evorait.evosuite.evonotify.block.items.ItemsBlockController", {
+	return FormController.extend("com.evorait.evosuite.evonotify.block.items.ItemsBlockController", {
 
 		metadata: {
 			methods: {
@@ -64,6 +70,7 @@ sap.ui.define([
 
 		onPressItem: function (oEvent) {
 			var oContext = oEvent.getSource().getBindingContext();
+
 			if (oContext) {
 				var obj = oContext.getObject();
 				var parentObj = this.oView.getBindingContext().getObject();
@@ -80,6 +87,7 @@ sap.ui.define([
 		},
 
 		/**
+<<<<<<< HEAD
 		 * Called on click of Long text indicator
 		 * @param oEvent
 		 */
@@ -87,6 +95,20 @@ sap.ui.define([
 			var oContext = oEvent.getSource().getBindingContext();
 			var longText = oContext.getProperty("NOTES");
 			this.displayLongText(longText);
+=======
+		 * delete multiple selected items
+		 * @param oEvent
+		 */
+		onPressDelete: function (oEvent) {
+			var aSelected = this._oSmartTable.getTable().getSelectedItems(),
+				sMsg = this.getResourceBundle().getText("msg.confirmItemDelete");
+			if (aSelected.length > 0) {
+				var successFn = function () {
+					this.deleteEntries(aSelected, this._oSmartTable);
+				};
+				this.confirmDialog(sMsg, successFn.bind(this), null, this._oSmartTable);
+			}
+>>>>>>> refs/remotes/origin/develop
 		},
 
 		/* =========================================================== */

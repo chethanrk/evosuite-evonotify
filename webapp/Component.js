@@ -267,7 +267,9 @@ sap.ui.define([
 							mProps[oItem.Property] = oItem;
 						}
 					}.bind(this));
-					this.getModel("templateProperties").setProperty("/navLinks/", mProps);
+					if (this.getModel("templateProperties")) {
+						this.getModel("templateProperties").setProperty("/navLinks/", mProps);
+					}
 					resolve(mProps);
 				}.bind(this));
 			}.bind(this));

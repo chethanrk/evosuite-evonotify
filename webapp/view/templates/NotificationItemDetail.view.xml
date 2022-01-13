@@ -10,6 +10,9 @@
 						<uxap:ObjectPageHeaderActionButton id="editNotificationItemButton" text="{i18n>btn.edit}" hideText="false" press="onPressEdit"
 							type="Emphasized"
 							visible="{parts: ['viewModel>/enableNotificationChange','user>/ENABLE_ITEM_UPDATE', 'viewModel>/editMode'], formatter:'.formatter.isVisible'}"/>
+						<uxap:ObjectPageHeaderActionButton id="deleteNotificationItemButton" icon="sap-icon://delete" text="{i18n>btn.delete}" hideText="false"
+							press="onPressDelete" type="Emphasized"
+							visible="{parts: ['viewModel>/enableNotificationChange','user>/ENABLE_ITEM_DELETE', 'viewModel>/editMode'], formatter:'.formatter.isVisible'}"/>
 						<uxap:ObjectPageHeaderActionButton id="cancelNotificationItemButton" text="{i18n>btn.cancel}" hideText="false" press="onPressCancel"
 							visible="{viewModel>/editMode}"/>
 						<uxap:ObjectPageHeaderActionButton id="saveNotificationItemButton" text="{i18n>btn.save}" hideText="false" press="onPressSave"

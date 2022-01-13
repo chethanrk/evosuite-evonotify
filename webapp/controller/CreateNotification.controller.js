@@ -1,8 +1,9 @@
 sap.ui.define([
 	"com/evorait/evosuite/evonotify/controller/FormController",
 	"com/evorait/evosuite/evonotify/model/Constants",
-	"sap/ui/core/mvc/OverrideExecution"
-], function (FormController, Constants, OverrideExecution) {
+	"sap/ui/util/Storage",
+    "sap/ui/core/mvc/OverrideExecution"
+], function (FormController, Constants, Storage, OverrideExecution) {
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.controller.CreateNotification", {
@@ -195,6 +196,15 @@ sap.ui.define([
 							}
 						}
 					}
+					//Get order data from local storage
+					//if its exists, validate the property and copy value to PMNotification
+					this.oStorage = new Storage(Storage.Type.local);
+					var oOrder = this.oStorage.get("OrderObject");
+					if (oOrder) {
+						this.getModel("viewModel").setProperty("/startPage", "");
+						this.oViewModel.setProperty("/createPageOnly", false);
+						this._setDefaultDataFromLocalStorage(oOrder);
+					}
 				}.bind(this));
 			}
 		},
@@ -232,6 +242,31 @@ sap.ui.define([
 					this.navBack();
 				}
 			}
+		},
+		
+		/**
+		 * Get the properties from PMNotification entity and check if it is creatable
+		 * If true and if the property exists in the order object copied from local storage
+		 * then copy the order property value into PMNotification property
+		 * @param oOrder
+		 */
+		_setDefaultDataFromLocalStorage: function (oOrder) {
+			var sPath = this.getView().getBindingContext().getPath();
+			var oMetaModel = this.getModel().getMetaModel();
+			var oEntityType = oMetaModel.getODataEntityType("com.evorait.evonotify.PMNotification");
+			var aProperties = oEntityType.property;
+
+			for (var i = 0; i < aProperties.length; i++) {
+				var isCreatable = aProperties[i]["sap:creatable"];
+				if ((isCreatable === undefined || isCreatable === true) && oOrder[aProperties[i].name] !== undefined) {
+					this.getModel().setProperty(sPath + "/" + aProperties[i].name, oOrder[aProperties[i].name]);
+
+					//Apply defaulting values
+					this.checkDefaultPropertiesWithValues(oEntityType, sPath, aProperties[i].name, oMetaModel);
+				}
+			}
+			this.getModel().setProperty(sPath + "/DESCRIPTION", oOrder.ORDER_DESCRIPTION);
+			this.oStorage.clear();
 		}
 	});
 });

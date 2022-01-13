@@ -176,7 +176,7 @@ sap.ui.define([
 			}
 		},
 
-		_aShowMsgNeverSets: [],
+		_aShowMsgNeverSets: ["PMNotificationESignSet"],
 		_isNotMsgFromSet: function (sUrl, aSet) {
 			for (var i = 0; i < this._aShowMsgNeverSets.length; i++) {
 				if (sUrl.indexOf(this._aShowMsgNeverSets[i]) >= 0) {
@@ -209,7 +209,9 @@ sap.ui.define([
 						this.sSuccessMessage = msg;
 					}
 				}
-				this._addSuccessMessageToMessageManager(msg);
+				if (this._isNotMsgFromSet(oBatchResponse.url)) {
+					this._addSuccessMessageToMessageManager(msg);
+				}
 			} else {
 				var errorMessage = this._extractError(oBatchResponse.response);
 				this._addFailureMessageToMessageManager(errorMessage);

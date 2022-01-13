@@ -320,7 +320,7 @@ sap.ui.define([
 		 * @param msg
 		 */
 		showMessageToast: function (msg) {
-			sap.m.MessageToast.show(msg, {
+			MessageToast.show(msg, {
 				duration: 5000, // default
 				my: "center center", // default
 				at: "center center", // default
@@ -363,6 +363,103 @@ sap.ui.define([
 			}.bind(this)).catch(function (error) {
 				callbackFn(oContextData);
 			}.bind(this));
+		},
+
+		/**
+		 * based on Notifcation type get default catalogs and groups
+		 * @return Promise
+		 */
+		getNotifTypeDependencies: function (oData) {
+			return new Promise(function (resolve, reject) {
+				if (!oData.NOTIFICATION_TYPE) {
+					reject();
+					return;
+				}
+				var sPath = this.getModel().createKey("SHNotificationTypeSet", {
+					QMART: oData.NOTIFICATION_TYPE || oData.NOTIFICATION_TYPE
+				});
+
+				this.getModel().read("/" + sPath, {
+					success: function (result) {
+						resolve(result);
+					}.bind(this),
+					error: function (error) {
+						reject(error);
+					}
+				});
+			}.bind(this));
+		},
+
+		/**
+		 * confirm messageBox for all cases of confirmations
+		 * @param msg
+		 */
+		confirmDialog: function (msg, successCallback, cancelCallback) {
+			MessageBox.confirm(msg, {
+				actions: [MessageBox.Action.OK, MessageBox.Action.CANCEL],
+				emphasizedAction: MessageBox.Action.OK,
+				onClose: function (sAction) {
+					if (sAction === MessageBox.Action.OK && successCallback) {
+						successCallback();
+					} else if (cancelCallback) {
+						cancelCallback();
+					}
+				}
+			});
+		},
+
+		/**
+		 * Show dialog when user wants to cancel order change/creations
+		 * @private
+		 * @param sPath
+		 * @param doNavBack
+		 */
+		_confirmEditCancelDialog: function (sPath, doNavBack) {
+			var oResoucreBundle = this.getResourceBundle(),
+				oViewModel = this.getModel("viewModel"),
+				isNew = oViewModel.getProperty("/isNew");
+
+			var dialog = new sap.m.Dialog({
+				title: oResoucreBundle.getText("tit.cancelCreate"),
+				type: "Message",
+				content: new sap.m.Text({
+					text: oResoucreBundle.getText("msg.leaveWithoutSave")
+				}),
+				beginButton: new sap.m.Button({
+					text: oResoucreBundle.getText("btn.confirm"),
+					press: function () {
+						dialog.close();
+						var oContext = this.getView().getBindingContext();
+
+						if (isNew) {
+							//delete created entry
+							this.navBack();
+							this.getModel().deleteCreatedEntry(oContext);
+							oViewModel.setProperty("/isNew", false);
+						} else {
+							//reset changes from object path
+							this.getModel().resetChanges(sPath);
+							if (doNavBack) {
+								//on edit cancel and nav back unbind object
+								this.getView().unbindElement();
+								this.navBack();
+							}
+						}
+						oViewModel.setProperty("/editMode", false);
+					}.bind(this)
+				}),
+				endButton: new sap.m.Button({
+					text: oResoucreBundle.getText("btn.no"),
+					press: function () {
+						dialog.close();
+					}
+				}),
+				afterClose: function () {
+					dialog.destroy();
+				}
+			});
+			dialog.addStyleClass(this.getOwnerComponent().getContentDensityClass());
+			dialog.open();
 		},
 
 		/**

@@ -89,6 +89,7 @@ sap.ui.define([
 
 			if (aForms.length > 0 && oViewController.validateForm) {
 				var mErrors = oViewController.validateForm(aForms);
+				this._oModel.setRefreshAfterChange(false);
 				//if form is valid save created entry
 				oViewController.saveChanges(mErrors, this._saveSuccessFn.bind(this), this._saveErrorFn.bind(this), this._oDialog);
 			} else {
@@ -186,15 +187,14 @@ sap.ui.define([
 		 */
 		_saveSuccessFn: function (oResponse) {
 			this._oDialog.close();
+			this._oModel.setRefreshAfterChange(true);
 			var responseCode = oResponse.__batchResponses[0].__changeResponses;
 			if (responseCode) {
 				if (responseCode[0].statusCode === "200" || responseCode[0].statusCode === "201" || responseCode[0].statusCode === "204") {
 					this.showMessageToast(this._oResourceBundle.getText("msg.saveSuccess"));
-					setTimeout(function () {
-						if (this._oSmartTable) {
-							this._oSmartTable.rebindTable();
-						}
-					}.bind(this), 1500);
+					if (this._oSmartTable) {
+						this._oSmartTable.rebindTable();
+					}
 				}
 			}
 		},
@@ -205,7 +205,7 @@ sap.ui.define([
 		 * @param oError
 		 */
 		_saveErrorFn: function (oError) {
-
+			this._oModel.setRefreshAfterChange(true);
 		}
 
 	});

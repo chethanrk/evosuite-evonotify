@@ -5,9 +5,9 @@
 		<uxap:ObjectPageLayout id="createNotificationPage" enableLazyLoading="false" isChildPage="true" showFooter="false" busy="{viewModel>/busy}"
 			busyIndicatorDelay="{viewModel>/delay}">
 			<uxap:headerTitle>
-				<uxap:ObjectPageHeader objectTitle="{i18n>tit.newNotification}">
+				<uxap:ObjectPageHeader id="idObjectPageTitle" objectTitle="{i18n>tit.newNotification}">
 					<uxap:actions>
-						<uxap:ObjectPageHeaderActionButton icon="sap-icon://save" type="Emphasized" text="{i18n>btn.save}" hideText="false"
+						<uxap:ObjectPageHeaderActionButton id="idCreateNotificationBtnSave" icon="sap-icon://save" type="Emphasized" text="{i18n>btn.save}" hideText="false"
 							tooltip="{i18n>btn.save}" press="onPressSave"/>
 						<uxap:ObjectPageHeaderActionButton icon="sap-icon://cancel" type="Default" press="onPressCancel" text="{i18n>btn.cancel}" hideText="false"
 							tooltip="{i18n>btn.cancel}"/>

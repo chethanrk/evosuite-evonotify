@@ -349,6 +349,7 @@ sap.ui.define([
 						this.getRouter().navTo("ObjectNotFound");
 					} else {
 						this._setNotificationStatusButtonVisibility(this._oContext.getObject());
+						this.getModel("viewModel").setProperty("/enableNotificationChange", this._oContext.getProperty("ENABLE_NOTIFICATION_CHANGE"));
 					}
 				}
 			}
