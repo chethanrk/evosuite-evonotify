@@ -4,11 +4,11 @@ sap.ui.define([
 	"use strict";
 
 	return TemplateRenderController.extend("com.evorait.evosuite.evonotify.controller.ObjectPage", {
-		
+
 		metadata: {
 			methods: {
 				// only lifecycle and private methods are defined
-			}	
+			}
 		},
 
 		oViewModel: null,
@@ -35,23 +35,40 @@ sap.ui.define([
 						oArgs = oEvent.getParameter("arguments");
 
 					this.getOwnerComponent().oTemplatePropsProm.then(function () {
-						//route for page create new notification
+
 						if (sRouteName === "CreateNotification") {
+							//route for page create new notification
 							sViewName = "com.evorait.evosuite.evonotify.view.templates.CreateNotification#Create";
+							this.getModel("templateProperties").setProperty("/annotationPath", {
+								entitySet: "PMNotificationSet",
+								path: "com.sap.vocabularies.UI.v1.Facets#NotifCreateUpdate"
+							});
 							this._onRouteMatched(oEvent, sViewName, "PMNotificationSet");
+
 						} else if (sRouteName === "NotificationDetail") {
-							//Order detail view
+							//Notification detail view
 							sViewName = "com.evorait.evosuite.evonotify.view.templates.NotificationDetail#Data";
 							mParams = {
 								ObjectKey: oArgs.ObjectKey
 							};
+							this.getModel("templateProperties").setProperty("/annotationPath", {
+								entitySet: "PMNotificationSet",
+								path: "com.sap.vocabularies.UI.v1.Facets#NotifDetailTabs",
+								headerPath: "com.sap.vocabularies.UI.v1.HeaderFacets#NotifDetailHeader"
+							});
 							this._onRouteMatched(oEvent, sViewName, "PMNotificationSet", mParams);
+
 						} else if (sRouteName === "NotificationItemDetail") {
-							//Order detail view
+							//Notification Item detail view
 							sViewName = "com.evorait.evosuite.evonotify.view.templates.NotificationItemDetail#ItemData";
 							mParams = {
 								ObjectKey: oArgs.ObjectKey
 							};
+							this.getModel("templateProperties").setProperty("/annotationPath", {
+								entitySet: "PMNotificationItemSet",
+								path: "com.sap.vocabularies.UI.v1.Facets#NotifItemTabs",
+								headerPath: "com.sap.vocabularies.UI.v1.HeaderFacets#NotifItemDetailHdr"
+							});
 							this._onRouteMatched(oEvent, sViewName, "PMNotificationItemSet", mParams);
 						}
 					}.bind(this));

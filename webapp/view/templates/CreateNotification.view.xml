@@ -11,6 +11,7 @@
 							tooltip="{i18n>btn.save}" press="onPressSave"/>
 						<uxap:ObjectPageHeaderActionButton icon="sap-icon://cancel" type="Default" press="onPressCancel" text="{i18n>btn.cancel}" hideText="false"
 							tooltip="{i18n>btn.cancel}"/>
+						<core:ExtensionPoint name="PageExtP|CreateNotification|PMNotificationSet|Title|Action"/>
 					</uxap:actions>
 					<uxap:breadcrumbs>
 						<Breadcrumbs>
@@ -21,12 +22,14 @@
 						<Bar class="sapUiTinyMarginTop">
 							<contentLeft>
 								<Button icon="sap-icon://nav-back" tooltip="nav-back" press="onNavBack"/>
+								<core:ExtensionPoint name="PageExtP|CreateNotification|PMNotificationSet|NavigationBar|Left"/>
 							</contentLeft>
 							<contentMiddle>
 								<Title text="{i18n>tit.newNotification}"/>
 							</contentMiddle>
 							<contentRight>
 								<core:Fragment fragmentName="com.evorait.evosuite.evonotify.view.fragments.HeaderRightActions" type="XML"/>
+								<core:ExtensionPoint name="PageExtP|CreateNotification|PMNotificationSet|NavigationBar|Right"/>
 							</contentRight>
 						</Bar>
 					</uxap:navigationBar>
@@ -34,7 +37,8 @@
 			</uxap:headerTitle>
 			<uxap:headerContent></uxap:headerContent>
 			<uxap:sections>
-				<template:with path="meta>com.sap.vocabularies.UI.v1.Facets#NotifCreateUpdate" helper=".AH.resolvePath" var="contentTabs">
+				<template:with path="templateProperties>/annotationPath"
+					helper="com.evorait.evosuite.evonotify.model.AnnotationHelper.resolveObjectContentPath" var="contentTabs">
 					<template:repeat list="{contentTabs>}">
 						<template:if test="{:= ${contentTabs>Core.Description/String} === 'Form' || ${contentTabs>Org.OData.Core.V1.Description/String} === 'Form'}">
 							<uxap:ObjectPageSection title="{path:'contentTabs>com.sap.vocabularies.Common.v1.Label',formatter:'.AH.format'}">
@@ -52,6 +56,13 @@
 					</template:repeat>
 				</template:with>
 			</uxap:sections>
+			<uxap:footer>
+				<OverflowToolbar id="idCreateNotificationFooterToolbar" visible="false">
+					<core:ExtensionPoint name="PageExtP|CreateNotification|PMNotificationSet|Footer|Left"/>
+					<ToolbarSpacer/>
+					<core:ExtensionPoint name="PageExtP|CreateNotification|PMNotificationSet|Footer|Right"/>
+				</OverflowToolbar>
+			</uxap:footer>
 		</uxap:ObjectPageLayout>
 	</template:alias>
 </mvc:View>

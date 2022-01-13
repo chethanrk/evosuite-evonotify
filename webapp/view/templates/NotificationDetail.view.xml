@@ -35,12 +35,14 @@
 					</uxap:ObjectPageHeader>
 				</uxap:headerTitle>
 				<uxap:headerContent>
-					<template:with path="meta>com.sap.vocabularies.UI.v1.HeaderFacets#NotifDetailHeader" helper=".AH.resolvePath" var="headerDetails">
+					<template:with path="templateProperties>/annotationPath"
+						helper="com.evorait.evosuite.evonotify.model.AnnotationHelper.resolveObjectHeaderPath" var="headerDetails">
 						<core:Fragment fragmentName="com.evorait.evosuite.evonotify.view.templates.ObjectHeadTemplate" type="XML"/>
 					</template:with>
 				</uxap:headerContent>
 				<uxap:sections>
-					<template:with path="meta>com.sap.vocabularies.UI.v1.Facets#NotifDetailTabs" helper=".AH.resolvePath" var="detailTabs">
+					<template:with path="templateProperties>/annotationPath"
+						helper="com.evorait.evosuite.evonotify.model.AnnotationHelper.resolveObjectContentPath" var="detailTabs">
 						<template:repeat list="{detailTabs>}">
 							<template:if test="{:= ${detailTabs>Core.Description/String} === 'Form' || ${detailTabs>Org.OData.Core.V1.Description/String} === 'Form'}">
 								<template:then>
