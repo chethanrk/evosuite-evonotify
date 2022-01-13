@@ -8,6 +8,7 @@
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
+				<core:ExtensionPoint name="TableExtP|NotificationDetail|PMNotificationActivitySet|CustomToolbar"/>
 				<OverflowToolbarButton icon="sap-icon://add" text="{i18n>btn.add}" tooltip="{i18n>btn.add}" press="onPressAdd"
 					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},{path: 'user>/ENABLE_ACTIVITY_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 				<OverflowToolbarButton icon="sap-icon://edit" text="{i18n>btn.edit}" tooltip="{i18n>btn.edit}" press="onPressEdit"
@@ -23,6 +24,7 @@
 		</smartTable:layoutData>
 		<Table growing="true" mode="MultiSelect" selectionChange="onPressItem">
 			<columns>
+				<core:ExtensionPoint name="TableExtP|NotificationDetail|PMNotificationActivitySet|CustomColumn"/>
 				<Column width="5rem">
 					<customData>
 						<core:CustomData key="p13nData" value='\{"columnKey": "NOTES", "columnIndex":"2"}'/>
@@ -32,7 +34,10 @@
 			</columns>
 			<items>
 				<ColumnListItem>
-					<Button icon="sap-icon://show-edit" type="Default" press="showLongText" visible="{= ${NOTES} !== '' }"/>
+					<cells>
+						<core:ExtensionPoint name="TableExtP|NotificationDetail|PMNotificationActivitySet|CustomCell"/>
+						<Button icon="sap-icon://show-edit" type="Default" press="showLongText" visible="{= ${NOTES} !== '' }"/>
+					</cells>
 				</ColumnListItem>
 			</items>
 		</Table>

@@ -8,7 +8,7 @@ sap.ui.define([
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.controller.NotificationItemDetail", {
-		
+
 		metadata: {
 			methods: {
 				onNavBack: {
@@ -22,6 +22,11 @@ sap.ui.define([
 					overrideExecution: OverrideExecution.After
 				},
 				onPressSave: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onPressDelete: {
 					public: true,
 					final: false,
 					overrideExecution: OverrideExecution.After
@@ -40,7 +45,7 @@ sap.ui.define([
 					public: true,
 					final: true
 				}
-			}	
+			}
 		},
 
 		oViewModel: null,

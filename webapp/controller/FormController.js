@@ -75,6 +75,10 @@ sap.ui.define([
 				checkDefaultPropertiesWithValues: {
 					public: true,
 					final: true
+				},
+				deleteEntries: {
+					public: true,
+					final: true
 				}
 			}
 		},
