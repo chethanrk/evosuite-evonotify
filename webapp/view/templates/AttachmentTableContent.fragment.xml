@@ -11,6 +11,8 @@
 								<core:CustomData key="p13nData" value='\{"columnKey": "FILENAME", "maxLength": "15","columnIndex":"0", "leadingProperty":"FILENAME"}'/>
 							</customData>
 						</Column>
+						<core:ExtensionPoint
+							name="{:= ${parts: [{path: 'tableDetails>tabName'},{path:'tableDetails>entitySet'},{path:'contentTabs>Core.LongDescription/String'},{path:'contentTabs>Org.OData.Core.V1.LongDescription/String'},{value:'CustomColumn', model:'tempProps'}],formatter:'com.evorait.evosuite.evonotify.model.AnnotationHelper.getExtPoint'}}"/>
 					</columns>
 					<items>
 						<ColumnListItem>
@@ -18,6 +20,8 @@
 								<Link text="{FILENAME}" emphasized="true"
 									href="{:= '{parts:[{path:\'HeaderObjectKey\'},{path:\'ObjectKey\'}, {path:\'FILEID\'},{value:\'' + ${tableDetails>entitySet} + '\', model:\'viewModel\'}], formatter:\'.getAttachmentUrl\'}'}"
 									fieldGroupIds="DownloadLink"/>
+								<core:ExtensionPoint
+									name="{:= ${parts: [{path: 'tableDetails>tabName'},{path:'tableDetails>entitySet'},{path:'contentTabs>Core.LongDescription/String'},{path:'contentTabs>Org.OData.Core.V1.LongDescription/String'},{value:'CustomCell', model:'tempProps'}],formatter:'com.evorait.evosuite.evonotify.model.AnnotationHelper.getExtPoint'}}"/>
 							</cells>
 						</ColumnListItem>
 					</items>

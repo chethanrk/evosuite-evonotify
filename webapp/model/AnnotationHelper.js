@@ -351,6 +351,23 @@ sap.ui.define([],
 			return sExtPointName;
 		};
 
+		/**
+		 * get extension point name for dynamic SmartTables
+		 */
+		var getExtPoint = function (sTabName, sEntitySet, sDesc, sLongText, sAddString) {
+			var sExtPointName = "TableExtP";
+
+			if (sTabName) {
+				sExtPointName += "|" + sTabName;
+			}
+			var sEntitySetName = getEntitySet(sEntitySet, sDesc, sLongText);
+			if (sEntitySetName) {
+				sExtPointName += "|" + sEntitySetName;
+			}
+			sExtPointName = sAddString ? sExtPointName + "|" + sAddString : sExtPointName;
+			return sExtPointName;
+		};
+
 		return {
 			resolveModelPath: resolveModelPath,
 			resolveObjectHeaderPath: resolveObjectHeaderPath,
@@ -367,7 +384,8 @@ sap.ui.define([],
 			getEntitySet: getEntitySet,
 			isFieldCreatableAndSetMetaData: isFieldCreatableAndSetMetaData,
 			getDefaultTableSelects: getDefaultTableSelects,
-			getFieldExtPoint: getFieldExtPoint
+			getFieldExtPoint: getFieldExtPoint,
+			getExtPoint: getExtPoint
 		};
 
 	},

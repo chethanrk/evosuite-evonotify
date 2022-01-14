@@ -21,10 +21,21 @@
 					customData:useSmartToggle="true">
 					<smartTable:customToolbar>
 						<template:if test="{:= ${tableDetails>CustomToolbar}}">
-							<OverflowToolbar class="orderListToolbar">
-								<ToolbarSpacer/>
-								<core:Fragment fragmentName="{:= ${tableDetails>CustomToolbar}}" type="XML"/>
-							</OverflowToolbar>
+							<template:then>
+								<OverflowToolbar>
+									<ToolbarSpacer/>
+									<core:ExtensionPoint
+										name="{:= ${parts: [{path: 'tableDetails>tabName'},{path:'tableDetails>entitySet'},{path:'contentTabs>Core.LongDescription/String'},{path:'contentTabs>Org.OData.Core.V1.LongDescription/String'},{value:'CustomToolbar', model:'tempProps'}],formatter:'com.evorait.evosuite.evonotify.model.AnnotationHelper.getExtPoint'}}"/>
+									<core:Fragment fragmentName="{:= ${tableDetails>CustomToolbar}}" type="XML"/>
+								</OverflowToolbar>
+							</template:then>
+							<template:else>
+								<OverflowToolbar>
+									<ToolbarSpacer/>
+									<core:ExtensionPoint
+										name="{:= ${parts: [{path: 'tableDetails>tabName'},{path:'tableDetails>entitySet'},{path:'contentTabs>Core.LongDescription/String'},{path:'contentTabs>Org.OData.Core.V1.LongDescription/String'},{value:'CustomToolbar', model:'tempProps'}],formatter:'com.evorait.evosuite.evonotify.model.AnnotationHelper.getExtPoint'}}"/>
+								</OverflowToolbar>
+							</template:else>
 						</template:if>
 					</smartTable:customToolbar>
 					<template:if test="{:= ${tableDetails>CustomContent}}">
