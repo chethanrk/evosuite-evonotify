@@ -2,10 +2,10 @@
 	xmlns:mvc="sap.ui.core.mvc" xmlns:uxap="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:smartField="sap.ui.comp.smartfield"
 	xmlns:blocks="com.evorait.evosuite.evonotify.block" xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1">
 	<template:alias name=".AH" value="sap.ui.model.odata.AnnotationHelper">
-		<uxap:ObjectPageLayout id="notificationItemDetailPage" enableLazyLoading="true" isChildPage="true" showFooter="false"
-			busy="{viewModel>/busy}" busyIndicatorDelay="{viewModel>/delay}">
+		<uxap:ObjectPageLayout id="idPageItemDetail" enableLazyLoading="true" isChildPage="true" showFooter="false" busy="{viewModel>/busy}"
+			busyIndicatorDelay="{viewModel>/delay}">
 			<uxap:headerTitle>
-				<uxap:ObjectPageHeader id="objectItemPageHeader" objectTitle="{DESCRIPTION}" objectSubtitle="{NOTIFICATION_ITEM}">
+				<uxap:ObjectPageHeader id="idPageItemDetailObjectPageHeader" objectTitle="{DESCRIPTION}" objectSubtitle="{NOTIFICATION_ITEM}">
 					<uxap:actions>
 						<uxap:ObjectPageHeaderActionButton id="editNotificationItemButton" text="{i18n>btn.edit}" hideText="false" press="onPressEdit"
 							type="Emphasized"
@@ -20,13 +20,13 @@
 						<core:ExtensionPoint name="PageExtP|NotificationItemDetail|PMNotificationItemSet|Title|Action"/>
 					</uxap:actions>
 					<uxap:breadcrumbs>
-						<Breadcrumbs currentLocationText="{/#PMNotificationItem/NOTIFICATION_ITEM/@sap:label} {NOTIFICATION_ITEM}">
+						<Breadcrumbs id="idPageItemDetailBreadcrumb" currentLocationText="{/#PMNotificationItem/NOTIFICATION_ITEM/@sap:label} {NOTIFICATION_ITEM}">
 							<Link text="{i18n>tit.notifications}" press="onNavToList"/>
 							<Link text="{/#PMNotificationItem/NOTIFICATION_NO/@sap:label} {NOTIFICATION_NO}" press="onNavToNotification"/>
 						</Breadcrumbs>
 					</uxap:breadcrumbs>
 					<uxap:navigationBar>
-						<Bar class="sapUiTinyMarginTop">
+						<Bar id="idPageItemDetailNavigationBar" class="sapUiTinyMarginTop">
 							<contentLeft>
 								<Button icon="sap-icon://nav-back" tooltip="nav-back" press="onNavBack"/>
 								<core:ExtensionPoint name="PageExtP|NotificationItemDetail|PMNotificationItemSet|NavigationBar|Left"/>
@@ -100,7 +100,7 @@
 				</template:with>
 			</uxap:sections>
 			<uxap:footer>
-				<OverflowToolbar id="idNotificationItemDetailFooterToolbar" visible="false">
+				<OverflowToolbar id="idPageItemDetailFooterToolbar" visible="false">
 					<core:ExtensionPoint name="PageExtP|NotificationItemDetail|PMNotificationItemSet|Footer|Left"/>
 					<ToolbarSpacer/>
 					<core:ExtensionPoint name="PageExtP|NotificationItemDetail|PMNotificationItemSet|Footer|Right"/>

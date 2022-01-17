@@ -2,7 +2,7 @@
 	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:f="sap.f"
 	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 	controllerName="com.evorait.evosuite.evonotify.controller.Worklist">
-	<f:DynamicPage id="NotificationlistPage" headerExpanded="true" preserveHeaderStateOnScroll="true" showFooter="true"
+	<f:DynamicPage id="idPageNotificationList" headerExpanded="true" preserveHeaderStateOnScroll="true" showFooter="true"
 		class="sapUiNoContentPadding">
 		<f:title>
 			<f:DynamicPageTitle>
@@ -19,7 +19,7 @@
 			<f:DynamicPageHeader pinnable="true">
 				<f:content>
 					<core:ExtensionPoint name="PageExtP|WorkList|PMNotificationSet|Head">
-						<smartFilterBar:SmartFilterBar id="NotificationFilter" entitySet="PMNotificationSet" filterBarExpanded="true"
+						<smartFilterBar:SmartFilterBar id="idPageNotificationListSmartFilterBar" entitySet="PMNotificationSet" filterBarExpanded="true"
 							persistencyKey="com.evorait.evosuite.evonotify.NotificationFilterbar" useDateRangeType="true">
 							<smartFilterBar:controlConfiguration>
 								<smartFilterBar:ControlConfiguration id="__configuration0"/>
@@ -34,11 +34,11 @@
 			</f:DynamicPageHeader>
 		</f:header>
 		<f:content>
-			<smartTable:SmartTable id="NotificationTable" class="workorderSmartTable" entitySet="PMNotificationSet" smartFilterId="NotificationFilter"
-				tableType="ResponsiveTable" useExportToExcel="true" useVariantManagement="true" useTablePersonalisation="true"
-				header="{i18n>tit.worklistTable}" showRowCount="true" persistencyKey="com.evorait.evosuite.evonotify.NotificationTable"
-				enableAutoBinding="true" beforeRebindTable="onBeforeRebindTable" requestAtLeastFields="ObjectKey,PHASE,ENABLE_NOTIFICATION_CHANGE"
-				demandPopin="true">
+			<smartTable:SmartTable id="idPageNotificationListSmartTable" class="workorderSmartTable" entitySet="PMNotificationSet"
+				smartFilterId="idPageNotificationListSmartFilterBar" tableType="ResponsiveTable" useExportToExcel="true" useVariantManagement="true"
+				useTablePersonalisation="true" header="{i18n>tit.worklistTable}" showRowCount="true"
+				persistencyKey="com.evorait.evosuite.evonotify.NotificationTable" enableAutoBinding="true" beforeRebindTable="onBeforeRebindTable"
+				requestAtLeastFields="ObjectKey,PHASE,ENABLE_NOTIFICATION_CHANGE" demandPopin="true">
 				<!-- layout data used to make the table growing but the filter bar fixed -->
 				<smartTable:layoutData>
 					<FlexItemData growFactor="1" baseSize="0%"/>
@@ -51,7 +51,7 @@
 						<core:ExtensionPoint name="TableExtP|WorkList|PMNotificationSet|CustomToolbar"/>
 					</OverflowToolbar>
 				</smartTable:customToolbar>
-				<Table id="responsiveNotificationTable" sticky="ColumnHeaders,HeaderToolbar,InfoToolbar" growing="true">
+				<Table id="idPageNotificationListPageSmartTableTable" sticky="ColumnHeaders,HeaderToolbar,InfoToolbar" growing="true">
 					<columns>
 						<core:ExtensionPoint name="TableExtP|WorkList|PMNotificationSet|CustomColumn"/>
 						<Column width="4rem">

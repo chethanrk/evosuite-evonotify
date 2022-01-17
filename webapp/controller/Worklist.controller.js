@@ -56,7 +56,7 @@ sap.ui.define([
 			if (this.getOwnerComponent) {
 				this.getOwnerComponent().registerViewToMessageManager(this.getView());
 			}
-			this.oSmartTable = this.getView().byId("NotificationTable");
+			this.oSmartTable = this.getView().byId("idPageNotificationListSmartTable");
 		},
 
 		/**

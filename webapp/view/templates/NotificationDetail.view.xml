@@ -3,10 +3,10 @@
 	xmlns:blocks="com.evorait.evosuite.evonotify.block" xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1">
 	<template:alias name=".AH" value="sap.ui.model.odata.AnnotationHelper">
 		<template:with path="templateProperties>/" var="tempProps">
-			<uxap:ObjectPageLayout id="notificationDetailPage" enableLazyLoading="true" isChildPage="true" showFooter="false" busy="{viewModel>/busy}"
+			<uxap:ObjectPageLayout id="idPageNotificationDetail" enableLazyLoading="true" isChildPage="true" showFooter="false" busy="{viewModel>/busy}"
 				busyIndicatorDelay="{viewModel>/delay}">
 				<uxap:headerTitle>
-					<uxap:ObjectPageHeader id="objectPageHeader" objectTitle="{DESCRIPTION}" objectSubtitle="{NOTIFICATION_NO}">
+					<uxap:ObjectPageHeader id="idPageNotificationDetailObjectPageHeader" objectTitle="{DESCRIPTION}" objectSubtitle="{NOTIFICATION_NO}">
 						<uxap:actions>
 							<uxap:ObjectPageHeaderActionButton id="idStatusChangeMenu" hideText="false" icon="sap-icon://order-status" type="Default"
 								text="{i18n>btn.changeSystemStatus}" tooltip="{i18n>btn.changeSystemStatus}" press="onPressChangeSystemStatus"
@@ -26,12 +26,12 @@
 								visible="{parts: ['ORDER_NUMBER','user>/ENABLE_ORDER_CREATE','ENABLE_NOTIFICATION_CHANGE','viewModel>/editMode'], formatter: '.formatter.showCreateOrderButton'}"/>
 						</uxap:sideContentButton>
 						<uxap:breadcrumbs>
-							<Breadcrumbs currentLocationText="{/#PMNotification/NOTIFICATION_NO/@sap:label} {NOTIFICATION_NO}">
+							<Breadcrumbs id="idPageNotificationDetailBreadcrumb" currentLocationText="{/#PMNotification/NOTIFICATION_NO/@sap:label} {NOTIFICATION_NO}">
 								<Link text="{i18n>tit.notifications}" press="onNavBack"/>
 							</Breadcrumbs>
 						</uxap:breadcrumbs>
 						<uxap:navigationBar>
-							<Bar class="sapUiTinyMarginTop">
+							<Bar id="idPageNotificationDetailNavigationBar" class="sapUiTinyMarginTop">
 								<contentLeft>
 									<Button icon="sap-icon://nav-back" tooltip="nav-back" press="onNavBack"/>
 									<core:ExtensionPoint name="PageExtP|NotificationDetail|PMNotificationSet|NavigationBar|Left"/>
@@ -128,7 +128,7 @@
 					</template:with>
 				</uxap:sections>
 				<uxap:footer>
-					<OverflowToolbar id="idNotificationDetailFooterToolbar" visible="false">
+					<OverflowToolbar id="idPageNotificationDetailFooterToolbar" visible="false">
 						<core:ExtensionPoint name="PageExtP|NotificationDetail|PMNotificationSet|Footer|Left"/>
 						<ToolbarSpacer/>
 						<core:ExtensionPoint name="PageExtP|NotificationDetail|PMNotificationSet|Footer|Right"/>
