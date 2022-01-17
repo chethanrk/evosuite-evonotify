@@ -2,11 +2,58 @@ sap.ui.define([
 	"com/evorait/evosuite/evonotify/controller/FormController",
 	"sap/ui/core/Fragment",
 	"sap/ui/util/Storage",
-	"com/evorait/evosuite/evonotify/controller/UploadFilesController"
-], function (FormController, Fragment, Storage, UploadFilesController) {
+	"com/evorait/evosuite/evonotify/controller/UploadFilesController",
+	"sap/ui/core/mvc/OverrideExecution"
+], function (FormController, Fragment, Storage, UploadFilesController, OverrideExecution) {
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.controller.NotificationDetail", {
+		
+		metadata: {
+			methods: {
+				getAttachmentUrl: {
+					public: true,
+					final: true
+				},
+				onNavBack: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				},
+				onChangeSelectedFile: {
+					public: true,
+					final: true
+				},
+				onPressEdit: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onPressSave: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onPressCancel: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onSelectStatus: {
+					public: true,
+					final: true
+				},
+				onPressChangeSystemStatus: {
+					public: true,
+					final: true
+				},
+				onPressCreateOrder: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Before
+				}
+			}	
+		},
 
 		oViewModel: null,
 		aSmartForms: [],

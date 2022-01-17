@@ -1,10 +1,21 @@
 sap.ui.define([
 	"com/evorait/evosuite/evonotify/controller/DialogFormController",
-	"com/evorait/evosuite/evonotify/model/formatter"
-], function (DialogFormController, formatter) {
+	"com/evorait/evosuite/evonotify/model/formatter",
+	"sap/ui/core/mvc/OverrideExecution"
+], function (DialogFormController, formatter, OverrideExecution) {
 	"use strict";
 
 	return DialogFormController.extend("com.evorait.evosuite.evonotify.controller.AddEditEntry", {
+		
+		metadata: {
+			methods: {
+				onChangeSmartField: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				}
+			}
+		},
 
 		_type: {
 			add: false,

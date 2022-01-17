@@ -5,14 +5,57 @@ sap.ui.define([
 	"com/evorait/evosuite/evonotify/model/formatter",
 	"sap/ui/model/FilterOperator",
 	"sap/ui/model/Filter",
-	"sap/ui/core/Fragment"
-], function (FormController, TableController, formatter, FilterOperator, Filter, Fragment) {
+	"sap/ui/core/Fragment",
+	"sap/ui/core/mvc/OverrideExecution"
+], function (FormController, TableController, formatter, FilterOperator, Filter, Fragment, OverrideExecution) {
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.block.tasks.TasksBlockController", {
 
-		formatter: formatter,
-		_oSmartTable: null,
+		metadata: {
+			methods: {
+				onBeforeRebindTable: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onPressItem: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onPressEdit: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onPressDelete: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onPressAdd: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onSelectStatus: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Before
+				},
+				showLongText: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				},
+				onPressChangeTaskSystemStatus: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				}
+			}
+		},
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */
@@ -180,23 +223,6 @@ sap.ui.define([
 			}
 			this.getModel("viewModel").setProperty("/TaskAllows", mTaskAllows);
 			this.oStatusSelectControl.setEnabled(true);
-		},
-
-		/**
-		 * success callback after saving notification
-		 * @param oResponse
-		 */
-		_saveSuccessFn: function (oResponse) {
-			var msg = this.getResourceBundle().getText("msg.saveSuccess");
-			this.showMessageToast(msg);
-		},
-
-		/**
-		 * error callback after saving notification
-		 * @param oResponse
-		 */
-		_saveErrorFn: function (oResponse) {
-			//this.getModel().resetChanges([sPath]);
 		},
 
 		/**

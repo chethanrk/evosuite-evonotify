@@ -2,10 +2,10 @@
 	xmlns:mvc="sap.ui.core.mvc" xmlns:uxap="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:smartField="sap.ui.comp.smartfield"
 	xmlns:blocks="com.evorait.evosuite.evonotify.block" xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1">
 	<template:alias name=".AH" value="sap.ui.model.odata.AnnotationHelper">
-		<uxap:ObjectPageLayout id="notificationItemDetailPage" enableLazyLoading="true" isChildPage="true" showFooter="false"
-			busy="{viewModel>/busy}" busyIndicatorDelay="{viewModel>/delay}">
+		<uxap:ObjectPageLayout id="idPageItemDetail" enableLazyLoading="true" isChildPage="true" showFooter="false" busy="{viewModel>/busy}"
+			busyIndicatorDelay="{viewModel>/delay}">
 			<uxap:headerTitle>
-				<uxap:ObjectPageHeader id="objectItemPageHeader" objectTitle="{DESCRIPTION}" objectSubtitle="{NOTIFICATION_ITEM}">
+				<uxap:ObjectPageHeader id="idPageItemDetailObjectPageHeader" objectTitle="{DESCRIPTION}" objectSubtitle="{NOTIFICATION_ITEM}">
 					<uxap:actions>
 						<uxap:ObjectPageHeaderActionButton id="editNotificationItemButton" text="{i18n>btn.edit}" hideText="false" press="onPressEdit"
 							type="Emphasized"
@@ -17,25 +17,41 @@
 							visible="{viewModel>/editMode}"/>
 						<uxap:ObjectPageHeaderActionButton id="saveNotificationItemButton" text="{i18n>btn.save}" hideText="false" press="onPressSave"
 							type="Emphasized" visible="{viewModel>/editMode}"/>
+						<core:ExtensionPoint name="PageExtP|NotificationItemDetail|PMNotificationItemSet|Title|Action"/>
 					</uxap:actions>
 					<uxap:breadcrumbs>
-						<Breadcrumbs currentLocationText="{/#PMNotificationItem/NOTIFICATION_ITEM/@sap:label} {NOTIFICATION_ITEM}">
+						<Breadcrumbs id="idPageItemDetailBreadcrumb" currentLocationText="{/#PMNotificationItem/NOTIFICATION_ITEM/@sap:label} {NOTIFICATION_ITEM}">
 							<Link text="{i18n>tit.notifications}" press="onNavToList"/>
 							<Link text="{/#PMNotificationItem/NOTIFICATION_NO/@sap:label} {NOTIFICATION_NO}" press="onNavToNotification"/>
 						</Breadcrumbs>
 					</uxap:breadcrumbs>
 					<uxap:navigationBar>
-						<core:Fragment fragmentName="com.evorait.evosuite.evonotify.view.fragments.SubPageHeader" type="XML"/>
+						<Bar id="idPageItemDetailNavigationBar" class="sapUiTinyMarginTop">
+							<contentLeft>
+								<Button icon="sap-icon://nav-back" tooltip="nav-back" press="onNavBack"/>
+								<core:ExtensionPoint name="PageExtP|NotificationItemDetail|PMNotificationItemSet|NavigationBar|Left"/>
+							</contentLeft>
+							<contentMiddle>
+								<Image src="{viewModel>/rootPath}{viewModel>/logoPath}" densityAware="false" height="30px" alt="EvoNotify"/>
+							</contentMiddle>
+							<contentRight>
+								<core:Fragment fragmentName="com.evorait.evosuite.evonotify.view.fragments.HeaderRightActions" type="XML"/>
+								<core:ExtensionPoint name="PageExtP|NotificationItemDetail|PMNotificationItemSet|NavigationBar|Left"/>
+							</contentRight>
+						</Bar>
 					</uxap:navigationBar>
 				</uxap:ObjectPageHeader>
 			</uxap:headerTitle>
 			<uxap:headerContent>
-				<template:with path="meta>com.sap.vocabularies.UI.v1.HeaderFacets#NotifItemDetailHdr" helper=".AH.resolvePath" var="headerDetails">
+				<template:with path="templateProperties>/annotationPath"
+					helper="com.evorait.evosuite.evonotify.model.AnnotationHelper.resolveObjectHeaderPath" var="headerDetails">
 					<core:Fragment fragmentName="com.evorait.evosuite.evonotify.view.templates.ObjectHeadTemplate" type="XML"/>
 				</template:with>
+				<core:ExtensionPoint name="PageExtP|NotificationItemDetail|PMNotificationItemSet|Head"/>
 			</uxap:headerContent>
 			<uxap:sections>
-				<template:with path="meta>com.sap.vocabularies.UI.v1.Facets#NotifItemTabs" helper=".AH.resolvePath" var="contentTabs">
+				<template:with path="templateProperties>/annotationPath"
+					helper="com.evorait.evosuite.evonotify.model.AnnotationHelper.resolveObjectContentPath" var="contentTabs">
 					<template:repeat list="{contentTabs>}">
 						<template:if test="{:= ${contentTabs>Core.Description/String} === 'Form' || ${contentTabs>Org.OData.Core.V1.Description/String} === 'Form'}">
 							<template:then>
@@ -53,6 +69,7 @@
 							</template:then>
 							<template:elseif
 								test="{:= ${contentTabs>Core.Description/String} === 'Table' || ${contentTabs>Org.OData.Core.V1.Description/String} === 'Table'}">
+								<core:ExtensionPoint name="SectionExtP|NotificationItemDetail|{:= ${detailTabs>Core.LongDescription/String} }|Before"/>
 								<uxap:ObjectPageSection title="{path:'contentTabs>com.sap.vocabularies.Common.v1.Label',formatter:'.AH.format'}"
 									visible="{= !${viewModel>/editMode}}">
 									<uxap:subSections>
@@ -76,11 +93,19 @@
 										</uxap:ObjectPageSubSection>
 									</uxap:subSections>
 								</uxap:ObjectPageSection>
+								<core:ExtensionPoint name="SectionExtP|NotificationItemDetail|{:= ${detailTabs>Core.LongDescription/String} }|After"/>
 							</template:elseif>
 						</template:if>
 					</template:repeat>
 				</template:with>
 			</uxap:sections>
+			<uxap:footer>
+				<OverflowToolbar id="idPageItemDetailFooterToolbar" visible="false">
+					<core:ExtensionPoint name="PageExtP|NotificationItemDetail|PMNotificationItemSet|Footer|Left"/>
+					<ToolbarSpacer/>
+					<core:ExtensionPoint name="PageExtP|NotificationItemDetail|PMNotificationItemSet|Footer|Right"/>
+				</OverflowToolbar>
+			</uxap:footer>
 		</uxap:ObjectPageLayout>
 	</template:alias>
 </mvc:View>

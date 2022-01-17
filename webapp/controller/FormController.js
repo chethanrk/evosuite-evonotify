@@ -2,11 +2,86 @@ sap.ui.define([
 	"com/evorait/evosuite/evonotify/controller/TableController",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-	"sap/ui/core/Fragment"
-], function (TableController, Filter, FilterOperator, Fragment) {
+	"sap/ui/core/Fragment",
+	"sap/ui/core/mvc/OverrideExecution"
+], function (TableController, Filter, FilterOperator, Fragment, OverrideExecution) {
 	"use strict";
 
 	return TableController.extend("com.evorait.evosuite.evonotify.controller.FormController", {
+
+		metadata: {
+			methods: {
+				getAllSmartForms: {
+					public: true,
+					final: true
+				},
+				getAllSmartFormGroups: {
+					public: true,
+					final: true
+				},
+				setFormsEditable: {
+					public: true,
+					final: true
+				},
+				onPressEdit: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onPressSave: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Before
+				},
+				onPressSmartField: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				},
+				onPressObjectStatus: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				},
+				cancelFormHandling: {
+					public: true,
+					final: true
+				},
+				confirmEditCancelDialog: {
+					public: true,
+					final: true
+				},
+				validateForm: {
+					public: true,
+					final: true
+				},
+				getBatchChangeResponse: {
+					public: true,
+					final: true
+				},
+				getFormFieldByName: {
+					public: true,
+					final: true
+				},
+				showSuccessMessage: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				},
+				checkDefaultValues: {
+					public: true,
+					final: true
+				},
+				checkDefaultPropertiesWithValues: {
+					public: true,
+					final: true
+				},
+				deleteEntries: {
+					public: true,
+					final: true
+				}
+			}
+		},
 
 		aSmartForms: [],
 		oViewModel: null,
@@ -320,24 +395,6 @@ sap.ui.define([
 			}
 		},
 
-		_setBusyWhileSaving: function (oCtrl, bIsInProgress) {
-			if (oCtrl) {
-				oCtrl.setBusy(bIsInProgress);
-			} else {
-				this.getView().getModel("viewModel").setProperty("/busy", bIsInProgress);
-			}
-		},
-
-		/**
-		 * success callback after creating order
-		 */
-		_saveCreateSuccessFn: function () {
-			var msg = this.getResourceBundle().getText("msg.saveSuccess");
-			this.showMessageToast(msg);
-			this.setFormsEditable(this.aSmartForms, false);
-			this.oViewModel.setProperty("/editMode", false);
-		},
-
 		/**
 		 * picks out the change response data from a batch call
 		 * Need for create entries 
@@ -525,6 +582,28 @@ sap.ui.define([
 					this._findDefaultPropertyValues(oItem, sPath, sChangedProperty, oMetaModel, oEntityType);
 				}
 			}.bind(this));
+		},
+
+		/* =========================================================== */
+		/* internal methods                                            */
+		/* =========================================================== */
+
+		_setBusyWhileSaving: function (oCtrl, bIsInProgress) {
+			if (oCtrl) {
+				oCtrl.setBusy(bIsInProgress);
+			} else {
+				this.getView().getModel("viewModel").setProperty("/busy", bIsInProgress);
+			}
+		},
+
+		/**
+		 * success callback after creating order
+		 */
+		_saveCreateSuccessFn: function () {
+			var msg = this.getResourceBundle().getText("msg.saveSuccess");
+			this.showMessageToast(msg);
+			this.setFormsEditable(this.aSmartForms, false);
+			this.oViewModel.setProperty("/editMode", false);
 		},
 
 		/**

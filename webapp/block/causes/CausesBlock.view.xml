@@ -8,6 +8,7 @@
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
+				<core:ExtensionPoint name="TableExtP|NotificationItemDetail|PMNotificationItemCauseSet|CustomToolbar"/>
 				<OverflowToolbarButton icon="sap-icon://add" text="Sort" press="onPressAdd"
 					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},{path: 'user>/ENABLE_CAUSE_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 				<OverflowToolbarButton icon="sap-icon://edit" text="Sort" press="onPressEdit"
@@ -20,6 +21,7 @@
 		</smartTable:layoutData>
 		<Table growing="true" mode="SingleSelectMaster" selectionChange="onPressItem">
 			<columns>
+				<core:ExtensionPoint name="TableExtP|NotificationItemDetail|PMNotificationItemCauseSet|CustomColumn"/>
 				<Column width="5rem">
 					<customData>
 						<core:CustomData key="p13nData" value='\{"columnKey": "NOTES", "columnIndex":"2"}'/>
@@ -28,8 +30,11 @@
 				</Column>
 			</columns>
 			<items>
-				<ColumnListItem >
-					<Button icon="sap-icon://show-edit" type="Default" press="showLongText" visible="{= ${NOTES} !== '' }"/>
+				<ColumnListItem>
+					<cells>
+						<core:ExtensionPoint name="TableExtP|NotificationItemDetail|PMNotificationItemCauseSet|CustomCell"/>
+						<Button icon="sap-icon://show-edit" type="Default" press="showLongText" visible="{= ${NOTES} !== '' }"/>
+					</cells>
 				</ColumnListItem>
 			</items>
 		</Table>

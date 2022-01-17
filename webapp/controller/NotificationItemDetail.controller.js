@@ -2,11 +2,51 @@ sap.ui.define([
 	"com/evorait/evosuite/evonotify/controller/FormController",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-	"com/evorait/evosuite/evonotify/model/Constants"
-], function (FormController, Filter, FilterOperator, Constants) {
+	"com/evorait/evosuite/evonotify/model/Constants",
+	"sap/ui/core/mvc/OverrideExecution"
+], function (FormController, Filter, FilterOperator, Constants, OverrideExecution) {
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.controller.NotificationItemDetail", {
+
+		metadata: {
+			methods: {
+				onNavBack: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				},
+				onPressEdit: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onPressSave: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onPressDelete: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				saveSuccessFn: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				},
+				onPressCancel: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onNavToNotification: {
+					public: true,
+					final: true
+				}
+			}
+		},
 
 		oViewModel: null,
 		aSmartForms: [],

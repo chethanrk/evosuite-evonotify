@@ -8,6 +8,31 @@ sap.ui.define([
 	"use strict";
 
 	return BaseController.extend("com.evorait.evosuite.evonotify.controller.TemplateRenderController", {
+		
+		metadata: {
+			methods: {
+				setOwnerComponent: {
+					public: true,
+					final: true
+				},
+				getTemplateModel: {
+					public: true,
+					final: true
+				},
+				setTemplateProperties: {
+					public: true,
+					final: true
+				},
+				getEntityPath: {
+					public: true,
+					final: true
+				},
+				insertTemplateFragment: {
+					public: true,
+					final: true
+				}
+			}	
+		},
 
 		mTemplates: {},
 
@@ -119,7 +144,7 @@ sap.ui.define([
 					//when template was already in use then just integrate in viewContainer and bind new path
 					//will improve performance
 					oViewContainer.insertContent(this.mTemplates[sViewName]);
-					this.bindView(this.mTemplates[sViewName], sPath, callbackFn);
+					this._bindView(this.mTemplates[sViewName], sPath, callbackFn);
 				} else {
 					//load template view ansync and interpret annotations based on metadata model
 					//and bind view path and save interpreted template global for reload
@@ -130,25 +155,29 @@ sap.ui.define([
 						var setTemplateAndBind = function (oTemplateView) {
 							this.mTemplates[sViewName] = oTemplateView;
 							oViewContainer.insertContent(oTemplateView);
-							this.bindView(oTemplateView, sPath, callbackFn);
+							this._bindView(oTemplateView, sPath, callbackFn);
 						}.bind(this);
 
 						if (sControllerName) {
 							Controller.create({
 								name: "com.evorait.evosuite.evonotify.controller." + sControllerName
 							}).then(function (controller) {
-								this.createView(oModel, oMetaModel, sPath, sViewName, controller).then(setTemplateAndBind);
+								this._createView(oModel, oMetaModel, sPath, sViewName, controller).then(setTemplateAndBind);
 							}.bind(this));
 						} else {
-							this.createView(oModel, oMetaModel, sPath, sViewName, null).then(setTemplateAndBind);
+							this._createView(oModel, oMetaModel, sPath, sViewName, null).then(setTemplateAndBind);
 						}
 
 					}.bind(this));
 				}
 			} else {
-				this.bindView(aContent[0], sPath, callbackFn);
+				this._bindView(aContent[0], sPath, callbackFn);
 			}
 		},
+		
+		/* =========================================================== */
+		/* internal methods                                            */
+		/* =========================================================== */
 
 		/**
 		 * create view and set owner component for routing
@@ -160,7 +189,7 @@ sap.ui.define([
 		 * @param oController
 		 * @returns {*}
 		 */
-		createView: function (oModel, oMetaModel, sPath, sViewNameId, oController) {
+		_createView: function (oModel, oMetaModel, sPath, sViewNameId, oController) {
 			var sViewId = this._getTemplateViewId(sViewNameId, true),
 				sViewName = this._getTemplateViewId(sViewNameId, false),
 				oTemlateModel = this.getTemplateModel();
@@ -207,7 +236,7 @@ sap.ui.define([
 		 * @param sPath
 		 * @param callbackFn
 		 */
-		bindView: function (oView, sPath, callbackFn) {
+		_bindView: function (oView, sPath, callbackFn) {
 			var sViewName = this._joinTemplateViewNameId(oView.getId(), oView.getViewName()),
 				eventBus = sap.ui.getCore().getEventBus();
 

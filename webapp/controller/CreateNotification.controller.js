@@ -1,11 +1,37 @@
 sap.ui.define([
 	"com/evorait/evosuite/evonotify/controller/FormController",
 	"com/evorait/evosuite/evonotify/model/Constants",
-	"sap/ui/util/Storage"
-], function (FormController, Constants, Storage) {
+	"sap/ui/util/Storage",
+    "sap/ui/core/mvc/OverrideExecution"
+], function (FormController, Constants, Storage, OverrideExecution) {
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.controller.CreateNotification", {
+
+		metadata: {
+			methods: {
+				onChangeSmartField: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				},
+				onNavBack: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				},
+				onPressCancel: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onPressSave: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Before
+				}
+			}
+		},
 
 		oViewModel: null,
 		aSmartForms: [],
@@ -33,25 +59,6 @@ sap.ui.define([
 		},
 
 		/**
-		 * Binding has changed in TemplateRenderController
-		 * Set new controller context and path
-		 * @param sChannel
-		 * @param sEvent
-		 * @param oData
-		 */
-		_changedBinding: function (sChannel, sEvent, oData) {
-			if (sChannel === "TemplateRendererEvoNotify" && sEvent === "changedBinding") {
-				var sViewId = this.getView().getId(),
-					sViewName = this.getView().getViewName(),
-					_sViewNameId = sViewName + "#" + sViewId;
-
-				if (oData.viewNameId === _sViewNameId) {
-					this._checkForLinkParameters();
-				}
-			}
-		},
-
-		/**
 		 * life cycle event before view rendering
 		 */
 		onBeforeRendering: function () {},
@@ -63,6 +70,18 @@ sap.ui.define([
 			this._initializeView();
 		},
 
+		/**
+		 * Object on exit
+		 */
+		onExit: function () {
+			var eventBus = sap.ui.getCore().getEventBus();
+			eventBus.unsubscribe("TemplateRendererEvoNotify", "changedBinding", this._changedBinding, this);
+		},
+
+		/**
+		 * when SmartField change event was triggered
+		 * @param oEvent
+		 */
 		onChangeSmartField: function (oEvent) {
 			var oSource = oEvent.getSource(),
 				sFieldName = oSource.getName();
@@ -74,18 +93,6 @@ sap.ui.define([
 		},
 
 		/**
-		 * 
-		 */
-		_initializeView: function () {
-			this.aSmartForms = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("smartFormTemplate"));
-			this.setFormsEditable(this.aSmartForms, true);
-			this.isStandalonePage = this.oViewModel.getProperty("/createPageOnly");
-
-			this.oViewModel.setProperty("/editMode", true);
-			this.oViewModel.setProperty("/isNew", true);
-		},
-
-		/**
 		 * on press back button
 		 * @param oEvent
 		 */
@@ -93,14 +100,6 @@ sap.ui.define([
 			//show confirm message
 			var sPath = this.getView().getBindingContext().getPath();
 			this.confirmEditCancelDialog(sPath);
-		},
-
-		/**
-		 * Object on exit
-		 */
-		onExit: function () {
-			var eventBus = sap.ui.getCore().getEventBus();
-			eventBus.unsubscribe("TemplateRendererEvoNotify", "changedBinding", this._changedBinding, this);
 		},
 
 		/**
@@ -130,6 +129,37 @@ sap.ui.define([
 		/* =========================================================== */
 
 		/**
+		 * when view was initialized
+		 */
+		_initializeView: function () {
+			this.aSmartForms = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("smartFormTemplate"));
+			this.setFormsEditable(this.aSmartForms, true);
+			this.isStandalonePage = this.oViewModel.getProperty("/createPageOnly");
+
+			this.oViewModel.setProperty("/editMode", true);
+			this.oViewModel.setProperty("/isNew", true);
+		},
+
+		/**
+		 * Binding has changed in TemplateRenderController
+		 * Set new controller context and path
+		 * @param sChannel
+		 * @param sEvent
+		 * @param oData
+		 */
+		_changedBinding: function (sChannel, sEvent, oData) {
+			if (sChannel === "TemplateRendererEvoNotify" && sEvent === "changedBinding") {
+				var sViewId = this.getView().getId(),
+					sViewName = this.getView().getViewName(),
+					_sViewNameId = sViewName + "#" + sViewId;
+
+				if (oData.viewNameId === _sViewNameId) {
+					this._checkForLinkParameters();
+				}
+			}
+		},
+
+		/**
 		 * check for GET paramters in url 
 		 * when there are parameters check if its a property name
 		 * and is this property is creatable true
@@ -149,10 +179,10 @@ sap.ui.define([
 					var oMetaModel = oModel.getMetaModel() || oModel.getProperty("/metaModel"),
 						oEntitySet = oMetaModel.getODataEntitySet("PMNotificationSet"),
 						oEntityType = oMetaModel.getODataEntityType(oEntitySet.entityType);
-						
+
 					//Apply defaulting values
 					this.checkDefaultValues(oEntitySet.name, sPath);
-					
+
 					for (var key in oData) {
 						var urlValue = this.getOwnerComponent().getLinkParameterByName(key);
 						var oProperty = oMetaModel.getODataProperty(oEntityType, key);

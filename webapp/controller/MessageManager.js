@@ -1,9 +1,28 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/ui/core/Fragment"
-], function (Controller, Fragment) {
+	"sap/ui/core/Fragment",
+	"sap/ui/core/mvc/OverrideExecution"
+], function (Controller, Fragment, OverrideExecution) {
 	"use strict";
 	return Controller.extend("com.evorait.evosuite.evonotify.controller.MessageManager", {
+		
+		metadata: {
+			methods: {
+				open: {
+					public: true,
+					final: true
+				},
+				deleteAllMessages: {
+					public: true,
+					final: true
+				},
+				beforePopoverClose: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Before
+				}
+			}
+		},
 
 		_showMessageManager: null,
 		_oCurrentView: null,
@@ -38,18 +57,6 @@ sap.ui.define([
 		},
 
 		/**
-		 * Called when message model needs to refresh
-		 */
-		_refreshMessageModel: function () {
-			if (this._showMessageManager.getModel("message")) {
-				this._showMessageManager.getModel("message").refresh();
-			} else if (this._oCurrentView.getModel("message")) {
-				this._showMessageManager.setModel(this._oCurrentView.getModel("message"), "message");
-				this._showMessageManager.getModel("message").refresh();
-			}
-		},
-
-		/**
 		 * Delete all messages from message manager model
 		 */
 		deleteAllMessages: function () {
@@ -72,6 +79,22 @@ sap.ui.define([
 				oFilteredList.forEach(function (element) {
 					element.technical = false;
 				});
+			}
+		},
+		
+		/* =========================================================== */
+		/* internal methods                                            */
+		/* =========================================================== */
+		
+		/**
+		 * Called when message model needs to refresh
+		 */
+		_refreshMessageModel: function () {
+			if (this._showMessageManager.getModel("message")) {
+				this._showMessageManager.getModel("message").refresh();
+			} else if (this._oCurrentView.getModel("message")) {
+				this._showMessageManager.setModel(this._oCurrentView.getModel("message"), "message");
+				this._showMessageManager.getModel("message").refresh();
 			}
 		}
 	});
