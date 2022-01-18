@@ -337,7 +337,10 @@ sap.ui.define([],
 		 */
 		var getFieldExtPoint = function (oTarget, oField, oAnnoPath, sAddString) {
 			var sExtPointName = "FormExtP";
-			if (oAnnoPath.path) {
+
+			if (typeof oAnnoPath === "string") {
+				sExtPointName += "|" + oAnnoPath.split("#")[1];
+			} else if (oAnnoPath.path) {
 				sExtPointName += "|" + oAnnoPath.path.split("#")[1];
 			}
 			if (oTarget.Target) {
@@ -345,6 +348,30 @@ sap.ui.define([],
 				sExtPointName += "|" + sTargetPath[1];
 			}
 			if (oField.Path) {
+				sExtPointName += "|" + oField.Path;
+			}
+			sExtPointName = sAddString ? sExtPointName + "|" + sAddString : sExtPointName;
+			return sExtPointName;
+		};
+
+		/**
+		 * get extension point name for field group before and after
+		 * in SmartFormTemplate fragment
+		 */
+		var getFieldGroupExtPoint = function (oTarget, oField, oAnnoPath, sAddString) {
+			var sExtPointName = "FormExtP";
+			if (typeof oAnnoPath === "string") {
+				sExtPointName += "|" + oAnnoPath.split("#")[1];
+			} else if (oAnnoPath.path) {
+				sExtPointName += "|" + oAnnoPath.path.split("#")[1];
+			}
+			if (oTarget.Target) {
+				var sTargetPath = oTarget.Target.AnnotationPath.split("#");
+				sExtPointName += "|" + sTargetPath[1];
+			}
+			if (typeof oField === "string") {
+				sExtPointName += "|" + oField;
+			} else if (oField.Path) {
 				sExtPointName += "|" + oField.Path;
 			}
 			sExtPointName = sAddString ? sExtPointName + "|" + sAddString : sExtPointName;
@@ -385,6 +412,7 @@ sap.ui.define([],
 			isFieldCreatableAndSetMetaData: isFieldCreatableAndSetMetaData,
 			getDefaultTableSelects: getDefaultTableSelects,
 			getFieldExtPoint: getFieldExtPoint,
+			getFieldGroupExtPoint: getFieldGroupExtPoint,
 			getExtPoint: getExtPoint
 		};
 
