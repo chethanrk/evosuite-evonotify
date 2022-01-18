@@ -15,6 +15,8 @@
 			</smartForm:layout>
 			<template:repeat list="{path:'facets>'}" var="facets">
 				<template:with path="facets>Target" helper="sap.ui.model.odata.AnnotationHelper.resolvePath" var="target">
+					<core:ExtensionPoint
+						name="{:= ${parts: [{path: 'facets>'},{value:'Group', model:'tempProps'},{path:'tempProps>annotationPath'},{value:'Before', model:'tempProps'}],formatter:'com.evorait.evosuite.evonotify.model.AnnotationHelper.getFieldGroupExtPoint'}}"/>
 					<smartForm:Group label="{path:'target>com.sap.vocabularies.Common.v1.Label',formatter:'.AH.format'}">
 						<smartForm:layoutData>
 							<template:if test="{:= (${target>Org.OData.Core.V1.Description/String} === 'longText')}">
@@ -60,6 +62,8 @@
 							</template:repeat>
 						</template:with>
 					</smartForm:Group>
+					<core:ExtensionPoint
+						name="{:= ${parts: [{path: 'facets>'},{value:'Group', model:'tempProps'},{path:'tempProps>annotationPath'},{value:'After', model:'tempProps'}],formatter:'com.evorait.evosuite.evonotify.model.AnnotationHelper.getFieldGroupExtPoint'}}"/>
 				</template:with>
 			</template:repeat>
 		</smartForm:SmartForm>

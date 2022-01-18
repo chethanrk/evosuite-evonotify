@@ -2,8 +2,8 @@
 	xmlns:mvc="sap.ui.core.mvc" xmlns:uxap="sap.uxap" xmlns:layout="sap.ui.layout"
 	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1">
 	<template:alias name=".AH" value="sap.ui.model.odata.AnnotationHelper">
-		<uxap:ObjectPageLayout id="idPageCreateNotification" enableLazyLoading="false" isChildPage="true" showFooter="false"
-			busy="{viewModel>/busy}" busyIndicatorDelay="{viewModel>/delay}">
+		<uxap:ObjectPageLayout id="idPageCreateNotification" enableLazyLoading="false" isChildPage="true" showFooter="true" busy="{viewModel>/busy}"
+			busyIndicatorDelay="{viewModel>/delay}">
 			<uxap:headerTitle>
 				<uxap:ObjectPageHeader id="idPageCreateNotificationObjectPageHeader" objectTitle="{i18n>tit.newNotification}">
 					<uxap:actions>
@@ -59,7 +59,7 @@
 				</template:with>
 			</uxap:sections>
 			<uxap:footer>
-				<OverflowToolbar id="idCreateNotificationFooterToolbar" visible="false">
+				<OverflowToolbar id="idPageCreateNotificationFooterToolbar" visible="false">
 					<core:ExtensionPoint name="PageExtP|CreateNotification|PMNotificationSet|Footer|Left"/>
 					<ToolbarSpacer/>
 					<core:ExtensionPoint name="PageExtP|CreateNotification|PMNotificationSet|Footer|Right"/>

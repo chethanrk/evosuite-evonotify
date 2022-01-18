@@ -70,7 +70,7 @@
 				</Table>
 			</smartTable:SmartTable>
 		</f:content>
-		<f:footer id="idPageNotificationListPageFooter">
+		<f:footer>
 			<OverflowToolbar visible="false" id="idPageNotificationListPageFooterToolbar">
 				<core:ExtensionPoint name="PageExtP|WorkList|PMNotificationSet|Footer|Left"/>
 				<ToolbarSpacer/>
