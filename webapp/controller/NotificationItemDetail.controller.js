@@ -123,6 +123,25 @@ sap.ui.define([
 			}
 		},
 
+		/**
+		 * on delete confirm with user
+		 * @param oEvent
+		 */
+		onPressDelete: function (oEvent) {
+			var sMsg = this.getResourceBundle().getText("msg.confirmItemDelete");
+			if (this._oContext) {
+				var sObjectKey = this._oContext.getProperty("ObjectKey");
+				var successFn = function () {
+					this.deleteEntries([this.getView()], null).then(function () {
+						this.getRouter().navTo("NotificationDetail", {
+							ObjectKey: sObjectKey
+						});
+					}.bind(this));
+				};
+				this.confirmDialog(sMsg, successFn.bind(this), null, null);
+			}
+		},
+
 		/* =========================================================== */
 		/* internal methods                                              */
 		/* =========================================================== */

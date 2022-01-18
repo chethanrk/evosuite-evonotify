@@ -5,7 +5,7 @@
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
-			"version": "2110.0.2"
+			"version": "2201.0.0"
 		},
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
@@ -156,7 +156,6 @@
 			"targets": {
 				"worklist": {
 					"viewName": "Worklist",
-					"viewId": "worklist",
 					"viewLevel": 1
 				},
 				"NotificationDetail": {
@@ -172,12 +171,10 @@
 					"viewLevel": 2
 				},
 				"objectNotFound": {
-					"viewName": "ObjectNotFound",
-					"viewId": "objectNotFound"
+					"viewName": "ObjectNotFound"
 				},
 				"notFound": {
-					"viewName": "NotFound",
-					"viewId": "notFound"
+					"viewName": "NotFound"
 				}
 			}
 		}

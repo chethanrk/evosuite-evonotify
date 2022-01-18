@@ -1,11 +1,12 @@
 /*global location*/
 sap.ui.define([
+	"com/evorait/evosuite/evonotify/controller/FormController",
 	"com/evorait/evosuite/evonotify/controller/TableController",
 	"com/evorait/evosuite/evonotify/model/formatter"
-], function (TableController, formatter) {
+], function (FormController, TableController, formatter) {
 	"use strict";
 
-	return TableController.extend("com.evorait.evosuite.evonotify.block.activities.ActivitiesItemBlockController", {
+	return FormController.extend("com.evorait.evosuite.evonotify.block.activities.ActivitiesItemBlockController", {
 
 		formatter: formatter,
 		_oSmartTable: null,
@@ -20,6 +21,7 @@ sap.ui.define([
 		 */
 		onInit: function () {
 			this._oSmartTable = this.getView().byId("notificationActivityItemTable");
+			this.getModel("viewModel").setProperty("/singleSelectedActivity", false);
 		},
 
 		/* =========================================================== */
@@ -39,8 +41,9 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onPressItem: function (oEvent) {
-			this.oListItem = oEvent.getParameter("listItem");
-			this._oItemActivityContext = this.oListItem.getBindingContext();
+			//only one item can be edited so enable edit button when only one entry was selected
+			var aSelected = this._oSmartTable.getTable().getSelectedItems();
+			this.getModel("viewModel").setProperty("/singleSelectedActivity", aSelected.length === 1);
 		},
 
 		/**
@@ -49,24 +52,18 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onPressEdit: function (oEvent) {
-			if (this._oItemActivityContext) {
-				var mParams = {
-					viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#NotifItemActivityUpdate",
-					annotationPath: "com.sap.vocabularies.UI.v1.Facets#ItemActivityCreateUpdate",
-					entitySet: "PMNotificationItemActivitySet",
-					controllerName: "AddEditEntry",
-					title: "tit.editActivity",
-					type: "edit",
-					sPath: this._oItemActivityContext.getPath(),
-					smartTable: this._oSmartTable
-				};
-				this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
-				this._oItemActivityContext = null;
-				this.oListItem.getParent().removeSelections(true);
-			} else {
-				var msg = this.getView().getModel("i18n").getResourceBundle().getText("msg.itemSelectAtLeast");
-				this.showMessageToast(msg);
-			}
+			var mParams = {
+				viewName: "com.evorait.evosuite.evonotify.view.templates.SmartFormWrapper#NotifItemActivityUpdate",
+				annotationPath: "com.sap.vocabularies.UI.v1.Facets#ItemActivityCreateUpdate",
+				entitySet: "PMNotificationItemActivitySet",
+				controllerName: "AddEditEntry",
+				title: "tit.editActivity",
+				type: "edit",
+				smartTable: this._oSmartTable
+			};
+			this.getSingleSelectAndOpenEditDialog(this._oSmartTable, mParams, function () {
+				this.getModel("viewModel").setProperty("/singleSelectedActivity", false);
+			}.bind(this));
 		},
 
 		/**
@@ -76,6 +73,21 @@ sap.ui.define([
 		 */
 		onPressAdd: function (oEvent) {
 			this.getDependenciesAndCallback(this._openAddDialog.bind(this));
+		},
+
+		/**
+		 * delete multiple selected items
+		 * @param oEvent
+		 */
+		onPressDelete: function (oEvent) {
+			var aSelected = this._oSmartTable.getTable().getSelectedItems(),
+				sMsg = this.getResourceBundle().getText("msg.confirmActivityDelete");
+			if (aSelected.length > 0) {
+				var successFn = function () {
+					this.deleteEntries(aSelected, this._oSmartTable);
+				};
+				this.confirmDialog(sMsg, successFn.bind(this), null, this._oSmartTable);
+			}
 		},
 
 		/* =========================================================== */

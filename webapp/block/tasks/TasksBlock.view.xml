@@ -8,20 +8,23 @@
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
-				<OverflowToolbarButton id="idTaskStatusChangeMenu" icon="sap-icon://order-status" type="Default" text="{i18n>btn.changeSystemStatus}"
-					tooltip="{i18n>btn.changeSystemStatus}" press="onPressChangeTaskSystemStatus"
-					visible="{parts: ['user>/ENABLE_TASK_UPDATE','user>/ENABLE_NOTIFICATION_UPDATE','ENABLE_NOTIFICATION_CHANGE','viewModel>/editMode'], formatter: '.formatter.showStatusButton'}"/>
-				<OverflowToolbarButton icon="sap-icon://add" text="Sort" press="onPressAdd"
-					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},{path: 'user>/ENABLE_TASK_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
-				<OverflowToolbarButton id="idTaskEdit" icon="sap-icon://edit" text="Sort" press="onPressEdit"
-					visible="{ parts: [{path: 'ENABLE_NOTIFICATION_CHANGE'},{path: 'user>/ENABLE_TASK_UPDATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
+				<OverflowToolbarButton id="idTaskStatusChangeMenu" icon="sap-icon://order-status" text="{i18n>btn.changeSystemStatus}" type="Default"
+					tooltip="{i18n>btn.changeSystemStatus}" press="onPressChangeTaskSystemStatus" enabled="{viewModel>/singleSelectedTask}"
+					visible="{parts: ['user>/ENABLE_TASK_UPDATE','user>/ENABLE_NOTIFICATION_UPDATE','viewModel>/enableNotificationChange','viewModel>/editMode'], formatter: '.formatter.showStatusButton'}"/>
+				<OverflowToolbarButton icon="sap-icon://add" text="{i18n>btn.add}" tooltip="{i18n>btn.add}" press="onPressAdd"
+					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},{path: 'user>/ENABLE_TASK_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
+				<OverflowToolbarButton id="idTaskEdit" icon="sap-icon://edit" text="{i18n>btn.edit}" tooltip="{i18n>btn.edit}"
+					enabled="{viewModel>/singleSelectedTask}" press="onPressEdit"
+					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},{path: 'user>/ENABLE_TASK_UPDATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
+				<OverflowToolbarButton icon="sap-icon://delete" text="{i18n>btn.delete}" tooltip="{i18n>btn.delete}" press="onPressDelete"
+					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},'user>/ENABLE_TASK_DELETE',{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 			</OverflowToolbar>
 		</smartTable:customToolbar>
 		<!-- layout data used to make the table growing but the filter bar fixed -->
 		<smartTable:layoutData>
 			<FlexItemData growFactor="1" baseSize="0%"/>
 		</smartTable:layoutData>
-		<Table growing="true" mode="SingleSelectMaster" selectionChange="onPressItem">
+		<Table growing="true" mode="MultiSelect" selectionChange="onPressItem">
 			<columns>
 				<Column width="5rem">
 					<Text text="{/#PMNotificationTask/UI_STATUS_ICON/@sap:label}"/>
