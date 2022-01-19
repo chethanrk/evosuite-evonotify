@@ -5,7 +5,7 @@
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
-			"version": "2201.1.0"
+			"version": "2201.1.1"
 		},
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
@@ -51,7 +51,7 @@
 		}
 	},
 	"sap.ui5": {
-		"flexEnabled": false,
+		"flexEnabled": true,
 		"rootView": {
 			"viewName": "com.evorait.evosuite.evonotify.view.App",
 			"type": "XML",
@@ -156,25 +156,31 @@
 			"targets": {
 				"worklist": {
 					"viewName": "Worklist",
+					"viewId": "EvoNotifyWorklist",
 					"viewLevel": 1
 				},
 				"NotificationDetail": {
 					"viewName": "ObjectPage",
+					"viewId": "EvoNotifyNotificationDetail",
 					"viewLevel": 2
 				},
 				"CreateNotification": {
 					"viewName": "ObjectPage",
+					"viewId": "EvoNotifyCreateNotification",
 					"viewLevel": 2
 				},
 				"NotificationItemDetail": {
 					"viewName": "ObjectPage",
+					"viewId": "EvoNotifyNotificationItemDetail",
 					"viewLevel": 2
 				},
 				"objectNotFound": {
-					"viewName": "ObjectNotFound"
+					"viewName": "ObjectNotFound",
+					"viewId": "EvoNotifyObjectNotFound"
 				},
 				"notFound": {
-					"viewName": "NotFound"
+					"viewName": "NotFound",
+					"viewId": "EvoNotifyNotFound"
 				}
 			}
 		}
