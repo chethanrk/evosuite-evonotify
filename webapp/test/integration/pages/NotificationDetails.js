@@ -133,7 +133,7 @@ sap.ui.define([
 				},
 				iShouldSeePageTitle: function (sTitle) {
 					return this.waitFor({
-						id: "objectPageHeader",
+						id: "idPageNotificationDetailObjectPageHeader",
 						viewName: sViewName,
 						viewNamespace: namespace,
 						matchers: function (oView) {
@@ -151,7 +151,7 @@ sap.ui.define([
 
 				iShouldSeePageSubTitle: function (sSubTitle) {
 					return this.waitFor({
-						id: "objectPageHeader",
+						id: "idPageNotificationDetailObjectPageHeader",
 						viewName: sViewName,
 						viewNamespace: namespace,
 						matchers: function (oView) {
@@ -297,7 +297,7 @@ sap.ui.define([
 
 				iShouldSeeTheHeaderTitleAs: function (sText) {
 					return this.waitFor({
-						id: "objectPageHeader",
+						id: "idPageNotificationDetailObjectPageHeader",
 						viewName: sViewName,
 						viewNamespace: "com.evorait.evosuite.evonotify.view.templates",
 						matchers: new PropertyStrictEquals({
@@ -313,7 +313,7 @@ sap.ui.define([
 
 				iShouldSeeTheHeaderSubTitleAs: function (sText) {
 					return this.waitFor({
-						id: "objectPageHeader",
+						id: "idPageNotificationDetailObjectPageHeader",
 						viewName: sViewName,
 						viewNamespace: "com.evorait.evosuite.evonotify.view.templates",
 						matchers: new PropertyStrictEquals({

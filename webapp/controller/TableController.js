@@ -1,10 +1,36 @@
 sap.ui.define([
 	"com/evorait/evosuite/evonotify/controller/BaseController",
-	"com/evorait/evosuite/evonotify/model/AnnotationHelper"
-], function (BaseController, AnnotationHelper) {
+	"com/evorait/evosuite/evonotify/model/AnnotationHelper",
+	"sap/ui/core/mvc/OverrideExecution",
+	"sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator"
+], function (BaseController, AnnotationHelper, OverrideExecution, Filter, FilterOperator) {
 	"use strict";
 
 	return BaseController.extend("com.evorait.evosuite.evonotify.controller.TableController", {
+
+		metadata: {
+			methods: {
+				setDefaultUserVariant: {
+					public: true,
+					final: true
+				},
+				onInitializedSmartVariant: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onBeforeRebindTable: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				getDefaultTableFiltersFromUrlParams: {
+					public: true,
+					final: true
+				}
+			}
+		},
 
 		/**
 		 * sets default variant for user when it was set in backend customizing
@@ -50,6 +76,46 @@ sap.ui.define([
 			this._setDefaultTableSorter(oEvent);
 			this._setRequestAtLeastFields(oEvent);
 		},
+
+		/**
+		 * collect all GET Url parameters
+		 * and checks against entitySet if a porperty with parameter name exists
+		 * when property exist is is allowed to filter create new filters
+		 * returns Promise with array of filters
+		 * @param sEntitySet
+		 */
+		getDefaultTableFiltersFromUrlParams: function (sEntitySet) {
+			return new Promise(function (resolve) {
+				var urlParams = this.getOwnerComponent().getLinkParameterByName(),
+					aFilters = [];
+
+				this.getModel().getMetaModel().loaded().then(function () {
+					if (urlParams.entries) {
+						var entries = this._getObjectEntries(urlParams);
+						entries.forEach(function (pair) {
+							var oFilter = this._getFilterable(pair[0], pair[1], sEntitySet);
+							if (oFilter) {
+								aFilters.push(oFilter);
+							}
+						}.bind(this));
+					} else if (typeof urlParams === "object") {
+						for (var key in urlParams) {
+							if (urlParams.hasOwnProperty(key) && urlParams[key]) {
+								var oFilter = this._getFilterable(key, urlParams[key][0], sEntitySet);
+								if (oFilter) {
+									aFilters.push(oFilter);
+								}
+							}
+						}
+					}
+					resolve(aFilters);
+				}.bind(this));
+			}.bind(this));
+		},
+
+		/* =========================================================== */
+		/* internal methods                                            */
+		/* =========================================================== */
 
 		/**
 		 * set default SortOder from annotations for responsive tables
@@ -128,7 +194,37 @@ sap.ui.define([
 				}
 				return false;
 			});
-		}
+		},
 
+		/*
+		 * Alternate function for Object.entries()
+		 * @{obj} selected object entry
+		 * returns object which has array of key and value
+		 */
+		_getObjectEntries: function (obj) {
+			var aEntries = Object.keys(obj),
+				aResArray = [];
+			aEntries.forEach(function (avalue) {
+				aResArray.push([avalue, obj[avalue][0]]);
+			});
+			return aResArray;
+		},
+
+		/**
+		 * checks if key in metaModel is filterable true
+		 * returns new filter
+		 */
+		_getFilterable: function (sKey, sValue, sEntitySet) {
+			var oMetaModel = this.getModel().getMetaModel() || this.getModel().getProperty("/metaModel"),
+				oEntitySet = oMetaModel.getODataEntitySet(sEntitySet),
+				oEntityType = oMetaModel.getODataEntityType(oEntitySet.entityType),
+				oProperty = oMetaModel.getODataProperty(oEntityType, sKey);
+
+			//is property found and allowed to filter?
+			if (oProperty && (!oProperty.hasOwnProperty("sap:filterable") || oProperty["sap:filterable"] === "true")) {
+				return new Filter(sKey, FilterOperator.EQ, sValue);
+			}
+			return null;
+		}
 	});
 });

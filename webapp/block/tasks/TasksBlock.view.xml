@@ -8,6 +8,7 @@
 		<smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
+				<core:ExtensionPoint name="TableExtP|NotificationDetail|PMNotificationTaskSet|CustomToolbar"/>
 				<OverflowToolbarButton id="idTaskStatusChangeMenu" icon="sap-icon://order-status" text="{i18n>btn.changeSystemStatus}" type="Default"
 					tooltip="{i18n>btn.changeSystemStatus}" press="onPressChangeTaskSystemStatus" enabled="{viewModel>/singleSelectedTask}"
 					visible="{parts: ['user>/ENABLE_TASK_UPDATE','user>/ENABLE_NOTIFICATION_UPDATE','viewModel>/enableNotificationChange','viewModel>/editMode'], formatter: '.formatter.showStatusButton'}"/>
@@ -26,6 +27,7 @@
 		</smartTable:layoutData>
 		<Table growing="true" mode="MultiSelect" selectionChange="onPressItem">
 			<columns>
+				<core:ExtensionPoint name="TableExtP|NotificationDetail|PMNotificationTaskSet|CustomColumn"/>
 				<Column width="5rem">
 					<Text text="{/#PMNotificationTask/UI_STATUS_ICON/@sap:label}"/>
 					<customData>
@@ -41,9 +43,10 @@
 			</columns>
 			<ColumnListItem>
 				<cells>
+					<core:ExtensionPoint name="TableExtP|NotificationDetail|PMNotificationTaskSet|CustomCell"/>
 					<core:Icon src="{UI_STATUS_ICON}" alt="{path: 'SYSTEM_STATUS_DESC'}" tooltip="{SYSTEM_STATUS_DESC}"/>
+					<Button icon="sap-icon://show-edit" type="Default" press="showLongText" visible="{= ${NOTES} !== '' }"/>
 				</cells>
-				<Button icon="sap-icon://show-edit" type="Default" press="showLongText" visible="{= ${NOTES} !== '' }"/>
 			</ColumnListItem>
 		</Table>
 	</smartTable:SmartTable>

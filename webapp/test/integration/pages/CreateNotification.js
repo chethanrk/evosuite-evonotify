@@ -47,7 +47,7 @@ sap.ui.define([
 						errorMessage: "Cannot click dialog button"
 					});
 				},
-				
+
 				iPressPopoverCloseButton: function () {
 					return this.waitFor({
 						searchOpenDialogs: true,
@@ -65,7 +65,7 @@ sap.ui.define([
 			assertions: {
 				iShouldSeePageTitle: function () {
 					return this.waitFor({
-						id: "idObjectPageTitle",
+						id: "idPageCreateNotificationObjectPageHeader",
 						viewName: sViewName,
 						viewNamespace: viewNamespace,
 						matchers: function (oView) {

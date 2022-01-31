@@ -128,10 +128,11 @@ sap.ui.define([],
 		 * @public
 		 */
 		var getSectionsTableParam = function (sKey, oParams, sId) {
-			if (oParams[sId]) {
-				var sRefrenze = oParams[sId].REFERENCE;
-				if (oParams[sId][sKey]) {
-					return oParams[sId][sKey];
+			var params = oParams[sId];
+			if (params) {
+				var sRefrenze = params.REFERENCE;
+				if (params[sKey]) {
+					return params[sKey];
 				} else if (sRefrenze) {
 					return getSectionsTableParam(sKey, oParams, sRefrenze);
 				}
@@ -330,6 +331,70 @@ sap.ui.define([],
 			return aSelects.join(",");
 		};
 
+		/**
+		 * get extension point name for field group before and after
+		 * in SmartFormTemplate fragment
+		 */
+		var getFieldExtPoint = function (oTarget, oField, oAnnoPath, sAddString) {
+			var sExtPointName = "FormExtP";
+
+			if (typeof oAnnoPath === "string") {
+				sExtPointName += "|" + oAnnoPath.split("#")[1];
+			} else if (oAnnoPath.path) {
+				sExtPointName += "|" + oAnnoPath.path.split("#")[1];
+			}
+			if (oTarget.Target) {
+				var sTargetPath = oTarget.Target.AnnotationPath.split("#");
+				sExtPointName += "|" + sTargetPath[1];
+			}
+			if (oField.Path) {
+				sExtPointName += "|" + oField.Path;
+			}
+			sExtPointName = sAddString ? sExtPointName + "|" + sAddString : sExtPointName;
+			return sExtPointName;
+		};
+
+		/**
+		 * get extension point name for field group before and after
+		 * in SmartFormTemplate fragment
+		 */
+		var getFieldGroupExtPoint = function (oTarget, oField, oAnnoPath, sAddString) {
+			var sExtPointName = "FormExtP";
+			if (typeof oAnnoPath === "string") {
+				sExtPointName += "|" + oAnnoPath.split("#")[1];
+			} else if (oAnnoPath.path) {
+				sExtPointName += "|" + oAnnoPath.path.split("#")[1];
+			}
+			if (oTarget.Target) {
+				var sTargetPath = oTarget.Target.AnnotationPath.split("#");
+				sExtPointName += "|" + sTargetPath[1];
+			}
+			if (typeof oField === "string") {
+				sExtPointName += "|" + oField;
+			} else if (oField.Path) {
+				sExtPointName += "|" + oField.Path;
+			}
+			sExtPointName = sAddString ? sExtPointName + "|" + sAddString : sExtPointName;
+			return sExtPointName;
+		};
+
+		/**
+		 * get extension point name for dynamic SmartTables
+		 */
+		var getExtPoint = function (sTabName, sEntitySet, sDesc, sLongText, sAddString) {
+			var sExtPointName = "TableExtP";
+
+			if (sTabName) {
+				sExtPointName += "|" + sTabName;
+			}
+			var sEntitySetName = getEntitySet(sEntitySet, sDesc, sLongText);
+			if (sEntitySetName) {
+				sExtPointName += "|" + sEntitySetName;
+			}
+			sExtPointName = sAddString ? sExtPointName + "|" + sAddString : sExtPointName;
+			return sExtPointName;
+		};
+
 		return {
 			resolveModelPath: resolveModelPath,
 			resolveObjectHeaderPath: resolveObjectHeaderPath,
@@ -345,7 +410,10 @@ sap.ui.define([],
 			isSplittedView: isSplittedViewCheck,
 			getEntitySet: getEntitySet,
 			isFieldCreatableAndSetMetaData: isFieldCreatableAndSetMetaData,
-			getDefaultTableSelects: getDefaultTableSelects
+			getDefaultTableSelects: getDefaultTableSelects,
+			getFieldExtPoint: getFieldExtPoint,
+			getFieldGroupExtPoint: getFieldGroupExtPoint,
+			getExtPoint: getExtPoint
 		};
 
 	},

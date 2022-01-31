@@ -3,11 +3,59 @@ sap.ui.define([
 	"com/evorait/evosuite/evonotify/controller/FormController",
 	"com/evorait/evosuite/evonotify/controller/TableController",
 	"com/evorait/evosuite/evonotify/model/formatter",
-	"sap/ui/core/Fragment"
-], function (FormController, TableController, formatter, Fragment) {
+	"sap/ui/model/FilterOperator",
+	"sap/ui/model/Filter",
+	"sap/ui/core/Fragment",
+	"sap/ui/core/mvc/OverrideExecution"
+], function (FormController, TableController, formatter, FilterOperator, Filter, Fragment, OverrideExecution) {
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.block.tasks.TasksItemBlockController", {
+
+		metadata: {
+			methods: {
+				onBeforeRebindTable: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onPressItem: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onPressEdit: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onPressAdd: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onPressDelete: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onSelectStatus: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Before
+				},
+				showLongText: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				},
+				onPressChangeTaskSystemStatus: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				}
+			}
+		},
 
 		formatter: formatter,
 		_oSmartTable: null,
@@ -126,6 +174,14 @@ sap.ui.define([
 			this.onPressTaskStatusShowList(oEvent, this._oSmartTable);
 		},
 
+		/**
+		 * Save the selected status
+		 * @param oEvent
+		 */
+		onSelectStatus: function (oEvent) {
+			this.changeTaskStatus(oEvent.getParameter("item"), this._oSmartTable);
+		},
+
 		/* =========================================================== */
 		/* internal methods                                            */
 		/* =========================================================== */
@@ -156,14 +212,6 @@ sap.ui.define([
 				mParams.mKeys.ResponsiblePersonFunctionCode = mResults.PartnerFunOfPersonRespForTask;
 			}
 			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
-		},
-
-		/**
-		 * Save the selected status
-		 * @param oEvent
-		 */
-		onSelectStatus: function (oEvent) {
-			this.changeTaskStatus(oEvent.getParameter("item"), this._oSmartTable);
 		},
 
 		/**

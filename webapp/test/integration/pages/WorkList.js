@@ -11,9 +11,9 @@ sap.ui.define([
 	"use strict";
 
 	var sViewName = "Worklist";
-	var sTableId = "responsiveNotificationTable";
-	var sFilterBarId = "NotificationFilter";
-	var sPageId = "NotificationlistPage";
+	var sTableId = "idPageNotificationListPageSmartTableTable";
+	var sFilterBarId = "idPageNotificationListSmartFilterBar";
+	var sPageId = "idPageNotificationList";
 	var entitySet = "PMNotificationSet";
 
 	function createIdFor(sFilterName, sEntityPropertyName) {

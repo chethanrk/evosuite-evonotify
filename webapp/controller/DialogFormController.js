@@ -1,9 +1,20 @@
 sap.ui.define([
-	"com/evorait/evosuite/evonotify/controller/FormController"
-], function (FormController) {
+	"com/evorait/evosuite/evonotify/controller/FormController",
+	"sap/ui/core/mvc/OverrideExecution"
+], function (FormController, OverrideExecution) {
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.controller.DialogFormController", {
+		
+		metadata: {
+			methods: {
+				onChangeSmartField: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				}
+			}	
+		},
 
 		oTemplateModel: null,
 

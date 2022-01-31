@@ -2,11 +2,42 @@
 sap.ui.define([
 	"com/evorait/evosuite/evonotify/controller/FormController",
 	"com/evorait/evosuite/evonotify/controller/TableController",
-	"com/evorait/evosuite/evonotify/model/formatter"
-], function (FormController, TableController, formatter) {
+	"com/evorait/evosuite/evonotify/model/formatter",
+	"sap/ui/core/mvc/OverrideExecution"
+], function (FormController, TableController, formatter, OverrideExecution) {
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.block.items.ItemsBlockController", {
+
+		metadata: {
+			methods: {
+				onBeforeRebindTable: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onPressItem: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onPressAdd: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				onPressDelete: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
+				showLongText: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				}
+			}
+		},
 
 		formatter: formatter,
 		_oSmartTable: null,
@@ -70,6 +101,16 @@ sap.ui.define([
 			}
 		},
 
+		/**
+		 * Called on click of Long text indicator
+		 * @param oEvent
+		 */
+		showLongText: function (oEvent) {
+			var oContext = oEvent.getSource().getBindingContext();
+			var longText = oContext.getProperty("NOTES");
+			this.displayLongText(longText);
+		},
+
 		/* =========================================================== */
 		/* internal methods                                            */
 		/* =========================================================== */
@@ -99,16 +140,6 @@ sap.ui.define([
 				mParams.mKeys.DAMAGE_CODE_CATALOG = mResults.Fekat;
 			}
 			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
-		},
-
-		/**
-		 * Called on click of Long text indicator
-		 * @param oEvent
-		 */
-		showLongText: function (oEvent) {
-			var oContext = oEvent.getSource().getBindingContext();
-			var longText = oContext.getProperty("NOTES");
-			this.displayLongText(longText);
 		}
 
 	});

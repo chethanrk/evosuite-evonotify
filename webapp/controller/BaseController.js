@@ -20,6 +20,107 @@ sap.ui.define([
 
 	return Controller.extend("com.evorait.evosuite.evonotify.controller.BaseController", {
 
+		metadata: {
+			methods: {
+				getRouter: {
+					public: true,
+					final: true
+				},
+				getModel: {
+					public: true,
+					final: true
+				},
+				setModel: {
+					public: true,
+					final: true
+				},
+				getCurrentHash: {
+					public: true,
+					final: true
+				},
+				navBack: {
+					public: true,
+					final: true
+				},
+				onNavToList: {
+					public: true,
+					final: true
+				},
+				getResourceBundle: {
+					public: true,
+					final: true
+				},
+				translateStatusKey: {
+					public: true,
+					final: true
+				},
+				isFormValidation: {
+					public: true,
+					final: true
+				},
+				generateHelperJsonModel: {
+					public: true,
+					final: true
+				},
+				getTableRowObject: {
+					public: true,
+					final: true
+				},
+				showSaveErrorPrompt: {
+					public: true,
+					final: true
+				},
+				saveNewStatus: {
+					public: true,
+					final: true
+				},
+				showMessageToast: {
+					public: true,
+					final: true
+				},
+				addMsgToMessageManager: {
+					public: true,
+					final: true
+				},
+				getDependenciesAndCallback: {
+					public: true,
+					final: true
+				},
+				openEvoAPP: {
+					public: true,
+					final: true
+				},
+				openApp2AppPopover: {
+					public: true,
+					final: true
+				},
+				showInformationDialog: {
+					public: true,
+					final: true
+				},
+				onIconPress: {
+					public: true,
+					final: true
+				},
+				onCloseDialog: {
+					public: true,
+					final: true
+				},
+				onMessageManagerPress: {
+					public: true,
+					final: true
+				},
+				clearAllMessages: {
+					public: true,
+					final: true
+				},
+				displayLongText: {
+					public: true,
+					final: true
+				}
+			}
+		},
+
 		formatter: formatter,
 
 		mMessageType: library.MessageType,
@@ -257,7 +358,7 @@ sap.ui.define([
 		 */
 		getDependenciesAndCallback: function (callbackFn) {
 			var oContextData = this.getView().getBindingContext().getObject();
-			this.getNotifTypeDependencies(oContextData).then(function (result) {
+			this._getNotifTypeDependencies(oContextData).then(function (result) {
 				callbackFn(oContextData, result);
 			}.bind(this)).catch(function (error) {
 				callbackFn(oContextData);
@@ -393,38 +494,6 @@ sap.ui.define([
 				window.open(sUri, "_blank");
 			}
 		},
-		/**
-		 * get respective navigation details
-		 * @param sAppID
-		 */
-		_getAppInfoById: function (sAppID) {
-			var aNavLinks = this.getModel("templateProperties").getProperty("/navLinks");
-			for (var i in aNavLinks) {
-				if (aNavLinks[i].ApplicationId === sAppID) {
-					return aNavLinks[i];
-				}
-			}
-			return null;
-		},
-		/**
-		 * @param sSemanticObject
-		 * @param sAction
-		 * @param sParameter
-		 * @param sKeyParameter
-		 */
-		_navToApp: function (sSemanticObject, sAction, sParameter, sParamValue) {
-			var oCrossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation"),
-				mParams = {};
-
-			mParams[sParameter] = [sParamValue];
-			oCrossAppNavigator.toExternal({
-				target: {
-					semanticObject: sSemanticObject,
-					action: sAction
-				},
-				params: mParams
-			});
-		},
 
 		/**
 		 * render a popover with button inside
@@ -526,14 +595,7 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onMessageManagerPress: function (oEvent) {
-			this.openMessageManager(this.getView(), oEvent);
-		},
-
-		/**
-		 * On click, open Message Popover
-		 */
-		openMessageManager: function (oView, oEvent) {
-			this.getOwnerComponent().MessageManager.open(oView, oEvent);
+			this._openMessageManager(this.getView(), oEvent);
 		},
 
 		/**
@@ -555,7 +617,130 @@ sap.ui.define([
 				styleClass: this.getOwnerComponent().getContentDensityClass(),
 				actions: [MessageBox.Action.OK]
 			});
-		}
+		},
+
+		/* =========================================================== */
+		/* internal methods                                            */
+		/* =========================================================== */
+
+		/**
+		 * On click, open Message Popover
+		 */
+		_openMessageManager: function (oView, oEvent) {
+			this.getOwnerComponent().MessageManager.open(oView, oEvent);
+		},
+
+		/**
+		 * based on Notifcation type get default catalogs and groups
+		 * @return Promise
+		 */
+		_getNotifTypeDependencies: function (oData) {
+			return new Promise(function (resolve, reject) {
+				if (!oData.NOTIFICATION_TYPE) {
+					reject();
+					return;
+				}
+				var sPath = this.getModel().createKey("SHNotificationTypeSet", {
+					QMART: oData.NOTIFICATION_TYPE || oData.NOTIFICATION_TYPE
+				});
+
+				this.getModel().read("/" + sPath, {
+					success: function (result) {
+						resolve(result);
+					}.bind(this),
+					error: function (error) {
+						reject(error);
+					}
+				});
+			}.bind(this));
+		},
+
+		/**
+		 * Show dialog when user wants to cancel order change/creations
+		 * @private
+		 * @param sPath
+		 * @param doNavBack
+		 */
+		_confirmEditCancelDialog: function (sPath, doNavBack) {
+			var oResoucreBundle = this.getResourceBundle(),
+				oViewModel = this.getModel("viewModel"),
+				isNew = oViewModel.getProperty("/isNew");
+
+			var dialog = new sap.m.Dialog({
+				title: oResoucreBundle.getText("tit.cancelCreate"),
+				type: "Message",
+				content: new sap.m.Text({
+					text: oResoucreBundle.getText("msg.leaveWithoutSave")
+				}),
+				beginButton: new sap.m.Button({
+					text: oResoucreBundle.getText("btn.confirm"),
+					press: function () {
+						dialog.close();
+						var oContext = this.getView().getBindingContext();
+
+						if (isNew) {
+							//delete created entry
+							this.navBack();
+							this.getModel().deleteCreatedEntry(oContext);
+							oViewModel.setProperty("/isNew", false);
+						} else {
+							//reset changes from object path
+							this.getModel().resetChanges(sPath);
+							if (doNavBack) {
+								//on edit cancel and nav back unbind object
+								this.getView().unbindElement();
+								this.navBack();
+							}
+						}
+						oViewModel.setProperty("/editMode", false);
+					}.bind(this)
+				}),
+				endButton: new sap.m.Button({
+					text: oResoucreBundle.getText("btn.no"),
+					press: function () {
+						dialog.close();
+					}
+				}),
+				afterClose: function () {
+					dialog.destroy();
+				}
+			});
+			dialog.addStyleClass(this.getOwnerComponent().getContentDensityClass());
+			dialog.open();
+		},
+
+		/**
+		 * get respective navigation details
+		 * @param sAppID
+		 */
+		_getAppInfoById: function (sAppID) {
+			var aNavLinks = this.getModel("templateProperties").getProperty("/navLinks");
+			for (var i in aNavLinks) {
+				if (aNavLinks[i].ApplicationId === sAppID) {
+					return aNavLinks[i];
+				}
+			}
+			return null;
+		},
+		/**
+		 * @param sSemanticObject
+		 * @param sAction
+		 * @param sParameter
+		 * @param sKeyParameter
+		 */
+		_navToApp: function (sSemanticObject, sAction, sParameter, sParamValue) {
+			var oCrossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation"),
+				mParams = {};
+
+			mParams[sParameter] = [sParamValue];
+			oCrossAppNavigator.toExternal({
+				target: {
+					semanticObject: sSemanticObject,
+					action: sAction
+				},
+				params: mParams
+			});
+		},
 	});
 
 });

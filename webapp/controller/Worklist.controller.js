@@ -1,15 +1,47 @@
 sap.ui.define([
 	"com/evorait/evosuite/evonotify/controller/TableController",
 	"com/evorait/evosuite/evonotify/model/formatter",
-	"sap/ui/model/json/JSONModel"
-], function (TableController, formatter, JSONModel) {
+	"sap/ui/model/json/JSONModel",
+	"sap/ui/core/mvc/OverrideExecution"
+], function (TableController, formatter, JSONModel, OverrideExecution) {
 	"use strict";
 
 	return TableController.extend("com.evorait.evosuite.evonotify.controller.Worklist", {
 
+		metadata: {
+			methods: {
+				addFilters: {
+					"public": true,
+					"final": false,
+					overrideExecution: OverrideExecution.Instead
+				},
+				onBeforeRebindTable: {
+					public: true,
+					final: true
+				},
+				onInitializedSmartVariant: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				},
+				onPressTableRow: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
+				},
+				onPressCreateNotification: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Before
+				}
+			}
+		},
+
 		formatter: formatter,
 
 		oSmartTable: null,
+
+		aPageDefaultFilters: [],
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */
@@ -24,7 +56,7 @@ sap.ui.define([
 			if (this.getOwnerComponent) {
 				this.getOwnerComponent().registerViewToMessageManager(this.getView());
 			}
-			this.oSmartTable = this.getView().byId("NotificationTable");
+			this.oSmartTable = this.getView().byId("idPageNotificationListSmartTable");
 		},
 
 		/**
@@ -41,12 +73,28 @@ sap.ui.define([
 
 		},
 
+		/* =========================================================== */
+		/* Public methods                                           */
+		/* =========================================================== */
+
+		/**
+		 * allows extension to add filters. They will be combined via AND with all other filters
+		 * oControllerExtension must be the ControllerExtension instance which adds the filter
+		 * oFilter must be an instance of sap.ui.model.Filter
+		 */
+		addFilters: function () {
+			return [];
+		},
+
 		/**
 		 * SmartTable before loading request
 		 * set default SortOrder from annotations
 		 */
 		onBeforeRebindTable: function (oEvent) {
 			TableController.prototype.onBeforeRebindTable.apply(this, arguments);
+			var mBindingParams = oEvent.getParameter("bindingParams");
+			this.aPageDefaultFilters = this.aPageDefaultFilters.concat(this.addFilters());
+			mBindingParams.filters = mBindingParams.filters.concat(this.aPageDefaultFilters);
 		},
 
 		/**
@@ -55,6 +103,11 @@ sap.ui.define([
 		 */
 		onInitializedSmartVariant: function (oEvent) {
 			TableController.prototype.onInitializedSmartVariant.apply(this, arguments);
+			//get default filter by GET url parameter and if property is allowed to filter
+			this.getDefaultTableFiltersFromUrlParams("PMNotificationSet").then(function (aFilters) {
+				this.aPageDefaultFilters = aFilters;
+				this.oSmartTable.rebindTable();
+			}.bind(this));
 		},
 
 		/**
