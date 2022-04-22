@@ -44,9 +44,6 @@ sap.ui.define([
 			var oSmartVariant = oControl.getSmartVariant() || this.getView().byId(oControl.getId() + "-variant"),
 				aControlVariantItems = oSmartVariant.getVariantItems();
 
-			//set readonly of variants who are from other users
-			this._setForeignVariantsReadOnly(aControlVariantItems);
-
 			if (oSmartVariant.getCurrentVariantId() !== "" && oSmartVariant.getDefaultVariantKey() !== "*standard*") {
 				return;
 			}
@@ -154,20 +151,6 @@ sap.ui.define([
 			if (sRequestAtLeast && sRequestAtLeast !== "") {
 				mParams.bindingParams.parameters.select = sRequestAtLeast;
 			}
-		},
-
-		/**
-		 * @params oVMItems VariantManagment items
-		 */
-		_setForeignVariantsReadOnly: function (oVMItems) {
-			//set readonly of variants who are from other users
-			this.getOwnerComponent().oSystemInfoProm.then(function (oUser) {
-				oVMItems.filter(function (oVariant) {
-					return oVariant.getAuthor() !== oUser.Username;
-				}).forEach(function (oForeignVariant) {
-					oForeignVariant.setProperty("readOnly", true);
-				});
-			});
 		},
 
 		/**
