@@ -68,8 +68,7 @@ sap.ui.define([
 		onInit: function () {
 			FormController.prototype.onInit.apply(this, arguments);
 			this.oViewModel = this.getModel("viewModel");
-			// Sets isNew to false since notification is already created till NotificationDetail page is rendered
-			this.getModel("viewModel").setProperty("/isNew", false);
+
 			var oRouter = this.getRouter();
 			//route for page create new order
 			oRouter.getRoute("NotificationDetail").attachMatched(function (oEvent) {
@@ -191,6 +190,9 @@ sap.ui.define([
 		onPressSave: function (oEvent) {
 			if (this.aSmartForms.length > 0) {
 				var mErrors = this.validateForm(this.aSmartForms);
+				if (!this.byId("idPageNotificationDetailObjectPageHeader").getProperty("objectSubtitle").includes("id")) {
+					this.getView().getModel("viewModel").setProperty("/isNew", false);
+				}
 				this.saveChanges(mErrors, this._saveSuccessFn.bind(this));
 			}
 		},
