@@ -8,7 +8,7 @@ sap.ui.define([
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.controller.NotificationDetail", {
-
+		
 		metadata: {
 			methods: {
 				getAttachmentUrl: {
@@ -52,7 +52,7 @@ sap.ui.define([
 					final: false,
 					overrideExecution: OverrideExecution.Before
 				}
-			}
+			}	
 		},
 
 		oViewModel: null,
@@ -190,10 +190,6 @@ sap.ui.define([
 		onPressSave: function (oEvent) {
 			if (this.aSmartForms.length > 0) {
 				var mErrors = this.validateForm(this.aSmartForms);
-				// If notification number is already created, set isNew to false
-				if (!Object.keys(this.getView().getModel().getPendingChanges())[0].split("'")[1].includes("id")) {
-					this.getView().getModel("viewModel").setProperty("/isNew", false);
-				}
 				this.saveChanges(mErrors, this._saveSuccessFn.bind(this));
 			}
 		},
