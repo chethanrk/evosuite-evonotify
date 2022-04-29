@@ -408,59 +408,7 @@ sap.ui.define([
 			});
 		},
 
-		/**
-		 * Show dialog when user wants to cancel order change/creations
-		 * @private
-		 * @param sPath
-		 * @param doNavBack
-		 */
-		_confirmEditCancelDialog: function (sPath, doNavBack) {
-			var oResoucreBundle = this.getResourceBundle(),
-				oViewModel = this.getModel("viewModel"),
-				isNew = oViewModel.getProperty("/isNew");
-
-			var dialog = new sap.m.Dialog({
-				title: oResoucreBundle.getText("tit.cancelCreate"),
-				type: "Message",
-				content: new sap.m.Text({
-					text: oResoucreBundle.getText("msg.leaveWithoutSave")
-				}),
-				beginButton: new sap.m.Button({
-					text: oResoucreBundle.getText("btn.confirm"),
-					press: function () {
-						dialog.close();
-						var oContext = this.getView().getBindingContext();
-
-						if (isNew) {
-							//delete created entry
-							this.navBack();
-							this.getModel().deleteCreatedEntry(oContext);
-							oViewModel.setProperty("/isNew", false);
-						} else {
-							//reset changes from object path
-							this.getModel().resetChanges(sPath);
-							if (doNavBack) {
-								//on edit cancel and nav back unbind object
-								this.getView().unbindElement();
-								this.navBack();
-							}
-						}
-						oViewModel.setProperty("/editMode", false);
-					}.bind(this)
-				}),
-				endButton: new sap.m.Button({
-					text: oResoucreBundle.getText("btn.no"),
-					press: function () {
-						dialog.close();
-					}
-				}),
-				afterClose: function () {
-					dialog.destroy();
-				}
-			});
-			dialog.addStyleClass(this.getOwnerComponent().getContentDensityClass());
-			dialog.open();
-		},
+		
 
 		/**
 		 *	Navigates to evoOrder detail page with static url.
@@ -653,60 +601,6 @@ sap.ui.define([
 					}
 				});
 			}.bind(this));
-		},
-
-		/**
-		 * Show dialog when user wants to cancel order change/creations
-		 * @private
-		 * @param sPath
-		 * @param doNavBack
-		 */
-		_confirmEditCancelDialog: function (sPath, doNavBack) {
-			var oResoucreBundle = this.getResourceBundle(),
-				oViewModel = this.getModel("viewModel"),
-				isNew = oViewModel.getProperty("/isNew");
-
-			var dialog = new sap.m.Dialog({
-				title: oResoucreBundle.getText("tit.cancelCreate"),
-				type: "Message",
-				content: new sap.m.Text({
-					text: oResoucreBundle.getText("msg.leaveWithoutSave")
-				}),
-				beginButton: new sap.m.Button({
-					text: oResoucreBundle.getText("btn.confirm"),
-					press: function () {
-						dialog.close();
-						var oContext = this.getView().getBindingContext();
-
-						if (isNew) {
-							//delete created entry
-							this.navBack();
-							this.getModel().deleteCreatedEntry(oContext);
-							oViewModel.setProperty("/isNew", false);
-						} else {
-							//reset changes from object path
-							this.getModel().resetChanges(sPath);
-							if (doNavBack) {
-								//on edit cancel and nav back unbind object
-								this.getView().unbindElement();
-								this.navBack();
-							}
-						}
-						oViewModel.setProperty("/editMode", false);
-					}.bind(this)
-				}),
-				endButton: new sap.m.Button({
-					text: oResoucreBundle.getText("btn.no"),
-					press: function () {
-						dialog.close();
-					}
-				}),
-				afterClose: function () {
-					dialog.destroy();
-				}
-			});
-			dialog.addStyleClass(this.getOwnerComponent().getContentDensityClass());
-			dialog.open();
 		},
 
 		/**
