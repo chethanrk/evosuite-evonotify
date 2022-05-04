@@ -364,6 +364,7 @@ sap.ui.define([
 								//where in such case the locally created entry needs to be deleted
 								if (isNew) {
 									this._deleteCreatedLocalEntry();
+									this.getView().getModel("viewModel").setProperty("/isNew",false);
 								}
 								//Below condition checks if there is any pending changes to reset
 								//Only status update changes needs to be reset in case of failure 
