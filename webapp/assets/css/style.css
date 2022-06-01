@@ -15,15 +15,6 @@
     top: 2.5rem;
 }
 
-.smartFormTemplate .sapMInputBase.sapMTextArea {
-    min-width: 100%;
-
-}
-
-.smartFormTemplate .sapMInputBase.sapMTextArea .sapMInputBaseContentWrapper {
-    min-height: 5rem;
-}
-
 .smartFormTemplate .sapUiRespGridSpanL12.sapUiRespGridSpanM12.sapUiRespGridSpanS12.sapUiRespGridSpanXL12 .sapUiFormElementLbl {
     float: none;
     display: none;
