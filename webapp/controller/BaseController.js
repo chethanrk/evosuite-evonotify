@@ -50,6 +50,26 @@ sap.ui.define([
 					public: true,
 					final: true
 				},
+				getViewUniqueName: {
+					public: true,
+					final: true
+				},
+				getFormLocalStorage: {
+					public: true,
+					final: true
+				},
+				setFormFieldData2Storage: {
+					public: true,
+					final: true
+				},
+				setFormStorage2FieldData: {
+					public: true,
+					final: true
+				},
+				deleteExpiredStorage: {
+					public: true,
+					final: true
+				},
 				translateStatusKey: {
 					public: true,
 					final: true
@@ -196,6 +216,100 @@ sap.ui.define([
 				return this.getOwnerComponent().getModel("i18n").getResourceBundle();
 			}
 			return this.getView().getModel("i18n").getResourceBundle();
+		},
+
+		/**
+		 * gets unique view id setted by TemplateRenderer
+		 * @return string
+		 */
+		getViewUniqueName: function () {
+			var sViewId = this.getView().getId(),
+				sViewName = this.getView().getViewName();
+			return sViewName + "#" + sViewId;
+		},
+
+		getFormLocalStorage: function () {
+			return this.getOwnerComponent().oFormStorage;
+		},
+
+		/**
+		 * Saves a SmartField property name and value into local storage
+		 * @param {string} sSourceName
+		 * @param {string} sValue
+		 */
+		setFormFieldData2Storage: function (sSourceName, sValue, bOverwrite) {
+			var sViewNameId = this.getViewUniqueName(),
+				oParsedData = this.getFormLocalStorage().get(sViewNameId);
+			try {
+				oParsedData = JSON.parse(oParsedData);
+				if (!oParsedData) {
+					oParsedData = {};
+				}
+				if (sSourceName.startsWith("id")) {
+					sSourceName = sSourceName.replace("id", "");
+				}
+				if (!oParsedData[sSourceName] || (oParsedData[sSourceName] && bOverwrite)) {
+					if (Object.prototype.toString.call(sValue) === "[object Date]") {
+						oParsedData[sSourceName] = {
+							type: "date",
+							value: sValue
+						};
+					} else {
+						oParsedData[sSourceName] = sValue;
+					}
+				}
+				this.getFormLocalStorage().put(sViewNameId, JSON.stringify(oParsedData));
+				this.getFormLocalStorage().put("_expires", JSON.stringify(Date.now() + (3600 * 1000 * 12))); //12h in future
+			} catch (error) {
+				//do nothing
+			}
+		},
+
+		/**
+		 * get local storage saved form values by view unique id 
+		 * and set then to binded context path
+		 * @param {string} sPath
+		 */
+		setFormStorage2FieldData: function (sPath) {
+			var sViewNameId = this.getViewUniqueName(),
+				oParsedData = this.getFormLocalStorage().get(sViewNameId);
+			try {
+				oParsedData = JSON.parse(oParsedData);
+				if (oParsedData) {
+					for (var key in oParsedData) {
+						var sValue = oParsedData[key];
+						if (sValue && typeof sValue === "object" && sValue.type === "date") {
+							sValue = new Date(sValue.value);
+						}
+						this.getModel().setProperty(sPath + "/" + key, sValue);
+					}
+				}
+			} catch (error) {
+				//do nothing
+			}
+		},
+
+		/**
+		 * delete from local storage special view form fields
+		 * or when date was expried after 12h delete all form field storage
+		 * @param {string} sViewId
+		 */
+		deleteExpiredStorage: function (sViewId, bDeleteAll) {
+			if (sViewId) {
+				this.getFormLocalStorage().remove(sViewId);
+			}
+			if (bDeleteAll) {
+				this.getFormLocalStorage().removeAll();
+			}
+			try {
+				var expiresAt = this.getFormLocalStorage().get("_expires");
+				expiresAt = JSON.parse(expiresAt);
+				if (expiresAt && expiresAt < Date.now()) {
+					this.getFormLocalStorage().removeAll();
+				}
+			} catch (error) {
+				//do nothing
+			}
 		},
 
 		/**
@@ -407,8 +521,6 @@ sap.ui.define([
 				}
 			});
 		},
-
-		
 
 		/**
 		 *	Navigates to evoOrder detail page with static url.

@@ -3,9 +3,8 @@ sap.ui.define([
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
 	"sap/ui/core/Fragment",
-	"sap/ui/core/mvc/OverrideExecution",
-	"sap/ui/util/Storage"
-], function (TableController, Filter, FilterOperator, Fragment, OverrideExecution, Storage) {
+	"sap/ui/core/mvc/OverrideExecution"
+], function (TableController, Filter, FilterOperator, Fragment, OverrideExecution) {
 	"use strict";
 
 	return TableController.extend("com.evorait.evosuite.evonotify.controller.FormController", {
@@ -16,14 +15,6 @@ sap.ui.define([
 					public: true,
 					final: false,
 					overrideExecution: OverrideExecution.After
-				},
-				getViewUniqueName: {
-					public: true,
-					final: true
-				},
-				setFormFieldData2Storage: {
-					public: true,
-					final: true
 				},
 				getAllSmartForms: {
 					public: true,
@@ -99,7 +90,6 @@ sap.ui.define([
 
 		aSmartForms: [],
 		oViewModel: null,
-		oFormStorage: null,
 
 		onInit: function () {
 			this.oViewModel = this.getModel("viewModel");
@@ -108,10 +98,6 @@ sap.ui.define([
 			if (this.getOwnerComponent) {
 				this.getOwnerComponent().registerViewToMessageManager(this.getView());
 			}
-
-			//create local storage with prefix "EvoNotify_form"
-			this.oFormStorage = new Storage(Storage.Type.local, "EvoNotify_form");
-			this.deleteExpiredStorage();
 		},
 
 		/**
@@ -133,93 +119,6 @@ sap.ui.define([
 				sValue = this.getModel().getProperty(oSourceContext.getPath() + "/" + sSourceName);
 			}
 			this.setFormFieldData2Storage(sSourceName, sValue, true);
-		},
-
-		/**
-		 * gets unique view id setted by TemplateRenderer
-		 * @return string
-		 */
-		getViewUniqueName: function () {
-			var sViewId = this.getView().getId(),
-				sViewName = this.getView().getViewName();
-			return sViewName + "#" + sViewId;
-		},
-
-		/**
-		 * Saves a SmartField property name and value into local storage
-		 * @param {string} sSourceName
-		 * @param {string} sValue
-		 */
-		setFormFieldData2Storage: function (sSourceName, sValue, bOverwrite) {
-			var sViewNameId = this.getViewUniqueName(),
-				oParsedData = this.oFormStorage.get(sViewNameId);
-			try {
-				oParsedData = JSON.parse(oParsedData);
-				if (!oParsedData) {
-					oParsedData = {};
-				}
-				if (sSourceName.startsWith("id")) {
-					sSourceName = sSourceName.replace("id", "");
-				}
-				if (!oParsedData[sSourceName] || (oParsedData[sSourceName] && bOverwrite)) {
-					if (Object.prototype.toString.call(sValue) === "[object Date]") {
-						oParsedData[sSourceName] = {
-							type: "date",
-							value: sValue
-						};
-					} else {
-						oParsedData[sSourceName] = sValue;
-					}
-				}
-				this.oFormStorage.put(sViewNameId, JSON.stringify(oParsedData));
-				this.oFormStorage.put("_expires", JSON.stringify(Date.now() + (3600 * 1000 * 12))); //12h in future
-			} catch (error) {
-				//do nothing
-			}
-		},
-
-		/**
-		 * get local storage saved form values by view unique id 
-		 * and set then to binded context path
-		 * @param {string} sPath
-		 */
-		setFormStorage2FieldData: function (sPath) {
-			var sViewNameId = this.getViewUniqueName(),
-				oParsedData = this.oFormStorage.get(sViewNameId);
-			try {
-				oParsedData = JSON.parse(oParsedData);
-				if (oParsedData) {
-					for (var key in oParsedData) {
-						var sValue = oParsedData[key];
-						if (sValue && typeof sValue === "object" && sValue.type === "date") {
-							sValue = new Date(sValue.value);
-						}
-						this.getModel().setProperty(sPath + "/" + key, sValue);
-					}
-				}
-			} catch (error) {
-				//do nothing
-			}
-		},
-
-		/**
-		 * delete from local storage special view form fields
-		 * or when date was expried after 12h delete all form field storage
-		 * @param {string} sViewId
-		 */
-		deleteExpiredStorage: function (sViewId) {
-			if (sViewId) {
-				this.oFormStorage.remove(sViewId);
-			}
-			try {
-				var expiresAt = this.oFormStorage.get("_expires");
-				expiresAt = JSON.parse(expiresAt);
-				if (expiresAt && expiresAt < Date.now()) {
-					this.oFormStorage.removeAll();
-				}
-			} catch (error) {
-				//do nothing
-			}
 		},
 
 		/**
@@ -358,6 +257,8 @@ sap.ui.define([
 							}
 						}
 						oViewModel.setProperty("/editMode", false);
+						//delete local form storage of this view
+						this.deleteExpiredStorage(this.getViewUniqueName());
 					}.bind(this)
 				}),
 				endButton: new sap.m.Button({

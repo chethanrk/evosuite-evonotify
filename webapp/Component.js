@@ -10,9 +10,10 @@ sap.ui.define([
 	"sap/ui/model/FilterOperator",
 	"com/evorait/evosuite/evonotify/assets/js/url-search-params.min",
 	"com/evorait/evosuite/evonotify/assets/js/promise-polyfills",
-	"com/evorait/evosuite/evonotify/controller/MessageManager"
+	"com/evorait/evosuite/evonotify/controller/MessageManager",
+	"sap/ui/util/Storage"
 ], function (UIComponent, Device, JSONModel, models, ErrorHandler, DialogTemplateRenderController, Constants, Filter,
-	FilterOperator, UrlSearchPolyfill, PromisePolyfill, MessageManager) {
+	FilterOperator, UrlSearchPolyfill, PromisePolyfill, MessageManager, Storage) {
 	"use strict";
 
 	var oMessageManager = sap.ui.getCore().getMessageManager();
@@ -27,6 +28,7 @@ sap.ui.define([
 		oTemplatePropsProm: null,
 		oDefaultInfoProm: null,
 		oNavigationLinksPropsProm: null,
+		oFormStorage: null,
 
 		/**
 		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
@@ -54,6 +56,9 @@ sap.ui.define([
 			}
 
 			this.DialogTemplateRenderer = new DialogTemplateRenderController(this);
+
+			//create local storage with prefix "EvoNotify_form"
+			this.oFormStorage = new Storage(Storage.Type.local, "EvoNotify_form");
 
 			var viewModelObj = {
 				busy: true,

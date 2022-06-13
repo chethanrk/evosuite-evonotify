@@ -218,6 +218,9 @@ sap.ui.define([
 		 * @param oResponse
 		 */
 		_saveCreateSuccessFn: function (oResponse) {
+			//delete local form storage of this view
+			this.deleteExpiredStorage(this.getViewUniqueName());
+
 			var objectKey = null,
 				oChangeData = this.getBatchChangeResponse(oResponse);
 

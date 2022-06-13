@@ -6,7 +6,7 @@ sap.ui.define([
 	"use strict";
 
 	return DialogFormController.extend("com.evorait.evosuite.evonotify.controller.AddEditEntry", {
-		
+
 		metadata: {
 			methods: {
 				onChangeSmartField: {
@@ -31,9 +31,14 @@ sap.ui.define([
 		/* =========================================================== */
 
 		/**
+		 * when SmartField value changed save it to storage 
+		 * so that form will be offline capable
+		 * 
 		 * @param oEvent
 		 */
 		onChangeSmartField: function (oEvent) {
+			DialogFormController.prototype.onChangeSmartField.apply(this, arguments);
+
 			var oSource = oEvent.getSource(),
 				sFieldName = oSource.getName();
 			var oContext = this.getView().getBindingContext();
@@ -117,13 +122,17 @@ sap.ui.define([
 					this._getDefaultGlobalParameters();
 					this._oDialog.setContentWidth("100%");
 
-					//prefill planning plant for add and split
+					//Load all defaulting values and prefill form
 					if (this._type.add) {
 						this._setContextKeys();
 						this._getNextSortNumber(this._setNewSortNumber.bind(this));
 						if (this._oContext) {
+							var sPath = this._oContext.getPath();
 							//Apply defaulting values
-							this.checkDefaultValues(this._selectedEntitySet, this._oContext.getPath());
+							this.checkDefaultValues(this._selectedEntitySet, sPath).then(function () {
+								//Next Step set changed SmartField data from offline storage after refresh page
+								this.setFormStorage2FieldData(sPath);
+							}.bind(this));
 						}
 					}
 				}
