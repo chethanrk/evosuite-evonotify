@@ -5,7 +5,7 @@ sap.ui.define([
 	"use strict";
 
 	return TemplateRenderController.extend("com.evorait.evosuite.evonotify.controller.DialogTemplateRenderController", {
-		
+
 		metadata: {
 			methods: {
 				constructor: {
@@ -24,7 +24,7 @@ sap.ui.define([
 					public: true,
 					final: true
 				}
-			}	
+			}
 		},
 
 		_oHelperModel: null,
@@ -55,7 +55,8 @@ sap.ui.define([
 		open: function (oView, mParams) {
 			this._oView = oView;
 			this._oModel = oView.getModel();
-			this._oResourceBundle = oView.getController().getOwnerComponent().getModel("i18n").getResourceBundle();
+			this._oViewController = oView.getController();
+			this._oResourceBundle = this._oViewController.getOwnerComponent().getModel("i18n").getResourceBundle();
 			this._mParams = mParams;
 			this._oSmartTable = mParams.smartTable;
 
@@ -76,6 +77,7 @@ sap.ui.define([
 			}
 			this._oModel.resetChanges();
 			this._oDialog.close();
+			this._oViewController.deleteExpiredStorage(this._mParams.viewName);
 		},
 
 		/**
@@ -188,6 +190,8 @@ sap.ui.define([
 		_saveSuccessFn: function (oResponse) {
 			this._oDialog.close();
 			this._oModel.setRefreshAfterChange(true);
+			this._oViewController.deleteExpiredStorage(this._mParams.viewName);
+
 			var responseCode = oResponse.__batchResponses[0].__changeResponses;
 			if (responseCode) {
 				if (responseCode[0].statusCode === "200" || responseCode[0].statusCode === "201" || responseCode[0].statusCode === "204") {
@@ -206,6 +210,7 @@ sap.ui.define([
 		 */
 		_saveErrorFn: function (oError) {
 			this._oModel.setRefreshAfterChange(true);
+			this._oViewController.deleteExpiredStorage(this._mParams.viewName);
 		}
 
 	});

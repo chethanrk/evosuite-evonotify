@@ -5,7 +5,7 @@ sap.ui.define([
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.controller.DialogFormController", {
-		
+
 		metadata: {
 			methods: {
 				onChangeSmartField: {
@@ -13,7 +13,7 @@ sap.ui.define([
 					final: false,
 					overrideExecution: OverrideExecution.After
 				}
-			}	
+			}
 		},
 
 		oTemplateModel: null,
@@ -73,9 +73,13 @@ sap.ui.define([
 		/* =========================================================== */
 
 		/**
-		 * @param oEvent
+		 * when SmartField value changed save it to storage 
+		 * so that form will be offline capable
+		 * @param {object} oEvent
 		 */
-		onChangeSmartField: function (oEvent) {},
+		onChangeSmartField: function (oEvent) {
+			FormController.prototype.onChangeSmartField.apply(this, arguments);
+		},
 
 		/* =========================================================== */
 		/* internal methods                                              */
@@ -92,10 +96,7 @@ sap.ui.define([
 		_changedBinding: function (sChannel, sEvent, oData) {
 			if (sChannel === "TemplateRendererEvoNotify" && sEvent === "changedBinding") {
 				this.setFormsEditable(this._aSmartForms, true);
-
-				var sViewId = this.getView().getId(),
-					sViewName = this.getView().getViewName();
-				this._sViewNameId = sViewName + "#" + sViewId;
+				this._sViewNameId = this.getViewUniqueName();
 			}
 		},
 
