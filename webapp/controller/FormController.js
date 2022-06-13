@@ -380,6 +380,9 @@ sap.ui.define([
 
 						this._setBusyWhileSaving(oCtrl, false);
 						this.getView().getModel("viewModel").setProperty("/busy", false);
+						//delete local form storage of this view
+						this.deleteExpiredStorage(this.getViewUniqueName());
+
 						if (oResponse.__batchResponses) {
 							var responses = oResponse.__batchResponses[0].response || oResponse.__batchResponses[0].__changeResponses[0];
 							var sStatusCode = parseInt(responses.statusCode, 10);
