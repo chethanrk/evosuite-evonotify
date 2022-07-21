@@ -29,6 +29,11 @@ sap.ui.define([
 					public: true,
 					final: false,
 					overrideExecution: OverrideExecution.Before
+				},
+				onValueListChanged: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
 				}
 			}
 		},
@@ -93,6 +98,14 @@ sap.ui.define([
 			if (oSource.getValueState() === "None" && oContext) {
 				this.checkDefaultValues(this.sEntitySet, oContext.getPath(), sFieldName);
 			}
+		},
+		
+		/**
+		 * when SmartField valueListChanged event is triggered
+		 * @param {object} oEvent
+		 */
+		onValueListChanged: function(oEvent) {
+			FormController.prototype.onValueListChanged.apply(this, arguments);
 		},
 
 		/**

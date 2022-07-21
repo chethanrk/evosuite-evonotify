@@ -84,6 +84,11 @@ sap.ui.define([
 				deleteEntries: {
 					public: true,
 					final: true
+				},
+				onValueListChanged: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
 				}
 			}
 		},
@@ -119,6 +124,21 @@ sap.ui.define([
 				sValue = this.getModel().getProperty(oSourceContext.getPath() + "/" + sSourceName);
 			}
 			this.setFormFieldData2Storage(sSourceName, sValue, true);
+		},
+		
+		/**
+		 * event is fired when after selection of values from smart field value help the model is updated with the selected data
+		 * for example when we select an Equipment from its value-help dialog, 
+		 * corresponding values of Functional loc and Maint. Plant are also updated in the main model
+		 * 
+		 * @param {object} oEvent
+		 */
+		onValueListChanged: function(oEvent) {
+			var aChangedProperties = oEvent.getParameter("changes");
+			
+			for (var oPropertyName in aChangedProperties) {
+				this.setFormFieldData2Storage(oPropertyName, aChangedProperties[oPropertyName], true);
+			}
 		},
 
 		/**

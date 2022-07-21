@@ -37,7 +37,7 @@
 										<template:then>
 											<smartField:SmartField value="{path:'data>Value',formatter:'.AH.simplePath'}"
 												name="{path:'data>Value',formatter:'com.evorait.evosuite.evonotify.model.AnnotationHelper.getSmartFieldName'}" change="onChangeSmartField"
-												uomEditable="false" press="onPressSmartField" url="{data>Value/Path}"
+												uomEditable="false" press="onPressSmartField" url="{data>Value/Path}" valueListChanged="onValueListChanged"
 												editable="{:= ${data>Common.FieldControl/EnumMember} === 'Common.FieldControlType/ReadOnly' ? false : true}"
 												mandatory="{:= ${data>Common.FieldControl/EnumMember} === 'CommonFieldControlType/Mandatory'}">
 												<smartField:configuration>
@@ -49,7 +49,8 @@
 											<smartField:SmartField value="{path:'data>Value',formatter:'.AH.simplePath'}"
 												name="{path:'data>Value',formatter:'com.evorait.evosuite.evonotify.model.AnnotationHelper.getSmartFieldName'}" change="onChangeSmartField"
 												uomEditable="false" editable="{:= ${data>Common.FieldControl/EnumMember} === 'Common.FieldControlType/ReadOnly' ? false : true}"
-												mandatory="{:= ${data>Common.FieldControl/EnumMember} === 'Common.FieldControlType/Mandatory'}" app:multiLineSettings="{rows:4, growing:true, width:'100%'}">
+												mandatory="{:= ${data>Common.FieldControl/EnumMember} === 'Common.FieldControlType/Mandatory'}" app:multiLineSettings="{rows:4, growing:true, width:'100%'}"
+												valueListChanged="onValueListChanged">
 												<smartField:configuration>
 													<smartField:Configuration controlType="auto" displayBehaviour="descriptionAndId" preventInitialDataFetchInValueHelpDialog="false"/>
 												</smartField:configuration>
