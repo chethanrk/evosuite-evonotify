@@ -47,15 +47,6 @@ sap.ui.define([
 			if (oSmartVariant.getCurrentVariantId() !== "" && oSmartVariant.getDefaultVariantKey() !== "*standard*") {
 				return;
 			}
-
-			//wait for backend request
-			this.getOwnerComponent().oDefaultUserVariantProm.then(function (aVariantNames) {
-				if (!aVariantNames) {
-					return;
-				}
-				//set default variant for this SmartFilterBar or SmartTable
-				this._setDefaultSharedVariant(oSmartVariant, aVariantNames, oControl.getId());
-			}.bind(this));
 		},
 
 		/**

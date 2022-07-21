@@ -147,12 +147,16 @@ sap.ui.define([
 				var oStartupParams = oComponentData.startupParameters;
 				if (oStartupParams[sKey] && (oStartupParams[sKey].length > 0)) {
 					return oStartupParams[sKey][0];
+				} else if (!sKey) {
+					return oStartupParams;
 				}
 			} else {
 				var queryString = window.location.search,
 					urlParams = new URLSearchParams(queryString);
 				if (urlParams.has(sKey)) {
 					return urlParams.get(sKey);
+				} else if (!sKey) {
+					return urlParams;
 				}
 			}
 			return false;
