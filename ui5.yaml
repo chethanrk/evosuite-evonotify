@@ -1,34 +1,30 @@
-specVersion: "2.4"
+specVersion: '1.0'
 metadata:
-  name: com.evorait.evosuite.evonotify
+  name: evonotify
 type: application
-server:
-  customMiddleware:
-    - name: fiori-tools-proxy
-      afterMiddleware: compression
+resources:
+  configuration:
+    propertiesFileSourceEncoding: UTF-8
+builder:
+  customTasks:
+    - name: webide-extension-task-updateNeoApp
+      afterTask: generateVersionInfo
       configuration:
-        ignoreCertError: false
-        backend:
-          - path: /sap
-            url: http://sapwebd10.saplonza.net:1443
-            client: "050"
-            destination: D10_SAM_DEST
-            xfwd: true
-            scp: true
-        ui5:
-          path:
-            - /resources
-            - /test-resources
-          url: https://ui5.sap.com
-          version: 1.84.3
-    - name: fiori-tools-appreload
-      afterMiddleware: compression
+        destDir: dist
+        appFolder: webapp
+        nameSpace: com/evorait/evosuite
+    - name: webide-extension-task-updateManifestJson
+      afterTask: webide-extension-task-updateNeoApp
       configuration:
-        port: 35729
-        path: webapp
-        delay: 300
-    - name: fiori-tools-preview
-      afterMiddleware: fiori-tools-appreload
+        appFolder: webapp
+        destDir: dist
+    - name: webide-extension-task-lint
+      afterTask: webide-extension-task-updateManifestJson
       configuration:
-        component: com.evorait.evosuite.evonotify
-        ui5Theme: sap_fiori_3
+        destDir: dist
+        appFolder: webapp
+        nameSpace: com/evorait/evosuite 
+    - name: webide-extension-task-resources
+      afterTask: webide-extension-task-lint
+      configuration:
+        nameSpace: com/evorait/evosuite

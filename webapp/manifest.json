@@ -1,197 +1,196 @@
 {
-    "_version": "1.12.0",
-    "sap.app": {
-        "id": "com.evorait.evosuite.evonotify",
-        "type": "application",
-        "i18n": "i18n/i18n.properties",
-        "applicationVersion": {
-            "version": "2205.0.0"
-        },
-        "title": "{{appTitle}}",
-        "description": "{{appDescription}}",
-        "sourceTemplate": {
-            "id": "sap.ui.ui5-template-plugin.1worklist",
-            "version": "1.52.7",
-            "toolsId": "787aad34-184f-4c40-adb0-4e3a71baed06"
-        },
-        "dataSources": {
-            "mainService": {
-                "uri": "/sap/opu/odata/EVORA/EN_MAIN_SRV/",
-                "type": "OData",
-                "settings": {
-                    "odataVersion": "2.0",
-                    "localUri": "localService/metadata.xml",
-                    "annotations": [
-                        "annotations"
-                    ]
-                }
-            },
-            "annotations": {
-                "uri": "annotations/annotations.xml",
-                "type": "ODataAnnotation",
-                "settings": {
-                    "localUri": "annotations/annotations.xml"
-                }
-            }
-        }
-    },
-    "sap.ui": {
-        "technology": "UI5",
-        "icons": {
-            "icon": "",
-            "favIcon": "",
-            "phone": "",
-            "phone@2": "",
-            "tablet": "",
-            "tablet@2": ""
-        },
-        "deviceTypes": {
-            "desktop": true,
-            "tablet": true,
-            "phone": true
-        }
-    },
-    "sap.ui5": {
-        "flexEnabled": true,
-        "rootView": {
-            "viewName": "com.evorait.evosuite.evonotify.view.App",
-            "type": "XML",
-            "async": true,
-            "id": "App"
-        },
-        "dependencies": {
-            "minUI5Version": "1.62.0",
-            "libs": {
-                "sap.m": {},
-                "sap.ui.core": {},
-                "sap.ui.layout": {}
-            }
-        },
-        "contentDensities": {
-            "compact": true,
-            "cozy": true
-        },
-        "models": {
-            "i18n": {
-                "type": "sap.ui.model.resource.ResourceModel",
-                "settings": {
-                    "bundleName": "com.evorait.evosuite.evonotify.i18n.i18n"
-                }
-            },
-            "": {
-                "dataSource": "mainService",
-                "preload": false,
-                "settings": {
-                    "defaultBindingMode": "TwoWay"
-                }
-            },
-            "@i18n": {
-                "type": "sap.ui.model.resource.ResourceModel",
-                "uri": "i18n/i18n.properties"
-            }
-        },
-        "resources": {
-            "css": [
-                {
-                    "uri": "assets/css/style.css"
-                }
-            ],
-            "js": [
-                {
-                    "uri": "assets/js/promise-polyfills.js"
-                }
-            ]
-        },
-        "routing": {
-            "config": {
-                "routerClass": "sap.m.routing.Router",
-                "viewType": "XML",
-                "async": true,
-                "viewPath": "com.evorait.evosuite.evonotify.view",
-                "controlAggregation": "pages",
-                "controlId": "app",
-                "clearControlAggregation": false,
-                "bypassed": {
-                    "target": [
-                        "worklist"
-                    ]
-                }
-            },
-            "routes": [
-                {
-                    "pattern": "",
-                    "name": "worklist",
-                    "target": [
-                        "worklist"
-                    ]
-                },
-                {
-                    "pattern": "NewNotification",
-                    "name": "CreateNotification",
-                    "target": [
-                        "CreateNotification"
-                    ]
-                },
-                {
-                    "pattern": "Notification/{ObjectKey}",
-                    "name": "NotificationDetail",
-                    "target": [
-                        "NotificationDetail"
-                    ]
-                },
-                {
-                    "pattern": "Notification/Item/{ObjectKey}",
-                    "name": "NotificationItemDetail",
-                    "target": [
-                        "NotificationItemDetail"
-                    ]
-                },
-                {
-                    "pattern": "ObjectNotFound",
-                    "name": "ObjectNotFound",
-                    "target": [
-                        "objectNotFound"
-                    ]
-                }
-            ],
-            "targets": {
-                "worklist": {
-                    "viewName": "Worklist",
-                    "viewId": "EvoNotifyWorklist",
-                    "viewLevel": 1
-                },
-                "NotificationDetail": {
-                    "viewName": "ObjectPage",
-                    "viewId": "EvoNotifyObjectPage",
-                    "viewLevel": 2
-                },
-                "CreateNotification": {
-                    "viewName": "ObjectPage",
-                    "viewId": "EvoNotifyObjectPage",
-                    "viewLevel": 2
-                },
-                "NotificationItemDetail": {
-                    "viewName": "ObjectPage",
-                    "viewId": "EvoNotifyObjectPage",
-                    "viewLevel": 2
-                },
-                "objectNotFound": {
-                    "viewName": "ObjectNotFound",
-                    "viewId": "EvoNotifyObjectNotFound"
-                },
-                "notFound": {
-                    "viewName": "NotFound",
-                    "viewId": "EvoNotifyNotFound"
-                }
-            }
-        }
-    },
-    "sap.platform.hcp": {
-        "uri": "webapp",
-        "_version": "1.1.0"
-    },
-    "sap.platform.abap": {
-        "uri": "/sap/bc/ui5_ui5/evora/en_ui5/webapp",
-        "_version": "1.1.0"
-    }
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "com.evorait.evosuite.evonotify",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "2205.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "sap.ui.ui5-template-plugin.1worklist",
+			"version": "1.52.7"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/sap/opu/odata/EVORA/EN_MAIN_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml",
+					"annotations": [
+						"annotations"
+					]
+				}
+			},
+			"annotations": {
+				"uri": "annotations/annotations.xml",
+				"type": "ODataAnnotation",
+				"settings": {
+					"localUri": "annotations/annotations.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": true,
+		"rootView": {
+			"viewName": "com.evorait.evosuite.evonotify.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "App"
+		},
+		"dependencies": {
+			"minUI5Version": "1.62.0",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.core": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.evorait.evosuite.evonotify.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": false,
+				"settings": {
+					"defaultBindingMode": "TwoWay"
+				}
+			},
+			"@i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "assets/css/style.css"
+				}
+			],
+			"js": [
+				{
+					"uri": "assets/js/promise-polyfills.js"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "com.evorait.evosuite.evonotify.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false,
+				"bypassed": {
+					"target": [
+						"worklist"
+					]
+				}
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "worklist",
+					"target": [
+						"worklist"
+					]
+				},
+				{
+					"pattern": "NewNotification",
+					"name": "CreateNotification",
+					"target": [
+						"CreateNotification"
+					]
+				},
+				{
+					"pattern": "Notification/{ObjectKey}",
+					"name": "NotificationDetail",
+					"target": [
+						"NotificationDetail"
+					]
+				},
+				{
+					"pattern": "Notification/Item/{ObjectKey}",
+					"name": "NotificationItemDetail",
+					"target": [
+						"NotificationItemDetail"
+					]
+				},
+				{
+					"pattern": "ObjectNotFound",
+					"name": "ObjectNotFound",
+					"target": [
+						"objectNotFound"
+					]
+				}
+			],
+			"targets": {
+				"worklist": {
+					"viewName": "Worklist",
+					"viewId": "EvoNotifyWorklist",
+					"viewLevel": 1
+				},
+				"NotificationDetail": {
+					"viewName": "ObjectPage",
+					"viewId": "EvoNotifyObjectPage",
+					"viewLevel": 2
+				},
+				"CreateNotification": {
+					"viewName": "ObjectPage",
+					"viewId": "EvoNotifyObjectPage",
+					"viewLevel": 2
+				},
+				"NotificationItemDetail": {
+					"viewName": "ObjectPage",
+					"viewId": "EvoNotifyObjectPage",
+					"viewLevel": 2
+				},
+				"objectNotFound": {
+					"viewName": "ObjectNotFound",
+					"viewId": "EvoNotifyObjectNotFound"
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewId": "EvoNotifyNotFound"
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/evora/en_ui5/webapp",
+		"_version": "1.1.0"
+	}
 }
