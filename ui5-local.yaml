@@ -2,6 +2,20 @@ specVersion: "2.4"
 metadata:
   name: com.evorait.evosuite.evonotify
 type: application
+framework:
+  name: SAPUI5
+  version: 1.84.3
+  libraries:
+    - name: sap.m
+    - name: sap.ui.core
+    - name: sap.ui.layout
+    - name: sap.ushell
+    - name: sap.f
+    - name: sap.ui.comp
+    - name: sap.ui.generic.app
+    - name: sap.ui.table
+    - name: themelib_sap_bluecrystal
+    - name: themelib_sap_fiori_3
 server:
   customMiddleware:
     - name: fiori-tools-proxy
@@ -11,16 +25,8 @@ server:
         backend:
           - path: /sap
             url: http://sapwebd10.saplonza.net:1443
-            client: "050"
-            destination: D10_SAM_DEST
-            xfwd: true
-            scp: true
-        ui5:
-          path:
-            - /resources
-            - /test-resources
-          url: https://ui5.sap.com
-          version: 1.84.3
+            client: "005"
+            destination: D10_SAM_DEST_005
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
