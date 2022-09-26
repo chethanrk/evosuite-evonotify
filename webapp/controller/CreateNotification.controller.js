@@ -2,7 +2,7 @@ sap.ui.define([
 	"com/evorait/evosuite/evonotify/controller/FormController",
 	"com/evorait/evosuite/evonotify/model/Constants",
 	"sap/ui/util/Storage",
-    "sap/ui/core/mvc/OverrideExecution"
+	"sap/ui/core/mvc/OverrideExecution"
 ], function (FormController, Constants, Storage, OverrideExecution) {
 	"use strict";
 
@@ -29,6 +29,11 @@ sap.ui.define([
 					public: true,
 					final: false,
 					overrideExecution: OverrideExecution.Before
+				},
+				onValueListChanged: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.Instead
 				}
 			}
 		},
@@ -36,6 +41,7 @@ sap.ui.define([
 		oViewModel: null,
 		aSmartForms: [],
 		isStandalonePage: false,
+		sEntitySet: "PMNotificationSet",
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */
@@ -83,13 +89,23 @@ sap.ui.define([
 		 * @param oEvent
 		 */
 		onChangeSmartField: function (oEvent) {
+			FormController.prototype.onChangeSmartField.apply(this, arguments);
+
 			var oSource = oEvent.getSource(),
 				sFieldName = oSource.getName();
 			var oContext = this.getView().getBindingContext();
 
 			if (oSource.getValueState() === "None" && oContext) {
-				this.checkDefaultValues("PMNotificationSet", oContext.getPath(), sFieldName);
+				this.checkDefaultValues(this.sEntitySet, oContext.getPath(), sFieldName);
 			}
+		},
+		
+		/**
+		 * when SmartField valueListChanged event is triggered
+		 * @param {object} oEvent
+		 */
+		onValueListChanged: function(oEvent) {
+			FormController.prototype.onValueListChanged.apply(this, arguments);
 		},
 
 		/**
@@ -149,12 +165,29 @@ sap.ui.define([
 		 */
 		_changedBinding: function (sChannel, sEvent, oData) {
 			if (sChannel === "TemplateRendererEvoNotify" && sEvent === "changedBinding") {
-				var sViewId = this.getView().getId(),
-					sViewName = this.getView().getViewName(),
-					_sViewNameId = sViewName + "#" + sViewId;
+				var _sViewNameId = this.getViewUniqueName(),
+					oContext = this.getView().getBindingContext();
 
-				if (oData.viewNameId === _sViewNameId) {
-					this._checkForLinkParameters();
+				if (oData.viewNameId === _sViewNameId && oContext) {
+					var sPath = oContext.getPath();
+					//Load all defaulting values and prefill form
+					this.checkDefaultValues(this.sEntitySet, sPath).then(function () {
+						//1.Step check for GET parameters in url and prefill form
+						this._checkForLinkParameters(oContext);
+
+						//2.Step get order data from local storage when coming from EvoNotify "Create Order"
+						//if its exists, validate the property and copy value to PMNotification
+						this.oStorage = new Storage(Storage.Type.local);
+						var oOrder = this.oStorage.get("OrderObject");
+						if (oOrder) {
+							this.getModel("viewModel").setProperty("/startPage", "");
+							this.oViewModel.setProperty("/createPageOnly", false);
+							this._setDefaultDataFromLocalStorage(oOrder, sPath);
+						}
+
+						//3.Step set changed SmartField data from offline storage after refresh page
+						this.setFormStorage2FieldData(sPath);
+					}.bind(this));
 				}
 			}
 		},
@@ -164,48 +197,32 @@ sap.ui.define([
 		 * when there are parameters check if its a property name
 		 * and is this property is creatable true
 		 */
-		_checkForLinkParameters: function () {
-			var oContext = this.getView().getBindingContext();
-			if (oContext) {
-				var oData = oContext.getObject(),
-					sPath = oContext.getPath(),
-					oModel = this.getModel();
-				if (oData) {
-					delete oData.__metadata;
-				}
-				//check if GET parameter is allowed prefill field
-				//only when property is creatable true then prefill property
-				oModel.getMetaModel().loaded().then(function () {
-					var oMetaModel = oModel.getMetaModel() || oModel.getProperty("/metaModel"),
-						oEntitySet = oMetaModel.getODataEntitySet("PMNotificationSet"),
-						oEntityType = oMetaModel.getODataEntityType(oEntitySet.entityType);
+		_checkForLinkParameters: function (oContext) {
+			var oData = oContext.getObject(),
+				sPath = oContext.getPath(),
+				oModel = this.getModel();
 
-					//Apply defaulting values
-					this.checkDefaultValues(oEntitySet.name, sPath);
+			if (oData) {
+				delete oData.__metadata;
+			}
+			//check if GET parameter is allowed prefill field
+			//only when property is creatable true then prefill property
+			var oMetaModel = oModel.getMetaModel() || oModel.getProperty("/metaModel"),
+				oEntitySet = oMetaModel.getODataEntitySet(this.sEntitySet),
+				oEntityType = oMetaModel.getODataEntityType(oEntitySet.entityType);
 
-					for (var key in oData) {
-						var urlValue = this.getOwnerComponent().getLinkParameterByName(key);
-						var oProperty = oMetaModel.getODataProperty(oEntityType, key);
-						if (oProperty !== null) {
-							if (urlValue && urlValue !== Constants.PROPERTY.NEW) {
-								//check if key is creatable true and url param value is not bigger then maxLength of property
-								if ((!oProperty.hasOwnProperty("sap:creatable") || oProperty["sap:creatable"] === "true") &&
-									(urlValue.length <= parseInt(oProperty["maxLength"]))) {
-									oModel.setProperty(sPath + "/" + key, urlValue);
-								}
-							}
+			for (var key in oData) {
+				var urlValue = this.getOwnerComponent().getLinkParameterByName(key);
+				var oProperty = oMetaModel.getODataProperty(oEntityType, key);
+				if (oProperty !== null) {
+					if (urlValue && urlValue !== Constants.PROPERTY.NEW) {
+						//check if key is creatable true and url param value is not bigger then maxLength of property
+						if ((!oProperty.hasOwnProperty("sap:creatable") || oProperty["sap:creatable"] === "true") &&
+							(urlValue.length <= parseInt(oProperty["maxLength"]))) {
+							oModel.setProperty(sPath + "/" + key, urlValue);
 						}
 					}
-					//Get order data from local storage
-					//if its exists, validate the property and copy value to PMNotification
-					this.oStorage = new Storage(Storage.Type.local);
-					var oOrder = this.oStorage.get("OrderObject");
-					if (oOrder) {
-						this.getModel("viewModel").setProperty("/startPage", "");
-						this.oViewModel.setProperty("/createPageOnly", false);
-						this._setDefaultDataFromLocalStorage(oOrder);
-					}
-				}.bind(this));
+				}
 			}
 		},
 
@@ -214,6 +231,9 @@ sap.ui.define([
 		 * @param oResponse
 		 */
 		_saveCreateSuccessFn: function (oResponse) {
+			//delete local form storage of this view
+			this.deleteExpiredStorage(this.getViewUniqueName());
+
 			var objectKey = null,
 				oChangeData = this.getBatchChangeResponse(oResponse);
 
@@ -226,7 +246,7 @@ sap.ui.define([
 
 					//Bind new context
 					this.getView().unbindElement();
-					var oContext = this.getView().getModel().createEntry("/PMNotificationSet");
+					var oContext = this.getView().getModel().createEntry("/" + this.sEntitySet);
 					this.getView().setBindingContext(oContext);
 
 					// defaulting values
@@ -243,15 +263,14 @@ sap.ui.define([
 				}
 			}
 		},
-		
+
 		/**
 		 * Get the properties from PMNotification entity and check if it is creatable
 		 * If true and if the property exists in the order object copied from local storage
 		 * then copy the order property value into PMNotification property
 		 * @param oOrder
 		 */
-		_setDefaultDataFromLocalStorage: function (oOrder) {
-			var sPath = this.getView().getBindingContext().getPath();
+		_setDefaultDataFromLocalStorage: function (oOrder, sPath) {
 			var oMetaModel = this.getModel().getMetaModel();
 			var oEntityType = oMetaModel.getODataEntityType("com.evorait.evonotify.PMNotification");
 			var aProperties = oEntityType.property;

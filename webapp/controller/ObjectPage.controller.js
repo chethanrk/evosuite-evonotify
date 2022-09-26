@@ -47,7 +47,7 @@ sap.ui.define([
 
 						} else if (sRouteName === "NotificationDetail") {
 							//Notification detail view
-							sViewName = "com.evorait.evosuite.evonotify.view.templates.NotificationDetail#Data";
+							sViewName = "com.evorait.evosuite.evonotify.view.templates.NotificationDetail#Data_" + oArgs.ObjectKey;
 							mParams = {
 								ObjectKey: oArgs.ObjectKey
 							};
@@ -60,7 +60,7 @@ sap.ui.define([
 
 						} else if (sRouteName === "NotificationItemDetail") {
 							//Notification Item detail view
-							sViewName = "com.evorait.evosuite.evonotify.view.templates.NotificationItemDetail#ItemData";
+							sViewName = "com.evorait.evosuite.evonotify.view.templates.NotificationItemDetail#ItemData_" + oArgs.ObjectKey;
 							mParams = {
 								ObjectKey: oArgs.ObjectKey
 							};

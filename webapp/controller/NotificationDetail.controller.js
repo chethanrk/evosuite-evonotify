@@ -8,7 +8,7 @@ sap.ui.define([
 	"use strict";
 
 	return FormController.extend("com.evorait.evosuite.evonotify.controller.NotificationDetail", {
-		
+
 		metadata: {
 			methods: {
 				getAttachmentUrl: {
@@ -52,7 +52,7 @@ sap.ui.define([
 					final: false,
 					overrideExecution: OverrideExecution.Before
 				}
-			}	
+			}
 		},
 
 		oViewModel: null,
@@ -181,6 +181,9 @@ sap.ui.define([
 			this.sPath = this.getView().getBindingContext().getPath();
 			this.setFormsEditable(this.aSmartForms, true);
 			this.oViewModel.setProperty("/editMode", true);
+
+			// set changed SmartField data from offline storage after refresh page
+			this.setFormStorage2FieldData(this.sPath);
 		},
 
 		/**
@@ -205,6 +208,8 @@ sap.ui.define([
 			} else {
 				this.setFormsEditable(this.aSmartForms, false);
 				this.oViewModel.setProperty("/editMode", false);
+				//delete local form storage of this view
+				this.deleteExpiredStorage(this.getViewUniqueName());
 			}
 		},
 

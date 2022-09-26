@@ -38,7 +38,7 @@
 				smartFilterId="idPageNotificationListSmartFilterBar" tableType="ResponsiveTable" useExportToExcel="true" useVariantManagement="true"
 				useTablePersonalisation="true" header="{i18n>tit.worklistTable}" showRowCount="true"
 				persistencyKey="com.evorait.evosuite.evonotify.NotificationTable" enableAutoBinding="true" beforeRebindTable="onBeforeRebindTable"
-				requestAtLeastFields="ObjectKey,PHASE,ENABLE_NOTIFICATION_CHANGE" demandPopin="true">
+				requestAtLeastFields="ObjectKey,PHASE,ENABLE_NOTIFICATION_CHANGE" demandPopin="true" afterVariantInitialise="onInitializedSmartVariant">
 				<!-- layout data used to make the table growing but the filter bar fixed -->
 				<smartTable:layoutData>
 					<FlexItemData growFactor="1" baseSize="0%"/>

@@ -11,6 +11,11 @@ sap.ui.define([
 
 		metadata: {
 			methods: {
+				onChangeSmartField: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
 				getAllSmartForms: {
 					public: true,
 					final: true
@@ -79,6 +84,11 @@ sap.ui.define([
 				deleteEntries: {
 					public: true,
 					final: true
+				},
+				onValueListChanged: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
 				}
 			}
 		},
@@ -92,6 +102,42 @@ sap.ui.define([
 			//Bind the message model to the view and register it
 			if (this.getOwnerComponent) {
 				this.getOwnerComponent().registerViewToMessageManager(this.getView());
+			}
+		},
+
+		/**
+		 * when SmartField value changed save it to storage 
+		 * so that form will be offline capable
+		 * @param {object} oEvent
+		 */
+		onChangeSmartField: function (oEvent) {
+			var oSource = oEvent.getSource(),
+				sSourceName = oEvent.getSource().getName(),
+				mParams = oEvent.getParameters(),
+				sValue = mParams.newValue,
+				oSourceContext = oSource.getBindingContext();
+
+			if (sSourceName.startsWith("id")) {
+				sSourceName = sSourceName.replace("id", "");
+			}
+			if (oSourceContext) {
+				sValue = this.getModel().getProperty(oSourceContext.getPath() + "/" + sSourceName);
+			}
+			this.setFormFieldData2Storage(sSourceName, sValue, true);
+		},
+		
+		/**
+		 * event is fired when after selection of values from smart field value help the model is updated with the selected data
+		 * for example when we select an Equipment from its value-help dialog, 
+		 * corresponding values of Functional loc and Maint. Plant are also updated in the main model
+		 * 
+		 * @param {object} oEvent
+		 */
+		onValueListChanged: function(oEvent) {
+			var aChangedProperties = oEvent.getParameter("changes");
+			
+			for (var oPropertyName in aChangedProperties) {
+				this.setFormFieldData2Storage(oPropertyName, aChangedProperties[oPropertyName], true);
 			}
 		},
 
@@ -231,6 +277,8 @@ sap.ui.define([
 							}
 						}
 						oViewModel.setProperty("/editMode", false);
+						//delete local form storage of this view
+						this.deleteExpiredStorage(this.getViewUniqueName());
 					}.bind(this)
 				}),
 				endButton: new sap.m.Button({
@@ -352,6 +400,9 @@ sap.ui.define([
 
 						this._setBusyWhileSaving(oCtrl, false);
 						this.getView().getModel("viewModel").setProperty("/busy", false);
+						//delete local form storage of this view
+						this.deleteExpiredStorage(this.getViewUniqueName());
+
 						if (oResponse.__batchResponses) {
 							var responses = oResponse.__batchResponses[0].response || oResponse.__batchResponses[0].__changeResponses[0];
 							var sStatusCode = parseInt(responses.statusCode, 10);
@@ -364,7 +415,7 @@ sap.ui.define([
 								//where in such case the locally created entry needs to be deleted
 								if (isNew) {
 									this._deleteCreatedLocalEntry();
-									this.getView().getModel("viewModel").setProperty("/isNew",false);
+									this.getView().getModel("viewModel").setProperty("/isNew", false);
 								}
 								//Below condition checks if there is any pending changes to reset
 								//Only status update changes needs to be reset in case of failure 
@@ -540,10 +591,11 @@ sap.ui.define([
 		 * @parm sEntitySet
 		 * @param sPath
 		 * @parm sChangedProperty
+		 * @return Promise
 		 */
 		checkDefaultValues: function (sEntitySet, sPath, sChangedProperty) {
 			var oModel = this.getModel();
-			oModel.getMetaModel().loaded().then(function () {
+			return oModel.getMetaModel().loaded().then(function () {
 				var oMetaModel = oModel.getMetaModel() || oModel.getProperty("/metaModel"),
 					oEntitySet = oMetaModel.getODataEntitySet(sEntitySet),
 					oEntityType = oMetaModel.getODataEntityType(oEntitySet.entityType);
@@ -552,9 +604,7 @@ sap.ui.define([
 					//sChangedProperty is came from field name it's concated with id
 					sChangedProperty = sChangedProperty.split("id")[1];
 				}
-
-				this.checkDefaultPropertiesWithValues(oEntityType, sPath, sChangedProperty, oMetaModel);
-
+				return this.checkDefaultPropertiesWithValues(oEntityType, sPath, sChangedProperty, oMetaModel);
 			}.bind(this));
 		},
 
@@ -565,9 +615,11 @@ sap.ui.define([
 		 * @param sPath
 		 * @param sChangedProperty
 		 * @param {oMetaModel}
+		 * @return Promise
 		 */
 		checkDefaultPropertiesWithValues: function (oEntityType, sPath, sChangedProperty, oMetaModel) {
-			var aDefaultValues = this.getModel("DefaultInformationModel").getProperty("/defaultProperties");
+			var aDefaultValues = this.getModel("DefaultInformationModel").getProperty("/defaultProperties"),
+				aPromises = [];
 			if (!aDefaultValues) {
 				aDefaultValues = [];
 			}
@@ -580,9 +632,10 @@ sap.ui.define([
 			aDefaultValues.forEach(function (oItem) {
 				// It process only selected entityset properties
 				if (oEntityType.name === oItem.EntityName) {
-					this._findDefaultPropertyValues(oItem, sPath, sChangedProperty, oMetaModel, oEntityType);
+					aPromises.push(this._findDefaultPropertyValues(oItem, sPath, sChangedProperty, oMetaModel, oEntityType));
 				}
 			}.bind(this));
+			return Promise.all(aPromises);
 		},
 
 		/* =========================================================== */
@@ -645,14 +698,17 @@ sap.ui.define([
 		 * @param sChangedProperty
 		 * @param {oMetaModel}
 		 * @param {oEntityType}
+		 * @return Promise
 		 */
 		_findDefaultPropertyValues: function (oDefaultItem, sPath, sChangedProperty, oMetaModel, oEntityType) {
 			if (sChangedProperty && sChangedProperty !== "") {
 				if (sChangedProperty && oDefaultItem.PropertyName !== sChangedProperty) {
-					this._getFilterDataAndSetProperty(oDefaultItem, sPath, oMetaModel, oEntityType);
+					return this._getFilterDataAndSetProperty(oDefaultItem, sPath, oMetaModel, oEntityType);
+				} else {
+					return Promise.resolve();
 				}
 			} else {
-				this._getFilterDataAndSetProperty(oDefaultItem, sPath, oMetaModel, oEntityType);
+				return this._getFilterDataAndSetProperty(oDefaultItem, sPath, oMetaModel, oEntityType);
 			}
 		},
 
@@ -663,33 +719,39 @@ sap.ui.define([
 		 * @param sPath
 		 * @param {oMetaModel}
 		 * @param {oEntityType}
+		 * @return Promise
 		 */
 		_getFilterDataAndSetProperty: function (oDefaultValue, sPath, oMetaModel, oEntityType) {
-			//get ValueIn for properties
-			var sPropInValues;
-			if (oDefaultValue.PropertyIn !== "") {
-				sPropInValues = this._getValueForParameterProperties(oDefaultValue, sPath, oEntityType, oMetaModel);
-			}
-			if (sPropInValues) {
-				var oFilter = new Filter({
-					filters: [
-						new Filter("EntityName", FilterOperator.EQ, oDefaultValue.EntityName),
-						new Filter("PropertyName", FilterOperator.EQ, oDefaultValue.PropertyName),
-						new Filter("ValueIn", FilterOperator.EQ, sPropInValues)
-					],
-					and: true
-				});
-				this.getOwnerComponent().readData("/PropertyValueDeterminationSet", [oFilter]).then(function (oData) {
-					if (oData.results && oData.results.length) {
-						this._setDefaultValuesToField(oData.results[0], sPath, oMetaModel, oEntityType);
-					}
-				}.bind(this));
+			return new Promise(function (resolve, reject) {
+				//get ValueIn for properties
+				var sPropInValues;
+				if (oDefaultValue.PropertyIn !== "") {
+					sPropInValues = this._getValueForParameterProperties(oDefaultValue, sPath, oEntityType, oMetaModel);
+				}
+				if (sPropInValues) {
+					var oFilter = new Filter({
+						filters: [
+							new Filter("EntityName", FilterOperator.EQ, oDefaultValue.EntityName),
+							new Filter("PropertyName", FilterOperator.EQ, oDefaultValue.PropertyName),
+							new Filter("ValueIn", FilterOperator.EQ, sPropInValues)
+						],
+						and: true
+					});
+					this.getOwnerComponent().readData("/PropertyValueDeterminationSet", [oFilter]).then(function (oData) {
+						if (oData.results && oData.results.length) {
+							this._setDefaultValuesToField(oData.results[0], sPath, oMetaModel, oEntityType);
+						}
+						resolve();
+					}.bind(this));
 
-			} else if (oDefaultValue.ReturnValue && oDefaultValue.ReturnValue !== "") {
-				// If direct default values
-				this._setDefaultValuesToField(oDefaultValue, sPath, oMetaModel, oEntityType);
-			}
-
+				} else if (oDefaultValue.ReturnValue && oDefaultValue.ReturnValue !== "") {
+					// If direct default values
+					this._setDefaultValuesToField(oDefaultValue, sPath, oMetaModel, oEntityType);
+					resolve();
+				} else {
+					resolve();
+				}
+			}.bind(this));
 		},
 
 		/*
@@ -778,6 +840,9 @@ sap.ui.define([
 						});
 					}
 				}
+				//set default values to local storage for offline cability
+				var sValue = this.getModel().getProperty(sPath + "/" + oDefaultData.PropertyName);
+				this.setFormFieldData2Storage(oDefaultData.PropertyName, sValue, false);
 			}
 		},
 

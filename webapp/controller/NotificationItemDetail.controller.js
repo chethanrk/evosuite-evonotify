@@ -124,6 +124,10 @@ sap.ui.define([
 		onPressEdit: function (oEvent) {
 			this.setFormsEditable(this.aSmartForms, true);
 			this.oViewModel.setProperty("/editMode", true);
+			
+			// set changed SmartField data from offline storage after refresh page
+			var sPath = this.getView().getBindingContext().getPath();
+			this.setFormStorage2FieldData(sPath);
 		},
 
 		/**
