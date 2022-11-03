@@ -13,7 +13,8 @@
 								visible="{parts: ['user>/ENABLE_SYSTEM_STATUS_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE','ENABLE_NOTIFICATION_CHANGE','viewModel>/editMode'], formatter: '.formatter.showStatusButton'}"/>
 							<uxap:ObjectPageHeaderActionButton id="editNotificationButton" text="{i18n>btn.edit}" press="onPressEdit" type="Emphasized"
 								tooltip="{i18n>btn.edit}" icon="sap-icon://edit"
-								visible="{parts: ['ENABLE_NOTIFICATION_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE','viewModel>/editMode'], formatter:'.formatter.isVisible'}"/>
+								visible="{parts: ['ENABLE_NOTIFICATION_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE','viewModel>/editMode'], formatter:'.formatter.isVisible'}"
+								enabled="{parts:['viewModel>/authorizeCheck','user>/ENABLE_IW22_AUTH_CHECK'],formatter:'.formatter.formatBtnEditable'}"/>
 							<uxap:ObjectPageHeaderActionButton id="saveNotificationButton" text="{i18n>btn.save}" press="onPressSave" type="Emphasized"
 								tooltip="{i18n>btn.save}" visible="{viewModel>/editMode}" icon="sap-icon://save"/>
 							<uxap:ObjectPageHeaderActionButton id="cancelNotificationButton" text="{i18n>btn.cancel}" press="onPressCancel"

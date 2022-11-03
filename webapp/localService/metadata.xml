@@ -93,6 +93,9 @@
 				<Property Name="DEFAULT_NOTIFICATION_TYPE" Type="Edm.String" MaxLength="2" sap:label="Notifictn type" sap:is-extension-field="true"/>
 				<Property Name="DEFAULT_PLANNING_PLANT" Type="Edm.String" MaxLength="4" sap:label="Plant" sap:is-extension-field="true"/>
 				<Property Name="DEFAULT_PLANT" Type="Edm.String" MaxLength="4" sap:label="Plant" sap:is-extension-field="true"/>
+				<Property Name="ENABLE_PM_AUTH_CHECK" Type="Edm.Boolean" sap:label="TRUE" sap:is-extension-field="true"/>
+				<Property Name="ENABLE_IW21_AUTH_CHECK" Type="Edm.Boolean" sap:label="TRUE" sap:is-extension-field="true"/>
+				<Property Name="ENABLE_IW22_AUTH_CHECK" Type="Edm.Boolean" sap:label="TRUE" sap:is-extension-field="true"/>
 			</EntityType>
 			<EntityType Name="SHOrderNumber" sap:content-version="1">
 				<Key>
