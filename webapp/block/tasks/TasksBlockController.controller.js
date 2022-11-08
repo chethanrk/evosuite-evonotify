@@ -223,6 +223,9 @@ sap.ui.define([
 			}
 			this.getModel("viewModel").setProperty("/TaskAllows", mTaskAllows);
 			this.oStatusSelectControl.setEnabled(true);
+			if (this.getModel("viewModel").getProperty("/authorizeCheck")) {
+				this.oStatusSelectControl.setEnabled(Boolean(this.getModel("user").getProperty("/ENABLE_IW22_AUTH_CHECK")));
+			}
 		},
 
 		/**
@@ -234,6 +237,9 @@ sap.ui.define([
 			var oTaskEditCtrl = this.getView().byId("idTaskEdit");
 			if (oData.ENABLE_TASK_CHANGE === "X") {
 				oTaskEditCtrl.setEnabled(true);
+				if (this.getModel("viewModel").getProperty("/authorizeCheck")) {
+					oTaskEditCtrl.setEnabled(Boolean(this.getModel("user").getProperty("/ENABLE_IW22_AUTH_CHECK")));
+				}
 			} else {
 				oTaskEditCtrl.setEnabled(false);
 			}
