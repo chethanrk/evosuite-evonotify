@@ -99,12 +99,12 @@ sap.ui.define([
 				this.checkDefaultValues(this.sEntitySet, oContext.getPath(), sFieldName);
 			}
 		},
-		
+
 		/**
 		 * when SmartField valueListChanged event is triggered
 		 * @param {object} oEvent
 		 */
-		onValueListChanged: function(oEvent) {
+		onValueListChanged: function (oEvent) {
 			FormController.prototype.onValueListChanged.apply(this, arguments);
 		},
 
@@ -150,6 +150,9 @@ sap.ui.define([
 		_initializeView: function () {
 			this.aSmartForms = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("smartFormTemplate"));
 			this.setFormsEditable(this.aSmartForms, true);
+			if (this.oViewModel.getProperty("/authorizeCheck")) {
+				this.setFormsEditable(this.aSmartForms, Boolean(this.getModel("user").getProperty("/ENABLE_IW21_AUTH_CHECK")));
+			}
 			this.isStandalonePage = this.oViewModel.getProperty("/createPageOnly");
 
 			this.oViewModel.setProperty("/editMode", true);
