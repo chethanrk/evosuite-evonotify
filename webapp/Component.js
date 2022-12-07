@@ -70,7 +70,6 @@ sap.ui.define([
 				launchMode: Constants.LAUNCH_MODE.BSP,
 				createPageOnly: false,
 				densityClass: this.getContentDensityClass(),
-				authorizeCheck: false,
 				validatedIw21Auth: true, 
 				validatedIw22Auth: true, 
 				validatedIw31Auth: true 
