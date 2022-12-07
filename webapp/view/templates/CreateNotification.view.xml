@@ -9,7 +9,7 @@
 					<uxap:actions>
 						<uxap:ObjectPageHeaderActionButton id="idCreateNotificationBtnSave" icon="sap-icon://save" type="Emphasized" text="{i18n>btn.save}"
 							hideText="false" tooltip="{i18n>btn.save}" press="onPressSave"
-							enabled="{parts:['viewModel>/authorizeCheck','user>/ENABLE_IW22_AUTH_CHECK'],formatter:'.formatter.formatBtnEditable'}"/>
+							enabled="{viewModel>/validatedIw22Auth}"/>
 						<uxap:ObjectPageHeaderActionButton icon="sap-icon://cancel" type="Default" press="onPressCancel" text="{i18n>btn.cancel}" hideText="false"
 							tooltip="{i18n>btn.cancel}"/>
 						<core:ExtensionPoint name="PageExtP|CreateNotification|PMNotificationSet|Title|Action"/>

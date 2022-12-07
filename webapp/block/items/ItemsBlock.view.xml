@@ -10,10 +10,10 @@
 				<core:ExtensionPoint name="TableExtP|NotificationDetail|PMNotificationItemSet|CustomToolbar"/>
 				<OverflowToolbarButton icon="sap-icon://add" text="Sort" press="onPressAdd"
 					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},'user>/ENABLE_ITEM_CREATE',{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"
-					enabled="{parts:['viewModel>/authorizeCheck','user>/ENABLE_IW22_AUTH_CHECK'],formatter:'.formatter.formatBtnEditable'}"/>
+					enabled="{viewModel>/validatedIw22Auth}"/>
 				<OverflowToolbarButton icon="sap-icon://delete" text="Sort" press="onPressDelete"
 					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},'user>/ENABLE_ITEM_DELETE',{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"
-					enabled="{parts:['viewModel>/authorizeCheck','user>/ENABLE_IW22_AUTH_CHECK'],formatter:'.formatter.formatBtnEditable'}"/>
+					enabled="{viewModel>/validatedIw22Auth}"/>
 			</OverflowToolbar>
 		</smartTable:customToolbar>
 		<!-- layout data used to make the table growing but the filter bar fixed -->

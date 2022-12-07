@@ -48,7 +48,7 @@
 						<ToolbarSpacer/>
 						<Button id="idBtnCreateNotification" icon="sap-icon://add" text="{i18n>btn.createNotification}" press="onPressCreateNotification"
 							visible="{= ${user>/ENABLE_NOTIFICATION_CREATE} === 'X'}"
-							enabled="{parts:['viewModel>/authorizeCheck','user>/ENABLE_IW21_AUTH_CHECK'],formatter:'.formatter.formatBtnEditable'}"/>
+							enabled="{viewModel>/validatedIw21Auth}"/>
 						<core:ExtensionPoint name="TableExtP|WorkList|PMNotificationSet|CustomToolbar"/>
 					</OverflowToolbar>
 				</smartTable:customToolbar>
