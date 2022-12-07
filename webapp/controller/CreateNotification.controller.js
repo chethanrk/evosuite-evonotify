@@ -149,10 +149,9 @@ sap.ui.define([
 		 */
 		_initializeView: function () {
 			this.aSmartForms = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("smartFormTemplate"));
-			this.setFormsEditable(this.aSmartForms, true);
-			if (this.oViewModel.getProperty("/authorizeCheck")) {
-				this.setFormsEditable(this.aSmartForms, Boolean(this.getModel("user").getProperty("/ENABLE_IW21_AUTH_CHECK")));
-			}
+
+			this.setFormsEditable(this.aSmartForms, this.getModel("viewModel").getProperty("/validatedIw21Auth"));
+
 			this.isStandalonePage = this.oViewModel.getProperty("/createPageOnly");
 
 			this.oViewModel.setProperty("/editMode", true);

@@ -3,5 +3,5 @@
 		sendXHR="true" tooltip="{i18n>btn.upload}" sameFilenameAllowed="false" icon="sap-icon://upload" uploadOnChange="false"
 		change="onChangeSelectedFile" visible="{= ${ENABLE_NOTIFICATION_CHANGE} &amp;&amp; ${user>/ENABLE_ATTACHMENT_CREATE} === 'X'}"
 		class="fileUploaderButton sapUiSmallMarginEnd"
-		enabled="{parts:['viewModel>/authorizeCheck','user>/ENABLE_IW22_AUTH_CHECK'],formatter:'.formatter.formatBtnEditable'}"/>
+		enabled="{viewModel>/validatedIw22Auth}"/>
 </core:FragmentDefinition>

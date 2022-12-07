@@ -221,19 +221,6 @@ sap.ui.define([
 				}
 			}
 			return false;
-		},
-
-		/**
-		 * Formats editability of edit/create button
-		 * @param {boolean} PM Authorization
-		 * @param {boolean} bEnable
-		 * @returns {boolean} 
-		 */
-		formatBtnEditable: function (bAuthCheck, bEnable) {
-			if (bAuthCheck) {
-				return Boolean(bEnable);
-			}
-			return true;
 		}
 	};
 

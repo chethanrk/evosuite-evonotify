@@ -39,7 +39,7 @@
 													<Button type="Transparent" icon="sap-icon://edit" class="sapUiTinyMarginBeginEnd headerInlineEditBtn" tooltip="edit"
 														press="onPressInlineEditButton" customData:property="{path : 'data>Value/Path'}"
 														visible="{parts: ['user>/ENABLE_ORDER_UPDATE','ENABLE_ORDER_CHANGE','viewModel>/editMode'], formatter: '.formatter.showEditButton'}"
-														enabled="{parts:['viewModel>/authorizeCheck','user>/ENABLE_IW22_AUTH_CHECK'],formatter:'.formatter.formatBtnEditable'}"/>
+														enabled="{viewModel>/validatedIw22Auth}"/>
 												</template:if>
 											</HBox>
 										</template:repeat>

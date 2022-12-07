@@ -14,13 +14,13 @@
 					visible="{parts: ['user>/ENABLE_TASK_UPDATE','user>/ENABLE_NOTIFICATION_UPDATE','viewModel>/enableNotificationChange','viewModel>/editMode'], formatter: '.formatter.showStatusButton'}"/>
 				<OverflowToolbarButton icon="sap-icon://add" text="{i18n>btn.add}" tooltip="{i18n>btn.add}" press="onPressAdd"
 					visible="{ parts: [{path:'viewModel>/enableNotificationChange'},{path: 'user>/ENABLE_TASK_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"
-					enabled="{parts:['viewModel>/authorizeCheck','user>/ENABLE_IW22_AUTH_CHECK'],formatter:'.formatter.formatBtnEditable'}"/>
+					enabled="{viewModel>/validatedIw22Auth}"/>
 				<OverflowToolbarButton id="idItemTaskEdit" icon="sap-icon://edit" text="{i18n>btn.edit}" tooltip="{i18n>btn.edit}" press="onPressEdit"
 					enabled="{viewModel>/singleSelectedTask}"
 					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},{path: 'user>/ENABLE_TASK_UPDATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 				<OverflowToolbarButton icon="sap-icon://delete" text="{i18n>btn.delete}" tooltip="{i18n>btn.delete}" press="onPressDelete"
 					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},'user>/ENABLE_TASK_DELETE',{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"
-					enabled="{parts:['viewModel>/authorizeCheck','user>/ENABLE_IW22_AUTH_CHECK'],formatter:'.formatter.formatBtnEditable'}"/>
+					enabled="{viewModel>/validatedIw22Auth}"/>
 			</OverflowToolbar>
 		</smartTable:customToolbar>
 		<!-- layout data used to make the table growing but the filter bar fixed -->

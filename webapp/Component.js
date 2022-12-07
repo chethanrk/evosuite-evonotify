@@ -70,7 +70,9 @@ sap.ui.define([
 				launchMode: Constants.LAUNCH_MODE.BSP,
 				createPageOnly: false,
 				densityClass: this.getContentDensityClass(),
-				authorizeCheck: false
+				validatedIw21Auth: true, 
+				validatedIw22Auth: true, 
+				validatedIw31Auth: true 
 			};
 
 			this.setModel(models.createHelperModel(viewModelObj), "viewModel");
@@ -86,6 +88,8 @@ sap.ui.define([
 			this.setModel(models.createDefaultInformationModel(this), "DefaultInformationModel");
 
 			this._getSystemInformation();
+
+			this.oSystemInfoProm.then(this._handleAuthorization.bind(this));
 
 			this._getDefaultInformation();
 
@@ -179,7 +183,6 @@ sap.ui.define([
 			this.oSystemInfoProm = new Promise(function (resolve) {
 				this.readData("/SystemInformationSet", []).then(function (oData) {
 					this.getModel("user").setData(oData.results[0]);
-					this.getModel("viewModel").setProperty("/authorizeCheck", oData.results[0].ENABLE_PM_AUTH_CHECK);
 					resolve(oData.results[0]);
 				}.bind(this));
 			}.bind(this));
@@ -314,6 +317,20 @@ sap.ui.define([
 					}.bind(this)
 				});
 			}.bind(this));
+		},
+		/**
+		 * Handle SAP authorization
+		 */
+		_handleAuthorization: function () {
+			var bPMAuth = this.getModel("user").getProperty("/ENABLE_PM_AUTH_CHECK"),
+				sIw21Auth = this.getModel("user").getProperty("/ENABLE_IW21_AUTH_CHECK"),
+				sIw22Auth = this.getModel("user").getProperty("/ENABLE_IW22_AUTH_CHECK"),
+				sIw31Auth = this.getModel("user").getProperty("/ENABLE_IW31_AUTH_CHECK");
+			if (bPMAuth) {
+				this.getModel("viewModel").setProperty("/validatedIw21Auth", Boolean(sIw21Auth));
+				this.getModel("viewModel").setProperty("/validatedIw22Auth", Boolean(sIw22Auth));
+				this.getModel("viewModel").setProperty("/validatedIw31Auth", Boolean(sIw31Auth));
+			}
 		}
 	});
 });
