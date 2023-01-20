@@ -13,7 +13,7 @@ sap.ui.define([
 			methods: {
 				getAttachmentUrl: {
 					public: true,
-					final: true
+					final: false
 				},
 				onNavBack: {
 					public: true,
