@@ -278,7 +278,10 @@ sap.ui.define([
 			this.showSuccessMessage(msg);
 			this.setFormsEditable(this.aSmartForms, false);
 			this.oViewModel.setProperty("/editMode", false);
-			this._setNotificationStatusButtonVisibility(this._oContext.getObject());
+			if (this._oContext) {
+				this._setNotificationStatusButtonVisibility(this._oContext.getObject());
+				this.getOwnerComponent().readData(this._oContext.getPath());
+			}
 		},
 
 		_initializeView: function () {
