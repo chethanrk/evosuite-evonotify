@@ -2,5 +2,6 @@
 	<u:FileUploader name="fileUploader" style="Emphasized" iconOnly="true" buttonText="{i18n>btn.upload}" buttonOnly="true" multiple="false"
 		sendXHR="true" tooltip="{i18n>btn.upload}" sameFilenameAllowed="false" icon="sap-icon://upload" uploadOnChange="false"
 		change="onChangeSelectedFile" visible="{= ${ENABLE_NOTIFICATION_CHANGE} &amp;&amp; ${user>/ENABLE_ATTACHMENT_CREATE} === 'X'}"
-		class="fileUploaderButton sapUiSmallMarginEnd"/>
+		class="fileUploaderButton sapUiSmallMarginEnd"
+		enabled="{viewModel>/validatedIw22Auth}"/>
 </core:FragmentDefinition>

@@ -79,7 +79,10 @@ sap.ui.define([
 		onPressItem: function (oEvent) {
 			//only one item can be edited so enable edit button when only one entry was selected
 			var aSelected = this._oSmartTable.getTable().getSelectedItems();
-			this.getModel("viewModel").setProperty("/singleSelectedActivity", aSelected.length === 1);
+			if (aSelected.length === 1) {
+				this.getModel("viewModel").setProperty("/singleSelectedActivity",this.getModel("viewModel").getProperty(
+					"/validatedIw22Auth"));
+			}
 		},
 
 		/**

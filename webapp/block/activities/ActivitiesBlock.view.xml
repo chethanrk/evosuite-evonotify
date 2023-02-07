@@ -10,12 +10,14 @@
 				<ToolbarSpacer/>
 				<core:ExtensionPoint name="TableExtP|NotificationDetail|PMNotificationActivitySet|CustomToolbar"/>
 				<OverflowToolbarButton icon="sap-icon://add" text="{i18n>btn.add}" tooltip="{i18n>btn.add}" press="onPressAdd"
-					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},{path: 'user>/ENABLE_ACTIVITY_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
+					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},{path: 'user>/ENABLE_ACTIVITY_CREATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"
+					enabled="{viewModel>/validatedIw22Auth}"/>
 				<OverflowToolbarButton icon="sap-icon://edit" text="{i18n>btn.edit}" tooltip="{i18n>btn.edit}" press="onPressEdit"
 					enabled="{viewModel>/singleSelectedActivity}"
 					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},{path: 'user>/ENABLE_ACTIVITY_UPDATE'},{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
 				<OverflowToolbarButton icon="sap-icon://delete" text="{i18n>btn.delete}" tooltip="{i18n>btn.delete}" press="onPressDelete"
-					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},'user>/ENABLE_ACTIVITY_DELETE',{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"/>
+					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},'user>/ENABLE_ACTIVITY_DELETE',{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"
+					enabled="{viewModel>/validatedIw22Auth}"/>
 			</OverflowToolbar>
 		</smartTable:customToolbar>
 		<!-- layout data used to make the table growing but the filter bar fixed -->

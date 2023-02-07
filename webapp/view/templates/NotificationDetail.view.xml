@@ -10,10 +10,12 @@
 						<uxap:actions>
 							<uxap:ObjectPageHeaderActionButton id="idStatusChangeMenu" hideText="false" icon="sap-icon://order-status" type="Default"
 								text="{i18n>btn.changeSystemStatus}" tooltip="{i18n>btn.changeSystemStatus}" press="onPressChangeSystemStatus"
-								visible="{parts: ['user>/ENABLE_SYSTEM_STATUS_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE','ENABLE_NOTIFICATION_CHANGE','viewModel>/editMode'], formatter: '.formatter.showStatusButton'}"/>
+								visible="{parts: ['user>/ENABLE_SYSTEM_STATUS_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE','ENABLE_NOTIFICATION_CHANGE','viewModel>/editMode'], formatter: '.formatter.showStatusButton'}"
+								enabled="{viewModel>/validatedIw22Auth}"/>
 							<uxap:ObjectPageHeaderActionButton id="editNotificationButton" text="{i18n>btn.edit}" press="onPressEdit" type="Emphasized"
 								tooltip="{i18n>btn.edit}" icon="sap-icon://edit"
-								visible="{parts: ['ENABLE_NOTIFICATION_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE','viewModel>/editMode'], formatter:'.formatter.isVisible'}"/>
+								visible="{parts: ['ENABLE_NOTIFICATION_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE','viewModel>/editMode'], formatter:'.formatter.isVisible'}"
+								enabled="{viewModel>/validatedIw22Auth}"/>
 							<uxap:ObjectPageHeaderActionButton id="saveNotificationButton" text="{i18n>btn.save}" press="onPressSave" type="Emphasized"
 								tooltip="{i18n>btn.save}" visible="{viewModel>/editMode}" icon="sap-icon://save"/>
 							<uxap:ObjectPageHeaderActionButton id="cancelNotificationButton" text="{i18n>btn.cancel}" press="onPressCancel"
@@ -23,7 +25,8 @@
 						<uxap:sideContentButton>
 							<Button type="Transparent" id="idCreateOrder" icon="sap-icon://create" text="{i18n>btn.createOrder}" tooltip="{i18n>btn.createOrder}"
 								press="onPressCreateOrder"
-								visible="{parts: ['ORDER_NUMBER','user>/ENABLE_ORDER_CREATE','ENABLE_NOTIFICATION_CHANGE','viewModel>/editMode'], formatter: '.formatter.showCreateOrderButton'}"/>
+								visible="{parts: ['ORDER_NUMBER','user>/ENABLE_ORDER_CREATE','ENABLE_NOTIFICATION_CHANGE','viewModel>/editMode'], formatter: '.formatter.showCreateOrderButton'}"
+								enabled="{viewModel>/validatedIw31Auth}"/>
 						</uxap:sideContentButton>
 						<uxap:breadcrumbs>
 							<Breadcrumbs id="idPageNotificationDetailBreadcrumb" currentLocationText="{/#PMNotification/NOTIFICATION_NO/@sap:label} {NOTIFICATION_NO}">

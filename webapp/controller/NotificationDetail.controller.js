@@ -13,7 +13,7 @@ sap.ui.define([
 			methods: {
 				getAttachmentUrl: {
 					public: true,
-					final: true
+					final: false
 				},
 				onNavBack: {
 					public: true,
@@ -278,7 +278,10 @@ sap.ui.define([
 			this.showSuccessMessage(msg);
 			this.setFormsEditable(this.aSmartForms, false);
 			this.oViewModel.setProperty("/editMode", false);
-			this._setNotificationStatusButtonVisibility(this._oContext.getObject());
+			if (this._oContext) {
+				this._setNotificationStatusButtonVisibility(this._oContext.getObject());
+				this.getOwnerComponent().readData(this._oContext.getPath());
+			}
 		},
 
 		_initializeView: function () {
@@ -303,30 +306,32 @@ sap.ui.define([
 		 * function to update the satus
 		 */
 		_updateStatus: function (mEsignParams) {
-			var oData = this._oContext.getObject(),
-				sPath = this._oContext.getPath(),
-				message = "";
 			this._oContext = this.getView().getBindingContext();
+			if (this._oContext) {
+				var oData = this._oContext.getObject(),
+					sPath = this._oContext.getPath(),
+					message = "";
 
-			if (oData["ALLOW_" + this.sFunctionKey]) {
-				this.getModel("viewModel").setProperty("/isStatusUpdate", true);
-				this.getModel().setProperty(sPath + "/FUNCTION", this.sFunctionKey);
+				if (oData["ALLOW_" + this.sFunctionKey]) {
+					this.getModel("viewModel").setProperty("/isStatusUpdate", true);
+					this.getModel().setProperty(sPath + "/FUNCTION", this.sFunctionKey);
 
-				if (this.sFunctionKey === "COMPLETE" && mEsignParams) {
-					this._setRefrenceDate(sPath, mEsignParams);
+					if (this.sFunctionKey === "COMPLETE" && mEsignParams) {
+						this._setRefrenceDate(sPath, mEsignParams);
+					}
+
+					var oMetaModel = this.getModel().getMetaModel() || this.getModel().getProperty("/metaModel");
+
+					oMetaModel.loaded().then(function () {
+						this.saveChanges({
+							state: "success"
+						}, this._saveSuccessFn.bind(this), null, this.getView());
+					}.bind(this));
+
+				} else {
+					message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NOTIFICATION_NO);
+					this.showInformationDialog(message);
 				}
-
-				var oMetaModel = this.getModel().getMetaModel() || this.getModel().getProperty("/metaModel");
-
-				oMetaModel.loaded().then(function () {
-					this.saveChanges({
-						state: "success"
-					}, this._saveSuccessFn.bind(this), null, this.getView());
-				}.bind(this));
-
-			} else {
-				message = this.getResourceBundle().getText("msg.notificationSubmitFail", oData.NOTIFICATION_NO);
-				this.showInformationDialog(message);
 			}
 		},
 

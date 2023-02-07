@@ -221,7 +221,7 @@ sap.ui.define([
 				}
 			}
 			return false;
-		},
+		}
 	};
 
 });
