@@ -29,6 +29,11 @@ sap.ui.define([
 					final: false,
 					overrideExecution: OverrideExecution.After
 				},
+				onChangeSmartField: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
 				onPressSave: {
 					public: true,
 					final: false,
@@ -184,6 +189,20 @@ sap.ui.define([
 
 			// set changed SmartField data from offline storage after refresh page
 			this.setFormStorage2FieldData(this.sPath);
+		},
+		
+		/** 
+		 * On Change of smart field value
+		 * @param oEvent
+		 */
+		 
+		 onChangeSmartField: function (oEvent) {
+			var oSource = oEvent.getSource(),
+				sFieldName = oSource.getName();
+			var oContext = this.getView().getBindingContext();
+			if (oSource.getValueState() === "None" && oContext) {
+				this.checkDefaultValues("PMNotificationSet", oContext.getPath(), sFieldName);
+			}
 		},
 
 		/**
