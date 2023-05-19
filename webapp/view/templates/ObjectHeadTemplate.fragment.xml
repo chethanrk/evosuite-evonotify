@@ -36,7 +36,7 @@
 													</template:else>
 												</template:if>
 												<template:if test="{:= (${data>Core.Description/String} === 'InLineEdit')}">
-													<Button type="Transparent" icon="sap-icon://edit" class="sapUiTinyMarginBeginEnd headerInlineEditBtn" tooltip="edit"
+													<Button type="Transparent" icon="sap-icon://edit" class="sapUiTinyMarginBeginEnd headerInlineEditBtn" tooltip="{i18n>btn.edit}"
 														press="onPressInlineEditButton" customData:property="{path : 'data>Value/Path'}"
 														visible="{parts: ['user>/ENABLE_ORDER_UPDATE','ENABLE_ORDER_CHANGE','viewModel>/editMode'], formatter: '.formatter.showEditButton'}"
 														enabled="{viewModel>/validatedIw22Auth}"/>

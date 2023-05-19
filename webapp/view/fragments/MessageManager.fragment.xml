@@ -7,7 +7,7 @@
             initiallyExpanded="true"
             beforeClose="beforePopoverClose">
         <headerButton>
-            <Button icon="sap-icon://delete" press="deleteAllMessages" visible="{= ${message>/}.length > 0 }"/>
+            <Button icon="sap-icon://delete" tooltip="{i18n>btn.delete}" press="deleteAllMessages" visible="{= ${message>/}.length > 0 }"/>
         </headerButton>
         <MessageItem
                 type="{message>type}"
