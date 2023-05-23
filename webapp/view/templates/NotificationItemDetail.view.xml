@@ -7,17 +7,17 @@
 			<uxap:headerTitle>
 				<uxap:ObjectPageHeader id="idPageItemDetailObjectPageHeader" objectTitle="{DESCRIPTION}" objectSubtitle="{NOTIFICATION_ITEM}">
 					<uxap:actions>
-						<uxap:ObjectPageHeaderActionButton id="editNotificationItemButton" text="{i18n>btn.edit}" hideText="false" press="onPressEdit"
+						<uxap:ObjectPageHeaderActionButton id="editNotificationItemButton" text="{i18n>btn.edit}" tooltip="{i18n>btn.edit}" hideText="false" press="onPressEdit"
 							type="Emphasized"
 							visible="{parts: ['viewModel>/enableNotificationChange','user>/ENABLE_ITEM_UPDATE', 'viewModel>/editMode'], formatter:'.formatter.isVisible'}"
 							enabled="{viewModel>/validatedIw22Auth}"/>
-						<uxap:ObjectPageHeaderActionButton id="deleteNotificationItemButton" icon="sap-icon://delete" text="{i18n>btn.delete}" hideText="false"
+						<uxap:ObjectPageHeaderActionButton id="deleteNotificationItemButton" icon="sap-icon://delete" text="{i18n>btn.delete}" tooltip="{i18n>btn.delete}" hideText="false"
 							press="onPressDelete" type="Emphasized"
 							visible="{parts: ['viewModel>/enableNotificationChange','user>/ENABLE_ITEM_DELETE', 'viewModel>/editMode'], formatter:'.formatter.isVisible'}"
 							enabled="{viewModel>/validatedIw22Auth}"/>
-						<uxap:ObjectPageHeaderActionButton id="cancelNotificationItemButton" text="{i18n>btn.cancel}" hideText="false" press="onPressCancel"
+						<uxap:ObjectPageHeaderActionButton id="cancelNotificationItemButton" text="{i18n>btn.cancel}" tooltip="{i18n>btn.cancel}" hideText="false" press="onPressCancel"
 							visible="{viewModel>/editMode}"/>
-						<uxap:ObjectPageHeaderActionButton id="saveNotificationItemButton" text="{i18n>btn.save}" hideText="false" press="onPressSave"
+						<uxap:ObjectPageHeaderActionButton id="saveNotificationItemButton" text="{i18n>btn.save}" tooltip="{i18n>btn.save}" hideText="false" press="onPressSave"
 							type="Emphasized" visible="{viewModel>/editMode}"/>
 						<core:ExtensionPoint name="PageExtP|NotificationItemDetail|PMNotificationItemSet|Title|Action"/>
 					</uxap:actions>
@@ -30,7 +30,7 @@
 					<uxap:navigationBar>
 						<Bar id="idPageItemDetailNavigationBar" class="sapUiTinyMarginTop">
 							<contentLeft>
-								<Button icon="sap-icon://nav-back" tooltip="nav-back" press="onNavBack"/>
+								<Button icon="sap-icon://nav-back" tooltip="{i18n>btn.navBack}" press="onNavBack"/>
 								<core:ExtensionPoint name="PageExtP|NotificationItemDetail|PMNotificationItemSet|NavigationBar|Left"/>
 							</contentLeft>
 							<contentMiddle>

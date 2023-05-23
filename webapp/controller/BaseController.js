@@ -387,6 +387,7 @@ sap.ui.define([
 				}),
 				beginButton: new Button({
 					text: sBtn,
+					tooltip: sBtn,
 					press: function () {
 						dialog.close();
 					}
@@ -608,6 +609,7 @@ sap.ui.define([
 				beginButton: new Button({
 					type: sap.m.ButtonType.Emphasized,
 					text: oBundle.getText("btn.ok"),
+					tooltip: oBundle.getText("btn.ok"),
 					press: function () {
 						if (successFn) successFn();
 						dialog.close();
