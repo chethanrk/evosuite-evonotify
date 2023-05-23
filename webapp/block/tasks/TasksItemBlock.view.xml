@@ -47,7 +47,7 @@
 				<cells>
 					<core:ExtensionPoint name="TableExtP|NotificationItemDetail|PMNotificationItemTaskSet|CustomCell"/>
 					<core:Icon src="{UI_STATUS_ICON}" alt="{path: 'SYSTEM_STATUS_DESC'}" tooltip="{SYSTEM_STATUS_DESC}"/>
-					<Button icon="sap-icon://show-edit" tooltip="{i18n>btn.showEdit}" type="Default" press="showLongText" visible="{= ${NOTES} !== '' }"/>
+					<Button icon="sap-icon://show-edit" tooltip="{i18n>btn.notes}" type="Default" press="showLongText" visible="{= ${NOTES} !== '' }"/>
 				</cells>
 			</ColumnListItem>
 		</Table>

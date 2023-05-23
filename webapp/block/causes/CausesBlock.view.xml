@@ -35,7 +35,7 @@
 				<ColumnListItem>
 					<cells>
 						<core:ExtensionPoint name="TableExtP|NotificationItemDetail|PMNotificationItemCauseSet|CustomCell"/>
-						<Button icon="sap-icon://show-edit" tooltip="{i18n>btn.showEdit}" type="Default" press="showLongText" visible="{= ${NOTES} !== '' }"/>
+						<Button icon="sap-icon://show-edit" tooltip="{i18n>btn.notes}" type="Default" press="showLongText" visible="{= ${NOTES} !== '' }"/>
 					</cells>
 				</ColumnListItem>
 			</items>
