@@ -36,7 +36,7 @@
 						<uxap:navigationBar>
 							<Bar id="idPageNotificationDetailNavigationBar" class="sapUiTinyMarginTop">
 								<contentLeft>
-									<Button icon="sap-icon://nav-back" tooltip="nav-back" press="onNavBack"/>
+									<Button icon="sap-icon://nav-back" tooltip="{i18n>btn.navBack}" press="onNavBack"/>
 									<core:ExtensionPoint name="PageExtP|NotificationDetail|PMNotificationSet|NavigationBar|Left"/>
 								</contentLeft>
 								<contentMiddle>

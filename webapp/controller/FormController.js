@@ -255,6 +255,7 @@ sap.ui.define([
 				}),
 				beginButton: new sap.m.Button({
 					text: oResoucreBundle.getText("btn.confirm"),
+					tooltip: oResoucreBundle.getText("btn.confirm"),
 					press: function () {
 						dialog.close();
 						var oContext = this.getView().getBindingContext();
@@ -283,6 +284,7 @@ sap.ui.define([
 				}),
 				endButton: new sap.m.Button({
 					text: oResoucreBundle.getText("btn.no"),
+					tooltip: oResoucreBundle.getText("btn.no"),
 					press: function () {
 						dialog.close();
 					}
