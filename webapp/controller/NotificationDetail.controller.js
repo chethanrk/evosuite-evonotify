@@ -344,7 +344,7 @@ sap.ui.define([
 					oMetaModel.loaded().then(function () {
 						this.saveChanges({
 							state: "success"
-						}, this._saveSuccessFn.bind(this), null, this.getView());
+						}, this._saveSuccessFn.bind(this), this._updateStatusFailure.bind(this), this.getView());
 					}.bind(this));
 
 				} else {
@@ -485,6 +485,11 @@ sap.ui.define([
 				}
 			};
 			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
+		},
+
+		/*Function to Reset Model Changes on Update Failure*/
+		_updateStatusFailure: function () {
+			this.getView().getModel().resetChanges();
 		}
 	});
 });
