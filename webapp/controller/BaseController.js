@@ -472,6 +472,9 @@ sap.ui.define([
 		 * and open the Add Dialog
 		 */
 		getDependenciesAndCallback: function (callbackFn) {
+			if(this.getModel().hasPendingChanges()) {
+				this.getModel().resetChanges();
+			}
 			var oContextData = this.getView().getBindingContext().getObject();
 			this._getNotifTypeDependencies(oContextData).then(function (result) {
 				callbackFn(oContextData, result);
