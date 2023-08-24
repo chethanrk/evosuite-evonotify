@@ -148,9 +148,7 @@ sap.ui.define([
 		 * when view was initialized
 		 */
 		_initializeView: function () {
-			if(this.getModel().hasPendingChanges()) {
-				this.getModel().resetChanges();
-			}			
+			this.resetModelChanges();			
 			this.aSmartForms = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("smartFormTemplate"));
 
 			this.setFormsEditable(this.aSmartForms, this.getModel("viewModel").getProperty("/validatedIw21Auth"));

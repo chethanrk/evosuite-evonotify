@@ -472,9 +472,7 @@ sap.ui.define([
 		 * and open the Add Dialog
 		 */
 		getDependenciesAndCallback: function (callbackFn) {
-			if(this.getModel().hasPendingChanges()) {
-				this.getModel().resetChanges();
-			}
+			this.resetModelChanges();
 			var oContextData = this.getView().getBindingContext().getObject();
 			this._getNotifTypeDependencies(oContextData).then(function (result) {
 				callbackFn(oContextData, result);
@@ -752,6 +750,14 @@ sap.ui.define([
 				params: mParams
 			});
 		},
-	});
+
+		/** Reset model changes on page reload */
+		resetModelChanges: function () {
+			if(this.getModel().hasPendingChanges()) {
+				this.getModel().resetChanges();
+			}
+		}
+
+	})
 
 });
