@@ -8,10 +8,10 @@
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
 				<core:ExtensionPoint name="TableExtP|NotificationDetail|PMNotificationItemSet|CustomToolbar"/>
-				<OverflowToolbarButton icon="sap-icon://add" text="Sort" press="onPressAdd"
+				<OverflowToolbarButton icon="sap-icon://add" text="{i18n>btn.add}" tooltip="{i18n>btn.add}" press="onPressAdd"
 					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},'user>/ENABLE_ITEM_CREATE',{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"
 					enabled="{viewModel>/validatedIw22Auth}"/>
-				<OverflowToolbarButton icon="sap-icon://delete" text="Sort" press="onPressDelete"
+				<OverflowToolbarButton icon="sap-icon://delete" text="{i18n>btn.delete}" tooltip="{i18n>btn.delete}" press="onPressDelete"
 					visible="{ parts: [{path: 'viewModel>/enableNotificationChange'},'user>/ENABLE_ITEM_DELETE',{path: 'viewModel>/editMode'}], formatter:'.formatter.isVisible'}"
 					enabled="{viewModel>/validatedIw22Auth}"/>
 			</OverflowToolbar>
@@ -34,7 +34,7 @@
 				<ColumnListItem type="Navigation" press="onPressItem">
 					<cells>
 						<core:ExtensionPoint name="TableExtP|NotificationDetail|PMNotificationItemSet|CustomCell"/>
-						<Button icon="sap-icon://show-edit" type="Default" press="showLongText" visible="{= ${NOTES} !== '' }"/>
+						<Button icon="sap-icon://show-edit" tooltip="{i18n>btn.notes}" type="Default" press="showLongText" visible="{= ${NOTES} !== '' }"/>
 					</cells>
 				</ColumnListItem>
 			</items>

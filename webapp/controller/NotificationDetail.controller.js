@@ -29,6 +29,11 @@ sap.ui.define([
 					final: false,
 					overrideExecution: OverrideExecution.After
 				},
+				onChangeSmartField: {
+					public: true,
+					final: false,
+					overrideExecution: OverrideExecution.After
+				},
 				onPressSave: {
 					public: true,
 					final: false,
@@ -185,6 +190,20 @@ sap.ui.define([
 			// set changed SmartField data from offline storage after refresh page
 			this.setFormStorage2FieldData(this.sPath);
 		},
+		
+		/** 
+		 * On Change of smart field value
+		 * @param oEvent
+		 */
+		 
+		 onChangeSmartField: function (oEvent) {
+			var oSource = oEvent.getSource(),
+				sFieldName = oSource.getName();
+			var oContext = this.getView().getBindingContext();
+			if (oSource.getValueState() === "None" && oContext) {
+				this.checkDefaultValues("PMNotificationSet", oContext.getPath(), sFieldName);
+			}
+		},
 
 		/**
 		 * on save button
@@ -325,7 +344,7 @@ sap.ui.define([
 					oMetaModel.loaded().then(function () {
 						this.saveChanges({
 							state: "success"
-						}, this._saveSuccessFn.bind(this), null, this.getView());
+						}, this._saveSuccessFn.bind(this), this._updateStatusFailure.bind(this), this.getView());
 					}.bind(this));
 
 				} else {
@@ -466,6 +485,11 @@ sap.ui.define([
 				}
 			};
 			this.getOwnerComponent().DialogTemplateRenderer.open(this.getView(), mParams);
+		},
+
+		/*Function to Reset Model Changes on Update Failure*/
+		_updateStatusFailure: function () {
+			this.getView().getModel().resetChanges();
 		}
 	});
 });

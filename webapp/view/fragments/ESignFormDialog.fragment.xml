@@ -26,12 +26,12 @@
 		</content>
 		<beginButton>
 			<core:ExtensionPoint name="DialogExtP|NotificationDetail|PMNotificationESignSet|Footer|Left">
-				<Button text="{i18n>btn.cancel}" press="onCloseESignDialog"/>
+				<Button text="{i18n>btn.cancel}" tooltip="{i18n>btn.cancel}" press="onCloseESignDialog"/>
 			</core:ExtensionPoint>
 		</beginButton>
 		<endButton>
 			<core:ExtensionPoint name="DialogExtP|NotificationDetail|PMNotificationESignSet|Footer|Right">
-				<Button id="eSignDialogSaveBtn" text="{i18n>btn.save}" type="Emphasized" press="onPressESignSave"/>
+				<Button id="eSignDialogSaveBtn" text="{i18n>btn.save}" tooltip="{i18n>btn.save}" type="Emphasized" press="onPressESignSave"/>
 			</core:ExtensionPoint>
 		</endButton>
 	</Dialog>

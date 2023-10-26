@@ -6,7 +6,7 @@ extended_runnable_file.html
 visual_ext_index.html
 /webapp/visual_ext_index.html
 UIAdaptation_index.html
-changes_preview.js
+
 fioriHtmlRunner.html
 .*/fioriHtmlRunner.html
 mock_preview_sapui5.html
@@ -21,3 +21,13 @@ AppVariantPreviewPayload.zip
 mergedManifestDescriptor.json
 APIExternalProducer.js
 .*/APIExternalProducer.js
+node_modules/
+dist/
+.scp/
+.env
+Makefile*.mta
+mta_archives
+mta-*
+resources
+archive.zip
+.*_mta_build_tmp
