@@ -20,7 +20,7 @@
 				<f:content>
 					<core:ExtensionPoint name="PageExtP|WorkList|PMNotificationSet|Head">
 						<smartFilterBar:SmartFilterBar id="idPageNotificationListSmartFilterBar" entitySet="PMNotificationSet" filterBarExpanded="true"
-							persistencyKey="com.evorait.evosuite.evonotify.NotificationFilterbar" useDateRangeType="true">
+							persistencyKey="com.evorait.evosuite.evonotify.NotificationFilterbar" useDateRangeType="true" liveMode="true">
 							<smartFilterBar:controlConfiguration>
 								<smartFilterBar:ControlConfiguration id="__configuration0"/>
 								<core:ExtensionPoint name="FilterExtP|WorkList|PMNotificationSet|ControlConfiguration"/>
