@@ -20,6 +20,6 @@ builder:
           name: /EVORA/EN_UI5
           description: EvoNotify Deployment
           package: /EVORA/EN_UI_UI5
-          transport: ED1K919237
+          transport: ED1K921207
         exclude:
           - /test/
