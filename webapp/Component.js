@@ -331,6 +331,14 @@ sap.ui.define([
 				this.getModel("viewModel").setProperty("/validatedIw22Auth", Boolean(sIw22Auth));
 				this.getModel("viewModel").setProperty("/validatedIw31Auth", Boolean(sIw31Auth));
 			}
-		}
+		},
+
+		/*
+		* Function to destroy Duplicate ID issue
+		*/
+		destroy: function () {
+			this._oErrorHandler.destroy(); 
+			UIComponent.prototype.destroy.apply(this, arguments);
+		},
 	});
 });
