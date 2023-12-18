@@ -152,8 +152,8 @@ sap.ui.define([
 		 * @param isEditMode
 		 * @returns {boolean}
 		 */
-		showStatusButton: function (bShowStatusButton, bAllowChange, bEnabledFunction, isEditMode) {
-			if (bShowStatusButton && bAllowChange && bEnabledFunction && !isEditMode) {
+		showStatusButton: function (bShowStatusButton, bAllowChange, bEnabledFunction, bAllowInprogress, isEditMode) {
+			if (bShowStatusButton && bAllowChange && (bEnabledFunction || bAllowInprogress) && !isEditMode) { // When Allow_Inprogress is true for NOCO, show change status button
 				return true;
 			}
 			return false;
@@ -211,8 +211,8 @@ sap.ui.define([
 		/**
 		 * show/hide options for System status buttons
 		 */
-		showStatusSelectOption: function (sFunction, isNotificationEnabled, mAllowParams) {
-			if (isNotificationEnabled) {
+		showStatusSelectOption: function (sFunction, isNotificationEnabled, mAllowParams, bAllowInprogress) {
+			if (isNotificationEnabled || bAllowInprogress) { // When Allow_Inprogress is coming true for NOCO then show In progress in aciton sheet
 				for (var key in mAllowParams) {
 					var sAllowFunc = "ALLOW_" + sFunction;
 					if (key === sAllowFunc && (mAllowParams[key] === true || mAllowParams[key] === "X")) {

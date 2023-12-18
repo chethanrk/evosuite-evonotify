@@ -3,7 +3,7 @@
 		buttons="{ path:'notificationFunctionModel>/results/', templateShareable:true }">
 		<buttons>
 			<Button text="{notificationFunctionModel>Description}" press="onSelectStatus"
-				visible="{parts: [{path:'notificationFunctionModel>Function'},{path:'ENABLE_NOTIFICATION_CHANGE'},{path:'viewModel>/NotificationAllows'} ], formatter:'.formatter.showStatusSelectOption'}">
+				visible="{parts: [{path:'notificationFunctionModel>Function'},{path:'ENABLE_NOTIFICATION_CHANGE'},{path:'viewModel>/NotificationAllows'},{path:'ALLOW_INPROGRESS'} ], formatter:'.formatter.showStatusSelectOption'}">
 				<customData>
 					<core:CustomData key="key" value="{notificationFunctionModel>Function}"/>
 					<core:CustomData key="type" value="{notificationFunctionModel>FunctionType}"/>
