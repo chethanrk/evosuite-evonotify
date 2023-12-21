@@ -300,6 +300,7 @@ sap.ui.define([
 			if (this._oContext) {
 				this._setNotificationStatusButtonVisibility(this._oContext.getObject());
 				this.getOwnerComponent().readData(this._oContext.getPath());
+				this.getModel("viewModel").setProperty("/enableNotificationChange", this._oContext.getProperty("ENABLE_NOTIFICATION_CHANGE"));
 			}
 		},
 
