@@ -221,7 +221,56 @@ sap.ui.define([
 				}
 			}
 			return false;
-		}
+		},
+		/*
+		* Display/Hide Non Numbered User Status Button in Notification Detail 
+		* @param {boolean} bNotificationUpdate - SystemInfo ENABLE_NOTIFICATION_UPDATE
+		* @param {boolean} bNotificationChange - HeaderInfo ENABLE_NOTIFICATION_CHANGE
+		* @param {boolean} bAllowFields - Header Allow Fields
+		* @param {boolean} bEditMode
+		* @returns {boolean} 
+		* Author Chethan
+		* Since 2402
+		*/
+		showNumberedStatusButton: function (bNotificationUpdate, bNotificationChange, bAllowFields, bEditMode) {
+			if (bNotificationUpdate && bNotificationChange && bAllowFields && !bEditMode) {
+				return true;
+			}
+			return false;
+		},
+		/*
+		* Display/Hide Non Numbered User Status Button in Notification Detail 
+		* @param {boolean} bNotificationUpdate - SystemInfo ENABLE_NOTIFICATION_UPDATE
+		* @param {boolean} bNotificationChange - HeaderInfo ENABLE_NOTIFICATION_CHANGE
+		* @param {boolean} bAllowFields - Header Allow Fields
+		* @param {boolean} bEditMode
+		* @returns {boolean} 
+		* Author Chethan
+		* Since 2402
+		*/
+		showNonNumberedStatusButton: function (bNotificationUpdate, bNotificationChange, bAllowFields, bEditMode) {
+			if (bNotificationUpdate && bNotificationChange && bAllowFields && !bEditMode) {
+				return true;
+			}
+			return false;
+		},
+
+		/*
+		 * Display/Hide Non Numbered User Status Options based on ALLOW fields
+		 * @param {string} sFunction ALLOW_FUNCTION
+		 * @param {object} mAllowParams
+		 * @returns {boolean} 
+		 * Author Chethan
+		 * Since 2402
+		 */
+		showNonNumberedStatusOption: function (sFunction, mAllowParams) {
+			for (var key in mAllowParams) {
+				var sAllowFunc = "ALLOW_" + sFunction;
+				if (key === sAllowFunc && (mAllowParams[key] === true || mAllowParams[key] === "X")) {
+					return true;
+				}
+			} return false;
+		},
 	};
 
 });

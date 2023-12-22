@@ -52,6 +52,16 @@ sap.ui.define([
 					public: true,
 					final: true
 				},
+				onPressChangeNumberedStatus: {
+					public: true,
+					final: true,
+					overrideExecution: OverrideExecution.Instead
+				},
+				onPressChangeNonNumberedStatus: {
+					public: true,
+					final: true,
+					overrideExecution: OverrideExecution.Instead
+				},
 				onPressCreateOrder: {
 					public: true,
 					final: false,
@@ -119,6 +129,14 @@ sap.ui.define([
 			if (this._actionSheetSystemStatus) {
 				this._actionSheetSystemStatus.destroy(true);
 				this._actionSheetSystemStatus = null;
+			}
+			if (this._actionSheetNumberedStatus) {
+				this._actionSheetNumberedStatus.destroy(true);
+				this._actionSheetNumberedStatus = null;
+			}
+			if (this._actionSheetNonNumberedStatus) {
+				this._actionSheetNonNumberedStatus.destroy(true);
+				this._actionSheetNonNumberedStatus = null;
 			}
 		},
 
@@ -190,13 +208,13 @@ sap.ui.define([
 			// set changed SmartField data from offline storage after refresh page
 			this.setFormStorage2FieldData(this.sPath);
 		},
-		
+
 		/** 
 		 * On Change of smart field value
 		 * @param oEvent
 		 */
-		 
-		 onChangeSmartField: function (oEvent) {
+
+		onChangeSmartField: function (oEvent) {
 			var oSource = oEvent.getSource(),
 				sFieldName = oSource.getName();
 			var oContext = this.getView().getBindingContext();
@@ -241,6 +259,7 @@ sap.ui.define([
 				oItem = oEvent.getParameter("item");
 
 			this.sFunctionKey = oItem ? oItem.data("key") : oSource.data("key");
+			this.sFunctionType = oItem ? oItem.data("type") : oSource.data("type");
 			if (this._showESign()) {
 				this._showESignDialog();
 			} else {
@@ -270,7 +289,52 @@ sap.ui.define([
 				this._actionSheetSystemStatus.openBy(oButton);
 			}
 		},
-
+		/*
+		* Show ActionSheet of Numbered User Status Button
+		* @param oEvent
+		* Author Chethan
+		* Since 2402
+		*/
+		onPressChangeNumberedStatus: function (oEvent) {
+			var oButton = oEvent.getSource();
+			if (!this._actionSheetNumberedStatus) {
+				Fragment.load({
+					name: "com.evorait.evosuite.evonotify.view.fragments.ActionSheetNumberedStatus",
+					controller: this,
+					type: "XML"
+				}).then(function (oFragment) {
+					this._actionSheetNumberedStatus = oFragment;
+					this.getView().addDependent(oFragment);
+					this._actionSheetNumberedStatus.addStyleClass(this.getModel("viewModel").getProperty("/densityClass"));
+					this._actionSheetNumberedStatus.openBy(oButton);
+				}.bind(this));
+			} else {
+				this._actionSheetNumberedStatus.openBy(oButton);
+			}
+		},
+		/*
+		 * Show ActionSheet of Non Numbered User Status Button
+		 * @param oEvent
+		 * Author Chethan
+		 * Since 2402
+		 */
+		onPressChangeNonNumberedStatus: function (oEvent) {
+			var oButton = oEvent.getSource();
+			if (!this._actionSheetNonNumberedStatus) {
+				Fragment.load({
+					name: "com.evorait.evosuite.evonotify.view.fragments.ActionSheetNonNumberedStatus",
+					controller: this,
+					type: "XML"
+				}).then(function (oFragment) {
+					this._actionSheetNonNumberedStatus = oFragment;
+					this.getView().addDependent(oFragment);
+					this._actionSheetNonNumberedStatus.addStyleClass(this.getModel("viewModel").getProperty("/densityClass"));
+					this._actionSheetNonNumberedStatus.openBy(oButton);
+				}.bind(this));
+			} else {
+				this._actionSheetNonNumberedStatus.openBy(oButton);
+			}
+		},
 		/**
 		 * on click of Create Order button
 		 * Button visible only when order is not linked with Notification
@@ -299,6 +363,8 @@ sap.ui.define([
 			this.oViewModel.setProperty("/editMode", false);
 			if (this._oContext) {
 				this._setNotificationStatusButtonVisibility(this._oContext.getObject());
+				this._setNumberedUserStatusButtonVisibility(this._oContext.getObject());
+				this._setNonNumberedUserStatusButtonVisibility(this._oContext.getObject());
 				this.getOwnerComponent().readData(this._oContext.getPath());
 				this.getModel("viewModel").setProperty("/enableNotificationChange", this._oContext.getProperty("ENABLE_NOTIFICATION_CHANGE"));
 			}
@@ -333,8 +399,11 @@ sap.ui.define([
 					message = "";
 
 				if (oData["ALLOW_" + this.sFunctionKey]) {
+					//For Non Numbered Status we have to pass FunctionType as U
+					this.sFunctionType = this.sFunctionType === "N" ? "U" : this.sFunctionType;
 					this.getModel("viewModel").setProperty("/isStatusUpdate", true);
 					this.getModel().setProperty(sPath + "/FUNCTION", this.sFunctionKey);
+					this.getModel().setProperty(sPath + "/FUNCTION_TYPE", this.sFunctionType);
 
 					if (this.sFunctionKey === "COMPLETE" && mEsignParams) {
 						this._setRefrenceDate(sPath, mEsignParams);
@@ -380,6 +449,8 @@ sap.ui.define([
 					} else {
 						this._setNotificationStatusButtonVisibility(this._oContext.getObject());
 						this.getModel("viewModel").setProperty("/enableNotificationChange", this._oContext.getProperty("ENABLE_NOTIFICATION_CHANGE"));
+						this._setNumberedUserStatusButtonVisibility(this._oContext.getObject());
+						this._setNonNumberedUserStatusButtonVisibility(this._oContext.getObject());
 					}
 				}
 			}
@@ -491,6 +562,44 @@ sap.ui.define([
 		/*Function to Reset Model Changes on Update Failure*/
 		_updateStatusFailure: function () {
 			this.getView().getModel().resetChanges();
-		}
+		},
+		/*
+		 * Set visibility of Numbered User Status Button based on ALLOW fields 
+		 * @param oData
+		 * Author Chethan
+		 * Since 2402
+		 */
+		_setNumberedUserStatusButtonVisibility: function (oData) {
+			var bShowNumberedStatus = false,
+				aNumberedStatus = this.getModel("templateProperties").getProperty("/functionsSet/numberedUserStatus");
+			if (aNumberedStatus && aNumberedStatus.length > 0) {
+				for (var a in aNumberedStatus) {
+					if (oData["ALLOW_" + aNumberedStatus[a].Function]) {
+						bShowNumberedStatus = true;
+						break;
+					}
+				}
+			}
+			this.oViewModel.setProperty("/showNumberedStatus", bShowNumberedStatus);
+		},
+		/*
+		 * Set visibility of Non-Numbered User Status Button based on ALLOW fields 
+		 * @param oData
+		 * Author Chethan
+		 * Since 2402
+		 */
+		_setNonNumberedUserStatusButtonVisibility: function (oData) {
+			var bShowNonNumberedStatus = false,
+				aNonNumberedStatus = this.getModel("templateProperties").getProperty("/functionsSet/nonNumberedUserStatus");
+			if (aNonNumberedStatus && aNonNumberedStatus.length > 0) {
+				for (var a in aNonNumberedStatus) {
+					if (oData["ALLOW_" + aNonNumberedStatus[a].Function]) {
+						bShowNonNumberedStatus = true;
+						break;
+					}
+				}
+			}
+			this.oViewModel.setProperty("/showNonNumberedStatus", bShowNonNumberedStatus);
+		},
 	});
 });
