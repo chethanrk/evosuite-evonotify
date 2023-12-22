@@ -22,7 +22,8 @@ sap.ui.define([], function () {
 		},
 		FUNCTIONSET_FILTER: {
 			NOTIFICATION_FILTER: "QMI",
-			TASK_FILTER: "QA1"
+			TASK_FILTER: "QA1",
+			NUMBERED_NONNUMBERED_FILTER:"ORI"
 		},
 		CRITICALLYSTATES: {
 			"info": {

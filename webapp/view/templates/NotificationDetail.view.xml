@@ -12,11 +12,19 @@
 								text="{i18n>btn.changeSystemStatus}" tooltip="{i18n>btn.changeSystemStatus}" press="onPressChangeSystemStatus"
 								visible="{parts: ['user>/ENABLE_SYSTEM_STATUS_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE','ENABLE_NOTIFICATION_CHANGE', 'ALLOW_INPROGRESS', 'viewModel>/editMode'], formatter: '.formatter.showStatusButton'}"
 								enabled="{viewModel>/validatedIw22Auth}"/>
+								<uxap:ObjectPageHeaderActionButton id="idNumberedStatusChangeMenu" hideText="false" type="Default" text="{i18n>btn.changeNumberedStatus}"
+									tooltip="{i18n>btn.changeNumberedStatus}" press="onPressChangeNumberedStatus"
+									visible="{parts: ['user>/ENABLE_NOTIFICATION_UPDATE', 'ENABLE_NOTIFICATION_CHANGE',  'viewModel>/showNumberedStatus', 'viewModel>/editMode'], formatter: '.formatter.showNumberedStatusButton'}"
+									enabled="{viewModel>/validatedIw22Auth}"/>
+							<uxap:ObjectPageHeaderActionButton id="idNonNumberedStatusChangeMenu" hideText="false" type="Default" text="{i18n>btn.changeNonNumberedStatus}"
+									tooltip="{i18n>btn.changeNonNumberedStatus}" press="onPressChangeNonNumberedStatus"
+									visible="{parts: ['user>/ENABLE_NOTIFICATION_UPDATE', 'ENABLE_NOTIFICATION_CHANGE',  'viewModel>/showNonNumberedStatus','viewModel>/editMode'], formatter: '.formatter.showNonNumberedStatusButton'}"
+									enabled="{viewModel>/validatedIw22Auth}"/>
 							<uxap:ObjectPageHeaderActionButton id="editNotificationButton" text="{i18n>btn.edit}" press="onPressEdit" type="Emphasized"
 								tooltip="{i18n>btn.edit}" icon="sap-icon://edit"
 								visible="{parts: ['ENABLE_NOTIFICATION_CHANGE','user>/ENABLE_NOTIFICATION_UPDATE','viewModel>/editMode'], formatter:'.formatter.isVisible'}"
 								enabled="{viewModel>/validatedIw22Auth}"/>
-							<uxap:ObjectPageHeaderActionButton id="saveNotificationButton" text="{i18n>btn.save}" press="onPressSave" type="Emphasized"
+						<uxap:ObjectPageHeaderActionButton id="saveNotificationButton" text="{i18n>btn.save}" press="onPressSave" type="Emphasized"
 								tooltip="{i18n>btn.save}" visible="{viewModel>/editMode}" icon="sap-icon://save"/>
 							<uxap:ObjectPageHeaderActionButton id="cancelNotificationButton" text="{i18n>btn.cancel}" press="onPressCancel"
 								visible="{viewModel>/editMode}" type="Default" tooltip="{i18n>btn.cancel}" icon="sap-icon://cancel"/>
