@@ -366,6 +366,7 @@ sap.ui.define([
 				this._setNumberedUserStatusButtonVisibility(this._oContext.getObject());
 				this._setNonNumberedUserStatusButtonVisibility(this._oContext.getObject());
 				this.getOwnerComponent().readData(this._oContext.getPath());
+				this.getModel("viewModel").setProperty("/enableNotificationChange", this._oContext.getProperty("ENABLE_NOTIFICATION_CHANGE"));
 			}
 		},
 
