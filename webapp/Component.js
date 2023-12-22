@@ -70,9 +70,9 @@ sap.ui.define([
 				launchMode: Constants.LAUNCH_MODE.BSP,
 				createPageOnly: false,
 				densityClass: this.getContentDensityClass(),
-				validatedIw21Auth: true, 
-				validatedIw22Auth: true, 
-				validatedIw31Auth: true 
+				validatedIw21Auth: true,
+				validatedIw22Auth: true,
+				validatedIw31Auth: true
 			};
 
 			this.setModel(models.createHelperModel(viewModelObj), "viewModel");
@@ -217,6 +217,24 @@ sap.ui.define([
 				.then(function (data) {
 					this.getModel("taskFunctionModel").setData(data);
 				}.bind(this));
+			//Numbered and Non-Numbered User Status Change @Since 2402
+			var oFunctionSet = {
+				numberedUserStatus: [],
+				nonNumberedUserStatus: []
+			},
+				oFilter3 = new Filter("ObjectCategory", FilterOperator.EQ, Constants.FUNCTIONSET_FILTER.NUMBERED_NONNUMBERED_FILTER);
+			this.readData("/FunctionsSet", [oFilter3])
+				.then(function (data) {
+					console.log(data);
+					data.results.forEach(function (oItem) {
+						if (oItem.FUNCTION_TYPE === "U") { //Numbered User Status
+							oFunctionSet.numberedUserStatus.push(oItem);
+						} else if (oItem.FUNCTION_TYPE === "N") { //Non-Numbered User Status
+							oFunctionSet.nonNumberedUserStatus.push(oItem);
+						}
+					}.bind(this));
+					this.getModel("templateProperties").setProperty("/functionsSet/", oFunctionSet);
+				}.bind(this));
 		},
 
 		/**
@@ -337,7 +355,7 @@ sap.ui.define([
 		* Function to destroy Duplicate ID issue
 		*/
 		destroy: function () {
-			this._oErrorHandler.destroy(); 
+			this._oErrorHandler.destroy();
 			UIComponent.prototype.destroy.apply(this, arguments);
 		},
 	});
