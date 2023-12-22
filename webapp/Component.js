@@ -224,7 +224,7 @@ sap.ui.define([
 			},
 				oFilter3 = new Filter("ObjectCategory", FilterOperator.EQ, Constants.FUNCTIONSET_FILTER.NUMBERED_NONNUMBERED_FILTER);
 			this.readData("/FunctionsSet", [oFilter3])
-				.then(function (data) {g
+				.then(function (data) {
 					data.results.forEach(function (oItem) {
 						if (oItem.FUNCTION_TYPE === "U") { //Numbered User Status
 							oFunctionSet.numberedUserStatus.push(oItem);
