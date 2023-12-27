@@ -57,6 +57,13 @@ sap.ui.define([
 				this.getOwnerComponent().registerViewToMessageManager(this.getView());
 			}
 			this.oSmartTable = this.getView().byId("idPageNotificationListSmartTable");
+
+			var oRouter = this.getRouter();
+			oRouter.getRoute("worklist").attachMatched(this._routeMatched, this);
+
+			this.oEventBus = sap.ui.getCore().getEventBus();
+			this.oEventBus.subscribe("Worklist", "refreshNotificationTable", this._refreshNotificationTable, this);
+
 		},
 
 		/**
@@ -70,7 +77,7 @@ sap.ui.define([
 		 * worklist on exit
 		 */
 		onExit: function () {
-
+			this.oEventBus.unsubscribe("Worklist", "refreshNotificationTable", this._refreshNotificationTable, this);
 		},
 
 		/* =========================================================== */
@@ -132,6 +139,25 @@ sap.ui.define([
 		onPressCreateNotification: function () {
 			this.oSmartTable.setEditable(false);
 			this.getRouter().navTo("CreateNotification", {});
+		},
+
+		/* =========================================================== */
+		/* Private Methods                                             */
+		/* =========================================================== */
+		
+		/*
+		 * on route matched
+		 */
+		_routeMatched: function () {
+			this.getModel("viewModel").setProperty("/sCurrentView", "Notification");
+		},
+		/*
+		* Function for refreshing the table
+		* Author Chethan 
+		* Since 2402
+		*/
+		_refreshNotificationTable : function(){
+			this.oSmartTable.rebindTable();
 		}
 	});
 });

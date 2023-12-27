@@ -157,6 +157,7 @@ sap.ui.define([
 
 			this.oViewModel.setProperty("/editMode", true);
 			this.oViewModel.setProperty("/isNew", true);
+			this.getModel("viewModel").setProperty("/sCurrentView", "CreateNotification");
 		},
 
 		/**
