@@ -137,6 +137,10 @@ sap.ui.define([
 				displayLongText: {
 					public: true,
 					final: true
+				},
+				onPressRefresh: {
+					public: true,
+					final: true
 				}
 			}
 		},
