@@ -194,6 +194,7 @@ sap.ui.define([
 			this.aSmartForms = this.getAllSmartForms(this.getView().getControlsByFieldGroupId("smartFormTemplate"));
 			this.setFormsEditable(this.aSmartForms, false);
 			this.oViewModel.setProperty("/editMode", false);
+			this.getModel("viewModel").setProperty("/sCurrentView", "NotificationItemDetail");
 		},
 
 		/**

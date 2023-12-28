@@ -137,6 +137,10 @@ sap.ui.define([
 				displayLongText: {
 					public: true,
 					final: true
+				},
+				onPressRefresh: {
+					public: true,
+					final: true
 				}
 			}
 		},
@@ -681,6 +685,20 @@ sap.ui.define([
 				actions: [MessageBox.Action.OK]
 			});
 		},
+		/*
+		* Function to refresh the context onClick of Refresh Button
+		* Author Chethan
+		* Since 2402
+		*/
+		onPressRefresh: function () {
+			var oEventBus = sap.ui.getCore().getEventBus(),
+				sCurrentView = this.getModel("viewModel").getProperty("/sCurrentView");
+			if (sCurrentView === "Notification") {
+				oEventBus.publish("Worklist", "refreshNotificationTable");
+			} else {
+				this._refreshDetailPage();
+			}
+		},
 
 		/* =========================================================== */
 		/* internal methods                                            */
@@ -756,6 +774,14 @@ sap.ui.define([
 			if(this.getModel().hasPendingChanges()) {
 				this.getModel().resetChanges();
 			}
+		},
+		/*
+		* Function to refresh Detail Screen
+		* Author Chethan
+		* Since 2402
+		*/
+		_refreshDetailPage: function () {
+			this.getView().getElementBinding().refresh(true);
 		}
 
 	})
